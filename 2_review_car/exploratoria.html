@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>exploratoria.utf8.md</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="site_libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="site_libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="site_libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #2a211c;
+    color: #bdae9d;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
+div.sourceCode
+  { color: #bdae9d; background-color: #2a211c; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ffff00; } /* Alert */
+code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #44aa43; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #049b0a; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
+code span.do { color: #0066ff; font-style: italic; } /* Documentation */
+code span.dt { text-decoration: underline; } /* DataType */
+code span.dv { color: #44aa43; } /* DecVal */
+code span.er { color: #ffff00; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #44aa43; } /* Float */
+code span.fu { color: #ff9358; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
+code span.op { } /* Operator */
+code span.pp { font-weight: bold; } /* Preprocessor */
+code span.sc { color: #049b0a; } /* SpecialChar */
+code span.ss { color: #049b0a; } /* SpecialString */
+code span.st { color: #049b0a; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #049b0a; } /* VerbatimString */
+code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">car</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-list-ol"></span>
+     
+    Material
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="exploratoria.html">
+        <span class="fa fa-arrow-right"></span>
+         
+        Tratamento/Análise exploratória
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="trans.html">
+        <span class="fa fa-arrow-right"></span>
+         
+        Transformação
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="teste_hipotese.html">
+        <span class="fa fa-arrow-right"></span>
+         
+        Testes de hipótese
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="pos_modelo.html">
+        <span class="fa fa-arrow-right"></span>
+         
+        Pós modelo
+      </a>
+    </li>
+    <li class="divider"></li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://lineu96.github.io/st/">
+    <span class="fa fa-user"></span>
+     
+    Lineu A.C.F
+  </a>
+</li>
+<li>
+  <a href="https://github.com/lineu96">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<style type="text/css">
+table.header {
+    margin-top: 10px;
+    border-collapse: unset;
+}
+table.header > tbody {
+    border-bottom: 0px;
+    border-top: 0px;
+}
+</style>
+
+<table class="header" width="100%" align="center">
+  <tr>
+    <td align="left" valign="bottom" width="90px">
+        <img src="img/sticker.png" width="100%" />
+      </a>
+    </td>
+    <td align="left" valign="top">
+      <div class="header">
+        <h4 style="font-size: 20px; margin: 10px auto 0 10px">
+          Companion to Applied Regression
+        </h4>
+        <h5 style="margin: 0px 0px 10px 10px">
+          <a href="https://socialsciences.mcmaster.ca/jfox/Books/Companion/">
+            <code>car package</code>
+          </a>
+        </h5>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+<hr />
+<center>
+<font size="6">
+<p align=”center”>
+<b> Tratamento de dados e análise exploratória </b>
+</center>
+</font>
+</center>
+<hr />
+<ul>
+<li>Importação/exportação.</li>
+<li>Recodificação.</li>
+<li>Amostragem.</li>
+<li>Gráficos de dispersão.</li>
+<li>Linhas de regressão suave.</li>
+<li>etc.</li>
+</ul>
+<hr />
+<div id="funcoes" class="section level1">
+<h1><span class="header-section-number">1</span> Funções</h1>
+<div id="htmlwidget-bc24e2263ab5ca3fd795" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bc24e2263ab5ca3fd795">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;adaptiveKernel&quot;,&quot;Anova&quot;,&quot;av.plot&quot;,&quot;av.plots&quot;,&quot;avPlot&quot;,&quot;avPlots&quot;,&quot;basicPower&quot;,&quot;basicPowerAxis&quot;,&quot;bc&quot;,&quot;bcnPower&quot;,&quot;bcnPowerAxis&quot;,&quot;bcnPowerInverse&quot;,&quot;bcPower&quot;,&quot;bcPowerAxis&quot;,&quot;Boot&quot;,&quot;bootCase&quot;,&quot;box.cox&quot;,&quot;box.cox.powers&quot;,&quot;box.tidwell&quot;,&quot;boxCox&quot;,&quot;boxCox2d&quot;,&quot;boxCoxVariable&quot;,&quot;Boxplot&quot;,&quot;boxTidwell&quot;,&quot;brief&quot;,&quot;carHexsticker&quot;,&quot;carPalette&quot;,&quot;carWeb&quot;,&quot;ceres.plot&quot;,&quot;ceres.plots&quot;,&quot;ceresPlot&quot;,&quot;ceresPlots&quot;,&quot;compareCoefs&quot;,&quot;confidence.ellipse&quot;,&quot;confidenceEllipse&quot;,&quot;Confint&quot;,&quot;contr.Helmert&quot;,&quot;contr.Sum&quot;,&quot;contr.Treatment&quot;,&quot;cookd&quot;,&quot;cr.plot&quot;,&quot;cr.plots&quot;,&quot;crp&quot;,&quot;crPlot&quot;,&quot;crPlots&quot;,&quot;data.ellipse&quot;,&quot;dataEllipse&quot;,&quot;dbiwt&quot;,&quot;deltaMethod&quot;,&quot;densityPlot&quot;,&quot;depan&quot;,&quot;dfbetaPlots&quot;,&quot;dfbetasPlots&quot;,&quot;durbin.watson&quot;,&quot;durbinWatsonTest&quot;,&quot;dwt&quot;,&quot;ellipse&quot;,&quot;Export&quot;,&quot;gamLine&quot;,&quot;hccm&quot;,&quot;Identify3d&quot;,&quot;Import&quot;,&quot;infIndexPlot&quot;,&quot;influenceIndexPlot&quot;,&quot;influencePlot&quot;,&quot;inverseResponsePlot&quot;,&quot;invResPlot&quot;,&quot;invTranEstimate&quot;,&quot;invTranPlot&quot;,&quot;levene.test&quot;,&quot;leveneTest&quot;,&quot;leverage.plot&quot;,&quot;leverage.plots&quot;,&quot;leveragePlot&quot;,&quot;leveragePlots&quot;,&quot;lht&quot;,&quot;linear.hypothesis&quot;,&quot;linearHypothesis&quot;,&quot;linearHypothesis.default&quot;,&quot;loessLine&quot;,&quot;logit&quot;,&quot;makeHypothesis&quot;,&quot;Manova&quot;,&quot;marginalModelPlot&quot;,&quot;marginalModelPlots&quot;,&quot;matchCoefs&quot;,&quot;mcPlot&quot;,&quot;mcPlots&quot;,&quot;mmp&quot;,&quot;mmps&quot;,&quot;ncv.test&quot;,&quot;ncvTest&quot;,&quot;nextBoot&quot;,&quot;outlier.test&quot;,&quot;outlierTest&quot;,&quot;panel.car&quot;,&quot;poTest&quot;,&quot;powerTransform&quot;,&quot;Predict&quot;,&quot;printHypothesis&quot;,&quot;probabilityAxis&quot;,&quot;qq.plot&quot;,&quot;qqp&quot;,&quot;qqPlot&quot;,&quot;quantregLine&quot;,&quot;recode&quot;,&quot;Recode&quot;,&quot;regLine&quot;,&quot;residualPlot&quot;,&quot;residualPlots&quot;,&quot;S&quot;,&quot;scatter3d&quot;,&quot;scatterplot&quot;,&quot;scatterplotMatrix&quot;,&quot;showLabels&quot;,&quot;sigmaHat&quot;,&quot;skewPower&quot;,&quot;slp&quot;,&quot;some&quot;,&quot;sp&quot;,&quot;spm&quot;,&quot;spread.level.plot&quot;,&quot;spreadLevelPlot&quot;,&quot;subsets&quot;,&quot;symbox&quot;,&quot;Tapply&quot;,&quot;testTransform&quot;,&quot;vif&quot;,&quot;wcrossprod&quot;,&quot;which.names&quot;,&quot;whichNames&quot;,&quot;yjPower&quot;,&quot;yjPowerAxis&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"disabled\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;Amostragem&quot;,&quot;Análise de resíduos&quot;,&quot;ANOVA&quot;,&quot;Aplica função a níveis de fator&quot;,&quot;Autocorrelação dos erros&quot;,&quot;Bonferroni outlier&quot;,&quot;Boxplot&quot;,&quot;Boxplots para transformações&quot;,&quot;Chances proporcionais&quot;,&quot;Compara estimativas e erros&quot;,&quot;Contrastes&quot;,&quot;Correção vcov para heterocedasticidade&quot;,&quot;Densidade&quot;,&quot;Eixos secundários&quot;,&quot;Elipse&quot;,&quot;Elipse de confiança&quot;,&quot;Encontrar power transformations uni ou multivariados&quot;,&quot;Escolha de transformação numerica ou visualmente&quot;,&quot;Estimativas e erros método delta&quot;,&quot;Estimativas e erros via bootstrap&quot;,&quot;Exportação&quot;,&quot;Generalização do gráfico de variáveis adicionadas&quot;,&quot;Gráfico de dispersão&quot;,&quot;Gráfico de variáveis adicionadas&quot;,&quot;Gráfico de verossimilhança para transformações&quot;,&quot;Gráfico quantil quantil&quot;,&quot;Hipóteses lineares&quot;,&quot;Homogeneidade de variância entre grupos&quot;,&quot;Identificação de pontos extremos&quot;,&quot;Importação&quot;,&quot;Influência de observação na estimativa&quot;,&quot;Intervalos de confiança&quot;,&quot;LRT para power transformations uni ou multivariados&quot;,&quot;Medidas de influência&quot;,&quot;Modelo marginal&quot;,&quot;Modelo marginal e condicional&quot;,&quot;Multicolinearidade&quot;,&quot;Painel&quot;,&quot;Parâmetro de dispersão&quot;,&quot;Posição de row names&quot;,&quot;Preditores ótimos baseadas em algum critério&quot;,&quot;Preditos&quot;,&quot;Prints abreviados&quot;,&quot;Produto cruzado de matrizes&quot;,&quot;Recodificação&quot;,&quot;Regressão&quot;,&quot;Regressão suave&quot;,&quot;Resumo do modelo&quot;,&quot;Transformação Box cox&quot;,&quot;Transformação Box Tidwell&quot;,&quot;Transformação de variável&quot;,&quot;Transformação logito de proporções&quot;,&quot;Variância não constante&quot;,&quot;yhat em função da resposta&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"],["some","contr.Helmert","contr.Sum","contr.Treatment","Export","adaptiveKernel","Boxplot","dataEllipse","dbiwt","densityPlot","depan","gamLine","Identify3d","loessLine","panel.car","quantregLine","regLine","scatter3d","scatterplot","scatterplotMatrix","showLabels","sp","spm","Tapply","Import","brief","recode","Recode","wcrossprod","which.names","whichNames"],["EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO","EXPLORATÓRIA/TRATAMENTO"],["Amostragem","Contrastes","Contrastes","Contrastes","Exportação","Densidade","Boxplot","Elipse","Densidade","Densidade","Densidade","Regressão suave","Gráfico de dispersão","Regressão suave","Painel","Regressão suave","Regressão","Gráfico de dispersão","Gráfico de dispersão","Gráfico de dispersão","Identificação de pontos extremos","Gráfico de dispersão","Gráfico de dispersão","Aplica função a níveis de fator","Importação","Prints abreviados","Recodificação","Recodificação","Produto cruzado de matrizes","Posição de row names","Posição de row names"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Função<\/th>\n      <th>Categoria<\/th>\n      <th>Utilidade<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<hr />
+</div>
+<div id="exemplos" class="section level1">
+<h1><span class="header-section-number">2</span> Exemplos</h1>
+<hr />
+<div id="exportacao" class="section level2">
+<h2><span class="header-section-number">2.1</span> Exportação</h2>
+<p>Export a data frame to disk in one of many formats</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">Export</span>(iris, <span class="st">&#39;iris.csv&#39;</span>)</a></code></pre></div>
+<hr />
+</div>
+<div id="importacao" class="section level2">
+<h2><span class="header-section-number">2.2</span> Importação</h2>
+<p>Import data from many file formats</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">dados &lt;-<span class="st"> </span><span class="kw">Import</span>(<span class="st">&quot;iris.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">head</span>(dados)</a></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<hr />
+</div>
+<div id="recodificacao" class="section level2">
+<h2><span class="header-section-number">2.3</span> Recodificação</h2>
+<p>Recode a Variable</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">x&lt;-<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">x</a></code></pre></div>
+<pre><code>## [1] 1 2 3 1 2 3 1 2 3</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">recode</span>(x, <span class="st">&quot;c(1,2)=&#39;A&#39;; else=&#39;B&#39;&quot;</span>)</a></code></pre></div>
+<pre><code>## Warning: Unreplaced values treated as NA as .x is not compatible. Please
+## specify replacements exhaustively or supply .default</code></pre>
+<pre><code>## [1] &quot;c(1,2)=&#39;A&#39;; else=&#39;B&#39;&quot; NA                     NA                    
+## [4] &quot;c(1,2)=&#39;A&#39;; else=&#39;B&#39;&quot; NA                     NA                    
+## [7] &quot;c(1,2)=&#39;A&#39;; else=&#39;B&#39;&quot; NA                     NA</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">Recode</span>(x, <span class="st">&quot;1:2=&#39;A&#39;; 3=&#39;B&#39;&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot;</code></pre>
+<hr />
+</div>
+<div id="encontrar-row-names" class="section level2">
+<h2><span class="header-section-number">2.4</span> Encontrar row names</h2>
+<p>Position of Row Names</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">whichNames</span>(<span class="kw">c</span>(<span class="st">&#39;minister&#39;</span>, <span class="st">&#39;conductor&#39;</span>), Duncan)</a></code></pre></div>
+<pre><code>##  minister conductor 
+##         6        16</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">Duncan[<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">16</span>),]</a></code></pre></div>
+<pre><code>##           type income education prestige
+## minister  prof     21        84       87
+## conductor   wc     76        34       38</code></pre>
+<hr />
+</div>
+<div id="aplicar-funcao-para-cada-nivel-de-um-fator" class="section level2">
+<h2><span class="header-section-number">2.5</span> Aplicar função para cada nível de um fator</h2>
+<p>Apply a Function to a Variable Within Factor Levels</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">Tapply</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Species, mean, <span class="dt">data=</span>iris)</a></code></pre></div>
+<pre><code>##     setosa versicolor  virginica 
+##      5.006      5.936      6.588</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">Tapply</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Species, sd, <span class="dt">data=</span>iris)</a></code></pre></div>
+<pre><code>##     setosa versicolor  virginica 
+##  0.3524897  0.5161711  0.6358796</code></pre>
+<hr />
+</div>
+<div id="amostragem" class="section level2">
+<h2><span class="header-section-number">2.6</span> Amostragem</h2>
+<p>Sample a Few Elements of an Object</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">car<span class="op">::</span><span class="kw">some</span>(iris, <span class="dt">n =</span> <span class="dv">5</span>)</a></code></pre></div>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 23          4.6         3.6          1.0         0.2     setosa
+## 37          5.5         3.5          1.3         0.2     setosa
+## 39          4.4         3.0          1.3         0.2     setosa
+## 59          6.6         2.9          4.6         1.3 versicolor
+## 64          6.1         2.9          4.7         1.4 versicolor</code></pre>
+<hr />
+</div>
+<div id="print-abreviado" class="section level2">
+<h2><span class="header-section-number">2.7</span> Print abreviado</h2>
+<p>Print Abbreviated Ouput</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">brief</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>))</a></code></pre></div>
+<pre><code>## 100 element numeric vector
+##    [1]  1.31118224 -0.65345553 -0.74948274  0.04064765  1.36207757
+##    [6]  0.44713145  0.39562092 -0.12004672  1.12097892  2.32322526
+## 
+## . . . (17 lines omitted)
+## 
+##   [96] -0.94761613 -0.61723550 -0.61318185 -0.80320838 -0.33558949</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">brief</span>(Duncan)</a></code></pre></div>
+<pre><code>## 45 x 4 data.frame (40 rows omitted)
+##            type income education prestige
+##             [f]    [i]       [i]      [i]
+## accountant prof     62        86       82
+## pilot      prof     72        76       83
+## architect  prof     75        92       90
+## . . .                                         
+## policeman  bc       34        47       41
+## waiter     bc        8        32       10</code></pre>
+<hr />
+</div>
+<div id="densidade-nao-parametrica" class="section level2">
+<h2><span class="header-section-number">2.8</span> Densidade não paramétrica</h2>
+<p>Nonparametric Density Estimates</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">y &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">100</span>, <span class="dt">shape =</span> <span class="fl">1.5</span>, <span class="dt">rate =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb25-5" data-line-number="5"><span class="kw">densityPlot</span>(x)</a>
+<a class="sourceLine" id="cb25-6" data-line-number="6"><span class="kw">densityPlot</span>(y)</a>
+<a class="sourceLine" id="cb25-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb25-8" data-line-number="8"><span class="kw">densityPlot</span>(<span class="op">~</span>income, <span class="dt">data=</span>Prestige)</a>
+<a class="sourceLine" id="cb25-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb25-10" data-line-number="10"><span class="kw">densityPlot</span>(income <span class="op">~</span><span class="st"> </span>type, <span class="dt">kernel=</span>dnorm, <span class="dt">data=</span>Prestige)</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-9-1.png" width="768" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="co">#densityPlot(income ~ type, kernel=depan, data=Prestige)</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="co">#densityPlot(income ~ type, kernel=dbiwt, data=Prestige)</span></a></code></pre></div>
+<hr />
+</div>
+<div id="boxplots-com-identificacao-de-pontos" class="section level2 tabset tabset-fade">
+<h2><span class="header-section-number">2.9</span> Boxplots com identificação de pontos</h2>
+<p>Boxplots With Point Identification</p>
+<div id="exemplo-1" class="section level3">
+<h3><span class="header-section-number">2.9.1</span> Exemplo 1</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">Boxplot</span>(x)</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-10-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+<div id="exemplo-2" class="section level3">
+<h3><span class="header-section-number">2.9.2</span> Exemplo 2</h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">Boxplot</span>(y)</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] 27 35 73</code></pre>
+<hr />
+</div>
+<div id="exemplo-3" class="section level3">
+<h3><span class="header-section-number">2.9.3</span> Exemplo 3</h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">Boxplot</span>(<span class="op">~</span>income, <span class="dt">data=</span>Prestige, <span class="dt">id=</span><span class="kw">list</span>(<span class="dt">n=</span><span class="ot">Inf</span>)) <span class="co"># identify all outliers</span></a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] &quot;general.managers&quot;         &quot;lawyers&quot;                 
+## [3] &quot;physicians&quot;               &quot;veterinarians&quot;           
+## [5] &quot;osteopaths.chiropractors&quot;</code></pre>
+<hr />
+</div>
+<div id="exemplo-4" class="section level3">
+<h3><span class="header-section-number">2.9.4</span> Exemplo 4</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">Boxplot</span>(income <span class="op">~</span><span class="st"> </span>type, <span class="dt">data=</span>Prestige)</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] &quot;general.managers&quot; &quot;physicians&quot;</code></pre>
+<hr />
+</div>
+</div>
+<div id="scatterplots" class="section level2 tabset tabset-fade">
+<h2><span class="header-section-number">2.10</span> Scatterplots</h2>
+<p>Enhanced Scatterplots with Marginal Boxplots, Point Marking, Smoothers, and More</p>
+<div id="exemplo-1-1" class="section level3">
+<h3><span class="header-section-number">2.10.1</span> Exemplo 1</h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">scatterplot</span>(prestige <span class="op">~</span><span class="st"> </span>income, <span class="dt">data=</span>Prestige, <span class="dt">ellipse=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+<div id="exemplo-2-1" class="section level3">
+<h3><span class="header-section-number">2.10.2</span> Exemplo 2</h3>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">scatterplot</span>(prestige <span class="op">~</span><span class="st"> </span>income, <span class="dt">data=</span>Prestige, <span class="dt">ellipse=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+<div id="exemplo-3-1" class="section level3">
+<h3><span class="header-section-number">2.10.3</span> Exemplo 3</h3>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">scatterplot</span>(prestige <span class="op">~</span><span class="st"> </span>income, <span class="dt">data=</span>Prestige, <span class="dt">ellipse=</span><span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2">            <span class="dt">smooth=</span><span class="kw">list</span>(<span class="dt">smoother=</span><span class="ot">NULL</span>))</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-16-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+<div id="exemplo-4-1" class="section level3">
+<h3><span class="header-section-number">2.10.4</span> Exemplo 4</h3>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">scatterplot</span>(prestige <span class="op">~</span><span class="st"> </span>income <span class="op">|</span><span class="st"> </span>type, <span class="dt">data=</span>Prestige, <span class="dt">legend=</span><span class="kw">list</span>(<span class="dt">coords=</span><span class="st">&quot;topleft&quot;</span>))</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+<div id="exemplo-5" class="section level3">
+<h3><span class="header-section-number">2.10.5</span> Exemplo 5</h3>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">scatterplot</span>(income <span class="op">~</span><span class="st"> </span>type, <span class="dt">data=</span>Prestige)</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-18-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] &quot;2&quot;  &quot;24&quot;</code></pre>
+<hr />
+</div>
+</div>
+<div id="regressao-suave-em-scatterplots" class="section level2 tabset tabset-fade">
+<h2><span class="header-section-number">2.11</span> Regressão suave em Scatterplots</h2>
+<p>Smoothers to Draw Lines on Scatterplots</p>
+<div id="exemplo-1-2" class="section level3">
+<h3><span class="header-section-number">2.11.1</span> Exemplo 1</h3>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">v1 =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1500</span>, <span class="dv">1</span>, <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb40-2" data-line-number="2">v2 =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1500</span>, <span class="dv">1</span>, <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb40-3" data-line-number="3">x =<span class="st"> </span>v1<span class="op">*</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb40-4" data-line-number="4">y =<span class="st"> </span>v1<span class="op">+</span>v2</a>
+<a class="sourceLine" id="cb40-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb40-6" data-line-number="6"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb40-7" data-line-number="7"><span class="kw">plot</span>(y<span class="op">~</span>x, <span class="dt">main =</span> <span class="st">&#39;lm&#39;</span>)</a>
+<a class="sourceLine" id="cb40-8" data-line-number="8"><span class="kw">abline</span>(<span class="kw">lm</span>(y<span class="op">~</span>x), <span class="dt">col =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb40-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb40-10" data-line-number="10"><span class="kw">plot</span>(y<span class="op">~</span>x, <span class="dt">main =</span> <span class="st">&#39;gamLine&#39;</span>)</a>
+<a class="sourceLine" id="cb40-11" data-line-number="11"><span class="kw">gamLine</span>(x, y, <span class="dt">col =</span> <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb40-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb40-13" data-line-number="13"><span class="kw">plot</span>(y<span class="op">~</span>x, <span class="dt">main =</span> <span class="st">&#39;loessLine&#39;</span>)</a>
+<a class="sourceLine" id="cb40-14" data-line-number="14"><span class="kw">loessLine</span>(x, y, <span class="dt">col =</span> <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb40-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb40-16" data-line-number="16"><span class="kw">plot</span>(y<span class="op">~</span>x, <span class="dt">main =</span> <span class="st">&#39;quantregLine&#39;</span>)</a>
+<a class="sourceLine" id="cb40-17" data-line-number="17"><span class="kw">quantregLine</span>(x, y, <span class="dt">col =</span> <span class="dv">5</span>)</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-19-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+<div id="exemplo-2-2" class="section level3">
+<h3><span class="header-section-number">2.11.2</span> Exemplo 2</h3>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw">scatterplot</span>(prestige <span class="op">~</span><span class="st"> </span>income, <span class="dt">data=</span>Prestige, </a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">            <span class="dt">smooth=</span><span class="kw">list</span>(<span class="dt">smoother=</span>gamLine))</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-20-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+<div id="exemplo-3-2" class="section level3">
+<h3><span class="header-section-number">2.11.3</span> Exemplo 3</h3>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw">scatterplot</span>(prestige <span class="op">~</span><span class="st"> </span>income, <span class="dt">data=</span>Prestige, </a>
+<a class="sourceLine" id="cb42-2" data-line-number="2">            <span class="dt">smooth=</span><span class="kw">list</span>(<span class="dt">smoother=</span>loessLine))</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-21-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+<div id="exemplo-4-2" class="section level3">
+<h3><span class="header-section-number">2.11.4</span> Exemplo 4</h3>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">scatterplot</span>(prestige <span class="op">~</span><span class="st"> </span>income, <span class="dt">data=</span>Prestige, </a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">            <span class="dt">smooth=</span><span class="kw">list</span>(<span class="dt">smoother=</span>quantregLine))</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-22-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+</div>
+<div id="scatterplot-matrices" class="section level2 tabset tabset-fade">
+<h2><span class="header-section-number">2.12</span> Scatterplot Matrices</h2>
+<div id="exemplo-1-3" class="section level3">
+<h3><span class="header-section-number">2.12.1</span> Exemplo 1</h3>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">scatterplotMatrix</span>(iris)</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-23-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+<div id="exemplo-2-3" class="section level3">
+<h3><span class="header-section-number">2.12.2</span> Exemplo 2</h3>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">scatterplotMatrix</span>(<span class="op">~</span>Sepal.Length<span class="op">+</span>Sepal.Width<span class="op">+</span>Petal.Length<span class="op">+</span>Petal.Width <span class="op">|</span><span class="st"> </span>Species, <span class="dt">data =</span> iris)</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-24-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+</div>
+<div id="data-ellipses" class="section level2 tabset tabset-fade">
+<h2><span class="header-section-number">2.13</span> Data Ellipses</h2>
+<div id="exemplo-1-4" class="section level3">
+<h3><span class="header-section-number">2.13.1</span> Exemplo 1</h3>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">dataEllipse</span>(Duncan<span class="op">$</span>income, Duncan<span class="op">$</span>education, <span class="dt">levels=</span><span class="fl">0.1</span><span class="op">*</span><span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, </a>
+<a class="sourceLine" id="cb46-2" data-line-number="2">            <span class="dt">ellipse.label=</span><span class="fl">0.1</span><span class="op">*</span><span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">fill=</span><span class="ot">TRUE</span>, <span class="dt">fill.alpha=</span><span class="fl">0.1</span>)</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-25-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+<div id="exemplo-2-4" class="section level3">
+<h3><span class="header-section-number">2.13.2</span> Exemplo 2</h3>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="kw">with</span>(Prestige, <span class="kw">dataEllipse</span>(income, education, type, <span class="dt">id=</span><span class="kw">list</span>(<span class="dt">n=</span><span class="dv">2</span>, <span class="dt">labels=</span><span class="kw">rownames</span>(Prestige)), <span class="dt">pch=</span><span class="dv">15</span><span class="op">:</span><span class="dv">17</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">25000</span>), <span class="dt">center.pch=</span><span class="st">&quot;+&quot;</span>, <span class="dt">group.labels=</span><span class="kw">c</span>(<span class="st">&quot;Blue Collar&quot;</span>, <span class="st">&quot;Professional&quot;</span>, <span class="st">&quot;White Collar&quot;</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">20</span>), <span class="dt">level=</span>.<span class="dv">95</span>, <span class="dt">fill=</span><span class="ot">TRUE</span>, <span class="dt">fill.alpha=</span><span class="fl">0.1</span>))</a></code></pre></div>
+<p><img src="exploratoria_files/figure-html/unnamed-chunk-26-1.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+</div>
+<div id="contrastes" class="section level2">
+<h2><span class="header-section-number">2.14</span> Contrastes</h2>
+<p>Functions to Construct Contrasts</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">ct &lt;-<span class="st"> </span><span class="kw">lm</span>(prestige <span class="op">~</span><span class="st"> </span>(income <span class="op">+</span><span class="st"> </span>education)<span class="op">*</span>type, <span class="dt">data=</span>Prestige, </a>
+<a class="sourceLine" id="cb48-2" data-line-number="2">   <span class="dt">contrasts=</span><span class="kw">list</span>(<span class="dt">type=</span><span class="st">&quot;contr.Treatment&quot;</span>))</a>
+<a class="sourceLine" id="cb48-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb48-4" data-line-number="4">cs &lt;-<span class="st"> </span><span class="kw">lm</span>(prestige <span class="op">~</span><span class="st"> </span>(income <span class="op">+</span><span class="st"> </span>education)<span class="op">*</span>type, <span class="dt">data=</span>Prestige, </a>
+<a class="sourceLine" id="cb48-5" data-line-number="5">   <span class="dt">contrasts=</span><span class="kw">list</span>(<span class="dt">type=</span><span class="st">&quot;contr.Sum&quot;</span>))</a>
+<a class="sourceLine" id="cb48-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb48-7" data-line-number="7">ch &lt;-<span class="st"> </span><span class="kw">lm</span>(prestige <span class="op">~</span><span class="st"> </span>(income <span class="op">+</span><span class="st"> </span>education)<span class="op">*</span>type, <span class="dt">data=</span>Prestige, </a>
+<a class="sourceLine" id="cb48-8" data-line-number="8">   <span class="dt">contrasts=</span><span class="kw">list</span>(<span class="dt">type=</span><span class="st">&quot;contr.Helmert&quot;</span>))</a></code></pre></div>
+<hr />
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;">
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

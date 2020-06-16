@@ -1,0 +1,168 @@
+---
+title: ""
+---
+
+---
+
+<center>
+<font size="6"> 
+<p align=”center”> <b> Pacote `car` </b> </center>
+</font>
+</center>
+
+<center>
+<font size="6"> 
+<p align=”center”> <b> Companion to Applied Regression  </b> </center>
+</font>
+</center>
+
+
+---
+
+O pacote `car` (Fox and Weisberg, 2019) disponibiliza diversas funções com foco no tratamento de conjuntos de dados destinados à análise via modelos de regressão bem como análise dos próprios modelos ajustados. 
+
+Estão disponíveis funções para análise exploratória, transformação de variáveis, testes de hipótese, análise de qualidade de um dado modelo ajustado (em geral das classes `lm` e `glm`), dentre outras.
+
+---
+
+A versão atual do pacote (3.0-7), dispõe de 134 funções, das quais 24 estão desativadas e 2 descontinuadas.
+
+Podemos classificar as funções nas seguintes categorias: 
+
+---
+
+ - Desativadas, descontinuadas, sem finalidade técnica, 29 funções.
+
+---
+
+ - Tratamento de dados e análise exploratória, 31 funções.
+    * Importação/exportação.
+    * Recodificação.
+    * Amostragem.
+    * Gráficos de dispersão.
+    * Linhas de regressão suave.
+    * etc.
+
+---
+
+ - Transformação de variáveis, 20 funções.
+    * Box-Cox.
+    * Box-Cox com negativos. 
+    * Yeo-Johnson.
+    * Basic Power.
+    * Métodos gráficos para seleção da transformação.
+    * etc.
+
+---
+
+ - Testes de hipótese, 13 funções.
+    * Análises de variância.
+    * Hipóteses lineares.
+    * Erros correlacionados.
+    * Variância não constante.
+    * Outliers. 
+    * etc.
+
+---
+
+ - Análise do modelo, 41 funções:
+    * Resumos.
+    * Estimativas e erros padrões.
+    * Intervalos de confiança.
+    * Elipse de confiança
+    * Análise de resíduos.
+    * Medidas de influência.
+    * Preditos.
+    * etc.
+
+---
+
+# Funções {.tabset .tabset-fade}
+
+```{r, echo=FALSE, message=FALSE}
+library(car)
+
+funcoes <- read.csv2("class_func.csv", header = T, sep = ',')
+
+tabela <-funcoes[, c(2,5,6)]
+names(tabela) <- c('Função', 'Categoria', 'Utilidade')
+
+```
+
+## Desativadas, descontinuadas, sem utilidade prática
+
+```{r, echo=FALSE}
+DT::datatable(subset(tabela, Categoria == "DESATIVADA/DESCONTINUADA/IRRELEVANTE"), 
+              filter = 'top',
+              options = list(
+                bPaginate = FALSE))
+```
+
+---
+
+## Tratamento e análise de exploratória de dados
+
+```{r, echo=FALSE}
+DT::datatable(subset(tabela, Categoria == "EXPLORATÓRIA/TRATAMENTO"), 
+              filter = 'top',
+              options = list(
+                bPaginate = FALSE))
+
+```
+
+---
+
+## Transformação de variável
+
+```{r, echo=FALSE}
+DT::datatable(subset(tabela, Categoria == "TRANSFORMAÇÃO"), 
+              filter = 'top',
+              options = list(
+                bPaginate = FALSE))                     
+
+
+```
+
+---
+
+## Testes de hipótese
+
+```{r, echo=FALSE}
+
+DT::datatable(subset(tabela, Categoria == "TESTES DE HIPÓTESE"), 
+              filter = 'top',
+              options = list(
+                bPaginate = FALSE))
+             
+
+```
+
+---
+
+## Análise do modelo
+
+```{r, echo=FALSE}
+    
+DT::datatable(subset(tabela, Categoria == "ANÁLISE DO MODELO"), 
+              filter = 'top',
+              options = list(
+                bPaginate = FALSE))
+
+```
+
+---
+
+# Referências
+
+John Fox and Sanford Weisberg (2019). An {R} Companion to Applied Regression, Third Edition. Thousand Oaks CA: Sage. URL: https://socialsciences.mcmaster.ca/jfox/Books/Companion/
+
+---
+
+<center>
+<img src="img/sticker.png" width=150 height=150>
+</center>
+
+---
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
+
