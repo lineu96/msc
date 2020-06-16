@@ -1,0 +1,101 @@
+---
+output:
+  html_document: 
+    type: inverse
+    # Sumário
+    toc: true 
+    toc_depth: 3 # Profundidade do sumário                   
+    toc_float:                      
+      collapsed: true # Sumário flutuante (lateral)
+    
+#    number_sections: true # Seções numeradas
+    
+    # Aparência
+    theme: flatly
+    # Temas possíveis:
+    # default,cerulean,journal,flatly,readable,spacelab,
+    # united,cosmo,lumen,paper,sandstone,simplex,yeti
+    
+    # Códigos R no texto
+#    highlight: espresso
+    # Temas possíveis:
+    # default, tango, pygments, kate, monochrome, 
+    # espresso, zenburn, haddock, and textmate
+    #css: styles.css                
+    
+    # Configurações globais de imagens
+    fig_width: 7  # Largura                  
+    fig_height: 6 # Altura                  
+    fig_caption: true # Legenda              
+    fig_align: 'center' # Posição
+
+    # Esconder o código
+#    code_folding: hide 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+<center>
+<font size="6"> 
+<p align=”center”> <b> Teste Wald em modelos de regressão  </b> </center>
+</font>
+</center>
+
+---
+
+<font size="4"> 
+<p align=”center”> [Lineu Alberto Cavazani de Freitas](https://lineu96.github.io/st/) </center>
+</font> 
+
+---
+
+Para que serve o teste Wald
+
+---
+
+Teste Wald para um único parâmetro
+
+ - Hipóteses.
+ - Estatística de teste.
+ - Distribuição.
+ - Exemplo.
+
+---
+
+Teste Wald para múltiplos parâmetros
+
+ - Construção das hipóteses.
+ - Estatística de teste.
+ - Distribuição.
+ - Exemplo.
+
+---
+
+Análise de variância
+
+---
+
+Análise de variância via teste Wald
+
+---
+
+Análise de variância multivariada via teste Wald
+
+---
+
+<center>
+<table><tr>
+<td> <img src="img/dsbd.png" alt="Drawing" style="width: 250px;"/> </td>
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+<td> <img src="img/ufpr.jpg" alt="Drawing" style="width: 200px;"/> </td>
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+</center>
+
+---
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
+
