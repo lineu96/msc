@@ -1,0 +1,414 @@
+---
+output:
+  html_document:                    # Classe de documento.
+    toc: true                       # Exibir sum?rio.
+    toc_depth: 2                    # Profundidade do sum?rio.
+    toc_float:                      # Sum?rio flutuante na borda.
+      collapsed: true
+      smooth_scroll: true
+    number_sections: false           # Se??es numeradas.
+    theme: cosmo
+    #spacelab
+    #default,cerulean,journal,flatly,readable,spacelab,
+    #united,cosmo,lumen,paper,sandstone,simplex,yeti
+    
+    highlight: espresso
+    #default, tango, pygments, kate, monochrome, espresso, zenburn, haddock, and textmate
+    #css: styles.css                 # Caminho para arquivo CSS.
+    fig_width: 7                    # Lagura das figuras.
+    fig_height: 6                   # Altura das figuras.
+    fig_caption: true               # Exibica??o de legenda.
+    fig_align: 'center'
+    code_folding: hide              # Esconder/exibir bloco de c?digo.
+#    keep_md: true                   # Manter o arquivo md.
+    #template: quarterly_report.html # Caminho para o template.  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE,fig.align='center', fig.width=3.5, fig.height=3.5)
+
+#--------------------------------------------------------------
+setwd("~/msc/4_latencias")
+#--------------------------------------------------------------
+
+library(tidyverse)
+library(gridExtra)
+library(ggpubr)
+
+source('funcoes.R')
+
+#--------------------------------------------------------------
+
+# DADOS
+#--------------------------------------------------------------
+
+dados <- read.csv2('tissei.csv', header = T, sep = ',')
+
+str(dados)
+
+names(dados) <- c('n', 'inst', 'lock', 'set_rex', 'segment',
+                  'mem_xchg', 'p0156', 'p06', 'p23', 'p237', 
+                  'p4', 'p1', 'p15', 'p015', 'p5', 'p0', 
+                  'p05', 'p01', 'p6', 'min_lat', 'max_lat')
+
+
+
+```
+
+---
+
+<center>
+<font size="6"> 
+<p align=”center”> <b> Análise gráfica univariada </b> </center>
+</font>
+</center>
+
+---
+
+# Indicadoras e segment{.tabset .tabset-fade}
+
+---
+
+## lock
+
+<center>
+```{r, echo=FALSE, fig.width=5, fig.height=5}
+setores(table(dados$lock), title = 'lock')
+
+```
+</center>
+
+---
+
+## set_rex
+
+<center>
+```{r, echo=FALSE, fig.width=5, fig.height=5}
+setores(table(dados$set_rex), title = 'set_rex')
+```
+</center>
+
+---
+
+## mem_xchg
+
+<center>
+```{r, echo=FALSE, fig.width=5, fig.height=5}
+setores(table(dados$mem_xchg), title = 'mem_xchg')
+```
+</center>
+
+---
+
+## segment
+
+```{r, echo=FALSE, fig.width=9, fig.height=4}
+
+#setores(table(dados$segment), title = 'segment')
+
+seg <- factor(dados$segment, levels = 0:6)
+seg <- as.data.frame(table(seg))
+
+g1 <- ggplot(data = seg, 
+       aes(x = seg, y = Freq))+
+  geom_bar(stat = 'identity') +
+  xlab('')+ ylab('')+
+  ylim(c(0, 1200))+
+  geom_text(aes(label=Freq), 
+            vjust=-0.1, 
+            hjust = 0.5,
+            color=1, 
+            size=6) +theme_bw()
+
+g2 <- ggplot(data = seg[-1,], 
+       aes(x = seg, y = Freq))+
+  geom_bar(stat = 'identity') +
+  xlab('')+ ylab('')+
+  ylim(c(0, 20))+
+  geom_text(aes(label=Freq), 
+            vjust=-0.1, 
+            hjust = 0.5,
+            color=1, 
+            size=6) +theme_bw()
+
+ggarrange(g1,g2,
+            nrow = 1, ncol = 2, 
+            common.legend = TRUE, 
+            legend="bottom",
+            #labels = paste0(porta, ' em função das latências'),
+            font.label = list(size = 15))
+
+```
+
+## Vetor
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+ind <- rep(NA, nrow(dados))
+ind <- ifelse(dados$lock == 1, 'lock', ind)
+ind <- ifelse(dados$set_rex == 1, 'set_rex', ind)
+ind <- ifelse(dados$mem_xchg == 1, 'mem_xchg', ind)
+ind <- ifelse(dados$segment %in% 1:6, 'segment', ind)
+ind <- ifelse(is.na(ind) == T, 'outro', ind)
+
+ind <- factor(ind, levels = c("outro","lock","segment","set_rex", "mem_xchg"))
+
+ind <- rep(NA, nrow(dados))
+ind <- ifelse(dados$lock == 1, 'lock', ind)
+ind <- ifelse(dados$set_rex == 1, 'set_rex', ind)
+ind <- ifelse(dados$mem_xchg == 1, 'mem_xchg', ind)
+ind <- ifelse(dados$segment %in% 1:6, 'segment', ind)
+ind <- ifelse(is.na(ind) == T, 'outro', ind)
+
+ind <- factor(ind, levels = c("outro","lock","segment","set_rex", "mem_xchg"))
+
+ind <- as.data.frame(table(ind))
+
+### Com 'outros'
+g1 <- ggplot(data = ind, 
+       aes(x = ind, y = Freq))+
+  geom_bar(stat = 'identity') +
+  coord_flip() + xlab('')+ ylab('') +
+  ylim(c(0, 1100))+
+  geom_text(aes(label=Freq), 
+            vjust=0, 
+            hjust = -0.1,
+            color=1, 
+            size=6) +theme_bw()
+
+### Sem outros  
+g2 <- ggplot(data = ind[2:5,], 
+       aes(x = ind, y = Freq))+
+  geom_bar(stat = 'identity') +
+  coord_flip() + xlab('')+ ylab('') +
+  ylim(c(0, 140))+
+  geom_text(aes(label=Freq), 
+            vjust=0, 
+            hjust = -0.1,
+            color=1, 
+            size=6) +theme_bw()
+
+ggarrange(g1,g2,
+            nrow = 1, ncol = 2, 
+            common.legend = TRUE, 
+            legend="bottom",
+            #labels = paste0(porta, ' em função das latências'),
+            font.label = list(size = 15))
+
+```
+</center>
+
+---
+
+# Portas {.tabset .tabset-fade}
+
+---
+
+## p0156
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p0156", 7)
+
+```
+</center>
+
+---
+
+## p06
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p06", 8)
+
+```
+</center>
+
+---
+
+## p23
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p23", 9)
+
+```
+</center>
+
+---
+
+## p237
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p237", 10)
+
+```
+</center>
+
+---
+
+## p4
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p4", 11)
+
+```
+</center>
+
+---
+
+## p1
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p1", 12)
+
+```
+</center>
+
+---
+
+## p15
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p15", 13)
+
+```
+</center>
+
+---
+
+## p015
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p015", 14)
+
+```
+</center>
+
+---
+
+## p5
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p5", 15)
+
+```
+</center>
+
+---
+
+## p0
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p0", 16)
+
+```
+</center>
+
+---
+
+## p05
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p05", 17)
+
+```
+</center>
+
+---
+
+## p01
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p01", 18)
+
+```
+</center>
+
+---
+
+## p6
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+barras(dados, "p6", 19)
+
+```
+</center>
+
+---
+
+# Latência {.tabset .tabset-fade}
+
+---
+
+## Mínima
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+g1 <- ggplot(data = dados, 
+       aes_string(x = 'min_lat'))+
+  geom_bar(col = 1,
+           fill = 1,
+           alpha = 0.6) +
+  xlab('Valores')+ ylab('Frequência') +
+  ggtitle('Competo') + theme_bw()
+
+g2 <- ggplot(data = subset(dados, dados$min_lat <21), 
+       aes_string(x = 'min_lat'))+
+  geom_bar(col = 1,
+           fill = 1,
+           alpha = 0.6) +
+  xlab('Valores')+ ylab('') + 
+  ggtitle('0-20') + theme_bw()
+
+grid.arrange(g1,g2,
+             nrow=1,ncol=2, 
+             top = 'Latência mínima')
+
+```
+</center>
+
+
+---
+
+## Máxima
+
+<center>
+```{r,echo=FALSE,fig.width=10, fig.height=4}
+g3 <- ggplot(data = dados, 
+             aes_string(x = 'max_lat'))+
+  geom_bar(col = 1,
+           fill = 1,
+           alpha = 0.6) +
+  xlab('Valores')+ ylab('Frequência') +
+  ggtitle('Completo') + theme_bw()
+
+g4 <- ggplot(data = subset(dados, dados$max_lat <41), 
+             aes_string(x = 'max_lat'))+
+  geom_bar(col = 1,
+           fill = 1,
+           alpha = 0.6) +
+  xlab('Valores')+ ylab('') +
+  ggtitle('0-40')+
+  theme_bw()
+
+
+grid.arrange(g3,g4,
+             nrow=1,ncol=2, 
+             top = 'Latência máxima')
+```
+</center>
+
+---
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

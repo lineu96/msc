@@ -1,0 +1,98 @@
+---
+title: ""
+---
+
+---
+
+<center>
+<font size="6"> 
+<p align=”center”> <b> Análise latências </b> </center>
+</font>
+</center>
+
+---
+
+# Geral
+
+ - Instrução entra no processador e é decodificada.
+
+ - Uma macroinstrução é quebrada em diversas micro.
+
+ - Ao todo existem 2700 macroinstruções.
+
+  - Não sabemos o que é feito na micro.
+
+  - As micro são destinadas para portas que podem ter uma ou mais unidades de execução (a mesma porta pode ser capaz de realizar mais de um tipo de tarefa), e unidades de execução diferentes podem realizar a mesma tarefa.
+
+ - Macro gera micros, micros são executadas em diferentes lugares.
+
+---
+
+# Problema
+
+ - Quanto tempo uma macro leva para ser executada?
+ 
+ - Dependa das micro.
+
+ - Em determinadas unidades as instruções levam sempre o mesmo tempo para serem executadas. 
+
+ - É feito um trabalho de inferência para verificar quais portas são usadas.
+
+ - Dada a instrução e as portas, qual foi a latência?
+
+ - Qual a relação entre as portas e a latência?
+ 
+--- 
+
+# Variáveis
+
+ - N: número da instrução.
+ 
+ - Instruction: nome da instrução.
+ 
+
+Indicadoras:
+ 
+ - LOCK.
+ - SET-REX.
+ - SEGMENT.
+ - MEM_XCHG.
+
+Portas (quantas vezes foi usada):
+  
+  - p0156.
+  - p06.
+  - p23.
+  - p237.
+  - p4.
+  - p1.
+  - p15.
+  - p015.
+  - p5.
+  - p0.
+  - p05.
+  - p01.
+  - p6.
+
+Respostas (latências):
+
+- Min Latency.
+- Max Latency.
+
+
+---
+
+<center>
+<table><tr>
+<td> <img src="img/dsbd.png" alt="Drawing" style="width: 250px;"/> </td>
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+<td> <img src="img/ufpr.jpg" alt="Drawing" style="width: 200px;"/> </td>
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+<td> <img src="img/hipes.png" alt="Drawing" style="width: 300px;"/> </td>
+</tr></table>
+</center>
+
+---
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
+
