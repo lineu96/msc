@@ -41,7 +41,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <center>
 <font size="6"> 
-<p align=”center”> <b> Teste Wald em modelos de regressão  </b> </center>
+<p align=”center”> <b> Teste Wald </b> </center>
 </font>
 </center>
 
@@ -53,9 +53,173 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ---
 
-Para que serve o teste Wald
+# O que é
+
+O teste Wald é um teste de hipótese aplicado a modelos de regressão para verificar suposições sobre os parâmetros do modelo, isto é, verifcar se o parâmetro estimado é ou não estatísticamente igual a um valor qualquer.
+
+É um teste que avalia restrições nos parâmetros de um modelo de regressão com base na distância entre a estimativa do parâmetro e o valor postulado sob a hipótese nula, esta diferença é ainda ponderada por uma medida de precisão da estimativa do modelo. Quanto mais distante de 0 for o valor da distância ponderada, menos provável de ser verdadeira é a hipótese, ou seja, do valor postulado ser igual ao valor estimado.
+
+Além disso, o teste utiliza distribuição assintótica Qui-quadrado ( $\chi^2$ ) para verificar a validade das hipóteses e determinar significância estatística.
 
 ---
+
+# Hipóteses
+
+As hipóteses de interesse em que há possibilidade de se aplicar o teste Wald são do tipo:
+
+$$H_0: \beta = \beta^* \ vs \ H_1: \beta \neq \beta^*.$$ 
+
+Em que $\beta$ pode representar um único ou vários parâmetros de regressão a serem testados simultaneamente e $\beta^*$ representa os valores a serem testados, isto é, sob hipótese nula.
+
+---
+
+Uma forma alternativa de se escrever as hipóteses é:
+
+$$H_0: L\beta = c \ vs \ H_1: L\beta \neq c.$$ 
+
+Em que $L$ é uma matriz que especifica quais parâmetros serão testados.
+Seu número de linhas é o número de parâmetros a serem testados ($q$) e o número de colunas é o mesmo que o número de parâmetros do modelo ($p$).
+
+$\beta$ é o vetor completo de parâmetros estimados no modelo, ou seja, é um vetor de $p$ elementos.
+
+E $c$ é um vetor de valores a serem confrontados com as estimativas originais do modelo, tem dimensão $q$.
+
+Sendo assim, $L$ tem dimensão $qxp$, $\beta$ tem dimensão $px1$ e o produto $L\beta$ tem dimensão $qx1$, bem como $c$.
+
+---
+
+## Exemplos
+
+Para fins de ilustração, considere um modelo qualquer com preditor dado por:
+
+$$g(\mu) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3$$
+
+---
+
+### Hipóteses para um parâmetro 
+
+Podemos estar interessados em testar um único parâmetro, isto é, uma hipótese como:
+
+$$H_0: \beta_1 = 0 \ vs \ H_1: \beta_1 \neq 0.$$ 
+
+Ou seja, estaríamos verificando se há evidência suficiente para afirmar que o parâmetro $\beta_1$ é igual a 0.
+
+---
+
+Esta mesma hipótese pode ser escrita na notação genérica $L\beta = c$:
+
+$$H_0: L\beta = c \ vs \ H_1: L\beta \neq c.$$ 
+
+Sendo assim:
+
+ - $L$ = $\begin{bmatrix} 0 & 1 & 0 & 0 \end{bmatrix}$, uma matriz 1x4.
+ 
+ - $\beta$ = $\begin{bmatrix} \hat\beta_0\\  \hat\beta_1\\  \hat\beta_2\\  \hat\beta_3 \end{bmatrix}$, uma matriz 4x1.
+ 
+ - $c$ = $\begin{bmatrix} 0 \end{bmatrix}$, uma matriz 1x1.
+ 
+Note que as dimensões são compatíveis e o resultado do produto é o mesmo que o da notação $\beta = \beta^*$.
+
+---
+
+### Hipóteses para múltiplos parâmetros
+
+Considerando o mesmo preditor, podemos estar interessados em testar mais de um parâmetro ao mesmo tempo, por exemplo:
+
+$$H_0: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+0 \\ 
+0 \\ 
+0
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+0 \\ 
+0 \\ 
+0
+\end{pmatrix}.$$
+
+Neste caso, teríamos interesse em verificar se, simultâneamente, os parâmetros $\beta_1$, $\beta_2$ e $\beta_3$ são iguais a 0.
+
+---
+
+Esta mesma hipótese, para múltiplos parâmetros, na notação genérica $L\beta = c$, fica da seguinte forma:
+
+$$H_0: L\beta = c \ vs \ H_1: L\beta \neq c.$$ 
+
+Em que:
+
+ - $L$ = $\begin{bmatrix} 0 & 1 & 0 & 0\\ 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 1\end{bmatrix}$, é uma matriz 3x4.
+ 
+ - $\beta$ = $\begin{bmatrix} \hat\beta_0\\  \hat\beta_1\\  \hat\beta_2\\  \hat\beta_3 \end{bmatrix}$, é um vetor 4x1.
+ 
+ - $c$ = $\begin{bmatrix} 0\\  0\\  0 \end{bmatrix}$, é um vetor 3x1.
+ 
+Note que as dimensões são compatíveis e o resultado do produto é o mesmo que o da notação $\beta = \beta^*$.
+
+---
+
+## Observação
+
+Em geral, ao realizar este tipo de teste há interesse em confrontar o valor dos parâmetros estimados com 0, isto é, não é incomum utilizar vetores nulos como $\beta^*$ ou $c$. Pois desse modo podemos testar se existe evidência para afirmar que o parâmetro estimado é estatisticamente igual a 0. E caso haja evidência de que o parâmetro seja igual a 0, significa que ele não é relevante no modelo, ou seja, não tem efeito significativo.
+
+---
+
+Contudo podemos realizar testes com quaisquer outros valores, por exemplo:
+
+$$H_0: \beta_1 = 2 \ vs \ H_1: \beta_1 \neq 2.$$ 
+
+Ou, para múltiplos parâmetros simultaneamente:
+
+$$H_0: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+2 \\ 
+5 \\ 
+8
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+2 \\ 
+5 \\ 
+8
+\end{pmatrix}.$$
+
+---
+
+Outros testes famosos para verificar tais tipos de hipótese são o teste da razão de verossimilhanças e o teste escore.
+
+---
+
+
+---
+
+
 
 Teste Wald para um único parâmetro
 

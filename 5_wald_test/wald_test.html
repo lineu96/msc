@@ -1529,7 +1529,7 @@ div.tocify {
 <center>
 <font size="6">
 <p align="”center”">
-<b> Teste Wald em modelos de regressão </b>
+<b> Teste Wald </b>
 </center>
 </font>
 </center>
@@ -1540,7 +1540,125 @@ div.tocify {
 </center>
 <p></font></p>
 <hr />
-<p>Para que serve o teste Wald</p>
+<div id="o-que-e" class="section level1">
+<h1>O que é</h1>
+<p>O teste Wald é um teste de hipótese aplicado a modelos de regressão para verificar suposições sobre os parâmetros do modelo, isto é, verifcar se o parâmetro estimado é ou não estatísticamente igual a um valor qualquer.</p>
+<p>É um teste que avalia restrições nos parâmetros de um modelo de regressão com base na distância entre a estimativa do parâmetro e o valor postulado sob a hipótese nula, esta diferença é ainda ponderada por uma medida de precisão da estimativa do modelo. Quanto mais distante de 0 for o valor da distância ponderada, menos provável de ser verdadeira é a hipótese, ou seja, do valor postulado ser igual ao valor estimado.</p>
+<p>Além disso, o teste utiliza distribuição assintótica Qui-quadrado ( <span class="math inline">\(\chi^2\)</span> ) para verificar a validade das hipóteses e determinar significância estatística.</p>
+<hr />
+</div>
+<div id="hipoteses" class="section level1">
+<h1>Hipóteses</h1>
+<p>As hipóteses de interesse em que há possibilidade de se aplicar o teste Wald são do tipo:</p>
+<p><span class="math display">\[H_0: \beta = \beta^* \ vs \ H_1: \beta \neq \beta^*.\]</span></p>
+<p>Em que <span class="math inline">\(\beta\)</span> pode representar um único ou vários parâmetros de regressão a serem testados simultaneamente e <span class="math inline">\(\beta^*\)</span> representa os valores a serem testados, isto é, sob hipótese nula.</p>
+<hr />
+<p>Uma forma alternativa de se escrever as hipóteses é:</p>
+<p><span class="math display">\[H_0: L\beta = c \ vs \ H_1: L\beta \neq c.\]</span></p>
+<p>Em que <span class="math inline">\(L\)</span> é uma matriz que especifica quais parâmetros serão testados. Seu número de linhas é o número de parâmetros a serem testados (<span class="math inline">\(q\)</span>) e o número de colunas é o mesmo que o número de parâmetros do modelo (<span class="math inline">\(p\)</span>).</p>
+<p><span class="math inline">\(\beta\)</span> é o vetor completo de parâmetros estimados no modelo, ou seja, é um vetor de <span class="math inline">\(p\)</span> elementos.</p>
+<p>E <span class="math inline">\(c\)</span> é um vetor de valores a serem confrontados com as estimativas originais do modelo, tem dimensão <span class="math inline">\(q\)</span>.</p>
+<p>Sendo assim, <span class="math inline">\(L\)</span> tem dimensão <span class="math inline">\(qxp\)</span>, <span class="math inline">\(\beta\)</span> tem dimensão <span class="math inline">\(px1\)</span> e o produto <span class="math inline">\(L\beta\)</span> tem dimensão <span class="math inline">\(qx1\)</span>, bem como <span class="math inline">\(c\)</span>.</p>
+<hr />
+<div id="exemplos" class="section level2">
+<h2>Exemplos</h2>
+<p>Para fins de ilustração, considere um modelo qualquer com preditor dado por:</p>
+<p><span class="math display">\[g(\mu) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3\]</span></p>
+<hr />
+<div id="hipoteses-para-um-parametro" class="section level3">
+<h3>Hipóteses para um parâmetro</h3>
+<p>Podemos estar interessados em testar um único parâmetro, isto é, uma hipótese como:</p>
+<p><span class="math display">\[H_0: \beta_1 = 0 \ vs \ H_1: \beta_1 \neq 0.\]</span></p>
+<p>Ou seja, estaríamos verificando se há evidência suficiente para afirmar que o parâmetro <span class="math inline">\(\beta_1\)</span> é igual a 0.</p>
+<hr />
+<p>Esta mesma hipótese pode ser escrita na notação genérica <span class="math inline">\(L\beta = c\)</span>:</p>
+<p><span class="math display">\[H_0: L\beta = c \ vs \ H_1: L\beta \neq c.\]</span></p>
+<p>Sendo assim:</p>
+<ul>
+<li><p><span class="math inline">\(L\)</span> = <span class="math inline">\(\begin{bmatrix} 0 &amp; 1 &amp; 0 &amp; 0 \end{bmatrix}\)</span>, uma matriz 1x4.</p></li>
+<li><p><span class="math inline">\(\beta\)</span> = <span class="math inline">\(\begin{bmatrix} \hat\beta_0\\ \hat\beta_1\\ \hat\beta_2\\ \hat\beta_3 \end{bmatrix}\)</span>, uma matriz 4x1.</p></li>
+<li><p><span class="math inline">\(c\)</span> = <span class="math inline">\(\begin{bmatrix} 0 \end{bmatrix}\)</span>, uma matriz 1x1.</p></li>
+</ul>
+<p>Note que as dimensões são compatíveis e o resultado do produto é o mesmo que o da notação <span class="math inline">\(\beta = \beta^*\)</span>.</p>
+<hr />
+</div>
+<div id="hipoteses-para-multiplos-parametros" class="section level3">
+<h3>Hipóteses para múltiplos parâmetros</h3>
+<p>Considerando o mesmo preditor, podemos estar interessados em testar mais de um parâmetro ao mesmo tempo, por exemplo:</p>
+<p><span class="math display">\[H_0: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+0 \\ 
+0 \\ 
+0
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+0 \\ 
+0 \\ 
+0
+\end{pmatrix}.\]</span></p>
+<p>Neste caso, teríamos interesse em verificar se, simultâneamente, os parâmetros <span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span> e <span class="math inline">\(\beta_3\)</span> são iguais a 0.</p>
+<hr />
+<p>Esta mesma hipótese, para múltiplos parâmetros, na notação genérica <span class="math inline">\(L\beta = c\)</span>, fica da seguinte forma:</p>
+<p><span class="math display">\[H_0: L\beta = c \ vs \ H_1: L\beta \neq c.\]</span></p>
+<p>Em que:</p>
+<ul>
+<li><p><span class="math inline">\(L\)</span> = <span class="math inline">\(\begin{bmatrix} 0 &amp; 1 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 1 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}\)</span>, é uma matriz 3x4.</p></li>
+<li><p><span class="math inline">\(\beta\)</span> = <span class="math inline">\(\begin{bmatrix} \hat\beta_0\\ \hat\beta_1\\ \hat\beta_2\\ \hat\beta_3 \end{bmatrix}\)</span>, é um vetor 4x1.</p></li>
+<li><p><span class="math inline">\(c\)</span> = <span class="math inline">\(\begin{bmatrix} 0\\ 0\\ 0 \end{bmatrix}\)</span>, é um vetor 3x1.</p></li>
+</ul>
+<p>Note que as dimensões são compatíveis e o resultado do produto é o mesmo que o da notação <span class="math inline">\(\beta = \beta^*\)</span>.</p>
+<hr />
+</div>
+</div>
+<div id="observacao" class="section level2">
+<h2>Observação</h2>
+<p>Em geral, ao realizar este tipo de teste há interesse em confrontar o valor dos parâmetros estimados com 0, isto é, não é incomum utilizar vetores nulos como <span class="math inline">\(\beta^*\)</span> ou <span class="math inline">\(c\)</span>. Pois desse modo podemos testar se existe evidência para afirmar que o parâmetro estimado é estatisticamente igual a 0. E caso haja evidência de que o parâmetro seja igual a 0, significa que ele não é relevante no modelo, ou seja, não tem efeito significativo.</p>
+<hr />
+<p>Contudo podemos realizar testes com quaisquer outros valores, por exemplo:</p>
+<p><span class="math display">\[H_0: \beta_1 = 2 \ vs \ H_1: \beta_1 \neq 2.\]</span></p>
+<p>Ou, para múltiplos parâmetros simultaneamente:</p>
+<p><span class="math display">\[H_0: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+2 \\ 
+5 \\ 
+8
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+2 \\ 
+5 \\ 
+8
+\end{pmatrix}.\]</span></p>
+<hr />
+<p>Outros testes famosos para verificar tais tipos de hipótese são o teste da razão de verossimilhanças e o teste escore.</p>
+<hr />
 <hr />
 <p>Teste Wald para um único parâmetro</p>
 <ul>
@@ -1583,6 +1701,8 @@ div.tocify {
 <hr />
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;">
 
+</div>
+</div>
 </div>
 
 
