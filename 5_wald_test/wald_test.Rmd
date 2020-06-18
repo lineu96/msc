@@ -212,38 +212,222 @@ H_1:
 
 ---
 
-Outros testes famosos para verificar tais tipos de hipótese são o teste da razão de verossimilhanças e o teste escore.
+Além disso, existem outros testes para verificar tais tipos de hipótese. Os mais famosos são o teste da razão de verossimilhanças e o teste escore.
+
+Contudo o teste Wald é famoso pela sua simplicidade pois baseia-se na distribuição assintótica Normal dos estimadores dos parâmetros do modelo e para sua execução necessitamos apenas da estimativa do parâmetro e seu erro padrão (raiz da variância), geralmente obtido pela matriz de variâncias e covariâncias dos parâmetros do modelo.
 
 ---
 
+# Teste Wald para um único parâmetro
+
+Seja $\beta_j$ um parâmetro qualquer de um modelo de regressão e $\hat\beta_j$ a estimativa deste parâmetro, sabemos que $\beta_j$ segue distribuição Normal com média $\hat\beta_j$ e variância dada pelo correspondente termo da diagonal da matriz de variâncias e covariâncias, isto é:
+
+$$\hat\beta_j \sim Normal(\beta_j, Var(\hat\beta_j)).$$
+
+Neste cenário, a hipótese a ser testada para um único parâmetro, fica da seguinte forma:
+
+$$H_0: \beta_j = \beta_j^* \\H_1: \beta_j \neq \beta_j^*$$
+
+A estatística de teste do tipo Wald para verificar a hipótese é dada por:
+
+$$W = \frac{(\hat\beta_j - \beta_j^*)^2}{Var(\beta_j^*)}.$$
+
+A estatística $W$ segue distribuição assintótica Qui-quadrado com 1 grau de liberdade ($\chi^2_1$). Outra versão comum utilizada é a raiz quadrada da estatística original, dada por:
+
+$$\sqrt{W} = \frac{\hat\beta_j - \beta_j^*}{ep(\beta_j^*)}.$$
+
+Neste caso, a estatística de teste segue distribuição assintótica Normal Padrão ($Normal(0,1)$).
 
 ---
 
+# Teste Wald para múltiplos parâmetros
 
+Sabemos que, qualquer parâmetro estimado do modelo segue distribuição Normal em que a média é dada pelo valor verdadeiro do parâmetro e a variância é dada pela variância da estimativa.
 
-Teste Wald para um único parâmetro
+Para testar a hipótese de que diversos parâmetros são, ao mesmo tempo, iguais a um vetor de valores postulados, é mais conveniente utilizar a notação $L\beta = c$. Deste modo, as hipóteses são dadas por:
 
- - Hipóteses.
- - Estatística de teste.
- - Distribuição.
- - Exemplo.
+$$H_0: L\beta = c \\H_1: L\beta \neq c$$
+
+A generalização da estatística de teste para verificar a validade desta hipótese é dada por:
+
+$$W = (L\hat\beta - c)^T \ (L \ vcov(\hat\beta) \ L^T)^{-1} \ (L\hat\beta - c).$$
+
+Em que $L$ é uma matriz de dimensão $qxp$, que define quais parâmetros estão sendo testados. $\beta$ é o vetor de dimensão $px1$ com todos os parâmetros de regressão do modelo. $c$ é um vetor de dimensão $qx1$ com os valores sob hipótese nula. E $vcov(\hat\beta)$ é a matriz de variâncias e covariâncias das estimativas $\beta_j$ de dimensão $pxp$. 
+
+É simples verificar que todas as matrizes são compatíveis e, especificando corretamente a matriz $L$, é possível testar hipóteses sobre parâmetros individuais. 
+
+Independente do número de parâmetros testados estatística de teste $W$ é um único valor que segue assintóticamente distribuição $\chi^2$. Quanto aos graus de liberdade, existem duas possibilidades: a primeira é considerar como graus de liberdade o número de parâmetros testados, isto é, o número de linhas da matriz $L$, denotado por $q$. A segunda possibilidade é utilizar a diferença entre o tamanho amostral e o número de parâmetros do modelo, ou seja, $n-p$.
+
+**(ENCONTRAR REFERÊNCIAS SOBRE A DIFERENÇA ENTRE OS GRAUS DE LIBERDADE E ESTUDAR O IMPACTO DAS DUAS ABORDAGENS)**
+
 
 ---
 
-Teste Wald para múltiplos parâmetros
+# Análise de variância
 
- - Construção das hipóteses.
- - Estatística de teste.
- - Distribuição.
- - Exemplo.
+O procedimento conhecido como Análise Variância consiste em efetuar testes sucessivos impondo restrições ao modelo originalmente ajustado em que a cada passo são incluídas ou excluídas determinadas variáveis a fim de testar a ausência de determinada variável gera perda ao modelo. Normalmente os resultados destes sucessivos testes são sumarizados numa tabela que contêm a variável, o valor de uma estatística de teste, os graus de liberdade e um p-valor referente à hipótese; o chamado quadro de análise de variância.
+
+Cuidados devem ser tomados com este tipo de análise no que diz respeito à forma como o quadro foi elaborado, pois cada linha do quadro refere-se a uma hipótese e estas hipóteses podem ser elaboradas de formas distintas. Formas conhecidas de se elaborar o quadro são as chamadas anovas do tipo I, II e III, esta nomenclatura vem do software estatístico SAS contudo não se trata de uma definição consolidada e as implementações destes tipos distintos de análise de variância não necessariamente correspondem precisamente ao que está implementado no SAS. Recomenda-se ao usuário estar seguro de qual tipo de análise está sendo utilizada pois, caso contrário, interpretações equivocadas podem ser tomadas.
+
+Para fins de ilustração dos testes feitos por cada tipo de análise de variância, considere um modelo qualquer com preditor dado por:
+
+$$g(\mu) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1x_2.$$
+
+Temos deste modo um intercepto, denotado por $\beta_0$ e três parâmetros de regressão denotados por $\beta_1$, $\beta_2$ e $\beta_3$, em que $\beta_3$ representa o efeito da interação entre as variáveis $x_1$ e $x_2$.
 
 ---
 
-Análise de variância
+## Anova tipo I
+
+A Análise de Variância do tipo I é também chamada de análise de variância sequencial. Neste cenário, uma análise de variância sequencial faria os seguintes testes:
+
+1. Modelo modelo apenas com $x1$ x modelo nulo.
+2. Modelo com $x1$ e $x2$ x modelo com $x_1$.
+3. Modelo com $x1$, $x2$ e interação x modelo com $x_1$ e $x_2$.
+
+Cada um destes testes seria uma linha do quadro de análise de variância, e recebe o nome de sequencial pois a cada linha é acrescentada uma variável e o modelo é confrontado com o modelo da linha anterior.
+
+Em geral, justamente por esta sequencialidade, se torna difícil interpretar os efeitos das variáveis pela análise de variância do tipo I. Em contrapartida, as análises do tipo II e III testam hipóteses que são, geralmente de maior interesse ao usuário que a do tipo I.
 
 ---
 
-Análise de variância via teste Wald
+## Anova tipo II
+
+A análise de variância do tipo II efetua testes similares à última linha da análise de variância sequencial. Em um modelo sem interação o que é feito é, em cada linha, testar o modelo completo contra o modelo sem uma variável. Deste modo se torna melhor interpretável o efeito daquela variável sobre o modelo completo.
+
+Na presença de interações é testado o modelo sem a variável inclusive nos parâmetros em que estiver envolvido em efeitos de interação. Considerando o preditor exemplo, a análise de variância do tipo II faria os seguintes testes:
+
+1. Modelo com $x_1$, $x_2$ e interação x modelo sem $x1$ e interação.
+2. Modelo com $x_1$, $x_2$ e interação x modelo sem $x2$ e interação.
+3. Modelo com $x1$, $x2$ e interação x modelo sem a interação.
+
+Note que nas linhas em que se busca entender o efeito de $x_1$ e $x2$ também a interação é excluída, pois retira-se do modelo todos os parâmetros que envolvem aquela variável.
+
+---
+
+## Anova tipo III
+
+A análise de variância do tipo III funciona do mesmo modo que uma análise de variância do tipo II sem interações. Enquanto que a análise de variância do tipo II realiza testes comparando o modelo completo contra o modelo sem todos os parâmetros que envolvem determinada variável (sejam efeitos fixos ou interações), a análise de variância do tipo III considera o modelo completo contra o modelo sem determinada variável, seja ela efeito fixo ou de interação. Deste modo, cuidados devem ser tomados nas conclusões pois uma variável não ter efeito constatado como efeito fixo não quer dizer que não haverá efeito de interação.
+
+Considerando o preditor exemplo, a análise de variância do tipo III faria os seguintes testes:
+
+1. Modelo com $x_1$, $x_2$ e interação x modelo sem $x1$.
+2. Modelo com $x_1$, $x_2$ e interação x modelo sem $x2$.
+3. Modelo com $x1$, $x2$ e interação x modelo sem a interação.
+
+Podemos entender que a análise de variância do tipo II prioriza efeitos fixos e testa por último as interações. Já a análise de variância do tipo III considera todos os parâmetros com mesma importância, sejam eles efeitos fixos ou de interação.
+
+Por fim, podemos notar que as análises de variância do tipo II e III geram os mesmos resultados quando para modelos sem efeitos de interação.
+
+---
+
+# Análise de variância via teste Wald
+
+Considerando o que foi apresentado, podemos notar que as análises de variância são sucessivos testes de hipótese que consideram a nulidade de determinados parâmetros. Isto geralmente é feito através de uma sequência de testes de razão de verossimilhança em que, no caso do tipo I, os termos do preditor linear são acrescentados sucessivamente ao modelo, começando pelo modelo nulo.
+
+Para as análises do tipo II e III é fácil visualizar como gerar os quadros de análise de variância utilizando o teste Wald. Pois sempre estarão sendo comparados o modelo completo e o modelo sem determinada ou determinadas variáveis. Ou seja, tratam-se de hipóteses de nulidade dos parâmetros. Basta então, para cada linha do quadro de análise de variância, especificar corretamente uma matriz $L$ que represente corretamente a hipótese a ser testada, seja para realizar o teste sobre um único parâmetro ou para múltiplos.
+
+Para ilustração das hipóteses que seriam testadas via teste Wald em cada linha do quadro de análise de variância nos tipos II e III, considere um modelo qualquer com preditor dado por:
+
+$$g(\mu) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_1 x_2.$$
+
+Temos deste modo um intercepto, denotado por $\beta_0$ e quatro parâmetros de regressão denotados por $\beta_1$, $\beta_2$ e $\beta_3$ e $\beta_4$, em que $\beta_4$ representa o efeito da interação entre as variáveis $x_1$ e $x_2$.
+
+---
+
+## Tipo II
+
+No caso do tipo II, testaríamos as seguintes hipóteses:
+
+ - Na primeira linha, referente a $x_1$, testaríamos o modelo completo contra o modelo sem todos os parâmetros que possuem $x_1$, sejam fixos ou interações, portanto:
+
+$$H_0: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_4
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+0 \\ 
+0
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_4
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+0 \\ 
+0
+\end{pmatrix}.$$
+
+ - Tal como a variável $x_1$, $x_2$ está associado a um efeito de interação, portanto ambos efeitos (fixo e interação) são testados. A segunda linha do quadro, referente a $x_2$, testaria as hipóteses:
+ 
+$$H_0: 
+\begin{pmatrix}
+\beta_2 \\ 
+\beta_4
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+0 \\ 
+0
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_2 \\ 
+\beta_4
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+0 \\ 
+0
+\end{pmatrix}.$$
+
+ - A terceira linha do quadro testaria uma única hipótese, pois o parâmetro $x_3$ não está associado a nenhum outro efeito:
+ 
+$$H_0: \beta_3 = 0 \ vs \ H_1: \beta_3 \neq 0.$$ 
+
+- Por fim, a última linha do quadro testaria o efeito da interação no modelo, ou seja:
+ 
+$$H_0: \beta_4 = 0 \ vs \ H_1: \beta_4 \neq 0.$$ 
+
+---
+
+## Tipo III
+
+Como já mencionado, a análise de variância do tipo III não trata de forma distinta efeitos fixos de interações. Portanto, os testes em cada linha do quadro de análise de variância seriam:
+
+ - Na primeira linha, referente a $x_1$, testaríamos o modelo completo contra o modelo sem $x_1$. Note que, diferentemente da análise do tipo II mantém-se o parâmetro de interação, isto é, nada se supõe sobre ele:
+ 
+$$H_0: \beta_1 = 0 \ vs \ H_1: \beta_1 \neq 0.$$ 
+
+ - Na segunda linha, referente a $x_2$, testaríamos o modelo completo contra o modelo sem $x_2$. Tal como para $x_1$, na análise do tipo III nada se supõe quanto ao parâmetro de interação, por mais que lá haja $x_2$:
+
+$$H_0: \beta_2 = 0 \ vs \ H_1: \beta_2 \neq 0.$$ 
+
+ - O mesmo para a terceira linha:
+ 
+$$H_0: \beta_3 = 0 \ vs \ H_1: \beta_3 \neq 0.$$ 
+
+- Por fim, a última linha do quadro testaria o efeito da interação no modelo, ou seja, testa o modelo completo contra o modelo sem interação:
+ 
+$$H_0: \beta_4 = 0 \ vs \ H_1: \beta_4 \neq 0.$$ 
+
+---
+
+## Observação
+
+Para obtenção das demais quantidades necessárias para construção do quadro de análise de variância basta seguir o procedimento pelo qual se faz o teste Wald. Os graus de liberdade são iguais ao número de parâmetros testados, isto é, o número de linhas da matriz $L$ e o p-valor é obtido comparando o valor da estatística de teste $W$ com a distribuição $\chi^2$.
+
+---
+
+No caso de variáveis categóricas, são estimados o número de categorias menos um parâmetros. Neste caso, para a análise de variância, todos os parâmetros referentes à variável categória devem ter sua nulidade verificada. 
+
+**(AO TESTAR UMA VARIAVEL CATEGÓRICA, EU NÃO ESTOU VERIFICANDO SE EXISTE DIFERENÇA ENTRE ENTRE O NÍVEL E A CATEGORIA DE REFERENCIA?)**
 
 ---
 
@@ -259,7 +443,6 @@ Análise de variância multivariada via teste Wald
 <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
 </center>
 
----
 
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
 
