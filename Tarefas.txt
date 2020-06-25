@@ -1,0 +1,49 @@
+TAREFAS
+
+-------------------------------------------------------
+Mestrado
+-------------------------------------------------------
+
+MANOVA
+ - Por que fazer um teste multivariado?
+ - Comparar minha função com a versão atual do pacote.
+ - Implementar ANOVA e MANOVA dos tipos II e III.
+ - Implementar ANOVA e MANOVA para parametros de dispersão e potência.
+ - Tendo as funções prontas, desenhar o estudo de simulação.
+
+-------------------------------------------------------
+
+Linear Hypothesis
+ - Estudar construção da matriz de hipóteses.
+ - Abrir a função linear.hypothesis e descobrir como é feita a matriz internamente.
+ - Com uma função dessa podemos desenvolver um procedimento para comparações múltiplas.
+
+-------------------------------------------------------
+
+Teste score
+ - Estudar teste score.
+ - Combinações da matriz G e F para maximizar a estatística de teste.
+
+-------------------------------------------------------
+
+Análise do dataset Tissei
+
+ - Macroinstruções geram microinstruções
+ - Microinstruções são executadas em diferentes portas
+ - As instruções levam tempos diferentes de execução (latências)
+ - Existe associação entre o uso de determinadas portas e as latências
+ - Variáveis explicativas: portas (numero de vezes que foi usada)
+ - Variáveis resposta: latência mínima e máxima (em ciclos, então é contagem)
+
+
+ - Remover portas 237, 015, 5, 01 e 6.
+ - Manter a 0 (talvez binária).
+ - Manter lock.
+ - Segment manter como binária.
+ - Remover set_rex e mem_xchg.
+ - Bruno vai verificar quantas vezes cada instrução é usada.
+ - Restringir a latência e ajustar modelos.
+ - Analisar a segunda base de instruções.
+
+-------------------------------------------------------
+ 
