@@ -1,0 +1,280 @@
+---
+output:
+  html_document: 
+    type: inverse
+    # Sumário
+    toc: true 
+    toc_depth: 3 # Profundidade do sumário                   
+    toc_float:                      
+      collapsed: true # Sumário flutuante (lateral)
+    
+#    number_sections: true # Seções numeradas
+    
+    # Aparência
+    theme: flatly
+    # Temas possíveis:
+    # default,cerulean,journal,flatly,readable,spacelab,
+    # united,cosmo,lumen,paper,sandstone,simplex,yeti
+    
+    # Códigos R no texto
+#    highlight: espresso
+    # Temas possíveis:
+    # default, tango, pygments, kate, monochrome, 
+    # espresso, zenburn, haddock, and textmate
+    #css: styles.css                
+    
+    # Configurações globais de imagens
+    fig_width: 7  # Largura                  
+    fig_height: 6 # Altura                  
+    fig_caption: true # Legenda              
+    fig_align: 'center' # Posição
+
+bibliography: refs.bib
+
+    # Esconder o código
+#    code_folding: hide 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+<center>
+<font size="6"> 
+<p align=”center”> <b> Teste Wald </b> </center>
+</font>
+</center>
+
+---
+
+<font size="4"> 
+<p align=”center”> [Lineu Alberto Cavazani de Freitas](https://lineu96.github.io/st/) </center>
+</font> 
+
+---
+
+# Introdução
+
+O teste Wald é um teste de hipóteses amplamente difundido para análises de Modelos Lineares e Modelos Lineares Generalizados para verificar suposições sobre os parâmetros do modelo, isto é, verifcar se a estimativa do parâmetro é ou não estatísticamente igual a um valor qualquer.
+
+A grosso modo, é um teste que avalia a distância entre a estimativa do parâmetro e o valor postulado sob a hipótese nula. Esta diferença é ainda ponderada por uma medida de precisão da estimativa do modelo. Quanto mais distante de 0 for o valor da distância ponderada, menor é a chance da hipótese de igualdade ser verdadeira, ou seja, do valor postulado ser igual ao valor estimado.
+
+O teste utiliza distribuição assintótica Qui-quadrado ( $\chi^2$ ) para verificar a validade das hipóteses e determinar significância estatística. Além disso, é possível utilizar testes do tipo Wald para geração de quadros de Análise de Variância (ANOVA).
+
+---
+
+Neste material serão tratados os seguintes assuntos:
+
+ - Tipos de hipóteses que podem ser testadas via teste Wald e diferentes notações para especificar as hipóteses.
+ 
+ - Teste de Wald para um único parâmetro: suposições, hipóteses, estatísticas de teste e distribuição da estatística de teste.
+
+ - Teste de Wald para múltiplos parâmetros: suposições, hipóteses, estatística de teste e distribuição da estatística de teste.
+ 
+---
+
+# Hipóteses
+
+As hipóteses de interesse em que há possibilidade de se aplicar o teste Wald são do tipo:
+
+$$H_0: \boldsymbol{\beta} = \boldsymbol{\beta^*} \ vs \ H_1: \boldsymbol{\beta} \neq \boldsymbol{\beta^*}.$$ 
+
+Em que $\boldsymbol{\beta}$ pode representar um único ou vários parâmetros de regressão a serem testados simultaneamente e $\boldsymbol{\beta^*}$ é um valor ou vetor de valores que desejamos comparar com as estimativas do modelo, isto é, sob hipótese nula.
+
+---
+
+Uma forma alternativa de se escrever as hipóteses é:
+
+$$H_0: \boldsymbol{L}\boldsymbol{\beta} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L}\boldsymbol{\beta} \neq \boldsymbol{c}.$$ 
+
+Em que $\boldsymbol{L}$ é uma matriz que especifica quais parâmetros serão testados. Seu número de linhas é o número de parâmetros a serem testados ($s$) e o número de colunas é o mesmo que o número de parâmetros do modelo ($k$). $\boldsymbol{\beta}$ é o vetor completo de parâmetros estimados no modelo, ou seja, é um vetor de $k$ elementos. E $\boldsymbol{c}$ é um vetor de valores a serem confrontados com as estimativas originais do modelo, com dimensão $s$.
+
+Sendo assim, $\boldsymbol{L}$ tem dimensão $s \times k$, $\boldsymbol{\beta}$ tem dimensão $k \times 1$ e o produto $\boldsymbol{L\beta}$ tem dimensão $s \times 1$, bem como $\boldsymbol{c}$.
+
+---
+
+## Exemplos
+
+Para fins de ilustração, considere um modelo qualquer com preditor dado por:
+
+$$g(\mu) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3$$
+
+---
+
+### Hipóteses para um parâmetro 
+
+Podemos estar interessados em testar um único parâmetro, isto é, uma hipótese como:
+
+$$H_0: \beta_1 = 0 \ vs \ H_1: \beta_1 \neq 0.$$ 
+
+Ou seja, estaríamos verificando se há evidência suficiente para afirmar que o parâmetro $\beta_1$ é igual a 0.
+
+---
+
+Esta mesma hipótese pode ser escrita na notação genérica $\boldsymbol{L\beta} = \boldsymbol{c}$, as hipóteses de interesse são:
+
+$$H_0: \boldsymbol{L\beta} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L\beta} \neq \boldsymbol{c}.$$ 
+
+Sendo assim:
+
+ - $\boldsymbol{L}$ = $\begin{bmatrix} 0 & 1 & 0 & 0 \end{bmatrix}$, uma matriz 1x4.
+ 
+ - $\boldsymbol{\beta}$ = $\begin{bmatrix} \beta_0\\  \beta_1\\  \beta_2\\  \beta_3 \end{bmatrix}$, uma matriz 4x1.
+ 
+ - $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}$, uma matriz 1x1.
+ 
+Note que as dimensões são compatíveis e o resultado do produto é o mesmo que o da notação $\boldsymbol{\beta} = \boldsymbol{\beta^*}$.
+
+---
+
+### Hipóteses para múltiplos parâmetros
+
+Considerando o mesmo preditor, podemos estar interessados em testar mais de um parâmetro ao mesmo tempo, por exemplo:
+
+$$H_0: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+0 \\ 
+0 \\ 
+0
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+0 \\ 
+0 \\ 
+0
+\end{pmatrix}.$$
+
+Neste caso, teríamos interesse em verificar se, simultâneamente, os parâmetros $\beta_1$, $\beta_2$ e $\beta_3$ são iguais a 0.
+
+---
+
+Esta mesma hipótese, para múltiplos parâmetros, na notação genérica $\boldsymbol{L\beta} = \boldsymbol{c}$, fica da seguinte forma:
+
+$$H_0: \boldsymbol{L\beta} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L\beta} \neq \boldsymbol{c}.$$ 
+
+Em que:
+
+ - $\boldsymbol{L}$ = $\begin{bmatrix} 0 & 1 & 0 & 0\\ 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 1\end{bmatrix}$, é uma matriz 3x4 (estamos testando 3 parâmetros e possuímos 4 ao todo).
+ 
+ - $\boldsymbol{\beta}$ = $\begin{bmatrix} \beta_0\\  \beta_1\\  \beta_2\\  \beta_3 \end{bmatrix}$, é um vetor 4x1.
+ 
+ - $\boldsymbol{c}$ = $\begin{bmatrix} 0\\  0\\  0 \end{bmatrix}$, é um vetor 3x1.
+ 
+Note que as dimensões são compatíveis e o resultado do produto é o mesmo que o da notação $\boldsymbol{\beta} = \boldsymbol{\beta^*}$.
+
+---
+
+## Observação
+
+Em geral, ao realizar este tipo de teste há interesse em confrontar o valor dos parâmetros estimados com 0, isto é, não é incomum utilizar vetores nulos como $\boldsymbol{\beta^*}$ ou $\boldsymbol{c}$. Pois desse modo podemos testar se existe evidência para afirmar que o parâmetro estimado é estatisticamente igual a 0. E caso haja evidência de que o parâmetro seja igual a 0, significa que ele não é relevante no modelo, ou seja, não tem efeito significativo.
+
+---
+
+Contudo podemos realizar testes com quaisquer outros valores, por exemplo:
+
+$$H_0: \beta_1 = 2 \ vs \ H_1: \beta_1 \neq 2.$$ 
+
+Ou, para múltiplos parâmetros simultaneamente:
+
+$$H_0: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+2 \\ 
+5 \\ 
+8
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_2 \\ 
+\beta_3
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+2 \\ 
+5 \\ 
+8
+\end{pmatrix}.$$
+
+---
+
+Além disso, existem outros testes para verificar tais tipos de hipótese. Os mais famosos são o Teste da Razão de Verossimilhanças e o Teste Escore.
+
+Contudo o teste Wald é famoso pela sua simplicidade pois baseia-se na distribuição assintótica Normal dos estimadores dos parâmetros do modelo e para sua execução necessitamos apenas da estimativa do parâmetro e seu erro padrão (raiz da variância), geralmente obtido pela matriz de variâncias e covariâncias dos parâmetros do modelo.
+
+---
+
+# Teste Wald para um único parâmetro
+
+Seja $\beta_j$ um parâmetro qualquer de um modelo de regressão e $\hat\beta_j$ a estimativa deste parâmetro, sabemos que $\hat\beta_j$ segue distribuição Normal com média $\beta_j$ e variância dada pelo correspondente termo da diagonal da matriz de variâncias e covariâncias, isto é:
+
+$$\hat\beta_j \sim Normal(\beta_j, Var(\hat\beta_j)).$$
+
+Neste cenário, a hipótese a ser testada para um único parâmetro, fica da seguinte forma:
+
+$$H_0: \beta_j = \beta_j^* \\H_1: \beta_j \neq \beta_j^*$$
+
+A estatística de teste do tipo Wald para verificar a hipótese é dada por:
+
+$$W = \frac{(\hat\beta_j - \beta_j^*)^2}{Var(\hat\beta_j)}.$$
+
+A estatística $W$ segue distribuição assintótica Qui-quadrado com 1 grau de liberdade ($\chi^2_1$). Outra versão comum utilizada é a raiz quadrada da estatística original, dada por:
+
+$$\sqrt{W} = \frac{\hat\beta_j - \beta_j^*}{ep(\hat\beta_j)}.$$
+
+Neste caso, a estatística de teste segue distribuição assintótica Normal Padrão (média 0 e desvio padrão 1).
+
+---
+
+# Teste Wald para múltiplos parâmetros
+
+Sabemos que, a estimativa de qualquer parâmetro do modelo segue distribuição Normal em que a média é dada pelo valor verdadeiro do parâmetro e a variância é dada pela variância da estimativa.
+
+Para testar a hipótese de que diversos parâmetros são, ao mesmo tempo, iguais a um vetor de valores postulados, é mais conveniente utilizar a notação $\boldsymbol{L\beta} = \boldsymbol{c}$. Deste modo, as hipóteses são dadas por:
+
+$$H_0: \boldsymbol{L\beta} = \boldsymbol{c} \\H_1: \boldsymbol{L\beta} \neq \boldsymbol{c}$$
+
+A generalização da estatística de teste para verificar a validade desta hipótese é dada por:
+
+$$W = (\boldsymbol{L\hat\beta} - \boldsymbol{c})^T \ (\boldsymbol{L \ vcov(\hat\beta) \ L^T})^{-1} \ (\boldsymbol{L\hat\beta} - \boldsymbol{c}).$$
+
+Em que $\boldsymbol{L}$ é a mesma matriz que especifica as hipóteses testadas na notação alternativa $\boldsymbol{L\beta} = \boldsymbol{c}$, tem dimensão $s \times k$ e define quais parâmetros estão sendo testados. $\boldsymbol{\hat\beta}$ é o vetor de dimensão $k \times 1$ com todos os parâmetros de regressão do modelo. $\boldsymbol{c}$ é um vetor de dimensão $s \times 1$ com os valores sob hipótese nula. E $\boldsymbol{vcov(\hat\beta)}$ é a matriz de variâncias e covariâncias das estimativas dos parâmetros, de dimensão $k \times k$. 
+
+É simples verificar que todas as matrizes são compatíveis e, especificando corretamente a matriz $\boldsymbol{L}$, é possível testar também hipóteses sobre parâmetros individuais. 
+
+Independente do número de parâmetros testados, a estatística de teste $W$ é um único valor que segue assintóticamente distribuição $\chi^2$. Quanto aos graus de liberdade, existem duas possibilidades: a primeira é considerar como graus de liberdade o número de parâmetros testados, isto é, o número de linhas da matriz $\boldsymbol{L}$, denotado por $s$. A segunda possibilidade é utilizar a diferença entre o tamanho amostral e o número de parâmetros do modelo, ou seja, $N-k$.
+
+---
+
+<center>
+<table><tr>
+<td> <img src="img/dsbd.png" alt="Drawing" style="width: 250px;"/> </td>
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+<td> <img src="img/ufpr.jpg" alt="Drawing" style="width: 200px;"/> </td>
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+</center>
+
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
+

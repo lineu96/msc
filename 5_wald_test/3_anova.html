@@ -12,7 +12,7 @@
 
 
 
-<title>1_mcglm.utf8.md</title>
+<title>3_anova.utf8.md</title>
 
 <script>/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
 !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.3",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:"",length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0>a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0>a?b:0);return this.pushStack(c>=0&&b>c?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for("boolean"==typeof g&&(j=g,g=arguments[h]||{},h++),"object"==typeof g||m.isFunction(g)||(g={}),h===i&&(g=this,h--);i>h;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&&(j&&c&&(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&&m.isArray(a)?a:[]):f=a&&m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&&(g[d]=c));return g},m.extend({expando:"jQuery"+(l+Math.random()).replace(/\D/g,""),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return"function"===m.type(a)},isArray:Array.isArray||function(a){return"array"===m.type(a)},isWindow:function(a){return null!=a&&a==a.window},isNumeric:function(a){return!m.isArray(a)&&a-parseFloat(a)+1>=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||"object"!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&&!j.call(a,"constructor")&&!j.call(a.constructor.prototype,"isPrototypeOf"))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+"":"object"==typeof a||"function"==typeof a?h[i.call(a)]||"object":typeof a},globalEval:function(b){b&&m.trim(b)&&(a.execScript||function(b){a.eval.call(a,b)})(b)},camelCase:function(a){return a.replace(o,"ms-").replace(p,q)},nodeName:function(a,b){return a.nodeName&&a.nodeName.toLowerCase()===b.toLowerCase()},each:function(a,b,c){var d,e=0,f=a.length,g=r(a);if(c){if(g){for(;f>e;e++)if(d=b.apply(a[e],c),d===!1)break}else for(e in a)if(d=b.apply(a[e],c),d===!1)break}else if(g){for(;f>e;e++)if(d=b.call(a[e],e,a[e]),d===!1)break}else for(e in a)if(d=b.call(a[e],e,a[e]),d===!1)break;return a},trim:function(a){return null==a?"":(a+"").replace(n,"")},makeArray:function(a,b){var c=b||[];return null!=a&&(r(Object(a))?m.merge(c,"string"==typeof a?[a]:a):f.call(c,a)),c},inArray:function(a,b,c){var d;if(b){if(g)return g.call(b,a,c);for(d=b.length,c=c?0>c?Math.max(0,d+c):c:0;d>c;c++)if(c in b&&b[c]===a)return c}return-1},merge:function(a,b){var c=+b.length,d=0,e=a.length;while(c>d)a[e++]=b[d++];if(c!==c)while(void 0!==b[d])a[e++]=b[d++];return a.length=e,a},grep:function(a,b,c){for(var d,e=[],f=0,g=a.length,h=!c;g>f;f++)d=!b(a[f],f),d!==h&&e.push(a[f]);return e},map:function(a,b,c){var d,f=0,g=a.length,h=r(a),i=[];if(h)for(;g>f;f++)d=b(a[f],f,c),null!=d&&i.push(d);else for(f in a)d=b(a[f],f,c),null!=d&&i.push(d);return e.apply([],i)},guid:1,proxy:function(a,b){var c,e,f;return"string"==typeof b&&(f=a[b],b=a,a=f),m.isFunction(a)?(c=d.call(arguments,2),e=function(){return a.apply(b||this,c.concat(d.call(arguments)))},e.guid=a.guid=a.guid||m.guid++,e):void 0},now:function(){return+new Date},support:k}),m.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(a,b){h["[object "+b+"]"]=b.toLowerCase()});function r(a){var b="length"in a&&a.length,c=m.type(a);return"function"===c||m.isWindow(a)?!1:1===a.nodeType&&b?!0:"array"===c||0===b||"number"==typeof b&&b>0&&b-1 in a}var s=function(a){var b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u="sizzle"+1*new Date,v=a.document,w=0,x=0,y=ha(),z=ha(),A=ha(),B=function(a,b){return a===b&&(l=!0),0},C=1<<31,D={}.hasOwnProperty,E=[],F=E.pop,G=E.push,H=E.push,I=E.slice,J=function(a,b){for(var c=0,d=a.length;d>c;c++)if(a[c]===b)return c;return-1},K="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",L="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",N=M.replace("w","w#"),O="\\["+L+"*("+M+")(?:"+L+"*([*^$|!~]?=)"+L+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+N+"))|)"+L+"*\\]",P=":("+M+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+O+")*)|.*)\\)|)",Q=new RegExp(L+"+","g"),R=new RegExp("^"+L+"+|((?:^|[^\\\\])(?:\\\\.)*)"+L+"+$","g"),S=new RegExp("^"+L+"*,"+L+"*"),T=new RegExp("^"+L+"*([>+~]|"+L+")"+L+"*"),U=new RegExp("="+L+"*([^\\]'\"]*?)"+L+"*\\]","g"),V=new RegExp(P),W=new RegExp("^"+N+"$"),X={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+O),PSEUDO:new RegExp("^"+P),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+L+"*(even|odd|(([+-]|)(\\d*)n|)"+L+"*(?:([+-]|)"+L+"*(\\d+)|))"+L+"*\\)|)","i"),bool:new RegExp("^(?:"+K+")$","i"),needsContext:new RegExp("^"+L+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+L+"*((?:-\\d)?\\d*)"+L+"*\\)|)(?=[^-]|$)","i")},Y=/^(?:input|select|textarea|button)$/i,Z=/^h\d$/i,$=/^[^{]+\{\s*\[native \w/,_=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,aa=/[+~]/,ba=/'|\\/g,ca=new RegExp("\\\\([\\da-f]{1,6}"+L+"?|("+L+")|.)","ig"),da=function(a,b,c){var d="0x"+b-65536;return d!==d||c?b:0>d?String.fromCharCode(d+65536):String.fromCharCode(d>>10|55296,1023&d|56320)},ea=function(){m()};try{H.apply(E=I.call(v.childNodes),v.childNodes),E[v.childNodes.length].nodeType}catch(fa){H={apply:E.length?function(a,b){G.apply(a,I.call(b))}:function(a,b){var c=a.length,d=0;while(a[c++]=b[d++]);a.length=c-1}}}function ga(a,b,d,e){var f,h,j,k,l,o,r,s,w,x;if((b?b.ownerDocument||b:v)!==n&&m(b),b=b||n,d=d||[],k=b.nodeType,"string"!=typeof a||!a||1!==k&&9!==k&&11!==k)return d;if(!e&&p){if(11!==k&&(f=_.exec(a)))if(j=f[1]){if(9===k){if(h=b.getElementById(j),!h||!h.parentNode)return d;if(h.id===j)return d.push(h),d}else if(b.ownerDocument&&(h=b.ownerDocument.getElementById(j))&&t(b,h)&&h.id===j)return d.push(h),d}else{if(f[2])return H.apply(d,b.getElementsByTagName(a)),d;if((j=f[3])&&c.getElementsByClassName)return H.apply(d,b.getElementsByClassName(j)),d}if(c.qsa&&(!q||!q.test(a))){if(s=r=u,w=b,x=1!==k&&a,1===k&&"object"!==b.nodeName.toLowerCase()){o=g(a),(r=b.getAttribute("id"))?s=r.replace(ba,"\\$&"):b.setAttribute("id",s),s="[id='"+s+"'] ",l=o.length;while(l--)o[l]=s+ra(o[l]);w=aa.test(a)&&pa(b.parentNode)||b,x=o.join(",")}if(x)try{return H.apply(d,w.querySelectorAll(x)),d}catch(y){}finally{r||b.removeAttribute("id")}}}return i(a.replace(R,"$1"),b,d,e)}function ha(){var a=[];function b(c,e){return a.push(c+" ")>d.cacheLength&&delete b[a.shift()],b[c+" "]=e}return b}function ia(a){return a[u]=!0,a}function ja(a){var b=n.createElement("div");try{return!!a(b)}catch(c){return!1}finally{b.parentNode&&b.parentNode.removeChild(b),b=null}}function ka(a,b){var c=a.split("|"),e=a.length;while(e--)d.attrHandle[c[e]]=b}function la(a,b){var c=b&&a,d=c&&1===a.nodeType&&1===b.nodeType&&(~b.sourceIndex||C)-(~a.sourceIndex||C);if(d)return d;if(c)while(c=c.nextSibling)if(c===b)return-1;return a?1:-1}function ma(a){return function(b){var c=b.nodeName.toLowerCase();return"input"===c&&b.type===a}}function na(a){return function(b){var c=b.nodeName.toLowerCase();return("input"===c||"button"===c)&&b.type===a}}function oa(a){return ia(function(b){return b=+b,ia(function(c,d){var e,f=a([],c.length,b),g=f.length;while(g--)c[e=f[g]]&&(c[e]=!(d[e]=c[e]))})})}function pa(a){return a&&"undefined"!=typeof a.getElementsByTagName&&a}c=ga.support={},f=ga.isXML=function(a){var b=a&&(a.ownerDocument||a).documentElement;return b?"HTML"!==b.nodeName:!1},m=ga.setDocument=function(a){var b,e,g=a?a.ownerDocument||a:v;return g!==n&&9===g.nodeType&&g.documentElement?(n=g,o=g.documentElement,e=g.defaultView,e&&e!==e.top&&(e.addEventListener?e.addEventListener("unload",ea,!1):e.attachEvent&&e.attachEvent("onunload",ea)),p=!f(g),c.attributes=ja(function(a){return a.className="i",!a.getAttribute("className")}),c.getElementsByTagName=ja(function(a){return a.appendChild(g.createComment("")),!a.getElementsByTagName("*").length}),c.getElementsByClassName=$.test(g.getElementsByClassName),c.getById=ja(function(a){return o.appendChild(a).id=u,!g.getElementsByName||!g.getElementsByName(u).length}),c.getById?(d.find.ID=function(a,b){if("undefined"!=typeof b.getElementById&&p){var c=b.getElementById(a);return c&&c.parentNode?[c]:[]}},d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){return a.getAttribute("id")===b}}):(delete d.find.ID,d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){var c="undefined"!=typeof a.getAttributeNode&&a.getAttributeNode("id");return c&&c.value===b}}),d.find.TAG=c.getElementsByTagName?function(a,b){return"undefined"!=typeof b.getElementsByTagName?b.getElementsByTagName(a):c.qsa?b.querySelectorAll(a):void 0}:function(a,b){var c,d=[],e=0,f=b.getElementsByTagName(a);if("*"===a){while(c=f[e++])1===c.nodeType&&d.push(c);return d}return f},d.find.CLASS=c.getElementsByClassName&&function(a,b){return p?b.getElementsByClassName(a):void 0},r=[],q=[],(c.qsa=$.test(g.querySelectorAll))&&(ja(function(a){o.appendChild(a).innerHTML="<a id='"+u+"'></a><select id='"+u+"-\f]' msallowcapture=''><option selected=''></option></select>",a.querySelectorAll("[msallowcapture^='']").length&&q.push("[*^$]="+L+"*(?:''|\"\")"),a.querySelectorAll("[selected]").length||q.push("\\["+L+"*(?:value|"+K+")"),a.querySelectorAll("[id~="+u+"-]").length||q.push("~="),a.querySelectorAll(":checked").length||q.push(":checked"),a.querySelectorAll("a#"+u+"+*").length||q.push(".#.+[+~]")}),ja(function(a){var b=g.createElement("input");b.setAttribute("type","hidden"),a.appendChild(b).setAttribute("name","D"),a.querySelectorAll("[name=d]").length&&q.push("name"+L+"*[*^$|!~]?="),a.querySelectorAll(":enabled").length||q.push(":enabled",":disabled"),a.querySelectorAll("*,:x"),q.push(",.*:")})),(c.matchesSelector=$.test(s=o.matches||o.webkitMatchesSelector||o.mozMatchesSelector||o.oMatchesSelector||o.msMatchesSelector))&&ja(function(a){c.disconnectedMatch=s.call(a,"div"),s.call(a,"[s!='']:x"),r.push("!=",P)}),q=q.length&&new RegExp(q.join("|")),r=r.length&&new RegExp(r.join("|")),b=$.test(o.compareDocumentPosition),t=b||$.test(o.contains)?function(a,b){var c=9===a.nodeType?a.documentElement:a,d=b&&b.parentNode;return a===d||!(!d||1!==d.nodeType||!(c.contains?c.contains(d):a.compareDocumentPosition&&16&a.compareDocumentPosition(d)))}:function(a,b){if(b)while(b=b.parentNode)if(b===a)return!0;return!1},B=b?function(a,b){if(a===b)return l=!0,0;var d=!a.compareDocumentPosition-!b.compareDocumentPosition;return d?d:(d=(a.ownerDocument||a)===(b.ownerDocument||b)?a.compareDocumentPosition(b):1,1&d||!c.sortDetached&&b.compareDocumentPosition(a)===d?a===g||a.ownerDocument===v&&t(v,a)?-1:b===g||b.ownerDocument===v&&t(v,b)?1:k?J(k,a)-J(k,b):0:4&d?-1:1)}:function(a,b){if(a===b)return l=!0,0;var c,d=0,e=a.parentNode,f=b.parentNode,h=[a],i=[b];if(!e||!f)return a===g?-1:b===g?1:e?-1:f?1:k?J(k,a)-J(k,b):0;if(e===f)return la(a,b);c=a;while(c=c.parentNode)h.unshift(c);c=b;while(c=c.parentNode)i.unshift(c);while(h[d]===i[d])d++;return d?la(h[d],i[d]):h[d]===v?-1:i[d]===v?1:0},g):n},ga.matches=function(a,b){return ga(a,null,null,b)},ga.matchesSelector=function(a,b){if((a.ownerDocument||a)!==n&&m(a),b=b.replace(U,"='$1']"),!(!c.matchesSelector||!p||r&&r.test(b)||q&&q.test(b)))try{var d=s.call(a,b);if(d||c.disconnectedMatch||a.document&&11!==a.document.nodeType)return d}catch(e){}return ga(b,n,null,[a]).length>0},ga.contains=function(a,b){return(a.ownerDocument||a)!==n&&m(a),t(a,b)},ga.attr=function(a,b){(a.ownerDocument||a)!==n&&m(a);var e=d.attrHandle[b.toLowerCase()],f=e&&D.call(d.attrHandle,b.toLowerCase())?e(a,b,!p):void 0;return void 0!==f?f:c.attributes||!p?a.getAttribute(b):(f=a.getAttributeNode(b))&&f.specified?f.value:null},ga.error=function(a){throw new Error("Syntax error, unrecognized expression: "+a)},ga.uniqueSort=function(a){var b,d=[],e=0,f=0;if(l=!c.detectDuplicates,k=!c.sortStable&&a.slice(0),a.sort(B),l){while(b=a[f++])b===a[f]&&(e=d.push(f));while(e--)a.splice(d[e],1)}return k=null,a},e=ga.getText=function(a){var b,c="",d=0,f=a.nodeType;if(f){if(1===f||9===f||11===f){if("string"==typeof a.textContent)return a.textContent;for(a=a.firstChild;a;a=a.nextSibling)c+=e(a)}else if(3===f||4===f)return a.nodeValue}else while(b=a[d++])c+=e(b);return c},d=ga.selectors={cacheLength:50,createPseudo:ia,match:X,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(a){return a[1]=a[1].replace(ca,da),a[3]=(a[3]||a[4]||a[5]||"").replace(ca,da),"~="===a[2]&&(a[3]=" "+a[3]+" "),a.slice(0,4)},CHILD:function(a){return a[1]=a[1].toLowerCase(),"nth"===a[1].slice(0,3)?(a[3]||ga.error(a[0]),a[4]=+(a[4]?a[5]+(a[6]||1):2*("even"===a[3]||"odd"===a[3])),a[5]=+(a[7]+a[8]||"odd"===a[3])):a[3]&&ga.error(a[0]),a},PSEUDO:function(a){var b,c=!a[6]&&a[2];return X.CHILD.test(a[0])?null:(a[3]?a[2]=a[4]||a[5]||"":c&&V.test(c)&&(b=g(c,!0))&&(b=c.indexOf(")",c.length-b)-c.length)&&(a[0]=a[0].slice(0,b),a[2]=c.slice(0,b)),a.slice(0,3))}},filter:{TAG:function(a){var b=a.replace(ca,da).toLowerCase();return"*"===a?function(){return!0}:function(a){return a.nodeName&&a.nodeName.toLowerCase()===b}},CLASS:function(a){var b=y[a+" "];return b||(b=new RegExp("(^|"+L+")"+a+"("+L+"|$)"))&&y(a,function(a){return b.test("string"==typeof a.className&&a.className||"undefined"!=typeof a.getAttribute&&a.getAttribute("class")||"")})},ATTR:function(a,b,c){return function(d){var e=ga.attr(d,a);return null==e?"!="===b:b?(e+="","="===b?e===c:"!="===b?e!==c:"^="===b?c&&0===e.indexOf(c):"*="===b?c&&e.indexOf(c)>-1:"$="===b?c&&e.slice(-c.length)===c:"~="===b?(" "+e.replace(Q," ")+" ").indexOf(c)>-1:"|="===b?e===c||e.slice(0,c.length+1)===c+"-":!1):!0}},CHILD:function(a,b,c,d,e){var f="nth"!==a.slice(0,3),g="last"!==a.slice(-4),h="of-type"===b;return 1===d&&0===e?function(a){return!!a.parentNode}:function(b,c,i){var j,k,l,m,n,o,p=f!==g?"nextSibling":"previousSibling",q=b.parentNode,r=h&&b.nodeName.toLowerCase(),s=!i&&!h;if(q){if(f){while(p){l=b;while(l=l[p])if(h?l.nodeName.toLowerCase()===r:1===l.nodeType)return!1;o=p="only"===a&&!o&&"nextSibling"}return!0}if(o=[g?q.firstChild:q.lastChild],g&&s){k=q[u]||(q[u]={}),j=k[a]||[],n=j[0]===w&&j[1],m=j[0]===w&&j[2],l=n&&q.childNodes[n];while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if(1===l.nodeType&&++m&&l===b){k[a]=[w,n,m];break}}else if(s&&(j=(b[u]||(b[u]={}))[a])&&j[0]===w)m=j[1];else while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if((h?l.nodeName.toLowerCase()===r:1===l.nodeType)&&++m&&(s&&((l[u]||(l[u]={}))[a]=[w,m]),l===b))break;return m-=e,m===d||m%d===0&&m/d>=0}}},PSEUDO:function(a,b){var c,e=d.pseudos[a]||d.setFilters[a.toLowerCase()]||ga.error("unsupported pseudo: "+a);return e[u]?e(b):e.length>1?(c=[a,a,"",b],d.setFilters.hasOwnProperty(a.toLowerCase())?ia(function(a,c){var d,f=e(a,b),g=f.length;while(g--)d=J(a,f[g]),a[d]=!(c[d]=f[g])}):function(a){return e(a,0,c)}):e}},pseudos:{not:ia(function(a){var b=[],c=[],d=h(a.replace(R,"$1"));return d[u]?ia(function(a,b,c,e){var f,g=d(a,null,e,[]),h=a.length;while(h--)(f=g[h])&&(a[h]=!(b[h]=f))}):function(a,e,f){return b[0]=a,d(b,null,f,c),b[0]=null,!c.pop()}}),has:ia(function(a){return function(b){return ga(a,b).length>0}}),contains:ia(function(a){return a=a.replace(ca,da),function(b){return(b.textContent||b.innerText||e(b)).indexOf(a)>-1}}),lang:ia(function(a){return W.test(a||"")||ga.error("unsupported lang: "+a),a=a.replace(ca,da).toLowerCase(),function(b){var c;do if(c=p?b.lang:b.getAttribute("xml:lang")||b.getAttribute("lang"))return c=c.toLowerCase(),c===a||0===c.indexOf(a+"-");while((b=b.parentNode)&&1===b.nodeType);return!1}}),target:function(b){var c=a.location&&a.location.hash;return c&&c.slice(1)===b.id},root:function(a){return a===o},focus:function(a){return a===n.activeElement&&(!n.hasFocus||n.hasFocus())&&!!(a.type||a.href||~a.tabIndex)},enabled:function(a){return a.disabled===!1},disabled:function(a){return a.disabled===!0},checked:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&!!a.checked||"option"===b&&!!a.selected},selected:function(a){return a.parentNode&&a.parentNode.selectedIndex,a.selected===!0},empty:function(a){for(a=a.firstChild;a;a=a.nextSibling)if(a.nodeType<6)return!1;return!0},parent:function(a){return!d.pseudos.empty(a)},header:function(a){return Z.test(a.nodeName)},input:function(a){return Y.test(a.nodeName)},button:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&"button"===a.type||"button"===b},text:function(a){var b;return"input"===a.nodeName.toLowerCase()&&"text"===a.type&&(null==(b=a.getAttribute("type"))||"text"===b.toLowerCase())},first:oa(function(){return[0]}),last:oa(function(a,b){return[b-1]}),eq:oa(function(a,b,c){return[0>c?c+b:c]}),even:oa(function(a,b){for(var c=0;b>c;c+=2)a.push(c);return a}),odd:oa(function(a,b){for(var c=1;b>c;c+=2)a.push(c);return a}),lt:oa(function(a,b,c){for(var d=0>c?c+b:c;--d>=0;)a.push(d);return a}),gt:oa(function(a,b,c){for(var d=0>c?c+b:c;++d<b;)a.push(d);return a})}},d.pseudos.nth=d.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})d.pseudos[b]=ma(b);for(b in{submit:!0,reset:!0})d.pseudos[b]=na(b);function qa(){}qa.prototype=d.filters=d.pseudos,d.setFilters=new qa,g=ga.tokenize=function(a,b){var c,e,f,g,h,i,j,k=z[a+" "];if(k)return b?0:k.slice(0);h=a,i=[],j=d.preFilter;while(h){(!c||(e=S.exec(h)))&&(e&&(h=h.slice(e[0].length)||h),i.push(f=[])),c=!1,(e=T.exec(h))&&(c=e.shift(),f.push({value:c,type:e[0].replace(R," ")}),h=h.slice(c.length));for(g in d.filter)!(e=X[g].exec(h))||j[g]&&!(e=j[g](e))||(c=e.shift(),f.push({value:c,type:g,matches:e}),h=h.slice(c.length));if(!c)break}return b?h.length:h?ga.error(a):z(a,i).slice(0)};function ra(a){for(var b=0,c=a.length,d="";c>b;b++)d+=a[b].value;return d}function sa(a,b,c){var d=b.dir,e=c&&"parentNode"===d,f=x++;return b.first?function(b,c,f){while(b=b[d])if(1===b.nodeType||e)return a(b,c,f)}:function(b,c,g){var h,i,j=[w,f];if(g){while(b=b[d])if((1===b.nodeType||e)&&a(b,c,g))return!0}else while(b=b[d])if(1===b.nodeType||e){if(i=b[u]||(b[u]={}),(h=i[d])&&h[0]===w&&h[1]===f)return j[2]=h[2];if(i[d]=j,j[2]=a(b,c,g))return!0}}}function ta(a){return a.length>1?function(b,c,d){var e=a.length;while(e--)if(!a[e](b,c,d))return!1;return!0}:a[0]}function ua(a,b,c){for(var d=0,e=b.length;e>d;d++)ga(a,b[d],c);return c}function va(a,b,c,d,e){for(var f,g=[],h=0,i=a.length,j=null!=b;i>h;h++)(f=a[h])&&(!c||c(f,d,e))&&(g.push(f),j&&b.push(h));return g}function wa(a,b,c,d,e,f){return d&&!d[u]&&(d=wa(d)),e&&!e[u]&&(e=wa(e,f)),ia(function(f,g,h,i){var j,k,l,m=[],n=[],o=g.length,p=f||ua(b||"*",h.nodeType?[h]:h,[]),q=!a||!f&&b?p:va(p,m,a,h,i),r=c?e||(f?a:o||d)?[]:g:q;if(c&&c(q,r,h,i),d){j=va(r,n),d(j,[],h,i),k=j.length;while(k--)(l=j[k])&&(r[n[k]]=!(q[n[k]]=l))}if(f){if(e||a){if(e){j=[],k=r.length;while(k--)(l=r[k])&&j.push(q[k]=l);e(null,r=[],j,i)}k=r.length;while(k--)(l=r[k])&&(j=e?J(f,l):m[k])>-1&&(f[j]=!(g[j]=l))}}else r=va(r===g?r.splice(o,r.length):r),e?e(null,g,r,i):H.apply(g,r)})}function xa(a){for(var b,c,e,f=a.length,g=d.relative[a[0].type],h=g||d.relative[" "],i=g?1:0,k=sa(function(a){return a===b},h,!0),l=sa(function(a){return J(b,a)>-1},h,!0),m=[function(a,c,d){var e=!g&&(d||c!==j)||((b=c).nodeType?k(a,c,d):l(a,c,d));return b=null,e}];f>i;i++)if(c=d.relative[a[i].type])m=[sa(ta(m),c)];else{if(c=d.filter[a[i].type].apply(null,a[i].matches),c[u]){for(e=++i;f>e;e++)if(d.relative[a[e].type])break;return wa(i>1&&ta(m),i>1&&ra(a.slice(0,i-1).concat({value:" "===a[i-2].type?"*":""})).replace(R,"$1"),c,e>i&&xa(a.slice(i,e)),f>e&&xa(a=a.slice(e)),f>e&&ra(a))}m.push(c)}return ta(m)}function ya(a,b){var c=b.length>0,e=a.length>0,f=function(f,g,h,i,k){var l,m,o,p=0,q="0",r=f&&[],s=[],t=j,u=f||e&&d.find.TAG("*",k),v=w+=null==t?1:Math.random()||.1,x=u.length;for(k&&(j=g!==n&&g);q!==x&&null!=(l=u[q]);q++){if(e&&l){m=0;while(o=a[m++])if(o(l,g,h)){i.push(l);break}k&&(w=v)}c&&((l=!o&&l)&&p--,f&&r.push(l))}if(p+=q,c&&q!==p){m=0;while(o=b[m++])o(r,s,g,h);if(f){if(p>0)while(q--)r[q]||s[q]||(s[q]=F.call(i));s=va(s)}H.apply(i,s),k&&!f&&s.length>0&&p+b.length>1&&ga.uniqueSort(i)}return k&&(w=v,j=t),r};return c?ia(f):f}return h=ga.compile=function(a,b){var c,d=[],e=[],f=A[a+" "];if(!f){b||(b=g(a)),c=b.length;while(c--)f=xa(b[c]),f[u]?d.push(f):e.push(f);f=A(a,ya(e,d)),f.selector=a}return f},i=ga.select=function(a,b,e,f){var i,j,k,l,m,n="function"==typeof a&&a,o=!f&&g(a=n.selector||a);if(e=e||[],1===o.length){if(j=o[0]=o[0].slice(0),j.length>2&&"ID"===(k=j[0]).type&&c.getById&&9===b.nodeType&&p&&d.relative[j[1].type]){if(b=(d.find.ID(k.matches[0].replace(ca,da),b)||[])[0],!b)return e;n&&(b=b.parentNode),a=a.slice(j.shift().value.length)}i=X.needsContext.test(a)?0:j.length;while(i--){if(k=j[i],d.relative[l=k.type])break;if((m=d.find[l])&&(f=m(k.matches[0].replace(ca,da),aa.test(j[0].type)&&pa(b.parentNode)||b))){if(j.splice(i,1),a=f.length&&ra(j),!a)return H.apply(e,f),e;break}}}return(n||h(a,o))(f,b,!p,e,aa.test(a)&&pa(b.parentNode)||b),e},c.sortStable=u.split("").sort(B).join("")===u,c.detectDuplicates=!!l,m(),c.sortDetached=ja(function(a){return 1&a.compareDocumentPosition(n.createElement("div"))}),ja(function(a){return a.innerHTML="<a href='#'></a>","#"===a.firstChild.getAttribute("href")})||ka("type|href|height|width",function(a,b,c){return c?void 0:a.getAttribute(b,"type"===b.toLowerCase()?1:2)}),c.attributes&&ja(function(a){return a.innerHTML="<input/>",a.firstChild.setAttribute("value",""),""===a.firstChild.getAttribute("value")})||ka("value",function(a,b,c){return c||"input"!==a.nodeName.toLowerCase()?void 0:a.defaultValue}),ja(function(a){return null==a.getAttribute("disabled")})||ka(K,function(a,b,c){var d;return c?void 0:a[b]===!0?b.toLowerCase():(d=a.getAttributeNode(b))&&d.specified?d.value:null}),ga}(a);m.find=s,m.expr=s.selectors,m.expr[":"]=m.expr.pseudos,m.unique=s.uniqueSort,m.text=s.getText,m.isXMLDoc=s.isXML,m.contains=s.contains;var t=m.expr.match.needsContext,u=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,v=/^.[^:#\[\.,]*$/;function w(a,b,c){if(m.isFunction(b))return m.grep(a,function(a,d){return!!b.call(a,d,a)!==c});if(b.nodeType)return m.grep(a,function(a){return a===b!==c});if("string"==typeof b){if(v.test(b))return m.filter(b,a,c);b=m.filter(b,a)}return m.grep(a,function(a){return m.inArray(a,b)>=0!==c})}m.filter=function(a,b,c){var d=b[0];return c&&(a=":not("+a+")"),1===b.length&&1===d.nodeType?m.find.matchesSelector(d,a)?[d]:[]:m.find.matches(a,m.grep(b,function(a){return 1===a.nodeType}))},m.fn.extend({find:function(a){var b,c=[],d=this,e=d.length;if("string"!=typeof a)return this.pushStack(m(a).filter(function(){for(b=0;e>b;b++)if(m.contains(d[b],this))return!0}));for(b=0;e>b;b++)m.find(a,d[b],c);return c=this.pushStack(e>1?m.unique(c):c),c.selector=this.selector?this.selector+" "+a:a,c},filter:function(a){return this.pushStack(w(this,a||[],!1))},not:function(a){return this.pushStack(w(this,a||[],!0))},is:function(a){return!!w(this,"string"==typeof a&&t.test(a)?m(a):a||[],!1).length}});var x,y=a.document,z=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,A=m.fn.init=function(a,b){var c,d;if(!a)return this;if("string"==typeof a){if(c="<"===a.charAt(0)&&">"===a.charAt(a.length-1)&&a.length>=3?[null,a,null]:z.exec(a),!c||!c[1]&&b)return!b||b.jquery?(b||x).find(a):this.constructor(b).find(a);if(c[1]){if(b=b instanceof m?b[0]:b,m.merge(this,m.parseHTML(c[1],b&&b.nodeType?b.ownerDocument||b:y,!0)),u.test(c[1])&&m.isPlainObject(b))for(c in b)m.isFunction(this[c])?this[c](b[c]):this.attr(c,b[c]);return this}if(d=y.getElementById(c[2]),d&&d.parentNode){if(d.id!==c[2])return x.find(a);this.length=1,this[0]=d}return this.context=y,this.selector=a,this}return a.nodeType?(this.context=this[0]=a,this.length=1,this):m.isFunction(a)?"undefined"!=typeof x.ready?x.ready(a):a(m):(void 0!==a.selector&&(this.selector=a.selector,this.context=a.context),m.makeArray(a,this))};A.prototype=m.fn,x=m(y);var B=/^(?:parents|prev(?:Until|All))/,C={children:!0,contents:!0,next:!0,prev:!0};m.extend({dir:function(a,b,c){var d=[],e=a[b];while(e&&9!==e.nodeType&&(void 0===c||1!==e.nodeType||!m(e).is(c)))1===e.nodeType&&d.push(e),e=e[b];return d},sibling:function(a,b){for(var c=[];a;a=a.nextSibling)1===a.nodeType&&a!==b&&c.push(a);return c}}),m.fn.extend({has:function(a){var b,c=m(a,this),d=c.length;return this.filter(function(){for(b=0;d>b;b++)if(m.contains(this,c[b]))return!0})},closest:function(a,b){for(var c,d=0,e=this.length,f=[],g=t.test(a)||"string"!=typeof a?m(a,b||this.context):0;e>d;d++)for(c=this[d];c&&c!==b;c=c.parentNode)if(c.nodeType<11&&(g?g.index(c)>-1:1===c.nodeType&&m.find.matchesSelector(c,a))){f.push(c);break}return this.pushStack(f.length>1?m.unique(f):f)},index:function(a){return a?"string"==typeof a?m.inArray(this[0],m(a)):m.inArray(a.jquery?a[0]:a,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(a,b){return this.pushStack(m.unique(m.merge(this.get(),m(a,b))))},addBack:function(a){return this.add(null==a?this.prevObject:this.prevObject.filter(a))}});function D(a,b){do a=a[b];while(a&&1!==a.nodeType);return a}m.each({parent:function(a){var b=a.parentNode;return b&&11!==b.nodeType?b:null},parents:function(a){return m.dir(a,"parentNode")},parentsUntil:function(a,b,c){return m.dir(a,"parentNode",c)},next:function(a){return D(a,"nextSibling")},prev:function(a){return D(a,"previousSibling")},nextAll:function(a){return m.dir(a,"nextSibling")},prevAll:function(a){return m.dir(a,"previousSibling")},nextUntil:function(a,b,c){return m.dir(a,"nextSibling",c)},prevUntil:function(a,b,c){return m.dir(a,"previousSibling",c)},siblings:function(a){return m.sibling((a.parentNode||{}).firstChild,a)},children:function(a){return m.sibling(a.firstChild)},contents:function(a){return m.nodeName(a,"iframe")?a.contentDocument||a.contentWindow.document:m.merge([],a.childNodes)}},function(a,b){m.fn[a]=function(c,d){var e=m.map(this,b,c);return"Until"!==a.slice(-5)&&(d=c),d&&"string"==typeof d&&(e=m.filter(d,e)),this.length>1&&(C[a]||(e=m.unique(e)),B.test(a)&&(e=e.reverse())),this.pushStack(e)}});var E=/\S+/g,F={};function G(a){var b=F[a]={};return m.each(a.match(E)||[],function(a,c){b[c]=!0}),b}m.Callbacks=function(a){a="string"==typeof a?F[a]||G(a):m.extend({},a);var b,c,d,e,f,g,h=[],i=!a.once&&[],j=function(l){for(c=a.memory&&l,d=!0,f=g||0,g=0,e=h.length,b=!0;h&&e>f;f++)if(h[f].apply(l[0],l[1])===!1&&a.stopOnFalse){c=!1;break}b=!1,h&&(i?i.length&&j(i.shift()):c?h=[]:k.disable())},k={add:function(){if(h){var d=h.length;!function f(b){m.each(b,function(b,c){var d=m.type(c);"function"===d?a.unique&&k.has(c)||h.push(c):c&&c.length&&"string"!==d&&f(c)})}(arguments),b?e=h.length:c&&(g=d,j(c))}return this},remove:function(){return h&&m.each(arguments,function(a,c){var d;while((d=m.inArray(c,h,d))>-1)h.splice(d,1),b&&(e>=d&&e--,f>=d&&f--)}),this},has:function(a){return a?m.inArray(a,h)>-1:!(!h||!h.length)},empty:function(){return h=[],e=0,this},disable:function(){return h=i=c=void 0,this},disabled:function(){return!h},lock:function(){return i=void 0,c||k.disable(),this},locked:function(){return!i},fireWith:function(a,c){return!h||d&&!i||(c=c||[],c=[a,c.slice?c.slice():c],b?i.push(c):j(c)),this},fire:function(){return k.fireWith(this,arguments),this},fired:function(){return!!d}};return k},m.extend({Deferred:function(a){var b=[["resolve","done",m.Callbacks("once memory"),"resolved"],["reject","fail",m.Callbacks("once memory"),"rejected"],["notify","progress",m.Callbacks("memory")]],c="pending",d={state:function(){return c},always:function(){return e.done(arguments).fail(arguments),this},then:function(){var a=arguments;return m.Deferred(function(c){m.each(b,function(b,f){var g=m.isFunction(a[b])&&a[b];e[f[1]](function(){var a=g&&g.apply(this,arguments);a&&m.isFunction(a.promise)?a.promise().done(c.resolve).fail(c.reject).progress(c.notify):c[f[0]+"With"](this===d?c.promise():this,g?[a]:arguments)})}),a=null}).promise()},promise:function(a){return null!=a?m.extend(a,d):d}},e={};return d.pipe=d.then,m.each(b,function(a,f){var g=f[2],h=f[3];d[f[1]]=g.add,h&&g.add(function(){c=h},b[1^a][2].disable,b[2][2].lock),e[f[0]]=function(){return e[f[0]+"With"](this===e?d:this,arguments),this},e[f[0]+"With"]=g.fireWith}),d.promise(e),a&&a.call(e,e),e},when:function(a){var b=0,c=d.call(arguments),e=c.length,f=1!==e||a&&m.isFunction(a.promise)?e:0,g=1===f?a:m.Deferred(),h=function(a,b,c){return function(e){b[a]=this,c[a]=arguments.length>1?d.call(arguments):e,c===i?g.notifyWith(b,c):--f||g.resolveWith(b,c)}},i,j,k;if(e>1)for(i=new Array(e),j=new Array(e),k=new Array(e);e>b;b++)c[b]&&m.isFunction(c[b].promise)?c[b].promise().done(h(b,k,c)).fail(g.reject).progress(h(b,j,i)):--f;return f||g.resolveWith(k,c),g.promise()}});var H;m.fn.ready=function(a){return m.ready.promise().done(a),this},m.extend({isReady:!1,readyWait:1,holdReady:function(a){a?m.readyWait++:m.ready(!0)},ready:function(a){if(a===!0?!--m.readyWait:!m.isReady){if(!y.body)return setTimeout(m.ready);m.isReady=!0,a!==!0&&--m.readyWait>0||(H.resolveWith(y,[m]),m.fn.triggerHandler&&(m(y).triggerHandler("ready"),m(y).off("ready")))}}});function I(){y.addEventListener?(y.removeEventListener("DOMContentLoaded",J,!1),a.removeEventListener("load",J,!1)):(y.detachEvent("onreadystatechange",J),a.detachEvent("onload",J))}function J(){(y.addEventListener||"load"===event.type||"complete"===y.readyState)&&(I(),m.ready())}m.ready.promise=function(b){if(!H)if(H=m.Deferred(),"complete"===y.readyState)setTimeout(m.ready);else if(y.addEventListener)y.addEventListener("DOMContentLoaded",J,!1),a.addEventListener("load",J,!1);else{y.attachEvent("onreadystatechange",J),a.attachEvent("onload",J);var c=!1;try{c=null==a.frameElement&&y.documentElement}catch(d){}c&&c.doScroll&&!function e(){if(!m.isReady){try{c.doScroll("left")}catch(a){return setTimeout(e,50)}I(),m.ready()}}()}return H.promise(b)};var K="undefined",L;for(L in m(k))break;k.ownLast="0"!==L,k.inlineBlockNeedsLayout=!1,m(function(){var a,b,c,d;c=y.getElementsByTagName("body")[0],c&&c.style&&(b=y.createElement("div"),d=y.createElement("div"),d.style.cssText="position:absolute;border:0;width:0;height:0;top:0;left:-9999px",c.appendChild(d).appendChild(b),typeof b.style.zoom!==K&&(b.style.cssText="display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1",k.inlineBlockNeedsLayout=a=3===b.offsetWidth,a&&(c.style.zoom=1)),c.removeChild(d))}),function(){var a=y.createElement("div");if(null==k.deleteExpando){k.deleteExpando=!0;try{delete a.test}catch(b){k.deleteExpando=!1}}a=null}(),m.acceptData=function(a){var b=m.noData[(a.nodeName+" ").toLowerCase()],c=+a.nodeType||1;return 1!==c&&9!==c?!1:!b||b!==!0&&a.getAttribute("classid")===b};var M=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,N=/([A-Z])/g;function O(a,b,c){if(void 0===c&&1===a.nodeType){var d="data-"+b.replace(N,"-$1").toLowerCase();if(c=a.getAttribute(d),"string"==typeof c){try{c="true"===c?!0:"false"===c?!1:"null"===c?null:+c+""===c?+c:M.test(c)?m.parseJSON(c):c}catch(e){}m.data(a,b,c)}else c=void 0}return c}function P(a){var b;for(b in a)if(("data"!==b||!m.isEmptyObject(a[b]))&&"toJSON"!==b)return!1;
@@ -1529,7 +1529,7 @@ div.tocify {
 <center>
 <font size="6">
 <p align="”center”">
-<b> Modelos Multivariados de Covariância Linear Generalizada </b>
+<b> Análise de Variância </b>
 </center>
 </font>
 </center>
@@ -1542,150 +1542,169 @@ div.tocify {
 <hr />
 <div id="introducao" class="section level1">
 <h1>Introdução</h1>
-<p>Os Modelos Linerares Generalizados (GLM), propostos por <span class="citation">Nelder and Wedderburn (1972)</span>, são uma forma de modelagem univariada para dados de diferentes naturezas, tais como respostas contínuas, binárias e contagens. Tais características tornam essa classe de modelos uma flexível ferramenta de modelagem aplicável a diversos tipos de problema. Contudo, por mais flexível e discutida na literatura, essa classe apresenta duas principais restrições:</p>
-<ol style="list-style-type: decimal">
-<li><p>A incapacidade de lidar com observações dependentes.</p></li>
-<li><p>E/ou a incapacidade de lidar múltiplas respostas simultaneamente.</p></li>
-</ol>
-<p>Com o objetivo de contornar estas restrições, foi proposta por <span class="citation">Bonat and Jørgensen (2016)</span>, uma estrutura geral para análise de dados não gaussianos com múltiplas respostas em que não se faz suposições quanto à independência das observações, os chamados Modelos Multivariados de Covariância Linear Generalizada (McGLM).</p>
-<hr />
-<p>Vamos discutir os McGLM como uma extensão dos GLM. Vale ressaltar que é usada uma especificação menos usual de um Modelo Linear Generalizado, porém trata-se de uma notação mais conveniente para chegar à uma especificação melhor construída de um Modelo Multivariado de Covariância Linear Generalizada.</p>
-<p>Sendo assim, neste material serão tratados os seguintes assuntos:</p>
+<p>O procedimento conhecido como Análise Variância (ANOVA) consiste em efetuar testes sucessivos impondo restrições ao modelo originalmente ajustado em que a cada passo são incluídas ou excluídas determinadas variáveis a fim de testar se a ausência de determinada variável gera perda ao modelo. Normalmente os resultados destes sucessivos testes são sumarizados numa tabela que contêm a variável, o valor de uma estatística de teste, os graus de liberdade e um p-valor referente à hipótese; o chamado quadro de Análise de Variância.</p>
+<p>Cuidados devem ser tomados com este tipo de análise no que diz respeito à forma como o quadro foi elaborado, pois cada linha do quadro refere-se a uma hipótese e estas hipóteses podem ser elaboradas de formas distintas. Formas conhecidas de se elaborar o quadro são as chamadas ANOVAs do tipo I, II e III. Esta nomenclatura vem do software estatístico SAS, contudo não se trata de uma definição consolidada e as implementações destes tipos distintos de Análise de Variância não necessariamente correspondem precisamente ao que está implementado no SAS. Recomenda-se ao usuário estar seguro de qual tipo de análise está sendo utilizada pois, caso contrário, interpretações equivocadas podem ser tomadas.</p>
+<p>Neste material serão tratados os seguintes assuntos:</p>
 <ul>
-<li><p>Especificação de um GLM.</p></li>
-<li><p>Especificação de um cGLM.</p></li>
-<li><p>Especificação de um McGLM.</p></li>
-<li><p>Estimação e inferência dos parâmetros de um McGLM.</p></li>
+<li><p>Análise de Variância: o que é, análises do tipo I, II e III.</p></li>
+<li><p>Análises de Variância via teste Wald: procedimento para obtenção de um quadro de Análise de Variância obtido por sucessivos testes do tipo Wald.</p></li>
 </ul>
 <hr />
+<p>Para fins de ilustração dos testes feitos por cada tipo de Análise de Variância, considere um modelo qualquer com preditor dado por:</p>
+<p><span class="math display">\[g(\mu) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1x_2.\]</span></p>
+<p>Temos deste modo um intercepto, denotado por <span class="math inline">\(\beta_0\)</span> e três parâmetros de regressão denotados por <span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span> e <span class="math inline">\(\beta_3\)</span>, em que <span class="math inline">\(\beta_3\)</span> representa o efeito da interação entre as variáveis <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span>.</p>
+<hr />
 </div>
-<div id="glm" class="section level1">
-<h1>GLM</h1>
-<p>Seja <span class="math inline">\(\boldsymbol{Y}\)</span> um vetor <span class="math inline">\(N \times 1\)</span> de valores observados da variável resposta, <span class="math inline">\(\boldsymbol{X}\)</span> uma matriz de delineamento <span class="math inline">\(N \times k\)</span> e <span class="math inline">\(\boldsymbol{\beta}\)</span> um vetor de parâmetros de regressão <span class="math inline">\(k \times 1\)</span>, um GLM pode ser descrito da forma</p>
-<p><span class="math display">\[\begin{equation}
-      \begin{aligned}
-        \mathrm{E}(\boldsymbol{Y}) &amp;=
-         \boldsymbol{\mu} =
-            g^{-1}(\boldsymbol{X} \boldsymbol{\beta}),
-            \\
-        \mathrm{Var}(\boldsymbol{Y}) &amp;=
-          \Sigma =
-          \mathrm{V}\left(\boldsymbol{\mu}; p\right)^{1/2}\left(\tau_0\boldsymbol{I}\right)\mathrm{V}\left(\boldsymbol{\mu}; p\right)^{1/2},
-      \end{aligned}
-\end{equation}\]</span></p>
-<p>em que <span class="math inline">\(g(.)\)</span> é a função de ligação, <span class="math inline">\(\mathrm{V}\left(\boldsymbol{\mu}; p\right)\)</span> é uma matriz diagonal em que as entradas principais são dadas pela função de variância aplicada ao vetor <span class="math inline">\(\boldsymbol{\mu}\)</span>, <span class="math inline">\(p\)</span> é o parâmetro de potência, <span class="math inline">\(\tau_0\)</span> o parâmetro de dispersão e <span class="math inline">\(\boldsymbol{I}\)</span> é a matriz identidade de ordem <span class="math inline">\(N\times N\)</span>.</p>
-<p>Os GLM fazem uso de apenas duas funções, a função de variância e de ligação. Diferentes escolhas de funções de variância implicam em diferentes suposições a respeito da distribuição da variável resposta. Dentre as funções de variância conhecidas, podemos citar:</p>
+<div id="anova-tipo-i" class="section level1">
+<h1>ANOVA tipo I</h1>
+<p>A Análise de Variância do tipo I é também chamada de Análise de Variância sequencial. Neste cenário, uma Análise de Variância sequencial faria os seguintes testes:</p>
 <ol style="list-style-type: decimal">
-<li><p>A função de variância potência, que caracteriza a família Tweedie de distribuições, em que a função de variância é dada por <span class="math inline">\(\vartheta\left(\boldsymbol{\mu}; p\right) = \mu^p\)</span>, na qual destacam-se a distribuições: Normal (<span class="math inline">\(p\)</span> = 0), Poisson (<span class="math inline">\(p\)</span> = 1), gama (<span class="math inline">\(p\)</span> = 2) e Normal inversa (<span class="math inline">\(p\)</span> = 3) <span class="citation">(Jørgensen 1987, 1997)</span>.</p></li>
-<li><p>A função de dispersão Poisson–Tweedie, a qual caracteriza a família Poisson-Tweedie de distribuições, que visa contornar a inflexibilidade da utilização da função de variância potência para respostas discretas. A família Poisson-Tweedie tem função de dispersão dada por <span class="math inline">\(\vartheta\left(\boldsymbol{\mu}; p\right) = \mu + \mu^p\)</span> e tem como casos particulares os mais famosos modelos para dados de contagem: Hermite (<span class="math inline">\(p\)</span> = 0), Neyman tipo A (<span class="math inline">\(p\)</span> = 1), binomial negativa (<span class="math inline">\(p\)</span> = 2) e Poisson–inversa gaussiana (p = <span class="math inline">\(3\)</span>) <span class="citation">(Jørgensen and Kokonendji 2015)</span>.</p></li>
-<li><p>A função de variância binomial, dada por <span class="math inline">\(\vartheta(\boldsymbol{\mu}) = \mu(1 - \mu)\)</span>, utilizada quando a variável resposta é binária, restrita a um intervalo ou quando tem-se o número de sucessos em um número de tentativas.</p></li>
+<li>Modelo apenas com <span class="math inline">\(x1\)</span> vs modelo nulo.</li>
+<li>Modelo com <span class="math inline">\(x1\)</span> e <span class="math inline">\(x2\)</span> vs modelo com <span class="math inline">\(x_1\)</span>.</li>
+<li>Modelo com <span class="math inline">\(x1\)</span>, <span class="math inline">\(x2\)</span> e interação vs modelo com <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span>.</li>
 </ol>
-<p>Lembre-se que o GLM é uma classe de modelos de regressão univariados em que um dos pressupostos é a indepenência entre as observações. Esta independência é especificada na matriz identidade no centro da equação que define a matriz de variância e covariância. Podemos imaginar que, substituindo esta matriz identidade por uma matriz qualquer que reflita a relação entre os indivíduos da amostra teremos uma extensão do Modelo Linear Generalizado para observações dependentes. É justamente essa a ideia dos Modelos de Covariância Linear Generalizada, o cGLM.</p>
+<p>Cada um destes testes seria uma linha do quadro de Análise de Variância, e recebe o nome de sequencial pois a cada linha é acrescentada uma variável e o modelo é confrontado com o modelo da linha anterior.</p>
+<p>Em geral, justamente por esta sequencialidade, se torna difícil interpretar os efeitos das variáveis pela Análise de Variância do tipo I. Em contrapartida, as análises do tipo II e III testam hipóteses que são, geralmente de maior interesse ao usuário.</p>
 <hr />
 </div>
-<div id="cglm" class="section level1">
-<h1>cGLM</h1>
-<p>Os cGLM são uma alternativa para problemas em que a suposição de independência entre as observações não é atendida. Neste caso, a solução proposta é substituir a matriz identidade <span class="math inline">\(\boldsymbol{I}\)</span> da equação que descreve a matriz de variância e covariância por uma matriz não diagonal <span class="math inline">\(\boldsymbol{\Omega({\tau})}\)</span> que descreva adequadamente a estrutura de correlação entre as observações. Trata-se de uma ideia similar à proposta de <span class="citation">Liang and Zeger (1986)</span> nos modelos GEE (Generalized Estimation Equation), em que utiliza-se uma matriz de correlação de trabalho para considerar a dependência entre as observações. A matriz <span class="math inline">\(\boldsymbol{\Omega({\tau})}\)</span> é descrita como uma combinação de matrizes conhecidas tal como nas propostas de <span class="citation">Anderson and others (1973)</span> e <span class="citation">Pourahmadi (2000)</span>, podendo ser escrita da forma</p>
-<p><span class="math display">\[\begin{equation}
-h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \ldots + \tau_DZ_D,
-\end{equation}\]</span></p>
-<p>em que <span class="math inline">\(h(.)\)</span> é a função de ligação de covariância, <span class="math inline">\(Z_d\)</span> com <span class="math inline">\(d\)</span> = 0,<span class="math inline">\(\ldots\)</span>, D são matrizes que representam a estrutura de covariância presente nos dados e <span class="math inline">\(\boldsymbol{\tau}\)</span> = <span class="math inline">\((\tau_0, \ldots, \tau_D)\)</span> é um vetor <span class="math inline">\((D + 1) \times 1\)</span> de parâmetros de dispersão. Tal estrutura pode ser vista como um análogo ao preditor linear para a média e foi nomeado como preditor linear matricial. A especificação da função de ligação de covariância é discutida por <span class="citation">Pinheiro and Bates (1996)</span> e é possível selecionar combinações de matrizes para se obter os mais conhecidos modelos da literatura para dados longitudinais, séries temporais, dados espaciais e espaço-temporais. Maiores detalhes são discutidos por <span class="citation">Demidenko (2013)</span>.</p>
-<p>Com isso, substituindo a matriz identidade pela equação do preditor linear matricial, temos uma classe com toda a flexibilidade dos GLM, porém contornando a restrição da independência entre as observações desde que o preditor linear matricial seja adequadamente especificado.</p>
-<p>Deste modo, é contornada a primeira restrição dos GLM. A segunda restrição diz respeito às múltiplas respostas e, resolvendo esta restrição, chegamos ao McGLM.</p>
+<div id="anova-tipo-ii" class="section level1">
+<h1>ANOVA tipo II</h1>
+<p>A Análise de Variância do tipo II efetua testes similares ao último teste da Análise de Variância sequencial. Em um modelo sem interação o que é feito é, em cada linha, testar o modelo completo contra o modelo sem uma variável. Deste modo se torna melhor interpretável o efeito daquela variável sobre o modelo completo.</p>
+<p>Caso haja interações no modelo, é testado o modelo completo contra o modelo sem o efeito fixo e qualquer efeito de interação que envolva a variável. Considerando o preditor exemplo, a Análise de Variância do tipo II faria os seguintes testes:</p>
+<ol style="list-style-type: decimal">
+<li>Modelo com <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> e interação vs modelo sem <span class="math inline">\(x1\)</span> e interação. Retira-se a interação pois nela há <span class="math inline">\(x_1\)</span>.</li>
+<li>Modelo com <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> e interação vs modelo sem <span class="math inline">\(x2\)</span> e interação. Do mesmo modo que no primeiro teste retira-se a interação pois nela há <span class="math inline">\(x_2\)</span>.</li>
+<li>Modelo com <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> e interação vs modelo sem a interação.</li>
+</ol>
+<p>Note que nas linhas em que se busca entender o efeito de <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x2\)</span> também a interação é excluída, pois retira-se do modelo todos os parâmetros que envolvem aquela variável.</p>
 <hr />
 </div>
-<div id="mcglm" class="section level1">
-<h1>McGLM</h1>
-<p>O McGLM pode ser entendido como uma extensão multivariada do cGLM e contorna as duas principais restrições presentes nos GLM, pois além de permitir a modelagem de dados com estrutura de covariância, permite modelar múltiplas respostas.</p>
-<p>Considre <span class="math inline">\(\boldsymbol{Y}_{N \times R} = \left \{ \boldsymbol{Y}_1, \dots, \boldsymbol{Y}_R \right \}\)</span> uma matriz de variáveis resposta e <span class="math inline">\(\boldsymbol{M}_{N \times R} = \left \{ \boldsymbol{\mu}_1, \dots, \boldsymbol{\mu}_R \right \}\)</span> uma matriz de valores esperados. Cada uma das variáveis resposta tem sua própria matriz de variância e covariância, responsável por modelar a covariância dentro de cada resposta, sendo expressa por</p>
-<p><span class="math display">\[\begin{equation}
-\Sigma_r =
-\mathrm{V}_r\left(\boldsymbol{\mu}_r; p\right)^{1/2}\boldsymbol{\Omega}_r\left(\boldsymbol{\tau}\right)\mathrm{V}_r\left(\boldsymbol{\mu}_r; p\right)^{1/2}.
-\end{equation}\]</span></p>
-<p>Além disso, é necessária uma matriz de correlação <span class="math inline">\(\Sigma_b\)</span>, de ordem <span class="math inline">\(R \times R\)</span>, que descreve a correlação entre as variáveis resposta. Para a especificação da matriz de variância e covariância conjunta é utilizado o produto Kronecker generalizado, proposto por <span class="citation">Martinez-Beneito (2013)</span>.</p>
-<p>Finalmente, um MCGLM é descrito como</p>
-<p><span class="math display">\[
-\begin{equation}
-\label{eq:mcglm}
-      \begin{aligned}
-        \mathrm{E}(\boldsymbol{Y}) &amp;=
-          \boldsymbol{M} =
-            \{g_1^{-1}(\boldsymbol{X}_1 \boldsymbol{\beta}_1),
-            \ldots,
-            g_R^{-1}(\boldsymbol{X}_R \boldsymbol{\beta}_R)\}
-          \\
-        \mathrm{Var}(\boldsymbol{Y}) &amp;=
-          \boldsymbol{C} =
-            \boldsymbol{\Sigma}_R \overset{G} \otimes
-            \boldsymbol{\Sigma}_b,
-      \end{aligned}
-\end{equation}
-\]</span> em que <span class="math inline">\(\boldsymbol{\Sigma}_R \overset{G} \otimes \boldsymbol{\Sigma}_b = \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1, \ldots, \tilde{\boldsymbol{\Sigma}}_R) (\boldsymbol{\Sigma}_b \otimes \boldsymbol{I}) \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1^\top, \ldots, \tilde{\boldsymbol{\Sigma}}_R^\top)\)</span> é o produto generalizado de Kronecker, a matriz <span class="math inline">\(\tilde{\boldsymbol{\Sigma}}_r\)</span> denota a matriz triangular inferior da decomposição de Cholesky da matriz <span class="math inline">\({\boldsymbol{\Sigma}}_r\)</span>, o operador <span class="math inline">\(\mathrm{Bdiag}\)</span> denota a matriz bloco-diagonal e <span class="math inline">\(\boldsymbol{I}\)</span> uma matriz identidade <span class="math inline">\(N \times N\)</span>.</p>
-<p>Toda metodologia do McGLM está implementada no pacote <code>mcglm</code> <span class="citation">(Bonat 2018)</span> do software estatístico R <span class="citation">(R Core Team 2018)</span>.</p>
+<div id="anova-tipo-iii" class="section level1">
+<h1>ANOVA tipo III</h1>
+<p>A Análise de Variância do tipo III funciona do mesmo modo que uma Análise de Variância do tipo II sem interações. Na Análise de Variância do tipo II são feitos testes comparando o modelo completo contra o modelo sem todos os parâmetros que envolvem determinada variável (sejam efeitos fixos ou interações). Já a Análise de Variância do tipo III considera o modelo completo contra o modelo sem determinada variável, seja ela efeito fixo ou de interação. Deste modo, cuidados devem ser tomados nas conclusões pois uma variável não ter efeito constatado como efeito fixo não quer dizer que não haverá efeito de interação.</p>
+<p>Considerando o preditor exemplo, a Análise de Variância do tipo III faria os seguintes testes:</p>
+<ol style="list-style-type: decimal">
+<li>Modelo com <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> e interação vs modelo sem <span class="math inline">\(x1\)</span>.</li>
+<li>Modelo com <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> e interação vs modelo sem <span class="math inline">\(x2\)</span>.</li>
+<li>Modelo com <span class="math inline">\(x1\)</span>, <span class="math inline">\(x2\)</span> e interação vs modelo sem a interação.</li>
+</ol>
+<p>Note que nas linhas em que se testa o efeito de <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span> mantém-se o efeito da interação, diferentemente do que é feito na Análise de Variância do tipo II.</p>
+<p>Podemos entender que a Análise de Variância do tipo II prioriza efeitos fixos e testa por último as interações. Já a Análise de Variância do tipo III considera todos os parâmetros com mesma importância, sejam eles efeitos fixos ou de interação.</p>
+<p>Por fim, podemos notar que as Análises de Variância do tipo II e III geram os mesmos resultados quando aplicadas a modelos sem efeitos de interação.</p>
 <hr />
 </div>
-<div id="estimacao-e-inferencia" class="section level1">
-<h1>Estimação e Inferência</h1>
-<p>Os McGLMs são ajustados baseados no método de funções de estimação descritos em detalhes por <span class="citation">Bonat and Jørgensen (2016)</span> e <span class="citation">Jørgensen and Knudsen (2004)</span>. Nesta seção é apresentada uma visão geral do algoritmo e da distribuição assintótica dos estimadores baseados em funções de estimação.</p>
-<p>As suposições de segundo momento dos McGLM permitem a divisão dos parâmetros em dois conjuntos: <span class="math inline">\(\boldsymbol{\theta} = (\boldsymbol{\beta}^{\top}, \boldsymbol{\lambda}^{\top})^{\top}\)</span>. Desta forma, <span class="math inline">\(\boldsymbol{\beta} = (\boldsymbol{\beta}_1^\top, \ldots, \boldsymbol{\beta}_R^\top)^\top\)</span> é um vetor <span class="math inline">\(K \times 1\)</span> de parâmetros de regressão e <span class="math inline">\(\boldsymbol{\lambda} = (\rho_1, \ldots, \rho_{R(R-1)/2}, p_1, \ldots, p_R, \boldsymbol{\tau}_1^\top, \ldots, \boldsymbol{\tau}_R^\top)^\top\)</span> é um vetor <span class="math inline">\(Q \times 1\)</span> de parâmetros de dispersão. Além disso, <span class="math inline">\(\mathcal{Y} = (\boldsymbol{Y}_1^\top, \ldots, \boldsymbol{Y}_R^\top)^\top\)</span> denota o vetor empilhado de ordem <span class="math inline">\(NR \times 1\)</span> da matriz de variáveis resposta <span class="math inline">\(\boldsymbol{Y}_{N \times R}\)</span> e <span class="math inline">\(\mathcal{M} = (\boldsymbol{\mu}_1^\top, \ldots, \boldsymbol{\mu}_R^\top)^\top\)</span> denota o vetor empilhado de ordem <span class="math inline">\(NR \times 1\)</span> da matriz de valores esperados <span class="math inline">\(\boldsymbol{M}_{N \times R}\)</span>.</p>
-<p>Para estimação dos parâmetros de regressão é utilizada a função quasi-score <span class="citation">(Liang and Zeger 1986)</span>, representada por <span class="math display">\[\begin{equation}
-      \begin{aligned}
-        \psi_{\boldsymbol{\beta}}(\boldsymbol{\beta},
-          \boldsymbol{\lambda}) = \boldsymbol{D}^\top
-            \boldsymbol{C}^{-1}(\mathcal{Y} - \mathcal{M}),
-\end{aligned}
-\end{equation}\]</span> em que <span class="math inline">\(\boldsymbol{D} = \nabla_{\boldsymbol{\beta}} \mathcal{M}\)</span> é uma matriz <span class="math inline">\(NR \times K\)</span>, e <span class="math inline">\(\nabla_{\boldsymbol{\beta}}\)</span> denota o operador gradiente. Utilizando a função quasi-score a matriz <span class="math inline">\(K \times K\)</span> de sensitividade de <span class="math inline">\(\psi_{\boldsymbol{\beta}}\)</span> é dada por <span class="math display">\[\begin{equation}
-\begin{aligned}
-S_{\boldsymbol{\beta}} = E(\nabla_{\boldsymbol{\beta} \psi \boldsymbol{\beta}}) = -\boldsymbol{D}^{\top} \boldsymbol{C}^{-1} \boldsymbol{D},
-\end{aligned}
-\end{equation}\]</span> enquanto que a matriz <span class="math inline">\(K \times K\)</span> de variabilidade de <span class="math inline">\(\psi_{\boldsymbol{\beta}}\)</span> é escrita como <span class="math display">\[\begin{equation}
-\begin{aligned}
-V_{\boldsymbol{\beta}} = VAR(\psi \boldsymbol{\beta}) = \boldsymbol{D}^{\top} \boldsymbol{C}^{-1} \boldsymbol{D}.
-\end{aligned}
-\end{equation}\]</span></p>
-<p>Para os parâmetros de dispersão é utilizada a função de estimação de Pearson, definida da forma <span class="math display">\[\begin{equation}
-      \begin{aligned}
-        \psi_{\boldsymbol{\lambda}_i}(\boldsymbol{\beta},
-        \boldsymbol{\lambda}) =
-        \mathrm{tr}(W_{\boldsymbol{\lambda}i}
-          (\boldsymbol{r}^\top\boldsymbol{r} -
-          \boldsymbol{C})),  i = 1,.., Q, 
-    \end{aligned}
-\end{equation}\]</span> em que <span class="math inline">\(W_{\boldsymbol{\lambda}i} = -\frac{\partial  \boldsymbol{C}^{-1}}{\partial \boldsymbol{\lambda}_i}\)</span> e <span class="math inline">\(\boldsymbol{r} = (\mathcal{Y} - \mathcal{M})\)</span>. A entrada <span class="math inline">\((i,j)\)</span> da matriz de sensitividade <span class="math inline">\(Q \times Q\)</span> de <span class="math inline">\(\psi_{\boldsymbol{\lambda}}\)</span> é dada por <span class="math display">\[\begin{equation}
-      \begin{aligned}
-S_{\boldsymbol{\lambda_{ij}}} = E \left (\frac{\partial }{\partial \boldsymbol{\lambda_{i}}} \psi \boldsymbol{\lambda_{j}}\right) = -tr(W_{\boldsymbol{\lambda_{i}}} CW_{\boldsymbol{\lambda_{J}}} C).
-    \end{aligned}
-\end{equation}\]</span> Já a entrada <span class="math inline">\((i,j)\)</span> da matriz de variabilidade <span class="math inline">\(Q \times Q\)</span> de <span class="math inline">\(\psi_{\boldsymbol{\lambda}}\)</span> é definida por <span class="math display">\[\begin{equation}
-      \begin{aligned}
-V_{\boldsymbol{\lambda_{ij}}} = Cov\left ( \psi_{\boldsymbol{\lambda_{i}}}, \psi_{\boldsymbol{\lambda_{j}}} \right) = 2tr(W_{\boldsymbol{\lambda_{i}}} CW_{\boldsymbol{\lambda_{J}}} C) + \sum_{l=1}^{NR} k_{l}^{(4)} (W_{\boldsymbol{\lambda_{i}}})_{ll} (W_{\boldsymbol{\lambda_{j}}})_{ll},
-    \end{aligned}
-\end{equation}\]</span> em que <span class="math inline">\(k_{l}^{(4)}\)</span> denota a quarta cumulante de <span class="math inline">\(\mathcal{Y}_{l}\)</span>. No processo de estimação dos McGLM são usadas as versões empíricas.</p>
-<p>Para se levar em conta a covariância entre os vetores <span class="math inline">\(\boldsymbol{\beta}\)</span> e <span class="math inline">\(\boldsymbol{\lambda}\)</span>, <span class="citation">Bonat and Jørgensen (2016)</span> obtiveram as matrizes de sensitividade e variabilidade cruzadas, denotadas por <span class="math inline">\(S_{\boldsymbol{\lambda \beta}}\)</span>, <span class="math inline">\(S_{\boldsymbol{\beta \lambda}}\)</span> e <span class="math inline">\(V_{\boldsymbol{\lambda \beta}}\)</span>, mais detalhes em <span class="citation">Bonat and Jørgensen (2016)</span>. As matrizes de sensitividade e variabilidade conjuntas de <span class="math inline">\(\psi_{\boldsymbol{\beta}}\)</span> e <span class="math inline">\(\psi_{\boldsymbol{\lambda}}\)</span> são denotados por</p>
-<p><span class="math display">\[\begin{equation}
-      \begin{aligned}
-S_{\boldsymbol{\theta}} = \begin{bmatrix}
-S_{\boldsymbol{\beta}} &amp; S_{\boldsymbol{\beta\lambda}} \\ 
-S_{\boldsymbol{\lambda\beta}} &amp; S_{\boldsymbol{\lambda}} 
-\end{bmatrix} \text{e } V_{\boldsymbol{\theta}} = \begin{bmatrix}
-V_{\boldsymbol{\beta}} &amp; V^{\top}_{\boldsymbol{\lambda\beta}} \\ 
-V_{\boldsymbol{\lambda\beta}} &amp; V_{\boldsymbol{\lambda}} 
-\end{bmatrix}.
-\end{aligned}
-\end{equation}\]</span></p>
-<p>Seja <span class="math inline">\(\boldsymbol{\hat{\theta}} = (\boldsymbol{\hat{\beta}^{\top}}, \boldsymbol{\hat{\lambda}^{\top}})^{\top}\)</span> o estimador baseado em funções de estimação de <span class="math inline">\(\boldsymbol{\theta}\)</span>. Então, a distribuição assintótica de <span class="math inline">\(\boldsymbol{\hat{\theta}}\)</span> é <span class="math display">\[\begin{equation}
-\begin{aligned}
-\boldsymbol{\hat{\theta}} \sim N(\boldsymbol{\theta}, J_{\boldsymbol{\theta}}^{-1}),
-\end{aligned}
-\end{equation}\]</span> em que <span class="math inline">\(J_{\boldsymbol{\theta}}^{-1}\)</span> é a inversa da matriz de informação de Godambe, dada por <span class="math inline">\(J_{\boldsymbol{\theta}}^{-1} = S_{\boldsymbol{\theta}}^{-1} V_{\boldsymbol{\theta}} S_{\boldsymbol{\theta}}^{-\top}\)</span>, em que <span class="math inline">\(S_{\boldsymbol{\theta}}^{-\top} = (S_{\boldsymbol{\theta}}^{-1})^{\top}.\)</span></p>
-<p>Para resolver o sistema de equações <span class="math inline">\(\psi_{\boldsymbol{\beta}} = 0\)</span> e <span class="math inline">\(\psi_{\boldsymbol{\lambda}} = 0\)</span> faz-se uso do algoritmo Chaser modificado, proposto por <span class="citation">Jørgensen and Knudsen (2004)</span>, que fica definido como</p>
-<p><span class="math display">\[\begin{equation}
-\begin{aligned}
-\begin{matrix}
-\boldsymbol{\beta}^{(i+1)} = \boldsymbol{\beta}^{(i)}- S_{\boldsymbol{\beta}}^{-1} \psi \boldsymbol{\beta} (\boldsymbol{\beta}^{(i)}, \boldsymbol{\lambda}^{(i)}), \\ 
-\boldsymbol{\lambda}^{(i+1)} = \boldsymbol{\lambda}^{(i)}\alpha S_{\boldsymbol{\lambda}}^{-1} \psi \boldsymbol{\lambda} (\boldsymbol{\beta}^{(i+1)}, \boldsymbol{\lambda}^{(i)}).
-\end{matrix}
-\end{aligned}
-\end{equation}\]</span></p>
+<div id="analise-de-variancia-via-teste-wald" class="section level1">
+<h1>Análise de Variância via teste Wald</h1>
+<p>Considerando o que foi apresentado, podemos notar que as Análises de Variância são sucessivos testes de hipótese que verificam a nulidade de determinados parâmetros. Isto geralmente é feito através de uma sequência de testes de Razão de Verossimilhança em que, no caso do tipo I, os termos do preditor linear são acrescentados sucessivamente ao modelo, começando pelo modelo nulo.</p>
+<p>Para as análises do tipo II e III é simples visualizar como gerar os quadros de Análise de Variância utilizando o teste Wald. Pois sempre estarão sendo comparados o modelo completo e o modelo sem determinada ou determinadas variáveis. Ou seja, basta então, para cada linha do quadro de Análise de Variância, especificar corretamente uma matriz <span class="math inline">\(\boldsymbol{L}\)</span> que represente de forma adequada a hipótese a ser testada, seja para realizar o teste sobre um único parâmetro ou para múltiplos.</p>
+<p>Para ilustração das hipóteses que seriam testadas via teste Wald em cada linha do quadro de Análise de Variância nos tipos II e III e a construção dos elementos necessários para realização do teste (matriz <span class="math inline">\(\boldsymbol{L}\)</span>, vetor <span class="math inline">\(\boldsymbol{\beta}\)</span> e vetor <span class="math inline">\(\boldsymbol{c}\)</span>), considere um modelo qualquer com preditor dado por:</p>
+<p><span class="math display">\[g(\mu) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_1 x_2.\]</span></p>
+<p>Temos deste modo um intercepto, denotado por <span class="math inline">\(\beta_0\)</span> e quatro parâmetros de regressão denotados por <span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span> e <span class="math inline">\(\beta_3\)</span> e <span class="math inline">\(\beta_4\)</span>, em que <span class="math inline">\(\beta_4\)</span> representa o efeito da interação entre as variáveis <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span>.</p>
+<hr />
+<div id="anova-tipo-ii-via-teste-wald" class="section level2">
+<h2>ANOVA Tipo II, via teste Wald</h2>
+<p>No caso do tipo II, testaríamos as seguintes hipóteses:</p>
+<p>Na primeira linha, referente a <span class="math inline">\(x_1\)</span>, testaríamos o modelo completo contra o modelo sem todos os parâmetros que possuem <span class="math inline">\(x_1\)</span>, sejam fixos ou interações, portanto:</p>
+<p><span class="math display">\[H_0: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_4
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+0 \\ 
+0
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_1 \\ 
+\beta_4
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+0 \\ 
+0
+\end{pmatrix}.\]</span></p>
+<p>Esta hipótese pode ser escrita na notação <span class="math inline">\(\boldsymbol{L\beta} = \boldsymbol{c}\)</span>:</p>
+<p><span class="math display">\[H_0: \boldsymbol{L}\boldsymbol{\beta} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L}\boldsymbol{\beta} \neq \boldsymbol{c}.\]</span> Em que:</p>
+<p><span class="math display">\[\boldsymbol{L} = \begin{bmatrix}
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\ 
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}, \boldsymbol{\beta} = \begin{bmatrix} \beta_0\\  \beta_1\\  \beta_2\\  \beta_3\\  \beta_4  \end{bmatrix}, \boldsymbol{c} = \begin{bmatrix} 0\\  0\end{bmatrix}.\]</span></p>
+<p>Note que ambas as notações chegam à mesma hipótese.</p>
+<p>Tal como a variável <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> está associado a um efeito de interação, portanto ambos efeitos (fixo e interação) são testados. A segunda linha do quadro, referente a <span class="math inline">\(x_2\)</span>, testaria as hipóteses:</p>
+<p><span class="math display">\[H_0: 
+\begin{pmatrix}
+\beta_2 \\ 
+\beta_4
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+0 \\ 
+0
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_2 \\ 
+\beta_4
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+0 \\ 
+0
+\end{pmatrix}.\]</span></p>
+<p>Neste caso, os elementos na notação <span class="math inline">\(\boldsymbol{L\beta} = \boldsymbol{c}\)</span> são:</p>
+<p><span class="math display">\[\boldsymbol{L} = \begin{bmatrix}
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\ 
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}, \boldsymbol{\beta} = \begin{bmatrix} \beta_0\\  \beta_1\\  \beta_2\\  \beta_3\\  \beta_4  \end{bmatrix}, \boldsymbol{c} = \begin{bmatrix} 0\\  0\end{bmatrix}.\]</span></p>
+<p>A terceira linha do quadro testaria uma única hipótese, pois o parâmetro <span class="math inline">\(x_3\)</span> não está associado a nenhum outro efeito:</p>
+<p><span class="math display">\[H_0: \beta_3 = 0 \ vs \ H_1: \beta_3 \neq 0.\]</span></p>
+<p>Portanto, a matriz <span class="math inline">\(\boldsymbol{L}\)</span> da notação <span class="math inline">\(\boldsymbol{L\beta} = \boldsymbol{c}\)</span> é um vetor, pois apenas um parâmetro é testado:</p>
+<p><span class="math display">\[\boldsymbol{L} = \begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\ 
+\end{bmatrix}, \boldsymbol{\beta} = \begin{bmatrix} \beta_0\\  \beta_1\\  \beta_2\\  \beta_3\\  \beta_4  \end{bmatrix}, \boldsymbol{c} = \begin{bmatrix} 0\\  \end{bmatrix}.\]</span></p>
+<p>Por fim, a última linha do quadro testaria o efeito da interação no modelo, ou seja:</p>
+<p><span class="math display">\[H_0: \beta_4 = 0 \ vs \ H_1: \beta_4 \neq 0.\]</span></p>
+<p>Novamente, por se tratar de um único parâmetro, a matriz <span class="math inline">\(\boldsymbol{L}\)</span> é um vetor:</p>
+<p><span class="math display">\[\boldsymbol{L} = \begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\ 
+\end{bmatrix}, \boldsymbol{\beta} = \begin{bmatrix} \beta_0\\  \beta_1\\  \beta_2\\  \beta_3\\  \beta_4  \end{bmatrix}, \boldsymbol{c} = \begin{bmatrix} 0\\  \end{bmatrix}.\]</span></p>
+<hr />
+</div>
+<div id="anova-tipo-iii-via-teste-wald" class="section level2">
+<h2>ANOVA Tipo III, via teste Wald</h2>
+<p>Como já mencionado, a Análise de Variância do tipo III não trata de forma distinta efeitos fixos de interações. Portanto, os testes em cada linha do quadro de Análise de Variância seriam:</p>
+<p>Na primeira linha, referente a <span class="math inline">\(x_1\)</span>, testaríamos o modelo completo contra o modelo sem <span class="math inline">\(x_1\)</span>. Note que, diferentemente da análise do tipo II mantém-se o parâmetro de interação, isto é, nada se supõe sobre ele:</p>
+<p><span class="math display">\[H_0: \beta_1 = 0 \ vs \ H_1: \beta_1 \neq 0.\]</span></p>
+<p>Ou seja:</p>
+<p><span class="math display">\[\boldsymbol{L} = \begin{bmatrix}
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\ 
+\end{bmatrix}, \boldsymbol{\beta} = \begin{bmatrix} \beta_0\\  \beta_1\\  \beta_2\\  \beta_3\\  \beta_4  \end{bmatrix}, \boldsymbol{c} = \begin{bmatrix} 0\\  \end{bmatrix}.\]</span></p>
+<p>Na segunda linha, referente a <span class="math inline">\(x_2\)</span>, testaríamos o modelo completo contra o modelo sem <span class="math inline">\(x_2\)</span>. Tal como para <span class="math inline">\(x_1\)</span>, na análise do tipo III nada se supõe quanto ao parâmetro de interação, por mais que lá haja <span class="math inline">\(x_2\)</span>:</p>
+<p><span class="math display">\[H_0: \beta_2 = 0 \ vs \ H_1: \beta_2 \neq 0.\]</span></p>
+<p>Deste modo</p>
+<p><span class="math display">\[\boldsymbol{L} = \begin{bmatrix}
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\ 
+\end{bmatrix}, \boldsymbol{\beta} = \begin{bmatrix} \beta_0\\  \beta_1\\  \beta_2\\  \beta_3\\  \beta_4  \end{bmatrix}, \boldsymbol{c} = \begin{bmatrix} 0\\  \end{bmatrix}.\]</span></p>
+<p>O mesmo para a terceira linha:</p>
+<p><span class="math display">\[H_0: \beta_3 = 0 \ vs \ H_1: \beta_3 \neq 0.\]</span></p>
+<p>Em que:</p>
+<p><span class="math display">\[\boldsymbol{L} = \begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\ 
+\end{bmatrix}, \boldsymbol{\beta} = \begin{bmatrix} \beta_0\\  \beta_1\\  \beta_2\\  \beta_3\\  \beta_4  \end{bmatrix}, \boldsymbol{c} = \begin{bmatrix} 0\\  \end{bmatrix}.\]</span></p>
+<p>Por fim, a última linha do quadro testaria o efeito da interação no modelo, ou seja, testa o modelo completo contra o modelo sem interação:</p>
+<p><span class="math display">\[H_0: \beta_4 = 0 \ vs \ H_1: \beta_4 \neq 0.\]</span></p>
+<p>E os elementos para obtenção da última estatística de teste são:</p>
+<p><span class="math display">\[\boldsymbol{L} = \begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\ 
+\end{bmatrix}, \boldsymbol{\beta} = \begin{bmatrix} \beta_0\\  \beta_1\\  \beta_2\\  \beta_3\\  \beta_4  \end{bmatrix}, \boldsymbol{c} = \begin{bmatrix} 0\\  \end{bmatrix}.\]</span></p>
+<hr />
+<p>Para obtenção das demais quantidades necessárias para construção do quadro de Análise de Variância basta seguir o procedimento pelo qual se faz o teste Wald. Os graus de liberdade são iguais ao número de parâmetros testados, isto é, o número de linhas da matriz <span class="math inline">\(\boldsymbol{L}\)</span> e o p-valor é obtido comparando o valor da estatística de teste <span class="math inline">\(W\)</span> com a distribuição <span class="math inline">\(\chi^2\)</span>.</p>
+<hr />
+<p>No caso de variáveis categóricas, são estimados o número de categorias menos um parâmetros. Neste caso, para a Análise de Variância, todos os parâmetros referentes à variável categória devem ter sua nulidade verificada.</p>
 <hr />
 <center>
 <table>
@@ -1705,49 +1724,6 @@ V_{\boldsymbol{\lambda\beta}} &amp; V_{\boldsymbol{\lambda}}
 </center>
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;">
 
-</div>
-<div id="refs" class="references">
-<div id="ref-Anderson73">
-<p>Anderson, TW, and others. 1973. “Asymptotically Efficient Estimation of Covariance Matrices with Linear Structure.” <em>The Annals of Statistics</em> 1 (1). Institute of Mathematical Statistics: 135–41.</p>
-</div>
-<div id="ref-mcglm">
-<p>Bonat, Wagner Hugo. 2018. “Multiple Response Variables Regression Models in R: The mcglm Package.” <em>Journal of Statistical Software</em> 84 (4): 1–30. <a href="https://doi.org/10.18637/jss.v084.i04">https://doi.org/10.18637/jss.v084.i04</a>.</p>
-</div>
-<div id="ref-Bonat16">
-<p>Bonat, Wagner Hugo, and Bent Jørgensen. 2016. “Multivariate Covariance Generalized Linear Models.” <em>Journal of the Royal Statistical Society: Series C (Applied Statistics)</em> 65 (5). Wiley Online Library: 649–75.</p>
-</div>
-<div id="ref-Demidenko13">
-<p>Demidenko, Eugene. 2013. <em>Mixed Models: Theory and Applications with R</em>. John Wiley &amp; Sons.</p>
-</div>
-<div id="ref-Jorgensen87">
-<p>Jørgensen, Bent. 1987. “Exponential Dispersion Models.” <em>Journal of the Royal Statistical Society: Series B (Methodological)</em> 49 (2). Wiley Online Library: 127–45.</p>
-</div>
-<div id="ref-Jorgensen97">
-<p>———. 1997. <em>The Theory of Dispersion Models</em>. CRC Press.</p>
-</div>
-<div id="ref-jorg04">
-<p>Jørgensen, Bent, and Sven Jesper Knudsen. 2004. “Parameter Orthogonality and Bias Adjustment for Estimating Functions.” <em>Scandinavian Journal of Statistics</em> 31 (1). Wiley Online Library: 93–114.</p>
-</div>
-<div id="ref-Jorgensen15">
-<p>Jørgensen, Bent, and Célestin C Kokonendji. 2015. “Discrete Dispersion Models and Their Tweedie Asymptotics.” <em>AStA Advances in Statistical Analysis</em> 100 (1). Springer: 43–78.</p>
-</div>
-<div id="ref-Liang86">
-<p>Liang, Kung-Yee, and Scott L Zeger. 1986. “Longitudinal Data Analysis Using Generalized Linear Models.” <em>Biometrika</em> 73 (1). Oxford University Press: 13–22.</p>
-</div>
-<div id="ref-martinez13">
-<p>Martinez-Beneito, Miguel A. 2013. “A General Modelling Framework for Multivariate Disease Mapping.” <em>Biometrika</em> 100 (3). Oxford University Press: 539–53.</p>
-</div>
-<div id="ref-Nelder72">
-<p>Nelder, John Ashworth, and Robert William Maclagan Wedderburn. 1972. “Generalized Linear Models.” <em>Journal of the Royal Statistical Society. Series A (General)</em> 135: 370–84.</p>
-</div>
-<div id="ref-Pinheiro96">
-<p>Pinheiro, José C, and Douglas M Bates. 1996. “Unconstrained Parametrizations for Variance-Covariance Matrices.” <em>Statistics and Computing</em> 6 (3). Springer: 289–96.</p>
-</div>
-<div id="ref-Pourahmadi00">
-<p>Pourahmadi, Mohsen. 2000. “Maximum Likelihood Estimation of Generalised Linear Models for Multivariate Normal Covariance Matrix.” <em>Biometrika</em> 87 (2). Oxford University Press: 425–35.</p>
-</div>
-<div id="ref-softwareR">
-<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
 </div>
 </div>
 </div>
