@@ -7,7 +7,7 @@ Mestrado
 MANOVA
  - Por que fazer um teste multivariado?
  - Comparar minha função com a versão atual do pacote.
- - Implementar ANOVA e MANOVA dos tipos II e III.
+ - Implementar ANOVA e MANOVA dos tipos II e III (tipo III já tem).
  - Implementar ANOVA e MANOVA para parametros de dispersão e potência.
  - Tendo as funções prontas, desenhar o estudo de simulação.
 
