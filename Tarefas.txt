@@ -47,3 +47,61 @@ Análise do dataset Tissei
 
 -------------------------------------------------------
  
+Noções de probabilidades e estatística
+
+Noções gerais: discorrer sobre o papel da estatistica
+no desenvolvimento cientifico
+
+Reorganizar o material de Análise Exploratória
+
+ - Tudo de análise univariada (tabelas, medidas e gráficos)
+ - Tudo de análise bi e multivariada 
+
+A ideia é desenvolver um procedimento mais lógico para 
+condução de uma análise exploratória no sentido de: 
+primeiro entender oq acontece com cada uma das variáveis 
+utilizando tabelas de frequencia, medidas resumo e gráficos 
+para representação das frequencias/proporções ou mesmo das 
+distribuições de variáveis contínuas. E depois análises 
+bivariadas, com tabelas de dupla entrada, correlação, 
+tabelas do comportamento médio de uma variável numérica 
+para cada nivel de uma variavel categorica e gráficos para 
+representação de interação entre variáveis.
+
+1. Análise exploratória: oq é e importancia.
+
+2. Análise univariada: tabelas, medidas e graficos.
+
+3. Análise bivariada: tabelas, medidas e graficos.
+   (precisa falar de causalidade e correlações espúreas) 
+
+4. Transformação de variáveis: quando fazer e possibilidades.
+
+5. Exemplo de análise exploratória real.
+
+6. Considerações finais: foram passadas todas as etapas
+   para uma analise exploratoria de um conjunto de dados
+   "usual", mas não necessariamente todas são executadas, 
+   muitas vezes é mais para o pesquisador compreender e 
+   diagnosticar os problemas dos dados, análises exploratórias
+   em artigos e outros trabalhos cientificos são bem mais 
+   enxutas. E existem diversos outras técnicas para análise
+   exploratória como outras medidas e gráficos específicos
+   para problemas como análise de dados espaciais, temporais.
+
+   Conceito de confundimento: efeito de outras variáveis não
+   observadas.
+
+No material de probabilidades: endossar os conceitos com
+exemplos
+
+Variáveis aleatórias: oq é e para, para que serve, quais os tipos
+exemplo básico e notação (X:..., x assume valores, distribuição de x,
+e fp). OLHAR A6P1
+
+-------------------------------------------------------
+
+Monitoramento COVID-19: arrumar o monitoramento para mudança
+da base.
+
+-------------------------------------------------------
