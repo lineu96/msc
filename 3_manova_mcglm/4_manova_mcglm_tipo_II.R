@@ -24,7 +24,7 @@ dados2$momento <- ordered(dados2$tempo,
 
 # PREDITOR
 
-form.ncorpo <- ncorpo ~ (sessao + tempo + linhagem)^2
+form.ncorpo  <- ncorpo  ~ (sessao + tempo + linhagem)^2
 form.ncorpo2 <- ncabeca ~ (sessao + tempo + linhagem)^2
 form.ncorpo3 <- norelha ~ (sessao + tempo + linhagem)^2
 
@@ -95,27 +95,60 @@ vcov_betas <- vcov(fit_jointP)[1:n_beta, 1:n_beta]
 
 #----------------------------------------------------------------
 
-# Índice que associa beta a variável
-#p_var <- attr(fit_jointP$list_X[[1]], "assign")
-
-p_var <- read.csv2("testes_tipoIII.csv", 
-                   header = T, 
-                   sep = ";", 
-                   dec = ',')
+# Indice que associa parametro a variavel
+p_var <- attr(fit_jointP$list_X[[1]], "assign")
 
 #----------------------------------------------------------------
 
 # Matriz F para todos os parâmetros (Hypothesis matrix)
-F_all <- diag(nrow(p_var))
+F_all <- diag(length(p_var))
 
 #----------------------------------------------------------------
 
 # Matriz F por variável (Hypothesis matrix)
+
+expand <- by(data = F_all,
+             INDICES = p_var,
+             FUN = as.matrix)
+
+beta_names <- fit_jointP$beta_names[[1]]
+
+testes <- data.frame(beta_names,
+                     interacao = stringr::str_detect(beta_names, ':'))
+
+for (i in 1:(length(expand))) {
+  testes[,i+2] <- colSums(expand[[i]])
+}
+
+aux <- list()
+
+for (i in 3:ncol(testes)) {
+  padrao <- as.vector(subset(testes, interacao == FALSE & testes[,i] == 1)$beta_names)
+  
+  x<-matrix(nrow = nrow(testes), ncol = length(padrao))
+  
+  for (j in 1:nrow(testes)) {
+    x[j,] <- stringr::str_detect(testes$beta_names[j],
+                                 pattern = padrao)
+  }
+  
+  
+  aux[[i]] <- ifelse(rowSums(x) == 1, 1, testes[,i])
+  
+  as.vector(aux[[i]])
+}
+
+aux2 <- as.data.frame(do.call(cbind, aux))
+
+p_varII <- aux2
+
+#cbind(beta_names,p_varII)
+
 F_par <- list()
 
-for (i in 2:ncol(p_var)) {
-  F_par[[i-1]] <- by(data = F_all,
-                     INDICES = p_var[,i], 
+for (i in 1:ncol(p_varII)) {
+  F_par[[i]] <- by(data = F_all,
+                     INDICES = p_varII[,i], 
                      FUN = as.matrix)$`1`
 }
 
@@ -162,7 +195,5 @@ tabela <- data.frame(Variável = c("Intercept",
 #----------------------------------------------------------------
 
 tabela
-
-mc_manova(fit_jointP)
 
 #----------------------------------------------------------------

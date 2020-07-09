@@ -3,8 +3,8 @@
 #################################################################
 
 #################################################################
-# ANOVA VIA TESTE WALD
-mc_anova <- function(object){
+# ANOVA VIA TESTE WALD TIPO III
+mc_anova_III <- function(object){
   
   # Vetor beta chapeu e indice de resposta
   beta <- coef(object, type = "beta")[,c(1, 4)] 
@@ -97,7 +97,7 @@ mc_anova <- function(object){
 # MANOVA VIA TESTE WALD TIPO III
 #################################################################
 
-mc_manova <- function(object){
+mc_manova_III <- function(object){
   
   #----------------------------------------------------------------
   
@@ -182,5 +182,145 @@ mc_manova <- function(object){
 }
 
 #################################################################
-# 
+
 #################################################################
+# MANOVA VIA TESTE WALD TIPO II
+#################################################################
+
+mc_manova_II <- function(object){
+  
+  #----------------------------------------------------------------
+  
+  # Vetor beta chapeu
+  beta <- coef(object, type = "beta")[,c(1, 4)] 
+  
+  #----------------------------------------------------------------
+  
+  # Número de betas
+  n_beta <- sum(as.vector(table(beta$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # Número de respostas
+  n_resp <- length(as.vector(table(beta$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # vcov desconsiderando parametros de dispersao e potencia
+  vcov_betas <- vcov(object)[1:n_beta, 1:n_beta]
+  
+  #----------------------------------------------------------------
+  
+  # Índice que associa beta a variável
+  p_var <- attr(object$list_X[[1]], "assign")
+  
+  #----------------------------------------------------------------
+  
+  # Matriz F para todos os parâmetros (Hypothesis matrix)
+  F_all <- diag(length(p_var))
+  
+  #----------------------------------------------------------------
+  
+  # Matriz F por variável (Hypothesis matrix)
+  expand <- by(data = F_all,
+               INDICES = p_var,
+               FUN = as.matrix)
+  
+  beta_names <- fit_jointP$beta_names[[1]]
+  
+  testes <- data.frame(beta_names,
+                       interacao = stringr::str_detect(beta_names, ':'))
+  
+  for (i in 1:(length(expand))) {
+    testes[,i+2] <- colSums(expand[[i]])
+  }
+  
+  aux <- list()
+  
+  for (i in 3:ncol(testes)) {
+    padrao <- as.vector(subset(testes, interacao == FALSE & testes[,i] == 1)$beta_names)
+    
+    x<-matrix(nrow = nrow(testes), ncol = length(padrao))
+    
+    for (j in 1:nrow(testes)) {
+      x[j,] <- stringr::str_detect(testes$beta_names[j],
+                                   pattern = padrao)
+    }
+    
+    
+    aux[[i]] <- ifelse(rowSums(x) == 1, 1, testes[,i])
+    
+    as.vector(aux[[i]])
+  }
+  
+  aux2 <- as.data.frame(do.call(cbind, aux))
+  
+  p_varII <- aux2
+  
+  #cbind(beta_names,p_varII)
+  
+  F_par <- list()
+  
+  for (i in 1:ncol(p_varII)) {
+    F_par[[i]] <- by(data = F_all,
+                     INDICES = p_varII[,i], 
+                     FUN = as.matrix)$`1`
+  }
+  
+  #----------------------------------------------------------------
+  
+  # Matriz G
+  G <- diag(n_resp)
+  
+  #----------------------------------------------------------------
+  
+  # Matriz L
+  
+  L_par <- list()
+  
+  for (i in 1:length(F_par)) {
+    L_par[[i]] <- kronecker(G, F_par[[i]])
+  }
+  
+  
+  #----------------------------------------------------------------
+  
+  ## Tabela
+  
+  W <- vector() # Vetor para a estatística de teste
+  gl <- vector() # Vetor para graus de liberdade
+  p_val <- vector() # Vetor para p-valor
+  
+  ### Estatística de teste:
+  #### t(L*beta) x (L*vcov*t(L))^-1 x (L*beta) ~ Qui-quadrado(numero de parametros testados)
+  
+  for (i in 1:length(L_par)) {
+    
+    W[i] <- as.numeric((t(L_par[[i]]%*%beta$Estimates)) %*% (solve(L_par[[i]]%*%vcov_betas%*%t(L_par[[i]]))) %*% (L_par[[i]]%*%beta$Estimates))
+    gl[i] <- nrow(L_par[[i]])
+    p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
+  }
+  
+  tabela <- data.frame(Variável = c("Intercept", 
+                                    attr(terms(object$linear_pred[[1]]), "term.labels")),
+                       GL = gl,
+                       W = round(W, 3),
+                       P_valor = round(p_val, 3))
+  
+  #----------------------------------------------------------------
+  
+  return(tabela)
+}
+
+#################################################################
+
+fit.binom
+fit.binom$beta_names[[1]]
+
+mc_anova_III(fit.binom)
+anova(fit.binom)
+
+mc_manova_II(fit.binom)
+mc_manova_III(fit.binom)
+
+mc_manova(fit.binom)
