@@ -1,5 +1,12 @@
 TAREFAS
 
+CURTO PRAZO
+ X Implementar ANOVA e MANOVA tipo I (sequencial) 
+ - Testar e gerar código para apresentação didática
+ - Verificar mc_manova da versão atual do pacote
+ - Comentar o código das funções
+ - Verificar como se documenta funções R
+
 -------------------------------------------------------
 Mestrado
 -------------------------------------------------------
