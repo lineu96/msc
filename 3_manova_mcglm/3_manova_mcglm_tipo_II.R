@@ -128,7 +128,7 @@ for (i in 3:ncol(testes)) {
   x<-matrix(nrow = nrow(testes), ncol = length(padrao))
   
   for (j in 1:nrow(testes)) {
-    x[j,] <- stringr::str_detect(testes$beta_names[j],
+    x[j,] <- sjmisc::str_contains(testes$beta_names[j],
                                  pattern = padrao)
   }
   
