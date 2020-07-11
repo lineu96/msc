@@ -1,9 +1,10 @@
 ####################################################################
-# ANÁLISE DE VARIÂNCIA MULTIVARIADA NO MCGLM DO TIPO I
+# ANÁLISE DE VARIÂNCIA MULTIVARIADA NO MCGLM DO TIPO II
 ####################################################################
 
 #----------------------------------------------------------------
 library(mcglm)
+library(Matrix)
 #----------------------------------------------------------------
 
 # LEITURA
@@ -120,17 +121,27 @@ for (i in 1:(length(expand))) {
   testes[,i+2] <- colSums(expand[[i]])
 }
 
-aux <- matrix(nrow = nrow(testes),
-              ncol = ncol(testes)-2)
+aux <- list()
 
-
-for (i in 3:(ncol(testes)-1)) {
-  aux[,i-2] <- rowSums(testes[,i:ncol(testes)])
+for (i in 3:ncol(testes)) {
+  padrao <- as.vector(subset(testes, interacao == FALSE & testes[,i] == 1)$beta_names)
+  
+  x<-matrix(nrow = nrow(testes), ncol = length(padrao))
+  
+  for (j in 1:nrow(testes)) {
+    x[j,] <- sjmisc::str_contains(testes$beta_names[j],
+                                 pattern = padrao)
+  }
+  
+  
+  aux[[i]] <- ifelse(rowSums(x) == 1, 1, testes[,i])
+  
+  as.vector(aux[[i]])
 }
 
-aux[,ncol(aux)] <- testes[,ncol(testes)]
+aux2 <- as.data.frame(do.call(cbind, aux))
 
-p_varII <- aux
+p_varII <- aux2
 
 #cbind(beta_names,p_varII)
 
@@ -138,8 +149,8 @@ F_par <- list()
 
 for (i in 1:ncol(p_varII)) {
   F_par[[i]] <- by(data = F_all,
-                   INDICES = p_varII[,i], 
-                   FUN = as.matrix)$`1`
+                     INDICES = p_varII[,i], 
+                     FUN = as.matrix)$`1`
 }
 
 #----------------------------------------------------------------
@@ -186,10 +197,5 @@ tabela <- data.frame(Variável = c("Intercept",
 
 tabela
 mc_manova(fit_jointP)
+
 #----------------------------------------------------------------
-
-
-
-mc_manova_I(fit_jointP)
-mc_manova_II(fit_jointP)
-mc_manova_III(fit_jointP)

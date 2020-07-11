@@ -1,10 +1,11 @@
 ####################################################################
-# PSEUDO-ANÁLISE DE VARIÂNCIA UNIVARIADA PARA MÚLTIPLAS RESPOSTAS NO 
-# MCGLM DO TIPO I
+# ANÁLISE DE VARIÂNCIA UNIVARIADA PARA MÚLTIPLAS RESPOSTAS NO MCGLM
+# DO TIPO III
 ####################################################################
 
 #----------------------------------------------------------------
 library(mcglm)
+library(Matrix)
 #----------------------------------------------------------------
 
 # LEITURA
@@ -85,7 +86,7 @@ summary(fit_jointP)
 #----------------------------------------------------------------
 
 # Vetor beta chapeu e indice de resposta
-beta <- coef(fit_jointP, type = "beta")[,c(1, 4)]
+beta <- coef(fit_jointP, type = "beta")[,c(1, 4)] 
 
 #----------------------------------------------------------------
 
@@ -112,7 +113,6 @@ for (i in 2:n_resp) {
   
 }
 
-
 #----------------------------------------------------------------
 
 # Índice que associa beta a variável por resposta
@@ -134,66 +134,14 @@ for (i in 1:n_resp) {
 
 #----------------------------------------------------------------
 
-expand <- list()
-
-for (i in 1:length(L_all)) {
-  expand[[i]] <- by(data = L_all[[i]],
-                    INDICES = p_var[[i]],
-                    FUN = as.matrix)  
-}
-
-
-beta_names <- list()
-
-for (i in 1:length(L_all)) {
-  beta_names[[i]] <- fit_jointP$beta_names[[i]]  
-}
-
-
-testes <- list()
-
-for (i in 1:length(L_all)) {
-  testes[[i]] <- data.frame(beta_names = beta_names[[i]],
-                            interacao = stringr::str_detect(beta_names[[i]], ':'))  
-}
-
-
-for (i in 1:length(L_all)) {
-  for (j in 1:(length(expand[[i]]))) {
-    testes[[i]][,j+2] <- colSums(expand[[i]][[j]])
-  }  
-}
-
-p_varII <- list()
-
-for (i in 1:n_resp) {
-  p_varII[[i]] <- matrix(nrow = nrow(testes[[i]]),
-                         ncol = ncol(testes[[i]])-2)  
-}
-
-
-for (j in 1:n_resp) {
-  for (i in 3:(ncol(testes[[j]])-1)) {
-    p_varII[[j]][,i-2] <- rowSums(testes[[j]][,i:ncol(testes[[j]])])
-  }
-  
-  p_varII[[j]][,ncol(p_varII[[j]])] <- testes[[j]][,ncol(testes[[j]])]  
-}
-
-############################################################################
-
 # Matriz L por variável (Hypothesis matrix), por resposta
 
 L_par <- list()
-length(L_par) <- n_resp
 
-
-for (j in 1:length(p_varII)) {
-  for (i in 1:ncol(p_varII[[j]])) {
-    L_par[[j]][[i]] <- by(data = L_all[[j]],
-                          INDICES = p_varII[[j]][,i], 
-                          FUN = as.matrix)$`1`
-  }  
+for (i in 1:n_resp) {
+  L_par[[i]] <- by(data = L_all[[i]], 
+                   INDICES = p_var[[i]], 
+                   FUN = as.matrix)   
 }
 
 #----------------------------------------------------------------
@@ -206,7 +154,7 @@ gl <- vector() # Vetor para graus de liberdade
 p_val <- vector() # Vetor para p-valor
 
 for (j in 1:n_resp) {
-  for (i in 1:length(L_par[[j]])) {
+  for (i in 1:dim(L_par[[j]])) {
     W[i] <- as.numeric((t(L_par[[j]][[i]] %*% subset(beta, beta$Response == j)$Estimates)) %*% (solve(L_par[[j]][[i]]%*%vcov_betas[[j]]%*%t(L_par[[j]][[i]]))) %*% (L_par[[j]][[i]] %*% subset(beta, beta$Response == j)$Estimates))
     gl[i] <- nrow(L_par[[j]][[i]])
     p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
@@ -220,6 +168,17 @@ for (j in 1:n_resp) {
                P_valor = round(p_val, 3))
 }
 
+#----------------------------------------------------------------
+
+tabela
+
+anova(fit_jointP)
+
+#----------------------------------------------------------------
+
+anova_pc <- anova(fit_jointP)
+
+tabela[[3]]
+anova_pc[[3]]
 
 #------------------------------------------------------------------
-

@@ -1,9 +1,10 @@
 ####################################################################
-# ANÁLISE DE VARIÂNCIA MULTIVARIADA NO MCGLM DO TIPO III
+# ANÁLISE DE VARIÂNCIA MULTIVARIADA NO MCGLM DO TIPO I
 ####################################################################
 
 #----------------------------------------------------------------
 library(mcglm)
+library(Matrix)
 #----------------------------------------------------------------
 
 # LEITURA
@@ -24,9 +25,9 @@ dados2$momento <- ordered(dados2$tempo,
 
 # PREDITOR
 
-form.ncorpo <- ncorpo ~ sessao + tempo + linhagem
-form.ncorpo2 <- ncabeca ~ sessao + tempo + linhagem
-form.ncorpo3 <- norelha ~ sessao + tempo + linhagem
+form.ncorpo  <- ncorpo  ~ (sessao + tempo + linhagem)^2
+form.ncorpo2 <- ncabeca ~ (sessao + tempo + linhagem)^2
+form.ncorpo3 <- norelha ~ (sessao + tempo + linhagem)^2
 
 #----------------------------------------------------------------
 
@@ -67,7 +68,6 @@ fit_jointP <-
 
 summary(fit_jointP)
 
-
 #################################################################
 # TABELA DE ANÁLISE DE VARIÂNCIA MULTIVARIADA VIA TESTE WALD
 #################################################################
@@ -96,7 +96,7 @@ vcov_betas <- vcov(fit_jointP)[1:n_beta, 1:n_beta]
 
 #----------------------------------------------------------------
 
-# Índice que associa beta a variável
+# Indice que associa parametro a variavel
 p_var <- attr(fit_jointP$list_X[[1]], "assign")
 
 #----------------------------------------------------------------
@@ -107,9 +107,41 @@ F_all <- diag(length(p_var))
 #----------------------------------------------------------------
 
 # Matriz F por variável (Hypothesis matrix)
-F_par <- by(data = F_all, 
-            INDICES = p_var, 
-            FUN = as.matrix) 
+
+expand <- by(data = F_all,
+             INDICES = p_var,
+             FUN = as.matrix)
+
+beta_names <- fit_jointP$beta_names[[1]]
+
+testes <- data.frame(beta_names,
+                     interacao = stringr::str_detect(beta_names, ':'))
+
+for (i in 1:(length(expand))) {
+  testes[,i+2] <- colSums(expand[[i]])
+}
+
+aux <- matrix(nrow = nrow(testes),
+              ncol = ncol(testes)-2)
+
+
+for (i in 3:(ncol(testes)-1)) {
+  aux[,i-2] <- rowSums(testes[,i:ncol(testes)])
+}
+
+aux[,ncol(aux)] <- testes[,ncol(testes)]
+
+p_varII <- aux
+
+#cbind(beta_names,p_varII)
+
+F_par <- list()
+
+for (i in 1:ncol(p_varII)) {
+  F_par[[i]] <- by(data = F_all,
+                   INDICES = p_varII[,i], 
+                   FUN = as.matrix)$`1`
+}
 
 #----------------------------------------------------------------
 
@@ -139,7 +171,7 @@ p_val <- vector() # Vetor para p-valor
 #### t(L*beta) x (L*vcov*t(L))^-1 x (L*beta) ~ Qui-quadrado(numero de parametros testados)
 
 for (i in 1:length(L_par)) {
-
+  
   W[i] <- as.numeric((t(L_par[[i]]%*%beta$Estimates)) %*% (solve(L_par[[i]]%*%vcov_betas%*%t(L_par[[i]]))) %*% (L_par[[i]]%*%beta$Estimates))
   gl[i] <- nrow(L_par[[i]])
   p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
@@ -154,7 +186,6 @@ tabela <- data.frame(Variável = c("Intercept",
 #----------------------------------------------------------------
 
 tabela
-
 mc_manova(fit_jointP)
 
 #----------------------------------------------------------------

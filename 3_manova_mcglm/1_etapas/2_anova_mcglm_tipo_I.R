@@ -1,10 +1,11 @@
 ####################################################################
-# ANÁLISE DE VARIÂNCIA UNIVARIADA PARA MÚLTIPLAS RESPOSTAS NO MCGLM
-# DO TIPO II
+# PSEUDO-ANÁLISE DE VARIÂNCIA UNIVARIADA PARA MÚLTIPLAS RESPOSTAS NO 
+# MCGLM DO TIPO I
 ####################################################################
 
 #----------------------------------------------------------------
 library(mcglm)
+library(Matrix)
 #----------------------------------------------------------------
 
 # LEITURA
@@ -133,6 +134,7 @@ for (i in 1:n_resp) {
 }  
 
 #----------------------------------------------------------------
+
 expand <- list()
 
 for (i in 1:length(L_all)) {
@@ -153,7 +155,7 @@ testes <- list()
 
 for (i in 1:length(L_all)) {
   testes[[i]] <- data.frame(beta_names = beta_names[[i]],
-                       interacao = stringr::str_detect(beta_names[[i]], ':'))  
+                            interacao = stringr::str_detect(beta_names[[i]], ':'))  
 }
 
 
@@ -163,36 +165,21 @@ for (i in 1:length(L_all)) {
   }  
 }
 
-aux <- list()
-length(aux) <- n_resp
+p_varII <- list()
 
-for (k in 1:length(L_all)) {
-  for (i in 3:ncol(testes[[k]])) {
-    padrao <- as.vector(subset(testes[[k]], interacao == FALSE & testes[[k]][,i] == 1)$beta_names)
-    
-    x <- matrix(nrow = nrow(testes[[k]]), ncol = length(padrao))
-    
-    for (j in 1:nrow(testes[[k]])) {
-      x[j,] <- sjmisc::str_contains(testes[[k]]$beta_names[j],
-                                   pattern = padrao)
-    }
-    
-    aux[[k]][[i]] <- list()
-    
-    aux[[k]][[i]] <- ifelse(rowSums(x) == 1, 1, testes[[k]][,i])
-    
-    as.vector(aux[[k]][[i]])
-  }  
-}
-
-aux2 <- list()
-
-for (i in 1:length(aux)) {
-  aux2[[i]] <- as.data.frame(do.call(cbind, aux[[i]]))  
+for (i in 1:n_resp) {
+  p_varII[[i]] <- matrix(nrow = nrow(testes[[i]]),
+                         ncol = ncol(testes[[i]])-2)  
 }
 
 
-p_varII <- aux2
+for (j in 1:n_resp) {
+  for (i in 3:(ncol(testes[[j]])-1)) {
+    p_varII[[j]][,i-2] <- rowSums(testes[[j]][,i:ncol(testes[[j]])])
+  }
+  
+  p_varII[[j]][,ncol(p_varII[[j]])] <- testes[[j]][,ncol(testes[[j]])]  
+}
 
 ############################################################################
 
@@ -234,7 +221,12 @@ for (j in 1:n_resp) {
                P_valor = round(p_val, 3))
 }
 
-tabela
 
-anova(fit_jointP)
+#------------------------------------------------------------------
 
+anova_pc <- anova(fit_jointP)
+
+tabela[[4]]
+anova_pc[[4]]
+
+#------------------------------------------------------------------

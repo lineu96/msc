@@ -766,12 +766,12 @@ mc_manova_I <- function(object){
 
 #################################################################
 
-mc_anova_I()
-mc_anova_II()
-mc_anova_III()
+# mc_anova_I()
+# mc_anova_II()
+# mc_anova_III()
 
-mc_manova_I()
-mc_manova_II()
-mc_manova_III()
+# mc_manova_I()
+# mc_manova_II()
+# mc_manova_III()
 
 #################################################################
