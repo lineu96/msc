@@ -14,6 +14,22 @@
 # ANOVA VIA TESTE WALD TIPO III
 #################################################################
 
+#' @title ANOVA type III table for mcglm objects via Wald test
+#' @name mc_anova_III
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs Wald tests to generate type-III analysis-of-variance 
+#' tables per response for model objects produced by mcglm
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param ... additional arguments affecting the summary produced. Note
+#'     that there is no extra options for mcglm object class.
+#' @keywords internal
+#' @return Type III ANOVA table for mcglm objects.
+#'
+#' @export
+
 mc_anova_III <- function(object){
   
   # Vetor beta chapeu e indice de resposta
@@ -111,6 +127,22 @@ mc_anova_III <- function(object){
 # ANOVA VIA TESTE WALD TIPO II
 #################################################################
 
+#' @title ANOVA type II table for mcglm objects via Wald test
+#' @name mc_anova_II
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs Wald tests to generate type-II analysis-of-variance 
+#' tables per response for model objects produced by mcglm
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param ... additional arguments affecting the summary produced. Note
+#'     that there is no extra options for mcglm object class.
+#' @keywords internal
+#' @return Type II ANOVA table for mcglm objects.
+#'
+#' @export
+
 mc_anova_II <- function(object){
   
   #----------------------------------------------------------------
@@ -164,6 +196,10 @@ mc_anova_II <- function(object){
   }  
   
   #----------------------------------------------------------------
+  
+  # Índice que associa beta a variável por resposta para realização 
+  # do teste tipo II
+  
   expand <- list()
   
   for (i in 1:length(L_all)) {
@@ -216,14 +252,11 @@ mc_anova_II <- function(object){
     }  
   }
   
-  aux2 <- list()
+  p_varII <- list()
   
   for (i in 1:length(aux)) {
-    aux2[[i]] <- as.data.frame(do.call(cbind, aux[[i]]))  
+    p_varII[[i]] <- as.data.frame(do.call(cbind, aux[[i]]))  
   }
-  
-  
-  p_varII <- aux2
   
   #----------------------------------------------------------------
   
@@ -275,6 +308,22 @@ mc_anova_II <- function(object){
 #################################################################
 # PSEUDO-ANOVA VIA TESTE WALD TIPO I
 #################################################################
+
+#' @title ANOVA pseudo-type I table for mcglm objects via Wald test
+#' @name mc_anova_I
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs Wald tests to generate pseudo-type-I analysis-of-variance 
+#' tables per response for model objects produced by mcglm
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param ... additional arguments affecting the summary produced. Note
+#'     that there is no extra options for mcglm object class.
+#' @keywords internal
+#' @return Type I ANOVA table for mcglm objects.
+#'
+#' @export
 
 mc_anova_I <- function(object){
   
@@ -329,6 +378,10 @@ mc_anova_I <- function(object){
   }  
   
   #----------------------------------------------------------------
+  
+  # Índice que associa beta a variável por resposta  para 
+  # teste sequencial
+  
   expand <- list()
   
   for (i in 1:length(L_all)) {
@@ -426,6 +479,23 @@ mc_anova_I <- function(object){
 # MANOVA VIA TESTE WALD TIPO III
 #################################################################
 
+#' @title MANOVA type III table for mcglm objects via Wald test
+#' @name mc_manova_III
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs Wald tests to generate type-III multivariate 
+#' analysis-of-variance tables for model objects 
+#' produced by mcglm
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param ... additional arguments affecting the summary produced. Note
+#'     that there is no extra options for mcglm object class.
+#' @keywords internal
+#' @return Type III MANOVA table for mcglm objects.
+#'
+#' @export
+
 mc_manova_III <- function(object){
   
   #----------------------------------------------------------------
@@ -516,6 +586,23 @@ mc_manova_III <- function(object){
 # MANOVA VIA TESTE WALD TIPO II
 #################################################################
 
+#' @title MANOVA type II table for mcglm objects via Wald test
+#' @name mc_manova_II
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs Wald tests to generate type-II multivariate 
+#' analysis-of-variance tables for model objects 
+#' produced by mcglm
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param ... additional arguments affecting the summary produced. Note
+#'     that there is no extra options for mcglm object class.
+#' @keywords internal
+#' @return Type II MANOVA table for mcglm objects.
+#'
+#' @export
+
 mc_manova_II <- function(object){
   
   #----------------------------------------------------------------
@@ -582,11 +669,8 @@ mc_manova_II <- function(object){
     as.vector(aux[[i]])
   }
   
-  aux2 <- as.data.frame(do.call(cbind, aux))
+  p_varII <- as.data.frame(do.call(cbind, aux))
   
-  p_varII <- aux2
-  
-  #cbind(beta_names,p_varII)
   
   F_par <- list()
   
@@ -646,6 +730,23 @@ mc_manova_II <- function(object){
 #################################################################
 # PSEUDO-MANOVA VIA TESTE WALD TIPO I
 #################################################################
+
+#' @title MANOVA pseudo-type I table for mcglm objects via Wald test
+#' @name mc_manova_I
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs Wald tests to generate pseudo-type-I multivariate 
+#' analysis-of-variance tables for model objects 
+#' produced by mcglm
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param ... additional arguments affecting the summary produced. Note
+#'     that there is no extra options for mcglm object class.
+#' @keywords internal
+#' @return Type I MANOVA table for mcglm objects.
+#'
+#' @export
 
 mc_manova_I <- function(object){
   

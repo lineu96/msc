@@ -125,7 +125,7 @@ summary(fit)
 
 mc_anova_pc <- anova(fit)
 
-i = 2
+i = 1
 mc_anova_pc[[i]]
 mc_anova_I(fit)[[i]]
 mc_anova_II(fit)[[i]]
@@ -192,7 +192,7 @@ summary(fit)
 
 mc_anova_pc <- anova(fit)
 
-i = 3
+i = 1
 mc_anova_pc[[i]]
 mc_anova_I(fit)[[i]]
 mc_anova_II(fit)[[i]]

@@ -1,16 +1,21 @@
 TAREFAS
 
+TERMINAR ANOVAS E MANOVAS LOGO PARA PODER ESTUDAR 
+PROGRAMAÇÃO PARALELA
+
 -------------------------------------------------------
 Mestrado
 -------------------------------------------------------
 
 MANOVA
- - Por que fazer um teste multivariado?
-
- - Comentar o código das funções prontas
- - Verificar como se documenta funções R
 
  - Implementar ANOVA e MANOVA para parametros de dispersão e potência.
+
+ - Preparar material didático
+ - Apresentar pro Wagner
+ - FINALIZAR ISSO ATE NO MAXIMO DIA 24
+
+ - Por que fazer um teste multivariado?
  - Tendo as funções prontas, desenhar o estudo de simulação.
 
 -------------------------------------------------------
@@ -37,15 +42,7 @@ Análise dataset Tissei
  - Variáveis explicativas: portas (numero de vezes que foi usada)
  - Variáveis resposta: latência mínima e máxima (em ciclos, então é contagem)
 
-
- - Remover portas 237, 015, 5, 01 e 6.
- - Manter a 0 (talvez binária).
- - Manter lock.
- - Segment manter como binária.
- - Remover set_rex e mem_xchg.
- - Bruno vai verificar quantas vezes cada instrução é usada.
- - Restringir a latência e ajustar modelos.
- - Analisar a segunda base de instruções.
+AJUSTAR MODELO BIVARIADO NO MCGLM, latencia~portas
 
 -------------------------------------------------------
  

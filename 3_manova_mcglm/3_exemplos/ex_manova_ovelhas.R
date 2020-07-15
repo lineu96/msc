@@ -7,7 +7,6 @@ library(mcglm)
 library(Matrix)
 source('~/msc/3_manova_mcglm/2_funcoes/functions2.R')
 
-
 #---------------------------------------------------------------
 # Análise comportamental de ovelhas submetidas à intervenção 
 # humana
