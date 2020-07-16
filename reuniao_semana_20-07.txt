@@ -1,0 +1,157 @@
+-----------------------------------------------------------------------------------------------
+
+REUNIÃO WAGNER
+
+-----------------------------------------------------------------------------------------------
+
+Texto pronto
+
+ - Montei uma página com o que eu resgatei de texto do TCC pro trabalho atual.
+
+ - Introdução: ciência de dados, modelos de regressão, testes de hipótese, objetivos.
+
+ - Metodologia
+    * McGLM: GLM, cGLM, McGLM e estimação e inferência (\hat{theta} segue distribuição Normal).
+    * Teste Wald: o que é, hipóteses que podem ser testadas e procedimento.
+    * ANOVA: Tipos I, II, III e como proceder utilizando o teste Wald.
+    * MANOVA: Teste Wald multivariado, hipóteses, procedimento e MANOVA via teste Wald.
+
+Tentei por o máximo de exemplo possível e seguir uma sequência mais logica, mas relendo depois
+achei que ficou repetitivo, então se tiver ideias pra enxugar, reordenar, incluir e também
+artigos de referências mesmo (teste Wald e ANOVA principalmente).
+
+-----------------------------------------------------------------------------------------------
+
+Implementei ANOVAs e MANOVAs para os parâmetros de regressão, dispersão e potência
+
+-----------------------------------------------------------------------------------------------
+
+Regression ANOVAS e MANOVAS implementadas
+
+ - Impelementei dos tipos II e III, elas retornam o mesmo resultado quando os modelos não tem 
+   interação. Quando tem, a diferença é que no tipo 3 vc testa se os betas referentes à aquela
+   variável são iguais 0 e não olha se tem parâmetros de interação que tem essa variável. Na do
+   tipo II você testa se os parâmetros referentes à aquela variável são iguais a 0, independente
+   se é efeito fixo ou interação. Na prática, no tipo II vc ta testando se mais parâmetros são 
+   iguais a 0, então muda os graus de liberdade do teste Wald.
+
+ - Eu fiz uma ANOVA e MANOVA sequencial usando o teste Wald, mas não sei se ficou bom porque
+   não equivale à uma ANOVA do tipo I usual e acho que vai causar mais confusão do que servir
+   pra alguém. O que eu fiz nela foi: na primeira linha eu testo se todos os parâmetros são
+   iguais a 0, na próxima eu testo se todos menos o primeiro, depois todos menos o primeiro 
+   e o segundo e assim por diante. Desse jeito a última linha do teste equivale a uma do
+   II ou III sem interação.
+
+ - Eu fiz uns testes com essas funções, parece que ta tudo ok. O que dá pra fazer é juntar elas
+   numa mesma função e colocar um argumento nela que da um switch ou um if pra selecionar o tipo
+   também dá pra tentar otimizar umas coisas, diminuir a quantidade de laços dentro da função, 
+   por mais que não sejam funções que dependem muito de performance porque elas pegam saídas do
+   modelo, então quem faz o trabalho todo é o modelo.
+   Mas do jeito que elas tão agora já da pra trabalhar e planejar o estudo de simulação pros 
+   testes para os parâmetros de regressão.
+
+-----------------------------------------------------------------------------------------------
+ 
+Dispersion e Power ANOVAS e MANOVAS
+
+ - Pros parâmetros do dispersão eu fiz uma ANOVA e uma MANOVA análogas a uma do tipo III, que
+   testa se determinado parâmetro é igual a 0 e não olha pros outros. Na do pacote tem um argumento
+   pro usuário dizer a forma que ele quer testar, por exemplo: quer testar se tau1, 2 e 3 são iguais
+   a 0 ele coloca isso la nos índices... A minha não faz isso.
+
+ - Pro de potência eu fiz esse mesmo procedimento.
+
+ - Tem essas diferenças da versão implementada mas avaliando a utilidade desses testes acho 
+   que faz mais sentido implementar uma função pra testar hipóteses mais gerais, em que o usuário
+   diz quais parâmetros vai testar e com quais valores vai comparar, mas isso seria uma próxima
+   etapa.
+
+-----------------------------------------------------------------------------------------------
+
+Exemplos didáticos
+ - NBA 
+ - Ovelhas
+
+-----------------------------------------------------------------------------------------------
+
+Considerações finais
+
+ - A princípio as ANOVAS e MANOVAS para os betas tão feitas e já dá pra começar a pensar nos
+   cenários pro estudo de simulação pra essa parte do trabalho.
+
+ - Tem as minhas versões da ANOVA e MANOVA análogas a um tipo III para os parâmetros de dispersão
+   e potência. A pra dispersão tá diferente da do pacote, mas estou me questionando quanto à 
+   utilidade delas nesse formato de quadro de análise de variância.
+
+ - Um próximo passo é implementar uma função de hipóteses lineares mais gerais pros parâmetros 
+   de regressão, dispersão e potência na qual o usuário forneça os parâmetros que ele quer testar
+   e com que valor ele quer confrontar na hipótese nula... Acho que seria mais útil principalmente
+   pros parâmetros de dispersão e potência ter uma função desse tipo.
+
+-----------------------------------------------------------------------------------------------
+
+Tissei
+
+ - Eu ainda to trabalhando lá com o Zanata naquele problema do TCC de um menino dele que a gente
+   terminou de tratar a base e fazer a exploratória.
+
+ - A ideia agora é ajustar modelo no mcglm. São 2 bases, cada uma com 2 variáveis resposta que são
+   contagens bem correlacionadas e aí um conjunto de covariáveis comuns às duas respostas, aí tem
+   uma parte que é contagem também e outras que eram contagem mas a gente optou por transformar em
+   binária. E eles tão interessados em explicação... Entender como as variáveis tão relacionadas com 
+   as respostas.
+
+-----------------------------------------------------------------------------------------------
+
+Próximos passos
+
+Tem o texto e as funções prontas, quando puder da uma olhada lá pra eu já trabalhar nos ajustes finos.
+
+Eu vou começar a pensar no estudo de simulação, pelo menos pros testes pros parâmetros de regressão.
+
+Dar uma olhada em possíveis melhorias nas funções pros parâmetros de dispersão e potência.
+
+Preciso começar a trabalhar numa função pra fazer os testes mais gerais, mas acho que com a prática
+que eu peguei de implementar essas que tão prontas alguma coisa já sai sem muito sofrimento.
+
+E tem o trabalho do menino que vai ser um bom estudo de caso pra gente porque tem dado, o número
+de variáveis é reduzido e é um trabalho que eles parecem estar empolgados e o Zanata disse que 
+futuramente vai querer uma ajuda similar pra um trabalho de um menino de postdoc
+
+Eu vou tentar fazer essas coisas que eu listei, mas nos próximos 2 meses vai ser difícil produzir
+muita coisa porque vai abrir a matéria do Zanata de programação paralela no período especial, então
+vão ser 2 meses intensos porque vai ter aula com ele de terça a sexta 2 horas por dia, mas achei melhor
+já me matricular porque aí já me livro de 2 matérias nessa fase conturbada: progamação paralela e 
+seminários.
+
+-----------------------------------------------------------------------------------------------
+
+Disciplinas PPGINF:
+
+OBRIGATÓRIAS
+
+ELETIVAS: TRONCO COMUM, OFICINAS OU TÓPICOS
+
+ - O discente deve cursar as disciplinas obrigatórias.
+ - Obter no mínimo 4 (quatro) créditos em disciplinas eletivas do tronco comum.
+ - Cursar ao menos uma disciplina pertencente a uma linha de pesquisa diferente daquela à qual o discente está vinculado.
+ - Obter no máximo 4 (quatro) créditos em disciplinas eletivas de Oficina.
+
+* Não diz que eu preciso fazer uma tronco comum da minha área!
+* Não diz que se eu posso matar a regra do tronco comum e da disciplina de outra área na mesma disciplina!
+
+INFO7041 - SEMINÁRIOS EM INFORMÁTICA I: obrigatória
+INFO802 - INTRODUÇÃO À PESQUISA EM CIÊNCIA DA COMPUTAÇÃO: obrigatória
+
+INFO7044 – SISTEMAS DE PROCESSAMENTO PARALELO: tronco comum e outra linha (REDES E SISTEMAS)
+INFO7032 - PRÁTICA EM DOCÊNCIA DE INFORMÁTICA I: obrigatório para bolsistas
+
+INFO7004 – APRENDIZADO DE MÁQUINA: tronco comum e outra linha (INTELIGÊNCIA COMPUTACIONAL)
+INFO7006 – BANCO DE DADOS: eletiva fora do tronco comum (TECNOLOGIA DA INFORMAÇÃO)
+
+Outras de ciências de dados
+
+-----------------------------------------------------------------------------------------------
+
+
+
