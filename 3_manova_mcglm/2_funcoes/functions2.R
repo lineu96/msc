@@ -118,8 +118,8 @@ mc_anova_III <- function(object){
       data.frame(Variável = c("Intercept", 
                               attr(terms(object$linear_pred[[j]]), "term.labels")),
                  GL = gl,
-                 W = round(W, 3),
-                 P_valor = round(p_val, 3))
+                 W = round(W, 4),
+                 P_valor = round(p_val, 4))
   }  
   
   return(tabela)  
@@ -300,8 +300,8 @@ mc_anova_II <- function(object){
       data.frame(Variável = c("Intercept", 
                               attr(terms(object$linear_pred[[j]]), "term.labels")),
                  GL = gl,
-                 W = round(W, 3),
-                 P_valor = round(p_val, 3))
+                 W = round(W, 4),
+                 P_valor = round(p_val, 4))
   }
   
   return(tabela)  
@@ -470,8 +470,8 @@ mc_anova_I <- function(object){
       data.frame(Variável = c("Intercept", 
                               attr(terms(object$linear_pred[[j]]), "term.labels")),
                  GL = gl,
-                 W = round(W, 3),
-                 P_valor = round(p_val, 3))
+                 W = round(W, 4),
+                 P_valor = round(p_val, 4))
   }
   
   return(tabela)  
@@ -576,8 +576,8 @@ mc_manova_III <- function(object){
   tabela <- data.frame(Variável = c("Intercept", 
                                     attr(terms(object$linear_pred[[1]]), "term.labels")),
                        GL = gl,
-                       W = round(W, 3),
-                       P_valor = round(p_val, 3))
+                       W = round(W, 4),
+                       P_valor = round(p_val, 4))
   
   #----------------------------------------------------------------
   
@@ -721,8 +721,8 @@ mc_manova_II <- function(object){
   tabela <- data.frame(Variável = c("Intercept", 
                                     attr(terms(object$linear_pred[[1]]), "term.labels")),
                        GL = gl,
-                       W = round(W, 3),
-                       P_valor = round(p_val, 3))
+                       W = round(W, 4),
+                       P_valor = round(p_val, 4))
   
   #----------------------------------------------------------------
   
@@ -859,8 +859,8 @@ mc_manova_I <- function(object){
   tabela <- data.frame(Variável = c("Intercept", 
                                     attr(terms(object$linear_pred[[1]]), "term.labels")),
                        GL = gl,
-                       W = round(W, 3),
-                       P_valor = round(p_val, 3))
+                       W = round(W, 4),
+                       P_valor = round(p_val, 4))
   
   #----------------------------------------------------------------
   
@@ -982,8 +982,8 @@ mc_anova_disp <- function(object){
     tabela[[j]] <- 
       data.frame(Variável = paste0('tau',1:(n_tau[i])),
                  GL = gl,
-                 W = round(W, 3),
-                 P_valor = round(p_val, 3))
+                 W = round(W, 4),
+                 P_valor = round(p_val, 4))
   }  
   
   return(tabela)  
@@ -1104,8 +1104,8 @@ mc_anova_power <- function(object){
     tabela[[j]] <- 
       data.frame(Variável = paste0('power',1:(n_power[i])),
                  GL = gl,
-                 W = round(W, 3),
-                 P_valor = round(p_val, 3))
+                 W = round(W, 4),
+                 P_valor = round(p_val, 4))
   }  
   
   return(tabela)  
@@ -1211,8 +1211,8 @@ mc_manova_disp <- function(object){
   
   tabela <- data.frame(Variável = paste0('tau',1:(length(tau_names)/n_resp)),
                        GL = gl,
-                       W = round(W, 3),
-                       P_valor = round(p_val, 3))
+                       W = round(W, 4),
+                       P_valor = round(p_val, 4))
   
   #----------------------------------------------------------------
   
@@ -1321,8 +1321,8 @@ mc_manova_power <- function(object){
   
   tabela <- data.frame(Variável = 'Power',
                        GL = gl,
-                       W = round(W, 3),
-                       P_valor = round(p_val, 3))
+                       W = round(W, 4),
+                       P_valor = round(p_val, 4))
   
   #----------------------------------------------------------------
   

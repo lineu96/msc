@@ -1,7 +1,8 @@
+-------------------------------------------------------
+
 TAREFAS
 
-TERMINAR ANOVAS E MANOVAS LOGO PARA PODER ESTUDAR 
-PROGRAMAÇÃO PARALELA
+Atualizar curriculos
 
 -------------------------------------------------------
 Mestrado
@@ -9,8 +10,7 @@ Mestrado
 
 MANOVA
 
- - Testar ANOVAS e MANOVAS
-
+ - ANOVAS e MANOVAS prontas
  - Preparar material didático
  - Apresentar pro Wagner
 
