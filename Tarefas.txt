@@ -9,10 +9,11 @@ Mestrado
 
 MANOVA
 
- - Implementar ANOVA e MANOVA para parametros de dispersão e potência.
+ - Testar ANOVAS e MANOVAS
 
  - Preparar material didático
  - Apresentar pro Wagner
+
  - FINALIZAR ISSO ATE NO MAXIMO DIA 24
 
  - Por que fazer um teste multivariado?

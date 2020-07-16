@@ -90,6 +90,9 @@ mc_anova_I(fit_jointP)[[i]]
 mc_anova_II(fit_jointP)[[i]]
 mc_anova_III(fit_jointP)[[i]]
 
+mc_anova_disp(fit_jointP)
+mc_anova_power(fit_jointP)
+
 #---------------------------------------------------------------
 
 # MANOVA
@@ -98,6 +101,9 @@ mc_manova(fit_jointP)
 mc_manova_I(fit_jointP)
 mc_manova_II(fit_jointP)
 mc_manova_III(fit_jointP)
+
+mc_manova_disp(fit_jointP)
+mc_manova_power(fit_jointP)
 
 ################################################################
 #---------------------------------------------------------------
@@ -162,6 +168,9 @@ mc_anova_I(fit_jointP)[[i]]
 mc_anova_II(fit_jointP)[[i]]
 mc_anova_III(fit_jointP)[[i]]
 
+mc_anova_disp(fit_jointP)
+mc_anova_power(fit_jointP)
+
 #---------------------------------------------------------------
 
 # MANOVA
@@ -170,5 +179,8 @@ mc_manova(fit_jointP)
 mc_manova_I(fit_jointP)
 mc_manova_II(fit_jointP)
 mc_manova_III(fit_jointP)
+
+mc_manova_disp(fit_jointP)
+mc_manova_power(fit_jointP)
 
 #---------------------------------------------------------------

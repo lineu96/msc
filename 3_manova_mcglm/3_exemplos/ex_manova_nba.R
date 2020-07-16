@@ -56,7 +56,8 @@ disp <- function(form, data){
   abline(lm(form, data), col = 2, lwd = 2)  
 }
 
-par(mfrow = c(2,3))
+x11()
+par(mfrow = c(3,3))
 
 disp(y1~x1, dados)
 disp(y1~x2, dados)
@@ -65,6 +66,10 @@ plot(y1~x3, dados)
 disp(y2~x1, dados)
 disp(y2~x2, dados)
 plot(y2~x3, dados)
+
+disp(y3~x1, dados)
+disp(y3~x2, dados)
+plot(y3~x3, dados)
 
 cor1 <- cor(dados[,-ncol(dados)])
 
@@ -131,6 +136,9 @@ mc_anova_I(fit)[[i]]
 mc_anova_II(fit)[[i]]
 mc_anova_III(fit)[[i]]
 
+mc_anova_disp(fit)
+mc_anova_power(fit)
+
 #---------------------------------------------------------------
 
 # MANOVA
@@ -139,6 +147,9 @@ mc_manova(fit)
 mc_manova_I(fit)
 mc_manova_II(fit)
 mc_manova_III(fit)
+
+mc_manova_disp(fit)
+mc_manova_power(fit)
 
 ################################################################
 #---------------------------------------------------------------
@@ -198,6 +209,9 @@ mc_anova_I(fit)[[i]]
 mc_anova_II(fit)[[i]]
 mc_anova_III(fit)[[i]]
 
+mc_anova_disp(fit)
+mc_anova_power(fit)
+
 #---------------------------------------------------------------
 
 # MANOVA
@@ -206,5 +220,8 @@ mc_manova(fit)
 mc_manova_I(fit)
 mc_manova_II(fit)
 mc_manova_III(fit)
+
+mc_manova_disp(fit)
+mc_manova_power(fit)
 
 #---------------------------------------------------------------

@@ -2,13 +2,17 @@
 # FUNÇÕES ANOVA E MANOVA VIA TESTE WALD
 #################################################################
 
-# ANOVA I    - OK 
-# ANOVA II   - OK
-# ANOVA III  - OK
+# ANOVA I               - OK 
+# ANOVA II              - OK
+# ANOVA III             - OK
+# ANOVA PARA DISPERSAO  - OK
+# ANOVA PARA POTENCIA   - OK
 
-# MANOVA I   - OK
-# MANOVA II  - OK
-# MANOVA III - OK
+# MANOVA I              - OK
+# MANOVA II             - OK
+# MANOVA III            - OK
+# MANOVA PARA DISPERSAO - OK
+# MANOVA PARA POTENCIA  - OK
 
 #################################################################
 # ANOVA VIA TESTE WALD TIPO III
@@ -866,13 +870,477 @@ mc_manova_I <- function(object){
 #----------------------------------------------------------------
 
 #################################################################
+# ANOVA VIA TESTE WALD TIPO III PARA PARAMETROS DE DISPERSAO
+#################################################################
+
+#' @title Anova Tables for dispersion components
+#' @name mc_anova_disp
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs Wald tests to generate analysis-of-variance tables 
+#' of the significance for the dispersion components by response 
+#' variables for model objects produced by mcglm.
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param ... additional arguments affecting the summary produced. Note
+#'     that there is no extra options for mcglm object class.
+#' @keywords internal
+#' @return ANOVA table for dispersion components of mcglm objects.
+#'
+#' @export
+
+mc_anova_disp <- function(object){
+  
+  # Vetor tau e indice de resposta
+  tau <- coef(object, type = "tau")[,c(1,2, 4)] 
+  
+  #----------------------------------------------------------------
+  
+  # Número de taus por resposta
+  n_tau <- as.vector(table(tau$Response)) 
+  
+  #----------------------------------------------------------------
+  
+  # Número de respostas
+  n_resp <- length(n_tau) 
+  
+  #----------------------------------------------------------------
+  
+  # Lista vcov por resposta desconsiderando parametros de 
+  # regressao e potencia
+  
+  vcov_taus <- list()
+  
+  padrao <- vector()
+  
+  for (j in 1:n_resp) {
+    for (i in 1:length(row.names(vcov(object)))) {
+      padrao[i] <- sjmisc::str_contains(rownames(vcov(object))[i],
+                                        pattern = paste0('tau',j))
+    }
+    
+    names <- data.frame(row_names = row.names(vcov(object)),
+                        id = padrao)
+    
+    names2 <- as.vector(subset(names, id == TRUE)$row_names)
+    
+    vcov_taus[[j]] <- vcov(object)[names2, names2]  
+  }
+  
+  #----------------------------------------------------------------
+  
+  # Índice que associa tau a matriz Z
+  
+  p_var <- list()
+  
+  for (i in 1:n_resp) {
+    p_var[[i]] <- 0:(n_tau[i]-1)
+  }  
+  
+  #----------------------------------------------------------------
+  
+  # Matriz L para todos os parâmetros (Hypothesis matrix), por resposta
+  L_all <- list()
+  
+  for (i in 1:n_resp) {
+    L_all[[i]] <- diag(length(p_var[[i]]))   
+  }  
+  
+  #----------------------------------------------------------------
+  
+  # Matriz L por variável (Hypothesis matrix), por resposta
+  
+  L_par <- list()
+  
+  for (i in 1:n_resp) {
+    L_par[[i]] <- by(data = L_all[[i]], 
+                     INDICES = p_var[[i]], 
+                     FUN = as.matrix)   
+  }
+  
+  #----------------------------------------------------------------
+  
+  ## Tabela
+  
+  tabela <- list()
+  
+  for (j in 1:n_resp) {
+    
+    W <- vector() # Vetor para a estatística de teste
+    gl <- vector() # Vetor para graus de liberdade
+    p_val <- vector() # Vetor para p-valor
+    
+    
+    for (i in 1:dim(L_par[[j]])) {
+      W[i] <- as.numeric((t(L_par[[j]][[i]] %*% subset(tau, tau$Response == j)$Estimates)) %*% (solve(L_par[[j]][[i]]%*%vcov_taus[[j]]%*%t(L_par[[j]][[i]]))) %*% (L_par[[j]][[i]] %*% subset(tau, tau$Response == j)$Estimates))
+      gl[i] <- ifelse(is.null(nrow(L_par[[j]][[i]])) == TRUE,
+                      1,nrow(L_par[[j]][[i]]))
+      p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
+      
+    } 
+    tabela[[j]] <- 
+      data.frame(Variável = paste0('tau',1:(n_tau[i])),
+                 GL = gl,
+                 W = round(W, 3),
+                 P_valor = round(p_val, 3))
+  }  
+  
+  return(tabela)  
+}
+
+#----------------------------------------------------------------
+
+#################################################################
+# ANOVA VIA TESTE WALD TIPO III PARA PARAMETROS DE POTENCIA
+#################################################################
+
+#' @title Anova Tables for power components
+#' @name mc_anova_power
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs Wald tests to generate analysis-of-variance tables 
+#' of the significance for the power components by response 
+#' variables for model objects produced by mcglm.
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param ... additional arguments affecting the summary produced. Note
+#'     that there is no extra options for mcglm object class.
+#' @keywords internal
+#' @return ANOVA table for power components of mcglm objects.
+#'
+#' @export
+
+mc_anova_power <- function(object){
+  
+  # Vetor power e indice de resposta
+  power <- coef(object, type = "power")[,c(1,2,4)] 
+  
+  #----------------------------------------------------------------
+  
+  # Número de powers por resposta
+  n_power <- as.vector(table(power$Response)) 
+  
+  #----------------------------------------------------------------
+  
+  # Número de respostas
+  n_resp <- length(n_power) 
+  
+  #----------------------------------------------------------------
+  
+  # Lista vcov por resposta desconsiderando parametros de 
+  # regressao e dispersao
+  
+  vcov_power <- list()
+  
+  padrao <- vector()
+  
+  for (j in 1:n_resp) {
+    for (i in 1:length(row.names(vcov(object)))) {
+      padrao[i] <- sjmisc::str_contains(rownames(vcov(object))[i],
+                                        pattern = paste0('power',j))
+    }
+    
+    names <- data.frame(row_names = row.names(vcov(object)),
+                        id = padrao)
+    
+    names2 <- as.vector(subset(names, id == TRUE)$row_names)
+    
+    vcov_power[[j]] <- vcov(object)[names2, names2]  
+  }
+  
+  #----------------------------------------------------------------
+  
+  # Índice que associa tau a matriz Z
+  
+  p_var <- list()
+  
+  for (i in 1:n_resp) {
+    p_var[[i]] <- 0:(n_power[i]-1)
+  }  
+  
+  #----------------------------------------------------------------
+  
+  # Matriz L para todos os parâmetros (Hypothesis matrix), por resposta
+  L_all <- list()
+  
+  for (i in 1:n_resp) {
+    L_all[[i]] <- diag(length(p_var[[i]]))
+  }  
+  
+  #----------------------------------------------------------------
+  
+  # Matriz L por variável (Hypothesis matrix), por resposta
+  
+  L_par <- list()
+  
+  for (i in 1:n_resp) {
+    L_par[[i]] <- by(data = L_all[[i]], 
+                     INDICES = p_var[[i]], 
+                     FUN = as.matrix)   
+  }
+  
+  #----------------------------------------------------------------
+  
+  ## Tabela
+  
+  tabela <- list()
+  
+  for (j in 1:n_resp) {
+    
+    W <- vector() # Vetor para a estatística de teste
+    gl <- vector() # Vetor para graus de liberdade
+    p_val <- vector() # Vetor para p-valor
+    
+    
+    for (i in 1:dim(L_par[[j]])) {
+      W[i] <- as.numeric((t(L_par[[j]][[i]] %*% subset(power, power$Response == j)$Estimates)) %*% (solve(L_par[[j]][[i]]%*%vcov_power[[j]]%*%t(L_par[[j]][[i]]))) %*% (L_par[[j]][[i]] %*% subset(power, power$Response == j)$Estimates))
+      gl[i] <- ifelse(is.null(nrow(L_par[[j]][[i]])) == TRUE,
+                      1,nrow(L_par[[j]][[i]]))
+      p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
+      
+    } 
+    tabela[[j]] <- 
+      data.frame(Variável = paste0('power',1:(n_power[i])),
+                 GL = gl,
+                 W = round(W, 3),
+                 P_valor = round(p_val, 3))
+  }  
+  
+  return(tabela)  
+}
+
+#----------------------------------------------------------------
+
+#################################################################
+# MANOVA VIA TESTE WALD TIPO III PARA PARAMETROS DE DISPERSAO
+#################################################################
+
+#' @title MANOVA table for dispersion components
+#' @name mc_manova_disp
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs Wald tests to generate multivariate analysis-of-variance
+#' tables of the significance for the dispersion components for 
+#' model objects produced by mcglm.
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param ... additional arguments affecting the summary produced. Note
+#'     that there is no extra options for mcglm object class.
+#' @keywords internal
+#' @return MANOVA table for dispersion components of mcglm objects.
+#' @export
+
+mc_manova_disp <- function(object){
+  
+  # Vetor tau
+  tau <- coef(object, type = "tau")[,c(1,2,4)]
+  
+  #----------------------------------------------------------------
+  
+  # Número de taus
+  n_tau <- sum(as.vector(table(tau$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # Número de respostas
+  n_resp <- length(as.vector(table(tau$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # Nomes dos parâmetros
+  tau_names <- as.vector(unique(tau$Parameters))
+  
+  #----------------------------------------------------------------
+  
+  # vcov desconsiderando parametros de regressao e potencia
+  vcov_taus <- vcov(object)[tau_names, tau_names]
+  
+  #----------------------------------------------------------------
+  
+  # Índice que associa tau a matriz Z
+  p_var <- 0:((length(tau_names)/n_resp)-1)
+  
+  #----------------------------------------------------------------
+  
+  # Matriz F para todos os parâmetros (Hypothesis matrix)
+  F_all <- diag(length(p_var))
+  
+  #----------------------------------------------------------------
+  
+  # Matriz F por variável (Hypothesis matrix)
+  F_par <- by(data = F_all, 
+              INDICES = p_var, 
+              FUN = as.matrix) 
+  
+  #----------------------------------------------------------------
+  
+  # Matriz G
+  G <- diag(n_resp)
+  
+  #----------------------------------------------------------------
+  
+  # Matriz L
+  
+  L_par <- list()
+  
+  for (i in 1:length(F_par)) {
+    L_par[[i]] <- kronecker(G, F_par[[i]])
+  }
+  
+  
+  #----------------------------------------------------------------
+  
+  ## Tabela
+  
+  W <- vector() # Vetor para a estatística de teste
+  gl <- vector() # Vetor para graus de liberdade
+  p_val <- vector() # Vetor para p-valor
+  
+  ### Estatística de teste:
+  #### t(L*beta) x (L*vcov*t(L))^-1 x (L*beta) ~ Qui-quadrado(numero de parametros testados)
+  
+  for (i in 1:length(L_par)) {
+    
+    W[i] <- as.numeric((t(L_par[[i]]%*%tau$Estimates)) %*% (solve(L_par[[i]]%*%vcov_taus%*%t(L_par[[i]]))) %*% (L_par[[i]]%*%tau$Estimates))
+    gl[i] <- nrow(L_par[[i]])
+    p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
+  }
+  
+  tabela <- data.frame(Variável = paste0('tau',1:(length(tau_names)/n_resp)),
+                       GL = gl,
+                       W = round(W, 3),
+                       P_valor = round(p_val, 3))
+  
+  #----------------------------------------------------------------
+  
+  return(tabela)
+}
+
+#----------------------------------------------------------------
+
+#################################################################
+# MANOVA VIA TESTE WALD TIPO III PARA PARAMETROS DE POTENCIA
+#################################################################
+
+#' @title MANOVA table for power components
+#' @name mc_manova_power
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs Wald tests to generate multivariate analysis-of-variance
+#' tables of the significance for the power components for 
+#' model objects produced by mcglm.
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param ... additional arguments affecting the summary produced. Note
+#'     that there is no extra options for mcglm object class.
+#' @keywords internal
+#' @return MANOVA table for power components of mcglm objects.
+#' @export
+
+mc_manova_power <- function(object){
+  
+  #----------------------------------------------------------------
+  
+  # Vetor power
+  power <- coef(object, type = "power")[,c(1,2, 4)]
+  
+  #----------------------------------------------------------------
+  
+  # Número de powers
+  n_power <- sum(as.vector(table(power$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # Número de respostas
+  n_resp <- length(as.vector(table(power$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # Nomes dos parâmetros
+  power_names <- as.vector(unique(power$Parameters))
+  
+  #----------------------------------------------------------------
+  
+  # vcov desconsiderando parametros de regressao e potencia
+  vcov_power <- vcov(object)[power_names, power_names]
+  
+  #----------------------------------------------------------------
+  
+  # Índice que associa power a resposta
+  p_var <- 0:((length(power_names)/n_resp)-1)
+  
+  #----------------------------------------------------------------
+  
+  # Matriz F para todos os parâmetros (Hypothesis matrix)
+  F_all <- diag(length(p_var))
+  
+  #----------------------------------------------------------------
+  
+  # Matriz F por variável (Hypothesis matrix)
+  F_par <- by(data = F_all, 
+              INDICES = p_var, 
+              FUN = as.matrix) 
+  
+  #----------------------------------------------------------------
+  
+  # Matriz G
+  G <- diag(n_resp)
+  
+  #----------------------------------------------------------------
+  
+  # Matriz L
+  
+  L_par <- list()
+  
+  for (i in 1:length(F_par)) {
+    L_par[[i]] <- kronecker(G, F_par[[i]])
+  }
+  
+  
+  #----------------------------------------------------------------
+  
+  ## Tabela
+  
+  W <- vector() # Vetor para a estatística de teste
+  gl <- vector() # Vetor para graus de liberdade
+  p_val <- vector() # Vetor para p-valor
+  
+  ### Estatística de teste:
+  #### t(L*beta) x (L*vcov*t(L))^-1 x (L*beta) ~ Qui-quadrado(numero de parametros testados)
+  
+  for (i in 1:length(L_par)) {
+    
+    W[i] <- as.numeric((t(L_par[[i]]%*%power$Estimates)) %*% (solve(L_par[[i]]%*%vcov_power%*%t(L_par[[i]]))) %*% (L_par[[i]]%*%power$Estimates))
+    gl[i] <- nrow(L_par[[i]])
+    p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
+  }
+  
+  tabela <- data.frame(Variável = 'Power',
+                       GL = gl,
+                       W = round(W, 3),
+                       P_valor = round(p_val, 3))
+  
+  #----------------------------------------------------------------
+  
+  return(tabela)
+}
+
+#################################################################
 
 # mc_anova_I()
 # mc_anova_II()
 # mc_anova_III()
+# mc_anova_disp()
+# mc_anova_power()
 
 # mc_manova_I()
 # mc_manova_II()
 # mc_manova_III()
+# mc_manova_disp()
+# mc_manova_power()
 
 #################################################################
