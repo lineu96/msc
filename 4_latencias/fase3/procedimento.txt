@@ -1,0 +1,7 @@
+ - Ajustar modelo univariado
+ - Avaliar resíduos e extrair individuos com residuo acima de 2 e menor que menos 2
+ - Avaliar estes indivíduos (padrão de instruções)
+ - Adicionar estes indivíduos numa nova base para analista
+ - Reajustar o modelo sem eles
+
+ - Testar GAMLSS (ZANBI apresentou bons resultados para a base sem residuos extremos para latencia minima na primeira base)

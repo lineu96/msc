@@ -2,8 +2,6 @@
 
 TAREFAS
 
-Atualizar curriculos
-
 -------------------------------------------------------
 Mestrado
 -------------------------------------------------------
@@ -49,8 +47,16 @@ AJUSTAR MODELO BIVARIADO NO MCGLM, latencia~portas
  
 Noções de probabilidades e estatística
 
-Noções gerais: discorrer sobre o papel da estatistica
-no desenvolvimento cientifico
+Reorganizar da seguinte forma:
+
+Papel da Estatistica no desenvolvimento cientifico
+1. Conceitos iniciais
+2. Amostragem
+3. Análise exploratória de dados
+4. Probabilidade e variáveis aleatórias	
+5. Inferência
+6. Tópicos interessantes não abordados
+
 
 Reorganizar o material de Análise Exploratória
 
@@ -98,6 +104,8 @@ exemplos
 Variáveis aleatórias: oq é e para, para que serve, quais os tipos
 exemplo básico e notação (X:..., x assume valores, distribuição de x,
 e fp). OLHAR A6P1
+
+Inferência: paradigmas de inferência
 
 -------------------------------------------------------
 
