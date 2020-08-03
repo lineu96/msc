@@ -1,7 +1,14 @@
- - Ajustar modelo univariado
+
+ - Ajustar modelos univariados
  - Avaliar resíduos e extrair individuos com residuo acima de 2 e menor que menos 2
  - Avaliar estes indivíduos (padrão de instruções)
  - Adicionar estes indivíduos numa nova base para analista
  - Reajustar o modelo sem eles
 
+ - Ajustar modelo bivariado excluindo observações mal ajustadas pelos modelos univariados
+ - Acrescentar observações mal ajustadas pelos modelos univariados na base de analista
+
+PROCEDIMENTO REALIZADO PARA A PRIMEIRA BASE. OBSERVADO~PREDITO TA ESTRANHO, PARECE QUE A LATENCIA MINIMA TA SENDO SUBESTIMADA MAS NAO HÁ EVIDENCIA DISSO NO RESTO DA ANALISE. VERIFICAR!
+
  - Testar GAMLSS (ZANBI apresentou bons resultados para a base sem residuos extremos para latencia minima na primeira base)
+

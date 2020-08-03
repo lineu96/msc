@@ -9,13 +9,9 @@ Mestrado
 MANOVA
 
  - ANOVAS e MANOVAS prontas
- - Preparar material didático
+ - Material didático
  - Apresentar pro Wagner
-
- - FINALIZAR ISSO ATE NO MAXIMO DIA 24
-
- - Por que fazer um teste multivariado?
- - Tendo as funções prontas, desenhar o estudo de simulação.
+ - Pensar no estudo de simulação
 
 -------------------------------------------------------
 
