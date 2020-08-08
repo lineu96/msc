@@ -1,0 +1,45 @@
+------------------------------------------------------
+LATENCIAS BASE 1
+------------------------------------------------------
+
+ - Ajustei modelos univariados para dados de contagem no McGLM
+
+ - Nos modelos univariados eu quis avaliar se dava pra chegar a um modelo razoável 
+
+ - E identificar observações mal ajustadas, aqueles pontos atípicos que a gente nao conseguiu identificar na exploratória
+
+ - Eu fiz isso, e extraí mais algumas obervações, ou seja, aumentei a base do analista e reduzi a base de modelo
+
+ - Com essa base nova eu ajustei um modelo bivariado: latencia minima e maxima em função das variáveis explicativas que a gente tinha
+
+ form.min_lat <- min_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0)
+ form.max_lat <- max_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0)
+
+Relembrando os tratamentos feitos: p0156, p06 e p23 mantivemos como numericas. lock, p0, p237, p4, p1 e p15 foram tratadas como binárias
+
+------------------------------------------------------
+
+MOSTRAR CODIGOS
+ - Dados, tratamento, divisão da base
+ - Ajuste, preditores, estimativas
+ - Residuos: Histograma, res x pred, obs x pred. Geral e por resposta
+ - Individuos mal ajustados
+
+------------------------------------------------------
+
+RESULTADOS
+
+ - Estimativas e o que representam
+ - Interpretação dos parâmetros de regressão
+ - ANOVA e MANOVA
+ - Função para preditos
+
+------------------------------------------------------
+
+COMENTÁRIOS
+
+ - Gap na análise de resíduos do mcglm e que a opinião do Wagner seria muito bem vinda
+
+ - Possibilidade de quebrar em bases menores e ajustar um modelo pra cada uma. O custo a pagar seria o retrabalho.
+
+------------------------------------------------------

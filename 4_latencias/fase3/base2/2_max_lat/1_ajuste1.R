@@ -4,7 +4,7 @@
 
 # Preditor
 
-form.max_lat <- max_lat ~ (p23 + p4 + p015 + p5 + p0 + p01 + count)
+form.max_lat <- max_lat ~ (p23 + p4 + p015 + p5 + p0 + p01)
 
 #----------------------------------------------------------------
 
@@ -22,15 +22,15 @@ fit <-
         link = c("log"),
         variance = c("poisson_tweedie"), 
         control_algorithm = list(verbose = T, 
-                                 tuning = 0.1,
-                                 max_iter = 20,
-                                 tol = 1e-01),
+                                 tuning = 1,
+                                 max_iter = 200,
+                                 tol = 1e-04),
         power_fixed = c(F),
         data = massa)
 
 #----------------------------------------------------------------
 
-matplot(fit$IterationCovariance, type = 'l', xlim = c(1,10)) 
+matplot(fit$IterationCovariance, type = 'l', xlim = c(1,45)) 
 
 #----------------------------------------------------------------
 

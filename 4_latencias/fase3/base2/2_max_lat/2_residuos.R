@@ -44,7 +44,7 @@ g1 <- ggplot(data = res_pred, aes(x=pearson))+
   geom_vline(xintercept = 0, col = 2, lty = 2, lwd = 1)+
   stat_function(fun = function(x) dnorm(x, 
                                         mean = mean, 
-                                        sd = sd) * 900,
+                                        sd = sd) * 1200,
                 color = "darkred", size = 1) + 
   ggtitle('Resíduo Pearson')
 
@@ -65,7 +65,7 @@ g2 <- ggplot(data = res_pred, aes(x=raw))+
   geom_vline(xintercept = 0, col = 2, lty = 2, lwd = 1)+
   stat_function(fun = function(x) dnorm(x, 
                                         mean = mean2, 
-                                        sd = sd2) * 4000,
+                                        sd = sd2) * 3300,
                 color = "darkred", size = 1) + 
   ggtitle('Resíduo cru')
 
@@ -121,6 +121,7 @@ ggplot(data = res_pred, aes(x=observado,y=preditos))+
   theme_bw()+
   geom_smooth(method = 'lm')+
   xlab('Observado')+
-  ylab('Predito')
+  ylab('Predito') + 
+  geom_abline(slope = 1, intercept = 1, col = 2, lwd = 1.1)
 
 #---------------------------------------------------------------

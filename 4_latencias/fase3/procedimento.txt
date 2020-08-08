@@ -8,7 +8,5 @@
  - Ajustar modelo bivariado excluindo observações mal ajustadas pelos modelos univariados
  - Acrescentar observações mal ajustadas pelos modelos univariados na base de analista
 
-PROCEDIMENTO REALIZADO PARA A PRIMEIRA BASE. OBSERVADO~PREDITO TA ESTRANHO, PARECE QUE A LATENCIA MINIMA TA SENDO SUBESTIMADA MAS NAO HÁ EVIDENCIA DISSO NO RESTO DA ANALISE. VERIFICAR!
-
  - Testar GAMLSS (ZANBI apresentou bons resultados para a base sem residuos extremos para latencia minima na primeira base)
 

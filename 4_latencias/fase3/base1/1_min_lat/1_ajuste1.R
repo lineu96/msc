@@ -4,7 +4,8 @@
 
 # Preditor
 
-form.min_lat <- min_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0 + p0156*p23 + count)
+form.min_lat <- min_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0# + p0156*p23 + count
+                           )
 
 #----------------------------------------------------------------
 

@@ -44,7 +44,7 @@ g1 <- ggplot(data = res_pred, aes(x=pearson))+
   geom_vline(xintercept = 0, col = 2, lty = 2, lwd = 1)+
   stat_function(fun = function(x) dnorm(x, 
                                         mean = mean, 
-                                        sd = sd) * 500,
+                                        sd = sd) * 750,
                 color = "darkred", size = 1) + 
   ggtitle('Resíduo Pearson')
 
@@ -122,6 +122,6 @@ ggplot(data = res_pred, aes(x=observado,y=preditos))+
   geom_smooth(method = 'lm')+
   xlab('Observado')+
   ylab('Predito')+
-  geom_abline(intercept = 1,slope = 1, col = 2, lty = 2, lwd = 1)
+  geom_abline(intercept = 1,slope = 1, col = 2, lwd = 1.1)
 
 #---------------------------------------------------------------

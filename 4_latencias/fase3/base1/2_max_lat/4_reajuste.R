@@ -4,7 +4,8 @@
 
 # Preditor
 
-form.max_lat <- max_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0 + p0156*p23 + count)
+form.max_lat <- max_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0# + p0156*p23 + count
+)
 
 #----------------------------------------------------------------
 
@@ -22,7 +23,7 @@ fit <-
         link = c("log"),
         variance = c("poisson_tweedie"), 
         control_algorithm = list(verbose = T, 
-                                 tuning = 0.1,
+                                 tuning = 0.45,
                                  max_iter = 20,
                                  tol = 1e-01),
         power_fixed = c(F),

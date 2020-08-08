@@ -43,4 +43,7 @@ indices <- subset(dados, dados$min_lat<=15 & dados$max_lat<=24)$n
 massa <- subset(dados, dados$n %in% indices)
 analista <- subset(dados, !(dados$n %in% indices))
 
+nrow(dados)
+nrow(massa)+nrow(analista)
+
 #---------------------------------------------------------------

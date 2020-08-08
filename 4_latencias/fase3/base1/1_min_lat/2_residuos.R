@@ -121,6 +121,7 @@ ggplot(data = res_pred, aes(x=observado,y=preditos))+
   theme_bw()+
   geom_smooth(method = 'lm')+
   xlab('Observado')+
-  ylab('Predito')
+  ylab('Predito') + 
+  geom_abline(slope = 1, intercept = 1, col = 2, lwd = 1.1)
 
 #---------------------------------------------------------------

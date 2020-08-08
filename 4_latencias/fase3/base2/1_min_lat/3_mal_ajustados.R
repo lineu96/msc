@@ -11,10 +11,8 @@ massa$res_raw <- res_pred$raw
 names(massa)
 
 mal_ajustados <- subset(massa, 
-                        res_pearson > 2  | 
-                        res_pearson < -2 |
-                        res_raw > 5  | 
-                        res_raw < -5 |
+                        res_raw > 4  | 
+                        res_raw < -4 |
                         pred_min > 10
                         )
 
@@ -27,10 +25,8 @@ mal_ajustados$n
 
 # Divisão da nova base massa e analista (com mal ajustados)
 
-indices2 <- subset(dados, dados$min_lat<=25 & 
-                     dados$max_lat<=45 | 
-                     dados$inst == 'DIV' | 
-                     dados$inst == 'IDIV')$n
+indices2 <- subset(dados, dados$min_lat<=15 & 
+                     dados$max_lat<=24)$n
 
 massa2 <- subset(dados, dados$n %in% indices & !(dados$n %in% mal_ajustados$n))
 

@@ -18,12 +18,10 @@ mal_ajustados <- subset(massa,
                         raw_min > 4  | 
                           raw_max > 4  |   
                           raw_min < -4 | 
-                          raw_max < -4 |   
-                        pred_min > 40    |
-                        pred_max > 40
+                          raw_max < -4
                         )
 
-mal_ajustados[,c(14,17,21,19,
-                 15,18,22,20)]
+mal_ajustados[,c(22,25,29,27,
+                 23,26,30,28)]
 
 mal_ajustados$n

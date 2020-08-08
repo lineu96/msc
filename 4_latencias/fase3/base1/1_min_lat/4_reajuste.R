@@ -4,7 +4,8 @@
 
 # Preditor
 
-form.min_lat <- min_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0 + p0156*p23 + count)
+form.min_lat <- min_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0# + p0156*p23 + count
+)
 
 #----------------------------------------------------------------
 
@@ -22,9 +23,9 @@ fit <-
         link = c("log"),
         variance = c("poisson_tweedie"), 
         control_algorithm = list(verbose = T, 
-                                 tuning = 0.1,
+                                 tuning = 0.5,
                                  max_iter = 20,
-                                 tol = 1e-01),
+                                 tol = 0.1),
         power_fixed = c(F),
         data = massa2)
 
