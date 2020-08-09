@@ -3,7 +3,6 @@
 #---------------------------------------------------------------
 
 # SAIDA DO MODELO
-
 resumo <- summary(fit)
 
 #---------------------------------------------------------------
@@ -15,19 +14,46 @@ round(resumo$`Resp.Variable 1`$tau,2)
 round(resumo$`Resp.Variable 2`$Power,2)
 round(resumo$`Resp.Variable 2`$tau,2)
 
-#---------------------------------------------------------------
-
-# PARAMETROS DE REGRESSAO PARA CADA RESPOSTA
-round(resumo$`Resp.Variable 1`$Regression,2)
-round(resumo$`Resp.Variable 2`$Regression,2)
-
-#---------------------------------------------------------------
-
-# INTERVALOS DE CONFIANÇA
-confint(fit)[1:10,]
-confint(fit)[11:20,]
-
 confint(fit)[21:25,]
+
+#---------------------------------------------------------------
+
+# PARAMETROS DE REGRESSAO
+
+beta_min <- data.frame(name = rownames(resumo$`Resp.Variable 1`$Regression),
+                       exp_est = exp(round(resumo$`Resp.Variable 1`$Regression$Estimates,2)),
+                       ic_min = as.vector(exp(confint(fit)[1:10,])[,1]),
+                       ic_max = as.vector(exp(confint(fit)[1:10,])[,2]))
+
+beta_max <- data.frame(name = rownames(resumo$`Resp.Variable 2`$Regression),
+                       exp_est = exp(round(resumo$`Resp.Variable 2`$Regression$Estimates,2)),
+                       ic_min = as.vector(exp(confint(fit)[11:20,])[,1]),
+                       ic_max = as.vector(exp(confint(fit)[11:20,])[,2]))
+
+beta_min[,2:4] <- round(beta_min[,2:4],2)
+beta_max[,2:4] <- round(beta_max[,2:4],2)
+
+beta_min
+beta_max
+
+#---------------------------------------------------------------
+
+# INTERPRETAÇÃO
+
+# Numericas
+
+## p0156
+paste0('Para cada unidade de aumento no uso da porta ', beta_min$name[3], 
+       ' a media da latencia minima fica multiplicada por ', beta_min$exp_est[3], 
+       ' mantendo fixos os valores das demais variáveis. Com 95% de confiança o intervalo entre ',
+       beta_min$ic_min[3], ' e ', beta_min$ic_max[3], ' realmente contém o parâmetro.')
+
+# Binarias
+
+##p41
+paste0('A media da latencia minima quando é usada a porta ', beta_min$name[7], 
+       ' é ', beta_min$exp_est[7], ' vezes a media de quando ela não é usada, mantendo fixos os valores das demais variáveis. Com 95% de confiança o intervalo entre ',
+       beta_min$ic_min[7], ' e ', beta_min$ic_max[7], ' realmente contém o parâmetro.')
 
 #---------------------------------------------------------------
 
@@ -103,12 +129,12 @@ dados[sample(nrow(massa),1),c('lock',
                               'max_lat')]
 
 predito(lock  =  0,
-        p0156 =  2,
-        p06   =  1,
-        p23   =  1,
+        p0156 =  0,
+        p06   =  0,
+        p23   =  0,
         p237  =  0,
         p4    =  0,
-        p1    =  1,
+        p1    =  0,
         p15   =  0,
         p0    =  0)
 
