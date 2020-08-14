@@ -26,14 +26,14 @@ fit <-
         variance = c("poisson_tweedie", "poisson_tweedie"), 
         control_algorithm = list(verbose = T, 
                                  tuning = 0.5,
-                                 max_iter = 20,
-                                 tol = 1e-01),
+                                 max_iter = 60,
+                                 tol = 1e-8),
         power_fixed = c(F,F),
         data = massa)
 
 #----------------------------------------------------------------
 
-matplot(fit$IterationCovariance, type = 'l', xlim = c(1,10)) 
+matplot(fit$IterationCovariance, type = 'l', xlim = c(1,60)) 
 
 #----------------------------------------------------------------
 

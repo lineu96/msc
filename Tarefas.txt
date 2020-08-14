@@ -6,38 +6,172 @@ TAREFAS
 Mestrado
 -------------------------------------------------------
 
-MANOVA
+Disciplinas PPGINF:
 
- - ANOVAS e MANOVAS prontas
- - Material didático
- - Apresentar pro Wagner
- - Pensar no estudo de simulação
+OBRIGATÓRIAS
+
+ELETIVAS: TRONCO COMUM, OFICINAS OU TÓPICOS
+
+ - Cumprir 16 creditos (2 obrigatorias + 3 optativas)
+ - O discente deve cursar as disciplinas obrigatórias.
+ - Obter no mínimo 4 (quatro) créditos em disciplinas eletivas do tronco comum.
+ - Cursar ao menos uma disciplina pertencente a uma linha de pesquisa diferente daquela à qual o discente está vinculado.
+ - Obter no máximo 4 (quatro) créditos em disciplinas eletivas de Oficina.
+
+INFO7041 - SEMINÁRIOS EM INFORMÁTICA I: obrigatória
+INFO802  - INTRODUÇÃO À PESQUISA EM CIÊNCIA DA COMPUTAÇÃO: obrigatória
+INFO7032 - PRÁTICA EM DOCÊNCIA DE INFORMÁTICA I: obrigatório para bolsistas
+
+INFO7044 - SISTEMAS DE PROCESSAMENTO PARALELO: tronco comum e outra linha (REDES E SISTEMAS)
+
+INFO7004 - APRENDIZADO DE MÁQUINA: tronco comum e outra linha (INTELIGÊNCIA COMPUTACIONAL)
+
+INFO7006 - BANCO DE DADOS: eletiva fora do tronco comum (TECNOLOGIA DA INFORMAÇÃO)
+
+OUTRAS DE CIENCIA DE DADOS
+
+Cronograma:
+
+O PLANO É FECHAR TODO O AMBIENTE PARA REALIZAÇÃO DE
+TESTES USANDO A ESTATISTICA WALD: REALIZAÇÃO COM VALORES
+ESPECIFICADOS PELO USUARIO PARA PARAMETROS DE REGRESSAO,
+DISPERSAO, POTENCIA E AINDA ANALISES DE VARIANCIA PARA 
+OS PARAMETROS DE REGRESSAO E DISPERSAO. FAZER O ESTUDO
+DE SIMULAÇÃO PARA VALIDAR EM QUE CARACTERISTICAS O TESTE
+RETORNA OS RESULTADOS CORRETOS.
+
+COM O AMBIENTE FECHADO COM O TESTE WALD PENSAR NOS OUTROS
+TESTES: PRIMEIRO SCORE.
+
+ARTIGOS: 
+ - DADOS TISSEI: MODELO QUASI POISSON SUBDISPERSO 
+   MULTIVARIADO.
+
+ - ESTUDO DE SIMULAÇÃO PARA VALIDAR FUNCIONAMENTO DO TESTE 
+   WALD NO CONTEXTO DE MODELOS MULTIVARIADOS.
+
+ - IMPLEMENTAÇÃO DAS FUNÇÕES E USO.
+
+ - OUTRAS APLICAÇÕES COM O ZANATA.
+
+TENTAR QUALIFICAR NO FINAL DESSE ANO E TER TUDO PRONTO 
+PARA DEFENDER NO FINAL DO ANO QUE VEM (AÍ DECIDIR SE
+DEFENDE OU SE POSTERGA PRA GANHAR BOLSA)
 
 -------------------------------------------------------
 
-Linear Hypothesis
+TEXTO
+
+ - Montei uma página com o que eu resgatei de texto do TCC pro trabalho atual.
+
+ - Introdução: ciência de dados, modelos de regressão, testes de hipótese, objetivos.
+
+ - Metodologia
+    * McGLM: GLM, cGLM, McGLM e estimação e inferência (\hat{theta} segue distribuição Normal).
+    * Teste Wald: o que é, hipóteses que podem ser testadas e procedimento.
+    * ANOVA: Tipos I, II, III e como proceder utilizando o teste Wald.
+    * MANOVA: Teste Wald multivariado, hipóteses, procedimento e MANOVA via teste Wald.
+
+Tentei por o máximo de exemplo possível e seguir uma sequência mais logica, mas relendo depois
+achei que ficou repetitivo. 
+
+Precisamos de ideias pra enxugar, reordenar, incluir e também artigos de referências 
+mesmo (teste Wald e ANOVA principalmente).
+
+-------------------------------------------------------
+
+ANOVAS e MANOVAS 
+
+ - Praticamente prontas.
+
+ - Ajustar ANOVA e MANOVA do tipo III para os parâmetros de 
+   dispersão: precisa de um indice ou formula pra saber taus 
+   associados em variaveis categoricas e testá-los 
+   simultaneamente.
+
+ - Para o power nao faz sentido o procedimento de análise de 
+   variância, faz sentido hipotese geral.
+
+ - Fazer testes com exemplos gaussianos: pegar dado generico, 
+   ajustar modelo, testar hipotese no car e no mcglm pra ver 
+   se bate.
+
+ - Fazer outros materiais para exemplificar, montar vinhetas.
+
+ - Pensar nos cenários pro estudo de simulação para ANOVA e MANOVA 
+   para parametros de regressao e potencia.
+
+ - Pensar nos cenários pro estudo de simulação para o teste geral.
+
+-------------------------------------------------------
+
+LINEAR HYPOTHESIS
+
+ - Implementar uma função de hipóteses lineares gerais pros parâmetros 
+   de regressão, dispersão e potência na qual o usuário forneça os 
+   parâmetros que ele quer testar e com que valor ele quer confrontar 
+   na hipótese nula. 
+
+ - COMO TESTAR IGUALDADE ENTRE PARAMETROS E NAO CONFRONTAR COM VALORES 
+   POSTULADOS???
+
  - Estudar construção da matriz de hipóteses.
+
  - Abrir a função linear.hypothesis e descobrir como é feita a matriz internamente.
+
  - Com uma função dessa podemos desenvolver um procedimento para comparações múltiplas.
 
 -------------------------------------------------------
 
-Teste score
+TESTE SCORE
+
  - Estudar teste score.
+
  - Combinações da matriz G e F para maximizar a estatística de teste.
 
 -------------------------------------------------------
 
-Análise dataset Tissei
+ANALISE DATASET TISSEI
 
  - Macroinstruções geram microinstruções
  - Microinstruções são executadas em diferentes portas
  - As instruções levam tempos diferentes de execução (latências)
  - Existe associação entre o uso de determinadas portas e as latências
- - Variáveis explicativas: portas (numero de vezes que foi usada)
+ - Variáveis explicativas: portas (numero de vezes que foi usada OU se foi ou nao usada)
  - Variáveis resposta: latência mínima e máxima (em ciclos, então é contagem)
 
-AJUSTAR MODELO BIVARIADO NO MCGLM, latencia~portas
+ - AJUSTAR MODELO BIVARIADO NO MCGLM, latencia~portas
+
+Discussão: como foram obtidas as latencias minimas e maximas e como foram obtidos os
+valores das variáveis explicativas. 
+
+ex: foram feitos varios experimentos e anotou-se a latencia minima e a maxima, ou é 
+resultado de um modelo (intervalo de confiança). E as explicativas? Como chegaram ao
+numero de vezes que cada porta é usada?
+
+BASE 1
+
+ - Ajustei modelos univariados
+ - Avaliei resíduos e extraí individuos com residuo acima de 2 e abaixo de menos 2
+ - Avaliar estes indivíduos (padrão de instruções)
+ - Adicionei estes indivíduos numa nova base para analista
+ - Reajustei o modelo sem eles
+ - Ajustei modelo bivariado excluindo observações mal ajustadas pelos modelos univariados
+
+É um dataset com uma característica interessante: contagens subdispersas, isto é,
+p=1 e tau<0. Rende bons artigos na Estatística.
+
+O modelo está bem ajustado, vale a pena fazer a validação com função de variância
+tweedie e p fixado em 1 (default): o tau dever ficar entre 0 e 1, confirmando a
+subdispersao.
+
+Agr que sabemos que da pra chegar num modelo final bem ajustado podemos ajustar
+com todos os dados e retirar os atípicos na fase de diagnostico. Fica um 
+procedimento mais coerente e fácil de justificar.
+
+BASE 2
+
+NAO CONSEGUI UM BOM MODELO
 
 -------------------------------------------------------
  

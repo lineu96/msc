@@ -66,7 +66,7 @@ g2 <- ggplot(data = res_pred, aes(x=raw))+
   geom_vline(xintercept = 0, col = 2, lty = 2, lwd = 1)+
   stat_function(fun = function(x) dnorm(x, 
                                         mean = mean2, 
-                                        sd = sd2) * 1900,
+                                        sd = sd2) * 1700,
                 color = "darkred", size = 1) + 
   ggtitle('Resíduo cru')
 

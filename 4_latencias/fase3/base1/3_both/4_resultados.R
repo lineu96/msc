@@ -128,12 +128,12 @@ dados[sample(nrow(massa),1),c('lock',
                               'min_lat',
                               'max_lat')]
 
-predito(lock  =  0,
-        p0156 =  0,
-        p06   =  0,
-        p23   =  0,
+predito(lock  =  1,
+        p0156 =  5,
+        p06   =  3,
+        p23   =  2,
         p237  =  0,
-        p4    =  0,
+        p4    =  1,
         p1    =  0,
         p15   =  0,
         p0    =  0)
