@@ -4,8 +4,8 @@
 
 # Preditor
 
-form.min_lat <- min_lat ~ (p23 + p4 + p015 + p5 + p0 + p01)
-form.max_lat <- max_lat ~ (p23 + p4 + p015 + p5 + p0 + p01)
+form.min_lat <- min_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0)
+form.max_lat <- max_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0)
 
 #----------------------------------------------------------------
 
@@ -26,14 +26,14 @@ fit <-
         variance = c("poisson_tweedie", "poisson_tweedie"), 
         control_algorithm = list(verbose = T, 
                                  tuning = 0.1,
-                                 max_iter = 500,
-                                 tol = 1e-01),
+                                 max_iter = 600,
+                                 tol = 1e-1),
         power_fixed = c(F,F),
         data = dados)
 
 #----------------------------------------------------------------
 
-matplot(fit$IterationCovariance, type = 'l', xlim = c(1,90)) 
+matplot(fit$IterationCovariance, type = 'l', xlim = c(1,60)) 
 
 #----------------------------------------------------------------
 

@@ -159,15 +159,9 @@ BASE 1
  - Ajustei modelo bivariado excluindo observações mal ajustadas pelos modelos univariados
 
 É um dataset com uma característica interessante: contagens subdispersas, isto é,
-p=1 e tau<0. Rende bons artigos na Estatística.
+p=1 e tau<0 na poisson_tweedie, e 0<tau<1 com p fixado em 1 para tweedie. 
 
-O modelo está bem ajustado, vale a pena fazer a validação com função de variância
-tweedie e p fixado em 1 (default): o tau dever ficar entre 0 e 1, confirmando a
-subdispersao.
-
-Agr que sabemos que da pra chegar num modelo final bem ajustado podemos ajustar
-com todos os dados e retirar os atípicos na fase de diagnostico. Fica um 
-procedimento mais coerente e fácil de justificar.
+Rende artigos na Estatística.
 
 BASE 2
 
@@ -236,10 +230,5 @@ exemplo básico e notação (X:..., x assume valores, distribuição de x,
 e fp). OLHAR A6P1
 
 Inferência: paradigmas de inferência
-
--------------------------------------------------------
-
-Monitoramento COVID-19: arrumar o monitoramento para mudança
-da base.
 
 -------------------------------------------------------

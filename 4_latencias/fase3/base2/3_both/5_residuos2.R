@@ -17,10 +17,10 @@ residuos <- as.numeric(chol_inv%*%res)
 preditos <- fit$fitted
 
 ## Dataframe
-res_pred <- data.frame(index = 1:nrow(dados),
-                       resp = c(rep('min_lat', nrow(dados)),
-                                rep('max_lat', nrow(dados))),
-                       observado = c(dados$min_lat,dados$max_lat),
+res_pred <- data.frame(index = 1:nrow(massa),
+                       resp = c(rep('min_lat', nrow(massa)),
+                                rep('max_lat', nrow(massa))),
+                       observado = c(massa$min_lat,massa$max_lat),
                        preditos = preditos,
                        pearson = residuos,
                        raw = res

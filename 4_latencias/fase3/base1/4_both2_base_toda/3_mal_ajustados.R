@@ -15,25 +15,24 @@ dados[,c(14,17,21,19,
          15,18,22,20)]
 
 mal_ajustados <- subset(dados, 
-                        raw_min > 2.5  | 
-                          raw_max > 2.5  |   
-                          raw_min < -2.5 | 
-                          raw_max < -2.5|   
-                          pred_min > 40    |
-                          pred_max > 40
+                        raw_min > 5.5  | 
+                          raw_max > 5.5  |   
+                          raw_min < -5.5 | 
+                          raw_max < -5.5 |   
+                        pred_min > 40    |
+                        pred_max > 40
                         )
 
-mal_ajustados[,c(22,25,29,27,
-                 23,26,30,28)]
+mal_ajustados[,c(14,17,21,19,
+                 15,18,22,20)]
 
 mal_ajustados$n
 
-
-# BASE NOVA
+# NOVA BASE
 
 massa <- subset(dados,  !(dados$n %in% mal_ajustados$n))
- 
-analista <- subset(dados, (dados$n %in% mal_ajustados$n))
- 
+
+analista <- subset(dados,(dados$n %in% mal_ajustados$n))
+
 nrow(dados)
 nrow(massa) + nrow(analista)
