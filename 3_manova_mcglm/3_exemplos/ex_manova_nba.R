@@ -5,7 +5,7 @@
 
 library(mcglm)
 library(Matrix)
-source('~/msc/3_manova_mcglm/2_funcoes/functions2.R')
+source('~/msc/3_manova_mcglm/2_funcoes/functions.R')
 
 #---------------------------------------------------------------
 # Reference: 
@@ -136,8 +136,9 @@ mc_anova_I(fit)[[i]]
 mc_anova_II(fit)[[i]]
 mc_anova_III(fit)[[i]]
 
-mc_anova_disp(fit)
-mc_anova_power(fit)
+mc_anova_disp(object =  fit,
+              p_var = c(0,0,0),
+              names = c('t0', 't0', 't0'))
 
 #---------------------------------------------------------------
 
@@ -148,8 +149,10 @@ mc_manova_I(fit)
 mc_manova_II(fit)
 mc_manova_III(fit)
 
-mc_manova_disp(fit)
-mc_manova_power(fit)
+mc_manova_disp(fit,
+               p_var = 0,
+               names = 't1')
+
 
 ################################################################
 #---------------------------------------------------------------
@@ -209,8 +212,14 @@ mc_anova_I(fit)[[i]]
 mc_anova_II(fit)[[i]]
 mc_anova_III(fit)[[i]]
 
-mc_anova_disp(fit)
-mc_anova_power(fit)
+mc_anova_disp(object =  fit,
+              p_var = list(c(0),
+                           c(0),
+                           c(0)),
+              names = list(c('t1'),
+                           c('t1'),
+                           c('t1')))
+
 
 #---------------------------------------------------------------
 
@@ -221,7 +230,8 @@ mc_manova_I(fit)
 mc_manova_II(fit)
 mc_manova_III(fit)
 
-mc_manova_disp(fit)
-mc_manova_power(fit)
+mc_manova_disp(fit,
+               p_var = 0,
+               names = 't1')
 
 #---------------------------------------------------------------

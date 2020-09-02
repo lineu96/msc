@@ -84,14 +84,6 @@ ANOVAS e MANOVAS
 
  - Praticamente prontas.
 
- - Ajustar ANOVA e MANOVA do tipo III para os parâmetros de 
-   dispersão: precisa de um indice ou formula pra saber taus 
-   associados em variaveis categoricas e testá-los 
-   simultaneamente.
-
- - Para o power nao faz sentido o procedimento de análise de 
-   variância, faz sentido hipotese geral.
-
  - Fazer testes com exemplos gaussianos: pegar dado generico, 
    ajustar modelo, testar hipotese no car e no mcglm pra ver 
    se bate.

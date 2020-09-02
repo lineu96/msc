@@ -5,7 +5,7 @@
 
 library(mcglm)
 library(Matrix)
-source('~/msc/3_manova_mcglm/2_funcoes/functions2.R')
+source('~/msc/3_manova_mcglm/2_funcoes/functions.R')
 
 #---------------------------------------------------------------
 # Análise comportamental de ovelhas submetidas à intervenção 
@@ -90,8 +90,13 @@ mc_anova_I(fit_jointP)[[i]]
 mc_anova_II(fit_jointP)[[i]]
 mc_anova_III(fit_jointP)[[i]]
 
-mc_anova_disp(fit_jointP)
-mc_anova_power(fit_jointP)
+mc_anova_disp(fit_jointP,
+              p_var = list(c(0,1,2),
+                           c(0,1,2),
+                           c(0,1,2)),
+              names = list(c('t1', 't2', 't3'),
+                           c('t1', 't2', 't3'),
+                           c('t1', 't2', 't3')))
 
 #---------------------------------------------------------------
 
@@ -102,8 +107,10 @@ mc_manova_I(fit_jointP)
 mc_manova_II(fit_jointP)
 mc_manova_III(fit_jointP)
 
-mc_manova_disp(fit_jointP)
-mc_manova_power(fit_jointP)
+mc_manova_disp(fit_jointP, 
+               p_var = c(0,1,2), 
+               names = c('t1', 't2', 't3'))
+
 
 ################################################################
 #---------------------------------------------------------------
@@ -168,8 +175,13 @@ mc_anova_I(fit_jointP)[[i]]
 mc_anova_II(fit_jointP)[[i]]
 mc_anova_III(fit_jointP)[[i]]
 
-mc_anova_disp(fit_jointP)
-mc_anova_power(fit_jointP)
+mc_anova_disp(fit_jointP,
+              p_var = list(c(0,1,1),
+                           c(0,1,2),
+                           c(0,1,2)),
+              names = list(c('t1', 't2', 't3'),
+                           c('t1', 't2', 't3'),
+                           c('t1', 't2', 't3')))
 
 #---------------------------------------------------------------
 
@@ -180,7 +192,9 @@ mc_manova_I(fit_jointP)
 mc_manova_II(fit_jointP)
 mc_manova_III(fit_jointP)
 
-mc_manova_disp(fit_jointP)
-mc_manova_power(fit_jointP)
+mc_manova_disp(fit_jointP, 
+               p_var = c(0,1,2), 
+               names = c('t1', 't2', 't3'))
+
 
 #---------------------------------------------------------------
