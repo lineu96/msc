@@ -205,6 +205,6 @@ ggplot(data = res_pred, aes(x=observado,y=preditos))+
   geom_smooth(method = 'lm')+
   xlab('Observado')+
   ylab('Predito') + facet_wrap(~resp, scales = 'free') + 
-  geom_abline(slope = 1, intercept = 1, col = 2, lwd = 1.1)
+  geom_abline(slope = 1, intercept = 0, col = 2, lwd = 1.1)
 
 #---------------------------------------------------------------
