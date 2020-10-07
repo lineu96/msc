@@ -1,0 +1,52 @@
+
+-------------------------------------------
+
+Tarefas dissertação
+
+ - Funções implementadas:
+   1. ANOVA tipo I (imita uma sequencial)
+   2. ANOVA tipo II
+   3. ANOVA tipo III
+   4. MANOVA tipo I (imita uma sequencial)
+   5. MANOVA tipo II
+   6. MANOVA tipo III
+   7. Hipóteses lineares gerais especificadas pelo usuário (com essa da pra replicar qualquer ANOVA ou MANOVA, mas o poder está 100% do usuário)
+
+ - Como testar hipóteses de igualdade entre parâmetros?
+
+ - Fazer testes com exemplos gaussianos: pegar dado generico, ajustar modelo padrão e no mcglm, testar hipotese no car e no mcglm pra ver se bate.
+
+ - Preparar materiais didáticos (scripts e rmds):
+   1. Exemplo simples de uso das funções com um dataset qualquer (algum do mcglm por exemplo)
+   2. Análise completa recorte experimento Priscilla (igual o TCC)
+   3. Análise completa recorte trabalho Bruno (contagens subdispersas)
+   4. Algum outro problema
+
+ - Planejar o estudo de simulação
+
+-------------------------------------------
+
+Tarefas trabalho Bruno
+
+ - Base 1: modelo está bem ajustado. 
+
+ - Refazer exploratória com a base toda (no modelo final
+   foi usada a base toda)
+
+ - Fazer um relatório rmd com os resultados
+
+ - Transformar todas as variáveis em binárias e avaliar se há perda
+
+ - ANÁLISE 
+   opção 1: ser mais restritivo com os mal ajustados e ajustar outro 
+   modelo so para eles com foco em count alto (comuns)
+
+   opção 2: aumentar a base para dar mais enfase nos individuos com
+   count alto que aparecem pouco (nao parece uma boa ideia)
+
+  opção 3: manter individuos mal ajustados com count alto e verificar
+  oq acontece
+
+ - PENSAR NO PAPER PARA ESTATISTICA
+
+-------------------------------------------

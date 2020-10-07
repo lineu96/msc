@@ -91,25 +91,17 @@ ANOVAS e MANOVAS
  - Fazer outros materiais para exemplificar, montar vinhetas.
 
  - Pensar nos cenários pro estudo de simulação para ANOVA e MANOVA 
-   para parametros de regressao e potencia.
-
- - Pensar nos cenários pro estudo de simulação para o teste geral.
+   para parametros de regressao e dispersão.
 
 -------------------------------------------------------
 
 LINEAR HYPOTHESIS
 
- - Implementar uma função de hipóteses lineares gerais pros parâmetros 
-   de regressão, dispersão e potência na qual o usuário forneça os 
-   parâmetros que ele quer testar e com que valor ele quer confrontar 
-   na hipótese nula. 
+ - Função de hipóteses lineares gerais pros parâmetros 
+   de regressão, dispersão e potência implementada. 
 
  - COMO TESTAR IGUALDADE ENTRE PARAMETROS E NAO CONFRONTAR COM VALORES 
    POSTULADOS???
-
- - Estudar construção da matriz de hipóteses.
-
- - Abrir a função linear.hypothesis e descobrir como é feita a matriz internamente.
 
  - Com uma função dessa podemos desenvolver um procedimento para comparações múltiplas.
 
@@ -133,13 +125,6 @@ ANALISE DATASET TISSEI
  - Variáveis resposta: latência mínima e máxima (em ciclos, então é contagem)
 
  - AJUSTAR MODELO BIVARIADO NO MCGLM, latencia~portas
-
-Discussão: como foram obtidas as latencias minimas e maximas e como foram obtidos os
-valores das variáveis explicativas. 
-
-ex: foram feitos varios experimentos e anotou-se a latencia minima e a maxima, ou é 
-resultado de um modelo (intervalo de confiança). E as explicativas? Como chegaram ao
-numero de vezes que cada porta é usada?
 
 BASE 1
 

@@ -1,5 +1,6 @@
 #################################################################
-# FUNÇÕES ANOVA E MANOVA VIA TESTE WALD
+# FUNÇÕES PARA TESTES DE HIPÓTESE GERAIS ANOVAS E MANOVAS
+# VIA TESTE WALD PARA OBJETOS MCGLM
 #################################################################
 
 # ANOVA I               - OK
@@ -12,6 +13,8 @@
 # MANOVA III            - OK
 # MANOVA PARA DISPERSAO - OK
 
+# HIPÓTESES GERAIS      - OK
+
 #################################################################
 
 # mc_anova_I()
@@ -23,6 +26,8 @@
 # mc_manova_II()
 # mc_manova_III()
 # mc_manova_disp()
+
+# mc_linear_hypothesis
 
 #################################################################
 # ANOVA VIA TESTE WALD TIPO III
@@ -1110,3 +1115,66 @@ mc_manova_disp <- function(object, p_var, names){
 }
 
 #----------------------------------------------------------------
+
+#################################################################
+# HIPÓTESES LINEARES GERAIS: PARAMETRO VS VALOR POSTULADO
+#################################################################
+
+mc_linear_hypothesis <- function(object, parameters, null_hyp){
+  
+  #----------------------------------------------------------------
+  
+  # Vetor beta chapeu
+  coefs <- coef(object, type = c("beta", "tau", "power"))
+  
+  #----------------------------------------------------------------
+  
+  # Número de parametros
+  n_coefs <- sum(as.vector(table(coefs$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # Número de respostas
+  n_resp <- length(as.vector(table(coefs$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # vcov
+  vcov_coefs <- vcov(object)[as.vector(coefs$Parameters),
+                             as.vector(coefs$Parameters)]
+  
+  #----------------------------------------------------------------
+  
+  # Matriz L para todos os parâmetros (Hypothesis matrix)
+  L_all <- diag(n_coefs)
+  
+  #----------------------------------------------------------------
+  
+  colnames(L_all) <- as.vector(coefs$Parameters)
+  row.names(L_all) <- as.vector(coefs$Parameters)
+  
+  #----------------------------------------------------------------
+  
+  # Parêmetros a serem testados
+  
+  user_list <- parameters
+  
+  L_user <- subset(L_all, rownames(L_all) %in% user_list)
+  
+  #----------------------------------------------------------------
+  
+  W <- vector() # Vetor para a estatística de teste
+  gl <- vector() # Vetor para graus de liberdade
+  p_val <- vector() # Vetor para p-valor
+  
+  W <- as.numeric((t((L_user%*%coefs$Estimates) - null_hyp)) %*% (solve(L_user%*%vcov_coefs%*%t(L_user))) %*% ((L_user%*%coefs$Estimates) - null_hyp))
+  gl <- nrow(L_user)
+  p_val <- pchisq(W, df = gl, lower.tail = FALSE)
+  
+  tabela <- data.frame(GL = gl,
+                       W = round(W, 4),
+                       P_valor = round(p_val, 4))
+  
+  return(tabela)
+  
+}
