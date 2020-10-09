@@ -5,7 +5,7 @@
 
 library(mcglm)
 library(Matrix)
-source('~/msc/3_manova_mcglm/2_funcoes/functions.R')
+source('~/msc/3_th_mcglm/0_funcoes/functions.R')
 
 #---------------------------------------------------------------
 # Análise comportamental de ovelhas submetidas à intervenção 
@@ -13,7 +13,7 @@ source('~/msc/3_manova_mcglm/2_funcoes/functions.R')
 #---------------------------------------------------------------
 
 #---------------------------------------------------------------
-dados <- read.csv2("dados_ovelhas.csv", 
+dados <- read.csv2("~/msc/3_th_mcglm/1_exemplos/0_dados/dados_ovelhas.csv", 
                    header = T, 
                    sep = ";", 
                    dec = ',')
@@ -71,6 +71,7 @@ fit_jointP <-
                                  tol = 1e-01),
         power_fixed = c(F, F, F),
         data = dados2)
+
 #----------------------------------------------------------------
 
 # RESUMO DO MODELO
@@ -156,6 +157,7 @@ fit_jointP <-
                                  tol = 1e-01),
         power_fixed = c(F, F, F),
         data = dados2)
+
 #----------------------------------------------------------------
 
 # RESUMO DO MODELO
@@ -176,7 +178,7 @@ mc_anova_II(fit_jointP)[[i]]
 mc_anova_III(fit_jointP)[[i]]
 
 mc_anova_disp(fit_jointP,
-              p_var = list(c(0,1,1),
+              p_var = list(c(0,1,2),
                            c(0,1,2),
                            c(0,1,2)),
               names = list(c('t1', 't2', 't3'),
@@ -195,6 +197,5 @@ mc_manova_III(fit_jointP)
 mc_manova_disp(fit_jointP, 
                p_var = c(0,1,2), 
                names = c('t1', 't2', 't3'))
-
 
 #---------------------------------------------------------------

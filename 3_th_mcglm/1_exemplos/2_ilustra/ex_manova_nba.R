@@ -5,7 +5,7 @@
 
 library(mcglm)
 library(Matrix)
-source('~/msc/3_manova_mcglm/2_funcoes/functions.R')
+source('~/msc/3_th_mcglm/0_funcoes/functions.R')
 
 #---------------------------------------------------------------
 # Reference: 
@@ -34,7 +34,7 @@ source('~/msc/3_manova_mcglm/2_funcoes/functions.R')
 
 #---------------------------------------------------------------
 
-dados <- read.csv2("NBA.csv", 
+dados <- read.csv2("~/msc/3_th_mcglm/1_exemplos/0_dados/NBA.csv", 
                    header = T, 
                    sep = ";", 
                    dec = ',')

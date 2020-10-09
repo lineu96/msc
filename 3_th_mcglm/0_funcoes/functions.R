@@ -70,13 +70,24 @@ mc_anova_III <- function(object){
   
   vcov_betas <- list()
   
-  vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+  #vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
   
-  for (i in 2:n_resp) {
-    vcov_betas[[i]] <- 
-      vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
-                   (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
-    
+  #for (i in 2:n_resp) {
+  #  vcov_betas[[i]] <- 
+  #    vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
+  #                 (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
+  #  }
+  
+  if (n_resp == 1) {
+    vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+  } else {
+    vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+    for (i in 2:n_resp) {
+      vcov_betas[[i]] <- 
+        vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
+                     (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
+      
+    }
   }
   
   #----------------------------------------------------------------
@@ -185,15 +196,25 @@ mc_anova_II <- function(object){
   
   vcov_betas <- list()
   
-  vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+  #vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
   
-  for (i in 2:n_resp) {
-    vcov_betas[[i]] <- 
-      vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
-                   (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
-    
+  #for (i in 2:n_resp) {
+  #  vcov_betas[[i]] <- 
+  #    vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
+  #                 (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
+  #}
+  
+  if (n_resp == 1) {
+    vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+  } else {
+    vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+    for (i in 2:n_resp) {
+      vcov_betas[[i]] <- 
+        vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
+                     (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
+      
+    }
   }
-  
   
   #----------------------------------------------------------------
   
@@ -367,15 +388,25 @@ mc_anova_I <- function(object){
   
   vcov_betas <- list()
   
-  vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+  #vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
   
-  for (i in 2:n_resp) {
-    vcov_betas[[i]] <- 
-      vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
-                   (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
-    
+  #for (i in 2:n_resp) {
+  #  vcov_betas[[i]] <- 
+  #    vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
+  #                 (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
+  #}
+  
+  if (n_resp == 1) {
+    vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+  } else {
+    vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+    for (i in 2:n_resp) {
+      vcov_betas[[i]] <- 
+        vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
+                     (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
+      
+    }
   }
-  
   
   #----------------------------------------------------------------
   
