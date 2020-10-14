@@ -112,6 +112,32 @@ mc_manova_disp(fit_jointP,
                p_var = c(0,1,2), 
                names = c('t1', 't2', 't3'))
 
+#---------------------------------------------------------------
+
+# HIPÓTESES LINEARES
+
+parametros <- coef(fit_jointP, type = 'beta')
+parametros$beta_names <- Reduce(c,fit_jointP$beta_names)
+parametros
+
+mc_linear_hypothesis(object =  fit_jointP, 
+                     hypothesis = c('beta15 = 0', 
+                                    'beta25 = 0',
+                                    'beta35 = 0'))
+
+mc_linear_hypothesis(object =  fit_jointP, 
+                     hypothesis = c('beta10 = beta20',
+                                    'beta10 = beta30'))
+
+mc_linear_hypothesis(object =  fit_jointP, 
+                     hypothesis = c('tau12 = 0',
+                                    'tau22 = 0',
+                                    'tau32 = 0'))
+
+mc_linear_hypothesis(object =  fit_jointP, 
+                     hypothesis = c('power11 = 1',
+                                    'power21 = 1',
+                                    'power31 = 1'))
 
 ################################################################
 #---------------------------------------------------------------
@@ -197,5 +223,33 @@ mc_manova_III(fit_jointP)
 mc_manova_disp(fit_jointP, 
                p_var = c(0,1,2), 
                names = c('t1', 't2', 't3'))
+
+#---------------------------------------------------------------
+
+# HIPÓTESES LINEARES
+
+parametros <- coef(fit_jointP, type = 'beta')
+parametros$beta_names <- Reduce(c,fit_jointP$beta_names)
+parametros
+
+mc_linear_hypothesis(object =  fit_jointP, 
+                     hypothesis = c('beta15 = 0', 
+                                    'beta25 = 0',
+                                    'beta35 = 0'))
+
+mc_linear_hypothesis(object =  fit_jointP, 
+                     hypothesis = c('beta10 = beta20',
+                                    'beta10 = beta30'))
+
+mc_linear_hypothesis(object =  fit_jointP, 
+                     hypothesis = c('tau12 = 0',
+                                    'tau22 = 0',
+                                    'tau32 = 0'))
+
+mc_linear_hypothesis(object =  fit_jointP, 
+                     hypothesis = c('power11 = 1',
+                                    'power21 = 1',
+                                    'power31 = 1'))
+
 
 #---------------------------------------------------------------

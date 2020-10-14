@@ -65,16 +65,14 @@ linearHypothesis(m1, c("(Intercept) = 0",
                        "x2 = 0"))
 
 mc_linear_hypothesis(object =  m2, 
-                     parameters = c('beta10', 
-                                    'beta11',
-                                    'beta12'),
-                     null_hyp = c(0,0,0))
+                     hypothesis = c('beta10 = 0', 
+                                    'beta11 = 0',
+                                    'beta12 = 0'))
 
 linearHypothesis(m1, c("(Intercept) = 0.13"))
 
 mc_linear_hypothesis(object =  m2, 
-                     parameters = c('beta10'),
-                     null_hyp = c(0.13))
+                     hypothesis = c('beta10 = 0.13'))
 
 #-------------------------------------------------------------------
 
@@ -107,7 +105,7 @@ data.frame(glm = round(m1$coefficients, 2),
 
 ## Tipo II
 Anova(m1, type = 'II', test.statistic = 'Wald')
-mc_anova_II(m2)
+mc_anova_II(m2)[[1]]
 mc_manova_II(m2)
 
 ## Tipo III
@@ -124,15 +122,13 @@ linearHypothesis(m1, c("(Intercept) = 0",
                        "x2 = 0"))
 
 mc_linear_hypothesis(object =  m2, 
-                     parameters = c('beta10', 
-                                    'beta11',
-                                    'beta12'),
-                     null_hyp = c(0,0,0))
+                     hypothesis = c('beta10 = 0', 
+                                    'beta11 = 0',
+                                    'beta12 = 0'))
 
 linearHypothesis(m1, c("(Intercept) = 0.13"))
 
 mc_linear_hypothesis(object =  m2, 
-                     parameters = c('beta10'),
-                     null_hyp = c(0.13))
+                     hypothesis = c('beta10 = 0.13'))
 
 #-------------------------------------------------------------------

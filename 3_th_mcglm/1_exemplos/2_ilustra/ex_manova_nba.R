@@ -153,6 +153,31 @@ mc_manova_disp(fit,
                p_var = 0,
                names = 't1')
 
+#---------------------------------------------------------------
+
+# HIPÓTESES LINEARES
+
+parametros <- coef(fit, type = 'beta')
+parametros$beta_names <- Reduce(c,fit$beta_names)
+parametros
+
+mc_linear_hypothesis(object =  fit, 
+                     hypothesis = c('beta11 = 0', 
+                                    'beta21 = 0',
+                                    'beta31 = 0'))
+
+mc_linear_hypothesis(object =  fit, 
+                     hypothesis = c('beta11 = beta21'))
+
+mc_linear_hypothesis(object =  fit, 
+                     hypothesis = c('tau11 = 0',
+                                    'tau21 = 0',
+                                    'tau31 = 0'))
+
+mc_linear_hypothesis(object =  fit, 
+                     hypothesis = c('beta11 = beta21', 
+                                    'beta21 = beta31'))
+
 
 ################################################################
 #---------------------------------------------------------------
@@ -233,5 +258,21 @@ mc_manova_III(fit)
 mc_manova_disp(fit,
                p_var = 0,
                names = 't1')
+
+#---------------------------------------------------------------
+
+# HIPÓTESES LINEARES
+
+parametros <- coef(fit, type = 'beta')
+parametros$beta_names <- Reduce(c,fit$beta_names)
+parametros
+
+mc_linear_hypothesis(object =  fit, 
+                     hypothesis = c('beta11 = 0', 
+                                    'beta21 = 0',
+                                    'beta31 = 0'))
+
+mc_linear_hypothesis(object =  fit, 
+                     hypothesis = c('beta11 = beta21'))
 
 #---------------------------------------------------------------

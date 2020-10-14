@@ -4,23 +4,28 @@
 Tarefas dissertação
 
  - Funções implementadas:
-   1. ANOVA tipo I (imita uma sequencial)
-   2. ANOVA tipo II
-   3. ANOVA tipo III
-   4. MANOVA tipo I (imita uma sequencial)
-   5. MANOVA tipo II
-   6. MANOVA tipo III
-   7. Hipóteses lineares gerais especificadas pelo usuário (com essa da pra replicar qualquer ANOVA ou MANOVA, mas o poder está 100% do usuário)
+   1. ANOVA  tipo I   (imita uma sequencial)
+   2. ANOVA  tipo II  (nao bate com o car)
+   3. ANOVA  tipo III
+   4. ANOVA  tipo III para dispersão
+   5. MANOVA tipo I   (imita uma sequencial)
+   6. MANOVA tipo II  (nao bate com o car)
+   7. MANOVA tipo III
+   8. MANOVA tipo III para dispersão
+   9. Hipóteses lineares gerais especificadas pelo usuário (poder está 100% do usuário)
 
- - Como testar hipóteses de igualdade entre parâmetros?
-
- - Fazer testes com exemplos gaussianos: pegar dado generico, ajustar modelo padrão e no mcglm, testar hipotese no car e no mcglm pra ver se bate.
+ - Testes com exemplos gaussianos:
+	* Para modelos gaussianos univariados, a função de hipoteses lineares e ANOVA tipo III funcionam perfeitamente
+	* Para dados não gaussianos as estimativas batem, mas os erros nao, por isso os testes nao sao equivalentes
+	* Com a função de hipóteses lineares da pra replicar anovas, manovas, testar qualquer parametro, igualdade entre parametros, grupos de 		  parametos etc
+	* As do tipo I e II nao batem, mas os testes são coerentes, isto é, eu faço testes corretos mas que não são feitos precisamente pelo car
+	* Nao consegui descobrir oq o car faz na anova tipo II, achei que tinha entendido e foi a forma como implementei. Mas nao bate e nao descobri 		  precisamente oq o car testa no tipo II
 
  - Preparar materiais didáticos (scripts e rmds):
    1. Exemplo simples de uso das funções com um dataset qualquer (algum do mcglm por exemplo)
    2. Análise completa recorte experimento Priscilla (igual o TCC)
    3. Análise completa recorte trabalho Bruno (contagens subdispersas)
-   4. Algum outro problema
+   4. Algum outro problema (Bruna nutrição?)
 
  - Planejar o estudo de simulação
 
@@ -50,3 +55,93 @@ Tarefas trabalho Bruno
  - PENSAR NO PAPER PARA ESTATISTICA
 
 -------------------------------------------
+
+mc_linear_hypothesis <- function(object, hypothesis){
+  
+  # Vetor beta chapeu
+  coefs <- coef(object, type = c("beta", "tau", "power"))
+  
+  #----------------------------------------------------------------
+  
+  # Número de parametros
+  n_coefs <- sum(as.vector(table(coefs$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # Número de respostas
+  n_resp <- length(as.vector(table(coefs$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # vcov
+  vcov_coefs <- vcov(object)[as.vector(coefs$Parameters),
+                             as.vector(coefs$Parameters)]
+
+  #----------------------------------------------------------------
+  
+  # Quebrando as strings recebidas como argumento (hipóteses)
+  hypothesis2 <- stringr::str_split(hypothesis, 
+                                    pattern = c('='), 
+                                    simplify = T)
+  
+  #----------------------------------------------------------------
+  
+  # Gerando um data frame
+  hypothesis3 <- as.data.frame(hypothesis2)
+  names(hypothesis3) <- c('parameters', 'null_hyp')
+  
+  #----------------------------------------------------------------
+  
+  # Retirando espaços
+  hypothesis3$parameters <- stringr::str_replace(hypothesis3$parameters, " ",  "")
+  hypothesis3$null_hyp <- stringr::str_replace(hypothesis3$null_hyp, " ",  "")
+  
+  #----------------------------------------------------------------
+  
+  # Gerando a matriz L
+  L_user <- matrix(nrow = nrow(hypothesis3), ncol = n_coefs)
+  
+  colnames(L_user) <- as.vector(coefs$Parameters)
+  
+  for (i in 1:nrow(L_user)) {
+    L_user[i,] <- ifelse(colnames(L_user) == hypothesis3$parameters[i],
+                         1,0)  
+  }
+  
+  for (i in 1:nrow(L_user)) {
+    L_user[i,] <- ifelse(colnames(L_user) == hypothesis3$null_hyp[i],
+                         -1,L_user[i,])  
+  }
+  
+  #----------------------------------------------------------------
+  
+  # Substitui strings por 0 (hipóteses de igualdade)
+  hypothesis3$null_hyp <- ifelse(stringr::str_detect(hypothesis3$null_hyp, c('beta')) == T,0,hypothesis3$null_hyp)
+  hypothesis3$null_hyp <- ifelse(stringr::str_detect(hypothesis3$null_hyp, c('tau')) == T,0,hypothesis3$null_hyp)
+  hypothesis3$null_hyp <- ifelse(stringr::str_detect(hypothesis3$null_hyp, c('power')) == T,0,hypothesis3$null_hyp)
+  
+  #----------------------------------------------------------------
+  
+  # Converte valores da hipótese nula para numericas
+  hypothesis3$null_hyp <- as.numeric(hypothesis3$null_hyp)
+  
+  #----------------------------------------------------------------
+  
+  # Efetua o teste
+  
+  W <- vector() # Vetor para a estatística de teste
+  gl <- vector() # Vetor para graus de liberdade
+  p_val <- vector() # Vetor para p-valor
+  
+  W <- as.numeric((t((L_user%*%coefs$Estimates) - hypothesis3$null_hyp)) %*% (solve(L_user%*%vcov_coefs%*%t(L_user))) %*% ((L_user%*%coefs$Estimates) - hypothesis3$null_hyp))
+  gl <- nrow(L_user)
+  p_val <- pchisq(W, df = gl, lower.tail = FALSE)
+  
+  tabela <- data.frame(GL = gl,
+                       W = round(W, 4),
+                       P_valor = round(p_val, 4))
+  
+  return(tabela)
+  
+}
+
