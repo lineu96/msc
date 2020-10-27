@@ -18,15 +18,19 @@ ELETIVAS: TRONCO COMUM, OFICINAS OU TÓPICOS
  - Cursar ao menos uma disciplina pertencente a uma linha de pesquisa diferente daquela à qual o discente está vinculado.
  - Obter no máximo 4 (quatro) créditos em disciplinas eletivas de Oficina.
 
-INFO7041 - SEMINÁRIOS EM INFORMÁTICA I: obrigatória
-INFO802  - INTRODUÇÃO À PESQUISA EM CIÊNCIA DA COMPUTAÇÃO: obrigatória
-INFO7032 - PRÁTICA EM DOCÊNCIA DE INFORMÁTICA I: obrigatório para bolsistas
+(FINALIZADA  ) INFO7041 - SEMINÁRIOS EM INFORMÁTICA I: obrigatória 
 
-INFO7044 - SISTEMAS DE PROCESSAMENTO PARALELO: tronco comum e outra linha (REDES E SISTEMAS)
+(EM ANDAMENTO) INFO802  - INTRODUÇÃO À PESQUISA EM CIÊNCIA DA COMPUTAÇÃO: obrigatória
+
+(FINALIZADA  ) INFO7044 - SISTEMAS DE PROCESSAMENTO PARALELO: tronco comum e outra linha (REDES E SISTEMAS)
+
+INFO7032 - PRÁTICA EM DOCÊNCIA DE INFORMÁTICA I: obrigatório para bolsistas
 
 INFO7004 - APRENDIZADO DE MÁQUINA: tronco comum e outra linha (INTELIGÊNCIA COMPUTACIONAL)
 
 INFO7006 - BANCO DE DADOS: eletiva fora do tronco comum (TECNOLOGIA DA INFORMAÇÃO)
+
+INFO7005 – ARQUITETURA DE COMPUTADORES: tronco comum e outra linha (REDES E SISTEMAS)
 
 OUTRAS DE CIENCIA DE DADOS
 
@@ -54,56 +58,35 @@ ARTIGOS:
 
  - OUTRAS APLICAÇÕES COM O ZANATA.
 
-TENTAR QUALIFICAR NO FINAL DESSE ANO E TER TUDO PRONTO 
-PARA DEFENDER NO FINAL DO ANO QUE VEM (AÍ DECIDIR SE
-DEFENDE OU SE POSTERGA PRA GANHAR BOLSA)
-
 -------------------------------------------------------
 
 TEXTO
 
- - Montei uma página com o que eu resgatei de texto do TCC pro trabalho atual.
+ - O texto ficou repetitivo. 
 
- - Introdução: ciência de dados, modelos de regressão, testes de hipótese, objetivos.
+ - Enxugar, reordenar, incluir e também artigos de referências 
+   (teste Wald e ANOVA principalmente).
 
- - Metodologia
-    * McGLM: GLM, cGLM, McGLM e estimação e inferência (\hat{theta} segue distribuição Normal).
-    * Teste Wald: o que é, hipóteses que podem ser testadas e procedimento.
-    * ANOVA: Tipos I, II, III e como proceder utilizando o teste Wald.
-    * MANOVA: Teste Wald multivariado, hipóteses, procedimento e MANOVA via teste Wald.
+ - Revisar texto das ANOVAS
 
-Tentei por o máximo de exemplo possível e seguir uma sequência mais logica, mas relendo depois
-achei que ficou repetitivo. 
-
-Precisamos de ideias pra enxugar, reordenar, incluir e também artigos de referências 
-mesmo (teste Wald e ANOVA principalmente).
+ - Talvez focar mais na explicação do teste genérico, já que 
+   as ANOVAS e MANOVAS são um produto 
 
 -------------------------------------------------------
 
-ANOVAS e MANOVAS 
+ANOVAS, MANOVAS e LINEAR HYPOTHESIS
 
  - Praticamente prontas.
 
- - Fazer testes com exemplos gaussianos: pegar dado generico, 
-   ajustar modelo, testar hipotese no car e no mcglm pra ver 
-   se bate.
+ - Função de hipoteses lineares e ANOVA tipo III funcionam perfeitamente
+   igual ao car, as do tipo I e II nao batem, mas os testes são coerentes
 
  - Fazer outros materiais para exemplificar, montar vinhetas.
 
- - Pensar nos cenários pro estudo de simulação para ANOVA e MANOVA 
-   para parametros de regressao e dispersão.
+ - Pensar nos cenários pro estudo de simulação para a função de hipóteses
+   lineares, ANOVA e MANOVA para parametros de regressao, dispersão e potencia.
 
--------------------------------------------------------
-
-LINEAR HYPOTHESIS
-
- - Função de hipóteses lineares gerais pros parâmetros 
-   de regressão, dispersão e potência implementada. 
-
- - COMO TESTAR IGUALDADE ENTRE PARAMETROS E NAO CONFRONTAR COM VALORES 
-   POSTULADOS???
-
- - Com uma função dessa podemos desenvolver um procedimento para comparações múltiplas.
+ - Com uma função dessa podemos desenvolver um procedimento para comparações múltiplas?
 
 -------------------------------------------------------
 

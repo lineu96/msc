@@ -68,10 +68,10 @@ parametros
 
 mc_linear_hypothesis(object =  m2, 
                      hypothesis =  c('beta10 = 0', 
-                                    'beta11 = 0',
-                                    'beta12 = 0',
-                                    'beta13 = 0',
-                                    'beta14 = 0'))
+                                     'beta11 = 0',
+                                     'beta12 = 0',
+                                     'beta13 = 0',
+                                     'beta14 = 0'))
 
 ## Testando se o intercepto é igual a 380
 linearHypothesis(m1, c("(Intercept) = 380"))
