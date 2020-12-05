@@ -1,0 +1,97 @@
+--------------------------------
+
+Estrutura de artigo JSS
+
+--------------------------------
+
+0. Preâmbulo, primeira página
+ 
+Título
+ 
+ Autor e Universidade
+
+ Abstract (300 palavras)
+
+ Keywords (10 palavras)
+
+--------------------------------
+
+1. Introduction
+
+ Descrição da proposta, o que faz, qual a utilidade (mcglm e teste wald para testar parâmetros)
+ 
+ McGLM (flexibilidade e estimação de forma geral), normalidade e teste Wald
+ 
+ Revisão bibliográfica (implementação de testes de hipótese em modelos de regressão uni e multivariados no R)
+
+ Objetivo do material (descrever as funções para realização de testes de hipótese...)
+
+ Organização do material (seções)
+
+--------------------------------
+
+2. Multivariate covariance generalized linear models
+
+ Seguir o que já ta pronto
+
+--------------------------------
+
+3. Estimation and inference
+
+ Seguir o que já ta pronto
+
+--------------------------------
+
+4. Teste Wald (já no contexto dos McGLM)
+ 
+ Para que serve
+ Especificação de hipóteses (notação LBETA e seguir Wald Teste para múltiplos parâmetros)
+ 
+--------------------------------
+
+5. Análises de variância e análises de variância multivariadas via teste Wald
+   1. ANOVA  tipo I   (imita uma sequencial)
+   2. ANOVA  tipo II  (nao bate com o car)
+   3. ANOVA  tipo III
+   4. ANOVA  tipo III para dispersão
+   5. MANOVA tipo I   (imita uma sequencial)
+   6. MANOVA tipo II  (nao bate com o car)
+   7. MANOVA tipo III
+   8. MANOVA tipo III para dispersão
+
+--------------------------------
+
+6. Implementation in R
+
+ Funções, o que fazem
+ Quadro (funções e descrição) com:
+     1. ANOVA  tipo I   (imita uma sequencial)
+     2. ANOVA  tipo II  (nao bate com o car)
+     3. ANOVA  tipo III
+     4. ANOVA  tipo III para dispersão
+     5. MANOVA tipo I   (imita uma sequencial)
+     6. MANOVA tipo II  (nao bate com o car)
+     7. MANOVA tipo III
+     8. MANOVA tipo III para dispersão
+     9. Hipóteses lineares gerais especificadas pelo usuário (poder está 100% do usuário)
+
+--------------------------------
+
+7. Examples
+
+ Pegar um dataset generico, ajustar modelo e aplicar uma a uma as funções
+
+--------------------------------
+
+8. Discussion
+
+ O que foi feito
+ Problemas
+ Desafios
+ Possíveis tópicos futuros
+
+--------------------------------
+
+References
+
+--------------------------------

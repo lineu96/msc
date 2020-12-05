@@ -1,0 +1,114 @@
+---
+output:
+  html_document: 
+    type: inverse
+    # Sumário
+    toc: true 
+    toc_depth: 3 # Profundidade do sumário                   
+    toc_float:                      
+      collapsed: true # Sumário flutuante (lateral)
+    
+#    number_sections: true # Seções numeradas
+    
+    # Aparência
+    theme: flatly
+    # Temas possíveis:
+    # default,cerulean,journal,flatly,readable,spacelab,
+    # united,cosmo,lumen,paper,sandstone,simplex,yeti
+    
+    # Códigos R no texto
+#    highlight: espresso
+    # Temas possíveis:
+    # default, tango, pygments, kate, monochrome, 
+    # espresso, zenburn, haddock, and textmate
+    #css: styles.css                
+    
+    # Configurações globais de imagens
+    fig_width: 7  # Largura                  
+    fig_height: 6 # Altura                  
+    fig_caption: true # Legenda              
+    fig_align: 'center' # Posição
+
+bibliography: refs.bib
+    # Esconder o código
+#    code_folding: hide 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+# 2. McGLM
+
+Considre $\boldsymbol{Y}_{N \times R} = \left \{ \boldsymbol{Y}_1, \dots, \boldsymbol{Y}_R \right \}$ uma  matriz de variáveis resposta e $\boldsymbol{M}_{N \times R} = \left \{ \boldsymbol{\mu}_1, \dots, \boldsymbol{\mu}_R \right \}$ uma matriz de valores esperados. A matriz de variância e covariância para cada resposta $r$, $r = 1,..., R$ é denotada por $\Sigma_r$, tem dimensão $NxN$. Além disso, é necessária uma matriz de correlação $\Sigma_b$, de ordem $R \times R$, que descreve a correlação entre as variáveis resposta. 
+
+Os McGLMs [@Bonat16] são definidos por:
+
+$$
+\begin{equation}
+\label{eq:mcglm}
+      \begin{aligned}
+        \mathrm{E}(\boldsymbol{Y}) &=
+          \boldsymbol{M} =
+            \{g_1^{-1}(\boldsymbol{X}_1 \boldsymbol{\beta}_1),
+            \ldots,
+            g_R^{-1}(\boldsymbol{X}_R \boldsymbol{\beta}_R)\}
+          \\
+        \mathrm{Var}(\boldsymbol{Y}) &=
+          \boldsymbol{C} =
+            \boldsymbol{\Sigma}_R \overset{G} \otimes
+            \boldsymbol{\Sigma}_b,
+      \end{aligned}
+\end{equation}
+$$
+\noindent em que $\boldsymbol{\Sigma}_R \overset{G} \otimes \boldsymbol{\Sigma}_b = \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1, \ldots, \tilde{\boldsymbol{\Sigma}}_R) (\boldsymbol{\Sigma}_b \otimes \boldsymbol{I}) \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1^\top, \ldots, \tilde{\boldsymbol{\Sigma}}_R^\top)$ é o produto generalizado de Kronecker [@martinez13], a matriz $\tilde{\boldsymbol{\Sigma}}_r$ denota a matriz triangular inferior da decomposição de Cholesky da matriz ${\boldsymbol{\Sigma}}_r$. O operador $\mathrm{Bdiag()}$ denota a matriz bloco-diagonal e $\boldsymbol{I}$ uma matriz identidade $N \times N$. As funções $g_r()$ são as tradicionais funções de ligação. $\boldsymbol{X}_r$ denota uma matriz de delineamento $N \times k_r$. $\boldsymbol{\beta}_r$ denota um vetor $k_r \times 1$ de parâmetros de regressão
+
+Para variáveis resposta contínuas, binárias, binomiais, proporções ou índices a matriz de variância e covariância $\boldsymbol{\Sigma}_r$ é dada por:
+
+$$
+\begin{equation}
+\Sigma_r =
+\mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}(\boldsymbol{\Omega}\left(\boldsymbol{\tau}_r\right))\mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}.
+\end{equation}
+$$
+
+No caso de variáveis resposta que sejam contagens a matriz de variância e covariância para cada variável resposta fica dada por:
+
+$$
+\begin{equation}
+\Sigma_r = diag(\boldsymbol{\mu}_r)+ \mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}(\boldsymbol{\Omega}\left(\boldsymbol{\tau}_r\right))\mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right)^{1/2},
+\end{equation}
+$$
+
+em que $\mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right) = diag(\vartheta(\boldsymbol{\mu}_r; p_r))$ denota uma matriz diagonal na qual as entradas são dadas pela função de variância $\vartheta(\cdot; p_r)$ aplicada aos elementos do vetor $\boldsymbol{\mu}_r$.
+
+Diferentes escolhas de funções de variância $\vartheta(\cdot; p_r)$ implicam em diferentes suposições a respeito da distribuição da variável resposta. No pacote **mcglm** existem 3 opções de funções de variância: função de variância potência, função de dispersão Poisson–Tweedie e função de variância binomial.
+
+A função de variância potência caracteriza a família Tweedie de distribuições, é dada por $\vartheta\left(\cdot; p_r\right) = \mu^{p_r}_r$, na qual destacam-se a distribuições: Normal ($p$ = 0), Poisson ($p$ = 1), gama ($p$ = 2) e  Normal inversa ($p$ = 3) [@Jorgensen87; @Jorgensen97].
+
+A função de dispersão Poisson–Tweedie [@Jorgensen15] visa contornar a inflexibilidade da utilização da função de variância potência para respostas que caracterizam contagens. A função de dispersão é dada por $\vartheta\left(\cdot; p\right) = \mu + \tau\mu^p$ em que $\tau$ é o parâmetro de dispersão. Temos assim uma rica classe de modelos para lidar com respostas que caracterizam contagens, uma vez que muitas distribuições importantes aparecem como casos especiais, tais como: Hermite ($p$ = 0), Neyman tipo A ($p$ = 1), binomial negativa ($p$ = 2) e Poisson–inversa gaussiana (p = $3$).
+
+Por fim, a função de variância binomial, dada por $\vartheta\left(\cdot; p_r\right) = \mu^{p_{r1}}_r(1 - \mu_r)^{p_{r2}}$ é indicada quando a variável resposta é binária, restrita a um intervalo ou quando tem-se o número de sucessos em um número de tentativas.
+
+É possível notar que o parâmetro de potência $p$ aparece em todas as funções de variância discutidas. Este parâmetro tem especial importância pois trata-se de um índice que distingue diferentes distribuições de probabilidade importantes no contexto de modelagem e, por esta razão, pode ser utilizado como uma ferramenta para seleção automática da distribuição de probabilidade que mais se adequa ao problema.
+
+A matriz de dispersão $\boldsymbol{\Omega({\tau})}$ descreve a parte da covariância dentro de cada variável resposta que não depende da estrutura média, isto é, a estrutura de correlação entre as observações da amostra. Baseando-se nas ideias de @Anderson73 e @Pourahmadi00, @Bonat16 propuseram modelar a matriz de dispersão através de um preditor linear matricial combinado com uma função de ligação de covariância dada por:
+
+$$
+\begin{equation}
+h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}_r) \right \} = \tau_{r0}Z_0 + \ldots + \tau_{rD}Z_D,
+\end{equation}
+$$
+
+em que $h()$ é a função de ligação de covariância, $Z_{rd}$ com $d$ = 0,$\ldots$, D são matrizes que representam a estrutura de covariância presente em cada variável resposta $r$ e $\boldsymbol{\tau_r}$ = $(\tau_{r0}, \ldots, \tau_{rD})$ é um vetor $(D + 1) \times 1$ de parâmetros de dispersão. 
+
+No pacote **mcglm** estão disponíveis 3 funções de ligação de covariância: identidade, inversa e exponencial-matriz. A especificação da função de ligação de covariância é discutida por @Pinheiro96 e é possível selecionar combinações de matrizes para se obter os mais conhecidos modelos da literatura para dados longitudinais, séries temporais, dados espaciais e espaço-temporais. Maiores detalhes são discutidos por @Demidenko13.
+
+Deste modo, os McGLM configuram uma estrutura geral para análise via modelos de regressão para dados não gaussianos com múltiplas respostas em que não se faz suposições quanto à independência das observações. A classe é definida por 3 funções (de ligação, de variância e de covariância) além de um preditor linear e um preditor linear matricial para cada resposta sob análise. 
+
+---
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
+
