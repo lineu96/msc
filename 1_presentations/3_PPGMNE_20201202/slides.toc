@@ -1,0 +1,10 @@
+\babel@toc {brazil}{}
+\beamer@sectionintoc {1}{Quem sou eu}{2}{0}{1}
+\beamer@sectionintoc {2}{Introdu\IeC {\c c}\IeC {\~a}o}{5}{0}{2}
+\beamer@sectionintoc {3}{McGLM}{10}{0}{3}
+\beamer@sectionintoc {4}{Estima\IeC {\c c}\IeC {\~a}o e infer\IeC {\^e}ncia}{18}{0}{4}
+\beamer@sectionintoc {5}{Teste Wald}{21}{0}{5}
+\beamer@sectionintoc {6}{Constru\IeC {\c c}\IeC {\~a}o da matriz L}{29}{0}{6}
+\beamer@sectionintoc {7}{ANOVA via teste Wald}{35}{0}{7}
+\beamer@sectionintoc {8}{Fun\IeC {\c c}\IeC {\~o}es implementadas}{40}{0}{8}
+\beamer@sectionintoc {9}{Pr\IeC {\'o}ximos passos}{43}{0}{9}

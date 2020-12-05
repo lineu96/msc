@@ -1,0 +1,7 @@
+\babel@toc {brazil}{}
+\beamer@sectionintoc {1}{Etapas do processo de an\IeC {\'a}lise}{2}{0}{1}
+\beamer@sectionintoc {2}{Conjunto de dados}{4}{0}{2}
+\beamer@sectionintoc {3}{Modelos de Regress\IeC {\~a}o}{7}{0}{3}
+\beamer@sectionintoc {4}{McGLM}{11}{0}{4}
+\beamer@sectionintoc {5}{MANOVA}{14}{0}{5}
+\beamer@sectionintoc {6}{Proposta para o mestrado}{16}{0}{6}

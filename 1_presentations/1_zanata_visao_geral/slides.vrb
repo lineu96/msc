@@ -1,0 +1,25 @@
+\frametitle{Código}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.122, 0.188, 0.282}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{cap} \hlkwb{<-} \hlstr{"Distância percorrida em função da velocidade"}
+\hlkwd{library}\hlstd{(lattice)}
+
+\hlkwd{xyplot}\hlstd{(dist} \hlopt{~} \hlstd{speed,}
+       \hlkwc{data} \hlstd{= cars,}
+       \hlkwc{xlab} \hlstd{=} \hlstr{"Velocidade"}\hlstd{,}
+       \hlkwc{ylab} \hlstd{=} \hlstr{"Distância"}\hlstd{)}
+\end{alltt}
+\end{kframe}\begin{figure}
+
+{\centering \includegraphics[width=0.2\textwidth]{figure/unnamed-chunk-2-1}
+
+}
+
+\caption[Distância percorrida em função da velocidade]{Distância percorrida em função da velocidade}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+
+\end{knitrout}
+

@@ -1,0 +1,10 @@
+\babel@toc {brazil}{}
+\beamer@sectionintoc {1}{Quem sou eu}{2}{0}{1}
+\beamer@sectionintoc {2}{Um pouco sobre o PPGINF}{7}{0}{2}
+\beamer@sectionintoc {3}{Minha pesquisa}{16}{0}{3}
+\beamer@sectionintoc {4}{Etapas do processo de an\IeC {\'a}lise}{23}{0}{4}
+\beamer@sectionintoc {5}{Conjunto de dados}{25}{0}{5}
+\beamer@sectionintoc {6}{Modelos de Regress\IeC {\~a}o}{27}{0}{6}
+\beamer@sectionintoc {7}{McGLM}{37}{0}{7}
+\beamer@sectionintoc {8}{Testes de hip\IeC {\'o}tese em modelos de regress\IeC {\~a}o}{40}{0}{8}
+\beamer@sectionintoc {9}{Testes de hip\IeC {\'o}tese em Modelos Multivariados de Covari\IeC {\^a}ncia Linear Generalizada (McGLM)}{50}{0}{9}
