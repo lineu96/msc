@@ -3,18 +3,30 @@
 #---------------------------------------------------------------
 
 # SAIDA DO MODELO
-resumo <- summary(fit)
+resumo <- summary(fit2)
 
 #---------------------------------------------------------------
 
-# TAU E P PARA CADA RESPOSTA
-round(resumo$`Resp.Variable 1`$Power,2)
-round(resumo$`Resp.Variable 1`$tau,2)
+# REGRESSÃO
 
-round(resumo$`Resp.Variable 2`$Power,2)
-round(resumo$`Resp.Variable 2`$tau,2)
+betas_min <- round(resumo[[1]]$Regression, 4)
+betas_max <- round(resumo[[2]]$Regression, 4)
 
-confint(fit)[17:21,]
+#---------------------------------------------------------------
+
+# TAU E P
+
+round(resumo$`Resp.Variable 1`$Power,4)
+round(resumo$`Resp.Variable 1`$tau,4)
+
+round(resumo$`Resp.Variable 2`$Power,4)
+round(resumo$`Resp.Variable 2`$tau,4)
+
+#---------------------------------------------------------------
+
+# INTERVALOS DE CONFIANÇA
+
+confint(fit2)
 
 #---------------------------------------------------------------
 
@@ -22,13 +34,13 @@ confint(fit)[17:21,]
 
 beta_min <- data.frame(name = rownames(resumo$`Resp.Variable 1`$Regression),
                        exp_est = exp(round(resumo$`Resp.Variable 1`$Regression$Estimates,2)),
-                       ic_min = as.vector(exp(confint(fit)[1:8,])[,1]),
-                       ic_max = as.vector(exp(confint(fit)[1:8,])[,2]))
+                       ic_min = as.vector(exp(confint(fit2)[1:8,])[,1]),
+                       ic_max = as.vector(exp(confint(fit2)[1:8,])[,2]))
 
 beta_max <- data.frame(name = rownames(resumo$`Resp.Variable 2`$Regression),
                        exp_est = exp(round(resumo$`Resp.Variable 2`$Regression$Estimates,2)),
-                       ic_min = as.vector(exp(confint(fit)[9:16,])[,1]),
-                       ic_max = as.vector(exp(confint(fit)[9:16,])[,2]))
+                       ic_min = as.vector(exp(confint(fit2)[9:16,])[,1]),
+                       ic_max = as.vector(exp(confint(fit2)[9:16,])[,2]))
 
 beta_min[,2:4] <- round(beta_min[,2:4],2)
 beta_max[,2:4] <- round(beta_max[,2:4],2)
@@ -58,18 +70,16 @@ paste0('A media da latencia minima quando é usada a porta ', beta_min$name[7],
 #---------------------------------------------------------------
 
 # ANOVA
-anova(fit)
+anova(fit2)
 
 #---------------------------------------------------------------
 
 # MANOVA
-mc_manova(fit)
+mc_manova(fit2)
 
 #---------------------------------------------------------------
 
 # FUNÇÃO PARA PREDITOS
-
-form.min_lat
 
 predito <- function(lock, p0156, p06, 
                     p23, p237, p4, 
@@ -79,8 +89,8 @@ predito <- function(lock, p0156, p06,
                                     'lock', 'p0156', 
                                     'p06', 'p23', 
                                     'p237', 'p4', 'p1'),
-                      estim_min = coef(fit, type = 'beta')$Estimates[1:8],
-                      estim_max = coef(fit, type = 'beta')$Estimates[9:16])
+                      estim_min = coef(fit2, type = 'beta')$Estimates[1:8],
+                      estim_max = coef(fit2, type = 'beta')$Estimates[9:16])
   
   
   min <- exp(
@@ -127,10 +137,10 @@ dados[sample(nrow(massa),1),c('lock',
 
 predito(lock  =  0,
         p0156 =  0,
-        p06   =  1,
-        p23   =  1,
-        p237  =  1,
-        p4    =  1,
-        p1    =  0)
+        p06   =  7,
+        p23   =  3,
+        p237  =  0,
+        p4    =  0,
+        p1    =  1)
 
 #---------------------------------------------------------------

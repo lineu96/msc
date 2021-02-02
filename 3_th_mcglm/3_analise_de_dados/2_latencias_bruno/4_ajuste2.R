@@ -19,7 +19,7 @@ Z0 <- mc_id(massa) # Identidade
 
 # Ajuste
 
-fit <- 
+fit2 <- 
   mcglm(linear_pred = c(form.min_lat,
                         form.max_lat),
         matrix_pred = list(c(Z0),
@@ -35,17 +35,17 @@ fit <-
 
 #----------------------------------------------------------------
 
-matplot(fit$IterationCovariance, type = 'l', xlim = c(1,60)) 
+matplot(fit$IterationCovariance, type = 'l', xlim = c(1,30)) 
 
 #----------------------------------------------------------------
 
 # Resumo do modelo
 
-summary(fit)
+summary(fit2)
 
-coef(fit, type = 'beta')
-coef(fit, type = 'tau')
-coef(fit, type = 'power')
+coef(fit2, type = 'beta')
+coef(fit2, type = 'tau')
+coef(fit2, type = 'power')
 
 #Poisson (ϕ = 1 & p = 1)
 #----------------------------------------------------------------

@@ -27,7 +27,7 @@ fit <-
         control_algorithm = list(verbose = T, 
                                  tuning = 0.1,
                                  max_iter = 600,
-                                 tol = 1e-1),
+                                 tol = 0.1),
         power_fixed = c(F,F),
         data = dados)
 
@@ -35,7 +35,7 @@ fit <-
 
 matplot(fit$IterationCovariance, type = 'l', xlim = c(1,60)) 
 
-#----------------------------------------------------------------
+ #----------------------------------------------------------------
 
 # Resumo do modelo
 

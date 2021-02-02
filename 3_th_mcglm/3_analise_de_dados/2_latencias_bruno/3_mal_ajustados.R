@@ -11,22 +11,25 @@ dados$pearson_max <- res_pred$pearson[(nrow(dados)+1):nrow(res_pred)]
 dados$raw_min <- res_pred$raw[1:nrow(dados)]
 dados$raw_max <- res_pred$raw[(nrow(dados)+1):nrow(res_pred)]
 
-dados[,c(14,17,21,19,
-         15,18,22,20)]
+mal_ajustados <- subset(dados,
+                         raw_min > 5.5  |
+                           raw_max > 5.5  |
+                           raw_min < -5.5|
+                           raw_max < -5.5 |
+                         pred_min > 40    |
+                         pred_max > 40
+                         )
 
-mal_ajustados <- subset(dados, 
-                        raw_min > 5.5  | 
-                          raw_max > 5.5  |   
-                          raw_min < -5.5 | 
-                          raw_max < -5.5 |   
-                        pred_min > 40    |
-                        pred_max > 40
-                        )
+# mal_ajustados <- subset(dados,
+#                         pearson_min   >  1    |
+#                           pearson_min < -1    |
+#                           pearson_max  >  1 |
+#                           pearson_max  < -1 |
+#                           pred_min > 40|
+#                           pred_max > 40
+# )
 
-mal_ajustados[,c(14,17,21,19,
-                 15,18,22,20)]
-
-mal_ajustados$n
+nrow(mal_ajustados)
 
 # NOVA BASE
 
