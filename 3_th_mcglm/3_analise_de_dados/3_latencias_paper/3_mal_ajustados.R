@@ -2,28 +2,31 @@
 # MAL AJUSTADOS
 #---------------------------------------------------------------
 
-massa$pred_min <- res_pred$preditos[1:nrow(massa)]
-massa$pred_max <- res_pred$preditos[(nrow(massa)+1):nrow(res_pred)]
+dados2$pred_min <- res_pred$preditos[1:nrow(dados2)]
+dados2$pred_max <- res_pred$preditos[(nrow(dados2)+1):nrow(res_pred)]
 
-massa$pearson_min <- res_pred$pearson[1:nrow(massa)]
-massa$pearson_max <- res_pred$pearson[(nrow(massa)+1):nrow(res_pred)]
+dados2$pearson_min <- res_pred$pearson[1:nrow(dados2)]
+dados2$pearson_max <- res_pred$pearson[(nrow(dados2)+1):nrow(res_pred)]
 
-massa$raw_min <- res_pred$raw[1:nrow(massa)]
-massa$raw_max <- res_pred$raw[(nrow(massa)+1):nrow(res_pred)]
+dados2$raw_min <- res_pred$raw[1:nrow(dados2)]
+dados2$raw_max <- res_pred$raw[(nrow(dados2)+1):nrow(res_pred)]
 
-massa[,c(14,17,21,19,
-         15,18,22,20)]
+mal_ajustados <- subset(dados2,
+                        pearson_min   >  2    |
+                          pearson_min < -2    |
+                          pearson_max  >  2 |
+                          pearson_max  < -2 |
+                          pred_min > 40|
+                          pred_max > 40
+)
 
-mal_ajustados <- subset(massa, 
-                        raw_min > 4  | 
-                          raw_max > 4  |   
-                          raw_min < -4 | 
-                          raw_max < -4 |   
-                        pred_min > 40    |
-                        pred_max > 40
-                        )
+nrow(mal_ajustados)
 
-mal_ajustados[,c(14,17,21,19,
-                 15,18,22,20)]
+# NOVA BASE
 
-mal_ajustados$n
+massa <- subset(dados2,  !(dados2$n %in% mal_ajustados$n))
+
+analista <- subset(dados2,(dados2$n %in% mal_ajustados$n))
+
+nrow(dados2)
+nrow(massa) + nrow(analista)

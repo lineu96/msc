@@ -4,14 +4,16 @@
 
 # Preditor
 
-form.min_lat <- min_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0)
-form.max_lat <- max_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0)
+form.min_lat <- min_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 #+ p15 + p0
+                             )
+form.max_lat <- max_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 #+ p15 + p0
+                           )
 
 #----------------------------------------------------------------
 
 # Matrix linear predictor
 
-Z0 <- mc_id(massa) # Identidade
+Z0 <- mc_id(dados2) # Identidade
 
 #----------------------------------------------------------------
 
@@ -26,14 +28,14 @@ fit <-
         variance = c("poisson_tweedie", "poisson_tweedie"), 
         control_algorithm = list(verbose = T, 
                                  tuning = 0.5,
-                                 max_iter = 60,
+                                 max_iter = 6000,
                                  tol = 1e-8),
         power_fixed = c(F,F),
-        data = massa)
+        data = dados2)
 
 #----------------------------------------------------------------
 
-matplot(fit$IterationCovariance, type = 'l', xlim = c(1,60)) 
+matplot(fit$IterationCovariance, type = 'l', xlim = c(1,65)) 
 
 #----------------------------------------------------------------
 
@@ -46,4 +48,5 @@ coef(fit, type = 'tau')
 coef(fit, type = 'power')
 
 #Poisson (ϕ = 1 & p = 1)
+
 #----------------------------------------------------------------

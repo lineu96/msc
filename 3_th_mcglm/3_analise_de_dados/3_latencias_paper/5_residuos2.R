@@ -5,23 +5,23 @@
 # Obtenção dos resíduos
 
 ## chol(vcov) inversa
-chol_inv <- Matrix::chol(fit$inv_C)
+chol_inv <- Matrix::chol(fit2$inv_C)
 
 ## Resíduos empilhados
-residuos <- as.numeric(residuals(fit, type = 'raw'))
+residuos <- as.numeric(residuals(fit2, type = 'raw'))
 
 ## Produto matricial
 pearson <- as.numeric(chol_inv%*%residuos)
 
 ## Preditos
-preditos <- fit$fitted
+preditos <- fit2$fitted
 
 ## Dataframe
-res_pred <- data.frame(index = rep(1:nrow(dados2),2),
-                       resp = c(rep('min_lat', nrow(dados2)),
-                                rep('max_lat', nrow(dados2))),
-                       observado = c(dados2$min_lat,
-                                     dados2$max_lat),
+res_pred <- data.frame(index = rep(1:nrow(massa),2),
+                       resp = c(rep('min_lat', nrow(massa)),
+                                rep('max_lat', nrow(massa))),
+                       observado = c(massa$min_lat,
+                                     massa$max_lat),
                        preditos = preditos,
                        pearson = pearson,
                        raw = residuos
@@ -33,16 +33,16 @@ res_pred <- data.frame(index = rep(1:nrow(dados2),2),
 
 ## Resíduo Pearson
 
-mean1 = MASS::fitdistr(res_pred$pearson[1:nrow(dados2)], 
+mean1 = MASS::fitdistr(res_pred$pearson[1:nrow(dados)], 
                        densfun = "normal")$estimate[1]
 
-sd1 = MASS::fitdistr(res_pred$pearson[1:nrow(dados2)], 
+sd1 = MASS::fitdistr(res_pred$pearson[1:nrow(dados)], 
                      densfun = "normal")$estimate[2]
 
-mean2 = MASS::fitdistr(res_pred$pearson[(nrow(dados2)+1):nrow(res_pred)], 
+mean2 = MASS::fitdistr(res_pred$pearson[(nrow(dados)+1):nrow(res_pred)], 
                        densfun = "normal")$estimate[1]
 
-sd2 = MASS::fitdistr(res_pred$pearson[(nrow(dados2)+1):nrow(res_pred)], 
+sd2 = MASS::fitdistr(res_pred$pearson[(nrow(dados)+1):nrow(res_pred)], 
                      densfun = "normal")$estimate[2]
 
 mean1
@@ -53,16 +53,16 @@ sd2
 
 ## Resíduo cru
 
-mean3 = MASS::fitdistr(res_pred$raw[1:nrow(dados2)], 
+mean3 = MASS::fitdistr(res_pred$raw[1:nrow(dados)], 
                        densfun = "normal")$estimate[1]
 
-sd3 = MASS::fitdistr(res_pred$raw[1:nrow(dados2)], 
+sd3 = MASS::fitdistr(res_pred$raw[1:nrow(dados)], 
                      densfun = "normal")$estimate[2]
 
-mean4 = MASS::fitdistr(res_pred$raw[(nrow(dados2)+1):nrow(res_pred)], 
+mean4 = MASS::fitdistr(res_pred$raw[(nrow(dados)+1):nrow(res_pred)], 
                        densfun = "normal")$estimate[1]
 
-sd4 = MASS::fitdistr(res_pred$raw[(nrow(dados2)+1):nrow(res_pred)], 
+sd4 = MASS::fitdistr(res_pred$raw[(nrow(dados)+1):nrow(res_pred)], 
                      densfun = "normal")$estimate[2]
 
 mean3

@@ -125,7 +125,7 @@ predito <- function(lock, p0156, p06,
 
 # PREDITOS TESTE
 
-dados[sample(nrow(massa),1),c('lock',
+massa[sample(nrow(massa),1),c('lock',
                               'p0156',
                               'p06',
                               'p23',
@@ -136,11 +136,11 @@ dados[sample(nrow(massa),1),c('lock',
                               'max_lat')]
 
 predito(lock  =  0,
-        p0156 =  0,
-        p06   =  7,
-        p23   =  3,
-        p237  =  0,
-        p4    =  0,
-        p1    =  1)
+        p0156 =  1,
+        p06   =  0,
+        p23   =  1,
+        p237  =  1,
+        p4    =  1,
+        p1    =  0)
 
 #---------------------------------------------------------------
