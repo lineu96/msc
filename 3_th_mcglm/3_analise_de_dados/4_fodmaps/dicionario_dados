@@ -1,0 +1,66 @@
+-----------------------------------------------
+
+CARACTERÍSTICAS DO PACIENTE
+
+id - identificador de paciente
+sexo - sexo (1 - masculino, 2 - feminino) 
+idade - idade em anos
+
+-----------------------------------------------
+
+CONDIÇÕES PRÉ EXISTENTES (1 APRESENTA, 0 NÃO APRESENTA)
+
+hpylori - presença da bactéria H. Pylori
+pre_dm - pré diabético
+dm - diabético
+dislip - dislipidemia
+has - hipertensão arterial sistêmica 
+dcv - doença cardiovascular
+apneia - apneia
+dor_art - dores articulares
+
+-----------------------------------------------
+
+FODMAPS (TAXAS)
+
+f_alto - ALTO FODMAP
+f_medio - MÉDIO FODMAP
+f_baixo - BAIXO FODMAP
+
+-----------------------------------------------
+
+
+
+
+FODMAPS (POR TIPO)
+
+frutose
+lactose
+manitol
+sorbitol
+gos
+fructano
+
+-----------------------------------------------
+
+SINTOMAS GASTRO INTESTINAIS (NOTAS DE 1 A 7)
+
+dor_abd - dor abdominal
+azia - azia
+refluxo - refluxo
+fome_dor - fome (dor)
+nausea - nauseas
+ronco - barriga roncando
+ar - ar no estômago
+arroto - arroto
+gases - gases
+constip - constipação
+diarr - diarreia
+fe_moles - fezes moles 
+fe_duras - fezes duras
+urg_defec - necessidade urgente de defecar
+n_esvaz - não esvaziamento intestinal
+
+score - soma de tudo
+
+-----------------------------------------------
