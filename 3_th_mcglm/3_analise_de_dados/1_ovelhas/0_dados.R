@@ -41,6 +41,7 @@ g1 <- ggplot(count_exp, aes(x = value)) +
   ggtitle('a')
 
 g2 <- ggplot(count_exp, aes(x = lineage, y = value)) +
+  stat_boxplot(geom ='errorbar')+
   geom_boxplot(fill='white') +
   xlab('Lineage') +
   ylab('Count') +
@@ -48,9 +49,16 @@ g2 <- ggplot(count_exp, aes(x = lineage, y = value)) +
   theme(legend.title = element_blank(),
         axis.ticks.y = element_blank()) +
   scale_color_discrete(guide = F)+
-  ggtitle('b')
+  ggtitle('b')+
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")
 
 g3 <- ggplot(count_exp, aes(x = session, y = value)) +
+  stat_boxplot(geom ='errorbar')+
   geom_boxplot(fill='white') +
   xlab('Session') +
   ylab('') +
@@ -60,10 +68,17 @@ g3 <- ggplot(count_exp, aes(x = session, y = value)) +
         axis.text.y = element_blank(),
         axis.ticks.y = element_blank()) +
   scale_color_discrete(guide = F)+
-  ggtitle('c')
+  ggtitle('c')+
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")
 
 g4<-
   ggplot(count_exp, aes(x=moment, y=value)) +  
+  stat_boxplot(geom ='errorbar')+
   geom_boxplot(fill='white')+ 
   xlab('Moment')+ ylab('') + 
   theme_bw()+
@@ -74,12 +89,18 @@ g4<-
         axis.title.y=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank())  + scale_color_discrete(guide = F)+
-  ggtitle('d')
+  ggtitle('d')+
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")
 
-g <- ggarrange(g1, g2, g3, g4,
-               ncol = 4, nrow = 1)
+#g <- ggarrange(g1, g2, g3, g4,
+#               ncol = 4, nrow = 1)
 
-g
+#g
 
 ## Prop
 
@@ -89,9 +110,10 @@ g5 <- ggplot(prop_exp, aes(x = value)) +
   ylab('Frequency') +
   theme_bw() +
   scale_y_continuous(breaks = round(seq(0, 120, length.out = 3), 2))+
-  ggtitle('a')
+  ggtitle('e')
 
 g6 <- ggplot(prop_exp, aes(x = lineage, y = value)) +
+  stat_boxplot(geom ='errorbar')+
   geom_boxplot(fill='white') +
   xlab('Lineage') +
   ylab('Proportion') +
@@ -99,9 +121,16 @@ g6 <- ggplot(prop_exp, aes(x = lineage, y = value)) +
   theme(legend.title = element_blank(),
         axis.ticks.y = element_blank()) +
   scale_color_discrete(guide = F)+
-  ggtitle('b')
+  ggtitle('f')+
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")
 
 g7 <- ggplot(prop_exp, aes(x = session, y = value)) +
+  stat_boxplot(geom ='errorbar')+
   geom_boxplot(fill='white') +
   xlab('Session') +
   ylab('') +
@@ -111,10 +140,17 @@ g7 <- ggplot(prop_exp, aes(x = session, y = value)) +
         axis.text.y = element_blank(),
         axis.ticks.y = element_blank()) +
   scale_color_discrete(guide = F)+
-  ggtitle('c')
+  ggtitle('g')+
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")
 
 g8<-
   ggplot(prop_exp, aes(x=moment, y=value)) +  
+  stat_boxplot(geom ='errorbar')+
   geom_boxplot(fill='white')+ 
   xlab('Moment')+ ylab('') + 
   theme_bw()+
@@ -125,11 +161,23 @@ g8<-
         axis.title.y=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank())  + scale_color_discrete(guide = F)+
-  ggtitle('d')
+  ggtitle('h')+
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")
 
-g <- ggarrange(g5, g6, g7, g8,
-               ncol = 4, nrow = 1)
+#g <- ggarrange(g5, g6, g7, g8,
+#               ncol = 4, nrow = 1)
 
-g
+#g
 
+#---------------------------------------------------------------
+x11()
+
+ggpubr::ggarrange(g1,g2,g3,g4,
+                  g5,g6,g7,g8,
+                  nrow = 2, ncol = 4)
 #---------------------------------------------------------------

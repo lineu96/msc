@@ -3,7 +3,7 @@
 #---------------------------------------------------------------
 
 # SAIDA DO MODELO
-resumo <- summary(fit2)
+resumo <- summary(fit)
 
 #---------------------------------------------------------------
 
@@ -26,7 +26,7 @@ round(resumo$`Resp.Variable 2`$tau,4)
 
 # INTERVALOS DE CONFIANÇA
 
-confint(fit2)
+confint(fit)
 
 #---------------------------------------------------------------
 
