@@ -30,14 +30,14 @@ fit <-
         variance = c("poisson_tweedie", "binomialP"), 
         control_algorithm = list(verbose = T, 
                                  tuning = 0.5,
-                                 max_iter = 80,
+                                 max_iter = 110,
                                  tol = 1e-08),
         power_fixed = c(F,F),
         data = data_rbb)
 
 #----------------------------------------------------------------
 
-matplot(fit$IterationCovariance, type = 'l', xlim = c(1,85)) 
+matplot(fit$IterationCovariance, type = 'l', xlim = c(1,110)) 
 
 #----------------------------------------------------------------
 

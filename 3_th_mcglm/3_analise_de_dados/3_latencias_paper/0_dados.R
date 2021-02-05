@@ -95,7 +95,7 @@ a <- ggplot(dados2, aes(x = min_lat)) +
   xlab('Count') +
   ylab('Frequency') +
   theme_bw() +
-  scale_y_continuous(breaks = round(seq(0, 120, length.out = 3), 2)) +
+  #scale_y_continuous(breaks = round(seq(0, 120, length.out = 3), 2)) +
   ggtitle('a')
 
 b <- ggplot(data = dados2, 
@@ -195,7 +195,7 @@ i <- ggplot(dados2, aes(x = max_lat)) +
   xlab('Count') +
   ylab('Frequency') +
   theme_bw() +
-  scale_y_continuous(breaks = round(seq(0, 120, length.out = 3), 2)) +
+  #scale_y_continuous(breaks = round(seq(0, 120, length.out = 3), 2)) +
   ggtitle('i')
 
 j <- ggplot(data = dados2, 
