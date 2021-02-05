@@ -4,36 +4,39 @@
 
 # Preditor
 
-form.min_lat <- min_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0)
-form.max_lat <- max_lat ~ (lock + p0156 + p06 + p23 + p237 + p4 + p1 + p15 + p0)
+pred_yale <- yale ~ momento + grupo + momento:grupo
+
+pred_ecap <- ecap ~ momento + grupo + momento:grupo
 
 #----------------------------------------------------------------
 
 # Matrix linear predictor
 
-Z0 <- mc_id(dados) # Identidade
+Z0 <- mc_id(dados4) # Identidade
+
+Z1 <- mc_mixed(~0 + factor(id), data = dados4) # individuo
 
 #----------------------------------------------------------------
 
 # Ajuste
 
 fit <- 
-  mcglm(linear_pred = c(form.min_lat,
-                        form.max_lat),
-        matrix_pred = list(c(Z0),
-                           c(Z0)),
+  mcglm(linear_pred = c(pred_yale,
+                        pred_ecap),
+        matrix_pred = list(c(Z0,Z1),
+                           c(Z0,Z1)),
         link = c("log", "log"),
         variance = c("poisson_tweedie", "poisson_tweedie"), 
         control_algorithm = list(verbose = T, 
                                  tuning = 0.1,
-                                 max_iter = 600,
-                                 tol = 0.1),
+                                 max_iter = 250,
+                                 tol = 1e-4),
         power_fixed = c(F,F),
-        data = dados)
+        data = dados4)
 
 #----------------------------------------------------------------
 
-matplot(fit$IterationCovariance, type = 'l', xlim = c(1,30)) 
+matplot(fit$IterationCovariance, type = 'l', xlim = c(1,160)) 
 
 #----------------------------------------------------------------
 
