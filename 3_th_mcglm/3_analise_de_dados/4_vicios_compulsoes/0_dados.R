@@ -59,3 +59,79 @@ dados4 <- na.omit(dados3)
 # nrow(dados4)
 
 #---------------------------------------------------------------
+# EXPLORATÓRIA
+#---------------------------------------------------------------
+
+a <- ggplot(dados4, aes(x = yale)) +
+  geom_bar(col = 1, fill='white') +
+  xlab('Count') +
+  ylab('Frequency') +
+  theme_bw() +
+  #scale_y_continuous(breaks = round(seq(0, 120, length.out = 3), 2)) +
+  ggtitle('a')
+
+b <- ggplot(data = dados4, 
+            mapping = aes_string(x='grupo', y='yale')) +
+  stat_boxplot(geom ='errorbar')+
+  geom_boxplot(alpha = 1)+
+  theme_light() +
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")+
+  xlab('Grupo') + ylab('Yale') + ggtitle('b')
+
+c <- ggplot(data = dados4, 
+            mapping = aes_string(x='momento', y='yale')) +
+  stat_boxplot(geom ='errorbar')+
+  geom_boxplot(alpha = 1)+
+  theme_light() +
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")+
+  xlab('Momento') + ylab('Yale') + ggtitle('c')
+
+d <- ggplot(dados4, aes(x = ecap)) +
+  geom_bar(col = 1, fill='white') +
+  xlab('Count') +
+  ylab('Frequency') +
+  theme_bw() +
+  #scale_y_continuous(breaks = round(seq(0, 120, length.out = 3), 2)) +
+  ggtitle('d')
+
+e <- ggplot(data = dados4, 
+            mapping = aes_string(x='grupo', y='ecap')) +
+  stat_boxplot(geom ='errorbar')+
+  geom_boxplot(alpha = 1)+
+  theme_light() +
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")+
+  xlab('Grupo') + ylab('Yale') + ggtitle('e')
+
+f <- ggplot(data = dados4, 
+            mapping = aes_string(x='momento', y='ecap')) +
+  stat_boxplot(geom ='errorbar')+
+  geom_boxplot(alpha = 1)+
+  theme_light() +
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")+
+  xlab('Momento') + ylab('Yale') + ggtitle('f')
+
+x11()
+ggpubr::ggarrange(a,b,c,d,e,f,
+                  nrow = 2, ncol = 3)
+
+#---------------------------------------------------------------
