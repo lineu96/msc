@@ -12,7 +12,7 @@ library(tidyverse)
 
 # Leitura e tratamento dos dados
 
-dados <- read.csv2('latencias_1_NOVA.csv',  header = T,  sep = ',')
+dados <- read.csv2('~/msc/3_th_mcglm/3_analise_de_dados/2_latencias_paper/latencias_1_NOVA.csv',  header = T,  sep = ',')
 
 names(dados) <- c('n',  'code',  'inst',  'op0',  'op1',  'op2',  
                   'lock',  'set_rex',  'segment',  'mem_xchg',  
