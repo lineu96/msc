@@ -1,0 +1,49 @@
+
+\chapter{Funções implementadas}
+
+\label{cap:funcoes}
+
+% figuras estão no subdiretório "figuras/" dentro deste capítulo
+%\graphicspath{\currfiledir/figuras/}
+
+No capítulo anterior vimos que podemos chegar a um teste de hipóteses sobre qualquer um dos parâmetros de uma classe de modelos em que podemos especificar modelos para lidar com múltiplas respostas, de diferentes naturezas, modelando também a correlação entre indivíduos da amostra, os McGLM. Deste modo um dos objetivos deste trabalho consiste em implementar tais testes no software R \citep{softwareR} com o objetivo de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}.
+
+Baseando-nos nas funções do pacote \emph{car} \citep{car}, implementamos funções temos funções para efetuar Análises de Variância por variável resposta (ANOVA); Análises de Variância multivariadas (MANOVA), note que no caso da MANOVA os preditores devem ser iguais para todas as respostas sob análise; Análise de variância focada no preditor linear matricial, em que o objetivo é verificar a significância dos parâmetros de dispersão; e uma função para hipóteses lineares gerais em que todos os elementos são especificadas pelo usuário, na qual é possível testar hipóteses sobre parâmetros de regressão, dispersão ou potência. Todas as funções implementadas podem ser acessadas em \href{https://github.com/lineu96/msc/blob/master/3_th_mcglm/0_funcoes/functions.R}. A \autoref{tab:funcoes} mostra os nomes e descrições das funções implementadas.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\hline
+Função                   & Descrição                                            \\ \hline
+mc\_anova\_I()           & ANOVA  tipo I   (imita uma sequencial)               \\
+mc\_anova\_II()          & ANOVA  tipo II  (nao bate com o car)                 \\
+mc\_anova\_III()         & ANOVA  tipo III                                      \\
+mc\_anova\_disp()        & ANOVA  tipo III para dispersão                       \\
+mc\_manova\_I()          & MANOVA tipo I   (imita uma sequencial)               \\
+mc\_manova\_II()         & MANOVA tipo II  (nao bate com o car)                 \\
+mc\_manova\_III()        & MANOVA tipo III                                      \\
+mc\_manova\_disp()       & MANOVA tipo III para dispersão                       \\
+mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuário \\ \hline
+\end{tabular}
+\caption{Funções implementadas}
+\label{tab:funcoes}
+\end{table}
+
+\section{mc\_anova\_I()}
+
+\section{mc\_anova\_II()}
+
+\section{mc\_anova\_III()}
+
+\section{mc\_anova\_disp()}
+
+\section{mc\_manova\_I()}
+
+\section{mc\_manova\_II()}
+
+\section{mc\_manova\_III()}
+
+\section{mc\_manova\_disp()}
+
+\section{mc\_linear\_hypothesis()}
+

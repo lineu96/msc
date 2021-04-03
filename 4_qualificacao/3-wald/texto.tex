@@ -8,13 +8,13 @@
 
 \section{O teste Wald}
 
-O teste Wald é um teste de hipóteses largamente empregado para avaliar suposições sobre parâmetros de um modelo de regressão, isto é, verifcar se existe evidência suficiente para afirmar que o parâmetro é ou não estatísticamente igual a um valor qualquer.
+O teste Wald é um teste de hipóteses amplamente difundido para análises de Modelos Lineares e Modelos Lineares Generalizados para verificar suposições sobre os parâmetros do modelo, isto é, verifcar se a estimativa do parâmetro é ou não estatísticamente igual a um valor qualquer.
 
 A grosso modo, é um teste que avalia a distância entre a estimativa do parâmetro e o valor postulado sob a hipótese nula. Esta diferença é ainda ponderada por uma medida de precisão da estimativa do parâmetro e, quanto mais distante de 0 for o valor da distância ponderada, menor é a chance da hipótese de igualdade ser verdadeira, ou seja, do valor postulado ser igual ao valor estimado.
 
 Além destes elementos o teste pressupõe que os estimadores dos parâmetros do modelo sigam distribuição assintótica Normal. Para avaliação da estatística de teste e verificação de significância estatística utiliza-se distribuição assintótica Qui-quadrado ($\chi^2$).
 
-Quando trabalhamos com modelos de regressão estes tipos de teste são extremente úteis quando usados para avaliar o efeito das variáveis explicativas sobre a(s) variável(is) resposta do modelo. Por exemplo: se ajustarmos um modelo com uma variável resposta e uma variável explicativa numérica, vamos estimar um único parâmetro de regressão; este parâmetro associa a variável explicativa à variável resposta. Através de um teste de hipótese podemos avaliar o efeito desta variável explicativa, basta verificar se existe evidência que permita afirmar que o valor que associa as variáveis é igual a 0. 
+Quando trabalhamos com modelos de regressão, estes tipos de teste são extremente úteis quando usados para avaliar o efeito das variáveis explicativas sobre a(s) variável(is) resposta do modelo. Por exemplo: se ajustarmos um modelo com uma variável resposta e uma variável explicativa numérica, vamos estimar um único parâmetro de regressão; este parâmetro associa a variável explicativa à variável resposta. Através de um teste de hipótese podemos avaliar o efeito desta variável explicativa, basta verificar se existe evidência que permita afirmar que o valor que associa as variáveis é igual a 0. 
 
 Existe também a possibilidade de formular hipóteses para mais de um parâmetro de regressão e ainda testar valores diferentes de 0, tudo depende do objetivo do estudo e do interesse do pesquisador. 
 
@@ -48,15 +48,17 @@ A correta especificação da matriz permite testar qualquer parâmetro individua
 
 \section{Exemplos de hipóteses}
 
-Em um contexto prático, um analista após a obtenção dos parâmetros do modelo pode estar interessado em 3 tipos de hipótese: a primeira delas diz respeito a quando o interesse está em avaliar se existe evidência que permita afirmar que apenas um único parâmetro é igual a um valor postulado; a segunda dela quando há interesse em avaliar se existe evidência para afirmar que mais de um parâmetro simultâneamente são iguais a um vetor de valores postulado; e a terceira hipótese diz respeito a situações em que o analista está interessado em saber se a diferença entre os efeitos de duas variáveis é igual a 0.
+Em um contexto prático, um analista após a obtenção dos parâmetros do modelo pode estar interessado em 3 tipos de hipótese: a primeira delas diz respeito a quando o interesse está em avaliar se existe evidência que permita afirmar que apenas um único parâmetro é igual a um valor postulado; a segunda delas ocorre quando há interesse em avaliar se existe evidência para afirmar que mais de um parâmetro simultâneamente são iguais a um vetor de valores postulado; e a terceira hipótese diz respeito a situações em que o analista está interessado em saber se a diferença entre os efeitos de duas variáveis é igual a 0.
 
-Para fins de ilustração dos tipos de hipótese mencionadas, considere um modelo bivariado genérico, com preditor dado por:
+Para fins de ilustração dos tipos de hipótese mencionadas, considere um problema qualquer em que deseja-se investigar se uma variável numérica $x_1$ possui efeito sobre duas variáveis resposta, denotadas por $y_1$ e $y_2$. Para tal tarefa coletou-se uma amostra com $n$ indivíduos e para cada indivíduo observou-se o valor de $x_1$, $y_1$ e $y_2$. Com base nos dados coletados ajustou-se um modelo bivariado, com preditor dado por:
 
 \begin{equation}
 g_r(\mu_r) = \beta_{r0} + \beta_{r1} x_1.
 \end{equation}
 
-\noindent Em que o índice $r$ denota a variável resposta, r = 1,2; $\beta_{r0}$ representa o intercepto; $\beta_{r1}$ um parâmetro de regressão associado a uma variável $x_1$. Considere que cada resposta possui apenas um parâmetro de dispersão: $\tau_{r1}$ e que os parâmetros de potência foram fixados.
+\noindent Em que o índice $r$ denota a variável resposta, r = 1,2; $\beta_{r0}$ representa o intercepto; $\beta_{r1}$ um parâmetro de regressão associado a uma variável $x_1$. Considere que cada resposta possui apenas um parâmetro de dispersão: $\tau_{r1}$ e que os parâmetros de potência foram fixados. Portanto, trata-se de um problema em que há duas variáveis resposta e apenas uma variável explicativa. Como existe apenas um parâmetro de dispersão isso quer dizer que nossas unidades amostrais são independentes. 
+
+Neste cenário poderiam ser perguntas de interesse: será que a variável $x_1$ tem efeito apenas sobre a primeira resposta? Ou sobre apenas a segunda resposta? Será que a variável $x_1$ possui efeito sobre as duas respostas ao mesmo tempo? Será que o efeito da variável é o mesmo para ambas as respostas? Todas essas perguntas podem ser respondidas através de um teste de hipóteses sobre os parâmetros do modelo.
 
 \subsection{Exemplo 1}
 
@@ -170,4 +172,20 @@ Em que:
 
 Como existe apenas uma hipótese, a matriz $\boldsymbol{L}$ possui apenas uma linha. Para a matriz $\boldsymbol{L}$ ser corretamente especificada no caso de uma hipótese de igualdade precisamos colocar 1 na coluna referente a um parâmetro, e -1 na coluna referente ao outro parâmetro, de tal modo que o produto $\boldsymbol{L}\boldsymbol{\theta_{\beta,\tau,p}}$ representa a hipótese de interesse inicialmente postulada.
 
+É possível testar qualquer parâmetro individualmente ou até mesmo formular hipóteses para diversos parâmetros simultaneamente, sejam eles de regressão, dispersão, potência e até mesmo combinações entre estes parâmetros. Independente do número de parâmetros testados, a estatística de teste $W$ é um único valor que segue assintóticamente distribuição $\chi^2$ em que os graus de liberdade são dados pelo número de parâmetros testados, isto é, o número de linhas da matriz $\boldsymbol{L}$, denotado por $s$.
 
+\section{ANOVA e MANOVA via teste Wald}
+
+Quando trabalhamos com modelos univariados, uma das formas de avaliar a significância de cada uma das variáveis de uma forma procedural é através da análise de variância (ANOVA). Este método consiste em efetuar testes sucessivos impondo restrições ao modelo original. O objetivo é testar se a ausência de determinada variável gera perda ao modelo. Os resultados destes sucessivos testes são sumarizados numa tabela, o chamado quadro de análise de variância, que contêm em cada linha: o parâmetro, o valor de uma estatística de teste, os graus de liberdade, e um p-valor associado à hipótese testada naquela linha do quadro.
+
+Trata-se de um interessante procedimento para avaliar a relevância de uma variável ao problema, contudo, cuidados devem ser tomados no que diz respeito à forma como o quadro foi elaborado. Como já mencionado, cada linha do quadro refere-se a uma hipótese e estas hipóteses podem ser formuladas de formas distintas. Formas conhecidas de se elaborar o quadro são as chamadas ANOVAs do tipo I, II e III. Esta nomenclatura vem do software estatístico SAS, contudo  as implementações existentes em outros softwares que seguem esta nomenclatura não necessariamente correspondem ao que está implementado no SAS. Em geral, recomenda-se ao usuário estar seguro de qual tipo de análise está sendo utilizada pois, caso contrário, interpretações equivocadas podem ser feitas.
+
+Testar se a ausência de determinada variável gera perda ao modelo quer dizer, em outros termos, realizar um teste para verificar a nulidade dos parâmetros que associam esta variável à resposta. Isto geralmente é feito através de uma sequência de testes de Razão de Verossimilhança, contudo  é possível gerar quadros de Análise de Variância utilizando o teste Wald pois sempre estarão sendo comparados o modelo completo e o modelo sem determinada ou determinadas variáveis. 
+
+Ou seja, no contexto dos McGLM basta então, para cada linha do quadro de Análise de Variância, especificar corretamente uma matriz $\boldsymbol{L}$ que represente de forma adequada a hipótese a ser testada.
+
+Do mesmo modo que é feito para um modelo univariado, podemos chegar também a uma Análise de Variância Multivariada (MANOVA) realizando sucessivos testes do tipo Wald em que estamos interessados em avaliar o efeito de determinada variável em todas as respostas simultaneamente. Portanto, a pergunta que a ser respondida seria: esta variável tem efeito diferente de 0 para todas as respostas?
+
+A MANOVA clássica \citep{manova} é um assunto com vasta discussão na literatura e possui diversas propostas com o objetivo de verificar a nulidade dos parâmetros de um modelo de regressão multivariado, como o lambda de Wilk's \citep{wilks}, traço de Hotelling-Lawley \citep{lawley}; \citep{hotelling}], traço de Pillai \citep{pillai} e maior raiz de Roy \citep{roy}.
+
+Tal como no caso univariado basta, para cada linha do quadro de Análise de Variância, especificar corretamente uma matriz $\boldsymbol{L}$ que represente de forma adequada a hipótese a ser testada.
