@@ -6,30 +6,32 @@
 % figuras estão no subdiretório "figuras/" dentro deste capítulo
 %\graphicspath{\currfiledir/figuras/}
 
-No capítulo anterior vimos que podemos chegar a um teste de hipóteses sobre qualquer um dos parâmetros de uma classe de modelos em que podemos especificar modelos para lidar com múltiplas respostas, de diferentes naturezas, modelando também a correlação entre indivíduos da amostra, os McGLM \citep{Bonat16}. Deste modo um dos objetivos deste trabalho consiste em implementar, tais testes no software R \citep{softwareR} com o objetivo de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}.
+No capítulo anterior vimos que podemos chegar a um teste de hipóteses sobre qualquer um dos parâmetros de um McGLM \citep{Bonat16}, ou seja, somos capazes de gerar conhecimento sobre problemas práticos através do estudo das estimativas dos parâmetros de modelos de uma classe em que podemos especificar modelos para lidar com múltiplas respostas, de diferentes naturezas, modelando também a correlação entre indivíduos da amostra. Deste modo um dos objetivos deste trabalho consiste em implementar tais testes no software R \citep{softwareR} com o objetivo de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}.
 
-No que diz respeito à implementações do teste Wald em outros contextos no R, o pacote \emph{lmtest} \citep{lmtest} possui uma função genérica para realizar testes de Wald para comparar modelos lineares e lineares generalizados aninhados. Já o pacote \emph{survey} \citep{survey1}; \citep{survey2};\citep{survey3} possui uma função que realiza teste de Wald que, por padrão, testa se todos os coeficientes associados a um determinado termo de regressão são zero, mas é possível especificar hipóteses com outros valores. O já mencionado pacote \emph{car} \citep{car} possui uma implementação para testar hipóteses lineares sobre parametros de modelos lineares, modelos lineares generalizados, modelos lineares multivariados, modelos de efeitos mistos, etc; nesta implementação o usuário tem total controle de que parâmetros testar e com quais valores confrontar na hipótese nula. Quanto às tabelas de análise de variância, o R possui a função anova no pacote padrão \emph{stats} \citep{stats} aplicável a modelos lineares e lineares generalizados. Já o pacote \emph{car} \citep{car} possui uma função que retorna quadros de análise variância dos tipos II e III para diversos modelos. 
+No que diz respeito à implementações do teste Wald em outros contextos no R, o pacote \emph{lmtest} \citep{lmtest} possui uma função genérica para realizar testes de Wald para comparar modelos lineares e lineares generalizados aninhados. Já o pacote \emph{survey} \citep{survey1}; \citep{survey2};\citep{survey3} possui uma função que realiza teste de Wald que, por padrão, testa se todos os coeficientes associados a um determinado termo de regressão são zero, mas é possível especificar hipóteses com outros valores. O já mencionado pacote \emph{car} \citep{car} possui uma implementação para testar hipóteses lineares sobre parâmetros de modelos lineares, modelos lineares generalizados, modelos lineares multivariados, modelos de efeitos mistos, etc; nesta implementação o usuário tem total controle de que parâmetros testar e com quais valores confrontar na hipótese nula. Quanto às tabelas de análise de variância, o R possui a função anova no pacote padrão \emph{stats} \citep{softwareR} aplicável a modelos lineares e lineares generalizados. Já o pacote \emph{car} \citep{car} possui uma função que retorna quadros de análise variância dos tipos II e III para diversos modelos. 
 
-Contudo, quando se trata de Modelos Multivariados de Covariância Linear Generalizada ajustados no pacote \emph{mcglm} \citep{mcglm}, não existem opções para realização de testes de hipóteses lineares gerais nem de análises de variância utilizando a estatística de Wald. Deste modo, baseando-nos nas funcionalidades do pacote \emph{car} \citep{car}, implementamos funções que permitem a realização de Análises de Variância por variável resposta (ANOVA), bem como Análises de Variância multivariadas (MANOVA). Note que no caso da MANOVA os preditores devem ser iguais para todas as respostas sob análise. Foram implementadas também funções que geram quadros como os de análise de variância focados no preditor linear matricial, ou seja, quadros cujo objetivo é verificar a significância dos parâmetros de dispersão. Estas funções recebem como argumento apenas o objeto que armazena o modelo devidamente ajustado através da função mcglm do pacote mcglm.
+Contudo, quando se trata de Modelos Multivariados de Covariância Linear Generalizada ajustados no pacote \emph{mcglm} \citep{mcglm}, não existem opções para realização de testes de hipóteses lineares gerais nem de análises de variância utilizando a estatística de Wald. Deste modo, baseando-nos nas funcionalidades do pacote \emph{car} \citep{car}, implementamos funções que permitem a realização de Análises de Variância por variável resposta (ANOVA), bem como Análises de Variância multivariadas (MANOVA). Note que no caso da MANOVA os preditores devem ser iguais para todas as respostas sob análise. Foram implementadas também funções que geram quadros como os de análise de variância focados no preditor linear matricial, ou seja, quadros cujo objetivo é verificar a significância dos parâmetros de dispersão. Estas funções recebem como argumento apenas o objeto que armazena o modelo devidamente ajustado através da função \emph{mcglm()} do pacote \emph{mcglm}.
 
 Por fim, foi implementada uma função para hipóteses lineares gerais especificadas pelo usuário, na qual é possível testar hipóteses sobre parâmetros de regressão, dispersão ou potência. Também é possível especificar hipóteses sobre múltiplos parâmetros e o vetor de valores da hipótese nula é definido pelo usuário. Esta função recebe como argumentos o modelo, um vetor com os parâmetros que devem ser testados e o vetor com os valores sob hipótese nula. Com algum trabalho, através da função de hipóteses lineares gerais, é possível replicar os resultados obtidos pelas funções de análise de variância.
 
-Todas as funções geram resultados mostrando graus de liberdade e p-valores baseados no teste Wald aplicado aos modelos multivariados de covariância linear generalizada (McGLM). Todas as funções implementadas podem ser acessadas em \href{https://github.com/lineu96/msc/}. A \autoref{tab:funcoes} mostra os nomes e descrições das funções implementadas.
+Todas as funções geram resultados mostrando graus de liberdade e p-valores baseados no teste Wald aplicado aos modelos multivariados de covariância linear generalizada (McGLM). Todas as funções implementadas podem ser acessadas em \emph{https://github.com/lineu96/msc}. A \autoref{tab:funcoes} mostra os nomes e descrições das funções implementadas.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{ll}
 \hline
-Função                   & Descrição                                            \\ \hline
-mc\_anova\_I()           & ANOVA  tipo I   (imita uma sequencial)               \\
-mc\_anova\_II()          & ANOVA  tipo II  (nao bate com o car)                 \\
-mc\_anova\_III()         & ANOVA  tipo III                                      \\
-mc\_anova\_disp()        & ANOVA  tipo III para dispersão                       \\
-mc\_manova\_I()          & MANOVA tipo I   (imita uma sequencial)               \\
-mc\_manova\_II()         & MANOVA tipo II  (nao bate com o car)                 \\
-mc\_manova\_III()        & MANOVA tipo III                                      \\
-mc\_manova\_disp()       & MANOVA tipo III para dispersão                       \\
-mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuário \\ \hline
+Função                   & Descrição \\ 
+\hline
+mc\_anova\_I()           & ANOVA  tipo I \\
+mc\_anova\_II()          & ANOVA  tipo II \\
+mc\_anova\_III()         & ANOVA  tipo III \\
+mc\_anova\_disp()        & ANOVA  tipo III para dispersão \\
+mc\_manova\_I()          & MANOVA tipo I \\
+mc\_manova\_II()         & MANOVA tipo II \\
+mc\_manova\_III()        & MANOVA tipo III \\
+mc\_manova\_disp()       & MANOVA tipo III para dispersão \\
+mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuário \\ 
+\hline
 \end{tabular}
 \caption{Funções implementadas}
 \label{tab:funcoes}
