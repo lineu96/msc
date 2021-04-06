@@ -44,7 +44,7 @@ mc\_manova\_disp()       & MANOVA tipo III para dispersão \\
 
 A função \emph{mc\_linear\_hypothesis()} é a implementação computacional em R do que foi exposto no \autoref{cap:wald}. É a função mais flexível que temos no conjunto de implementações. Com ela é possível especificar qualquer tipo de hipótese sobre parâmetros de regressão, dispersão ou potência de um modelo \emph{mcglm}. 
 
-As funções \emph{mc\_anova\_I()}, \emph{mc\_anova\_II()} e \emph{mc\_anova\_III()} são funções destinadas à avaliação dos parâmetros de regressão do modelo. Elas geram quadros de análise de variância para um modelo \emph{mcglm} para cada variável resposta. Implementamos 3 tipos diferentes de análises de variância mas não necessariamente essas implementações apresentarão os mesmos resultados que as versões com nomenclatura similar destinadas a modelos univariados disponíveis em outras bibliotecas.
+As funções \emph{mc\_anova\_I()}, \emph{mc\_anova\_II()} e \emph{mc\_anova\_III()} são funções destinadas à avaliação dos parâmetros de regressão do modelo. Elas geram quadros de análise de variância por resposta para um modelo \emph{mcglm}. Implementamos 3 tipos diferentes de análises de variância mas não necessariamente essas implementações apresentarão os mesmos resultados que as versões com nomenclatura similar destinadas a modelos univariados disponíveis em outras bibliotecas.
 
 Para fins de ilustração dos testes feitos por cada tipo das análise de variância implementada, considere um modelo bivariado com preditor dado por:
 
