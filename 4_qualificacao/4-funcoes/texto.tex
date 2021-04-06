@@ -6,11 +6,11 @@
 % figuras estão no subdiretório "figuras/" dentro deste capítulo
 %\graphicspath{\currfiledir/figuras/}
 
-No capítulo anterior vimos que podemos chegar a um teste de hipóteses sobre qualquer um dos parâmetros de um McGLM \citep{Bonat16}, ou seja, somos capazes de gerar conhecimento sobre problemas práticos através do estudo das estimativas dos parâmetros de modelos de uma classe em que podemos especificar modelos para lidar com múltiplas respostas, de diferentes naturezas, modelando também a correlação entre indivíduos da amostra. Deste modo um dos objetivos deste trabalho consiste em implementar tais testes no software R \citep{softwareR} com o objetivo de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}.
+No capítulo anterior vimos que podemos chegar a um teste de hipóteses sobre qualquer um dos parâmetros de um McGLM \citep{Bonat16}. Ou seja, somos capazes de gerar conhecimento sobre problemas práticos através do estudo das estimativas dos parâmetros de modelos de uma classe em que podemos lidar com múltiplas respostas, de diferentes naturezas, modelando também a correlação entre indivíduos da amostra. Deste modo um dos objetivos deste trabalho consiste em implementar tais testes no software R \citep{softwareR} com o objetivo de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}.
 
 No que diz respeito à implementações do teste Wald em outros contextos no R, o pacote \emph{lmtest} \citep{lmtest} possui uma função genérica para realizar testes de Wald para comparar modelos lineares e lineares generalizados aninhados. Já o pacote \emph{survey} \citep{survey1}; \citep{survey2};\citep{survey3} possui uma função que realiza teste de Wald que, por padrão, testa se todos os coeficientes associados a um determinado termo de regressão são zero, mas é possível especificar hipóteses com outros valores. O já mencionado pacote \emph{car} \citep{car} possui uma implementação para testar hipóteses lineares sobre parâmetros de modelos lineares, modelos lineares generalizados, modelos lineares multivariados, modelos de efeitos mistos, etc; nesta implementação o usuário tem total controle de que parâmetros testar e com quais valores confrontar na hipótese nula. Quanto às tabelas de análise de variância, o R possui a função anova no pacote padrão \emph{stats} \citep{softwareR} aplicável a modelos lineares e lineares generalizados. Já o pacote \emph{car} \citep{car} possui uma função que retorna quadros de análise variância dos tipos II e III para diversos modelos. 
 
-Contudo, quando se trata de Modelos Multivariados de Covariância Linear Generalizada ajustados no pacote \emph{mcglm} \citep{mcglm}, não existem opções para realização de testes de hipóteses lineares gerais nem de análises de variância utilizando a estatística de Wald. Deste modo, baseando-nos nas funcionalidades do pacote \emph{car} \citep{car}, implementamos funções que permitem a realização de Análises de Variância por variável resposta (ANOVA), bem como Análises de Variância multivariadas (MANOVA). Note que no caso da MANOVA os preditores devem ser iguais para todas as respostas sob análise. Foram implementadas também funções que geram quadros como os de análise de variância focados no preditor linear matricial, ou seja, quadros cujo objetivo é verificar a significância dos parâmetros de dispersão. Estas funções recebem como argumento apenas o objeto que armazena o modelo devidamente ajustado através da função \emph{mcglm()} do pacote \emph{mcglm}.
+Contudo, quando se trata de Modelos Multivariados de Covariância Linear Generalizada ajustados no pacote \emph{mcglm} \citep{mcglm}, não existem opções para realização de testes de hipóteses lineares gerais nem de análises de variância utilizando a estatística de Wald. Deste modo, baseando-nos nas funcionalidades do pacote \emph{car} \citep{car}, implementamos funções que permitem a realização de análises de variância por variável resposta (ANOVA), bem como análises de variância multivariadas (MANOVA). Note que no caso da MANOVA os preditores devem ser iguais para todas as respostas sob análise. Foram implementadas também funções que geram quadros como os de análise de variância focados no preditor linear matricial, ou seja, quadros cujo objetivo é verificar a significância dos parâmetros de dispersão. Estas funções recebem como argumento apenas o objeto que armazena o modelo devidamente ajustado através da função \emph{mcglm()} do pacote \emph{mcglm}.
 
 Por fim, foi implementada uma função para hipóteses lineares gerais especificadas pelo usuário, na qual é possível testar hipóteses sobre parâmetros de regressão, dispersão ou potência. Também é possível especificar hipóteses sobre múltiplos parâmetros e o vetor de valores da hipótese nula é definido pelo usuário. Esta função recebe como argumentos o modelo, um vetor com os parâmetros que devem ser testados e o vetor com os valores sob hipótese nula. Com algum trabalho, através da função de hipóteses lineares gerais, é possível replicar os resultados obtidos pelas funções de análise de variância.
 
@@ -22,36 +22,96 @@ Todas as funções geram resultados mostrando graus de liberdade e p-valores bas
 \hline
 Função                   & Descrição \\ 
 \hline
+
+mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuário \\
+
 mc\_anova\_I()           & ANOVA  tipo I \\
 mc\_anova\_II()          & ANOVA  tipo II \\
 mc\_anova\_III()         & ANOVA  tipo III \\
-mc\_anova\_disp()        & ANOVA  tipo III para dispersão \\
+
 mc\_manova\_I()          & MANOVA tipo I \\
 mc\_manova\_II()         & MANOVA tipo II \\
 mc\_manova\_III()        & MANOVA tipo III \\
+
+mc\_anova\_disp()        & ANOVA  tipo III para dispersão \\
 mc\_manova\_disp()       & MANOVA tipo III para dispersão \\
-mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuário \\ 
+
 \hline
 \end{tabular}
 \caption{Funções implementadas}
 \label{tab:funcoes}
 \end{table}
 
-\section{mc\_anova\_I()}
+A função \emph{mc\_linear\_hypothesis()} é a implementação computacional em R do que foi exposto no \autoref{cap:wald}. É a função mais flexível que temos no conjunto de implementações. Com ela é possível especificar qualquer tipo de hipótese sobre parâmetros de regressão, dispersão ou potência de um modelo \emph{mcglm}. 
 
-\section{mc\_anova\_II()}
+As funções \emph{mc\_anova\_I()}, \emph{mc\_anova\_II()} e \emph{mc\_anova\_III()} são funções destinadas à avaliação dos parâmetros de regressão do modelo. Elas geram quadros de análise de variância para um modelo \emph{mcglm} para cada variável resposta. Implementamos 3 tipos diferentes de análises de variância mas não necessariamente essas implementações apresentarão os mesmos resultados que as versões com nomenclatura similar destinadas a modelos univariados disponíveis em outras bibliotecas.
 
-\section{mc\_anova\_III()}
+Para fins de ilustração dos testes feitos por cada tipo das análise de variância implementada, considere um modelo bivariado com preditor dado por:
 
-\section{mc\_anova\_disp()}
+\begin{equation}
+g_r(\mu_r) = \beta_{r0} + \beta_{r1} x_1 + \beta_{r2} x_2 + \beta_{r3} x_1x_2.
+\end{equation}
 
-\section{mc\_manova\_I()}
+\noindent Em que o índice $r$ denota a variável resposta, r = 1,2. Temos deste modo um intercepto para cada resposta: $\beta_{10}$ para a primeira e $\beta_{20}$ para a segunda; temos também três parâmetros de regressão para cada resposta: $\beta_{11}$ é o efeito de $x_1$ sobre a resposta 1, $\beta_{21}$ é o efeito de $x_1$ sobre a resposta 2; $\beta_{12}$ é o efeito de $x_2$ sobre a resposta 1, $\beta_{22}$ é o efeito de $x_2$ sobre a resposta 2; por fim, $\beta_{13}$ representa o efeito da interação entre as variáveis $x_1$ e $x_2$ sobre a resposta 1 e $\beta_{23}$ representa o efeito da interação entre as variáveis $x_1$ e $x_2$ sobre a resposta 2. Todas as funções de análise de variância neste contexto retornariam dois quadros, um para cada resposta.
 
-\section{mc\_manova\_II()}
+Nossa implementação de análise de variância do tipo I (\emph{mc\_anova\_I()}) realiza testes sobre os parâmetros de regressão de forma sequencial. Neste cenário, nossa função faria os seguintes testes para cada resposta:
 
-\section{mc\_manova\_III()}
+\begin{enumerate}
+  \item Testa se todos os parâmetros são iguais a 0.
+  \item Testa se todos os parâmetros, exceto intercepto, são iguais a 0.
+  \item Testa se todos os parâmetros, exceto intercepto e os parâmetros referentes a $x_1$, são iguais a 0.
+  \item Testa se todos os parâmetros, exceto intercepto e os parâmetros referentes a $x_1$ e $x_2$, são iguais a 0.
+\end{enumerate}
 
-\section{mc\_manova\_disp()}
+Cada um destes testes seria uma linha do quadro de análise de variância, e pode ser chamada de sequencial pois a cada linha é acrescentada uma variável. Em geral, justamente por esta sequencialidade, se torna difícil interpretar os efeitos das variáveis pela análise de variância do tipo I. Em contrapartida, as análises do tipo II e III testam hipóteses que são, geralmente de maior interesse ao analista.
 
-\section{mc\_linear\_hypothesis()}
+Nossa análise de variância do tipo II (\emph{mc\_anova\_II()}) efetua testes similares ao último teste da análise de variância sequencial. Em um modelo sem interação o que é feito é, em cada linha, testar o modelo completo contra o modelo sem uma variável. Deste modo se torna melhor interpretável o efeito daquela variável sobre o modelo completo, isto é, o impacto na qualidade do modelo caso retirássemos determinada variável.
 
+Caso haja interações no modelo, é testado o modelo completo contra o modelo sem o efeito principal e qualquer efeito de interação que envolva a variável. Considerando o preditor exemplo, a análise de variância do tipo II faria os seguintes testes para cada resposta:
+
+\begin{enumerate}
+  \item Testa se o intercepto é igual a 0.
+  
+  \item Testa se os parâmetros referentes a $x_1$ são iguais a 0. Ou seja, é avaliado o impacto da retirada de $x_1$ do modelo. Neste caso retira-se a interação pois nela há $x_1$.
+  
+  \item Testa se os parâmetros referentes a $x_2$ são iguais a 0. Ou seja, é avaliado o impacto da retirada de $x_2$ do modelo. Neste caso retira-se a interação pois nela há $x_2$.
+  
+  \item Testa se o efeito de interação é 0.
+
+\end{enumerate}
+
+Note que nas linhas em que se busca entender o efeito de $x_1$ e $x_2$ a interação também é avaliada, pois retira-se do modelo todos os parâmetros que envolvem aquela variável.
+
+Na análise de variância do tipo II são feitos testes comparando o modelo completo contra o modelo sem todos os parâmetros que envolvem determinada variável (sejam efeitos principais ou interações). Já nossa análise de variância do tipo III (\emph{mc\_anova\_III()}) considera o modelo completo contra o modelo sem determinada variável, seja ela efeito principal ou de interação. Deste modo, cuidados devem ser tomados nas conclusões pois uma variável não ter efeito constatado como efeito principal não quer dizer que não haverá efeito de interação.
+
+Considerando o preditor exemplo, a análise de variância do tipo III faria os seguintes testes para cada resposta:
+
+\begin{enumerate}
+  \item Testa se o intercepto é igual a 0.
+  
+  \item Testa se os parâmetros de efeito principal referentes a $x_1$ são iguais a 0. Ou seja, é avaliado o impacto da retirada de $x_1$ nos efeitos principais do modelo. Neste caso, diferente do tipo II, nada se supõe a respeito do parâmetro de interação, por mais que envolva $x_1$.
+  
+  \item Testa se os parâmetros de efeito principal referentes a $x_2$ são iguais a 0. Ou seja, é avaliado o impacto da retirada de $x_2$ nos efeitos principais do modelo. Novamente, diferente do tipo II, nada se supõe a respeito do parâmetro de interação, por mais que envolva $x_2$.
+  
+  \item Testa se o efeito de interação é 0.
+\end{enumerate}
+
+Note que nas linhas em que se testa o efeito de $x_1$ e $x_2$ mantém-se o efeito da interação, diferentemente do que é feito na análise de variância do tipo II.
+
+É importante notar que que as análises de variância do tipo II e III tal como foram implementadas nesse trabalho geram os mesmos resultados quando aplicadas a modelos sem efeitos de interação. Além disso, o \emph{mcglm} ajusta modelos com múltiplas respostas; deste modo, para cada resposta seria gerado um quadro de análise de variância. 
+
+As funções \emph{mc\_manova\_I()}, \emph{mc\_manova\_II()} e \emph{mc\_manova\_III()} também são funções destinadas à avaliação dos parâmetros de regressão do modelo. Elas geram quadros de análise de variância multivariada para um modelo \emph{mcglm}. 
+
+Estas funções são generalizações das funções \emph{mc\_anova\_I()}, \emph{mc\_anova\_II()} e \emph{mc\_anova\_III()}. Enquanto as funções de análise de variância simples visam avaliar o efeito das variáveis para cada resposta, as multivariadas visam avaliar o efeito das variáveis explicativas em todas as variáveis resposta simultaneamente. 
+
+Deste modo, em nosso exemplo, as funções de análise de variância univariadas retornariam um quadro para cada uma das respostas avaliando o efeito das variáveis para cada uma delas. Já as funções de análise de variância multivariadas retornariam um único quadro, em que avalia-se o efeito das variáveis em todas as respotas ao mesmo tempo. A sequência de testes feitos a cada linha do quadro são os mesmos mostrados para as funções de análise de variância univariadas.
+
+Na prática, utilizando o \emph{mcglm}, podemos ajustar modelos com diferentes preditores para as respostas, nestes casos as funções \emph{mc\_anova\_I()}, \emph{mc\_anova\_II()} e \emph{mc\_anova\_III()} funcionam sem problema algum. Contudo as funções \emph{mc\_manova\_I()}, \emph{mc\_manova\_II()} e \emph{mc\_manova\_III()} necessitam que os preditores sejam iguais para todas as respostas.
+
+Tal como descrito no \autoref{cap:mcglm}, a matriz $\boldsymbol{\Omega({\tau})}$ tem como objetivo modelar a correlação existente entre linhas do conjunto de dados. A matriz é descrita como uma combinação de matrizes conhecidas e tal estrutura foi batizada como preditor linear matricial. Com isso é possível especificar extensões multivariadas para diversos modelos famosos da literatura que lidam com dados em que haja alguma relação ente as unidades amostrais, como estudos de medidas repetidas, dados longitudinais, séries temporais, dados espaciais e espaço-temporais.
+
+Na prática temos, para cada matriz do preditor matricial, um parâmetro de dispersão $\tau_d$. De modo análogo ao que é feito para o preditor de média, podemos usar estes parâmetros para avaliar o efeito das unidades correlocionadas no estudo. Neste sentido implementamos as funções \emph{mc\_anova\_disp()} e \emph{mc\_manova\_disp()}. 
+
+A função \emph{mc\_anova\_disp()} efetua uma análise de variância do tipo III para os parâmetros de dispersão do modelo. Tal como as demais funções com prefixo \emph{mc\_anova} é gerado um quadro para cada variável resposta, isto é, nos casos mais gerais avaliamos se há evidência que nos permita afirmar que determinado parâmetro de dispersão é igual a 0, ou seja, se existe efeito das medidas repetidas tal como especificado no preditor matricial para aquela resposta. Já a função \emph{mc\_manova\_disp()} pode ser utilizada em um modelo multivariado em que os preditores matriciais são iguais para todas as respostas e há o interesse em avaliar se o efeito das medidas correlocionadas é o mesmo para todas as respostas.
+
+Por fim, ressaltamos que as todas as funções de prefixo \emph{mc\_anova} e \emph{mc\_manova} foram implementadas no sentido de facilitar o procedimento de análise da importâncias das variáveis. Contudo, dentre as funções implementadas, a mais flexível é a função \emph{mc\_linear\_hypothesis()} que implementa e da liberdade ao usuário de efetuar qualquer teste utilizando a estatística de Wald no contexto dos McGLM. A partir desta função é possível replicar os resultados de qualquer uma das funções de análise de variância e testar hipóteses mais gerais como igualdade de efeitos, formular hipóteses com testes usando valores diferentes de zero e até mesmo formular hipóteses que combinem parâmetros de regressão, dispersão e potência quando houver alguma necessidade prática.
