@@ -1,6 +1,8 @@
+
 #################################################################
-# FUNÇÕES PARA TESTES DE HIPÓTESE GERAIS ANOVAS E MANOVAS
-# VIA TESTE WALD PARA OBJETOS MCGLM
+# FUNÇÕES PARA TESTES DE HIPÓTESE GERAIS, ANOVAS, MANOVAS E 
+# TESTES DE COMPARAÇÕES MÚLTIPLAS VIA TESTE WALD PARA OBJETOS 
+# MCGLM
 #################################################################
 
 # ANOVA I               - OK
@@ -15,6 +17,9 @@
 
 # HIPÓTESES GERAIS      - OK
 
+# MULTCOMP POR RESPOSTA - OK
+# MULTCOMP MULTIVARIADO - OK
+
 #################################################################
 
 # mc_anova_I()
@@ -28,6 +33,9 @@
 # mc_manova_disp()
 
 # mc_linear_hypothesis
+
+# mc_multcomp
+# mc_mult_multcomp
 
 #################################################################
 # ANOVA VIA TESTE WALD TIPO III
@@ -346,7 +354,7 @@ mc_anova_II <- function(object){
 #----------------------------------------------------------------
 
 #################################################################
-# PSEUDO-ANOVA VIA TESTE WALD TIPO I
+# ANOVA VIA TESTE WALD TIPO I
 #################################################################
 
 #' @title ANOVA pseudo-type I table for mcglm objects via Wald test
@@ -778,7 +786,7 @@ mc_manova_II <- function(object){
 #----------------------------------------------------------------
 
 #################################################################
-# PSEUDO-MANOVA VIA TESTE WALD TIPO I
+# MANOVA VIA TESTE WALD TIPO I
 #################################################################
 
 #' @title MANOVA pseudo-type I table for mcglm objects via Wald test
@@ -1336,3 +1344,307 @@ mc_linear_hypothesis <- function(object, hypothesis){
   return(tabela)
   
 }
+
+#----------------------------------------------------------------
+
+#################################################################
+# TESTE DE COMPARAÇÕES MÚLTIPLAS PARA TODAS AS RESPOSTAS
+#################################################################
+
+#' @title Multiple comparisons test for all responses
+#' @name mc_mult_multcomp
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs a multiple comparisons test to compare diferences between 
+#' treatment levels over all the responses for model objects produced by 
+#' mcglm
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param effect A vector of variables. For each configuration of these the estimate will be calculated.
+#' @param data dataframe.
+#' @keywords internal
+#' @return Table of multiple comparisons.
+#'
+#' @export
+
+mc_mult_multcomp <- function(object, effect, data){
+  
+  # Obter a matriz de combinações lineares dos parâmetros dos 
+  # modelos que resultam nas médias ajustadas (geralmente denotada por L)
+  
+  m_glm <- glm(formula = object$linear_pred[[1]], data = data)
+  mm <- doBy::LE_matrix(m_glm, effect = effect)
+  
+  #-------------------------------------------------------------------  
+  
+  # Para testar os contrastes de uma média ajustada contra a outra deve-se 
+  # subtrair as linhas da primeira matriz duas a duas (geralmente denotada 
+  # por K)
+  
+  K1 <- apc(mm)
+  K2 <- by(K1, INDICES = row.names(K1), FUN = as.matrix)
+  
+  #-------------------------------------------------------------------
+  
+  # Aplicando K no teste Wald
+  
+  #----------------------------------------------------------------
+  
+  # Vetor beta chapeu
+  beta <- coef(object, type = "beta")[,c(1, 4)] 
+  
+  #----------------------------------------------------------------
+  
+  # Número de betas
+  n_beta <- sum(as.vector(table(beta$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # Número de respostas
+  n_resp <- length(as.vector(table(beta$Response)))
+  
+  #----------------------------------------------------------------
+  
+  # vcov desconsiderando parametros de dispersao e potencia
+  vcov_betas <- vcov(object)[1:n_beta, 1:n_beta]
+  
+  #----------------------------------------------------------------
+  
+  # Matriz G
+  G <- diag(n_resp)
+  
+  #----------------------------------------------------------------
+  
+  # Matriz L
+  
+  L_par <- list()
+  
+  for (i in 1:length(K2)) {
+    L_par[[i]] <- kronecker(G, K2[[i]])
+  }
+  
+  
+  #----------------------------------------------------------------
+  
+  ## Tabela
+  
+  W <- vector() # Vetor para a estatística de teste
+  gl <- vector() # Vetor para graus de liberdade
+  p_val <- vector() # Vetor para p-valor
+  
+  ### Estatística de teste:
+  #### t(L*beta) x (L*vcov*t(L))^-1 x (L*beta) ~ Qui-quadrado(numero de parametros testados)
+  
+  for (i in 1:length(L_par)) {
+    
+    W[i] <- as.numeric((t(L_par[[i]]%*%beta$Estimates)) %*% (solve(L_par[[i]]%*%vcov_betas%*%t(L_par[[i]]))) %*% (L_par[[i]]%*%beta$Estimates))
+    gl[i] <- nrow(L_par[[i]])
+    p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
+  }
+  
+  tabela <- data.frame(Contrast = names(K2),
+                       GL = gl,
+                       W = round(W, 4),
+                       P_valor = round(p.adjust(p_val, method = 'bonferroni'), 4))
+  
+  return(tabela)
+}
+
+#----------------------------------------------------------------
+
+#################################################################
+# TESTE DE COMPARAÇÕES MÚLTIPLAS PARA CADA RESPOSTA
+#################################################################
+
+#' @title Multiple comparisons test for each response
+#' @name mc_multcomp
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs a multiple comparisons test to compare diferences between 
+#' treatment levels for each response for model objects produced by 
+#' mcglm
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param effect A list of vector of variables. For each configuration of 
+#' these the estimate will be calculated.
+#' @param data dataframe.
+#' @keywords internal
+#' @return Table of multiple comparisons.
+#'
+#' @export
+
+mc_multcomp <- function(object, effect, data){
+  
+  # Obter a matriz de combinações lineares dos parâmetros dos 
+  # modelos que resultam nas médias ajustadas (geralmente denotada por L)
+  #-------------------------------------------------------------------
+  
+  m_glm <- list()
+  
+  for (i in 1:length(object$linear_pred)) {
+    m_glm[[i]] <- glm(formula = object$linear_pred[[i]], data = data)
+  }
+  
+  mm <- list()
+  
+  for (i in 1:length(m_glm)) {
+    mm[[i]] <- doBy::LE_matrix(m_glm[[i]], effect = effect[[i]])
+  }
+  
+  #------------------------------------------------------------------- 
+  
+  # Para testar os contrastes de uma média ajustada contra a outra deve-se 
+  # subtrair as linhas da primeira matriz duas a duas (geralmente denotada 
+  # por K)
+  
+  K1 <- list()  
+  
+  for (i in 1:length(mm)) {
+    K1[[i]] <- apc(mm[[i]])
+  }
+  
+  K2 <- list()
+  
+  for (i in 1:length(mm)) {
+    K2[[i]] <- by(K1[[i]], INDICES = row.names(K1[[i]]), FUN = as.matrix)
+  }
+  
+  #-------------------------------------------------------------------
+  
+  # Vetor beta chapeu e indice de resposta
+  beta <- coef(object, type = "beta")[,c(1, 4)] 
+  
+  #----------------------------------------------------------------
+  
+  # Número de betas por resposta
+  n_beta <- as.vector(table(beta$Response)) 
+  
+  #----------------------------------------------------------------
+  
+  # Número de respostas
+  n_resp <- length(n_beta) 
+  
+  #----------------------------------------------------------------
+  
+  # Lista vcov por resposta desconsiderando parametros de dispersao e potencia
+  
+  vcov_betas <- list()
+  
+  #vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+  
+  #for (i in 2:n_resp) {
+  #  vcov_betas[[i]] <- 
+  #    vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
+  #                 (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
+  #  }
+  
+  if (n_resp == 1) {
+    vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+  } else {
+    vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+    for (i in 2:n_resp) {
+      vcov_betas[[i]] <- 
+        vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
+                     (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
+      
+    }
+  }
+  
+  #----------------------------------------------------------------
+  
+  ## Tabela
+  
+  tabela <- list()
+  
+  for (j in 1:n_resp) {
+    
+    W <- vector() # Vetor para a estatística de teste
+    gl <- vector() # Vetor para graus de liberdade
+    p_val <- vector() # Vetor para p-valor
+    
+    
+    for (i in 1:dim(K2[[j]])) {
+      W[i] <- as.numeric((t(K2[[j]][[i]] %*% subset(beta, beta$Response == j)$Estimates)) %*% (solve(K2[[j]][[i]]%*%vcov_betas[[j]]%*%t(K2[[j]][[i]]))) %*% (K2[[j]][[i]] %*% subset(beta, beta$Response == j)$Estimates))
+      gl[i] <- nrow(K2[[j]][[i]])
+      p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
+      
+    } 
+    tabela[[j]] <- 
+      data.frame(Contrast = names(K2[[j]]),
+                 GL = gl,
+                 W = round(W, 4),
+                 P_valor = round(p.adjust(p_val, method = 'bonferroni'), 4))
+  }  
+  
+  return(tabela)  
+}
+
+#----------------------------------------------------------------
+
+#################################################################
+# FUNÇÃO GERADORA DE CONTRASTES DE TUKEY (WALMES)
+#################################################################
+
+#' @name apc
+#' @author Walmes Zeviani, \email{walmes@@ufpr.br}.
+#' @export
+#' @title Generate Matrix of All Pairwise Comparisons (Tukey contrasts)
+#' @description This function takes a matrix where each line defines a
+#'     linear function of the parameters to estimate a marginal mean
+#'     (aka least squares mean) and return the matrix that define the
+#'     contrasts among these means. All pairwise contrasts are returned
+#'     (aka Tukey contrasts). The matrix with these contrasts can be
+#'     passed to \code{\link[multcomp]{glht}()} to estimate them or used
+#'     in explicit matricial calculus.
+#' @param lfm a \eqn{k \times p} matrix where each line defines a linear
+#'     function to estimate a lsmean. In general, these matrices are
+#'     obtained by using \code{\link[doBy]{LSmatrix}()}.
+#' @param lev a character vector with length equals to the numbers of
+#'     lines of \code{lfm} matrix, (\eqn{k}). Default is \code{NULL} and
+#'     the row names of code{lfm} is used. If row names is also
+#'     \code{NULL}, incremental integer values are used to identify the
+#'     comparisons.
+#' @return a \eqn{K\times p} matrix with the linear functions that
+#'     define all pairwise contrasts. \eqn{K} is \eqn{{k}\choose{2}}.
+#' @seealso \code{\link{apmc}()}, \code{\link[doBy]{LSmatrix}()}.
+#' @examples
+#'
+#' X <- diag(3)
+#' rownames(X)
+#' apc(X)
+#'
+#' rownames(X) <- letters[nrow(X):1]
+#' apc(X)
+#'
+#' apc(X, lev = LETTERS[1:nrow(X)])
+#'
+#' # Objects from doBy::LSmatrix() have an "grid" attribute.
+#' attr(X, "grid") <- data.frame(n = LETTERS[1:nrow(X)])
+#' rownames(X) <- NULL
+#' apc(X)
+#'
+apc <- function(lfm, lev = NULL) {
+  nlev <- nrow(lfm)
+  rn <- rownames(lfm)
+  a <- attr(lfm, "grid")
+  if (is.null(lev)) {
+    if (!is.null(a)) {
+      lev <- apply(a, 1, paste, collapse = ":")
+    } else if (!is.null(rn)) {
+      lev <- rn
+    } else {
+      lev <- as.character(1:nlev)
+    }
+  }
+  cbn <- utils::combn(seq_along(lev), 2)
+  M <- lfm[cbn[1, ], ] - lfm[cbn[2, ], ]
+  if (is.vector(M)) {
+    dim(M) <- c(1, length(M))
+  }
+  rownames(M) <- paste(lev[cbn[1, ]], lev[cbn[2, ]], sep = "-")
+  return(M)
+}
+
+#----------------------------------------------------------------
