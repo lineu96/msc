@@ -1,3 +1,8 @@
+#----------------------------------------------------------------
+
+# Protótipo estudo de simulação teste wald para mcglm
+
+# Simula de um modelo, varia hipótese
 
 #----------------------------------------------------------------
 
@@ -12,12 +17,12 @@ source('~/msc/3_th_mcglm/0_funcoes/functions.R')
 
 #----------------------------------------------------------------
 
-simula_lm <- function(sample_size = 25,      # tamanho das amostras
-                      n_datasets = 100,        # numero de conjuntos de dados
-                      variance_error = 1.5,   # variabilidade da amostra simulada
-                      betas = c(5,0,0,0),    # valores dos parametros de regressao
-                      dif_effects = 0.01,    # decréscimo em beta 0 e distribuição nos demais betas
-                      outcome_type = NULL   # tipo de resposta simulada (NULL para normal,
+prototipo1_lm <- function(sample_size = 25,      # tamanho das amostras
+                          n_datasets = 100,        # numero de conjuntos de dados
+                          variance_error = 1.5,   # variabilidade da amostra simulada
+                          betas = c(5,0,0,0),    # valores dos parametros de regressao
+                          dif_effects = 0.1,    # decréscimo em beta 0 e distribuição nos demais betas
+                          outcome_type = NULL   # tipo de resposta simulada (NULL para normal,
                                              #'logistic', 'poisson')
 ){
   
@@ -66,7 +71,7 @@ simula_lm <- function(sample_size = 25,      # tamanho das amostras
       mcglm(linear_pred = c(form),
             matrix_pred = list(c(Z0)),
             link = c("identity"),
-            variance = c("tweedie"),
+            variance = c("constant"),
             data = datasets[[i]])
     
     models[[i]] <- fit
@@ -93,7 +98,7 @@ simula_lm <- function(sample_size = 25,      # tamanho das amostras
   # obtenção das hipoteses para função mc_linear_hypothesis
   # e distancias dos valores de betas inicialmente simulados
   
-  for (i in 2:500) {
+  for (i in 2:(5/dif_effects)) {
     
     hyp_betas[1] <- hyp_betas[1] - dif_effects
     hyp_betas[c(2,3,4)] <- hyp_betas[c(2,3,4)] + dif_effects/3  
@@ -109,7 +114,6 @@ simula_lm <- function(sample_size = 25,      # tamanho das amostras
   #----------------------------------------------------------------
   
   # obtenção do p-valor para a cada hipotese em cada dataset
-  
   # armazena hipotese na linha, modelo na coluna
   
   p_test <- matrix(nrow = length(hypothesis), 
@@ -137,104 +141,5 @@ simula_lm <- function(sample_size = 25,      # tamanho das amostras
   
   return(p_test)
 }
-
-#----------------------------------------------------------------
-
-normal_n25 <- simula_lm(sample_size = 25,
-                        n_datasets = 100,
-                        variance_error = 1.5,
-                        betas = c(5,0,0,0),
-                        dif_effects = 0.01,
-                        outcome_type = NULL)
-
-normal_n50 <- simula_lm(sample_size = 50,
-                        n_datasets = 100,
-                        variance_error = 1.5,
-                        betas = c(5,0,0,0),
-                        dif_effects = 0.01,
-                        outcome_type = NULL)
-
-normal_n100 <- simula_lm(sample_size = 100,
-                        n_datasets = 100,
-                        variance_error = 1.5,
-                        betas = c(5,0,0,0),
-                        dif_effects = 0.01,
-                        outcome_type = NULL)
-
-normal_n200 <- simula_lm(sample_size = 200,
-                        n_datasets = 100,
-                        variance_error = 1.5,
-                        betas = c(5,0,0,0),
-                        dif_effects = 0.01,
-                        outcome_type = NULL)
-
-normal_n500 <- simula_lm(sample_size = 500,
-                        n_datasets = 100,
-                        variance_error = 1.5,
-                        betas = c(5,0,0,0),
-                        dif_effects = 0.01,
-                        outcome_type = NULL)
-
-#----------------------------------------------------------------
-
-# analises
-
-grafico <- function(df){
-  
-  par(mfrow = c(1,3))
-  
-  # p-valor para cada dataset em cada distancia
-  plot(df$dist, df[,1],type = 'l', col = 1,
-       #xlim = c(0,3),
-       ylim = c(0,1),
-       xlab = 'Distancia',
-       ylab = 'p-valor',
-       main = 'P-valor para cada \n dataset em cada \nhipotese')
-  
-  for (i in 1:(ncol(df)-1)) {
-    lines(df$dist, df[,i], col = i)  
-  }
-  
-  #----------------------------------------------------------------
-  
-  # percentual de rejeições/nao rejeições para cada distancia
-  rej <- ifelse(df[,1:(ncol(df)-1)] > 0.05, 1, 0)
-  n_rej <- ifelse(df[,1:(ncol(df)-1)] < 0.05, 1, 0)
-  
-  df_final <- data.frame(dist = df$dist,
-                         rej = (rowSums(rej)/(ncol(df)-1))*100,
-                         n_rej = (rowSums(n_rej)/(ncol(df)-1))*100)
-  
-  # a partir de que distancia o teste acerta
-  # subset(df_final, rej == 0 & n_rej == 100)[1,]
-  
-  # hipotese associada a esta distancia
-  # hypothesis[134]
-  
-  # graficos
-  plot(rej~dist, df_final, type = 'l', lwd = 2,
-       xlab = 'Distancia', ylab = 'Rejeições',
-       ylim = c(0,100),
-       main = '% Rejeição para \n cada distância')
-  
-  abline(v=subset(df_final, rej == 0 & n_rej == 100)[1,]$dist, 
-         lty = 2, col = 2, pch = 3)
-  
-  plot(n_rej~dist, df_final, type = 'l', lwd = 2, 
-       xlab = 'Distancia', ylab = 'Ñ rejeicoes',
-       main = '% Não rejeição para \n cada distância')
-  
-  abline(v=subset(df_final, rej == 0 & n_rej == 100)[1,]$dist,
-         lty = 2, col = 2, pch = 3)
-  
-}
-
-#----------------------------------------------------------------
-
-grafico(normal_n25)
-grafico(normal_n50)
-grafico(normal_n100)
-grafico(normal_n200)
-grafico(normal_n500)
 
 #----------------------------------------------------------------
