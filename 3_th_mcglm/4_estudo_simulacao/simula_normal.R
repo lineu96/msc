@@ -4,40 +4,32 @@
 
 # Simula de um modelo, varia hipótese
 
+# Distribuição normal
+
 #----------------------------------------------------------------
 
-prototipo1_lm <- function(sample_size = 25,      # tamanho das amostras
-                          n_datasets = 100,        # numero de conjuntos de dados
-                          variance_error = 1.5,   # variabilidade da amostra simulada
+simula_normal <- function(sample_size = 25,      # tamanho das amostras
+                          n_datasets = 10,        # numero de conjuntos de dados
+                          n_trat = 4, # número de tratamentos
                           betas = c(5,0,0,0),    # valores dos parametros de regressao
-                          dif_effects = 0.1,    # decréscimo em beta 0 e distribuição nos demais betas
-                          outcome_type = NULL   # tipo de resposta simulada (NULL para normal,
-                                             #'logistic', 'poisson')
-){
-  
-  # argumentos para simulação 
-  
-  sim_arguments <- list(
-    formula = y ~ x,
-    fixed = list(x = list(var_type = 'factor', 
-                          levels = c('A', 'B', 'C', 'D'))),
-    error = list(variance = variance_error),
-    sample_size = sample_size,
-    reg_weights = betas,
-    outcome_type = outcome_type )
-  
-  #----------------------------------------------------------------
+                          dif_effects = 0.1)    # decréscimo em beta 0 e distribuição nos demais betas
+                          
+{
   
   # geração dos conjuntos de dados
   
   datasets <- list()
   
   for (i in 1:n_datasets) {
-    dados <- simulate_fixed(data = NULL, sim_arguments) %>%
-      simulate_error(sim_arguments) %>%
-      generate_response(sim_arguments)
     
-    datasets[[i]] <- dados[c('x','y')]  
+    X <- model.matrix(~ trat)
+    
+    mu <- X%*%beta
+    
+    y <- rnorm(sample_size, mean = mu, sd = 1)
+    
+    datasets[[i]] <- data.frame(y = y,
+                        x = trat)
   }
   
   
