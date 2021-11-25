@@ -4,19 +4,21 @@
 
 # Simula de um modelo, varia hipótese
 
-# Distribuição normal
+# Distribuição binomial
 
 #----------------------------------------------------------------
 
-simula_normal <- function(sample_size = 25,      # tamanho das amostras
-                          n_datasets = 10,        # numero de conjuntos de dados
-                          n_trat = 4, # número de tratamentos
-                          betas = c(5,0,0,0),    # valores dos parametros de regressao
-                          dif_effects = 0.1)    # decréscimo em beta 0 e distribuição nos demais betas
-                          
+simula_binomial <- function(sample_size = 250,      # tamanho das amostras
+                            n_datasets = 100,        # numero de conjuntos de dados
+                            n_trat = 4, # número de tratamentos
+                            betas = c(5,0,0,0),    # valores dos parametros de regressao
+                            dif_effects = 0.1)    # decréscimo em beta 0 e distribuição nos demais betas
+  
 {
   
   # geração dos conjuntos de dados
+  
+  trat <- gl(n_trat, sample_size/n_trat)
   
   datasets <- list()
   
@@ -24,12 +26,14 @@ simula_normal <- function(sample_size = 25,      # tamanho das amostras
     
     X <- model.matrix(~ trat)
     
-    mu <- X%*%beta
+    p <- exp(X%*%betas)/(1 + exp(X%*%betas))
     
-    y <- rnorm(sample_size, mean = mu, sd = 1)
+    y <- rbinom(sample_size, 
+                p = p,
+                size = 10)
     
     datasets[[i]] <- data.frame(y = y,
-                        x = trat)
+                                x = trat)
   }
   
   
@@ -37,7 +41,7 @@ simula_normal <- function(sample_size = 25,      # tamanho das amostras
   
   # elementos mcglm
   
-  form <- y ~ x # preditor
+  form <- y/10 ~ x # preditor
   
   Z0 <- mc_id(datasets[[1]]) # matriz identidade para o preditor matricial
   
@@ -51,8 +55,9 @@ simula_normal <- function(sample_size = 25,      # tamanho das amostras
     fit <- 
       mcglm(linear_pred = c(form),
             matrix_pred = list(c(Z0)),
-            link = c("identity"),
-            variance = c("constant"),
+            link = "logit", 
+            variance = "binomialP",
+            Ntrial = list(10),
             data = datasets[[i]])
     
     models[[i]] <- fit
@@ -120,7 +125,17 @@ simula_normal <- function(sample_size = 25,      # tamanho das amostras
   
   #----------------------------------------------------------------
   
-  return(p_test)
+  # obtendo percentual de rejeição
+  
+  rej <- ifelse(p_test[,1:(ncol(p_test)-1)] < 0.05, 1, 0)
+  
+  df_final <- data.frame(dist = p_test$dist,
+                         rej = (rowSums(rej)/(ncol(p_test)-1))*100)
+  
+  #----------------------------------------------------------------
+  
+  return(df_final)
+  
 }
 
-#----------------------------------------------------------------
+
