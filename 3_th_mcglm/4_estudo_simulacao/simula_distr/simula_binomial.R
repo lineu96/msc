@@ -8,7 +8,7 @@
 
 #----------------------------------------------------------------
 
-simula_binomial <- function(sample_size = 250,      # tamanho das amostras
+simula_binomial <- function(sample_size = 100,      # tamanho das amostras
                             n_datasets = 100,        # numero de conjuntos de dados
                             n_trat = 4, # número de tratamentos
                             betas = c(5,0,0,0),    # valores dos parametros de regressao

@@ -55,7 +55,7 @@ simula_poisson <- function(sample_size = 25,      # tamanho das amostras
       mcglm(linear_pred = c(form),
             matrix_pred = list(c(Z0)),
             link = c("log"),
-            variance = c("poisson_tweedie"),
+            variance = c("tweedie"),
             data = datasets[[i]])
     
     models[[i]] <- fit
