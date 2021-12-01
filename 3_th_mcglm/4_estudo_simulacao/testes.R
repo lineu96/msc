@@ -1,74 +1,51 @@
 #----------------------------------------------------------------
+
 source('~/msc/3_th_mcglm/4_estudo_simulacao/libs.R')
-source('~/msc/3_th_mcglm/4_estudo_simulacao/simula_distr/simula_normal.R')
-source('~/msc/3_th_mcglm/4_estudo_simulacao/simula_distr/simula_poisson.R')
-source('~/msc/3_th_mcglm/4_estudo_simulacao/simula_distr/simula_binomial.R')
-source('~/msc/3_th_mcglm/4_estudo_simulacao/simula_distr/simula_beta.R')
+source('~/msc/3_th_mcglm/4_estudo_simulacao/th_mcglm_sim.R')
 source('~/msc/3_th_mcglm/4_estudo_simulacao/analises/grafico.R')
+
 #----------------------------------------------------------------
 
 # Testes
 
-sample_size = 50
-n_datasets = 1000
-n_trat = 4
-betas = c(5,0,0,0)
-dif_effects = 0.25
-n_dists = 20
+sample_size = 100
+n_datasets = 100
+n_treatment = 4
+betas_normal = c(5,0,0,0)
+betas_poisson = c(1,0,0,0)
+betas_binomial = c(0.5,0,0,0)
+betas_beta = c(0.5,0,0,0)
+n_distances = 20
 
 #----------------------------------------------------------------
 
-normal_n50_antigo <- simula_normal(sample_size = sample_size,
-                                   n_datasets = n_datasets,
-                                   n_trat = n_trat,
-                                   betas = betas,
-                                   dif_effects = dif_effects)
+normal <- th_mcglm_sim(sample_size = sample_size,
+                       n_datasets = n_datasets,
+                       n_treatment = n_treatment,
+                       betas = betas_normal,
+                       n_distances = n_distances,
+                       distribution = 'normal')
 
-normal_n50_novo <- th_mcglm_sim(sample_size = sample_size,
-                                n_datasets = n_datasets,
-                                n_trat = n_trat,
-                                betas = betas,
-                                n_dists = n_dists,
-                                distribuicao = 'normal')
+poisson <- th_mcglm_sim(sample_size = sample_size,
+                        n_datasets = n_datasets,
+                        n_treatment = n_treatment,
+                        betas = betas_poisson,
+                        n_distances = n_distances,
+                        distribution = 'poisson')
 
-poisson_n50_antigo <- simula_poisson(sample_size = sample_size,
-                                     n_datasets = n_datasets,
-                                     n_trat = n_trat,
-                                     betas = betas,
-                                     dif_effects = dif_effects)
+binomial <- th_mcglm_sim(sample_size = sample_size,
+                         n_datasets = n_datasets,
+                         n_treatment = n_treatment,
+                         betas = betas_binomial,
+                         n_distances = n_distances,
+                         distribution = 'binomial')
 
-poisson_n50_novo <- th_mcglm_sim(sample_size = sample_size,
-                                 n_datasets = n_datasets,
-                                 n_trat = n_trat,
-                                 betas = betas,
-                                 n_dists = n_dists,
-                                 distribuicao = 'poisson')
-
-binomial_n50_antigo <- simula_binomial(sample_size = sample_size,
-                                       n_datasets = n_datasets,
-                                       n_trat = n_trat,
-                                       betas = betas,
-                                       dif_effects = dif_effects)
-
-binomial_n50_novo <- th_mcglm_sim(sample_size = sample_size,
-                                  n_datasets = n_datasets,
-                                  n_trat = n_trat,
-                                  betas = betas,
-                                  n_dists = n_dists,
-                                  distribuicao = 'binomial')
-
-beta_n50_antigo <- simula_beta(sample_size = sample_size,
-                               n_datasets = n_datasets,
-                               n_trat = n_trat,
-                               betas = betas,
-                               dif_effects = dif_effects)
-
-beta_n50_novo <- th_mcglm_sim(sample_size = sample_size,
-                              n_datasets = n_datasets,
-                              n_trat = n_trat,
-                              betas = betas,
-                              n_dists = n_dists,
-                              distribuicao = 'beta')
+beta <- th_mcglm_sim(sample_size = sample_size,
+                     n_datasets = n_datasets,
+                     n_treatment = n_treatment,
+                     betas = betas_beta,
+                     n_distances = n_distances,
+                     distribution = 'beta')
 
 #----------------------------------------------------------------
 
@@ -76,21 +53,17 @@ x11()
 
 #----------------------------------------------------------------
 
-par(mfrow=c(2,4),oma = c(0, 0, 2, 0))
+par(mfrow=c(2,2),oma = c(0, 0, 2, 0))
 
-grafico(normal_n50_antigo, main = 'Normal antigo')
-grafico(normal_n50_novo, main = 'Normal novo')
+grafico(normal_n50, main = 'Normal')
 
-grafico(poisson_n50_antigo, main = 'Poisson antigo')
-grafico(poisson_n50_novo, main = 'Poisson novo')
+grafico(poisson_n50, main = 'Poisson')
 
-grafico(binomial_n50_antigo, main = 'Binomial antigo')
-grafico(binomial_n50_novo, main = 'Binomial novo')
+grafico(binomial_n50, main = 'Binomial')
 
-grafico(beta_n50_antigo, main = 'Beta antigo')
-grafico(beta_n50_novo, main = 'Beta novo')
+grafico(beta_n50, main = 'Beta')
 
-mtext("1000 datasets, n = 100", outer = TRUE, cex = 1.5)
+mtext("100 datasets, n = 50", outer = TRUE, cex = 1.5)
 
 #----------------------------------------------------------------
 

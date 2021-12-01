@@ -1,29 +1,70 @@
 #----------------------------------------------------------------
-
-# Protótipo estudo de simulação teste wald para mcglm
-
+# Função para estudo de simulação teste wald para mcglm
+#----------------------------------------------------------------
 # Simula de um modelo, varia hipótese
+#----------------------------------------------------------------
+
+# Considera um modelo em que há uma variável explicativa categórica
+
+# Simula conjuntos de dados para o caso em que beta0 é igual a um 
+# valor e os demais betas são 0
+
+# Testa a hipótese de que os betas são iguais aos betas simulados
+
+# Altera a hipótese: faz um decréscimo em beta 0, distribui esse
+# decrécimo igualmente entre os demais betas
+
+# Repete este procedimento algumas vezes
+
+# Para cada uma das vezes toma a distância euclideana do vetor de 
+# betas original para o modificado
+
+# Para cada ponto avalia quantas vezes houve rejeição da hipótese
+# nula
+
+# O resultado gera uma curva que mostra a partir de que distância
+# o teste funciona perfeitamente
 
 #----------------------------------------------------------------
 
-th_mcglm_sim <- function(sample_size = 25,      # tamanho das amostras
-                         n_datasets = 10,        # numero de conjuntos de dados
-                         n_trat = 4, # número de tratamentos
-                         betas = c(5,0,0,0),    # valores dos parametros de regressao
-                         n_dists = 50,
-                         distribuicao = 'normal')    # decréscimo em beta 0 e distribuição nos demais betas
+# Argumentos
+
+# sample_size - tamanho das amostras
+# n_datasets - numero de conjuntos de dados
+# n_treatment - número de tratamentos
+# betas - valores dos parametros de regressao
+# n_distances - número de distâncias (vai definir decréscimo em beta 0
+#                               para distribuição nos demais betas)
+# distribution - distribuição (normal, poisson, binomial n=10, beta)
+
+#----------------------------------------------------------------
+
+th_mcglm_sim <- function(sample_size = 25,
+                         n_datasets = 10,
+                         n_treatment = 4,
+                         betas = c(5,0,0,0),
+                         n_distances = 20,
+                         distribution = 'normal')
   
 {
   
-  # geração dos conjuntos de dados
+  # tratamentos
+  trat <- gl(n_treatment, sample_size/n_treatment)
   
-  trat <- gl(n_trat, sample_size/n_trat)
-  
+  # matriz do modelo
   X <- model.matrix(~ trat)
   
+  # lista para armazenar os conjuntos de dados
   datasets <- list()
   
-  switch(distribuicao,
+  # geração dos conjuntos de dados
+  
+  # switch para simular de diferentes distribuições
+  # (normal, poisson, binomial n=10 ou beta)
+  # e definir função de ligação e variância para 
+  # ajuste dos modelos (depende da distribuição)
+  
+  switch(distribution,
          
          "normal" = {
            
@@ -101,11 +142,15 @@ th_mcglm_sim <- function(sample_size = 25,      # tamanho das amostras
   
   # elementos mcglm
   
-  switch(distribuicao,
+  # caso seja binomial a resposta precisa ser declarada como razão
+  # y/Ntrial ~x
+  
+  switch(distribution,
          "binomial" = {form = y/10~x},
          {form = y~x}
   )
   
+  # preditor matricial
   Z0 <- mc_id(datasets[[1]]) # matriz identidade para o preditor matricial
   
   #----------------------------------------------------------------
@@ -114,7 +159,7 @@ th_mcglm_sim <- function(sample_size = 25,      # tamanho das amostras
   
   models <- list()
   
-  switch(distribuicao,
+  switch(distribution,
          "binomial" = {
            for (i in 1:n_datasets) {
              fit <- 
@@ -145,6 +190,9 @@ th_mcglm_sim <- function(sample_size = 25,      # tamanho das amostras
   )
   
   #----------------------------------------------------------------
+
+  # obtenção das hipoteses para função mc_linear_hypothesis
+  # e distancias dos valores de betas inicialmente simulados
   
   dists <- vector() # vetor para armazenar as distancias
   dists[1] <- 0 # distancia inicial 0 
@@ -154,25 +202,19 @@ th_mcglm_sim <- function(sample_size = 25,      # tamanho das amostras
   hypothesis <- list() # vetor para armazenar as hipoteses
   
   # hipotese inicial
-  hypothesis[[1]] <- paste(c('beta10',
-                             'beta11',
-                             'beta12',
-                             'beta13'), '=', betas)
+  hypothesis[[1]] <- paste(coef(models[[1]], type = 'beta')$Parameters,
+                           '=', 
+                           betas)
   
-  #----------------------------------------------------------------
-  
-  # obtenção das hipoteses para função mc_linear_hypothesis
-  # e distancias dos valores de betas inicialmente simulados
-  
-  for (i in 2:n_dists) {
+  # obtenção das distâncias e hipóteses a serem testadas
+  for (i in 2:n_distances) {
     
-    hyp_betas[1] <- hyp_betas[1] - (betas[1]/n_dists)
-    hyp_betas[c(2,3,4)] <- hyp_betas[c(2,3,4)] + (betas[1]/n_dists)/3  
-    sum(hyp_betas)
-    hypothesis[[i]] <- paste(c('beta10',
-                               'beta11',
-                               'beta12',
-                               'beta13'), '=', hyp_betas)
+    hyp_betas[1] <- hyp_betas[1] - (betas[1]/n_distances)
+    hyp_betas[2:length(betas)] <- hyp_betas[2:length(betas)] + (betas[1]/n_distances)/(n_treatment-1)
+    
+    hypothesis[[i]] <- paste(coef(models[[1]], type = 'beta')$Parameters,
+                             '=',
+                             hyp_betas)
     
     dists[[i]] <- dist(rbind(betas, hyp_betas), method = "euclidean")
   }
@@ -205,7 +247,7 @@ th_mcglm_sim <- function(sample_size = 25,      # tamanho das amostras
   
   #----------------------------------------------------------------
   
-  # obtendo percentual de rejeição
+  # obtém percentual de rejeição
   
   rej <- ifelse(p_test[,1:(ncol(p_test)-1)] < 0.05, 1, 0)
   
@@ -214,6 +256,7 @@ th_mcglm_sim <- function(sample_size = 25,      # tamanho das amostras
   
   #----------------------------------------------------------------
   
+  # retorna dataframe com o percentual de rejeição para cada hipótese
   return(df_final)
 }
 
