@@ -39,12 +39,12 @@
 
 #----------------------------------------------------------------
 
-th_mcglm_sim <- function(sample_size = 25,
-                         n_datasets = 10,
-                         n_treatment = 4,
-                         betas = c(5,0,0,0),
-                         n_distances = 20,
-                         distribution = 'normal')
+varia_hipotese <- function(sample_size = 25,
+                           n_datasets = 10,
+                           n_treatment = 4,
+                           betas = c(5,0,0,0),
+                           n_distances = 20,
+                           distribution = 'normal')
   
 {
   
@@ -190,7 +190,7 @@ th_mcglm_sim <- function(sample_size = 25,
   )
   
   #----------------------------------------------------------------
-
+  
   # obtenção das hipoteses para função mc_linear_hypothesis
   # e distancias dos valores de betas inicialmente simulados
   
@@ -252,7 +252,7 @@ th_mcglm_sim <- function(sample_size = 25,
   rej <- ifelse(p_test[,1:(ncol(p_test)-1)] < 0.05, 1, 0)
   
   df_final <- data.frame(dist = p_test$dist,
-                          rej = (rowSums(rej)/(ncol(p_test)-1)*100))
+                         rej = (rowSums(rej)/(ncol(p_test)-1)*100))
   
   #----------------------------------------------------------------
   

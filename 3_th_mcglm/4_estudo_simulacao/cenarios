@@ -1,0 +1,22 @@
+
+------------------------------------
+Simulação datasets univariados
+------------------------------------
+
+500 data sets
+ 
+4 tamanhos amostrais: 50, 100, 250, 500 e 1000
+
+4 distribuições: normal, poisson, binomial (n=10), beta
+
+Variar configurações de betas? valores diferentes de mu, lambda e p
+
+Variabilidade nos dados? Acrescentar algum ruído?
+
+Quantas distâncias? 20 me parece ok
+
+------------------------------------
+
+SIMULAR COM AS DUAS FUNÇÕES PARA AVALIAR DIFERENÇAS
+
+------------------------------------

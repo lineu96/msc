@@ -6,18 +6,14 @@
 
 # Considera um modelo em que há uma variável explicativa categórica
 
-# Simula conjuntos de dados para o caso em que beta0 é igual a um 
+# Simula conjuntos de dados partindo do caso em que beta0 é igual a um 
 # valor e os demais betas são 0
 
-# Testa a hipótese de que os betas são iguais aos betas simulados
+# Faz um decréscimo em beta 0, distribui esse decrécimo igualmente 
+# entre os demais betas e simula novos dados
 
-# Altera a hipótese: faz um decréscimo em beta 0, distribui esse
-# decrécimo igualmente entre os demais betas
-
-# Repete este procedimento algumas vezes
-
-# Para cada uma das vezes toma a distância euclideana do vetor de 
-# betas original para o modificado
+# Ajusta modelos e testa a hipótese de que os betas são iguais aos 
+# betas originais (beta0 igual a um valor e os demais iguais a 0)
 
 # Para cada ponto avalia quantas vezes houve rejeição da hipótese
 # nula
@@ -32,43 +28,43 @@
 # sample_size - tamanho das amostras
 # n_datasets - numero de conjuntos de dados
 # n_treatment - número de tratamentos
-# betas - valores dos parametros de regressao
+# initial_betas - valores dos parametros de regressao no modelo 0
 # n_distances - número de distâncias (vai definir decréscimo em beta 0
 #                               para distribuição nos demais betas)
 # distribution - distribuição (normal, poisson, binomial n=10, beta)
 
 #----------------------------------------------------------------
 
-th_mcglm_sim2 <- function(sample_size = 25,
+varia_modelo <- function(sample_size = 25,
                          n_datasets = 10,
                          n_treatment = 4,
-                         betas_iniciais = c(5,0,0,0),
+                         initial_betas = c(5,0,0,0),
                          n_distances = 20,
-                         distribution = 'binomial')
+                         distribution = 'normal')
   
 {
-
+  
   
   betas <- list() # lista para armazenar os betas para gerar datasets
-  betas[[1]] <- betas_iniciais # primeiro elemento igual aos betas iniciais
+  betas[[1]] <- initial_betas # primeiro elemento igual aos betas iniciais
   
   dists <- vector() # vetor para armazenar as distancias
   dists[1] <- 0 # distancia inicial 0 
   
-  hyp_betas <- betas_iniciais # valor inicial para distribuição de efeitos
+  hyp_betas <- initial_betas # vetor inicial para distribuição de efeitos
   
   #----------------------------------------------------------------
   
-  # obtenção dos betas para simular
+  # obtenção dos betas para simular os conjuntos de dados e distâncias
   
   for (i in 2:n_distances) {
     
-    hyp_betas[1] <- hyp_betas[1] - (betas_iniciais[1]/n_distances)
-    hyp_betas[2:length(betas_iniciais)] <- hyp_betas[2:length(betas_iniciais)] + (betas_iniciais[1]/n_distances)/(n_treatment-1)
+    hyp_betas[1] <- hyp_betas[1] - (initial_betas[1]/n_distances)
+    hyp_betas[2:length(initial_betas)] <- hyp_betas[2:length(initial_betas)] + (initial_betas[1]/n_distances)/(n_treatment-1)
     
     betas[[i]] <- hyp_betas
     
-    dists[[i]] <- dist(rbind(betas_iniciais, hyp_betas), method = "euclidean")
+    dists[[i]] <- dist(rbind(initial_betas, hyp_betas), method = "euclidean")
   } 
   
   #----------------------------------------------------------------
@@ -203,6 +199,8 @@ th_mcglm_sim2 <- function(sample_size = 25,
   
   #----------------------------------------------------------------
   
+  # ajuste de um modelo por conjunto de dados
+  
   models <- list()
   
   switch(distribution,
@@ -252,12 +250,17 @@ th_mcglm_sim2 <- function(sample_size = 25,
   )
   
   #----------------------------------------------------------------
-
+  
+  # definição da hipótese a ser testada para todos os modelos
+  
   hypothesis <- paste(coef(models[[1]][[1]], type = 'beta')$Parameters,
-                           '=',
-                           betas_iniciais)
+                      '=',
+                      initial_betas)
   
   #----------------------------------------------------------------
+  
+  # obtenção do p-valor para a cada hipotese em cada dataset
+  # armazena hipotese na linha, modelo na coluna
   
   p_test <- matrix(nrow = length(betas), 
                    ncol = n_datasets)

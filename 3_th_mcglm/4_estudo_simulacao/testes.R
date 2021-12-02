@@ -1,69 +1,124 @@
 #----------------------------------------------------------------
+# TESTES
+#----------------------------------------------------------------
 
-source('~/msc/3_th_mcglm/4_estudo_simulacao/libs.R')
-source('~/msc/3_th_mcglm/4_estudo_simulacao/th_mcglm_sim.R')
+# bibliotecas necessárias
+
+library(mcglm)
+library(Matrix)
+
+#----------------------------------------------------------------
+# minhas funções
+source('~/msc/3_th_mcglm/0_funcoes/functions.R')
+#----------------------------------------------------------------
+
+source('~/msc/3_th_mcglm/4_estudo_simulacao/varia_hipotese.R')
+source('~/msc/3_th_mcglm/4_estudo_simulacao/varia_modelo.R')
 source('~/msc/3_th_mcglm/4_estudo_simulacao/analises/grafico.R')
 
 #----------------------------------------------------------------
 
 # Testes
 
-sample_size = 100
-n_datasets = 100
+sample_size = 50
+n_datasets = 500
 n_treatment = 4
-betas_normal = c(5,0,0,0)
-betas_poisson = c(1,0,0,0)
-betas_binomial = c(0.5,0,0,0)
-betas_beta = c(0.5,0,0,0)
 n_distances = 20
 
+betas_normal = c(5,0,0,0)
+betas_poisson = c(3,0,0,0)
+betas_binomial = c(0.5,0,0,0)
+betas_beta = c(0.5,0,0,0)
+
+initial_betas_normal = c(5,0,0,0)
+initial_betas_poisson = c(3,0,0,0)
+initial_betas_binomial = c(0.5,0,0,0)
+initial_betas_beta = c(0.5,0,0,0)
+
 #----------------------------------------------------------------
 
-normal <- th_mcglm_sim(sample_size = sample_size,
-                       n_datasets = n_datasets,
-                       n_treatment = n_treatment,
-                       betas = betas_normal,
-                       n_distances = n_distances,
-                       distribution = 'normal')
+normal1 <- varia_hipotese(sample_size = sample_size,
+                          n_datasets = n_datasets,
+                          n_treatment = n_treatment,
+                          betas = betas_normal,
+                          n_distances = n_distances,
+                          distribution = 'normal')
 
-poisson <- th_mcglm_sim(sample_size = sample_size,
+normal2 <- varia_modelo(sample_size = sample_size,
                         n_datasets = n_datasets,
                         n_treatment = n_treatment,
-                        betas = betas_poisson,
+                        initial_betas = initial_betas_normal,
                         n_distances = n_distances,
-                        distribution = 'poisson')
+                        distribution = 'normal')
 
-binomial <- th_mcglm_sim(sample_size = sample_size,
+#----------------------------------------------------------------
+
+poisson1 <- varia_hipotese(sample_size = sample_size,
+                           n_datasets = n_datasets,
+                           n_treatment = n_treatment,
+                           betas = betas_poisson,
+                           n_distances = n_distances,
+                           distribution = 'poisson')
+
+poisson2 <- varia_modelo(sample_size = sample_size,
                          n_datasets = n_datasets,
                          n_treatment = n_treatment,
-                         betas = betas_binomial,
+                         initial_betas = initial_betas_poisson,
                          n_distances = n_distances,
-                         distribution = 'binomial')
-
-beta <- th_mcglm_sim(sample_size = sample_size,
-                     n_datasets = n_datasets,
-                     n_treatment = n_treatment,
-                     betas = betas_beta,
-                     n_distances = n_distances,
-                     distribution = 'beta')
+                         distribution = 'poisson')
 
 #----------------------------------------------------------------
 
-x11()
+binomial1 <- varia_hipotese(sample_size = sample_size,
+                            n_datasets = n_datasets,
+                            n_treatment = n_treatment,
+                            betas = betas_binomial,
+                            n_distances = n_distances,
+                            distribution = 'binomial')
+
+binomial2 <- varia_modelo(sample_size = sample_size,
+                          n_datasets = n_datasets,
+                          n_treatment = n_treatment,
+                          initial_betas = initial_betas_binomial,
+                          n_distances = n_distances,
+                          distribution = 'binomial')
 
 #----------------------------------------------------------------
 
-par(mfrow=c(2,2),oma = c(0, 0, 2, 0))
+beta1 <- varia_hipotese(sample_size = sample_size,
+                        n_datasets = n_datasets,
+                        n_treatment = n_treatment,
+                        betas = betas_beta,
+                        n_distances = n_distances,
+                        distribution = 'beta')
 
-grafico(normal_n50, main = 'Normal')
+beta2 <- varia_modelo(sample_size = sample_size,
+                      n_datasets = n_datasets,
+                      n_treatment = n_treatment,
+                      initial_betas = initial_betas_beta,
+                      n_distances = n_distances,
+                      distribution = 'beta')
 
-grafico(poisson_n50, main = 'Poisson')
+#----------------------------------------------------------------
 
-grafico(binomial_n50, main = 'Binomial')
+png(filename='~/msc/3_th_mcglm/4_estudo_simulacao/n50.png',
+    width = 800, height = 500)
 
-grafico(beta_n50, main = 'Beta')
+par(mfrow=c(2,4),oma = c(0, 0, 2, 0))
 
-mtext("100 datasets, n = 50", outer = TRUE, cex = 1.5)
+grafico(normal1, main = 'Normal - varia hipótese')
+grafico(poisson1, main = 'Poisson - varia hipótese')
+grafico(binomial1, main = 'Binomial - varia hipótese')
+grafico(beta1, main = 'Beta - varia hipótese')
+
+grafico(normal2, main = 'Normal - varia modelo')
+grafico(poisson2, main = 'Poisson - varia modelo')
+grafico(binomial2, main = 'Binomial - varia modelo')
+grafico(beta2, main = 'Beta - varia modelo')
+
+mtext("20 distâncias, 500 datasets, n = 100", outer = TRUE, cex = 1.5)
+
+dev.off()
 
 #----------------------------------------------------------------
 
