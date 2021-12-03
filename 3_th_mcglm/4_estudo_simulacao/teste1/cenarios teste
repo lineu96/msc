@@ -1,0 +1,21 @@
+
+-----------------------
+
+Cenarios avaliados
+
+sample_size = 50, 100, 250, 500, 1000
+n_datasets = 500
+n_treatment = 4
+n_distances = 20
+
+betas_normal = c(5,0,0,0)
+betas_poisson = c(3,0,0,0)
+betas_binomial = c(0.5,0,0,0)
+betas_beta = c(0.5,0,0,0)
+
+initial_betas_normal = c(5,0,0,0)
+initial_betas_poisson = c(3,0,0,0)
+initial_betas_binomial = c(0.5,0,0,0)
+initial_betas_beta = c(0.5,0,0,0)
+
+-----------------------
