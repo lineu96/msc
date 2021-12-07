@@ -35,16 +35,16 @@
 # betas - valores dos parametros de regressao
 # n_distances - número de distâncias (vai definir decréscimo em beta 0
 #                               para distribuição nos demais betas)
-# distribution - distribuição (normal, poisson, binomial n=10, beta)
+# distribution - distribuição (normal, poisson, binomial n=1, beta)
 
 #----------------------------------------------------------------
 
-varia_hipotese <- function(sample_size = 25,
+varia_hipotese <- function(sample_size = 250,
                            n_datasets = 10,
                            n_treatment = 4,
-                           betas = c(5,0,0,0),
+                           betas = c(0.05,0,0,0),
                            n_distances = 20,
-                           distribution = 'normal')
+                           distribution = 'binomial')
   
 {
   
@@ -110,7 +110,7 @@ varia_hipotese <- function(sample_size = 25,
              
              y <- rbinom(sample_size, 
                          p = p,
-                         size = 10)
+                         size = 1)
              
              datasets[[i]] <- data.frame(y = y,
                                          x = trat)
@@ -146,7 +146,7 @@ varia_hipotese <- function(sample_size = 25,
   # y/Ntrial ~x
   
   switch(distribution,
-         "binomial" = {form = y/10~x},
+         "binomial" = {form = y/1~x},
          {form = y~x}
   )
   
@@ -218,6 +218,12 @@ varia_hipotese <- function(sample_size = 25,
     
     dists[[i]] <- dist(rbind(betas, hyp_betas), method = "euclidean")
   }
+  
+  #----------------------------------------------------------------
+  # Dividindo as distâncias pelo desvio padrão das distâncias para
+  # independente dos betas elas estarem no mesmo intervalo
+  
+  dists <- dists/sd(dists)
   
   #----------------------------------------------------------------
   

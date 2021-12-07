@@ -20,20 +20,18 @@ source('~/msc/3_th_mcglm/4_estudo_simulacao/analises/grafico.R')
 
 # Testes
 
-sample_size = 50
-n_datasets = 500
+sample_size = 1000
+n_datasets = 10
 n_treatment = 4
 n_distances = 20
 
 betas_normal = c(5,0,0,0)
-betas_poisson = c(3,0,0,0)
-betas_binomial = c(0.5,0,0,0)
-betas_beta = c(0.5,0,0,0)
+betas_poisson = c(2.3,0,0,0)
+betas_binomial = c(0.05,0,0,0)
 
 initial_betas_normal = c(5,0,0,0)
-initial_betas_poisson = c(3,0,0,0)
-initial_betas_binomial = c(0.5,0,0,0)
-initial_betas_beta = c(0.5,0,0,0)
+initial_betas_poisson = c(2.3,0,0,0)
+initial_betas_binomial = c(0.05,0,0,0)
 
 #----------------------------------------------------------------
 
@@ -109,14 +107,13 @@ par(mfrow=c(2,4),oma = c(0, 0, 2, 0))
 grafico(normal1, main = 'Normal - varia hipótese')
 grafico(poisson1, main = 'Poisson - varia hipótese')
 grafico(binomial1, main = 'Binomial - varia hipótese')
-grafico(beta1, main = 'Beta - varia hipótese')
+
 
 grafico(normal2, main = 'Normal - varia modelo')
 grafico(poisson2, main = 'Poisson - varia modelo')
 grafico(binomial2, main = 'Binomial - varia modelo')
-grafico(beta2, main = 'Beta - varia modelo')
 
-mtext("20 distâncias, 500 datasets, n = 100", outer = TRUE, cex = 1.5)
+mtext("20 distâncias, 500 datasets, n = 50", outer = TRUE, cex = 1.5)
 
 dev.off()
 
