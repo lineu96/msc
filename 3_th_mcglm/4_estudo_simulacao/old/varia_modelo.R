@@ -223,7 +223,7 @@ varia_modelo <- function(sample_size = 25,
                        matrix_pred = list(c(Z0)),
                        link = link,
                        variance = variance,
-                       Ntrial = list(10),
+                       Ntrial = list(1),
                        data = datasets[[j]][[i]])
                
                models[[j]][[i]] <- fit

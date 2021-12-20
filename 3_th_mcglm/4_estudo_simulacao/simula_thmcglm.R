@@ -39,10 +39,10 @@
 
 #----------------------------------------------------------------
 
-varia_hipotese <- function(sample_size = 250,
-                           n_datasets = 10,
+simula <- function(sample_size = 50,
+                           n_datasets = 200,
                            n_treatment = 4,
-                           betas = c(0.05,0,0,0),
+                           betas = c(0.5,0,0,0),
                            n_distances = 20,
                            distribution = 'binomial')
   
@@ -167,7 +167,7 @@ varia_hipotese <- function(sample_size = 250,
                      matrix_pred = list(c(Z0)),
                      link = link, 
                      variance = variance,
-                     Ntrial = list(10),
+                     Ntrial = list(1),
                      data = datasets[[i]])
              
              models[[i]] <- fit
@@ -236,8 +236,8 @@ varia_hipotese <- function(sample_size = 250,
   
   for (i in 1:length(models)) {
     for (j in 1:length(hypothesis)) {
-      p_test[j,i] <- mc_linear_hypothesis(object =  models[[i]], 
-                                          hypothesis = hypothesis[[j]])$P_valor
+      p_test[j,i] <- try(mc_linear_hypothesis(object =  models[[i]], 
+                                          hypothesis = hypothesis[[j]])$P_valor)
     }
   }
   
@@ -245,6 +245,11 @@ varia_hipotese <- function(sample_size = 250,
   
   # converte resultado para dataframe
   p_test <- as.data.frame(p_test)
+  
+  # caso tenha falhado, converte para NA
+  for (i in 1:ncol(p_test)) {
+    p_test[,i] <- as.numeric(p_test[,i])    
+  }
   
   #----------------------------------------------------------------
   
@@ -258,7 +263,12 @@ varia_hipotese <- function(sample_size = 250,
   rej <- ifelse(p_test[,1:(ncol(p_test)-1)] < 0.05, 1, 0)
   
   df_final <- data.frame(dist = p_test$dist,
-                         rej = (rowSums(rej)/(ncol(p_test)-1)*100))
+                         rej = (rowSums(rej, na.rm = T)/
+                                  (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)*100))
+  
+  df_final$distribution <- distribution
+  df_final$sample_size <- sample_size
+  df_final$n_datasets <- (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)
   
   #----------------------------------------------------------------
   
@@ -267,3 +277,4 @@ varia_hipotese <- function(sample_size = 250,
 }
 
 #----------------------------------------------------------------
+

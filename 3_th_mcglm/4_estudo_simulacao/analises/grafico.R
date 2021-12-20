@@ -4,10 +4,10 @@
 
 #----------------------------------------------------------------
 
-grafico <- function(df, main){
+grafico <- function(df, main, xlab, ylab){
   
   plot(rej~dist, df, type = 'o', lwd = 2, pch = 19,
-       xlab = 'Distância', ylab = 'Rejeições',
+       xlab = xlab, ylab = ylab,
        ylim = c(0,100),
        main = main)
   

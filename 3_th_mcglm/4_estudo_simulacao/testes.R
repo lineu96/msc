@@ -12,108 +12,213 @@ library(Matrix)
 source('~/msc/3_th_mcglm/0_funcoes/functions.R')
 #----------------------------------------------------------------
 
-source('~/msc/3_th_mcglm/4_estudo_simulacao/varia_hipotese.R')
-source('~/msc/3_th_mcglm/4_estudo_simulacao/varia_modelo.R')
+source('~/msc/3_th_mcglm/4_estudo_simulacao/simula_thmcglm.R')
 source('~/msc/3_th_mcglm/4_estudo_simulacao/analises/grafico.R')
 
 #----------------------------------------------------------------
 
 # Testes
 
-sample_size = 1000
-n_datasets = 10
+n_datasets = 500
 n_treatment = 4
 n_distances = 20
 
 betas_normal = c(5,0,0,0)
 betas_poisson = c(2.3,0,0,0)
-betas_binomial = c(0.05,0,0,0)
-
-initial_betas_normal = c(5,0,0,0)
-initial_betas_poisson = c(2.3,0,0,0)
-initial_betas_binomial = c(0.05,0,0,0)
+betas_binomial = c(0.5,0,0,0)
 
 #----------------------------------------------------------------
 
-normal1 <- varia_hipotese(sample_size = sample_size,
-                          n_datasets = n_datasets,
-                          n_treatment = n_treatment,
-                          betas = betas_normal,
-                          n_distances = n_distances,
-                          distribution = 'normal')
+sample_size = 50
 
-normal2 <- varia_modelo(sample_size = sample_size,
-                        n_datasets = n_datasets,
-                        n_treatment = n_treatment,
-                        initial_betas = initial_betas_normal,
-                        n_distances = n_distances,
-                        distribution = 'normal')
+normal_n50 <- simula(sample_size = sample_size,
+                     n_datasets = n_datasets,
+                     n_treatment = n_treatment,
+                     betas = betas_normal,
+                     n_distances = n_distances,
+                     distribution = 'normal')
 
-#----------------------------------------------------------------
+binomial_n50 <- simula(sample_size = sample_size,
+                       n_datasets = n_datasets,
+                       n_treatment = n_treatment,
+                       betas = betas_binomial,
+                       n_distances = n_distances,
+                       distribution = 'binomial')
 
-poisson1 <- varia_hipotese(sample_size = sample_size,
-                           n_datasets = n_datasets,
-                           n_treatment = n_treatment,
-                           betas = betas_poisson,
-                           n_distances = n_distances,
-                           distribution = 'poisson')
-
-poisson2 <- varia_modelo(sample_size = sample_size,
-                         n_datasets = n_datasets,
-                         n_treatment = n_treatment,
-                         initial_betas = initial_betas_poisson,
-                         n_distances = n_distances,
-                         distribution = 'poisson')
-
-#----------------------------------------------------------------
-
-binomial1 <- varia_hipotese(sample_size = sample_size,
-                            n_datasets = n_datasets,
-                            n_treatment = n_treatment,
-                            betas = betas_binomial,
-                            n_distances = n_distances,
-                            distribution = 'binomial')
-
-binomial2 <- varia_modelo(sample_size = sample_size,
-                          n_datasets = n_datasets,
-                          n_treatment = n_treatment,
-                          initial_betas = initial_betas_binomial,
-                          n_distances = n_distances,
-                          distribution = 'binomial')
-
-#----------------------------------------------------------------
-
-beta1 <- varia_hipotese(sample_size = sample_size,
-                        n_datasets = n_datasets,
-                        n_treatment = n_treatment,
-                        betas = betas_beta,
-                        n_distances = n_distances,
-                        distribution = 'beta')
-
-beta2 <- varia_modelo(sample_size = sample_size,
+poisson_n50 <- simula(sample_size = sample_size,
                       n_datasets = n_datasets,
                       n_treatment = n_treatment,
-                      initial_betas = initial_betas_beta,
+                      betas = betas_poisson,
                       n_distances = n_distances,
-                      distribution = 'beta')
+                      distribution = 'poisson')
+
 
 #----------------------------------------------------------------
 
-png(filename='~/msc/3_th_mcglm/4_estudo_simulacao/n50.png',
+sample_size = 100
+
+normal_n100 <- simula(sample_size = sample_size,
+                      n_datasets = n_datasets,
+                      n_treatment = n_treatment,
+                      betas = betas_normal,
+                      n_distances = n_distances,
+                      distribution = 'normal')
+
+binomial_n100 <- simula(sample_size = sample_size,
+                        n_datasets = n_datasets,
+                        n_treatment = n_treatment,
+                        betas = betas_binomial,
+                        n_distances = n_distances,
+                        distribution = 'binomial')
+
+poisson_n100 <- simula(sample_size = sample_size,
+                       n_datasets = n_datasets,
+                       n_treatment = n_treatment,
+                       betas = betas_poisson,
+                       n_distances = n_distances,
+                       distribution = 'poisson')
+
+#----------------------------------------------------------------
+
+sample_size = 250
+
+normal_n250 <- simula(sample_size = sample_size,
+                      n_datasets = n_datasets,
+                      n_treatment = n_treatment,
+                      betas = betas_normal,
+                      n_distances = n_distances,
+                      distribution = 'normal')
+
+binomial_n250 <- simula(sample_size = sample_size,
+                        n_datasets = n_datasets,
+                        n_treatment = n_treatment,
+                        betas = betas_binomial,
+                        n_distances = n_distances,
+                        distribution = 'binomial')
+
+poisson_n250 <- simula(sample_size = sample_size,
+                       n_datasets = n_datasets,
+                       n_treatment = n_treatment,
+                       betas = betas_poisson,
+                       n_distances = n_distances,
+                       distribution = 'poisson')
+
+
+#----------------------------------------------------------------
+
+sample_size = 500
+
+normal_n500 <- simula(sample_size = sample_size,
+                      n_datasets = n_datasets,
+                      n_treatment = n_treatment,
+                      betas = betas_normal,
+                      n_distances = n_distances,
+                      distribution = 'normal')
+
+
+binomial_n500 <- simula(sample_size = sample_size,
+                        n_datasets = n_datasets,
+                        n_treatment = n_treatment,
+                        betas = betas_binomial,
+                        n_distances = n_distances,
+                        distribution = 'binomial')
+
+poisson_n500 <- simula(sample_size = sample_size,
+                       n_datasets = n_datasets,
+                       n_treatment = n_treatment,
+                       betas = betas_poisson,
+                       n_distances = n_distances,
+                       distribution = 'poisson')
+
+#----------------------------------------------------------------
+
+sample_size = 1000
+
+normal_n1000 <- simula(sample_size = sample_size,
+                       n_datasets = n_datasets,
+                       n_treatment = n_treatment,
+                       betas = betas_normal,
+                       n_distances = n_distances,
+                       distribution = 'normal')
+
+
+binomial_n1000 <- simula(sample_size = sample_size,
+                         n_datasets = n_datasets,
+                         n_treatment = n_treatment,
+                         betas = betas_binomial,
+                         n_distances = n_distances,
+                         distribution = 'binomial')
+
+poisson_n1000 <- simula(sample_size = sample_size,
+                        n_datasets = n_datasets,
+                        n_treatment = n_treatment,
+                        betas = betas_poisson,
+                        n_distances = n_distances,
+                        distribution = 'poisson')
+
+
+#----------------------------------------------------------------
+
+save(
+    normal_n50,
+    binomial_n50,
+    poisson_n50,
+    
+    normal_n100,
+    binomial_n100,
+    poisson_n100,
+    
+    normal_n250,
+    binomial_n250,
+    poisson_n250,
+    
+    normal_n500,
+    binomial_n500,
+    poisson_n500,
+     
+    normal_n1000,
+    binomial_n1000,
+    poisson_n1000,
+    
+    file = "testes_uni.RData")
+
+#----------------------------------------------------------------
+
+png(filename='~/msc/3_th_mcglm/4_estudo_simulacao/testes.png',
     width = 800, height = 500)
 
-par(mfrow=c(2,4),oma = c(0, 0, 2, 0))
+par(mfrow = c(3,5), par(oma=c(1,3,3,0),
+                        mar=c(5,6,4,1)+.1), cex.lab = 1.8)
 
-grafico(normal1, main = 'Normal - varia hipótese')
-grafico(poisson1, main = 'Poisson - varia hipótese')
-grafico(binomial1, main = 'Binomial - varia hipótese')
+grafico(normal_n50, main = '', ylab = '', xlab = '')
+mtext('n = 50', side=3, line=3, cex=1.3)
+mtext("NORMAL", side=2, line=5, cex=1.3 )
 
+grafico(normal_n100, main = '', xlab = '', ylab = '')
+mtext('n = 100', side=3, line=3, cex=1.3)
 
-grafico(normal2, main = 'Normal - varia modelo')
-grafico(poisson2, main = 'Poisson - varia modelo')
-grafico(binomial2, main = 'Binomial - varia modelo')
+grafico(normal_n250, main = '', xlab = '', ylab = '')
+mtext('n = 250', side=3, line=3, cex=1.3)
 
-mtext("20 distâncias, 500 datasets, n = 50", outer = TRUE, cex = 1.5)
+grafico(normal_n500, main = '', xlab = '', ylab = '')
+mtext('n = 500', side=3, line=3, cex=1.3)
+
+grafico(normal_n1000, main = '', xlab = '', ylab = '')
+mtext('n = 1000', side=3, line=3, cex=1.3)
+
+grafico(poisson_n50, main = '', xlab = '', ylab = '% Rejeições')
+mtext("POISSON", side=2, line=5, cex=1.3 )
+grafico(poisson_n100, main = '', xlab = '', ylab = '')
+grafico(poisson_n250, main = '', xlab = '', ylab = '')
+grafico(poisson_n500, main = '', xlab = '', ylab = '')
+grafico(poisson_n1000, main = '', xlab = '', ylab = '')
+
+grafico(binomial_n50, main = '', xlab = '', ylab = '')
+mtext("BINOMIAL", side=2, line=5, cex=1.3 )
+grafico(binomial_n100, main = '', xlab = '', ylab = '')
+grafico(binomial_n250, main = '', xlab = 'Distância', ylab = '')
+grafico(binomial_n500, main = '', xlab = '', ylab = '')
+grafico(binomial_n1000, main = '', xlab = '', ylab = '')
 
 dev.off()
 
