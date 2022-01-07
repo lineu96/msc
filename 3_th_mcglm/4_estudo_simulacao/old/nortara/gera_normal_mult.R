@@ -4,7 +4,7 @@
 # E UMA EXPLICATIVA CATEGÓRICA
 #---------------------------------------------------
 
-sample_size = 500
+sample_size = 100
 n_treatment = 4
 betas = c(5,0,0,0)
 

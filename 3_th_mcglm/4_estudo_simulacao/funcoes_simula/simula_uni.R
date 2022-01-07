@@ -39,12 +39,12 @@
 
 #----------------------------------------------------------------
 
-simula <- function(sample_size = 50,
-                           n_datasets = 200,
-                           n_treatment = 4,
-                           betas = c(0.5,0,0,0),
-                           n_distances = 20,
-                           distribution = 'binomial')
+simula_uni <- function(sample_size = 50,
+                               n_datasets = 200,
+                               n_treatment = 4,
+                               betas = c(0.5,0,0,0),
+                               n_distances = 20,
+                               distribution = 'binomial')
   
 {
   
@@ -227,6 +227,23 @@ simula <- function(sample_size = 50,
   
   #----------------------------------------------------------------
   
+  # Armazenando estimativas dos parametros e vcov das estimativas
+  
+  parameters <- data.frame(Parameters = coef(models[[1]])$Parameters,
+                           Type = coef(models[[1]])$Type)
+  
+  for (i in 1:n_datasets) {
+    parameters[,i+2] <- coef(models[[i]])$Estimates
+  }
+  
+  vcovs <- list()
+  
+  for (i in 1:n_datasets) {
+    vcovs[[i]] <- vcov(models[[i]])  
+  }
+  
+  #----------------------------------------------------------------
+  
   # obtenção do p-valor para a cada hipotese em cada dataset
   # armazena hipotese na linha, modelo na coluna
   
@@ -237,7 +254,7 @@ simula <- function(sample_size = 50,
   for (i in 1:length(models)) {
     for (j in 1:length(hypothesis)) {
       p_test[j,i] <- try(mc_linear_hypothesis(object =  models[[i]], 
-                                          hypothesis = hypothesis[[j]])$P_valor)
+                                              hypothesis = hypothesis[[j]])$P_valor)
     }
   }
   
@@ -266,14 +283,18 @@ simula <- function(sample_size = 50,
                          rej = (rowSums(rej, na.rm = T)/
                                   (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)*100))
   
-  df_final$distribution <- distribution
+  df_final$distribution <- paste('uni', distribution)
   df_final$sample_size <- sample_size
   df_final$n_datasets <- (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)
   
   #----------------------------------------------------------------
   
   # retorna dataframe com o percentual de rejeição para cada hipótese
-  return(df_final)
+  return(list(hypothesis = hypothesis, 
+              parameters = parameters, 
+              vcovs = vcovs, 
+              p_test = p_test, 
+              df_final = df_final))
 }
 
 #----------------------------------------------------------------
