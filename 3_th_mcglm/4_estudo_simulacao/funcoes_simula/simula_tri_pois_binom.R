@@ -1,8 +1,8 @@
 
-simula_tri_pois_binom <- function(sample_size = 100,
+simula_tri_pois_binom <- function(sample_size = 50,
                                   n_treatment = 4,
                                   betas = c(0.5,0,0,0),
-                                  n_datasets = 10,
+                                  n_datasets = 50,
                                   n_distances = 20,
                                   distribution = 'binomial'){
   
@@ -49,7 +49,7 @@ simula_tri_pois_binom <- function(sample_size = 100,
   
   # Gerando as respostas
   
-  for (i in 1:n_datasets) {
+  for (i in 1:(n_datasets+15)) {
     
     # Argumentos das marginais
     
@@ -91,11 +91,11 @@ simula_tri_pois_binom <- function(sample_size = 100,
   
   # Comparando correlação alvo e correlação dos dados
   
-  cor_matrix
-  
-  for (i in 1:n_datasets) {
-    print(cor(datasets[[i]][,1:3]))
-  }
+  # cor_matrix
+  # 
+  # for (i in 1:n_datasets) {
+  #   print(cor(datasets[[i]][,1:3]))
+  # }
   
   #---------------------------------------------------
   # elementos mcglm
@@ -115,7 +115,7 @@ simula_tri_pois_binom <- function(sample_size = 100,
   
   switch(distribution,
          "poisson" = {
-           for (i in 1:n_datasets) {
+           for (i in 1:(n_datasets+15)) {
              fit <- 
                mcglm(linear_pred = c(form1, form2, form3),
                      matrix_pred = list(Z0,Z0,Z0),
@@ -129,14 +129,14 @@ simula_tri_pois_binom <- function(sample_size = 100,
          },
          
          "binomial" = {
-           for (i in 1:n_datasets) {
+           for (i in 1:(n_datasets+15)) {
              fit <- 
-               mcglm(linear_pred = c(form1, form2, form3),
-                     matrix_pred = list(Z0,Z0,Z0),
-                     link = c(link, link, link), 
-                     variance = c(variance, variance, variance),
-                     Ntrial = list(1,1,1),
-                     data = datasets[[i]])
+               try(mcglm(linear_pred = c(form1, form2, form3),
+                         matrix_pred = list(Z0,Z0,Z0),
+                         link = c(link, link, link), 
+                         variance = c(variance, variance, variance),
+                         Ntrial = list(1,1,1),
+                         data = datasets[[i]]))
              
              models[[i]] <- fit
              print(i)
@@ -187,13 +187,13 @@ simula_tri_pois_binom <- function(sample_size = 100,
   parameters <- data.frame(Parameters = coef(models[[1]])$Parameters,
                            Type = coef(models[[1]])$Type)
   
-  for (i in 1:n_datasets) {
+  for (i in 1:(n_datasets+15)) {
     parameters[,i+2] <- coef(models[[i]])$Estimates
   }
   
   vcovs <- list()
   
-  for (i in 1:n_datasets) {
+  for (i in 1:(n_datasets+15)) {
     vcovs[[i]] <- vcov(models[[i]])  
   }
   
@@ -226,21 +226,31 @@ simula_tri_pois_binom <- function(sample_size = 100,
   #----------------------------------------------------------------
   
   # acrescenta info de distancia
-  p_test$dist <- dists
+  #p_test$dist <- dists
   
   #----------------------------------------------------------------
   
   # obtém percentual de rejeição
   
-  rej <- ifelse(p_test[,1:(ncol(p_test)-1)] < 0.05, 1, 0)
+  rej <- ifelse(p_test[,1:(ncol(p_test))] < 0.05, 1, 0)
   
-  df_final <- data.frame(dist = p_test$dist,
-                         rej = (rowSums(rej, na.rm = T)/
-                                  (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)*100))
+  index_problems <- names(which(colSums(is.na(p_test)) > 0))
+  
+  rej2 <- rej[,!(colnames(rej) %in% index_problems)][,1:n_datasets]
+  
+  df_final <- data.frame(dist = dists,
+                         rej = ((rowSums(rej2))/ncol(rej2))*100)
+  
+  
+  
+  #df_final <- data.frame(dist = p_test$dist,
+  #                       rej = (rowSums(rej, na.rm = T)/
+  #                                (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)*100))
   
   df_final$distribution <- paste('tri', distribution)
   df_final$sample_size <- sample_size
-  df_final$n_datasets <- (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)
+  #df_final$n_datasets <- (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)
+  df_final$n_datasets <- ncol(rej2)
   
   #----------------------------------------------------------------
   
@@ -249,6 +259,8 @@ simula_tri_pois_binom <- function(sample_size = 100,
               parameters = parameters, 
               vcovs = vcovs, 
               p_test = p_test, 
+              index_problems = index_problems,
               df_final = df_final))
-  
 }
+
+#----------------------------------------------------------------

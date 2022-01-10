@@ -1,50 +1,9 @@
-#----------------------------------------------------------------
-# Função para estudo de simulação teste wald para mcglm
-#----------------------------------------------------------------
-# Simula de um modelo, varia hipótese
-#----------------------------------------------------------------
-
-# Considera um modelo em que há uma variável explicativa categórica
-
-# Simula conjuntos de dados para o caso em que beta0 é igual a um 
-# valor e os demais betas são 0
-
-# Testa a hipótese de que os betas são iguais aos betas simulados
-
-# Altera a hipótese: faz um decréscimo em beta 0, distribui esse
-# decrécimo igualmente entre os demais betas
-
-# Repete este procedimento algumas vezes
-
-# Para cada uma das vezes toma a distância euclideana do vetor de 
-# betas original para o modificado
-
-# Para cada ponto avalia quantas vezes houve rejeição da hipótese
-# nula
-
-# O resultado gera uma curva que mostra a partir de que distância
-# o teste funciona perfeitamente
-
-#----------------------------------------------------------------
-
-# Argumentos
-
-# sample_size - tamanho das amostras
-# n_datasets - numero de conjuntos de dados
-# n_treatment - número de tratamentos
-# betas - valores dos parametros de regressao
-# n_distances - número de distâncias (vai definir decréscimo em beta 0
-#                               para distribuição nos demais betas)
-# distribution - distribuição (normal, poisson, binomial n=1, beta)
-
-#----------------------------------------------------------------
-
 simula_uni <- function(sample_size = 50,
-                               n_datasets = 200,
-                               n_treatment = 4,
-                               betas = c(0.5,0,0,0),
-                               n_distances = 20,
-                               distribution = 'binomial')
+                       n_datasets = 500,
+                       n_treatment = 4,
+                       betas = c(0.5,0,0,0),
+                       n_distances = 20,
+                       distribution = 'binomial')
   
 {
   
@@ -71,7 +30,7 @@ simula_uni <- function(sample_size = 50,
            link <- c("identity")
            variance <- c("constant")
            
-           for (i in 1:n_datasets) {
+           for (i in 1:(n_datasets+10)) {
              
              mu <- X%*%betas
              
@@ -87,7 +46,7 @@ simula_uni <- function(sample_size = 50,
            link <- c("log")
            variance <- c("tweedie")
            
-           for (i in 1:n_datasets) {
+           for (i in 1:(n_datasets+10)) {
              
              lambda <- exp(X%*%betas)
              
@@ -104,7 +63,7 @@ simula_uni <- function(sample_size = 50,
            link <-  "logit" 
            variance  <-  "binomialP"
            
-           for (i in 1:n_datasets) {
+           for (i in 1:(n_datasets+10)) {
              
              p <- exp(X%*%betas)/(1 + exp(X%*%betas))
              
@@ -123,7 +82,7 @@ simula_uni <- function(sample_size = 50,
            
            variance <- "binomialP"
            
-           for (i in 1:n_datasets) {
+           for (i in 1:(n_datasets+10)) {
              
              p <- exp(X%*%betas)/(1 + exp(X%*%betas))
              
@@ -161,7 +120,7 @@ simula_uni <- function(sample_size = 50,
   
   switch(distribution,
          "binomial" = {
-           for (i in 1:n_datasets) {
+           for (i in 1:(n_datasets+10)) {
              fit <- 
                mcglm(linear_pred = c(form),
                      matrix_pred = list(c(Z0)),
@@ -175,7 +134,7 @@ simula_uni <- function(sample_size = 50,
            }
          },
          {
-           for (i in 1:n_datasets) {
+           for (i in 1:(n_datasets+10)) {
              fit <- 
                mcglm(linear_pred = c(form),
                      matrix_pred = list(c(Z0)),
@@ -232,13 +191,13 @@ simula_uni <- function(sample_size = 50,
   parameters <- data.frame(Parameters = coef(models[[1]])$Parameters,
                            Type = coef(models[[1]])$Type)
   
-  for (i in 1:n_datasets) {
+  for (i in 1:(n_datasets+10)) {
     parameters[,i+2] <- coef(models[[i]])$Estimates
   }
   
   vcovs <- list()
   
-  for (i in 1:n_datasets) {
+  for (i in 1:(n_datasets+10)) {
     vcovs[[i]] <- vcov(models[[i]])  
   }
   
@@ -271,21 +230,31 @@ simula_uni <- function(sample_size = 50,
   #----------------------------------------------------------------
   
   # acrescenta info de distancia
-  p_test$dist <- dists
+  #p_test$dist <- dists
   
   #----------------------------------------------------------------
   
   # obtém percentual de rejeição
   
-  rej <- ifelse(p_test[,1:(ncol(p_test)-1)] < 0.05, 1, 0)
+  rej <- ifelse(p_test[,1:(ncol(p_test))] < 0.05, 1, 0)
   
-  df_final <- data.frame(dist = p_test$dist,
-                         rej = (rowSums(rej, na.rm = T)/
-                                  (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)*100))
+  index_problems <- names(which(colSums(is.na(p_test)) > 0))
+  
+  rej2 <- rej[,!(colnames(rej) %in% index_problems)][,1:n_datasets]
+  
+  df_final <- data.frame(dist = dists,
+                         rej = ((rowSums(rej2))/ncol(rej2))*100)
+  
+  
+  
+  #df_final <- data.frame(dist = p_test$dist,
+  #                       rej = (rowSums(rej, na.rm = T)/
+  #                                (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)*100))
   
   df_final$distribution <- paste('uni', distribution)
   df_final$sample_size <- sample_size
-  df_final$n_datasets <- (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)
+  #df_final$n_datasets <- (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)
+  df_final$n_datasets <- ncol(rej2)
   
   #----------------------------------------------------------------
   
@@ -294,6 +263,7 @@ simula_uni <- function(sample_size = 50,
               parameters = parameters, 
               vcovs = vcovs, 
               p_test = p_test, 
+              index_problems = index_problems,
               df_final = df_final))
 }
 

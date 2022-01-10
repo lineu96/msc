@@ -68,11 +68,11 @@ simula_tri <- function(sample_size = 50,
   
   # Comparando correlação alvo e correlação dos dados
   
-  cor_matrix
-  
-  for (i in 1:n_datasets) {
-    print(cor(datasets[[i]][,1:3]))
-  }
+  # cor_matrix
+  # 
+  # for (i in 1:n_datasets) {
+  #   print(cor(datasets[[i]][,1:3]))
+  # }
   
   #---------------------------------------------------
   # elementos mcglm
