@@ -2,7 +2,7 @@
 simula_tri_pois_binom <- function(sample_size = 50,
                                   n_treatment = 4,
                                   betas = c(0.5,0,0,0),
-                                  n_datasets = 50,
+                                  n_datasets = 500,
                                   n_distances = 20,
                                   distribution = 'binomial'){
   
@@ -129,14 +129,26 @@ simula_tri_pois_binom <- function(sample_size = 50,
          },
          
          "binomial" = {
+           
+           if (sample_size < 100) {
+             ca <- list(#verbose = T,
+               tuning = 1,
+               max_iter = 100,
+               tol = 0.5) 
+             
+           } else {
+             ca <- list() 
+           }
+           
            for (i in 1:(n_datasets+15)) {
              fit <- 
-               try(mcglm(linear_pred = c(form1, form2, form3),
+               mcglm(linear_pred = c(form1, form2, form3),
                          matrix_pred = list(Z0,Z0,Z0),
                          link = c(link, link, link), 
                          variance = c(variance, variance, variance),
                          Ntrial = list(1,1,1),
-                         data = datasets[[i]]))
+                         data = datasets[[i]],
+                         control_algorithm = ca)
              
              models[[i]] <- fit
              print(i)

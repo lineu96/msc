@@ -109,7 +109,12 @@ results1 <- rbind(normal_uni_n50$df_final,
 
 results1$sample_size <- as.factor(results1$sample_size)
 names(results1)[4] <- "Tamanho amostral"
-results1$distribution <- as.factor(results1$distribution)
+results1$distribution <- factor(results1$distribution,
+                                levels = c("uni normal", "uni poisson", 
+                                           "uni binomial", "tri normal", 
+                                           "tri poisson", "tri binomial"))
+
+
 
 #-----------------------------------------------------------------
 

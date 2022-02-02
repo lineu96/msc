@@ -4,7 +4,7 @@ simula_tri <- function(sample_size = 50,
                        betas_normal = c(5,0,0,0),
                        betas_poisson = c(2.3,0,0,0),
                        betas_binomial = c(0.5,0,0,0),
-                       n_datasets = 100,
+                       n_datasets = 500,
                        n_distances = 20){
   
   #---------------------------------------------------
@@ -100,13 +100,24 @@ simula_tri <- function(sample_size = 50,
   
   models <- list()
   
+  if (sample_size < 100) {
+    ca <- list(#verbose = T,
+      tuning = 1,
+      max_iter = 100,
+      tol = 0.5) 
+    
+  } else {
+    ca <- list() 
+  }
+  
   for (i in 1:n_datasets) {
     fit <- 
       mcglm(linear_pred = c(form1, form2, form3),
             matrix_pred = list(Z0,Z0,Z0),
             link = c(link_normal, link_poisson, link_binomial), 
             variance = c(variance_normal, variance_poisson, variance_binomial),
-            data = datasets[[i]])
+            data = datasets[[i]],
+            control_algorithm = ca)
     
     models[[i]] <- fit
     print(i)

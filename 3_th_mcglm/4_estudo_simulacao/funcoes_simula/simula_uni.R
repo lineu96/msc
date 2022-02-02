@@ -115,11 +115,22 @@ simula_uni <- function(sample_size = 50,
   #----------------------------------------------------------------
   
   # ajuste de um modelo por conjunto de dados
-  
+
   models <- list()
   
   switch(distribution,
          "binomial" = {
+           
+           if (sample_size < 100) {
+             ca <- list(#verbose = T,
+               tuning = 1,
+               max_iter = 100,
+               tol = 0.5) 
+             
+           } else {
+             ca <- list() 
+           }
+           
            for (i in 1:(n_datasets+10)) {
              fit <- 
                mcglm(linear_pred = c(form),
@@ -127,7 +138,8 @@ simula_uni <- function(sample_size = 50,
                      link = link, 
                      variance = variance,
                      Ntrial = list(1),
-                     data = datasets[[i]])
+                     data = datasets[[i]],
+                     control_algorithm = ca)
              
              models[[i]] <- fit
              print(i)
