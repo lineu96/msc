@@ -72,10 +72,9 @@ tri_n1000 <- simula_tri(sample_size = sample_size,
 end_time_tri2 <- Sys.time()
 
 time_taken_tri2 <- end_time_tri2 - start_time_tri2
-time_taken_tri2
 
 #----------------------------------------------------------------
 
-save.image(file = "trivariados2.RData")
+save.image(file = 'tri2.Rdata')
 
 #----------------------------------------------------------------

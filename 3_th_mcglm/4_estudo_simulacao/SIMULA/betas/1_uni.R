@@ -137,10 +137,9 @@ binomial_uni_n1000 <- simula_uni(sample_size = sample_size,
 end_time_uni <- Sys.time()
 
 time_taken_uni <- end_time_uni - start_time_uni
-time_taken_uni
 
 #----------------------------------------------------------------
 
-save.image(file = "univariados.RData")
+save.image(file = 'uni.Rdata')
 
 #----------------------------------------------------------------

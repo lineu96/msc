@@ -136,10 +136,9 @@ binomial_tri_n1000 <- simula_tri_pois_binom(sample_size = sample_size,
 end_time_tri <- Sys.time()
 
 time_taken_tri <- end_time_tri - start_time_tri
-time_taken_tri
 
 #----------------------------------------------------------------
 
-save.image(file = "trivariados.RData")
+save.image(file = 'tri1.Rdata')
 
 #----------------------------------------------------------------
