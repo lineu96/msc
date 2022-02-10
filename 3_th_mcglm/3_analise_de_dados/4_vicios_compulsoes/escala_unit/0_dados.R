@@ -10,133 +10,122 @@ library(tidyverse)
 
 #---------------------------------------------------------------
 
-# Leitura e tratamento dos dados
+# Leitura dos dados
 
-dados <- read.csv2("~/Dropbox/Aulas-Acessorias/10 Ligia Carlos/0 dados/dados.csv", sep = ',')
+load("~/msc/3_th_mcglm/3_analise_de_dados/4_vicios_compulsoes/escala_unit/dados_dissertacao.RData")
 
-# Retirando linhas com dados ausentes
-
-dados2 <- na.omit(dados)
-
-# Tratamento para formato longo
-
-imc <- dados %>% gather(key = 'momento_imc', 
-                        value = 'imc', imc1:imc4)
-imc <- imc[,c(1,18,19)]
-imc$chave <- 1:nrow(imc)
-
-yale <- dados %>% gather(key = 'momento_yale', 
-                         value = 'yale', yale1:yale4)
-yale <- yale[,c(1,18,19)]
-yale$chave <- 1:nrow(yale)
-
-ecap <- dados %>% gather(key = 'momento_ecap', 
-                         value = 'ecap', ecap1:ecap4)
-ecap <- ecap[,c(1,18,19)]
-ecap$chave <- 1:nrow(ecap)
-
-dados3 <- dados %>% gather(key = 'momento', 
-                           value = 'peso', peso1:peso4)
-dados3 <- dados3[,c(1,2,3,4,5,6,7,8,18,19)]
-dados3$chave <- 1:nrow(dados3)
-
-dados3 <- left_join(dados3, imc)
-dados3 <- left_join(dados3, yale)
-dados3 <- left_join(dados3, ecap)
-
-#dados3[,c(9,12,14,16)]
-
-dados3$momento <- as.factor(dados3$momento)
-levels(dados3$momento) <- c('Pré op.','90 dias','365 dias')
-
-dados3 <- dados3[,-c(12,14,16)]
-
-#names(dados3)
-
-dados4 <- na.omit(dados3)
-
-# nrow(dados3)
-# nrow(dados4)
-
-# RESPOSTAS NA ESCALA UNITARIA
-
-dados4$yale2 <- dados4$yale/8
-dados4$ecap2 <- dados4$ecap/46
+#id - fator identificador de paciente
+#grupo - fator identiricador de grupo (Placebo, Probiótico)
+#momento - fator identificador de momento (T0 (preop), T1 (3 meses), T2 (1 ano))
+#YFAS - número de sintomas que caracterizam vício, varia de 0 a 7
+#BES - escore que caracteriza compulsão, varia de 0 a 46
+#YFAS_taxa - proporção de sintomas de caracterizam vício
+#BES_taxa - proporção do escore que caracteriza compulsão
 
 #---------------------------------------------------------------
 # EXPLORATÓRIA
 #---------------------------------------------------------------
 
-a <- ggplot(dados4, aes(x = yale2)) +
-  geom_bar(col = 1, fill='white') +
-  xlab('Count') +
-  ylab('Frequency') +
+desc <- dados_dissertacao[,c('grupo','momento',
+                             'YFAS_taxa','BES_taxa')] %>%
+  group_by(grupo, momento) %>%
+  summarise(n_yale = length(YFAS_taxa),
+            media_yale = round(mean(YFAS_taxa),2),
+            sd_yale = round(sd(YFAS_taxa),2),
+            n_ecap = length(BES_taxa),
+            media_ecap = round(mean(BES_taxa),2), 
+            sd_ecap = round(sd(BES_taxa),2))
+
+desc
+
+#---------------------------------------------------------------
+
+a <- ggplot(dados_dissertacao, aes(x = YFAS_taxa)) +
+  geom_histogram(col = 1, fill='white',
+                 breaks = hist(dados_dissertacao$YFAS_taxa, 
+                               plot = F)$breaks) +
+  xlab('YFAS') +
+  ylab('Frequência') +
+  xlim(c(0,1))+
   theme_bw() +
-  #scale_y_continuous(breaks = round(seq(0, 120, length.out = 3), 2)) +
   ggtitle('a')
 
-b <- ggplot(data = dados4, 
-            mapping = aes_string(x='grupo', y='yale2')) +
+b <- ggplot(data = dados_dissertacao, 
+            mapping = aes_string(x='grupo', y='YFAS_taxa')) +
   stat_boxplot(geom ='errorbar')+
   geom_boxplot(alpha = 1)+
   theme_light() +
-  stat_summary(fun.y=mean, 
+  stat_summary(fun=mean, 
                geom="point", 
-               shape=20, 
-               size=3, 
-               color="red", 
-               fill="red")+
-  xlab('Grupo') + ylab('Yale') + ggtitle('b')
+               shape=8, 
+               size=2)+
+  xlab('Grupo') + 
+  ylab('YFAS') + 
+  ylim(c(0,1))+
+  ggtitle('b')
 
-c <- ggplot(data = dados4, 
-            mapping = aes_string(x='momento', y='yale2')) +
+c <- ggplot(data = dados_dissertacao, 
+            mapping = aes_string(x='momento', y='YFAS_taxa')) +
   stat_boxplot(geom ='errorbar')+
   geom_boxplot(alpha = 1)+
   theme_light() +
-  stat_summary(fun.y=mean, 
+  stat_summary(fun=mean, 
                geom="point", 
-               shape=20, 
-               size=3, 
-               color="red", 
-               fill="red")+
-  xlab('Momento') + ylab('Yale') + ggtitle('c')
+               shape=8, 
+               size=2)+
+  xlab('Momento') + 
+  ylab('YFAS') + 
+  ylim(c(0,1))+
+  ggtitle('c')
 
-d <- ggplot(dados4, aes(x = ecap2)) +
-  geom_bar(col = 1, fill='white') +
-  xlab('Count') +
-  ylab('Frequency') +
+d <- ggplot(dados_dissertacao, aes(x = BES_taxa)) +
+  geom_histogram(col = 1, fill='white',
+                 breaks = hist(dados_dissertacao$BES_taxa, 
+                               plot = F)$breaks) +
+  xlab('BES') +
+  ylab('Frequência') +
+  xlim(c(0,1))+
   theme_bw() +
-  #scale_y_continuous(breaks = round(seq(0, 120, length.out = 3), 2)) +
   ggtitle('d')
 
-e <- ggplot(data = dados4, 
-            mapping = aes_string(x='grupo', y='ecap2')) +
+e <- ggplot(data = dados_dissertacao, 
+            mapping = aes_string(x='grupo', y='BES_taxa')) +
   stat_boxplot(geom ='errorbar')+
   geom_boxplot(alpha = 1)+
   theme_light() +
-  stat_summary(fun.y=mean, 
+  stat_summary(fun=mean, 
                geom="point", 
-               shape=20, 
-               size=3, 
-               color="red", 
-               fill="red")+
-  xlab('Grupo') + ylab('Yale') + ggtitle('e')
+               shape=8, 
+               size=2)+
+  xlab('Grupo') +
+  ylab('BES') + 
+  ylim(c(0,1))+
+  ggtitle('e')
 
-f <- ggplot(data = dados4, 
-            mapping = aes_string(x='momento', y='ecap2')) +
+f <- ggplot(data = dados_dissertacao, 
+            mapping = aes_string(x='momento', y='BES_taxa')) +
   stat_boxplot(geom ='errorbar')+
   geom_boxplot(alpha = 1)+
   theme_light() +
-  stat_summary(fun.y=mean, 
+  stat_summary(fun=mean, 
                geom="point", 
-               shape=20, 
-               size=3, 
-               color="red", 
-               fill="red")+
-  xlab('Momento') + ylab('Yale') + ggtitle('f')
+               shape=8, 
+               size=2)+
+  xlab('Momento') + 
+  ylab('BES') + 
+  ylim(c(0,1))+
+  ggtitle('f')
 
-x11()
-ggpubr::ggarrange(a,b,c,d,e,f,
-                  nrow = 2, ncol = 3)
+g <- ggpubr::ggarrange(a,b,c,d,e,f,
+                       nrow = 2, ncol = 3)
+
+#---------------------------------------------------------------
+
+ggsave(filename='descritiva.pdf', 
+       plot=g, device="pdf", 
+       path=getwd(),
+       dpi=500, 
+       height = 4, 
+       width = 7)
 
 #---------------------------------------------------------------

@@ -17,11 +17,11 @@ pearson <- as.numeric(chol_inv%*%residuos)
 preditos <- fit$fitted
 
 ## Dataframe
-res_pred <- data.frame(index = rep(1:nrow(dados4),2),
-                       resp = c(rep('yale', nrow(dados4)),
-                                rep('ecap', nrow(dados4))),
-                       observado = c(dados4$yale2,
-                                     dados4$ecap2),
+res_pred <- data.frame(index = rep(1:nrow(dados_dissertacao),2),
+                       resp = c(rep('YFAS', nrow(dados_dissertacao)),
+                                rep('BES', nrow(dados_dissertacao))),
+                       observado = c(dados_dissertacao$YFAS_taxa,
+                                     dados_dissertacao$BES_taxa),
                        preditos = preditos,
                        pearson = pearson,
                        raw = residuos
@@ -33,16 +33,16 @@ res_pred <- data.frame(index = rep(1:nrow(dados4),2),
 
 ## Resíduo Pearson
 
-mean1 = MASS::fitdistr(res_pred$pearson[1:nrow(dados4)], 
+mean1 = MASS::fitdistr(res_pred$pearson[1:nrow(dados_dissertacao)], 
                        densfun = "normal")$estimate[1]
 
-sd1 = MASS::fitdistr(res_pred$pearson[1:nrow(dados4)], 
+sd1 = MASS::fitdistr(res_pred$pearson[1:nrow(dados_dissertacao)], 
                      densfun = "normal")$estimate[2]
 
-mean2 = MASS::fitdistr(res_pred$pearson[(nrow(dados4)+1):nrow(res_pred)], 
+mean2 = MASS::fitdistr(res_pred$pearson[(nrow(dados_dissertacao)+1):nrow(res_pred)], 
                        densfun = "normal")$estimate[1]
 
-sd2 = MASS::fitdistr(res_pred$pearson[(nrow(dados4)+1):nrow(res_pred)], 
+sd2 = MASS::fitdistr(res_pred$pearson[(nrow(dados_dissertacao)+1):nrow(res_pred)], 
                      densfun = "normal")$estimate[2]
 
 mean1
@@ -53,16 +53,16 @@ sd2
 
 ## Resíduo cru
 
-mean3 = MASS::fitdistr(res_pred$raw[1:nrow(dados4)], 
+mean3 = MASS::fitdistr(res_pred$raw[1:nrow(dados_dissertacao)], 
                        densfun = "normal")$estimate[1]
 
-sd3 = MASS::fitdistr(res_pred$raw[1:nrow(dados4)], 
+sd3 = MASS::fitdistr(res_pred$raw[1:nrow(dados_dissertacao)], 
                      densfun = "normal")$estimate[2]
 
-mean4 = MASS::fitdistr(res_pred$raw[(nrow(dados4)+1):nrow(res_pred)], 
+mean4 = MASS::fitdistr(res_pred$raw[(nrow(dados_dissertacao)+1):nrow(res_pred)], 
                        densfun = "normal")$estimate[1]
 
-sd4 = MASS::fitdistr(res_pred$raw[(nrow(dados4)+1):nrow(res_pred)], 
+sd4 = MASS::fitdistr(res_pred$raw[(nrow(dados_dissertacao)+1):nrow(res_pred)], 
                      densfun = "normal")$estimate[2]
 
 mean3
@@ -156,14 +156,14 @@ g1 <- ggplot(data = res_pred, aes(y=pearson,x=index))+
   theme_bw()+
   geom_smooth(col=2, method = 'loess', se=F)+
   xlab('')+
-  ylab('Resíduos') + 
+  ylab('Índice') + 
   ggtitle('Resíduo Pearson') + facet_wrap(~resp, scales = 'free')
 
 g2 <- ggplot(data = res_pred, aes(y=raw,x=index))+
   geom_point(alpha=0.5)+
   theme_bw()+
   geom_smooth(col=2, method = 'loess', se=F)+
-  xlab('Preditos')+
+  xlab('Índice')+
   ylab('Resíduos') + 
   ggtitle('Resíduo cru') + facet_wrap(~resp, scales = 'free')
 
