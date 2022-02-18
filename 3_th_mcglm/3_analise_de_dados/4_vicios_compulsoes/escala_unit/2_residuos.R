@@ -45,11 +45,11 @@ mean2 = MASS::fitdistr(res_pred$pearson[(nrow(dados_dissertacao)+1):nrow(res_pre
 sd2 = MASS::fitdistr(res_pred$pearson[(nrow(dados_dissertacao)+1):nrow(res_pred)], 
                      densfun = "normal")$estimate[2]
 
-mean1
-sd1
+round(mean1, 2)
+round(sd1, 2)
 
-mean2
-sd2
+round(mean2, 2)
+round(sd2, 2)
 
 ## Resíduo cru
 
@@ -77,75 +77,119 @@ sd4
 
 ## Resíduo Pearson
 
-g1 <- ggplot(data = res_pred, aes(x=pearson))+
-  geom_histogram(fill=1,alpha=0.5, col = 1)+
+a<-ggplot(data = subset(res_pred, resp == 'YFAS'), 
+          aes(x=pearson))+
+  geom_histogram(col = 1, fill='white',
+                 breaks = hist(res_pred$pearson, 
+                               plot = F)$breaks) +
   theme_bw()+
-  xlab('')+
-  ylab('')+
-  geom_vline(xintercept = 0, col = 2, lty = 2, lwd = 1)+
-  facet_wrap(~resp, scales = 'free') + 
-  ggtitle('Resíduo Pearson')
+  xlab('Resíduo')+
+  ylab('Frequência')+
+  ggtitle('Resíduo Pearson para YFAS')
 
-## Resíduo cru
-
-g2 <- ggplot(data = res_pred, aes(x=raw))+
-  geom_histogram(fill=1,alpha=0.5, col = 1)+
+b<-ggplot(data = subset(res_pred, resp == 'BES'), 
+          aes(x=pearson))+
+  geom_histogram(col = 1, fill='white',
+                 breaks = hist(res_pred$pearson, 
+                               plot = F)$breaks) +
   theme_bw()+
-  xlab('')+
-  ylab('')+
-  geom_vline(xintercept = 0, col = 2, lty = 2, lwd = 1)+
-  facet_wrap(~resp, scales = 'free') + 
-  ggtitle('Resíduo cru')
+  xlab('Resíduo')+
+  ylab('Frequência')+
+  ggtitle('Resíduo Pearson para BES')
 
-ggpubr::ggarrange(g1,g2, nrow = 2)
+
+g <- ggpubr::ggarrange(a,b,
+                       nrow = 1, ncol = 2)
+
+
+ggsave(filename='res_hist.pdf', 
+       plot=g, device="pdf", 
+       path=getwd(),
+       dpi=500, 
+       height = 3, 
+       width = 7)
+
+
+## Resíduo bruto
+
+a<-ggplot(data = subset(res_pred, resp == 'YFAS'), 
+          aes(x=raw))+
+  geom_histogram(col = 1, fill='white',
+                 breaks = hist(res_pred$raw, 
+                               plot = F)$breaks) +
+  theme_bw()+
+  xlab('Resíduo')+
+  ylab('Frequência')+
+  ggtitle('Resíduo bruto para YFAS')
+
+b<-ggplot(data = subset(res_pred, resp == 'BES'), 
+          aes(x=raw))+
+  geom_histogram(col = 1, fill='white',
+                 breaks = hist(res_pred$raw, 
+                               plot = F)$breaks) +
+  theme_bw()+
+  xlab('Resíduo')+
+  ylab('Frequência')+
+  ggtitle('Resíduo brutp para BES')
+
+
+g <- ggpubr::ggarrange(a,b,
+                       nrow = 1, ncol = 2)
 
 #---------------------------------------------------------------
 
-# QQ-PLOT
+## RESIDUOS vs PREDITOS
 
-## Resíduo Pearson
-
-g1 <- ggplot(data = res_pred, 
-             mapping = aes(sample = pearson)) +
-  geom_qq(alpha = 0.5) + geom_qq_line(col = 2)+
-  theme_bw() +
-  xlab('')+
-  ylab('Quantis amostrais') + 
-  ggtitle('Resíduo Pearson') + facet_wrap(~resp, scales = 'free')
-
-## Resíduo cru
-
-g2 <- ggplot(data = res_pred, 
-             mapping = aes(sample = raw)) +
-  geom_qq(alpha = 0.5) + geom_qq_line(col = 2)+
-  theme_bw() +
-  xlab('Quantis teóricos')+
-  ylab('Quantis amostrais') + 
-  ggtitle('Resíduo cru') + facet_wrap(~resp, scales = 'free')
-
-ggpubr::ggarrange(g1,g2, nrow = 2)
-
-#---------------------------------------------------------------
-
-## RESIDUOS vs PREDITO
-
-g1 <- ggplot(data = res_pred, aes(y=pearson,x=preditos))+
-  geom_point(alpha=0.5)+
+a <- ggplot(data = subset(res_pred, resp == 'YFAS'), 
+            aes(y=pearson,x=preditos))+
+  geom_jitter()+
   theme_bw()+
-  geom_smooth(col=2, method = 'loess', se=F)+
-  xlab('')+
-  ylab('Resíduos') + 
-  ggtitle('Resíduo Pearson') + facet_wrap(~resp, scales = 'free')
-
-g2 <- ggplot(data = res_pred, aes(y=raw,x=preditos))+
-  geom_point(alpha=0.5)+
-  theme_bw()+
-  geom_smooth(col=2, method = 'loess', se=F)+
+  geom_smooth(col= "#696969", method = 'loess', se=F)+
   xlab('Preditos')+
   ylab('Resíduos') + 
-  ggtitle('Resíduo cru') + facet_wrap(~resp, scales = 'free')
+  ggtitle('Resíduos x Preditos para YFAS')
 
-ggpubr::ggarrange(g1,g2, nrow = 2)
+b <- ggplot(data = subset(res_pred, resp == 'BES'), 
+            aes(y=pearson,x=preditos))+
+  geom_jitter()+
+  theme_bw()+
+  geom_smooth(col='#696969', method = 'loess', se=F)+
+  xlab('Preditos')+
+  ylab('Resíduos') + 
+  ggtitle('Resíduos x Preditos para BES')
+
+g <- ggpubr::ggarrange(a,b,
+                       nrow = 1, ncol = 2)
+
+#---------------------------------------------------------------
+
+ggsave(filename='res_pred.pdf', 
+       plot=g, device="pdf", 
+       path=getwd(),
+       dpi=500, 
+       height = 3, 
+       width = 7)
+
+a <- ggplot(data = subset(res_pred, resp == 'YFAS'), 
+            aes(y=raw,x=preditos))+
+  geom_jitter(alpha=0.5)+
+  theme_bw()+
+  geom_smooth(col=1, method = 'loess', se=F)+
+  xlab('Preditos')+
+  ylab('Resíduos') + 
+  ggtitle('Resíduos brutos x Preditos para YFAS')
+
+b <- ggplot(data = subset(res_pred, resp == 'BES'), 
+            aes(y=raw,x=preditos))+
+  geom_jitter(alpha=0.5)+
+  theme_bw()+
+  geom_smooth(col=1, method = 'loess', se=F)+
+  xlab('Preditos')+
+  ylab('Resíduos') + 
+  ggtitle('Resíduos brutos x Preditos para BES')
+
+g <- ggpubr::ggarrange(a,b,
+                       nrow = 1, ncol = 2)
 
 #---------------------------------------------------------------
 

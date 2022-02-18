@@ -48,10 +48,10 @@ library(Matrix)
 source('~/msc/3_th_mcglm/0_funcoes/functions.R')
 #----------------------------------------------------------------
 
-source("~/msc/3_th_mcglm/4_estudo_simulacao/funcoes_simula/simula_uni.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/funcoes_simula/simula_tri_normal.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/funcoes_simula/simula_tri_pois_binom.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/funcoes_simula/simula_tri.R")
+source("~/msc/3_th_mcglm/4_estudo_simulacao/betas/funcoes_simula/simula_uni.R")
+source("~/msc/3_th_mcglm/4_estudo_simulacao/betas/funcoes_simula/simula_tri_normal.R")
+source("~/msc/3_th_mcglm/4_estudo_simulacao/betas/funcoes_simula/simula_tri_pois_binom.R")
+source("~/msc/3_th_mcglm/4_estudo_simulacao/betas/funcoes_simula/simula_tri.R")
 
 #----------------------------------------------------------------
 

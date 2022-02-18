@@ -26,16 +26,16 @@ round(resumo$`Resp.Variable 2`$tau,4)
 
 # INTERVALOS DE CONFIANÇA
 
-confint(fit)
+round(confint(fit), 2)
 
 #---------------------------------------------------------------
 
 # PARAMETROS DE REGRESSAO
 
 beta_YFAS <- data.frame(name = rownames(resumo$`Resp.Variable 1`$Regression),
-                       exp_est = exp(round(resumo$`Resp.Variable 1`$Regression$Estimates,2)),
-                       ic_min = as.vector(exp(confint(fit)[1:6,])[,1]),
-                       ic_max = as.vector(exp(confint(fit)[1:6,])[,2]))
+                        exp_est = exp(round(resumo$`Resp.Variable 1`$Regression$Estimates,2)),
+                        ic_min = as.vector(exp(confint(fit)[1:6,])[,1]),
+                        ic_max = as.vector(exp(confint(fit)[1:6,])[,2]))
 
 beta_BES <- data.frame(name = rownames(resumo$`Resp.Variable 2`$Regression),
                        exp_est = exp(round(resumo$`Resp.Variable 2`$Regression$Estimates,2)),
@@ -51,7 +51,7 @@ beta_BES
 #---------------------------------------------------------------
 
 table <- expand.grid(Grupo=levels(dados_dissertacao$grupo),
-                      Momento=levels(dados_dissertacao$momento))
+                     Momento=levels(dados_dissertacao$momento))
 
 attach(table)
 
@@ -95,22 +95,48 @@ names(tabela) <- c('Grupo', 'Momento', 'YFAS predito', 'BES predito')
 tabela
 
 table_plot <- data.frame(Grupo = rep(table$Grupo,2),
-                          Momento = rep(table$Momento,2),
-                          Métrica = c(rep('YFAS',6),
-                                      rep('BES',6)),
-                          Predito = c(table$mean_pred_YFAS, 
-                                      table$mean_pred_BES))
+                         Momento = rep(table$Momento,2),
+                         Métrica = c(rep('YFAS',6),
+                                     rep('BES',6)),
+                         Predito = c(table$mean_pred_YFAS, 
+                                     table$mean_pred_BES))
 
-ggplot(table_plot, aes(x=Momento, 
-                        y=Predito, 
-                        group = Grupo))+ 
+
+a<-ggplot(subset(table_plot, Métrica == 'YFAS'), 
+       aes(x=Momento, 
+           y=Predito, 
+           group = Grupo))+ 
   theme_bw() + 
   geom_line(aes(group=Grupo, linetype=Grupo)) +
-  theme(legend.position = 'top') +
-  #labs(title = "BES")+ 
-  xlab('Experimental moment') + 
-  ylab('Estimate')+ geom_point() +
-  facet_wrap(~Métrica, scales = 'free')
+  theme(legend.position = 'bottom') + 
+  xlab('Momento') + 
+  ylab('Estimativa')+ 
+  ggtitle("Preditos para YFAS")+
+  geom_point()
+
+b<-ggplot(subset(table_plot, Métrica == 'BES'), 
+       aes(x=Momento, 
+           y=Predito, 
+           group = Grupo))+ 
+  theme_bw() + 
+  geom_line(aes(group=Grupo, linetype=Grupo)) +
+  theme(legend.position = 'bottom') + 
+  xlab('Momento') + 
+  ylab('Estimativa')+ 
+  ggtitle("Preditos para BES")+
+  geom_point()
+
+g <- ggpubr::ggarrange(a,b,
+                       nrow = 1, ncol = 2,
+                       common.legend = T,
+                       legend = 'bottom')
+
+ggsave(filename='fig_preditos.pdf', 
+       plot=g, device="pdf", 
+       path=getwd(),
+       dpi=500, 
+       height = 4, 
+       width = 7)
 
 
 #---------------------------------------------------------------

@@ -125,7 +125,7 @@ ggsave(filename='descritiva.pdf',
        plot=g, device="pdf", 
        path=getwd(),
        dpi=500, 
-       height = 4, 
-       width = 7)
+       height = 6, 
+       width = 8)
 
 #---------------------------------------------------------------
