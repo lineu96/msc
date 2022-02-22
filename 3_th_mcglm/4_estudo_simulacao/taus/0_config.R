@@ -56,5 +56,6 @@ source("~/msc/3_th_mcglm/4_estudo_simulacao/taus/funcoes_simula/simula_uni_long_
 n_datasets = 500
 n_rep = 5
 n_distances = 20
+taus = c(0.5,0.5)
 
 #----------------------------------------------------------------

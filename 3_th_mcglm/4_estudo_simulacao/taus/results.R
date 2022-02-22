@@ -83,33 +83,33 @@ results1 <- rbind(normal_uni_n50$df_final,
                   
                   normal_uni_n1000$df_final,
                   poisson_uni_n1000$df_final,
-                  binomial_uni_n1000$df_final,
+                  binomial_uni_n1000$df_final#,
                   
-                  normal_tri_n50$df_final,
-                  poisson_tri_n50$df_final,
-                  binomial_tri_n50$df_final,
+                  #normal_tri_n50$df_final,
+                  #poisson_tri_n50$df_final,
+                  #binomial_tri_n50$df_final,
                   
-                  normal_tri_n100$df_final,
-                  poisson_tri_n100$df_final,
-                  binomial_tri_n100$df_final,
+                  #normal_tri_n100$df_final,
+                  #poisson_tri_n100$df_final,
+                  #binomial_tri_n100$df_final,
                   
-                  normal_tri_n250$df_final,
-                  poisson_tri_n250$df_final,
-                  binomial_tri_n250$df_final,
+                  #normal_tri_n250$df_final,
+                  #poisson_tri_n250$df_final,
+                  #binomial_tri_n250$df_final,
                   
-                  normal_tri_n500$df_final,
-                  poisson_tri_n500$df_final,
-                  binomial_tri_n500$df_final,
+                  #normal_tri_n500$df_final,
+                  #poisson_tri_n500$df_final,
+                  #binomial_tri_n500$df_final,
                   
-                  normal_tri_n1000$df_final,
-                  poisson_tri_n1000$df_final,
-                  binomial_tri_n1000$df_final,
+                  #normal_tri_n1000$df_final,
+                  #poisson_tri_n1000$df_final,
+                  #binomial_tri_n1000$df_final,
                   
-                  tri_n50$df_final,
-                  tri_n100$df_final,
-                  tri_n250$df_final,
-                  tri_n500$df_final,
-                  tri_n1000$df_final
+                  #tri_n50$df_final,
+                  #tri_n100$df_final,
+                  #tri_n250$df_final,
+                  #tri_n500$df_final,
+                  #tri_n1000$df_final
                   )
 
 #-----------------------------------------------------------------

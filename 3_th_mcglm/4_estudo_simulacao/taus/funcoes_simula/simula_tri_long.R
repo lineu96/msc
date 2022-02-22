@@ -1,9 +1,8 @@
-simula_uni_long_normal <- function(sample_size = 100,
-                                   n_datasets = 50,
-                                   n_rep = 5,
-                                   taus = c(0.5,0.5),
-                                   n_distances = 20,
-                                   distribution = 'normal')
+simula_tri_long <- function(sample_size = 50,
+                            n_datasets = 2,
+                            n_rep = 5,
+                            taus = c(0.5,0.5),
+                            n_distances = 20)
   
 {
   
@@ -15,7 +14,48 @@ simula_uni_long_normal <- function(sample_size = 100,
   Omega <- mc_matrix_linear_predictor(tau = taus, 
                                       Z = list(Z0, Z1))
   
-  Omega <- as.matrix(Omega, n_rep, n_rep)
+  Omega1 <- as.matrix(Omega, n_rep, n_rep)
+  Omega2 <- as.matrix(Omega, n_rep, n_rep)
+  Omega3 <- as.matrix(Omega, n_rep, n_rep)
+  
+  chol_1 <- chol(Omega1)
+  chol_2 <- chol(Omega2)
+  chol_3 <- chol(Omega3)
+  
+  BB <- bdiag(chol_1, chol_2, chol_3)
+  
+  Sigma_b <- Matrix(c(1.0,  0.75, 0.5,
+                      0.75,  1.0, 0.25,
+                      0.5,  0.25, 1.0), 
+                    3, 3)
+  
+  I <- Diagonal(5, 1)
+  C <- t(BB)%*%kronecker(Sigma_b, I)%*%BB
+  C <- as.matrix(C, (n_rep*3), (n_rep*3))
+  
+  ## Marginais
+  
+  invcdfnames <- c(rep('qnorm', n_rep),
+                   rep('qpois', n_rep),
+                   rep('qbinom', n_rep))
+           
+  paramslists <- list(
+    m1 = list(mean = 5),
+    m2 = list(mean = 5),
+    m3 = list(mean = 5),
+    m4 = list(mean = 5),
+    m5 = list(mean = 5),
+    m6 = list(lambda = 10),
+    m7 = list(lambda = 10),
+    m8 = list(lambda = 10),
+    m9 = list(lambda = 10),
+    m10 = list(lambda = 10),
+    m11 = list(p = 0.6, size = 1),
+    m12 = list(p = 0.6, size = 1),
+    m13 = list(p = 0.6, size = 1),
+    m14 = list(p = 0.6, size = 1),
+    m15 = list(p = 0.6, size = 1)
+  )
   
   # lista para armazenar os conjuntos de dados
   datasets <- list()
@@ -24,19 +64,25 @@ simula_uni_long_normal <- function(sample_size = 100,
   
   for (i in 1:(n_datasets)) {
     
-    mu <- c(y1 = 5, 
-            y2 = 5, 
-            y3 = 5,
-            y4 = 5,
-            y5 = 5)
     
-    data_temp <- as.data.frame(mvtnorm::rmvnorm(sample_size, 
-                                                mean = mu, 
-                                                sigma = Omega))
+    data_temp <- genNORTARA(n = sample_size, 
+                            cor_matrix = C, 
+                            paramslists = paramslists, 
+                            invcdfnames = invcdfnames)
     
-    y <- c(t(data_temp))
+    y1 <- c(t(data_temp[,1:5]))
+    y2 <- c(t(data_temp[,6:10]))
+    y3 <- c(t(data_temp[,11:15]))
     
-    datasets[[i]] <- data.frame(y = y, 
+    data <- data.frame(y1 = y1,
+                       y2 = y2,
+                       y3 = y3,
+                       id = rep(1:sample_size, 
+                                each = n_rep))
+    
+    datasets[[i]] <- data.frame(y1 = y1,
+                                y2 = y2,
+                                y3 = y3,
                                 id = rep(1:sample_size, 
                                          each = n_rep))
     
@@ -47,9 +93,17 @@ simula_uni_long_normal <- function(sample_size = 100,
   
   # elementos mcglm
   
-  form = y~1
-  link <- c("identity")
-  variance <- c("constant")
+  # caso seja binomial a resposta precisa ser declarada como razão
+  # y/Ntrial ~x
+  
+  switch(distribution,
+         "binomial" = {form1 = y1/1~1
+         form2 = y2/1~1
+         form3 = y3/1~1},
+         {form1 = y1~1
+         form2 = y2~1
+         form3 = y3~1}
+  )
   
   # preditor matricial
   Z0 <- mc_id(datasets[[1]]) # matriz identidade para o preditor matricial
@@ -61,17 +115,54 @@ simula_uni_long_normal <- function(sample_size = 100,
   
   models <- list()
   
-  for (i in 1:n_datasets) {
-    fit <- 
-      mcglm(linear_pred = c(form),
-            matrix_pred = list(c(Z0, Z1)),
-            link = link, 
-            variance = variance,
-            data = datasets[[i]])
-    
-    models[[i]] <- fit
-    print(i)
-  }
+  switch(distribution,
+         "poisson" = {
+           for (i in 1:n_datasets) {
+             fit <- 
+               mcglm(linear_pred = c(form1,
+                                     form2,
+                                     form3),
+                     matrix_pred = list(c(Z0, Z1),
+                                        c(Z0, Z1),
+                                        c(Z0, Z1)),
+                     link = c(link,link,link), 
+                     variance = c(variance,variance,variance),
+                     data = datasets[[i]],
+                     control_algorithm = list(#verbose = T,
+                       tuning = 0.5,
+                       max_iter = 100,
+                       tol = 0.05))
+             
+             models[[i]] <- fit
+             print(i)
+           }
+         },
+         
+         "binomial" = {
+           for (i in 1:n_datasets) {
+             fit <- 
+               mcglm(linear_pred = c(form1,
+                                     form2,
+                                     form3),
+                     matrix_pred = list(c(Z0, Z1),
+                                        c(Z0, Z1),
+                                        c(Z0, Z1)),
+                     link = c(link, link, link), 
+                     variance = c(variance,
+                                  variance,
+                                  variance),
+                     Ntrial = list(1,1,1),
+                     data = datasets[[i]],
+                     control_algorithm = list(#verbose = T,
+                       tuning = 0.5,
+                       max_iter = 100,
+                       tol = 0.05))
+             
+             models[[i]] <- fit
+             print(i)
+           }
+         }
+  )
   
   #----------------------------------------------------------------
   

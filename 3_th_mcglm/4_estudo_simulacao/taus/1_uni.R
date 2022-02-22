@@ -13,20 +13,25 @@ sample_size = 50
 normal_uni_n50 <- simula_uni_long_normal(sample_size = sample_size,
                                          n_datasets = n_datasets,
                                          n_rep = n_rep,
+                                         taus = taus,
                                          n_distances = n_distances,
                                          distribution = 'normal')
 
 poisson_uni_n50 <- simula_uni_long_pois_binom(sample_size = sample_size,
                                               n_datasets = n_datasets,
                                               n_rep = n_rep,
+                                              taus = taus,
                                               n_distances = n_distances,
                                               distribution = 'poisson')
 
 binomial_uni_n50 <- simula_uni_long_pois_binom(sample_size = sample_size,
                                                n_datasets = n_datasets,
                                                n_rep = n_rep,
+                                               taus = taus,
                                                n_distances = n_distances,
                                                distribution = 'binomial')
+
+save.image(file = 'uni50.Rdata')
 
 #----------------------------------------------------------------
 
@@ -35,6 +40,7 @@ sample_size = 100
 normal_uni_n100 <- simula_uni_long_normal(sample_size = sample_size,
                                           n_datasets = n_datasets,
                                           n_rep = n_rep,
+                                          taus = taus,
                                           n_distances = n_distances,
                                           distribution = 'normal')
 
@@ -42,14 +48,18 @@ normal_uni_n100 <- simula_uni_long_normal(sample_size = sample_size,
 poisson_uni_n100 <- simula_uni_long_pois_binom(sample_size = sample_size,
                                                n_datasets = n_datasets,
                                                n_rep = n_rep,
+                                               taus = taus,
                                                n_distances = n_distances,
                                                distribution = 'poisson')
 
 binomial_uni_n100 <- simula_uni_long_pois_binom(sample_size = sample_size,
                                                 n_datasets = n_datasets,
                                                 n_rep = n_rep,
+                                                taus = taus,
                                                 n_distances = n_distances,
                                                 distribution = 'binomial')
+
+save.image(file = 'uni100.Rdata')
 
 #----------------------------------------------------------------
 
@@ -58,20 +68,25 @@ sample_size = 250
 normal_uni_n250 <- simula_uni_long_normal(sample_size = sample_size,
                                           n_datasets = n_datasets,
                                           n_rep = n_rep,
+                                          taus = taus,
                                           n_distances = n_distances,
                                           distribution = 'normal')
 
 poisson_uni_n250 <- simula_uni_long_pois_binom(sample_size = sample_size,
                                                n_datasets = n_datasets,
                                                n_rep = n_rep,
+                                               taus = taus,
                                                n_distances = n_distances,
                                                distribution = 'poisson')
 
 binomial_uni_n250 <- simula_uni_long_pois_binom(sample_size = sample_size,
                                                 n_datasets = n_datasets,
                                                 n_rep = n_rep,
+                                                taus = taus,
                                                 n_distances = n_distances,
                                                 distribution = 'binomial')
+
+save.image(file = 'uni250.Rdata')
 
 #----------------------------------------------------------------
 
@@ -80,20 +95,25 @@ sample_size = 500
 normal_uni_n500 <- simula_uni_long_normal(sample_size = sample_size,
                                           n_datasets = n_datasets,
                                           n_rep = n_rep,
+                                          taus = taus,
                                           n_distances = n_distances,
                                           distribution = 'normal')
 
 poisson_uni_n500 <- simula_uni_long_pois_binom(sample_size = sample_size,
                                                n_datasets = n_datasets,
                                                n_rep = n_rep,
+                                               taus = taus,
                                                n_distances = n_distances,
                                                distribution = 'poisson')
 
 binomial_uni_n500 <- simula_uni_long_pois_binom(sample_size = sample_size,
                                                 n_datasets = n_datasets,
                                                 n_rep = n_rep,
+                                                taus = taus,
                                                 n_distances = n_distances,
                                                 distribution = 'binomial')
+
+save.image(file = 'uni500.Rdata')
 
 #----------------------------------------------------------------
 
@@ -102,20 +122,25 @@ sample_size = 1000
 normal_uni_n1000 <- simula_uni_long_normal(sample_size = sample_size,
                                            n_datasets = n_datasets,
                                            n_rep = n_rep,
+                                           taus = taus,
                                            n_distances = n_distances,
                                            distribution = 'normal')
 
 poisson_uni_n1000 <- simula_uni_long_pois_binom(sample_size = sample_size,
                                                 n_datasets = n_datasets,
                                                 n_rep = n_rep,
+                                                taus = taus,
                                                 n_distances = n_distances,
                                                 distribution = 'poisson')
 
 binomial_uni_n1000 <- simula_uni_long_pois_binom(sample_size = sample_size,
                                                  n_datasets = n_datasets,
                                                  n_rep = n_rep,
+                                                 taus = taus,
                                                  n_distances = n_distances,
                                                  distribution = 'binomial')
+
+save.image(file = 'uni1000.Rdata')
 
 #----------------------------------------------------------------
 
