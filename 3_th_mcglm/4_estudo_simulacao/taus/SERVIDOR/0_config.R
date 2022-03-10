@@ -37,27 +37,19 @@
 
 # bibliotecas necessárias
 
-library(mcglm)
 library(Matrix)
-library(NORTARA)
+library(mcglm)
+
+load("NORTARA_FUN.RData")
 
 #----------------------------------------------------------------
 # minhas funções
-source('~/msc/3_th_mcglm/0_funcoes/functions.R')
+source('functions.R')
 #----------------------------------------------------------------
 
-source("~/msc/3_th_mcglm/4_estudo_simulacao/taus/funcoes_simula/simula_uni_long_normal.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/taus/funcoes_simula/simula_uni_long_pois_binom.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/taus/funcoes_simula/simula_tri_long_normal.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/taus/funcoes_simula/simula_tri_long_pois_binom.R")
-
-#----------------------------------------------------------------
-
-# Parâmetros
-
-n_datasets = 500
-n_rep = 5
-n_distances = 20
-taus = c(0.5,0.5)
+source("funcoes_simula/simula_uni_long_normal.R")
+source("funcoes_simula/simula_uni_long_pois_binom.R")
+source("funcoes_simula/simula_tri_long_normal.R")
+source("funcoes_simula/simula_tri_long_pois_binom.R")
 
 #----------------------------------------------------------------

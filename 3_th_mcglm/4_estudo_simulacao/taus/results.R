@@ -7,8 +7,6 @@
 
 library(ggplot2)
 
-load("~/msc/3_th_mcglm/4_estudo_simulacao/SIMULA/betas/results.RData")
-
 #-----------------------------------------------------------------
 
 time_taken_uni
@@ -83,25 +81,25 @@ results1 <- rbind(normal_uni_n50$df_final,
                   
                   normal_uni_n1000$df_final,
                   poisson_uni_n1000$df_final,
-                  binomial_uni_n1000$df_final#,
+                  binomial_uni_n1000$df_final,
                   
-                  #normal_tri_n50$df_final,
-                  #poisson_tri_n50$df_final,
+                  normal_tri_n50$df_final,
+                  poisson_tri_n50$df_final,
                   #binomial_tri_n50$df_final,
                   
-                  #normal_tri_n100$df_final,
-                  #poisson_tri_n100$df_final,
+                  normal_tri_n100$df_final,
+                  poisson_tri_n100$df_final,
                   #binomial_tri_n100$df_final,
                   
-                  #normal_tri_n250$df_final,
-                  #poisson_tri_n250$df_final,
+                  normal_tri_n250$df_final,
+                  poisson_tri_n250$df_final,
                   #binomial_tri_n250$df_final,
                   
-                  #normal_tri_n500$df_final,
+                  normal_tri_n500$df_final,
                   #poisson_tri_n500$df_final,
                   #binomial_tri_n500$df_final,
                   
-                  #normal_tri_n1000$df_final,
+                  normal_tri_n1000$df_final#,
                   #poisson_tri_n1000$df_final,
                   #binomial_tri_n1000$df_final,
                   
@@ -110,7 +108,7 @@ results1 <- rbind(normal_uni_n50$df_final,
                   #tri_n250$df_final,
                   #tri_n500$df_final,
                   #tri_n1000$df_final
-                  )
+)
 
 #-----------------------------------------------------------------
 
@@ -126,10 +124,10 @@ results1$distribution <- factor(results1$distribution,
 
 #-----------------------------------------------------------------
 
-ggplot(data = results1,
-       mapping = aes(x = dist, 
-                     y = rej, 
-                     col = `Tamanho amostral`)) + 
+ggplot2::ggplot(data = results1,
+                mapping = aes(x = dist, 
+                              y = rej, 
+                              col = `Tamanho amostral`)) + 
   geom_point() + 
   geom_line() + 
   facet_wrap(~distribution)+

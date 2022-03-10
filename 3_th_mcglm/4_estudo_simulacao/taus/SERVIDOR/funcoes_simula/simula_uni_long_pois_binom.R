@@ -1,9 +1,9 @@
-simula_tri_long_normal <- function(sample_size = 250,
-                                       n_datasets = 100,
+simula_uni_long_pois_binom <- function(sample_size = 50,
+                                       n_datasets = 1,
                                        n_rep = 5,
                                        taus = c(0.5,0.5),
                                        n_distances = 20,
-                                       distribution = 'normal')
+                                       distribution = 'binomial')
   
 {
   
@@ -15,42 +15,37 @@ simula_tri_long_normal <- function(sample_size = 250,
   Omega <- mc_matrix_linear_predictor(tau = taus, 
                                       Z = list(Z0, Z1))
   
-  Omega1 <- as.matrix(Omega, n_rep, n_rep)
-  Omega2 <- as.matrix(Omega, n_rep, n_rep)
-  Omega3 <- as.matrix(Omega, n_rep, n_rep)
-  
-  chol_1 <- chol(Omega1)
-  chol_2 <- chol(Omega2)
-  chol_3 <- chol(Omega3)
-  
-  BB <- bdiag(chol_1, chol_2, chol_3)
-  
-  Sigma_b <- Matrix(c(1.0,  0.75, 0.5,
-                      0.75,  1.0, 0.25,
-                      0.5,  0.25, 1.0), 
-                    3, 3)
-  
-  I <- Diagonal(5, 1)
-  C <- t(BB)%*%kronecker(Sigma_b, I)%*%BB
-  C <- as.matrix(C, (n_rep*3), (n_rep*3))
+  Omega <- as.matrix(Omega, n_rep, n_rep)
   
   ## Marginais
-  mu <- c(y1 = 5, 
-          y2 = 5, 
-          y3 = 5,
-          y4 = 5,
-          y5 = 5,
-          y6 = 5, 
-          y7 = 5, 
-          y8 = 5,
-          y9 = 5,
-          y10 = 5,
-          y11 = 5, 
-          y12 = 5, 
-          y13 = 5,
-          y14 = 5,
-          y15 = 5)
-
+  switch(distribution,
+         "poisson" = {
+           invcdfnames <- rep('qpois', n_rep)
+           paramslists <- list(
+             m1 = list(lambda = 10),
+             m2 = list(lambda = 10),
+             m3 = list(lambda = 10),
+             m4 = list(lambda = 10),
+             m5 = list(lambda = 10)
+           )
+           link <- "log"
+           variance <- "tweedie"
+         },
+         
+         "binomial" = {
+           invcdfnames <- rep('qbinom', n_rep)
+           paramslists <- list(
+             m1 = list(p = 0.6, size = 1),
+             m2 = list(p = 0.6, size = 1),
+             m3 = list(p = 0.6, size = 1),
+             m4 = list(p = 0.6, size = 1),
+             m5 = list(p = 0.6, size = 1)
+           )
+           link <- "logit"
+           variance <- "binomialP"
+         }
+  )
+  
   # lista para armazenar os conjuntos de dados
   datasets <- list()
   
@@ -58,23 +53,15 @@ simula_tri_long_normal <- function(sample_size = 250,
   
   for (i in 1:(n_datasets)) {
     
-    data_temp <- as.data.frame(mvtnorm::rmvnorm(sample_size, 
-                                                mean = mu, 
-                                                sigma = C))
     
-    y1 <- c(t(data_temp[,1:5]))
-    y2 <- c(t(data_temp[,6:10]))
-    y3 <- c(t(data_temp[,11:15]))
+    data_temp <- genNORTARA(n = sample_size, 
+                            cor_matrix = Omega, 
+                            paramslists = paramslists, 
+                            invcdfnames = invcdfnames)
     
-    data <- data.frame(y1 = y1,
-                       y2 = y2,
-                       y3 = y3,
-                       id = rep(1:sample_size, 
-                                  each = n_rep))
+    y <- c(t(data_temp))
     
-    datasets[[i]] <- data.frame(y1 = y1,
-                                y2 = y2,
-                                y3 = y3,
+    datasets[[i]] <- data.frame(y = y, 
                                 id = rep(1:sample_size, 
                                          each = n_rep))
     
@@ -88,11 +75,10 @@ simula_tri_long_normal <- function(sample_size = 250,
   # caso seja binomial a resposta precisa ser declarada como razão
   # y/Ntrial ~x
   
-  form1 = y1~1
-  form2 = y2~1
-  form3 = y3~1
-  link <- c("identity")
-  variance <- c("constant")
+  switch(distribution,
+         "binomial" = {form = y/1~1},
+         {form = y~1}
+  )
   
   # preditor matricial
   Z0 <- mc_id(datasets[[1]]) # matriz identidade para o preditor matricial
@@ -104,25 +90,36 @@ simula_tri_long_normal <- function(sample_size = 250,
   
   models <- list()
   
-  for (i in 1:n_datasets) {
-    fit <- 
-      mcglm(linear_pred = c(form1,
-                            form2,
-                            form3),
-            matrix_pred = list(c(Z0, Z1),
-                               c(Z0, Z1),
-                               c(Z0, Z1)),
-            link = c(link,link,link), 
-            variance = c(variance,variance,variance),
-            data = datasets[[i]],
-            control_algorithm = list(#verbose = T,
-              tuning = 1,
-              max_iter = 100,
-              tol = 0.05))
-    
-    models[[i]] <- fit
-    print(i)
-  }
+  switch(distribution,
+         "poisson" = {
+           for (i in 1:n_datasets) {
+             fit <- 
+               mcglm(linear_pred = c(form),
+                     matrix_pred = list(c(Z0, Z1)),
+                     link = link, 
+                     variance = variance,
+                     data = datasets[[i]])
+             
+             models[[i]] <- fit
+             print(i)
+           }
+         },
+         
+         "binomial" = {
+           for (i in 1:n_datasets) {
+             fit <- 
+               mcglm(linear_pred = c(form),
+                     matrix_pred = list(c(Z0, Z1)),
+                     link = link, 
+                     variance = variance,
+                     Ntrial = list(1),
+                     data = datasets[[i]])
+             
+             models[[i]] <- fit
+             print(i)
+           }
+         }
+  )
   
   #----------------------------------------------------------------
   
@@ -184,6 +181,7 @@ simula_tri_long_normal <- function(sample_size = 250,
   p_test <- matrix(nrow = length(hypothesis), 
                    ncol = length(models))
   
+  
   for (i in 1:length(models)) {
     for (j in 1:length(hypothesis)) {
       p_test[j,i] <- try(mc_linear_hypothesis(object =  models[[i]], 
@@ -205,7 +203,7 @@ simula_tri_long_normal <- function(sample_size = 250,
   df_final <- data.frame(dist = dists,
                          rej = ((rowSums(rej))/ncol(rej))*100)
   
-  df_final$distribution <- paste('tri', distribution)
+  df_final$distribution <- paste('uni', distribution)
   df_final$sample_size <- sample_size
   df_final$n_datasets <- ncol(rej)
   
