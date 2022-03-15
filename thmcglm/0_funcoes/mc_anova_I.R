@@ -1,0 +1,173 @@
+#' @title ANOVA pseudo-type I table for mcglm objects via Wald test
+#' @name mc_anova_I
+#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#'
+#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
+#' Performs Wald tests to generate pseudo-type-I analysis-of-variance 
+#' tables per response for model objects produced by mcglm
+#'
+#' @param object an object of \code{mcglm} class.
+#' @param ... additional arguments affecting the summary produced. Note
+#'     that there is no extra options for mcglm object class.
+#' @keywords internal
+#' @return Type I ANOVA table for mcglm objects.
+#'
+#' @export
+
+mc_anova_I <- function(object){
+  
+  #----------------------------------------------------------------
+  
+  # Vetor beta chapeu e indice de resposta
+  beta <- coef(object, type = "beta")[,c(1, 4)]
+  
+  #----------------------------------------------------------------
+  
+  # Número de betas por resposta
+  n_beta <- as.vector(table(beta$Response))
+  
+  #----------------------------------------------------------------
+  
+  # Número de respostas
+  n_resp <- length(n_beta) 
+  
+  #----------------------------------------------------------------
+  
+  # Lista vcov por resposta desconsiderando parametros de dispersao e potencia
+  
+  vcov_betas <- list()
+  
+  #vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+  
+  #for (i in 2:n_resp) {
+  #  vcov_betas[[i]] <- 
+  #    vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
+  #                 (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
+  #}
+  
+  if (n_resp == 1) {
+    vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+  } else {
+    vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
+    for (i in 2:n_resp) {
+      vcov_betas[[i]] <- 
+        vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
+                     (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
+      
+    }
+  }
+  
+  #----------------------------------------------------------------
+  
+  # Índice que associa beta a variável por resposta
+  
+  p_var <- list()
+  
+  for (i in 1:n_resp) {
+    p_var[[i]] <- attr(object$list_X[[i]], "assign")
+  }
+  
+  #----------------------------------------------------------------
+  
+  # Matriz L para todos os parâmetros (Hypothesis matrix), por resposta
+  L_all <- list()
+  
+  for (i in 1:n_resp) {
+    L_all[[i]] <- diag(length(p_var[[i]]))   
+  }  
+  
+  #----------------------------------------------------------------
+  
+  # Índice que associa beta a variável por resposta  para 
+  # teste sequencial
+  
+  expand <- list()
+  
+  for (i in 1:length(L_all)) {
+    expand[[i]] <- by(data = L_all[[i]],
+                      INDICES = p_var[[i]],
+                      FUN = as.matrix)  
+  }
+  
+  
+  beta_names <- list()
+  
+  for (i in 1:length(L_all)) {
+    beta_names[[i]] <- object$beta_names[[i]]  
+  }
+  
+  
+  testes <- list()
+  
+  for (i in 1:length(L_all)) {
+    testes[[i]] <- data.frame(beta_names = beta_names[[i]],
+                              interacao = stringr::str_detect(beta_names[[i]], ':'))  
+  }
+  
+  
+  for (i in 1:length(L_all)) {
+    for (j in 1:(length(expand[[i]]))) {
+      testes[[i]][,j+2] <- colSums(expand[[i]][[j]])
+    }  
+  }
+  
+  p_varII <- list()
+  
+  for (i in 1:n_resp) {
+    p_varII[[i]] <- matrix(nrow = nrow(testes[[i]]),
+                           ncol = ncol(testes[[i]])-2)  
+  }
+  
+  
+  for (j in 1:n_resp) {
+    for (i in 3:(ncol(testes[[j]])-1)) {
+      p_varII[[j]][,i-2] <- rowSums(testes[[j]][,i:ncol(testes[[j]])])
+    }
+    
+    p_varII[[j]][,ncol(p_varII[[j]])] <- testes[[j]][,ncol(testes[[j]])]  
+  }
+  
+  #----------------------------------------------------------------
+  
+  # Matriz L por variável (Hypothesis matrix), por resposta
+  
+  L_par <- list()
+  length(L_par) <- n_resp
+  
+  
+  for (j in 1:length(p_varII)) {
+    for (i in 1:ncol(p_varII[[j]])) {
+      L_par[[j]][[i]] <- by(data = L_all[[j]],
+                            INDICES = p_varII[[j]][,i], 
+                            FUN = as.matrix)$`1`
+    }  
+  }
+  
+  #----------------------------------------------------------------
+  
+  ## Tabela
+  
+  tabela <- list()
+  
+  for (j in 1:n_resp) {
+    
+    W <- vector() # Vetor para a estatística de teste
+    gl <- vector() # Vetor para graus de liberdade
+    p_val <- vector() # Vetor para p-valor
+    
+    for (i in 1:length(L_par[[j]])) {
+      W[i] <- as.numeric((t(L_par[[j]][[i]] %*% subset(beta, beta$Response == j)$Estimates)) %*% (solve(L_par[[j]][[i]]%*%vcov_betas[[j]]%*%t(L_par[[j]][[i]]))) %*% (L_par[[j]][[i]] %*% subset(beta, beta$Response == j)$Estimates))
+      gl[i] <- nrow(L_par[[j]][[i]])
+      p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
+      
+    } 
+    tabela[[j]] <- 
+      data.frame(Variável = c("Intercept", 
+                              attr(terms(object$linear_pred[[j]]), "term.labels")),
+                 GL = gl,
+                 W = round(W, 4),
+                 P_valor = round(p_val, 4))
+  }
+  
+  return(tabela)  
+}
