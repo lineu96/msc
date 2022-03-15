@@ -1,0 +1,50 @@
+
+\chapter{Considerações finais}
+
+%=====================================================
+
+\section{Conclusões gerais}
+
+\begin{itemize}
+  \item Resultados do estudo de simulação
+  \item Ressaltar que a proposta é válida para todas as referências que são submodelos do McGLM.
+\end{itemize}
+
+%=====================================================
+
+\section{Limitações}
+
+\begin{itemize}
+  \item O que acontece quando combina-se parâmetros de diferentes tipos no mesmo teste.
+  \item O que acontece em cenários longitudinais desbalanceados.
+\end{itemize}
+
+%=====================================================
+
+\section{Trabalhos futuros}
+
+\begin{itemize}
+  \item Trabalhar em outros testes (LRT e LMT)
+  \item Implementar novos procedimentos para comparações múltiplas
+  \item Adequação a diferentes contrastes
+  \item Explorar procedimentos para seleção automática de covariáveis
+  \item Explorar seleção de covariáveis por meio de inclusão de penalização no ajuste por complexidade. Similar a ideia de regressão por splines.
+\end{itemize}
+
+Seleção automática:
+
+Backward elimination:
+  - Comece com o modelo completo.
+  - Compare esse modelo com todos os modelos ajustados sem uma das covariáveis e calcule o p-valor.
+  - Elimine o termo com maior p-valor que seja maior que algum limiar.
+  - Repita até que nenhuma covariável possa ser eliminada.
+
+Forward selection
+  - Comece com o modelo sem covariáveis.
+  - Avalie a adição de cada covariável usando o p-valor.
+  - Adicione a covariável que mais se destaca.
+  - Repita até que nenhuma covariável estatísticamente significante reste.
+
+Stepwise selection: Mistura o forward e o backward.
+
+%=====================================================

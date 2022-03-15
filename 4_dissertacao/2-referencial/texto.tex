@@ -1,0 +1,388 @@
+\chapter{Referencial teórico}
+
+Nosso referencial teórico aborda predominantemente três temas. O primeiro deles é uma revisão da estrutura geral e estimação dos parâmetros de um McGLM, baseado nas ideias de \citet{Bonat16}. A segunda parte do referencial diz respeito ao procedimento dos chamados testes de hipóteses com o foco de tratar do objetivo, notação, componentes e aplicação deste tipo de procedimento no contexto de modelos de regressão. Por fim, a última parte do referencial diz respeito a procedimentos específicos baseados em testes de hipóteses para avaliar os parâmetros de um modelo de regressão: as análises de variância e os testes de comparações múltiplas.
+
+%=====================================================
+
+\section{Modelos multivariados de covariância linear generalizada}
+
+Os GLMs, propostos por \citet{Nelder72}, são uma forma de modelagem que lida exclusivamente com uma resposta em que esta resposta pode ser contínua, binária ou até mesmo uma contagem. Tais características tornam essa classe de modelos uma flexível ferramenta de modelagem aplicável a diversos tipos de problemas. Contudo, por mais flexível e discutida na literatura, essa classe apresenta ao menos três importantes restrições: i) um leque restrito de distribuições disponíveis para modelagem, ii) a incapacidade de lidar com observações dependentes e iii) a incapacidade de lidar com múltiplas respostas simultaneamente. 
+
+Com o objetivo de contornar estas restrições, foi proposta por \citet{Bonat16}, uma estrutura geral para análise de dados não gaussianos com múltiplas respostas em que não se faz suposições quanto à independência das observações: os McGLMs. Tais modelos, levam em conta a não normalidade por meio de uma função de variância. Além disso, a estrutura média é modelada por meio de uma função de ligação e um preditor linear. Os parâmetros dos modelos são obtidos por meio de funções de estimação baseadas em suposições de segundo momento.
+
+Vamos discutir os McGLMs como uma extensão dos GLMs tal como apresentado em de \citet{Bonat16}. Vale ressaltar que é usada uma especificação menos usual de um GLM, porém trata-se de uma notação mais conveniente para chegar à uma especificação mais simples de um McGLM.
+
+\subsection{Modelo linear generalizado}
+
+Para definição da extensão de um GLM apresentada por \citet{Bonat16}, considere $\boldsymbol{Y}$ um vetor $N \times 1$ de valores observados da variável resposta, $\boldsymbol{X}$ uma matriz de delineamento $N \times k$ e $\boldsymbol{\beta}$ um vetor de parâmetros de regressão $k \times 1$. Com isso, um GLM pode ser escrito da seguinte forma 
+
+\begin{equation}
+\label{eq:glm}
+      \begin{aligned}
+        \mathrm{E}(\boldsymbol{Y}) &=
+         \boldsymbol{\mu} =
+            g^{-1}(\boldsymbol{X} \boldsymbol{\beta}),
+            \\
+        \mathrm{Var}(\boldsymbol{Y}) &=
+          \Sigma =
+          \mathrm{V}\left(\boldsymbol{\mu}; p\right)^{1/2}\left(\tau_0\boldsymbol{I}\right)\mathrm{V}\left(\boldsymbol{\mu}; p\right)^{1/2},
+      \end{aligned}
+\end{equation}
+
+\noindent em que $g(.)$ é a função de ligação, $\mathrm{V}\left(\boldsymbol{\mu}; p\right)$ é uma matriz diagonal em que as entradas principais são dadas pela função de variância aplicada ao vetor $\boldsymbol{\mu}$, $p$ é o parâmetro de potência, $\tau_0$ o parâmetro de dispersão e $\boldsymbol{I}$ é a matriz identidade de ordem $N\times N$.
+
+Nesta extensão, os GLMs fazem uso de apenas duas funções, a função de variância e de ligação. Diferentes escolhas de funções de variância implicam em diferentes suposições a respeito da distribuição da variável resposta. Dentre as funções de variância conhecidas, podemos citar:
+
+1. A função de variância potência, que caracteriza a família Tweedie de distribuições, em que a função de variância é dada por $\vartheta\left(\boldsymbol{\mu}; p\right) = \mu^p$, na qual destacam-se as distribuições: normal ($p$ = 0), Poisson ($p$ = 1), gama ($p$ = 2) e  normal inversa ($p$ = 3). Para mais informações consulte \citet{Jorgensen87} e \citet{Jorgensen97}.
+
+2. A função de dispersão Poisson–Tweedie, a qual caracteriza a família Poisson-Tweedie de distribuições, que visa contornar a inflexibilidade da utilização da função de variância potência para  respostas discretas. A família Poisson-Tweedie tem função de dispersão dada por $\vartheta\left(\boldsymbol{\mu}; p\right) = \mu + \tau\mu^p$, em que $\tau$ é o parâmetro de dispersão. A função de dispersão Poisson-Tweedie tem como casos particulares os mais famosos modelos para dados de contagem: Hermite ($p$ = 0), Neyman tipo A ($p$ = 1), binomial negativa ($p$ = 2) e Poisson–inversa gaussiana (p = $3$) \citep{Jorgensen15}. Não se trata de uma função de variância usual, mas é uma função que caracteriza o relacionamento entre média e variância.
+
+3. A função de variância binomial, dada por $\vartheta(\boldsymbol{\mu}) = \mu(1 - \mu)$, utilizada quando a variável resposta é binária, restrita a um intervalo ou quando tem-se o  número de sucessos em um número de tentativas.
+
+Lembre-se que o GLM é uma classe de modelos de regressão univariados em que um dos pressupostos é a independência entre as observações. Esta independência é especificada na matriz identidade $\boldsymbol{I}$ no centro \autoref{eq:glm}. Podemos imaginar que, substituindo esta matriz identidade por uma matriz qualquer que reflita a relação entre os indivíduos da amostra teremos uma extensão do Modelo Linear Generalizado para observações dependentes. É justamente essa a ideia dos modelos de covariância linear generalizada, o cGLM, também apresentados em \citet{Bonat16}.
+
+\subsection{Modelo de covariância linear generalizada}
+
+Os cGLMs são uma alternativa para problemas em que a suposição de independência entre as observações não é atendida. Neste caso, a solução proposta é substituir a matriz identidade $\boldsymbol{I}$ da \autoref{eq:glm} por uma matriz não diagonal $\boldsymbol{\Omega({\tau})}$ que descreva adequadamente a estrutura de correlação entre as observações. Trata-se de uma ideia similar à proposta de \citet{Liang86} nos modelos GEE (Equações de Estimação Generalizadas), em que utiliza-se uma matriz de correlação de trabalho para considerar a dependência entre as observações. A matriz $\boldsymbol{\Omega({\tau})}$ é descrita como uma combinação de matrizes conhecidas tal como nas propostas de \citet{Anderson73} e \citet{Pourahmadi00}, podendo ser escrita da forma
+
+\begin{equation}
+\label{eq:cov}
+h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \ldots + \tau_DZ_D,
+\end{equation}
+
+\noindent em que $h(.)$ é a função de ligação de covariância, $Z_d$ com $d$ = 0,$\ldots$, $D$ são matrizes que representam a estrutura de covariância presente nos dados e $\boldsymbol{\tau}$ = $(\tau_0, \ldots, \tau_D)$ é um vetor $(D + 1) \times 1$ de parâmetros de dispersão. Note que o número de matrizes usadas para especificar o preditor linear matricial, definido por $D$, é indefinido, ou seja, podem ser usadas quantas matrizes forem necessárias para especificação no modelo da relação entre os indivíduos no conjunto de dados. Cada uma das matrizes é associada a um parâmetro de dispersão e podemos utilizar estes parâmetros para avaliar a existência de efeito da correlação entre indivíduos do conjunto de dados. Tal estrutura pode ser vista como um análogo ao preditor linear para a média e foi nomeado como preditor linear matricial, a especificação da função de ligação de covariância é discutida por \citet{Pinheiro96}. É possível selecionar combinações de matrizes para se obter os mais conhecidos modelos da literatura para dados longitudinais, séries temporais, dados espaciais e espaço-temporais. Mais detalhes são discutidos por \citet{Demidenko13}.
+
+Com isso, substituindo a matriz identidade da \autoref{eq:glm} pela \autoref{eq:cov}, temos uma classe com toda a flexibilidade dos GLMs, porém contornando a restrição da independência entre as observações desde que o preditor linear matricial seja adequadamente especificado. Deste modo, é contornada a restrição da incapacidade de lidar com observações dependentes. Outra restrição diz respeito às múltiplas respostas e, contornando este problema, chegamos ao McGLM.
+
+\subsection{Modelos multivariados de covariância linear generalizada}
+
+Os McGLMs podem ser entendidos como uma extensão multivariada dos cGLMs e que portanto contornam as principais restrições presentes nos GLMs. Para definição de um McGLM, considre $\boldsymbol{Y}_{N \times
+R} = \left \{ \boldsymbol{Y}_1, \dots, \boldsymbol{Y}_R \right \}$ uma  matriz de variáveis resposta e $\boldsymbol{M}_{N \times R} = \left \{ \boldsymbol{\mu}_1, \dots, \boldsymbol{\mu}_R \right \}$ uma matriz de valores esperados. Cada uma das variáveis resposta tem sua própria matriz de variância e covariância de dimensão $N \times N$, responsável por modelar a covariância dentro de cada resposta, sendo expressa por
+
+$$
+\Sigma_r =
+\mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}\boldsymbol{\Omega}_r\left(\boldsymbol{\tau}\right)\mathrm{V}_r\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}.
+$$
+
+Além disso, é necessário estimar uma matriz de correlação $\Sigma_b$, de ordem $R \times R$, que descreve a correlação entre as variáveis resposta. Para a especificação da matriz de variância e covariância conjunta é utilizado o produto Kronecker generalizado, proposto por \citet{martinez13}.
+
+Finalmente, um McGLM é descrito como
+
+$$
+\label{eq:mcglm}
+      \begin{aligned}
+        \mathrm{E}(\boldsymbol{Y}) &=
+          \boldsymbol{M} =
+            \{g_1^{-1}(\boldsymbol{X}_1 \boldsymbol{\beta}_1),
+            \ldots,
+            g_R^{-1}(\boldsymbol{X}_R \boldsymbol{\beta}_R)\}
+          \\
+        \mathrm{Var}(\boldsymbol{Y}) &=
+          \boldsymbol{C} =
+            \boldsymbol{\Sigma}_R \overset{G} \otimes
+            \boldsymbol{\Sigma}_b,
+      \end{aligned}
+$$
+
+\noindent em que $\boldsymbol{\Sigma}_R \overset{G} \otimes \boldsymbol{\Sigma}_b = \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1, \ldots, \tilde{\boldsymbol{\Sigma}}_R) (\boldsymbol{\Sigma}_b \otimes \boldsymbol{I}) \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1^\top, \ldots, \tilde{\boldsymbol{\Sigma}}_R^\top)$ é o produto generalizado de Kronecker, a matriz $\tilde{\boldsymbol{\Sigma}}_r$ denota a matriz triangular inferior da decomposição de Cholesky da matriz ${\boldsymbol{\Sigma}}_r$, o operador $\mathrm{Bdiag}$ denota a matriz bloco-diagonal e $\boldsymbol{I}$ uma matriz identidade $N \times N$. 
+
+Com isso, chega-se a uma classe de modelos com um leque maior de distribuições disponíveis, graças às funções de variância. Além disso, se torna possível a modelagem de dados com estrutura de covariância, por meio da especificação do preditor matricial. E ainda é possível a modelagem de múltiplas respostas. Vale ressaltar que os McGLMs são flexíveis ao ponto de que podemos considerar $R$ preditores lineares diferentes, com $R$ funções de ligação diferentes e $R$ funções de variância diferentes. Esta flexibilidade torna os McGLMs uma classe muito atrativa para aplicação, contudo, dependendo da estrutura e complexidade do problema, existe a possibilidade de ajustar modelos superparametrizados, ou seja, chegar a um cenário com mais parâmetros do que observações. 
+
+\subsection{Estimação e inferência}
+
+Os McGLMs são ajustados baseados no método de funções de estimação descritos em detalhes por \citet{Bonat16} e \citet{jorg04}. Nesta seção é apresentada uma visão geral do algoritmo e da distribuição assintótica dos estimadores baseados em funções de estimação.
+
+As suposições de segundo momento dos McGLMs permitem a divisão dos
+parâmetros em dois conjuntos: $\boldsymbol{\theta} = (\boldsymbol{\beta}^{\top}, \boldsymbol{\lambda}^{\top})^{\top}$. Desta forma, $\boldsymbol{\beta} = (\boldsymbol{\beta}_1^\top, \ldots, \boldsymbol{\beta}_R^\top)^\top$ é um vetor $K \times 1$ de parâmetros de regressão e $\boldsymbol{\lambda} = (\rho_1, \ldots, \rho_{R(R-1)/2}, p_1, \ldots, p_R, \boldsymbol{\tau}_1^\top, \ldots, \boldsymbol{\tau}_R^\top)^\top$ é um vetor $Q \times 1$ de parâmetros de dispersão. Além disso, $\mathcal{Y} = (\boldsymbol{Y}_1^\top, \ldots, \boldsymbol{Y}_R^\top)^\top$ denota o vetor empilhado de ordem $NR \times 1$ da matriz de variáveis resposta $\boldsymbol{Y}_{N \times R}$ e $\mathcal{M} = (\boldsymbol{\mu}_1^\top, \ldots, \boldsymbol{\mu}_R^\top)^\top$ denota o vetor empilhado de ordem $NR \times 1$ da matriz de valores esperados $\boldsymbol{M}_{N \times R}$.
+
+Para estimação dos parâmetros de regressão é utilizada a função quasi-score \citep{Liang86}, representada por
+
+\begin{equation}
+\label{eq:qs}
+      \begin{aligned}
+        \psi_{\boldsymbol{\beta}}(\boldsymbol{\beta},
+          \boldsymbol{\lambda}) = \boldsymbol{D}^\top
+            \boldsymbol{C}^{-1}(\mathcal{Y} - \mathcal{M}),
+\end{aligned}
+\end{equation}
+
+\noindent em que $\boldsymbol{D} = \nabla_{\boldsymbol{\beta}} \mathcal{M}$ 
+é uma matriz $NR \times K$, e $\nabla_{\boldsymbol{\beta}}$ denota o 
+operador gradiente. Utilizando a função quasi-score a matriz $K \times K$
+de sensitividade de $\psi_{\boldsymbol{\beta}}$ é dada por
+
+$$
+\begin{aligned}
+S_{\boldsymbol{\beta}} = E(\nabla_{\boldsymbol{\beta} \psi \boldsymbol{\beta}}) = -\boldsymbol{D}^{\top} \boldsymbol{C}^{-1} \boldsymbol{D},
+\end{aligned}
+$$
+
+\noindent enquanto que a matriz $K \times K$ de variabilidade de $\psi_{\boldsymbol{\beta}}$ é escrita como
+
+$$
+\begin{aligned}
+V_{\boldsymbol{\beta}} = VAR(\psi \boldsymbol{\beta}) = \boldsymbol{D}^{\top} \boldsymbol{C}^{-1} \boldsymbol{D}.
+\end{aligned}
+$$
+
+Para os parâmetros de dispersão é utilizada a função de estimação de
+Pearson, definida da forma
+    \begin{equation}
+    \label{eq:pearson}
+      \begin{aligned}
+        \psi_{\boldsymbol{\lambda}_i}(\boldsymbol{\beta},
+        \boldsymbol{\lambda}) =
+        \mathrm{tr}(W_{\boldsymbol{\lambda}i}
+          (\boldsymbol{r}^\top\boldsymbol{r} -
+          \boldsymbol{C})), \: \: i = 1,.., Q, 
+    \end{aligned}
+\end{equation}
+\noindent em que $W_{\boldsymbol{\lambda}i} = -\frac{\partial
+    \boldsymbol{C}^{-1}}{\partial \boldsymbol{\lambda}_i}$ e
+    $\boldsymbol{r} = (\mathcal{Y} - \mathcal{M})$. A entrada $(i,j)$ da matriz de sensitividade $Q \times Q$ de $\psi_{\boldsymbol{\lambda}}$ é
+dada por
+
+$$
+      \begin{aligned}
+S_{\boldsymbol{\lambda_{ij}}} = E \left (\frac{\partial }{\partial \boldsymbol{\lambda_{i}}} \psi \boldsymbol{\lambda_{j}}\right) = -tr(W_{\boldsymbol{\lambda_{i}}} CW_{\boldsymbol{\lambda_{J}}} C).
+    \end{aligned}
+$$
+
+\noindent Já a entrada $(i,j)$ da matriz de variabilidade $Q \times Q$ de $\psi_{\boldsymbol{\lambda}}$ é definida por
+
+$$
+      \begin{aligned}
+V_{\boldsymbol{\lambda_{ij}}} = Cov\left ( \psi_{\boldsymbol{\lambda_{i}}}, \psi_{\boldsymbol{\lambda_{j}}} \right) = 2tr(W_{\boldsymbol{\lambda_{i}}} CW_{\boldsymbol{\lambda_{J}}} C) + \sum_{l=1}^{NR} k_{l}^{(4)} (W_{\boldsymbol{\lambda_{i}}})_{ll} (W_{\boldsymbol{\lambda_{j}}})_{ll},
+    \end{aligned}
+$$
+
+\noindent em que $k_{l}^{(4)}$ denota a quarta cumulante de $\mathcal{Y}_{l}$. No processo de estimação dos McGLMs é usada sua versão empírica.
+
+Para se levar em conta a covariância entre os vetores $\boldsymbol{\beta}$
+e $\boldsymbol{\lambda}$, \citet{Bonat16} obtiveram as matrizes de 
+sensitividade e variabilidade cruzadas, denotadas por $S_{\boldsymbol{\lambda \beta}}$, $S_{\boldsymbol{\beta \lambda}}$ e $V_{\boldsymbol{\lambda \beta}}$, mais detalhes em \citet{Bonat16}. As matrizes de sensitividade e variabilidade conjuntas de $\psi_{\boldsymbol{\beta}}$ e $\psi_{\boldsymbol{\lambda}}$ são denotados por
+
+$$
+      \begin{aligned}
+S_{\boldsymbol{\theta}} = \begin{bmatrix}
+S_{\boldsymbol{\beta}} & S_{\boldsymbol{\beta\lambda}} \\ 
+S_{\boldsymbol{\lambda\beta}} & S_{\boldsymbol{\lambda}} 
+\end{bmatrix} \text{e } V_{\boldsymbol{\theta}} = \begin{bmatrix}
+V_{\boldsymbol{\beta}} & V^{\top}_{\boldsymbol{\lambda\beta}} \\ 
+V_{\boldsymbol{\lambda\beta}} & V_{\boldsymbol{\lambda}} 
+\end{bmatrix}.
+\end{aligned}
+$$
+
+Seja $\boldsymbol{\hat{\theta}} = (\boldsymbol{\hat{\beta}^{\top}}, \boldsymbol{\hat{\lambda}^{\top}})^{\top}$ o estimador baseado na \autoref{eq:qs} e \autoref{eq:pearson}, a distribuição assintótica de $\boldsymbol{\hat{\theta}}$ é
+
+$$
+\begin{aligned}
+\boldsymbol{\hat{\theta}} \sim N(\boldsymbol{\theta}, J_{\boldsymbol{\theta}}^{-1}),
+\end{aligned}
+$$
+
+\noindent em que $J_{\boldsymbol{\theta}}^{-1}$ é a inversa da matriz de informação de Godambe, dada por
+$J_{\boldsymbol{\theta}}^{-1} = S_{\boldsymbol{\theta}}^{-1} V_{\boldsymbol{\theta}} S_{\boldsymbol{\theta}}^{-\top}$, em que $S_{\boldsymbol{\theta}}^{-\top} = (S_{\boldsymbol{\theta}}^{-1})^{\top}.$
+
+Para resolver o sistema de equações $\psi_{\boldsymbol{\beta}} = 0$ e $\psi_{\boldsymbol{\lambda}} = 0$ faz-se uso do algoritmo Chaser modificado, proposto por \citet{jorg04}, que fica definido como
+
+$$
+\begin{aligned}
+\begin{matrix}
+\boldsymbol{\beta}^{(i+1)} = \boldsymbol{\beta}^{(i)}- S_{\boldsymbol{\beta}}^{-1} \psi \boldsymbol{\beta} (\boldsymbol{\beta}^{(i)}, \boldsymbol{\lambda}^{(i)}), \\ 
+\boldsymbol{\lambda}^{(i+1)} = \boldsymbol{\lambda}^{(i)}\alpha S_{\boldsymbol{\lambda}}^{-1} \psi \boldsymbol{\lambda} (\boldsymbol{\beta}^{(i+1)}, \boldsymbol{\lambda}^{(i)}).
+\end{matrix}
+\end{aligned}
+$$
+
+Toda metodologia do McGLM está implementada no pacote \emph{mcglm} \citep{mcglm} do software estatístico R \citep{softwareR}.
+
+%=====================================================
+
+\section{Testes de Hipóteses}
+
+A palavra ``inferir'' significa tirar conclusão. O campo de estudo chamado de inferência estatística tem como objetivo o desenvolvimento e discussão de métodos e procedimentos que permitem, com certo grau de confiança, fazer afirmações sobre uma população com base em informação amostral. Na prática, costuma ser inviável trabalhar com uma população. Assim, a alternativa usada é coletar uma amostra e utilizar esta amostra para tirar conclusões. Neste sentido, a inferência estatística fornece ferramentas para estudar quantidades populacionais (parâmetros) por meio de estimativas destas quantidades obtidas por meio da amostra.
+
+Contudo, é importante notar que diferentes amostras podem fornecer diferentes resultados. Por exemplo, se há interesse em estudar a média de determinada característica na população mas não há condições de se observar a característica em todas as unidades, usa-se uma amostra. E é totalmente plausível que diferentes amostras apresentem médias amostrais diferentes. Portanto, os métodos de inferência estatística sempre apresentarão determinado grau de incerteza. 
+
+Campos importantes da inferência estatística são a estimação de quantidades (por ponto e intervalo) e testes de hipóteses. O objetivo desta revisão é apresentar uma visão geral a respeito de testes de hipóteses estatísticas e os principais componentes. Mais sobre inferência estatística pode ser visto em \citet{barndorff2017}, \citet{silvey2017}, \citet{azzalini2017}, \citet{wasserman2013all}, entre outros.
+
+\subsection{Elementos de um teste de hipóteses}
+
+A atual teoria dos testes de hipóteses é resultado da combinação de  trabalhos conduzidos predominantemente na década de 1920 por Ronald Fisher, Jerzy Neyman e Egon Pearson em publicações como \citet{fisherarrangement}, \citet{fisher1929}, \citet{neyman2020use1}, \citet{neyman2020use2} e \citet{neyman1933ix}. 
+
+Entende-se por hipótese estatística uma afirmação a respeito de um ou 
+mais parâmetros (desconhecidos) que são estimados com base em uma amostra. Já um teste de hipóteses é o procedimento que permite responder perguntas como: com base na evidência amostral, podemos considerar que dado parâmetro é igual a determinado valor? Alguns dos componentes de um teste de hipóteses são: as hipóteses, a estatística de teste, a distribuição da estatística de teste, o nível de significância, o poder do teste, a região crítica e o valor-p.
+
+Para definição dos elementos necessários para condução de um teste de hipóteses, considere que uma amostra foi tomada com o intuito de estudar determinada característica de uma população. Considere $\hat{\pi}$ a estimativa de um parâmetro $\pi$ da população. Neste contexto, uma hipótese estatística é uma afirmação a respeito do valor do parâmetro $\pi$ que é estudado por meio da estimativa $\hat{\pi}$ a fim de concluir algo sobre a população de interesse.
+
+Na prática, sempre são definidas duas hipóteses de interesse. A primeira 
+delas é chamada de hipótese nula ($H_0$) e trata-se da hipótese de que
+o valor de um parâmetro populacional é igual a algum valor especificado. A segunda hipótese é chamada de hipótese alternativa ($H_1$) e trata-se da hipótese de que o parâmetro tem um valor diferente daquele especificado na hipótese nula. Deste modo, por meio do estudo da quantidade $\hat{\pi}$ verificamos a plausibilidade de se afirmar que $\pi$ é igual a um valor $\pi_0$. Portanto, três tipos de hipóteses podem ser especificadas:
+
+\begin{enumerate}
+
+  \item $H_0: \pi = \pi_0 \, \, vs \, \, H_1: \pi \neq \pi_0$.
+  
+  \item $H_0: \pi = \pi_0 \, \, vs \, \, H_1: \pi >  \pi_0$.
+  
+  \item $H_0: \pi = \pi_0 \, \, vs \, \, H_1: \pi < \pi_0$.
+  
+\end{enumerate}
+
+Com as hipóteses definidas, dois resultados são possíveis em termos de $H_0$: rejeição ou não rejeição. O uso do termo ``aceitar'' a hipótese nula não é recomendado tendo em vista que a decisão a favor ou contra a hipótese se dá por meio de informação amostral. Ainda, por se tratar de um procedimento baseado em informação amostral, existe um risco associado a decisões equivocadas. Os possíveis desfechos de um teste de hipóteses estão descritos na \autoref{tab:desfechos}, que mostra que existem dois casos nos quais toma-se uma decisão equivocada. Em uma delas rejeita-se uma hipótese nula  verdadeira (erro do tipo I) e na outra não rejeita-se uma hipótese nula falsa (erro do tipo II). 
+
+A probabilidade do erro do tipo I é usualmente denotada por $\alpha$ e chamada de nível de significância, já a probabilidade do erro do tipo II é denotada por $\beta$. O cenário ideal é aquele que minimiza tanto $\alpha$ quanto $\beta$, contudo, em geral, à medida que $\alpha$ reduz, $\beta$ tende a aumentar. Por este motivo busca-se controlar o erro do tipo I. Além disso temos que a probabilidade de se rejeitar a hipótese nula quando a hipótese alternativa é verdadeira (rejeitar corretamente $H_0$) recebe o nome de poder do teste.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|cc}
+\hline
+\multicolumn{1}{c|}{}    & \textbf{Rejeita $H_0$} & \textbf{Não Rejeita $H_0$} \\ \hline
+\textbf{$H_0$ verdadeira} & Erro tipo I           & Decisão correta           \\
+\textbf{$H_0$ falsa}      & Decisão correta       & Erro tipo II              \\ \hline
+\end{tabular}
+\caption{Desfechos possíveis em um teste de hipóteses}
+\label{tab:desfechos}
+\end{table}
+
+A decisão acerca da rejeição ou não rejeição de $H_0$ se dá por meio da avaliação de uma estatística de teste, uma região crítica e um valor crítico. A estatística de teste é um valor obtido por meio de operações da estimativa do parâmetro de interesse e, em alguns casos, envolve outras quantidades vindas da amostra. Esta estatística segue uma distribuição de probabilidade e esta distribuição é usada para definir a região e o valor crítico.
+
+Considerando a distribuição da estatística de teste, define-se um conjunto de valores que podem ser assumidos pela estatística de teste para os quais rejeita-se a hipótese nula, a chamada região de rejeição. Já o valor crítico é o valor que divide a área de rejeição da área de não rejeição de $H_0$. Caso a estatística de teste esteja dentro da região crítica, significa que as evidências amostrais apontam para a rejeição de $H_0$. Por outro lado, se a estatística de teste estiver fora da região crítica, quer dizer que os dados apontam para uma não rejeição de $H_0$. O já mencionado nível de significância ($\alpha$) tem importante papel no processo, pois trata-se de um valor fixado e, reduzindo o nível de significância, torna-se cada vez mais difícil rejeitar a hipótese nula.
+
+O último conceito importante para compreensão do procedimento geral de  testes de hipóteses é chamado de nível descritivo, valor-p ou ainda $\alpha^*$. Trata-se da probabilidade de a estatística de teste tomar um valor igual ou mais extremo do que aquele que foi observado, supondo que a hipótese nula é verdadeira. Deste modo, o valor-p pode ser visto como uma quantidade que fornece informação quanto ao grau que os dados vão contra a hipótese nula. Esta quantidade pode ainda ser utilizada como parte da regra decisão, uma vez que um valor-p menor que o nível de significância sugere que há evidência nos dados em favor da rejeição da hipótese nula.
+
+Assim, o procedimento geral para condução de um teste de hipóteses 
+consiste em: 
+
+\begin{enumerate}
+  
+  \item Definir $H_0$ e $H_1$.
+  
+  \item Identificar o teste a ser efetuado, sua estatística de teste e 
+distribuição.
+  
+  \item Obter as quantidades necessárias para o cálculo da estatística de teste.
+  
+  \item Fixar o nível de significância.
+  
+  \item Definir o valor e a região crítica.
+  
+  \item Confrontar o valor e região crítica com a estatística de teste.
+  
+  \item Obter o valor-p.
+  
+  \item Concluir pela rejeição ou não rejeição da hipótese nula.
+  
+\end{enumerate}
+
+\subsection{Testes de hipóteses em modelos de regressão}
+
+A ideia de modelos de regressão consiste em modelar uma variável em função de um conjunto de variáveis explicativas. Estes modelos contêm parâmetros que são quantidades desconhecidas que estabelecem a relação entre as variáveis sob o modelo. Basicamente, o parâmetro de interesse da distribuição de probabilidades utilizada é reescrito como uma combinação linear de novos parâmetros associados a vetores numéricos que contém o valor de variáveis explicativas.
+
+Os parâmetros desta combinação linear são estimados com base nos dados e, como estão associados a variáveis explicativas, pode ser de interesse verificar se a retirada de uma ou mais variáveis do modelo gera um modelo significativamente pior que o original. Em outros termos, uma hipótese de interesse costuma ser verificar se há evidência suficiente nos dados para afirmar que determinada variável explicativa não possui efeito sobre a resposta.
+
+Neste contexto, testes de hipóteses são amplamente empregados, sendo que, quando se trata de modelos de regressão, três testes são usualmente utilizados: o teste da razão de verossimilhanças, o teste Wald e o teste multiplicador de lagrange, também conhecido como teste escore. Estes testes são assintóticamente equivalentes; em amostras finitas podem apresentar resultados diferentes de tal modo que a estatística do teste Wald é maior que a estatística do teste da razão de verossimilhanças que, por sua vez, é maior que a estatística do teste escore \citep{conflict}. \citet{engle} descreve a formulação geral dos três testes. Dedicaremos parte deste referencial ao teste Wald.
+
+\subsubsection{Teste Wald}
+
+O teste Wald \citep{wald} avalia a distância entre as estimativas dos parâmetros e um conjunto de valores postulados. Esta diferença é ainda padronizada por medidas de precisão das estimativas dos parâmetros. Quanto mais distante de 0 for o valor da distância padronizada, menores são as evidências a favor da hipótese de que os valores estimados são iguais aos valores postulados.
+
+Com isso, a ideia do teste consiste em verificar se existe evidência suficiente nos dados para afirmar que um ou mais parâmetros são iguais a valores especificados. Em geral, os valores especificados são um vetor nulo para verificar se há evidência para afirmar que os valores dos parâmetros são iguais a 0, contudo existe a possibilidade de especificar hipóteses para qualquer valor.
+
+Para definição de um teste Wald, considere um único modelo de regressão ajustado em que os parâmetros foram estimados por meio da maximização da função de verossimilhança. Neste contexto, considere $\boldsymbol{\beta}$ o vetor de parâmetros de regressão $k \times 1$ deste modelo, em que as estimativas são dadas por $\boldsymbol{\hat\beta}$.
+
+Considere que há interesse em testar $s$ restrições ao modelo original. As hipóteses são especificadas por meio de uma matriz $\boldsymbol{L}$ de dimensão $s \times k$ e um vetor $\boldsymbol{c}$ de valores postulados, de dimensão $s$. Com base nestes elementos, as hipóteses podem ser descritas como:
+
+$$
+H_0: \boldsymbol{L}\boldsymbol{\beta} = \boldsymbol{c} \: \:  vs \: \:  H_1: \boldsymbol{L}\boldsymbol{\beta} \neq \boldsymbol{c},
+$$
+
+\noindent a estatística de teste é dada por:
+
+$$
+W = (\boldsymbol{L\hat\beta} - \boldsymbol{c})^T \ (\boldsymbol{L \ Var^{-1}(\hat\beta) \ L^T})^{-1} \ (\boldsymbol{L\hat\beta} - \boldsymbol{c}),
+$$
+
+\noindent em que $W \sim \chi^2_s$. Note que a estatística de teste necessita de elementos que devem ser especificados pelo pesquisador e quantidades facilmente obtidas após ajuste do modelo: as estimativas dos parâmetros e da matriz de variância e covariância das estimativas.
+
+\subsection{ANOVA e MANOVA}
+
+Quando trabalhamos com modelos univariados, uma das formas de avaliar a significância de cada uma das variáveis de uma forma procedural é por meio da análise de variância (ANOVA) \citep{anova_fisher}. Este método consiste em efetuar testes de hipóteses sucessivos impondo restrições ao modelo original. O objetivo é testar se a ausência de determinada variável gera um modelo significativamente inferior que o modelo com determinada variável. Os resultados destes sucessivos testes são sumarizados numa tabela: o chamado quadro de análise de variância. Em geral, este quadro contém em cada linha: a variável, o valor de uma estatística de teste referente à hipótese de nulidade de todos os parâmetros associados à esta variável, os graus de liberdade desta hipótese, e um valor-p associado à hipótese testada naquela linha do quadro.
+
+Trata-se de um interessante procedimento para avaliar a relevância de uma variável ao problema, contudo, cuidados devem ser tomados no que diz respeito à forma como o quadro foi elaborado. Como já mencionado, cada linha do quadro refere-se a uma hipótese e estas hipóteses podem ser formuladas de formas distintas. Formas conhecidas de se elaborar o quadro são as chamadas ANOVAs dos tipos I, II e III. Esta nomenclatura vem do software estatístico SAS \citep{sas}, contudo as implementações existentes em outros softwares que seguem esta nomenclatura não necessariamente correspondem ao que está implementado no SAS. No software R \citep{softwareR} as implementações dos diferentes tipos de análise de variância podem ser obtidas e usadas no pacote \emph{car} \citep{car}. Geralmente, no contexto de modelos de regressão, para gerar quadros de análise de variância, faz-se uso de uma sequência de testes da razão de verossimilhanças para avaliar o efeito de cada variável explicativa do modelo. 
+
+Do mesmo modo que é feito para um modelo univariado, podemos chegar também a uma análise de variância multivariada (MANOVA) realizando sucessivos testes de hipóteses nos quais existe o interesse em avaliar o efeito de determinada variável em todas as respostas simultaneamente. A MANOVA clássica \citep{manova} é um assunto com vasta discussão na literatura e possui diversas propostas com o objetivo de verificar o efeito de variáveis explicativas sobre múltiplas respostas, como o $\lambda$ de Wilk's \citep{wilks}, traço de Hotelling-Lawley \citep{lawley}; \citep{hotelling}, traço de Pillai \citep{pillai} e maior raiz de Roy \citep{roy}. 
+
+É possível gerar quadros de análise de variância por meio do teste Wald. Basta, para cada linha do quadro de análise de variância, especificar corretamente uma matriz $\boldsymbol{L}$ que represente de forma adequada a hipótese a ser testada.
+
+\subsection{Testes de comparações múltiplas}\label{sec:multcomp}
+
+Quando a ANOVA aponta para efeito significativo de uma variável categórica, costuma ser de interesse do pesquisador avaliar quais dos níveis diferem entre si. Para isso são empregados os testes de comparações múltiplas. Na literatura existem diversos procedimentos para efetuar tais testes, muitos deles descritos em \citet{hsu1996multiple}.
+
+No contexto de modelos de regressão costuma ser de interesse avaliar comparações aos pares a fim de detectar para quais níveis da variável categórica os valores da resposta se alteram. Tal tipo de situação pode ser avaliada utilizando o teste Wald. Através da correta especificação da matriz $\boldsymbol{L}$, é possível avaliar hipóteses sobre qualquer possível contraste entre os níveis de uma determinada variável categórica. Portanto, é possível usar a estatística de Wald para efetuar também testes de comparações múltiplas.
+
+O procedimento consiste basicamente de 3 passos. O primeiro deles é obter a matriz de combinações lineares dos parâmetros do modelo que resultam nas médias ajustadas. Com esta matriz é possível gerar a matriz de contrastes, dada pela subtração duas a duas das linhas da matriz de combinações lineares. Por fim, basta selecionar as linhas de interesse desta matriz e usá-las como matriz de especificação de hipóteses do teste Wald, no lugar da matriz $\boldsymbol{L}$.
+	
+Por exemplo, suponha que há uma variável resposta $Y$ sujeita a uma variável explicativa $X$ de 4 níveis: A, B, C e D. Para avaliar o efeito da variável $X$, ajustou-se um modelo dado por:
+
+$$g(\mu) = \beta_0 + \beta_1[X=B] + \beta_2[X=C] + \beta_3[X=D].$$
+
+\noindent Nesta parametrização o primeiro nível da variável categórica é mantido como nível de referência e, para os demais níveis, mede-se a mudança para a categoria de referência; este é o chamado constraste de tramento. Neste contexto $\beta_0$ representa a média ajustada do nível A, enquanto que $\beta_1$ representa a diferença de A para B, $\beta_2$ representa a diferença de A para C e $\beta_3$ representa a diferença de A para D. Com esta parametrização é possível obter o valor predito para qualquer uma das categorias de tal modo que se o indivíduo pertencer à categoria A, $\beta_0$ representa o predito; se o indivíduo pertencer à categoria B, $\beta_0 + \beta_1$ representa o predito; para a categoria C, $\beta_0 + \beta_2$ representa o predito e, por fim, para a categoria D, $\beta_0 + \beta_3$ representa o predito.
+
+Matricialmente, estes resultados podem ser descritos como
+
+$$
+    \boldsymbol{K_0} = 
+      \begin{matrix}
+        A\\ 
+        B\\ 
+        C\\ 
+        D 
+      \end{matrix} 
+    \begin{bmatrix}
+      1 & 0 & 0 & 0\\ 
+      1 & 1 & 0 & 0\\ 
+      1 & 0 & 1 & 0\\ 
+      1 & 0 & 0 & 1 
+    \end{bmatrix}
+$$
+
+Note que o produto $\boldsymbol{K_0} \boldsymbol{\beta}$ gera o vetor de preditos para cada nível de $X$. Por meio da subtração das linhas da matriz de combinações lineares $\boldsymbol{K_0}$ podemos gerar uma matriz de contrastes $\boldsymbol{K_1}$
+
+$$
+    \boldsymbol{K_1} = 
+      \begin{matrix}
+        A-B\\ 
+        A-C\\ 
+        A-D\\ 
+        B-C\\
+        B-D\\
+        C-D\\ 
+      \end{matrix} 
+    \begin{bmatrix}
+      0 & -1 &  0 &  0\\ 
+      0 &  0 & -1 &  0\\ 
+      0 &  0 &  0 & -1\\ 
+      0 &  1 & -1 &  0\\ 
+      0 &  1 &  0 & -1\\ 
+      0 &  0 &  1 & -1 
+    \end{bmatrix}
+$$
+
+Para proceder um teste de comparações múltiplas basta selecionar o contraste desejado na linha da matriz $\boldsymbol{K_1}$ e utilizar esta linha como matriz de especificação de hipóteses do teste Wald. Por fim, como usual em testes de comparações múltiplas, é recomendada a correção dos valores-p por meio da correção de Bonferroni.
+
+%=====================================================
+
+\vspace{2cm}
+
+\textbf{TODO}
+
+\begin{itemize}
+
+  \item \textbf{UMA IMAGEM COM OS ELEMENTOS DE UM TESTE DE HIPÓTESES CAIRIA BEM}
+  
+  \item \textbf{UMA IMAGEM COM OS ELEMENTOS DE UM QUADRO DE ANOVA CAIRIA BEM}
+    
+\end{itemize}

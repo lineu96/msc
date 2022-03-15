@@ -1,0 +1,47 @@
+\chapter{Trabalhos relacionados}
+
+Os McGLMs foram propostos com o objetivo de contornar as restrições dos GLMs no que diz respeito à quantidade de de distribuições disponíveis, alternativas para modelar a correlação entre unidades e a capacidade de modelar múltiplas respostas de diferentes naturezas. Nesta seção de revisão de literatura serão brevemente citadas propostas que visam contornar restrições dos GLMs e como são efetuados testes de hipóteses para estas propostas. Os parâmetros dos GLMs são estimados por meio do método da máxima verossimilhança e por isso os testes de hipóteses clássicos são amplamente utilizados: teste da razão de verossimilhanças, teste Wald e teste escore.
+
+%=====================================================
+% \section{UNIVARIADOS}
+%=====================================================
+
+No cenário univariado, existe um conjunto de propostas em que a ideia é utilizar efeitos aleatórios para acomodar a correlação entre observações quando há necessidade. A ideia dos modelos de efeitos aleatórios é que as medidas são correlacionadas pois compartilham de um mesmo efeito que não é observado. Dentre as propostas que envolvem efeitos aleatórios estão os modelos lineares generalizados mistos (GLMM), que estendem os modelos mistos permitindo que a resposta pertença à família exponencial. Algumas referências que discutem modelos de efeitos aleatórios são \citet{laird1982random}, \citet{jiang2007linear}, \citet{stroup2012generalized}.
+
+Em modelos que contam com efeitos aleatórios, a interpretação dos parâmetros de regressão, também chamados de componentes de efeitos fixos, dependem de manter o efeito aleatório fixado, pois o vetor de parâmetros de regressão tem interpretação condicional ao nível dos efeitos aleatórios. Por essa razão costumam ser chamados de coeficientes de regressão específicos do indivíduo. A estimação destes modelos não é simples; o ajuste envolve integrais complexas e é uma tarefa computacionalmente desafiadora, mas é possível usar máxima verossimilhança, o que torna o uso dos testes de hipóteses tradicionais uma alternativa para inferência após ajuste dos modelos. Detalhes sobre procedimentos inferenciais nos GLMMs podem ser consultados em \citet{tuerlinckx2006statistical}.
+
+%=====================================================
+
+Outra proposta é a dos modelos lineares generalizados hierarquicos (hGLMs) \citep{lee1996hierarchical}. Nesta classe a estimação dos parâmetros é baseada na chamada h-verossimilhança e supera algumas das limitações dos GLMs mas, em geral, as implementações são limitadas a uma variável resposta, apesar de ser possível pensar na proposta para o caso multivariado. Os hGLMs não são estimados com base na máxima verossimilhança, contudo os autores sugerem um teste de hipóteses ao estilo do teste de razão de verossimilhanças para os parâmetros de regressão. Além disso o teste Wald pode ser utilizado tanto para parâmetros de regressão quanto para parâmetros de dispersão do modelo.
+
+%=====================================================
+
+Em uma linha diferente das propostas que envolvem efeitos aleatórios, uma alternativa para acomodar a correlação entre observações é por meio das equações de estimação generalizadas \citep{Liang86}, popularmente chamadas de GEE. Trata-se de uma abordagem em que a ideia consiste em incluir no processo de estimação uma matriz de correlação de trabalho. Na prática existem diversas implementações, contudo há um finito conjunto de estruturas de covariância possíveis. O foco do método não é a modelagem da estrutura de correlação entre os indivíduos, mas sim a correção dos erros padrões das estimativas e por isso os testes de hipóteses tradicionais são utilizados sem qualquer complicação.
+
+%=====================================================
+
+Dentre as propostas mais recentes que lidam com uma única resposta estão os modelos aditivos generalizados para locação, escala e forma (GAMLSS), propostos por \citet{stasinopoulos2008generalized}. Esta é uma classe de modelos de regressão univariados com um número considerável de distribuições de probabilidade disponíveis para modelagem. Além disso é possível modelar todos os parâmetros distribucionais em função de variáveis explicativas e ainda incluir aos preditores efeitos aleatórios e termos suavizadores. A estimação dos GAMLSS é feita com base na maximização de uma função de verossimilhança que é penalizada nos casos em que há a inclusão de termos não paramétricos e os testes de hipóteses tradicionais costumam ser empregados.
+
+%=====================================================
+%\section{MULTIVARIADOS}
+%=====================================================
+
+Já no cenário multivariado, uma das propostas mais populares é a dos modelos lineares generalizados multivariados mistos (MGLMM) \citep{berridge2019multivariate}. O MGLMM é uma extensão do GLMM para lidar com múltiplas respostas e segue a mesma ideia no que diz respeito à inclusão de efeitos aleatórios para acomodar a dependência entre observações. Tal como no caso univariado, a estimação para esta classe em alguns casos se torna complexa pois a função de verossimilhança não apresenta forma fechada e a distribuição marginal de cada resposta não é conhecida, pois a especificação do modelo é feita de forma condicional aos efeitos aleatórios, o que torna a obtenção das marginais uma tarefa não trivial. Além disso o algoritmo de estimação por si só não é simples e a interpretação dos coeficientes de regressão não é igual à forma como interpreta-se um GLM devido a presença de efeito aleatório. Contudo, a estimação pode ser feita maximizando uma função de verossimilhança o que torna possível utilizar os testes de hipóteses usuais. 
+
+%=====================================================
+%\section{CLASSES PARA SITUAÇÕES ESPECÍFICAS}
+%=====================================================
+
+Existe ainda na literatura uma grande variedade de modelos de regressão multivariados para fins específicos. \citet{zhang2017regression} propõe um modelo geral para análise de contagens multivariadas em que os testes usuais se aplicam. \citet{mardalena2020parameter} mostra como estimar os parâmetros e ainda como efetuar testes de hipóteses ao estilo da razão de verossimilhanças para um modelo de regressão multivariado com distribuição Poisson inversa gaussiana. Já \citet{sari2021estimation} mostra como estimar os parâmetros e testar hipóteses por meio do testes de razão de verossimilhanças e teste Wald em um modelo de regressão Poisson zero inflacionado multivariado. \citet{berliana2019multivariate} apresenta um modelo de regressão Poisson generalizado multivariado com exposição e correlação em função de covariáveis em que teste de hipóteses podem ser feitos com base na razão de verossimilhanças. \citet{rahayu2020multivariate} propõe um modelo de regressão multivariado gamma em que as hipóteses sobre os parâmetros podem ser testadas por meio do teste Wald e um procedimento análogo ao teste de razão de verossimilhanças.
+
+%=====================================================
+%\section{TH MULTIVARIADO E MANOVA}
+%=====================================================
+
+Existem ainda propostas para realizar testes de hipóteses multivariados e análises de variância multivariadas. \citet{rao1948tests} em um artigo clássico discute e busca desenvolver uma abordagem unificada para o problema de testes de significância em análise multivariada. Em um trabalho mais atual, \citet{smaga2017bootstrap} discute métodos bootstrap para testes de hipóteses multivariados e, para o problema de testar o vetor médio de uma distribuição multivariada, a validade assintótica dos métodos bootstrap é comprovada. \citet{olson1976choosing} trata a respeito da escolha de uma estatística de teste na análise de variância multivariada. Referências como \citet{hand1987multivariate} mostram como proceder análises de variância em um contexto de medidas repetidas. \citet{adeleke2014comparison}, por meio de estudos de Monte-Carlo, avalia os comportamentos de algumas técnicas existentes para realização de análises de variância multivariadas quando a suposição de normalidade é violada.
+
+%=====================================================
+
+Comparado às classes de modelos apresentadas, os McGLMs configuram uma classe mais geral pois acomoda múltiplas respostas, com uma grande variedade de distribuições disponíveis e ainda é possível não só especificar no modelo que há uma estrutura de correlação entre as observações como também modelar esta estrutura. Por isso, apesar de ainda não explorado, o estudo a respeito de testes de hipóteses para os McGLMs é um complemento necessário para tornar a classe ainda mais completa.
+
+%=====================================================

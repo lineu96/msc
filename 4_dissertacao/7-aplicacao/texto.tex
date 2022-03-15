@@ -1,0 +1,226 @@
+
+%=====================================================
+
+\chapter{Análise de dados}
+
+%=====================================================
+
+Este capítulo é destinado à análise de dados reais fazendo uso do McGLM e dos testes de hipóteses propostos e implementados neste trabalho. O conjunto de dados utilizado diz respeito a um estudo que visa avaliar se o uso de probióticos é capaz de controlar vícios e compulsões alimentares em pacientes submetidos à cirurgia bariátrica.
+
+%=====================================================
+
+\section{Uso de probióticos no controle de vícios e compulsões alimentares em pacientes sujeitos a cirurgia bariátrica}
+
+%=====================================================
+
+\subsection{Contexto}
+
+A cirurgia bariátrica é conhecida como o padrão ouro para o tratamento de obesidade severa pois resulta em considerável perda de peso, remissão de comorbidades e melhora da qualidade de vida dos indivíduos \citep{mechanick2020clinical}.
+
+Os transtornos alimentares são considerados doenças psiquiátricas graves, caracterizadas por comportamento alimentar anormal ou preocupação excessiva com o peso corporal \citep{treasure2020eating}, dentre os quais transtornos comuns são compulsão e vício alimentar.
+
+O transtorno da compulsão alimentar é reconhecido como um transtorno caracterizado pelo consumo de grandes quantidades de alimentos em um curto período de tempo e uma sensação de perda de controle sobre a alimentação durante esses episódios, associada a angústia e arrependimento ao indivíduo \citep{sarmiento2020diagnostic}, \citep{wilfley2016characteristics}.
+
+Já o vício alimentar está associado ao consumo de alimentos que, em geral são altamente palatáveis (densos em energia, ricos em açúcar, gordura e/ou sal), e por este motivo, excessivamente estimulantes para as vias de recompensa do cérebro, que podem promover o desejo incontrolável e insaciável de continuar comendo e desencadear uma série de sintomas \citep{avena2012further}, \citep{najem2020prevalence}.
+
+Uma nova abordagem que surge para o tratamento de transtornos psiquiátricos é o uso de probióticos e prebióticos como moduladores do eixo microbiota-intestino-cérebro, também conhecidos como psicobióticos \citep{dinan2013psychobiotics}, \citep{mason2017feeding}, \citep{misra2019psychobiotics}.
+
+No entanto, ainda faltam estudos que avaliem a influência da suplementação de probióticos em fatores psicológicos ou comportamentais em indivíduos submetidos à cirurgia bariátrica. Portanto, o objetivo deste estudo foi analisar a influência da suplementação de probióticos no transtorno da compulsão alimentar e no vício alimentar em indivíduos submetidos ao Bypass Gástrico em Y de Roux (RYGB).
+
+%=====================================================
+
+\subsection{Desenho experimental e coleta de dados}
+
+Trata-se de um ensaio clínico randomizado, duplo-cego, controlado por placebo, realizado com pacientes submetidos ao Bypass Gástrico em Y de Roux (RYGB) no período de abril de 2018 a dezembro de 2019. O estudo foi aprovado pelo Comitê de Ética em Pesquisa da Pontifícia Universidade Católica do Paraná (PUCPR) (nº 4.252.808 ) e registrado pelo Registro Brasileiro de Ensaios Clínicos - REBEC (nºRBR-4x3gqp). A pesquisa foi explicada a cada participante antes de sua participação e, daqueles que concordaram, foi obtido o consentimento informado por escrito.
+
+A divisão dos grupos (placebo ou probiótico) foi feita de forma aleatória. Os critérios de inclusão dos indivíduos no estudo foram: adultos (18-59 anos) que fariam RYGB, com índice de massa corporal (IMC) $\geq$ 35 kg/m2 e que não usaram antibióticos antes da cirurgia. 
+
+Foram retirados do estudo pacientes que foram submetidos a outras técnicas cirúrgicas ou reoperação, tiveram complicações pós-cirúrgicas, fizeram antibioticoterapia concomitante ao uso de probiótico/placebo ou não usaram os comprimidos de probiótico/placebo por mais de nove dias consecutivos. 
+
+Ambos os grupos receberam as mesmas orientações alimentares após a cirurgia, foram acompanhados pela mesma equipe cirúrgica (médico, nutricionista e psicólogo) e tiveram o mesmo número de consultas pré-agendadas antes e após a cirurgia, seguindo o protocolo estabelecido pela instituição onde o estudo foi realizado.
+
+No sétimo dia de pós-operatório, os participantes foram orientados a ingerir dois comprimidos mastigáveis/dia de placebo ou comprimido probiótico Flora Vantage, 5 bilhões de Lactobacillus acidophilus NCFM \textregistered Strain e 5 bilhões de Bifidobacterium lactis Bi-07 \textregistered) da Bariatric Advantage (Aliso Viejo, CA, EUA) por 90 dias.
+
+Os indivíduos foram avaliados em 3 momentos. A primeira avaliação (T0) foi realizada na primeira consulta, aproximadamente 10 dias antes da cirurgia. As avaliações de acompanhamento foram realizadas aproximadamente três meses (T1) e um ano de pós-operatório (T2). Foram realizadas avaliações clínicas e antropométricas, bem como os questionários autoaplicáveis foram entregues aos participantes a cada encontro.
+
+A avaliação de compulsão alimentar foi feita com base na escala de compulsão alimentar (BES), uma das ferramentas mais usadas para medir a compulsão alimentar. Trata-se de um questionário em formato de escala likert de 16 itens, elaborado de acordo com o Manual Diagnóstico e Estatístico de Transtornos Mentais (3ª edição) \citep{spitzer1980diagnostic} por \citet{gormally1982assessment}. Os indivíduos foram orientados a selecionar a opção que melhor representasse sua resposta e o escore final foi a soma dos pontos de cada item, este escore varia de 0 a 46.
+
+Para avaliação de vício alimentar foi utilizada a escala de vício alimentar (YFAS), um questionário que busca detectar sintomas de comportamentos alimentares aditivos. O YFAS foi baseado nos critérios de dependência de substâncias do Manual Diagnóstico e Estatístico IV – Revisão de Texto (DSM-IV-TR) \citep{segal2010diagnostic} e endossado para alimentos altamente processados. Este questionário foi desenvolvido por \citet{gearhardt2009preliminary}. O questionário é uma combinação de 25 opções em escala Likert e a opção de avaliação utilizada foi o número de sintomas de vício.
+
+%=====================================================
+
+\subsection{Conjunto de dados}
+
+A amostra final é formada por 71 indivíduos, dos quais 33 pertencem ao grupo placebo e 38 ao grupo tratamento. Se todos estes indivíduos fossem avaliados nos 3 momentos definidos no estudo, o conjunto de dados teria 213 observações. Contudo, ao longo do estudo, diversos indivíduos não compareceram às reconsultas, o que faz com que hajam dados faltantes no conjunto de dados. Após tratamento dos dados e exclusão de observações faltantes restaram 184 observações.
+
+É importante notar que trata-se de um problema com duas variáveis resposta: um escore que caracteriza compulsão e o número de sintomas apresentados que caracterizam vício. Além disso, as observações não são independentes, tendo em vista que medidas tomadas em um mesmo indivíduo são correlacionadas. Portanto trata-se de um problema que técnicas de modelagem tradicionais seriam de difícil aplicação mas é um cenário ideal para resolução via McGLM e no qual testes de hipóteses são de extrema importância para avaliar o efeito da interação entre momento e uso do probiótico sobre vício e compulsão alimentar.
+
+Para fins de análise, o escore que caracteriza compulsão e o número de sintomas apresentados que caracterizam vício foram transformados para a escala unitária, considerando que tratam-se de variáveis restritas. O objetivo da análise é avaliar o efeito de momento e grupo nas métricas de vício e compulsão. O conjunto de dados contém as seguintes variáveis:
+
+\begin{itemize}
+  \item id: variável identificadora de indivíduo.
+  \item momento: variável identificadora de momento (T0, T1, T2).
+  \item grupo: variável identificadora de gripo (placebo, probiótico)
+  \item YFAS: proporção de sintomas que caracterizam vício.
+  \item BES: proporção de escore de compulsão.
+\end{itemize}
+
+%=====================================================
+
+\subsection{Análise exploratória}
+
+A análise gráfica apresentada na \autoref{fig:descritiva2} mostra, em (a) e (d) que ambas as variáveis de interesse apresentam considerável assimetria à direita. Os boxplots das métricas em função de grupo apresentados em (b) e (e) mostram sensíveis diferenças entre o grupo placebo e probiótico para ambas as respostas. Já os boxplots das métricas em função dos momentos de avaliação, apresentados em (c) e (f), evidenciam que para ambas as métricas os valores eram mais altos no momento T0, havendo considerável redução no momento T1. Quando comparamos T1 e T2, para YFAS parece que há um leve aumento na última avaliação; já para BES, T1 e T2 não parecem diferir.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{/home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf}
+\caption{Análise exploratória gráfica: (a) histograma YFAS, (b) boxplots YFAS em função de grupo, (c) boxplots YFAS em função de momento, (d) histograma BES, (b) boxplots BES em função de grupo, (c) boxplots BES em função de momento. O asterísco nos boxplots indica a média.}
+\label{fig:descritiva2}
+\end{figure}
+
+Ainda de forma exploratória podemos avaliar o comportamento das métricas de vício e compulsão por meio da avaliação das medidas descritivas por momento e por grupo, apresentadas na \autoref{tab:descritiva1}. É possível verificar a redução de indivíduos ao longo do tempo, algo comum em estudos prospectivos. Quanto às medidas, nota-se que ambos os grupos (placebo ou probiótico) apresentam médias mais altas no momento T0 do que nos demais momentos. Portanto, existe uma clara redução das métricas quando comparado ao pré operatório. Quando comparamos os momentos pós operatório (T1 e T2) verificamos que as medidas de YFAS para o grupo placebo e probiótico e BES no grupo placebo apresentam, em média, um aumento das métricas no último momento de avaliação. Já as medidas de BES no grupo probiótico apresentam queda.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}
+\hline
+\multirow{2}{*}{Grupo} & \multirow{2}{*}{Momento} & \multirow{2}{*}{n} & YFAS                  & BES                   \\ \cline{4-5} 
+                       &                          &                    & Média (desvio padrão) & Média (desvio padrão) \\ \hline
+Placebo                & T0                       & 33                 & 0,37 (0,26)           & 0.24 (0,20)           \\
+Placebo                & T1                       & 32                 & 0,11 (0,15)           & 0.09 (0,10)           \\
+Placebo                & T2                       & 22                 & 0,16 (0,15)           & 0.10 (0,12)           \\
+Probiótico             & T0                       & 38                 & 0,49 (0,24)           & 0.32 (0,18)           \\
+Probiótico             & T1                       & 37                 & 0,09 (0,12)           & 0.10 (0,08)           \\
+Probiótico             & T2                       & 22                 & 0,10 (0,14)           & 0.07 (0,09)           \\ \hline
+\end{tabular}
+\caption{Número de indivíduos, média e desvio padrão para YFAS e BES para cada combinação de grupo e momento.}
+\label{tab:descritiva1}
+\end{table}
+
+%=====================================================
+
+\subsection{Especificação do modelo}
+
+Para análise dos dados foi ajustado um modelo multivariado com os efeitos fixos das variáveis momento e grupo. Adicionalmente, foi incluído ao modelo o efeito da interação entre estas duas variáveis explicativas.
+
+Como já mencionado, trata-se de um experimento em que as observações não são independentes pois medidas tomadas em um mesmo indivíduo são correlacionadas e esta correlação deve ser especificada no modelo. 
+
+Ambas as respostas fora tratadas como proporções, por este motivo foi utilizada a função de ligação logito com função de variância Binomial. Adicionalmente, estimou-se o parâmetro de potência para todas as respostas em análise. 
+
+Os preditores lineares são descritos da forma
+
+$$
+g_{r}(\mu_{r}) = \beta_{0r} + \beta_{1r} T1 + \beta_{2r} T2 + \beta_{3r} Probiotico + \beta_{4r} T1*Probiotico + \beta_{5r} T2*Probiotico,
+$$
+
+\noindent em que o índice $r$ refere-se às variáveis respostas do estudo (1 para YFAS, 2 para BES). Foram consideradas categorias de referência o grupo placebo e o momento T0. $\beta_0$ representa o intercepto, $\beta_{1r}$ o efeito do momento T1, $\beta_{2r}$ o efeito do momento T2, $\beta_{3r}$ o efeito de probiótico. Os parâmetros $\beta_{4r}$ e $\beta_{5r}$ referem-se à interação entre momento e grupo, de tal forma que $\beta_{4r}$ representa o efeito da interação entre T1 e probiótico, e $\beta_{5r}$ representa o efeito da interação entre T2 e probiótico.
+
+Os preditores matriciais, comuns a ambas as respostas, são dados por
+$h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \tau_1Z_1$. A função $h(.)$ utilizada foi a identidade, $\tau_0$ e $\tau_1$ representam os parâmetros de dispersão, $Z_0$ representa uma matriz identidade de ordem, $184 \times 184$ e $Z_1$ representa uma matriz de dimensão $184 \times 184$ especificada de forma a explicitar que as medidas provenientes do mesmo indivíduo são correlacionadas. 
+
+Para exemplificar a forma do preditor matricial, vamos considerar 3 indivíduos: A, B e C. Suponha que o indivíduo A compareceu às 3 consultas, portanto temos informações deste indivíduo em T0, T1 e T2. O indivíduo B compareceu em T0 e T1. Já o indivíduo C compareceu apenas em T0. Deste modo temos 3 indivíduos e 6 observações. Logo $Z_0$ é uma matriz identidade $6 \times 6$ e $Z_1$ é uma espécie de matriz bloco diagonal em que o tamanho dos blocos varia de acordo com o número de medidas para cada indivíduo. Neste cenário o preditor matricial tem a forma
+
+\begin{equation}
+h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = 
+\tau_0 \begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0\\ 
+0 & 1 & 0 & 0 & 0 & 0\\ 
+0 & 0 & 1 & 0 & 0 & 0\\ 
+0 & 0 & 0 & 1 & 0 & 0\\ 
+0 & 0 & 0 & 0 & 1 & 0\\ 
+0 & 0 & 0 & 0 & 0 & 1\\ 
+\end{bmatrix} + 
+\tau_1 \begin{bmatrix}
+1 & 1 & 1 & 0 & 0 & 0\\ 
+1 & 1 & 1 & 0 & 0 & 0\\ 
+1 & 1 & 1 & 0 & 0 & 0\\ 
+0 & 0 & 0 & 1 & 1 & 0\\ 
+0 & 0 & 0 & 1 & 1 & 0\\ 
+0 & 0 & 0 & 0 & 0 & 1\\ 
+\end{bmatrix}.
+\end{equation}
+
+%=====================================================
+
+\subsection{Resultados do ajuste}
+
+Com o propósito de verificar a qualidade do ajuste do modelo, foi feita a análise de resíduos do modelo. A análise mostra que os resíduos de Pearson para YFAS e BES apresentam média 0 e desvio padrão próximo de 1. Na \autoref{fig:diagnostico1} são exibidos os histogramas dos resíduos de Pearson por resposta, a distribuição dos resíduos é aproximadamente simétrica com a maior parte dos dados entre -2 e 2.
+
+Na \autoref{fig:diagnostico2} são exibidos os resíduos versos preditos do modelo. Os resultados mostram que não parece haver qualquer tipo de relação entre resíduos e preditos. De forma geral, o modelo parece estar razoavelmente bem ajustado aos dados.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{/home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf}
+\caption{Histograma dos resíduos de Pearson por resposta.}
+\label{fig:diagnostico1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{/home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf}
+\caption{Gráfico de resíduos Pearson versus preditos com linha de tendência suave para cada resposta.}
+\label{fig:diagnostico2}
+\end{figure}
+
+As estimativas dos parâmetros, intervalos de confiança assintóticos com 95\% de confiança e valores-p da hipótese de nulidade dos parâmetros são mostrados na \autoref{tab:estimativas}. Adicionalmente, a \autoref{fig:preds} mostra os valores preditos para cada combinação dos fatores para uma melhor interpretação dos resultados.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[H]
+\centering
+\begin{tabular}{c|cccccc}
+\hline
+\multirow{2}{*}{Parâmetro} & \multicolumn{3}{c}{YFAS}                                                                                             & \multicolumn{3}{c}{BES}                                                                         \\ \cline{2-7} 
+                           & Estimativa & \begin{tabular}[c]{@{}c@{}}Intervalo de \\ confiança\end{tabular} & \multicolumn{1}{c|}{Valor-p}        & Estimativa & \begin{tabular}[c]{@{}c@{}}Intervalo de \\ confiança\end{tabular} & Valor-p        \\ \hline
+$\beta_0$                  & -0,54      & (-0,87;-0,22)                                                     & \multicolumn{1}{c|}{\textless 0,05} & -1,13      & (-1,44;-0,83)                                                     & \textless 0,05 \\
+$\beta_1$                  & -1,55      & (-2,17;-0,94)                                                     & \multicolumn{1}{c|}{\textless 0,05} & -1,16      & (-1,62;-0,69)                                                     & \textless 0,05 \\
+$\beta_2$                  & -1,13      & (-1,75;-0,51)                                                     & \multicolumn{1}{c|}{\textless 0,05} & -1,05      & (-1,58;-0,52)                                                     & \textless 0,05 \\
+$\beta_3$                  & 0,49       & (0,05;0,93)                                                       & \multicolumn{1}{c|}{\textless 0,05} & 0,37       & (-0,03;0,77)                                                      & 0,07           \\
+$\beta_4$                  & -0,73      & (-1,60;0,14)                                                      & \multicolumn{1}{c|}{0,1}            & -0,33      & (-0,96;0,30)                                                      & 0,31           \\
+$\beta_5$                  & -0,98      & (-1,93;-0,03)                                                     & \multicolumn{1}{c|}{\textless 0,05} & -0,80      & (-1,58;-0,02)                                                     & \textless 0,05 \\
+$\tau_0$                   & 0,18       & (0,01;0,35)                                                       & \multicolumn{1}{c|}{\textless 0,05} & 0,17       & (0,00;0,34)                                                       & 0,05           \\
+$\tau1$                    & 0,01       & (-0,02;0,04)                                                      & \multicolumn{1}{c|}{0,57}           & 0,04       & (-0,01;0,10)                                                      & 0,14           \\
+$p$                        & 0,91       & (0,47;1,34)                                                       & \multicolumn{1}{c|}{\textless 0,05} & 1,23       & (0,77;1,68)                                                       & \textless 0,05 \\ \hline
+\end{tabular}
+\caption{Estimativas dos parâmetros, intervalos com 95\% de confiança e valores-p do modelo.}
+\label{tab:estimativas}
+\end{table}
+
+Os resultados mostram que existe uma redução considerável de YFAS e BES ao longo do tempo. O efeito significativo do parâmetro $\beta_4$, que mensura o efeito da interação entre uso do medicamento no momento T2, indica que existe efeito do tratamento em ambas as respostas e que este efeito foi verificado 1 ano após a cirurgia. Já a ausência de significância do parâmetro $\beta_3$, que mede o efeito da interação entre uso do medicamento no momento T1, mostra que não há diferença entre os grupos neste momento. Estes resultados são reforçados pela figura, que mostra uma redução nas métricas mais acentuada para indivíduos que fizeram uso do probiótico.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{/home/lacf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf}
+\caption{Gráfico de preditos pelo modelo para cada combinação entre momento e grupo.}
+\label{fig:preds}
+\end{figure}
+
+%=====================================================
+
+\subsection{Testes de hipóteses}
+
+Até este ponto foi apresentada uma análise padrão, com os resultados usuais da análise de um modelo de regressão. Indo mais além nesta análise, podemos fazer uso dos resultados e implementações deste trabalho.
+
+ESCOLHER ALGUNS TESTES
+
+ANOVA BETA
+
+MANOVA BETA
+
+ANOVA DISP
+
+MANOVA DISP
+
+TESTE P UNI
+
+TESTE P MULTI
+
+COMPARAÇÕES MULTIPLAS
+
+%=====================================================
+
+\subsection{Conclusão}
+
+COMO CONSEGUIMOS IR ALÉM NO ESTUDO DO MODELO USANDO O QUE FOI PROPOSTO.
+
+%=====================================================
