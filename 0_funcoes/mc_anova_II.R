@@ -1,18 +1,53 @@
-#' @title ANOVA type II table for mcglm objects via Wald test
 #' @name mc_anova_II
-#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
 #'
-#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
-#' Performs Wald tests to generate type-II analysis-of-variance 
-#' tables per response for model objects produced by mcglm
+#' @author Lineu Alberto Cavazani de Freitas,
+#' \email{lineuacf@@gmail.com}
+#' 
+#' @export
+#' 
+#' @title ANOVA type II table for mcglm objects via Wald test.
 #'
-#' @param object an object of \code{mcglm} class.
-#' @param ... additional arguments affecting the summary produced. Note
-#'     that there is no extra options for mcglm object class.
-#' @keywords internal
+#' @description Performs Wald tests to generate type-II analysis-of-
+#' variance tables per response for model objects produced by mcglm.
+#'
+#' @param object An object of \code{mcglm} class.
+#'
 #' @return Type II ANOVA table for mcglm objects.
 #'
-#' @export
+#' @seealso \code{mc_anova_I}, \code{mc_anova_III} and 
+#' \code{mc_anova_disp}.
+#' 
+#' @examples
+#' 
+#' form.grain <- grain ~ water * pot
+#' form.seed <- seeds ~ water * pot
+#' 
+#' soya$viablepeasP <- soya$viablepeas / soya$totalpeas
+#' form.peas <- viablepeasP ~ water * pot
+#' 
+#' Z0 <- mc_id(soya)
+#' Z1 <- mc_mixed(~0 + factor(block), data = soya)
+#' 
+#' fit_joint <- mcglm(linear_pred = c(form.grain, 
+#'                                    form.seed, 
+#'                                    form.peas),
+#'                    matrix_pred = list(c(Z0, Z1), 
+#'                                       c(Z0, Z1), 
+#'                                       c(Z0, Z1)),
+#'                    link = c("identity",
+#'                             "log", 
+#'                             "logit"),
+#'                    variance = c("constant", 
+#'                                 "tweedie", 
+#'                                 "binomialP"),
+#'                    Ntrial = list(NULL, 
+#'                                  NULL, 
+#'                                  soya$totalpeas),
+#'                    power_fixed = c(T,T,T),
+#'                    data = soya)
+#' 
+#' mc_anova_II(fit_joint)
+#' 
 
 mc_anova_II <- function(object){
   
@@ -33,7 +68,8 @@ mc_anova_II <- function(object){
   
   #----------------------------------------------------------------
   
-  # Lista vcov por resposta desconsiderando parametros de dispersao e potencia
+  # Lista vcov por resposta desconsiderando parametros de dispersao e 
+  # potencia
   
   vcov_betas <- list()
   
@@ -93,7 +129,8 @@ mc_anova_II <- function(object){
   
   for (i in 1:length(L_all)) {
     testes[[i]] <- data.frame(beta_names = beta_names[[i]],
-                              interacao = stringr::str_detect(beta_names[[i]], ':'))  
+                              interacao = stringr::str_detect(
+                                beta_names[[i]], ':'))  
   }
   
   
@@ -108,7 +145,9 @@ mc_anova_II <- function(object){
   
   for (k in 1:length(L_all)) {
     for (i in 3:ncol(testes[[k]])) {
-      padrao <- as.vector(subset(testes[[k]], interacao == FALSE & testes[[k]][,i] == 1)$beta_names)
+      padrao <- as.vector(subset(testes[[k]], 
+                                 interacao == FALSE & 
+                                   testes[[k]][,i] == 1)$beta_names)
       
       x <- matrix(nrow = nrow(testes[[k]]), ncol = length(padrao))
       
@@ -160,14 +199,23 @@ mc_anova_II <- function(object){
     p_val <- vector() # Vetor para p-valor
     
     for (i in 1:length(L_par[[j]])) {
-      W[i] <- as.numeric((t(L_par[[j]][[i]] %*% subset(beta, beta$Response == j)$Estimates)) %*% (solve(L_par[[j]][[i]]%*%vcov_betas[[j]]%*%t(L_par[[j]][[i]]))) %*% (L_par[[j]][[i]] %*% subset(beta, beta$Response == j)$Estimates))
+      W[i] <- as.numeric((t(L_par[[j]][[i]] %*% 
+                              subset(beta, 
+                                     beta$Response == j)$Estimates)) %*% 
+                           (solve(L_par[[j]][[i]]%*%
+                                    vcov_betas[[j]]%*%
+                                    t(L_par[[j]][[i]]))) %*% 
+                           (L_par[[j]][[i]] %*% 
+                              subset(beta, 
+                                     beta$Response == j)$Estimates))
       gl[i] <- nrow(L_par[[j]][[i]])
       p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
       
     } 
     tabela[[j]] <- 
       data.frame(Covariate = c("Intercept", 
-                               attr(terms(object$linear_pred[[j]]), "term.labels")),
+                               attr(terms(object$linear_pred[[j]]), 
+                                    "term.labels")),
                  Df = gl,
                  Chi = round(W, 4),
                  'Pr(>Chi)' = round(p_val, 4),

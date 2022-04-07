@@ -1,25 +1,34 @@
 
-###############################################################
-########################## EXEMPLO 1 ##########################
-###############################################################
+#---------------------------------------------------------------
+# SOYA MCGLM
+#---------------------------------------------------------------
 
 library(mcglm)
 library(Matrix)
+
+library(ggplot2)
+library(ggpubr)
+
 source('~/msc/0_funcoes/functions.R')
 
 #---------------------------------------------------------------
 
 # Contexto
 
-## Efeito de água e adubo na produção de soja
+## Efeito de água e adubo na produção de soja.
 
 ## Conjunto de dados de `soya` disponível no pacote mcglm. 
 
-## Dados de um experimento realizado em uma casa de vegetação com soja. 
+## Dados de um experimento realizado em uma casa de vegetação 
+## com soja. 
 
 ## Duas plantas por parcela.
-## Três níveis do fator correspondente à quantidade de água no solo (water).
+
+## Três níveis do fator correspondente à quantidade de água 
+## no solo (water).
+
 ## Cinco níveis de adubação com potássio (pot).
+
 ## Cinco blocos (block).
 
 ## Três variáveis de resposta: 
@@ -33,7 +42,9 @@ source('~/msc/0_funcoes/functions.R')
 #---------------------------------------------------------------
 
 # Dados
-mcglm::soya
+
+soya
+str(soya)
 
 #---------------------------------------------------------------
 
@@ -184,8 +195,11 @@ l<-ggplot(data = soya,
   ylab('Prop. de sementes viáveis')
 
 
-ggpubr::ggarrange(a,b,c,d,e,f,g,h,i,j,k,l,
-                  nrow = 3, ncol = 4)
+ggarrange(a,b,c,d,
+          e,f,g,h,
+          i,j,k,l,
+          nrow = 3, 
+          ncol = 4)
 
 #---------------------------------------------------------------
 
@@ -208,13 +222,21 @@ Z1 <- mc_mixed(~0 + factor(block), data = soya)
 
 # Ajuste
 
-fit_joint <- mcglm(linear_pred = c(form.grain, form.seed, form.peas),
+fit_joint <- mcglm(linear_pred = c(form.grain, 
+                                   form.seed, 
+                                   form.peas),
                    matrix_pred = list(c(Z0, Z1), 
                                       c(Z0, Z1), 
                                       c(Z0, Z1)),
-                   link = c("identity","log", "logit"),
-                   variance = c("constant", "tweedie", "binomialP"),
-                   Ntrial = list(NULL, NULL, soya$totalpeas),
+                   link = c("identity",
+                            "log", 
+                            "logit"),
+                   variance = c("constant", 
+                                "tweedie", 
+                                "binomialP"),
+                   Ntrial = list(NULL, 
+                                 NULL, 
+                                 soya$totalpeas),
                    power_fixed = c(T,T,T),
                    data = soya)
 
@@ -308,14 +330,36 @@ mc_linear_hypothesis(object =  fit_joint,
 
 # Comparações múltiplas
 
+## Por resposta
+mc_multcomp(object = fit_joint,
+            effect = list(c('water'), 
+                          c('water'),
+                          c('water')), 
+            data = soya)
+
+mc_multcomp(object = fit_joint,
+            effect = list(c('pot'), 
+                          c('pot'),
+                          c('pot')), 
+            data = soya)
+
 mc_multcomp(object = fit_joint,
             effect = list(c('water', 'pot'), 
                           c('water', 'pot'),
                           c('water', 'pot')), 
             data = soya)
 
+## Multivariado
 mc_mult_multcomp(object = fit_joint, 
                  effect = c('water'), 
+                 data = soya)
+
+mc_mult_multcomp(object = fit_joint, 
+                 effect = c('pot'), 
+                 data = soya)
+
+mc_mult_multcomp(object = fit_joint, 
+                 effect = c('water', 'pot'), 
                  data = soya)
 
 #---------------------------------------------------------------

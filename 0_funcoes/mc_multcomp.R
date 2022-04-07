@@ -1,25 +1,81 @@
-#' @title Multiple comparisons test for each response
 #' @name mc_multcomp
-#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
+#' 
+#' @author Lineu Alberto Cavazani de Freitas,
+#' \email{lineuacf@@gmail.com}
+#' 
+#' @export
+#' 
+#' @title Multiple comparisons test for each response.
+#' 
+#' @description Performs a multiple comparisons test to compare 
+#' diferences between treatment levels for each response for model 
+#' objects produced by mcglm.
 #'
-#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
-#' Performs a multiple comparisons test to compare diferences between 
-#' treatment levels for each response for model objects produced by 
-#' mcglm
-#'
-#' @param object an object of \code{mcglm} class.
-#' @param effect A list of vector of variables. For each configuration of 
-#' these the estimate will be calculated.
-#' @param data dataframe.
-#' @keywords internal
+#' @param object An object of \code{mcglm} class.
+#' 
+#' @param effect A list of vector of variables. For each configuration 
+#' of these the estimate will be calculated.
+#' 
+#' @param data Data frame with the dataset used in the model.
+#' 
 #' @return Table of multiple comparisons.
 #'
-#' @export
+#' @seealso \code{mc_mult_multcomp}.
+#' 
+#' @examples
+#' 
+#' form.grain <- grain ~ water * pot
+#' form.seed <- seeds ~ water * pot
+#' 
+#' soya$viablepeasP <- soya$viablepeas / soya$totalpeas
+#' form.peas <- viablepeasP ~ water * pot
+#' 
+#' Z0 <- mc_id(soya)
+#' Z1 <- mc_mixed(~0 + factor(block), data = soya)
+#' 
+#' fit_joint <- mcglm(linear_pred = c(form.grain, 
+#'                                    form.seed, 
+#'                                    form.peas),
+#'                    matrix_pred = list(c(Z0, Z1), 
+#'                                       c(Z0, Z1), 
+#'                                       c(Z0, Z1)),
+#'                    link = c("identity",
+#'                             "log", 
+#'                             "logit"),
+#'                    variance = c("constant", 
+#'                                 "tweedie", 
+#'                                 "binomialP"),
+#'                    Ntrial = list(NULL, 
+#'                                  NULL, 
+#'                                  soya$totalpeas),
+#'                    power_fixed = c(T,T,T),
+#'                    data = soya)
+#' 
+#' mc_multcomp(object = fit_joint,
+#'             effect = list(c('water'), 
+#'                           c('water'),
+#'                           c('water')), 
+#'             data = soya)
+#' 
+#' mc_multcomp(object = fit_joint,
+#'             effect = list(c('pot'), 
+#'                           c('pot'),
+#'                           c('pot')), 
+#'             data = soya)
+#' 
+#' 
+#' mc_multcomp(object = fit_joint,
+#'             effect = list(c('water', 'pot'), 
+#'                           c('water', 'pot'),
+#'                           c('water', 'pot')), 
+#'             data = soya)
+#'
 
 mc_multcomp <- function(object, effect, data){
   
   # Obter a matriz de combinações lineares dos parâmetros dos 
-  # modelos que resultam nas médias ajustadas (geralmente denotada por L)
+  # modelos que resultam nas médias ajustadas 
+  # (geralmente denotada por L)
   #-------------------------------------------------------------------
   
   m_glm <- list()
@@ -36,9 +92,9 @@ mc_multcomp <- function(object, effect, data){
   
   #------------------------------------------------------------------- 
   
-  # Para testar os contrastes de uma média ajustada contra a outra deve-se 
-  # subtrair as linhas da primeira matriz duas a duas (geralmente denotada 
-  # por K)
+  # Para testar os contrastes de uma média ajustada contra a outra 
+  # deve-se subtrair as linhas da primeira matriz duas a duas 
+  # (geralmente denotada por K)
   
   K1 <- list()  
   
@@ -49,7 +105,8 @@ mc_multcomp <- function(object, effect, data){
   K2 <- list()
   
   for (i in 1:length(mm)) {
-    K2[[i]] <- by(K1[[i]], INDICES = row.names(K1[[i]]), FUN = as.matrix)
+    K2[[i]] <- by(K1[[i]], INDICES = row.names(K1[[i]]), 
+                  FUN = as.matrix)
   }
   
   #-------------------------------------------------------------------
@@ -69,7 +126,8 @@ mc_multcomp <- function(object, effect, data){
   
   #----------------------------------------------------------------
   
-  # Lista vcov por resposta desconsiderando parametros de dispersao e potencia
+  # Lista vcov por resposta desconsiderando parametros de dispersao e 
+  # potencia
   
   vcov_betas <- list()
   
@@ -99,7 +157,15 @@ mc_multcomp <- function(object, effect, data){
     
     
     for (i in 1:dim(K2[[j]])) {
-      W[i] <- as.numeric((t(K2[[j]][[i]] %*% subset(beta, beta$Response == j)$Estimates)) %*% (solve(K2[[j]][[i]]%*%vcov_betas[[j]]%*%t(K2[[j]][[i]]))) %*% (K2[[j]][[i]] %*% subset(beta, beta$Response == j)$Estimates))
+      W[i] <- as.numeric((t(K2[[j]][[i]] %*% 
+                              subset(beta, 
+                                     beta$Response == j)$Estimates)) %*%
+                           (solve(K2[[j]][[i]]%*%
+                                    vcov_betas[[j]]%*%
+                                    t(K2[[j]][[i]])))%*% 
+                           (K2[[j]][[i]] %*% 
+                              subset(beta, 
+                                     beta$Response == j)$Estimates))
       gl[i] <- nrow(K2[[j]][[i]])
       p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
       
@@ -108,7 +174,8 @@ mc_multcomp <- function(object, effect, data){
       data.frame(Contrast = names(K2[[j]]),
                  Df = gl,
                  Chi = round(W, 4),
-                 'Pr(>Chi)' = round(p.adjust(p_val, method = 'bonferroni'), 4),
+                 'Pr(>Chi)' = round(p.adjust(p_val, 
+                                             method = 'bonferroni'), 4),
                  check.names = F)
   }  
   

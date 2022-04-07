@@ -1,19 +1,53 @@
-#' @title MANOVA type III table for mcglm objects via Wald test
 #' @name mc_manova_III
-#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
 #'
-#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
-#' Performs Wald tests to generate type-III multivariate 
-#' analysis-of-variance tables for model objects 
-#' produced by mcglm
+#' @author Lineu Alberto Cavazani de Freitas,
+#' \email{lineuacf@@gmail.com}
+#' 
+#' @export
+#' 
+#' @title MANOVA type III table for mcglm objects via Wald test.
 #'
-#' @param object an object of \code{mcglm} class.
-#' @param ... additional arguments affecting the summary produced. Note
-#'     that there is no extra options for mcglm object class.
-#' @keywords internal
+#' @description Performs Wald tests to generate multivariate type-III 
+#' analysis-of-variance tables for model objects produced by mcglm.
+#'
+#' @param object An object of \code{mcglm} class.
+#'
 #' @return Type III MANOVA table for mcglm objects.
 #'
-#' @export
+#' @seealso \code{mc_manova_I}, \code{mc_manova_II} and 
+#' \code{mc_manova_disp}.
+#' 
+#' @examples
+#' 
+#' form.grain <- grain ~ water * pot
+#' form.seed <- seeds ~ water * pot
+#' 
+#' soya$viablepeasP <- soya$viablepeas / soya$totalpeas
+#' form.peas <- viablepeasP ~ water * pot
+#' 
+#' Z0 <- mc_id(soya)
+#' Z1 <- mc_mixed(~0 + factor(block), data = soya)
+#' 
+#' fit_joint <- mcglm(linear_pred = c(form.grain, 
+#'                                    form.seed, 
+#'                                    form.peas),
+#'                    matrix_pred = list(c(Z0, Z1), 
+#'                                       c(Z0, Z1), 
+#'                                       c(Z0, Z1)),
+#'                    link = c("identity",
+#'                             "log", 
+#'                             "logit"),
+#'                    variance = c("constant", 
+#'                                 "tweedie", 
+#'                                 "binomialP"),
+#'                    Ntrial = list(NULL, 
+#'                                  NULL, 
+#'                                  soya$totalpeas),
+#'                    power_fixed = c(T,T,T),
+#'                    data = soya)
+#' 
+#' mc_manova_III(fit_joint)
+#'
 
 mc_manova_III <- function(object){
   
@@ -39,7 +73,8 @@ mc_manova_III <- function(object){
   preds <- c()
   
   for (i in 1:n_resp) {
-    preds[i] <- sub(".*~", "",gsub(" ", "", as.character(object$linear_pred)[i]))
+    preds[i] <- sub(".*~", "",gsub(" ", "", 
+                                   as.character(object$linear_pred)[i]))
   }
   
   if(length(unique(preds)) != 1) stop("For MANOVA functions, the predictors must be the same for all outcomes.")
@@ -97,13 +132,18 @@ mc_manova_III <- function(object){
   
   for (i in 1:length(L_par)) {
     
-    W[i] <- as.numeric((t(L_par[[i]]%*%beta$Estimates)) %*% (solve(L_par[[i]]%*%vcov_betas%*%t(L_par[[i]]))) %*% (L_par[[i]]%*%beta$Estimates))
+    W[i] <- as.numeric((t(L_par[[i]]%*%beta$Estimates)) %*%
+                         (solve(L_par[[i]]%*%
+                                  vcov_betas%*%
+                                  t(L_par[[i]]))) %*%
+                         (L_par[[i]]%*%beta$Estimates))
     gl[i] <- nrow(L_par[[i]])
     p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
   }
   
   tabela <- data.frame(Covariate = c("Intercept", 
-                                     attr(terms(object$linear_pred[[1]]), "term.labels")),
+                                     attr(terms(object$linear_pred[[1]]), 
+                                          "term.labels")),
                        Df = gl,
                        Chi = round(W, 4),
                        'Pr(>Chi)' = round(p_val, 4),

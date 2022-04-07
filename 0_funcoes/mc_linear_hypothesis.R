@@ -1,17 +1,79 @@
-#' @title Test Linear Hypothesis
 #' @name mc_linear_hypothesis
-#' @author Lineu Alberto Cavazani de Freitas, \email{lialcafre@@gmail.com}
 #'
-#' @description IT IS AN EXPERIMENTAL FUNCTION! BE CAREFUL!
-#' Performs Wald tests for testing a linear hypothesis for 
+#' @author Lineu Alberto Cavazani de Freitas,
+#' \email{lineuacf@@gmail.com}
+#' 
+#' @export
+#' 
+#' @title Test Linear Hypothesis
+#'
+#' @description Performs Wald tests for testing a linear hypothesis for 
 #' model objects produced by mcglm.
 #'
-#' @param object an object of \code{mcglm} class.
-#' @param ... additional arguments affecting the summary produced. Note
-#'     that there is no extra options for mcglm object class.
-#' @keywords internal
-#' @return MANOVA table for dispersion components of mcglm objects.
-#' @export
+#' @param object An object of \code{mcglm} class.
+#' 
+#' @param hypothesis A vector of strings with the hypotheses to be 
+#' tested.
+#' 
+#' @return Table result of the hypothesis test specified.
+#' 
+#' @examples
+#' 
+#' form.grain <- grain ~ water * pot
+#' form.seed <- seeds ~ water * pot
+#' 
+#' soya$viablepeasP <- soya$viablepeas / soya$totalpeas
+#' form.peas <- viablepeasP ~ water * pot
+#' 
+#' Z0 <- mc_id(soya)
+#' Z1 <- mc_mixed(~0 + factor(block), data = soya)
+#' 
+#' fit_joint <- mcglm(linear_pred = c(form.grain, 
+#'                                    form.seed, 
+#'                                    form.peas),
+#'                    matrix_pred = list(c(Z0, Z1), 
+#'                                       c(Z0, Z1), 
+#'                                       c(Z0, Z1)),
+#'                    link = c("identity",
+#'                             "log", 
+#'                             "logit"),
+#'                    variance = c("constant", 
+#'                                 "tweedie", 
+#'                                 "binomialP"),
+#'                    Ntrial = list(NULL, 
+#'                                  NULL, 
+#'                                  soya$totalpeas),
+#'                    power_fixed = c(T,T,T),
+#'                    data = soya)
+#' 
+#' mc_linear_hypothesis(object =  fit_joint, 
+#'                      hypothesis = c('beta11 = 0'))
+#' 
+#' mc_linear_hypothesis(object =  fit_joint, 
+#'                      hypothesis = c('beta11 = 0', 
+#'                                     'beta12 = 0'))
+#'                                     
+#' mc_linear_hypothesis(object =  fit_joint, 
+#'                      hypothesis = c('beta11 = 0', 
+#'                                     'beta12 = 0',
+#'                                     'beta21 = 0',
+#'                                     'beta22 = 0',
+#'                                     'beta31 = 0',
+#'                                     'beta32 = 0'))
+#'                                     
+#' mc_linear_hypothesis(object =  fit_joint, 
+#'                      hypothesis = c('beta11 = beta21'))
+#'                      
+#' mc_linear_hypothesis(object =  fit_joint, 
+#'                      hypothesis = c('tau11 = 0'))
+#' 
+#' mc_linear_hypothesis(object =  fit_joint, 
+#'                      hypothesis = c('tau11 = 0',
+#'                                     'tau21 = 0',
+#'                                     'tau31 = 0'))
+#' 
+#' mc_linear_hypothesis(object =  fit_joint,
+#'                      hypothesis = c('tau12 = tau22'))
 
 mc_linear_hypothesis <- function(object, hypothesis){
   
@@ -50,8 +112,10 @@ mc_linear_hypothesis <- function(object, hypothesis){
   #----------------------------------------------------------------
   
   # Retirando espaços
-  hypothesis3$parameters <- stringr::str_replace(hypothesis3$parameters, " ",  "")
-  hypothesis3$null_hyp <- stringr::str_replace(hypothesis3$null_hyp, " ",  "")
+  hypothesis3$parameters <- stringr::str_replace(
+    hypothesis3$parameters, " ",  "")
+  hypothesis3$null_hyp <- stringr::str_replace(
+    hypothesis3$null_hyp, " ",  "")
   
   #----------------------------------------------------------------
   
@@ -78,9 +142,12 @@ mc_linear_hypothesis <- function(object, hypothesis){
   #----------------------------------------------------------------
   
   # Substitui strings por 0 (hipóteses de igualdade)
-  hypothesis3$null_hyp <- ifelse(stringr::str_detect(hypothesis3$null_hyp, c('beta')) == T,0,hypothesis3$null_hyp)
-  hypothesis3$null_hyp <- ifelse(stringr::str_detect(hypothesis3$null_hyp, c('tau')) == T,0,hypothesis3$null_hyp)
-  hypothesis3$null_hyp <- ifelse(stringr::str_detect(hypothesis3$null_hyp, c('power')) == T,0,hypothesis3$null_hyp)
+  hypothesis3$null_hyp <- ifelse(stringr::str_detect(
+    hypothesis3$null_hyp, c('beta')) == T,0,hypothesis3$null_hyp)
+  hypothesis3$null_hyp <- ifelse(stringr::str_detect(
+    hypothesis3$null_hyp, c('tau')) == T,0,hypothesis3$null_hyp)
+  hypothesis3$null_hyp <- ifelse(stringr::str_detect(
+    hypothesis3$null_hyp, c('power')) == T,0,hypothesis3$null_hyp)
   
   #----------------------------------------------------------------
   
@@ -95,7 +162,9 @@ mc_linear_hypothesis <- function(object, hypothesis){
   gl <- vector() # Vetor para graus de liberdade
   p_val <- vector() # Vetor para p-valor
   
-  W <- as.numeric((t((L_user%*%coefs$Estimates) - hypothesis3$null_hyp)) %*% (solve(L_user%*%vcov_coefs%*%t(L_user))) %*% ((L_user%*%coefs$Estimates) - hypothesis3$null_hyp))
+  W <- as.numeric((t((L_user%*%coefs$Estimates) - hypothesis3$null_hyp))
+                  %*% (solve(L_user%*%vcov_coefs%*%t(L_user))) %*% 
+                    ((L_user%*%coefs$Estimates) - hypothesis3$null_hyp))
   gl <- nrow(L_user)
   p_val <- pchisq(W, df = gl, lower.tail = FALSE)
   

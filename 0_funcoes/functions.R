@@ -5,6 +5,20 @@
 # MCGLM
 #################################################################
 
+# Funções de outros pacotes usadas
+# utils::combn()
+# 
+# stringr::str_detect
+# stringr::str_split
+# stringr::str_replace
+# stringr::str_detect
+# 
+# sjmisc::str_contains
+# 
+# doBy::LE_matrix
+
+#################################################################
+
 # ANOVA I
 source("~/msc/0_funcoes/mc_anova_I.R")
 
