@@ -35,14 +35,6 @@ mc_anova_III <- function(object){
   
   vcov_betas <- list()
   
-  #vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
-  
-  #for (i in 2:n_resp) {
-  #  vcov_betas[[i]] <- 
-  #    vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
-  #                 (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
-  #  }
-  
   if (n_resp == 1) {
     vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
   } else {
@@ -106,12 +98,24 @@ mc_anova_III <- function(object){
       
     } 
     tabela[[j]] <- 
-      data.frame(Variável = c("Intercept", 
-                              attr(terms(object$linear_pred[[j]]), "term.labels")),
-                 GL = gl,
-                 W = round(W, 4),
-                 P_valor = round(p_val, 4))
+      data.frame(Covariate = c("Intercept", 
+                               attr(terms(object$linear_pred[[j]]), "term.labels")),
+                 Df = gl,
+                 Chi = round(W, 4),
+                 'Pr(>Chi)' = round(p_val, 4),
+                 check.names = F)
   }  
   
-  return(tabela)  
+  #----------------------------------------------------------------
+  
+  cat("ANOVA type III using Wald statistic for fixed effects\n\n")
+  for (i in 1:n_resp) {
+    cat("Call: ")
+    print(object$linear_pred[[i]])
+    cat("\n")
+    print(tabela[[i]])
+    cat("\n")
+  }
+  
+  return(invisible(tabela)) 
 }

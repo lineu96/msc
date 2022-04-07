@@ -55,6 +55,11 @@ mc_linear_hypothesis <- function(object, hypothesis){
   
   #----------------------------------------------------------------
   
+  if(sum(hypothesis3$parameters %in% coefs$Parameters) != 
+     length(hypothesis3$parameters)) stop("You specified hypothesis about parameters that does not exist in the model.")
+  
+  #----------------------------------------------------------------
+  
   # Gerando a matriz L
   L_user <- matrix(nrow = nrow(hypothesis3), ncol = n_coefs)
   
@@ -94,10 +99,29 @@ mc_linear_hypothesis <- function(object, hypothesis){
   gl <- nrow(L_user)
   p_val <- pchisq(W, df = gl, lower.tail = FALSE)
   
-  tabela <- data.frame(GL = gl,
-                       W = round(W, 4),
-                       P_valor = round(p_val, 4))
+  tabela <- data.frame(Df = gl,
+                       Chi = round(W, 4),
+                       'Pr(>Chi)' = round(p_val, 4),
+                       check.names = F)
   
-  return(tabela)
+  #----------------------------------------------------------------
+  
+  cat("Linear hypothesis test")
+  cat("\n\n")
+  cat("Hypothesis:")
+  
+  
+  print_hyp <- as.data.frame(hypothesis)
+  names(print_hyp) <- NULL
+  print(print_hyp)
+  
+  cat("\n")
+  
+  cat("Results:\n")
+  
+  print(tabela)
+  cat("\n")
+  
+  return(invisible(tabela))
   
 }

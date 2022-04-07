@@ -5,7 +5,7 @@
 
 library(mcglm)
 library(Matrix)
-source('~/msc/thmcglm/0_funcoes/functions.R')
+source('~/msc/0_funcoes/functions.R')
 
 #---------------------------------------------------------------
 # Reference: 
@@ -34,7 +34,7 @@ source('~/msc/thmcglm/0_funcoes/functions.R')
 
 #---------------------------------------------------------------
 
-dados <- read.csv2("~/msc/thmcglm/1_exemplos/2_ilustra/0_dados/NBA.csv", 
+dados <- read.csv2("~/msc/1_exemplos/2_ilustra/old/0_dados/NBA.csv", 
                    header = T, 
                    sep = ";", 
                    dec = ',')
@@ -121,20 +121,17 @@ fit <-
 
 # RESUMO DO MODELO
 
-fit$beta_names[[1]]
+fit$beta_names
 summary(fit)
 
 #---------------------------------------------------------------
 
 # ANOVA
 
-mc_anova_pc <- anova(fit)
-
-i = 1
-mc_anova_pc[[i]]
-mc_anova_I(fit)[[i]]
-mc_anova_II(fit)[[i]]
-mc_anova_III(fit)[[i]]
+anova(fit)
+mc_anova_I(fit)
+mc_anova_II(fit)
+mc_anova_III(fit)
 
 mc_anova_disp(object =  fit,
               p_var = c(0,0,0),

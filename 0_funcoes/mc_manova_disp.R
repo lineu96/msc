@@ -31,6 +31,20 @@ mc_manova_disp <- function(object, p_var, names){
   
   #----------------------------------------------------------------
   
+  # ERROS E AVISOS
+  
+  preds <- c()
+  
+  for (i in 1:n_resp) {
+    preds[i] <- sub(".*~", "",gsub(" ", "", as.character(object$linear_pred)[i]))
+  }
+  
+  if(length(unique(preds)) != 1) stop("For MANOVA functions, the predictors must be the same for all outcomes.")
+  
+  if(n_resp == 1) warning("You are applying a MANOVA function to a univariate problem.")  
+  
+  #----------------------------------------------------------------
+  
   # Nomes dos parâmetros
   tau_names <- as.vector(unique(tau$Parameters))
   
@@ -90,12 +104,20 @@ mc_manova_disp <- function(object, p_var, names){
     p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
   }
   
-  tabela <- data.frame(Variável = names,
-                       GL = gl,
-                       W = round(W, 4),
-                       P_valor = round(p_val, 4))
+  tabela <- data.frame(Covariate = names,
+                       Df = gl,
+                       Chi = round(W, 4),
+                       'Pr(>Chi)' = round(p_val, 4),
+                       check.names = F)
   
   #----------------------------------------------------------------
   
-  return(tabela)
+  cat("MANOVA type III using Wald statistic for dispersion parameters\n\n")
+  cat("Call: ")
+  cat(paste0('~ ', preds[[1]]))
+  cat("\n")
+  print(tabela)
+  
+  return(invisible(tabela))
+  
 }

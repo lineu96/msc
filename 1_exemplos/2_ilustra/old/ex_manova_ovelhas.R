@@ -5,7 +5,7 @@
 
 library(mcglm)
 library(Matrix)
-source('~/msc/3_th_mcglm/0_funcoes/functions.R')
+source('~/msc/0_funcoes/functions.R')
 
 #---------------------------------------------------------------
 # Análise comportamental de ovelhas submetidas à intervenção 

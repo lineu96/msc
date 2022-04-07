@@ -7,13 +7,7 @@
 
 library(ggplot2)
 
-load("~/msc/3_th_mcglm/4_estudo_simulacao/SIMULA/betas/results.RData")
-
-#-----------------------------------------------------------------
-
-time_taken_uni
-time_taken_tri
-time_taken_tri2
+load("~/msc/3_estudo_simulacao/betas/results.RData")
 
 #-----------------------------------------------------------------
 

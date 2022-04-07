@@ -34,6 +34,20 @@ mc_manova_I <- function(object){
   
   #----------------------------------------------------------------
   
+  # ERROS E AVISOS
+  
+  preds <- c()
+  
+  for (i in 1:n_resp) {
+    preds[i] <- sub(".*~", "",gsub(" ", "", as.character(object$linear_pred)[i]))
+  }
+  
+  if(length(unique(preds)) != 1) stop("For MANOVA functions, the predictors must be the same for all outcomes.")
+  
+  if(n_resp == 1) warning("You are applying a MANOVA function to a univariate problem.")  
+  
+  #----------------------------------------------------------------
+  
   # vcov desconsiderando parametros de dispersao e potencia
   vcov_betas <- vcov(object)[1:n_beta, 1:n_beta]
   
@@ -119,13 +133,21 @@ mc_manova_I <- function(object){
     p_val[i] <- pchisq(W[i], df = gl[i], lower.tail = FALSE)
   }
   
-  tabela <- data.frame(Variável = c("Intercept", 
-                                    attr(terms(object$linear_pred[[1]]), "term.labels")),
-                       GL = gl,
-                       W = round(W, 4),
-                       P_valor = round(p_val, 4))
+  tabela <- data.frame(Covariate = c("Intercept", 
+                                     attr(terms(object$linear_pred[[1]]), "term.labels")),
+                       Df = gl,
+                       Chi = round(W, 4),
+                       'Pr(>Chi)' = round(p_val, 4),
+                       check.names = F)
   
   #----------------------------------------------------------------
   
-  return(tabela)
+  cat("MANOVA type I using Wald statistic for fixed effects\n\n")
+  cat("Call: ")
+  cat(paste0('~ ', preds[[1]]))
+  cat("\n")
+  print(tabela)
+  
+  return(invisible(tabela))
+  
 }

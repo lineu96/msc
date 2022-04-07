@@ -73,14 +73,6 @@ mc_multcomp <- function(object, effect, data){
   
   vcov_betas <- list()
   
-  #vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
-  
-  #for (i in 2:n_resp) {
-  #  vcov_betas[[i]] <- 
-  #    vcov(object)[(cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i]), 
-  #                 (cumsum(n_beta)[i-1]+1):(cumsum(n_beta)[i])] 
-  #  }
-  
   if (n_resp == 1) {
     vcov_betas[[1]] <- vcov(object)[1:n_beta[1], 1:n_beta[1]]
   } else {
@@ -114,10 +106,22 @@ mc_multcomp <- function(object, effect, data){
     } 
     tabela[[j]] <- 
       data.frame(Contrast = names(K2[[j]]),
-                 GL = gl,
-                 W = round(W, 4),
-                 P_valor = round(p.adjust(p_val, method = 'bonferroni'), 4))
+                 Df = gl,
+                 Chi = round(W, 4),
+                 'Pr(>Chi)' = round(p.adjust(p_val, method = 'bonferroni'), 4),
+                 check.names = F)
   }  
   
-  return(tabela)  
+  #----------------------------------------------------------------
+  
+  cat("Multiple comparisons test for each outcome using Wald statistic\n\n")
+  for (i in 1:n_resp) {
+    cat("Call: ")
+    print(object$linear_pred[[i]])
+    cat("\n")
+    print(tabela[[i]])
+    cat("\n")
+  }
+  
+  return(invisible(tabela))  
 }

@@ -55,18 +55,6 @@ mc_anova_disp <- function(object, p_var, names){
   
   #----------------------------------------------------------------
   
-  # Índice que associa tau a matriz Z
-  
-  #p_var <- list()
-  
-  #for (i in 1:n_resp) {
-  #  p_var[[i]] <- 0:(n_tau[i]-1)
-  #}  
-  
-  p_var <- p_var
-  
-  #----------------------------------------------------------------
-  
   # Matriz L para todos os parâmetros (Hypothesis matrix), por resposta
   L_all <- list()
   
@@ -107,11 +95,23 @@ mc_anova_disp <- function(object, p_var, names){
       
     } 
     tabela[[j]] <- 
-      data.frame(Variável = names[[j]],
-                 GL = gl,
-                 W = round(W, 4),
-                 P_valor = round(p_val, 4))
+      data.frame(Dispersion = names[[j]],
+                 Df = gl,
+                 Chi = round(W, 4),
+                 'Pr(>Chi)' = round(p_val, 4),
+                 check.names = F)
   }  
   
-  return(tabela)  
+  #----------------------------------------------------------------
+  
+  cat("ANOVA type III using Wald statistic for dispersion parameters\n\n")
+  for (i in 1:n_resp) {
+    cat("Call: ")
+    print(object$linear_pred[[i]])
+    cat("\n")
+    print(tabela[[i]])
+    cat("\n")
+  }
+  
+  return(invisible(tabela)) 
 }

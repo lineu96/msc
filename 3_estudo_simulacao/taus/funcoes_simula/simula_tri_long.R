@@ -1,4 +1,4 @@
-simula_tri_long <- function(sample_size = 10,
+simula_tri_long <- function(sample_size = 50,
                             n_datasets = 2,
                             n_rep = 5,
                             taus = c(0.5,0.5),
@@ -92,77 +92,60 @@ simula_tri_long <- function(sample_size = 10,
   #----------------------------------------------------------------
   
   # elementos mcglm
+
+  form1 = y1~1
+  form2 = y2~1
+  form3 = y3/1~1
   
-  # caso seja binomial a resposta precisa ser declarada como razão
-  # y/Ntrial ~x
+  link_normal <- "identity"
+  variance_normal <- "constant"
   
-  switch(distribution,
-         "binomial" = {form1 = y1/1~1
-         form2 = y2/1~1
-         form3 = y3/1~1},
-         {form1 = y1~1
-         form2 = y2~1
-         form3 = y3~1}
-  )
+  link_poisson <- "log"
+  variance_poisson <- "tweedie"
+  
+  link_binomial <- "logit"
+  variance_binomial <- "binomialP"
   
   # preditor matricial
   Z0 <- mc_id(datasets[[1]]) # matriz identidade para o preditor matricial
   Z1 <- mc_mixed(~0 + as.factor(id), data = datasets[[1]])
-  
+
   #----------------------------------------------------------------
   
   # ajuste de um modelo por conjunto de dados
   
   models <- list()
   
-  switch(distribution,
-         "poisson" = {
-           for (i in 1:n_datasets) {
-             fit <- 
-               mcglm(linear_pred = c(form1,
-                                     form2,
-                                     form3),
-                     matrix_pred = list(c(Z0, Z1),
-                                        c(Z0, Z1),
-                                        c(Z0, Z1)),
-                     link = c(link,link,link), 
-                     variance = c(variance,variance,variance),
-                     data = datasets[[i]],
-                     control_algorithm = list(#verbose = T,
-                       tuning = 0.5,
-                       max_iter = 100,
-                       tol = 0.05))
-             
-             models[[i]] <- fit
-             print(i)
-           }
-         },
-         
-         "binomial" = {
-           for (i in 1:n_datasets) {
-             fit <- 
-               mcglm(linear_pred = c(form1,
-                                     form2,
-                                     form3),
-                     matrix_pred = list(c(Z0, Z1),
-                                        c(Z0, Z1),
-                                        c(Z0, Z1)),
-                     link = c(link, link, link), 
-                     variance = c(variance,
-                                  variance,
-                                  variance),
-                     Ntrial = list(1,1,1),
-                     data = datasets[[i]],
-                     control_algorithm = list(#verbose = T,
-                       tuning = 0.5,
-                       max_iter = 100,
-                       tol = 0.05))
-             
-             models[[i]] <- fit
-             print(i)
-           }
-         }
-  )
+  if (sample_size < 100) {
+    ca <- list(#verbose = T,
+      tuning = 1,
+      max_iter = 100,
+      tol = 0.5) 
+    
+  } else {
+    ca <- list() 
+  }
+  
+  for (i in 1:n_datasets) {
+    fit <- 
+      mcglm(linear_pred = c(form1, 
+                            form2, 
+                            form3),
+            matrix_pred = list(c(Z0, Z1),
+                               c(Z0, Z1),
+                               c(Z0, Z1)),
+            link = c(link_normal, 
+                     link_poisson, 
+                     link_binomial), 
+            variance = c(variance_normal, 
+                         variance_poisson, 
+                         variance_binomial),
+            data = datasets[[i]],
+            control_algorithm = ca)
+    
+    models[[i]] <- fit
+    print(i)
+  }
   
   #----------------------------------------------------------------
   

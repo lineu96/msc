@@ -53,6 +53,20 @@ mc_mult_multcomp <- function(object, effect, data){
   
   #----------------------------------------------------------------
   
+  # ERROS E AVISOS
+  
+  preds <- c()
+  
+  for (i in 1:n_resp) {
+    preds[i] <- sub(".*~", "",gsub(" ", "", as.character(object$linear_pred)[i]))
+  }
+  
+  if(length(unique(preds)) != 1) stop("The predictors must be the same for all outcomes.")
+  
+  if(n_resp == 1) warning("You are applying a multivariate function to a univariate problem.")  
+  
+  #----------------------------------------------------------------
+  
   # vcov desconsiderando parametros de dispersao e potencia
   vcov_betas <- vcov(object)[1:n_beta, 1:n_beta]
   
@@ -91,9 +105,19 @@ mc_mult_multcomp <- function(object, effect, data){
   }
   
   tabela <- data.frame(Contrast = names(K2),
-                       GL = gl,
-                       W = round(W, 4),
-                       P_valor = round(p.adjust(p_val, method = 'bonferroni'), 4))
+                       Df = gl,
+                       Chi = round(W, 4),
+                       'Pr(>Chi)' = round(p.adjust(p_val, method = 'bonferroni'), 4),
+                       check.names = F)
   
-  return(tabela)
+  #----------------------------------------------------------------
+  
+  cat("Multivariate multiple comparisons test using Wald statistic\n\n")
+  cat("Call: ")
+  cat(paste0('~ ', preds[[1]]))
+  cat("\n")
+  print(tabela)
+  
+  return(invisible(tabela))
+  
 }
