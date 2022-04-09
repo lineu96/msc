@@ -1,0 +1,240 @@
+
+\chapter{Implementação computacional}
+
+Um dos objetivos deste trabalho consiste em implementar na linguagem R os testes apresentados no \autoref{cap:proposta} com o intuito de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}. Este capítulo é destinado à apresentação das implementações computacionais em R das funções que usam o teste Wald para avaliar parâmetros de McGLMs.
+
+No que diz respeito à implementações do teste Wald em outros contextos no R, o pacote \emph{lmtest} \citep{lmtest} possui uma função genérica para realizar testes Wald para comparar modelos lineares e lineares generalizados aninhados. Já o pacote \emph{survey} \citep{survey1}; \citep{survey2};\citep{survey3} possui uma função que efetua testes Wald que, por padrão, testa se todos os coeficientes associados a um determinado termo de regressão são zero, mas é possível especificar hipóteses com outros valores. 
+
+O pacote \emph{car} \citep{car} possui uma implementação para testar hipóteses lineares sobre parâmetros de modelos lineares, modelos lineares generalizados, modelos lineares multivariados, modelos de efeitos mistos, dentre outros; nesta implementação o usuário tem total controle de que parâmetros testar e com quais valores confrontar na hipótese nula. 
+
+Quanto aos quadros de análise de variância, o R possui a função \emph{anova()} no pacote padrão \emph{stats} \citep{softwareR} aplicável a modelos lineares e lineares generalizados. Já o pacote \emph{car} \citep{car} possui uma função que retorna quadros de análise de variância dos tipos II e III para diversos modelos. Para comparações múltiplas, um dos principais pacotes disponíveis é o \emph{multcomp} \citep{multcomp} que fornece uma interface para testes de comparações múltiplas para modelos paramétricos.
+
+Contudo, quando se trata de modelos multivariados de covariância linear generalizada ajustados no pacote \emph{mcglm} existe apenas um tipo de análise de variância univariada implementada na biblioteca. Não existem opções para realização de testes de hipóteses lineares gerais, análises de variância uni ou multivariadas, nem testes de comparações múltiplas utilizando a estatística de Wald. 
+
+%=====================================================
+
+\section{Funções R}
+
+Todas as funções implementadas geram resultados mostrando graus de liberdade e valores-p baseados no teste Wald aplicado a um McGLM. A \autoref{tab:funcoes} mostra os nomes e uma breve descrição das funções implementadas.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\hline
+Função                   & Descrição \\ 
+\hline
+
+mc\_anova\_I()           & ANOVA  tipo I \\
+mc\_anova\_II()          & ANOVA  tipo II \\
+mc\_anova\_III()         & ANOVA  tipo III \\
+
+mc\_manova\_I()          & MANOVA tipo I \\
+mc\_manova\_II()         & MANOVA tipo II \\
+mc\_manova\_III()        & MANOVA tipo III \\
+
+mc\_anova\_disp()        & ANOVA  tipo III para dispersão \\
+mc\_manova\_disp()       & MANOVA tipo III para dispersão \\
+
+mc\_multcomp()           & Testes de comparações múltiplas por resposta \\
+
+mc\_mult\_multcomp()     & Testes de comparações múltiplas multivariado \\
+
+mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuário \\
+
+\hline
+\end{tabular}
+\caption{Funções implementadas}
+\label{tab:funcoes}
+\end{table}
+
+As funções \emph{mc\_anova\_I()}, \emph{mc\_anova\_II()} e \emph{mc\_anova\_III()} são funções destinadas à avaliação dos parâmetros de regressão do modelo; elas geram quadros de análise de variância por resposta para um modelo \emph{mcglm}. As funções \emph{mc\_manova\_I()}, \emph{mc\_manova\_II()} e \emph{mc\_manova\_III()} também são funções destinadas à avaliação dos parâmetros de regressão do modelo; elas geram quadros de análise de variância multivariada para um modelo \emph{mcglm}. Enquanto as funções de análise de variância univariadas visam avaliar o efeito das variáveis para cada resposta, as multivariadas visam avaliar o efeito das variáveis explicativas em todas as variáveis resposta simultaneamente. As nomenclaturas seguem o que foi exposto no \autoref{cap:proposta} e as funções recebem como argumento apenas o objeto que armazena o modelo devidamente ajustado.
+
+Tal como descrito no \autoref{cap:referencial}, a matriz $\boldsymbol{\Omega({\tau})}$ tem como objetivo modelar a correlação existente entre linhas do conjunto de dados por meio do chamado preditor linear matricial. Na prática temos, para cada matriz do preditor matricial, um parâmetro de dispersão $\tau_d$. De modo análogo ao que é feito para o preditor de média, podemos usar estes parâmetros para avaliar o efeito das unidades correlacionadas no estudo. Neste sentido implementamos as funções \emph{mc\_anova\_disp()} e \emph{mc\_manova\_disp()}. 
+
+A função \emph{mc\_anova\_disp()} efetua uma análise de variância do tipo III para os parâmetros de dispersão do modelo. Tal como as demais funções com prefixo \emph{mc\_anova}, é gerado um quadro para cada variável resposta, isto é, nos casos mais gerais avaliamos se há evidência que nos permita afirmar que determinado parâmetro de dispersão é igual a 0, ou seja, se existe efeito das medidas correlacionadas tal como especificado no preditor matricial para aquela resposta. A função recebe como argumento o objeto em que está armazenado o modelo, uma lista de índices indicando de que forma os parâmetros dispersão devem ser testados para cada resposta, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
+
+Já a função \emph{mc\_manova\_disp()} pode ser utilizada em um modelo multivariado em que os preditores matriciais são iguais para todas as respostas e há o interesse em avaliar se o efeito das medidas correlacionadas é o mesmo para todas as respostas. Esta função recebe como argumento o objeto em que está armazenado o modelo, um vetor de índices indicando de que forma os parâmetros dispersão devem ser testados, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
+
+Para testes de comparações múltiplas foram implementadas as funções \emph{mc\_multcomp()} e \emph{mc\_mult\_multcomp()}. Estas funções devem ser usadas como complemento às funções de análise de variância e análise de variância multivariada quando estas apontam para efeito significativo de variáveis explicativas categóricas. As funções para comparações múltiplas são usadas para realizar comparações duas a duas e identificar quais níveis diferem entre si. Estas funções recebem como argumento o modelo, a variável ou variáveis em que há interesse em avaliar comparações entre níveis e também os dados usados para ajustar o modelo.
+
+Por fim, a função \emph{mc\_linear\_hypothesis()} é a implementação computacional em R que permite a execução de qualquer um dos testes apresentados no \autoref{cap:proposta}. É a função mais flexível que temos no conjunto de implementações. Com ela é possível especificar qualquer tipo de hipótese sobre parâmetros de regressão, dispersão ou potência de um modelo \emph{mcglm}. Também é possível especificar hipóteses sobre múltiplos parâmetros e o vetor de valores da hipótese nula é definido pelo usuário. Esta função recebe como argumentos o modelo e um vetor contendo os parâmetros que devem ser testados e o os valores sob hipótese nula. Com algum trabalho, por meio da função de hipóteses lineares gerais, é possível replicar os resultados obtidos pelas funções de análise de variância.
+
+
+%=====================================================
+
+\section{Exemplos}
+
+Nesta seção fornecemos exemplos práticos de utilização das funções implementadas com base em um modelo multivariado ajustado no pacote \emph{mcglm}.
+
+Os dados são de um experimento feito em uma casa de vegetação com soja. O delineamento experimental conta com duas plantas por parcela em que cada unidade foi submetida a diferentes combinações de água e adubo. Existem três níveis de um fator correspondente à quantidade de água no solo (\emph{water}) e cinco níveis de adubação com potássio (\emph{pot}). Além disso as parcelas foram dispostas em cinco blocos (\emph{block}). Três variáveis resposta foram avaliadas: a produtividade de grãos (\emph{grain}), número de sementes (\emph{seeds}) e número de ervilhas viáveis por planta (\emph{viablepeas}).
+
+Trata-se de um conjunto de dados interessante para exemplificar o uso das funções implementadas pois existem três variáveis resposta de tipos distintos: a produtividade de grãos é uma variável contínua, o número de sementes é uma contagem, e o número de ervilhas viáveis por planta é um exemplo de variável binomial. O conjunto de dados está disponível no pacote \emph{mcglm}.
+
+<<functions, echo=FALSE, message=FALSE, warning=FALSE, results='hide'>>=
+source('~/msc/0_funcoes/functions.R')
+@
+
+<<soya, message=FALSE, warning=FALSE, results='hide'>>=
+#install.packages("mcglm")
+library(mcglm)
+library(Matrix)
+soya
+@
+
+O objetivo da análise é avaliar o efeito de adubação e água sobre as três variáveis resposta de interesse. Para fins de análise consideramos como variáveis explicativas os níveis de água, adubação e também as interações entre estes dois fatores. Um objetivo secundário é avaliar se medidas tomadas em unidades no mesmo bloco são correlacionadas. O primeiro passo é especificar os preditores lineares.
+
+<<lin_pred>>=
+form.grain <- grain ~ water * pot
+form.seed <- seeds ~ water * pot
+
+soya$viablepeasP <- soya$viablepeas / soya$totalpeas
+form.peas <- viablepeasP ~ water * pot
+@
+
+O segundo passo é especificar as matrizes do preditor linear matricial. Aqui incluímos uma matriz identidade, que faz o papel de intercepto e uma matriz bloco diagonal indicando as medidas que foram tomadas em um mesmo bloco. Para cada matriz, um parâmetro de dispersão será estimado por resposta.
+
+<<mat_pred>>=
+Z0 <- mc_id(soya)
+Z1 <- mc_mixed(~0 + factor(block), data = soya)
+@
+
+Com os elementos definidos, podemos ajustar o modelo. Por meio da função \emph{mcglm()} especificamos os preditores lineares para média, as matrizes dos preditores matriciais, as funções de ligação, de variância, o número de tentativas para a variável binomial e se temos interesse em estimar ou não os parâmetros de potência. Para mais detalhes sobre especificação de preditores e ajuste de McGLMs, consulte \citet{Bonat16} e \citet{mcglm}.
+
+<<fit, message=FALSE, results='hide'>>=
+fit_joint <- mcglm(linear_pred = c(form.grain, 
+                                   form.seed, 
+                                   form.peas),
+                   matrix_pred = list(c(Z0, Z1), 
+                                      c(Z0, Z1), 
+                                      c(Z0, Z1)),
+                   link = c("identity",
+                            "log", 
+                            "logit"),
+                   variance = c("constant", 
+                                "tweedie", 
+                                "binomialP"),
+                   Ntrial = list(NULL, 
+                                 NULL, 
+                                 soya$totalpeas),
+                   power_fixed = c(T,T,T),
+                   data = soya)
+@
+
+
+Para avaliar alguns resultados do modelo é possível utilizar a função \emph{summary()} que retorna a fórmula dos preditores lineares, as funções de ligação, de variância, de covariância especificadas para ajustar o modelo, as estimativas dos parâmetros de regressão e dispersão bem como os erros padrões.
+
+Com o modelo ajustado podemos aplicar as funções implementadas para avaliar os parâmetros de regressão e dispersão do modelo. As funções de análise de variância dependem apenas do objeto que contém o modelo ajustado e retornam um quadro para cada resposta.
+
+<<anovas>>=
+mc_anova_I(fit_joint)
+mc_anova_II(fit_joint)
+mc_anova_III(fit_joint)
+@
+
+De forma similar, as funções de análise de variância multivariadas também dependem apenas do modelo ajustado. É importante notar que para fins práticos as funções de análise de variância multivariada necessitam que os preditores para todas as respostas sejam os mesmos.
+
+<<manovas>>=
+mc_manova_I(fit_joint)
+mc_manova_II(fit_joint)
+mc_manova_III(fit_joint)
+@
+
+As funções para avaliar os parâmetros de dispersão requerem a especificação de mais argumentos: um deles que determina a relação entre parâmetros de dispersão e o outro que especifica os nomes que aparecerão na saída final.
+
+<<disp>>=
+mc_anova_disp(fit_joint,
+              p_var = list(c(0,1), c(0,1), c(0,1)),
+              names = list(c('tau10', 'tau11'),
+                           c('tau20', 'tau11'),
+                           c('tau30', 'tau11')))
+
+mc_manova_disp(fit_joint,
+              p_var = c(0,1),
+              names = c('tau11', 'tau21'))
+@
+
+Para hipóteses lineares gerais sobre parâmetros de regressão, dispersão e potência (quando houver) basta especificar o modelo e a hipótese a ser testada. Para identificar os parâmetros de interesse, utilize a função \emph{coef()}.
+
+<<lin_hyp>>=
+mc_linear_hypothesis(object =  fit_joint, 
+                     hypothesis = c('beta11 = 0'))
+
+mc_linear_hypothesis(object =  fit_joint, 
+                     hypothesis = c('beta11 = 0', 
+                                    'beta12 = 0'))
+
+mc_linear_hypothesis(object =  fit_joint, 
+                     hypothesis = c('beta11 = 0', 
+                                    'beta12 = 0',
+                                    'beta21 = 0',
+                                    'beta22 = 0',
+                                    'beta31 = 0',
+                                    'beta32 = 0'))
+
+mc_linear_hypothesis(object =  fit_joint, 
+                     hypothesis = c('beta11 = beta21'))
+
+mc_linear_hypothesis(object =  fit_joint, 
+                     hypothesis = c('tau11 = 0'))
+
+mc_linear_hypothesis(object =  fit_joint, 
+                     hypothesis = c('tau11 = 0',
+                                    'tau21 = 0',
+                                    'tau31 = 0'))
+
+mc_linear_hypothesis(object =  fit_joint,
+                     hypothesis = c('tau12 = tau22'))
+@
+
+Por fim, podemos utilizar as funções para testes de comparações múltiplas para avaliar diferenças existentes entre níveis de variáveis explicativas categóricas incluídas no modelo. Esta tarefa pode ser feita por variável resposta.
+
+<<multcomp>>=
+mc_multcomp(object = fit_joint,
+            effect = list(c('water'), 
+                          c('water'),
+                          c('water')), 
+            data = soya)
+
+mc_multcomp(object = fit_joint,
+            effect = list(c('pot'), 
+                          c('pot'),
+                          c('pot')), 
+            data = soya)
+
+mc_multcomp(object = fit_joint,
+            effect = list(c('water', 'pot'), 
+                          c('water', 'pot'),
+                          c('water', 'pot')), 
+            data = soya)
+@
+
+No caso de preditores iguais para todas as respostas é possível realizar um teste de comparações múltiplas multivariado.
+
+<<mult_multcomp>>=
+mc_mult_multcomp(object = fit_joint, 
+                 effect = c('water'), 
+                 data = soya)
+
+mc_mult_multcomp(object = fit_joint, 
+                 effect = c('pot'), 
+                 data = soya)
+
+mc_mult_multcomp(object = fit_joint, 
+                 effect = c('water', 'pot'), 
+                 data = soya)
+@
+
+
+%=====================================================
+
+\textbf{TODO}
+
+\begin{itemize}
+
+  \item \textbf{RESULTADOS DEMAIS, QUAIS MANTER?}
+
+  \item \textbf{COLOCAR FUNÇÕES NO APÊNDICE DA DISSERTAÇÃO}
+
+\end{itemize}
+
+%=====================================================

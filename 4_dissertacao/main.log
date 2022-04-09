@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  15 MAR 2022 12:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  8 APR 2022 22:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1190,20 +1190,20 @@ Package microtype Info: Character `textquestiondown ' is missing
  (./1-introducao/texto.tex
 Cap\'{\i }tulo 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 9.
+(Font)              scaled to size 12.0pt on input line 10.
 [10
 
 
 
 ] [11] [12] [13] [14] [15]
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 93.
+e 94.
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 93.
+(Font)              scaled to size 12.0pt on input line 94.
 ) [16]
 \openout2 = `2-referencial/texto.aux'.
 
@@ -1211,20 +1211,20 @@ LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (./2-referencial/texto.tex
 Cap\'{\i }tulo 2.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 17.
+(Font)              scaled to size 12.0pt on input line 18.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.8pt on input line 17.
+(Font)              scaled to size 8.8pt on input line 18.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 6.6pt on input line 17.
+(Font)              scaled to size 6.6pt on input line 18.
 [17
 
 
 
 ] [18] [19] [20]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 170.
+(Font)              scaled to size 8.8pt on input line 171.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 170.
+(Font)              scaled to size 6.6pt on input line 171.
  [21] [22] [23] [24] [25] [26] [27]) [28]
 \openout2 = `3-trabalhos/texto.aux'.
 
@@ -1249,80 +1249,54 @@ Cap\'{\i }tulo 4.
 
  (./5-implementacao/texto.tex
 Cap\'{\i }tulo 5.
-) [41
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[41
 
 
 
-]
-\openout2 = `6-simulacao/texto.aux'.
+] [42]
 
- (./6-simulacao/texto.tex
-Cap\'{\i }tulo 6.
-) [42
+! LaTeX Error: Environment knitrout undefined.
 
-
-
-]
-\openout2 = `7-aplicacao/texto.aux'.
-
- (./7-aplicacao/texto.tex
-Cap\'{\i }tulo 7.
-[43
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.75 \begin{knitrout}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
 
+! Package xcolor Error: Undefined color `fgcolor'.
 
-] [44]
-</home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf, id=776, 578.16pt x
- 433.62pt>
-File: /home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf Graphic file (
-type pdf)
-<use /home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf>
-Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/descritiva
-.pdf  used on input line 76.
-(pdftex.def)             Requested size: 426.79134pt x 320.09303pt.
- [45] [46 </home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf>] [47]
-</home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf, id=798, 505.89pt x 2
-16.81pt>
-File: /home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf Graphic file (ty
-pe pdf)
-<use /home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf>
-Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.p
-df  used on input line 153.
-(pdftex.def)             Requested size: 426.79134pt x 182.91313pt.
-</home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf, id=799, 505.89pt x 2
-16.81pt>
-File: /home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf Graphic file (ty
-pe pdf)
-<use /home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf>
-Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.p
-df  used on input line 160.
-(pdftex.def)             Requested size: 426.79134pt x 182.91313pt.
- [48 </home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf>]
-</home/lacf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf, id=812, 505.89pt
- x 289.08pt>
-File: /home/lacf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf Graphic file
- (type pdf)
-<use /home/lacf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf>
-Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/fig_predit
-os.pdf  used on input line 193.
-(pdftex.def)             Requested size: 426.79134pt x 243.88417pt.
- [49 </home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf>]) [50 </home/la
-cf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf>]
-\openout2 = `8-conclusao/texto.aux'.
-
- (./8-conclusao/texto.tex
-Cap\'{\i }tulo 8.
-) [51
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.76 ...}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+                                                  \begin{kframe}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
+! LaTeX Error: Environment kframe undefined.
 
-] (./main.bbl [52
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.76 ...0.969, 0.969}\color{fgcolor}\begin{kframe}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
-
-] [53] [54] [55]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 36
-2.
-
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 77
+.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
@@ -1331,14 +1305,4164 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--364
+! Undefined control sequence.
+l.78 \hlcom
+           {#install.packages("mcglm")}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.79 \hlkwd
+           {library}\hlstd{(mcglm)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.79 \hlkwd{library}\hlstd
+                          {(mcglm)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.80 \hlkwd
+           {library}\hlstd{(Matrix)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.80 \hlkwd{library}\hlstd
+                          {(Matrix)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.81 \hlstd
+           {soya}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{kframe}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83 \end{kframe}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{knitrout}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84 \end{knitrout}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[43]
+
+! LaTeX Error: Environment knitrout undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 \begin{knitrout}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package xcolor Error: Undefined color `fgcolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.89 ...}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+                                                  \begin{kframe}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment kframe undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.89 ...0.969, 0.969}\color{fgcolor}\begin{kframe}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.91 \hlstd
+           {form.grain} \hlkwb{<-} \hlstd{grain} \hlopt{~} \hlstd{water} \hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.91 \hlstd{form.grain} \hlkwb
+                              {<-} \hlstd{grain} \hlopt{~} \hlstd{water} \hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.91 \hlstd{form.grain} \hlkwb{<-} \hlstd
+                                         {grain} \hlopt{~} \hlstd{water} \hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.91 ...orm.grain} \hlkwb{<-} \hlstd{grain} \hlopt
+                                                  {~} \hlstd{water} \hlopt{*...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.91 ... \hlkwb{<-} \hlstd{grain} \hlopt{~} \hlstd
+                                                  {water} \hlopt{*} \hlstd{pot}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.91 ...lstd{grain} \hlopt{~} \hlstd{water} \hlopt
+                                                  {*} \hlstd{pot}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.91 ...} \hlopt{~} \hlstd{water} \hlopt{*} \hlstd
+                                                  {pot}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.92 \hlstd
+           {form.seed} \hlkwb{<-} \hlstd{seeds} \hlopt{~} \hlstd{water} \hlo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.92 \hlstd{form.seed} \hlkwb
+                             {<-} \hlstd{seeds} \hlopt{~} \hlstd{water} \hlo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.92 \hlstd{form.seed} \hlkwb{<-} \hlstd
+                                        {seeds} \hlopt{~} \hlstd{water} \hlo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.92 ...form.seed} \hlkwb{<-} \hlstd{seeds} \hlopt
+                                                  {~} \hlstd{water} \hlopt{*...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.92 ... \hlkwb{<-} \hlstd{seeds} \hlopt{~} \hlstd
+                                                  {water} \hlopt{*} \hlstd{pot}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.92 ...lstd{seeds} \hlopt{~} \hlstd{water} \hlopt
+                                                  {*} \hlstd{pot}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.92 ...} \hlopt{~} \hlstd{water} \hlopt{*} \hlstd
+                                                  {pot}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.94 \hlstd
+           {soya}\hlopt{$}\hlstd{viablepeasP} \hlkwb{<-} \hlstd{soya}\hlopt{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.94 \hlstd{soya}\hlopt
+                       {$}\hlstd{viablepeasP} \hlkwb{<-} \hlstd{soya}\hlopt{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.94 \hlstd{soya}\hlopt{$}\hlstd
+                                {viablepeasP} \hlkwb{<-} \hlstd{soya}\hlopt{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.94 ...d{soya}\hlopt{$}\hlstd{viablepeasP} \hlkwb
+                                                  {<-} \hlstd{soya}\hlopt{$}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.94 ...pt{$}\hlstd{viablepeasP} \hlkwb{<-} \hlstd
+                                                  {soya}\hlopt{$}\hlstd{viab...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.94 ...viablepeasP} \hlkwb{<-} \hlstd{soya}\hlopt
+                                                  {$}\hlstd{viablepeas} \hlo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.94 ...sP} \hlkwb{<-} \hlstd{soya}\hlopt{$}\hlstd
+                                                  {viablepeas} \hlopt{/} \hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.94 ...td{soya}\hlopt{$}\hlstd{viablepeas} \hlopt
+                                                  {/} \hlstd{soya}\hlopt{$}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.94 ...lopt{$}\hlstd{viablepeas} \hlopt{/} \hlstd
+                                                  {soya}\hlopt{$}\hlstd{tota...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.94 ...d{viablepeas} \hlopt{/} \hlstd{soya}\hlopt
+                                                  {$}\hlstd{totalpeas}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.94 ...eas} \hlopt{/} \hlstd{soya}\hlopt{$}\hlstd
+                                                  {totalpeas}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.95 \hlstd
+           {form.peas} \hlkwb{<-} \hlstd{viablepeasP} \hlopt{~} \hlstd{water...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.95 \hlstd{form.peas} \hlkwb
+                             {<-} \hlstd{viablepeasP} \hlopt{~} \hlstd{water...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.95 \hlstd{form.peas} \hlkwb{<-} \hlstd
+                                        {viablepeasP} \hlopt{~} \hlstd{water...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.95 ...eas} \hlkwb{<-} \hlstd{viablepeasP} \hlopt
+                                                  {~} \hlstd{water} \hlopt{*...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.95 ...b{<-} \hlstd{viablepeasP} \hlopt{~} \hlstd
+                                                  {water} \hlopt{*} \hlstd{pot}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.95 ...iablepeasP} \hlopt{~} \hlstd{water} \hlopt
+                                                  {*} \hlstd{pot}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.95 ...} \hlopt{~} \hlstd{water} \hlopt{*} \hlstd
+                                                  {pot}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{kframe}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.97 \end{kframe}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{knitrout}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.98 \end{knitrout}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment knitrout undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102 \begin{knitrout}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package xcolor Error: Undefined color `fgcolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103 ...{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+                                                  \begin{kframe}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment kframe undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103 ....969, 0.969}\color{fgcolor}\begin{kframe}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.105 \hlstd
+            {Z0} \hlkwb{<-} \hlkwd{mc_id}\hlstd{(soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.105 \hlstd{Z0} \hlkwb
+                       {<-} \hlkwd{mc_id}\hlstd{(soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.105 \hlstd{Z0} \hlkwb{<-} \hlkwd
+                                  {mc_id}\hlstd{(soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.105 \hlstd{Z0} \hlkwb{<-} \hlkwd{mc_id}\hlstd
+                                               {(soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.106 \hlstd
+            {Z1} \hlkwb{<-} \hlkwd{mc_mixed}\hlstd{(}\hlopt{~}\hlnum{0} \hlo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.106 \hlstd{Z1} \hlkwb
+                       {<-} \hlkwd{mc_mixed}\hlstd{(}\hlopt{~}\hlnum{0} \hlo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.106 \hlstd{Z1} \hlkwb{<-} \hlkwd
+                                  {mc_mixed}\hlstd{(}\hlopt{~}\hlnum{0} \hlo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.106 \hlstd{Z1} \hlkwb{<-} \hlkwd{mc_mixed}\hlstd
+                                                  {(}\hlopt{~}\hlnum{0} \hlo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.106 ...hlkwb{<-} \hlkwd{mc_mixed}\hlstd{(}\hlopt
+                                                  {~}\hlnum{0} \hlopt{+} \hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.106 ... \hlkwd{mc_mixed}\hlstd{(}\hlopt{~}\hlnum
+                                                  {0} \hlopt{+} \hlkwd{facto...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.106 ..._mixed}\hlstd{(}\hlopt{~}\hlnum{0} \hlopt
+                                                  {+} \hlkwd{factor}\hlstd{(...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.106 ...std{(}\hlopt{~}\hlnum{0} \hlopt{+} \hlkwd
+                                                  {factor}\hlstd{(block),} \...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.106 ...}\hlnum{0} \hlopt{+} \hlkwd{factor}\hlstd
+                                                  {(block),} \hlkwc{data} \h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.106 ...{+} \hlkwd{factor}\hlstd{(block),} \hlkwc
+                                                  {data} \hlstd{= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.106 ...ctor}\hlstd{(block),} \hlkwc{data} \hlstd
+                                                  {= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{kframe}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.108 \end{kframe}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{knitrout}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109 \end{knitrout}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment knitrout undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.113 \begin{knitrout}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package xcolor Error: Undefined color `fgcolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 ...{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+                                                  \begin{kframe}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment kframe undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 ....969, 0.969}\color{fgcolor}\begin{kframe}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.116 \hlstd
+            {fit_joint} \hlkwb{<-} \hlkwd{mcglm}\hlstd{(}\hlkwc{linear_pred}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.116 \hlstd{fit_joint} \hlkwb
+                              {<-} \hlkwd{mcglm}\hlstd{(}\hlkwc{linear_pred}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.116 \hlstd{fit_joint} \hlkwb{<-} \hlkwd
+                                         {mcglm}\hlstd{(}\hlkwc{linear_pred}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.116 ...fit_joint} \hlkwb{<-} \hlkwd{mcglm}\hlstd
+                                                  {(}\hlkwc{linear_pred} \hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.116 ...} \hlkwb{<-} \hlkwd{mcglm}\hlstd{(}\hlkwc
+                                                  {linear_pred} \hlstd{=} \h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.116 ...mcglm}\hlstd{(}\hlkwc{linear_pred} \hlstd
+                                                  {=} \hlkwd{c}\hlstd{(form....
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.116 ...td{(}\hlkwc{linear_pred} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(form.grain,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.116 ...wc{linear_pred} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(form.grain,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.117                                    \hlstd
+                                               {form.seed,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.118                                    \hlstd
+                                               {form.peas),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.119                    \hlkwc
+                               {matrix_pred} \hlstd{=} \hlkwd{list}\hlstd{(}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.119 ...               \hlkwc{matrix_pred} \hlstd
+                                                  {=} \hlkwd{list}\hlstd{(}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.119 ...     \hlkwc{matrix_pred} \hlstd{=} \hlkwd
+                                                  {list}\hlstd{(}\hlkwd{c}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.119 ...matrix_pred} \hlstd{=} \hlkwd{list}\hlstd
+                                                  {(}\hlkwd{c}\hlstd{(Z0, Z1),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.119 ...ed} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd
+                                                  {c}\hlstd{(Z0, Z1),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.119 ...d{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hlstd
+                                                  {(Z0, Z1),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.120                                       \hlkwd
+                                                  {c}\hlstd{(Z0, Z1),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.120 ...                          \hlkwd{c}\hlstd
+                                                  {(Z0, Z1),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.121                                       \hlkwd
+                                                  {c}\hlstd{(Z0, Z1)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.121 ...                          \hlkwd{c}\hlstd
+                                                  {(Z0, Z1)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.122                    \hlkwc
+                               {link} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"id...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.122                    \hlkwc{link} \hlstd
+                                            {=} \hlkwd{c}\hlstd{(}\hlstr{"id...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.122 ...            \hlkwc{link} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{"identi...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.122 ...   \hlkwc{link} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{"identity"}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.122 ...{link} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {"identity"}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.122 ...hlkwd{c}\hlstd{(}\hlstr{"identity"}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.123                             \hlstr
+                                        {"log"}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.123 ...                      \hlstr{"log"}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.124                             \hlstr
+                                        {"logit"}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.124 ...                    \hlstr{"logit"}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.125                    \hlkwc
+                               {variance} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.125                    \hlkwc{variance} \hlstd
+                                                {=} \hlkwd{c}\hlstd{(}\hlstr...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.125 ...        \hlkwc{variance} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{"consta...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.125 ...hlkwc{variance} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{"constant"}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.125 ...iance} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {"constant"}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.125 ...hlkwd{c}\hlstd{(}\hlstr{"constant"}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.126                                 \hlstr
+                                            {"tweedie"}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.126 ...                  \hlstr{"tweedie"}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.127                                 \hlstr
+                                            {"binomialP"}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.127 ...                \hlstr{"binomialP"}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.128                    \hlkwc
+                               {Ntrial} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkw...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.128                    \hlkwc{Ntrial} \hlstd
+                                              {=} \hlkwd{list}\hlstd{(}\hlkw...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.128 ...          \hlkwc{Ntrial} \hlstd{=} \hlkwd
+                                                  {list}\hlstd{(}\hlkwa{NULL...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.128 ...lkwc{Ntrial} \hlstd{=} \hlkwd{list}\hlstd
+                                                  {(}\hlkwa{NULL}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.128 ...al} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwa
+                                                  {NULL}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.128 ...} \hlkwd{list}\hlstd{(}\hlkwa{NULL}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.129                                  \hlkwa
+                                             {NULL}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.129 ...                       \hlkwa{NULL}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.130                                  \hlstd
+                                             {soya}\hlopt{$}\hlstd{totalpeas),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.130 ...                       \hlstd{soya}\hlopt
+                                                  {$}\hlstd{totalpeas),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.130 ...              \hlstd{soya}\hlopt{$}\hlstd
+                                                  {totalpeas),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.131                    \hlkwc
+                               {power_fixed} \hlstd{=} \hlkwd{c}\hlstd{(T,T,...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.131 ...               \hlkwc{power_fixed} \hlstd
+                                                  {=} \hlkwd{c}\hlstd{(T,T,T),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.131 ...     \hlkwc{power_fixed} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(T,T,T),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.131 ...wc{power_fixed} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(T,T,T),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.132                    \hlkwc
+                               {data} \hlstd{= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.132                    \hlkwc{data} \hlstd
+                                            {= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{kframe}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.134 \end{kframe}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{knitrout}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 \end{knitrout}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[44]
+
+! LaTeX Error: Environment knitrout undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.142 \begin{knitrout}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package xcolor Error: Undefined color `fgcolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.143 ...{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+                                                  \begin{kframe}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment kframe undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.143 ....969, 0.969}\color{fgcolor}\begin{kframe}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.145 \hlkwd
+            {mc_anova_I}\hlstd{(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.145 \hlkwd{mc_anova_I}\hlstd
+                              {(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.175 \hlkwd
+            {mc_anova_II}\hlstd{(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.175 \hlkwd{mc_anova_II}\hlstd
+                               {(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[45]
+! Undefined control sequence.
+l.205 \hlkwd
+            {mc_anova_III}\hlstd{(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.205 \hlkwd{mc_anova_III}\hlstd
+                                {(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[46]
+
+! LaTeX Error: \begin{document} ended by \end{kframe}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.234 \end{kframe}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{knitrout}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.235 \end{knitrout}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment knitrout undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.239 \begin{knitrout}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package xcolor Error: Undefined color `fgcolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.240 ...{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+                                                  \begin{kframe}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment kframe undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.240 ....969, 0.969}\color{fgcolor}\begin{kframe}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.242 \hlkwd
+            {mc_manova_I}\hlstd{(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.242 \hlkwd{mc_manova_I}\hlstd
+                               {(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.255 \hlkwd
+            {mc_manova_II}\hlstd{(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.255 \hlkwd{mc_manova_II}\hlstd
+                                {(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.268 \hlkwd
+            {mc_manova_III}\hlstd{(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.268 \hlkwd{mc_manova_III}\hlstd
+                                 {(fit_joint)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[47]
+
+! LaTeX Error: \begin{document} ended by \end{kframe}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.280 \end{kframe}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{knitrout}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.281 \end{knitrout}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment knitrout undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.285 \begin{knitrout}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package xcolor Error: Undefined color `fgcolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.286 ...{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+                                                  \begin{kframe}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment kframe undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.286 ....969, 0.969}\color{fgcolor}\begin{kframe}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.288 \hlkwd
+            {mc_anova_disp}\hlstd{(fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.288 \hlkwd{mc_anova_disp}\hlstd
+                                 {(fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289               \hlkwc
+                          {p_var} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289               \hlkwc{p_var} \hlstd
+                                        {=} \hlkwd{list}\hlstd{(}\hlkwd{c}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289               \hlkwc{p_var} \hlstd{=} \hlkwd
+                                                  {list}\hlstd{(}\hlkwd{c}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...hlkwc{p_var} \hlstd{=} \hlkwd{list}\hlstd
+                                                  {(}\hlkwd{c}\hlstd{(}\hlnu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...ar} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd
+                                                  {c}\hlstd{(}\hlnum{0}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...d{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hlstd
+                                                  {(}\hlnum{0}\hlstd{,}\hlnu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...wd{list}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum
+                                                  {0}\hlstd{,}\hlnum{1}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd
+                                                  {,}\hlnum{1}\hlstd{),} \hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum
+                                                  {1}\hlstd{),} \hlkwd{c}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd
+                                                  {),} \hlkwd{c}\hlstd{(}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...num{0}\hlstd{,}\hlnum{1}\hlstd{),} \hlkwd
+                                                  {c}\hlstd{(}\hlnum{0}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...std{,}\hlnum{1}\hlstd{),} \hlkwd{c}\hlstd
+                                                  {(}\hlnum{0}\hlstd{,}\hlnu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...num{1}\hlstd{),} \hlkwd{c}\hlstd{(}\hlnum
+                                                  {0}\hlstd{,}\hlnum{1}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...std{),} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd
+                                                  {,}\hlnum{1}\hlstd{),} \hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum
+                                                  {1}\hlstd{),} \hlkwd{c}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd
+                                                  {),} \hlkwd{c}\hlstd{(}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...num{0}\hlstd{,}\hlnum{1}\hlstd{),} \hlkwd
+                                                  {c}\hlstd{(}\hlnum{0}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...std{,}\hlnum{1}\hlstd{),} \hlkwd{c}\hlstd
+                                                  {(}\hlnum{0}\hlstd{,}\hlnu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...num{1}\hlstd{),} \hlkwd{c}\hlstd{(}\hlnum
+                                                  {0}\hlstd{,}\hlnum{1}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...std{),} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd
+                                                  {,}\hlnum{1}\hlstd{)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum
+                                                  {1}\hlstd{)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.289 ...hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd
+                                                  {)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.290               \hlkwc
+                          {names} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.290               \hlkwc{names} \hlstd
+                                        {=} \hlkwd{list}\hlstd{(}\hlkwd{c}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.290               \hlkwc{names} \hlstd{=} \hlkwd
+                                                  {list}\hlstd{(}\hlkwd{c}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.290 ...hlkwc{names} \hlstd{=} \hlkwd{list}\hlstd
+                                                  {(}\hlkwd{c}\hlstd{(}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.290 ...es} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd
+                                                  {c}\hlstd{(}\hlstr{'tau10'...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.290 ...d{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hlstd
+                                                  {(}\hlstr{'tau10'}\hlstd{,...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.290 ...wd{list}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr
+                                                  {'tau10'}\hlstd{,} \hlstr{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.290 ...(}\hlkwd{c}\hlstd{(}\hlstr{'tau10'}\hlstd
+                                                  {,} \hlstr{'tau11'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.290 ...}\hlstd{(}\hlstr{'tau10'}\hlstd{,} \hlstr
+                                                  {'tau11'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.290 ...r{'tau10'}\hlstd{,} \hlstr{'tau11'}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.291                            \hlkwd
+                                       {c}\hlstd{(}\hlstr{'tau20'}\hlstd{,} ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.291                            \hlkwd{c}\hlstd
+                                                {(}\hlstr{'tau20'}\hlstd{,} ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.291 ...                 \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'tau20'}\hlstd{,} \hlstr{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.291 ...  \hlkwd{c}\hlstd{(}\hlstr{'tau20'}\hlstd
+                                                  {,} \hlstr{'tau11'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.291 ...}\hlstd{(}\hlstr{'tau20'}\hlstd{,} \hlstr
+                                                  {'tau11'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.291 ...r{'tau20'}\hlstd{,} \hlstr{'tau11'}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.292                            \hlkwd
+                                       {c}\hlstd{(}\hlstr{'tau30'}\hlstd{,} ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.292                            \hlkwd{c}\hlstd
+                                                {(}\hlstr{'tau30'}\hlstd{,} ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.292 ...                 \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'tau30'}\hlstd{,} \hlstr{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.292 ...  \hlkwd{c}\hlstd{(}\hlstr{'tau30'}\hlstd
+                                                  {,} \hlstr{'tau11'}\hlstd{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.292 ...}\hlstd{(}\hlstr{'tau30'}\hlstd{,} \hlstr
+                                                  {'tau11'}\hlstd{)))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.292 ...r{'tau30'}\hlstd{,} \hlstr{'tau11'}\hlstd
+                                                  {)))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (5.55568pt too wide) in paragraph at lines 295--295
+[]\T1/pcr/m/n/12 ## ANOVA type III using Wald statistic for dispersion paramete
+rs[] 
+ []
+
+! Undefined control sequence.
+l.316 \hlkwd
+            {mc_manova_disp}\hlstd{(fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.316 \hlkwd{mc_manova_disp}\hlstd
+                                  {(fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.317               \hlkwc
+                          {p_var} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{0}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.317               \hlkwc{p_var} \hlstd
+                                        {=} \hlkwd{c}\hlstd{(}\hlnum{0}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.317               \hlkwc{p_var} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlnum{0}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.317 ...  \hlkwc{p_var} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlnum{0}\hlstd{,}\hlnu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.317 ...p_var} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum
+                                                  {0}\hlstd{,}\hlnum{1}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.317 ...lstd{=} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd
+                                                  {,}\hlnum{1}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.317 ...hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum
+                                                  {1}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.317 ...hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.318               \hlkwc
+                          {names} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{'tau11'...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.318               \hlkwc{names} \hlstd
+                                        {=} \hlkwd{c}\hlstd{(}\hlstr{'tau11'...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.318               \hlkwc{names} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{'tau11'...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.318 ...  \hlkwc{names} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'tau11'}\hlstd{,...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.318 ...names} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'tau11'}\hlstd{,} \hlstr{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.318 ...} \hlkwd{c}\hlstd{(}\hlstr{'tau11'}\hlstd
+                                                  {,} \hlstr{'tau21'}\hlstd{))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.318 ...}\hlstd{(}\hlstr{'tau11'}\hlstd{,} \hlstr
+                                                  {'tau21'}\hlstd{))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.318 ...r{'tau11'}\hlstd{,} \hlstr{'tau21'}\hlstd
+                                                  {))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (12.75568pt too wide) in paragraph at lines 321--321
+[]\T1/pcr/m/n/12 ## MANOVA type III using Wald statistic for dispersion paramet
+ers[] 
+ []
+
+[48]
+
+! LaTeX Error: \begin{document} ended by \end{kframe}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.328 \end{kframe}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{knitrout}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.329 \end{knitrout}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment knitrout undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.333 \begin{knitrout}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package xcolor Error: Undefined color `fgcolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.334 ...{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+                                                  \begin{kframe}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment kframe undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.334 ....969, 0.969}\color{fgcolor}\begin{kframe}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.336 \hlkwd
+            {mc_linear_hypothesis}\hlstd{(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.336 \hlkwd{mc_linear_hypothesis}\hlstd
+                                        {(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.336 \hlkwd{mc_linear_hypothesis}\hlstd{(}\hlkwc
+                                                 {object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.336 ...hypothesis}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.337                      \hlkwc
+                                 {hypothesis} \hlstd{=} \hlkwd{c}\hlstd{(}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.337 ...                \hlkwc{hypothesis} \hlstd
+                                                  {=} \hlkwd{c}\hlstd{(}\hls...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.337 ...      \hlkwc{hypothesis} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{'beta11...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.337 ...kwc{hypothesis} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'beta11 = 0'}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.337 ...hesis} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'beta11 = 0'}\hlstd{))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.337 ...kwd{c}\hlstd{(}\hlstr{'beta11 = 0'}\hlstd
+                                                  {))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.350 \hlkwd
+            {mc_linear_hypothesis}\hlstd{(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.350 \hlkwd{mc_linear_hypothesis}\hlstd
+                                        {(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.350 \hlkwd{mc_linear_hypothesis}\hlstd{(}\hlkwc
+                                                 {object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.350 ...hypothesis}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.351                      \hlkwc
+                                 {hypothesis} \hlstd{=} \hlkwd{c}\hlstd{(}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.351 ...                \hlkwc{hypothesis} \hlstd
+                                                  {=} \hlkwd{c}\hlstd{(}\hls...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.351 ...      \hlkwc{hypothesis} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{'beta11...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.351 ...kwc{hypothesis} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'beta11 = 0'}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.351 ...hesis} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'beta11 = 0'}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.351 ...kwd{c}\hlstd{(}\hlstr{'beta11 = 0'}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.352                                     \hlstr
+                                                {'beta12 = 0'}\hlstd{))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.352 ...               \hlstr{'beta12 = 0'}\hlstd
+                                                  {))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.366 \hlkwd
+            {mc_linear_hypothesis}\hlstd{(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.366 \hlkwd{mc_linear_hypothesis}\hlstd
+                                        {(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.366 \hlkwd{mc_linear_hypothesis}\hlstd{(}\hlkwc
+                                                 {object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.366 ...hypothesis}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.367                      \hlkwc
+                                 {hypothesis} \hlstd{=} \hlkwd{c}\hlstd{(}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.367 ...                \hlkwc{hypothesis} \hlstd
+                                                  {=} \hlkwd{c}\hlstd{(}\hls...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.367 ...      \hlkwc{hypothesis} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{'beta11...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.367 ...kwc{hypothesis} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'beta11 = 0'}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.367 ...hesis} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'beta11 = 0'}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.367 ...kwd{c}\hlstd{(}\hlstr{'beta11 = 0'}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.368                                     \hlstr
+                                                {'beta12 = 0'}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.368 ...               \hlstr{'beta12 = 0'}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.369                                     \hlstr
+                                                {'beta21 = 0'}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.369 ...               \hlstr{'beta21 = 0'}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.370                                     \hlstr
+                                                {'beta22 = 0'}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.370 ...               \hlstr{'beta22 = 0'}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.371                                     \hlstr
+                                                {'beta31 = 0'}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.371 ...               \hlstr{'beta31 = 0'}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.372                                     \hlstr
+                                                {'beta32 = 0'}\hlstd{))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.372 ...               \hlstr{'beta32 = 0'}\hlstd
+                                                  {))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[49]
+! Undefined control sequence.
+l.390 \hlkwd
+            {mc_linear_hypothesis}\hlstd{(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.390 \hlkwd{mc_linear_hypothesis}\hlstd
+                                        {(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.390 \hlkwd{mc_linear_hypothesis}\hlstd{(}\hlkwc
+                                                 {object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.390 ...hypothesis}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.391                      \hlkwc
+                                 {hypothesis} \hlstd{=} \hlkwd{c}\hlstd{(}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.391 ...                \hlkwc{hypothesis} \hlstd
+                                                  {=} \hlkwd{c}\hlstd{(}\hls...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.391 ...      \hlkwc{hypothesis} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{'beta11...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.391 ...kwc{hypothesis} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'beta11 = beta21...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.391 ...hesis} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'beta11 = beta21'}\hlstd{))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.391 ...}\hlstd{(}\hlstr{'beta11 = beta21'}\hlstd
+                                                  {))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.404 \hlkwd
+            {mc_linear_hypothesis}\hlstd{(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.404 \hlkwd{mc_linear_hypothesis}\hlstd
+                                        {(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.404 \hlkwd{mc_linear_hypothesis}\hlstd{(}\hlkwc
+                                                 {object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.404 ...hypothesis}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.405                      \hlkwc
+                                 {hypothesis} \hlstd{=} \hlkwd{c}\hlstd{(}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.405 ...                \hlkwc{hypothesis} \hlstd
+                                                  {=} \hlkwd{c}\hlstd{(}\hls...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.405 ...      \hlkwc{hypothesis} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{'tau11 ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.405 ...kwc{hypothesis} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'tau11 = 0'}\hls...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.405 ...hesis} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'tau11 = 0'}\hlstd{))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.405 ...lkwd{c}\hlstd{(}\hlstr{'tau11 = 0'}\hlstd
+                                                  {))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.418 \hlkwd
+            {mc_linear_hypothesis}\hlstd{(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.418 \hlkwd{mc_linear_hypothesis}\hlstd
+                                        {(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.418 \hlkwd{mc_linear_hypothesis}\hlstd{(}\hlkwc
+                                                 {object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.418 ...hypothesis}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.419                      \hlkwc
+                                 {hypothesis} \hlstd{=} \hlkwd{c}\hlstd{(}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.419 ...                \hlkwc{hypothesis} \hlstd
+                                                  {=} \hlkwd{c}\hlstd{(}\hls...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.419 ...      \hlkwc{hypothesis} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{'tau11 ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.419 ...kwc{hypothesis} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'tau11 = 0'}\hls...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.419 ...hesis} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'tau11 = 0'}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.419 ...lkwd{c}\hlstd{(}\hlstr{'tau11 = 0'}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[50]
+! Undefined control sequence.
+l.420                                     \hlstr
+                                                {'tau21 = 0'}\hlstd{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.420 ...                \hlstr{'tau21 = 0'}\hlstd
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.421                                     \hlstr
+                                                {'tau31 = 0'}\hlstd{))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.421 ...                \hlstr{'tau31 = 0'}\hlstd
+                                                  {))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.436 \hlkwd
+            {mc_linear_hypothesis}\hlstd{(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.436 \hlkwd{mc_linear_hypothesis}\hlstd
+                                        {(}\hlkwc{object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.436 \hlkwd{mc_linear_hypothesis}\hlstd{(}\hlkwc
+                                                 {object} \hlstd{=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.436 ...hypothesis}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {=  fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.437                      \hlkwc
+                                 {hypothesis} \hlstd{=} \hlkwd{c}\hlstd{(}\h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.437 ...                \hlkwc{hypothesis} \hlstd
+                                                  {=} \hlkwd{c}\hlstd{(}\hls...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.437 ...      \hlkwc{hypothesis} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{'tau12 ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.437 ...kwc{hypothesis} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'tau12 = tau22'}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.437 ...hesis} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'tau12 = tau22'}\hlstd{))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.437 ...{c}\hlstd{(}\hlstr{'tau12 = tau22'}\hlstd
+                                                  {))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{kframe}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.449 \end{kframe}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{knitrout}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.450 \end{knitrout}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment knitrout undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.454 \begin{knitrout}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package xcolor Error: Undefined color `fgcolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.455 ...{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+                                                  \begin{kframe}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment kframe undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.455 ....969, 0.969}\color{fgcolor}\begin{kframe}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.457 \hlkwd
+            {mc_multcomp}\hlstd{(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.457 \hlkwd{mc_multcomp}\hlstd
+                               {(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.457 \hlkwd{mc_multcomp}\hlstd{(}\hlkwc
+                                        {object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.457 ...c_multcomp}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.458             \hlkwc
+                        {effect} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.458             \hlkwc{effect} \hlstd
+                                       {=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.458             \hlkwc{effect} \hlstd{=} \hlkwd
+                                                 {list}\hlstd{(}\hlkwd{c}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.458 ...lkwc{effect} \hlstd{=} \hlkwd{list}\hlstd
+                                                  {(}\hlkwd{c}\hlstd{(}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.458 ...ct} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd
+                                                  {c}\hlstd{(}\hlstr{'water'...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.458 ...d{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hlstd
+                                                  {(}\hlstr{'water'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.458 ...wd{list}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr
+                                                  {'water'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.458 ...(}\hlkwd{c}\hlstd{(}\hlstr{'water'}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.459                           \hlkwd
+                                      {c}\hlstd{(}\hlstr{'water'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.459                           \hlkwd{c}\hlstd
+                                               {(}\hlstr{'water'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.459 ...                 \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'water'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.459 ...  \hlkwd{c}\hlstd{(}\hlstr{'water'}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.460                           \hlkwd
+                                      {c}\hlstd{(}\hlstr{'water'}\hlstd{)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.460                           \hlkwd{c}\hlstd
+                                               {(}\hlstr{'water'}\hlstd{)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.460 ...                 \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'water'}\hlstd{)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.460 ...  \hlkwd{c}\hlstd{(}\hlstr{'water'}\hlstd
+                                                  {)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.461             \hlkwc
+                        {data} \hlstd{= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.461             \hlkwc{data} \hlstd
+                                     {= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (19.95567pt too wide) in paragraph at lines 464--464
+[]\T1/pcr/m/n/12 ## Multiple comparisons test for each outcome using Wald stati
+stic[] 
+ []
+
+[51]
+! Undefined control sequence.
+l.488 \hlkwd
+            {mc_multcomp}\hlstd{(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.488 \hlkwd{mc_multcomp}\hlstd
+                               {(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.488 \hlkwd{mc_multcomp}\hlstd{(}\hlkwc
+                                        {object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.488 ...c_multcomp}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.489             \hlkwc
+                        {effect} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.489             \hlkwc{effect} \hlstd
+                                       {=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.489             \hlkwc{effect} \hlstd{=} \hlkwd
+                                                 {list}\hlstd{(}\hlkwd{c}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.489 ...lkwc{effect} \hlstd{=} \hlkwd{list}\hlstd
+                                                  {(}\hlkwd{c}\hlstd{(}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.489 ...ct} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd
+                                                  {c}\hlstd{(}\hlstr{'pot'}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.489 ...d{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hlstd
+                                                  {(}\hlstr{'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.489 ...wd{list}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr
+                                                  {'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.489 ...d{(}\hlkwd{c}\hlstd{(}\hlstr{'pot'}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.490                           \hlkwd
+                                      {c}\hlstd{(}\hlstr{'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.490                           \hlkwd{c}\hlstd
+                                               {(}\hlstr{'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.490 ...                 \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.490 ...    \hlkwd{c}\hlstd{(}\hlstr{'pot'}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.491                           \hlkwd
+                                      {c}\hlstd{(}\hlstr{'pot'}\hlstd{)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.491                           \hlkwd{c}\hlstd
+                                               {(}\hlstr{'pot'}\hlstd{)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.491 ...                 \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'pot'}\hlstd{)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.491 ...    \hlkwd{c}\hlstd{(}\hlstr{'pot'}\hlstd
+                                                  {)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.492             \hlkwc
+                        {data} \hlstd{= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.492             \hlkwc{data} \hlstd
+                                     {= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (19.95567pt too wide) in paragraph at lines 495--495
+[]\T1/pcr/m/n/12 ## Multiple comparisons test for each outcome using Wald stati
+stic[] 
+ []
+
+[52]
+! Undefined control sequence.
+l.540 \hlkwd
+            {mc_multcomp}\hlstd{(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.540 \hlkwd{mc_multcomp}\hlstd
+                               {(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.540 \hlkwd{mc_multcomp}\hlstd{(}\hlkwc
+                                        {object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.540 ...c_multcomp}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.541             \hlkwc
+                        {effect} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.541             \hlkwc{effect} \hlstd
+                                       {=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.541             \hlkwc{effect} \hlstd{=} \hlkwd
+                                                 {list}\hlstd{(}\hlkwd{c}\hl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.541 ...lkwc{effect} \hlstd{=} \hlkwd{list}\hlstd
+                                                  {(}\hlkwd{c}\hlstd{(}\hlst...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.541 ...ct} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd
+                                                  {c}\hlstd{(}\hlstr{'water'...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.541 ...d{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hlstd
+                                                  {(}\hlstr{'water'}\hlstd{,...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.541 ...wd{list}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr
+                                                  {'water'}\hlstd{,} \hlstr{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.541 ...(}\hlkwd{c}\hlstd{(}\hlstr{'water'}\hlstd
+                                                  {,} \hlstr{'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.541 ...}\hlstd{(}\hlstr{'water'}\hlstd{,} \hlstr
+                                                  {'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.541 ...str{'water'}\hlstd{,} \hlstr{'pot'}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.542                           \hlkwd
+                                      {c}\hlstd{(}\hlstr{'water'}\hlstd{,} \...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.542                           \hlkwd{c}\hlstd
+                                               {(}\hlstr{'water'}\hlstd{,} \...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.542 ...                 \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'water'}\hlstd{,} \hlstr{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.542 ...  \hlkwd{c}\hlstd{(}\hlstr{'water'}\hlstd
+                                                  {,} \hlstr{'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.542 ...}\hlstd{(}\hlstr{'water'}\hlstd{,} \hlstr
+                                                  {'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.542 ...str{'water'}\hlstd{,} \hlstr{'pot'}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.543                           \hlkwd
+                                      {c}\hlstd{(}\hlstr{'water'}\hlstd{,} \...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.543                           \hlkwd{c}\hlstd
+                                               {(}\hlstr{'water'}\hlstd{,} \...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.543 ...                 \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'water'}\hlstd{,} \hlstr{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.543 ...  \hlkwd{c}\hlstd{(}\hlstr{'water'}\hlstd
+                                                  {,} \hlstr{'pot'}\hlstd{)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.543 ...}\hlstd{(}\hlstr{'water'}\hlstd{,} \hlstr
+                                                  {'pot'}\hlstd{)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.543 ...str{'water'}\hlstd{,} \hlstr{'pot'}\hlstd
+                                                  {)),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.544             \hlkwc
+                        {data} \hlstd{= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.544             \hlkwc{data} \hlstd
+                                     {= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (19.95567pt too wide) in paragraph at lines 547--547
+[]\T1/pcr/m/n/12 ## Multiple comparisons test for each outcome using Wald stati
+stic[] 
+ []
+
+[53] [54] [55] [56] [57] [58] [59] [60] [61]
+
+! LaTeX Error: \begin{document} ended by \end{kframe}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.876 \end{kframe}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{knitrout}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.877 \end{knitrout}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment knitrout undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.881 \begin{knitrout}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package xcolor Error: Undefined color `fgcolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.882 ...{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+                                                  \begin{kframe}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment kframe undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.882 ....969, 0.969}\color{fgcolor}\begin{kframe}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.884 \hlkwd
+            {mc_mult_multcomp}\hlstd{(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.884 \hlkwd{mc_mult_multcomp}\hlstd
+                                    {(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.884 \hlkwd{mc_mult_multcomp}\hlstd{(}\hlkwc
+                                             {object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.884 ...t_multcomp}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.885                  \hlkwc
+                             {effect} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{'wa...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.885                  \hlkwc{effect} \hlstd
+                                            {=} \hlkwd{c}\hlstd{(}\hlstr{'wa...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.885 ...          \hlkwc{effect} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{'water'...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.885 ... \hlkwc{effect} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'water'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.885 ...ffect} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'water'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.885 ...} \hlkwd{c}\hlstd{(}\hlstr{'water'}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.886                  \hlkwc
+                             {data} \hlstd{= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.886                  \hlkwc{data} \hlstd
+                                          {= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.898 \hlkwd
+            {mc_mult_multcomp}\hlstd{(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.898 \hlkwd{mc_mult_multcomp}\hlstd
+                                    {(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.898 \hlkwd{mc_mult_multcomp}\hlstd{(}\hlkwc
+                                             {object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.898 ...t_multcomp}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.899                  \hlkwc
+                             {effect} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{'po...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.899                  \hlkwc{effect} \hlstd
+                                            {=} \hlkwd{c}\hlstd{(}\hlstr{'po...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.899 ...          \hlkwc{effect} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{'pot'}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.899 ... \hlkwc{effect} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.899 ...ffect} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.899 ...{=} \hlkwd{c}\hlstd{(}\hlstr{'pot'}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.900                  \hlkwc
+                             {data} \hlstd{= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.900                  \hlkwc{data} \hlstd
+                                          {= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[62]
+! Undefined control sequence.
+l.919 \hlkwd
+            {mc_mult_multcomp}\hlstd{(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.919 \hlkwd{mc_mult_multcomp}\hlstd
+                                    {(}\hlkwc{object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.919 \hlkwd{mc_mult_multcomp}\hlstd{(}\hlkwc
+                                             {object} \hlstd{= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.919 ...t_multcomp}\hlstd{(}\hlkwc{object} \hlstd
+                                                  {= fit_joint,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.920                  \hlkwc
+                             {effect} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{'wa...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.920                  \hlkwc{effect} \hlstd
+                                            {=} \hlkwd{c}\hlstd{(}\hlstr{'wa...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.920 ...          \hlkwc{effect} \hlstd{=} \hlkwd
+                                                  {c}\hlstd{(}\hlstr{'water'...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.920 ... \hlkwc{effect} \hlstd{=} \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'water'}\hlstd{,...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.920 ...ffect} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr
+                                                  {'water'}\hlstd{,} \hlstr{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.920 ...} \hlkwd{c}\hlstd{(}\hlstr{'water'}\hlstd
+                                                  {,} \hlstr{'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.920 ...}\hlstd{(}\hlstr{'water'}\hlstd{,} \hlstr
+                                                  {'pot'}\hlstd{),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.920 ...str{'water'}\hlstd{,} \hlstr{'pot'}\hlstd
+                                                  {),}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.921                  \hlkwc
+                             {data} \hlstd{= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.921                  \hlkwc{data} \hlstd
+                                          {= soya)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[63] [64] [65]
+
+! LaTeX Error: \begin{document} ended by \end{kframe}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1034 \end{kframe}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{knitrout}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1035 \end{knitrout}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+) [66]
+\openout2 = `6-simulacao/texto.aux'.
+
+ (./6-simulacao/texto.tex
+Cap\'{\i }tulo 6.
+) [67
+
+
+
+]
+\openout2 = `7-aplicacao/texto.aux'.
+
+ (./7-aplicacao/texto.tex
+Cap\'{\i }tulo 7.
+[68
+
+
+
+] [69]
+</home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf, id=923, 578.16pt x
+ 433.62pt>
+File: /home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf Graphic file (
+type pdf)
+<use /home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf>
+Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/descritiva
+.pdf  used on input line 76.
+(pdftex.def)             Requested size: 426.79134pt x 320.09303pt.
+ [70] [71 </home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf>] [72]
+</home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf, id=945, 505.89pt x 2
+16.81pt>
+File: /home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf Graphic file (ty
+pe pdf)
+<use /home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf>
+Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.p
+df  used on input line 153.
+(pdftex.def)             Requested size: 426.79134pt x 182.91313pt.
+</home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf, id=946, 505.89pt x 2
+16.81pt>
+File: /home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf Graphic file (ty
+pe pdf)
+<use /home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf>
+Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.p
+df  used on input line 160.
+(pdftex.def)             Requested size: 426.79134pt x 182.91313pt.
+ [73 </home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf>]
+</home/lacf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf, id=960, 505.89pt
+ x 289.08pt>
+File: /home/lacf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf Graphic file
+ (type pdf)
+<use /home/lacf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf>
+Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/fig_predit
+os.pdf  used on input line 193.
+(pdftex.def)             Requested size: 426.79134pt x 243.88417pt.
+ [74 </home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf>]) [75 </home/la
+cf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf>]
+\openout2 = `8-conclusao/texto.aux'.
+
+ (./8-conclusao/texto.tex
+Cap\'{\i }tulo 8.
+) [76
+
+
+
+] (./main.bbl [77
+
+
+] [78] [79] [80]
+Underfull \hbox (badness 10000) in paragraph at lines 381--386
 \T1/pcr/m/n/12 com / sites / gilpress / 2013 / 05 / 28 / a -[] very -[] short -
 [] history -[] of -[] data -[]
  []
 
-[56])
+[81] [82])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 194.
- [57]
+ [83]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 194.
  (./main.aux (./0-iniciais/catalografica.aux)
 (./0-iniciais/aprovacao.aux) (./0-iniciais/dedica.aux)
@@ -1353,13 +5477,13 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 194.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 194.
  ) 
 Here is how much of TeX's memory you used:
- 19171 strings out of 481239
- 295806 string characters out of 5920376
- 864902 words of memory out of 5000000
- 33447 multiletter control sequences out of 15000+600000
- 606745 words of font info for 216 fonts, out of 8000000 for 9000
+ 19237 strings out of 481239
+ 296573 string characters out of 5920376
+ 864249 words of memory out of 5000000
+ 33471 multiletter control sequences out of 15000+600000
+ 607261 words of font info for 220 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,18n,81p,1412b,655s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,18n,81p,1412b,687s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/share/texmf/fonts/enc/
 dvips/tex-gyre/q-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/n
@@ -1376,10 +5500,10 @@ public/newtx/txbsys.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx
 /txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (57 pages, 365836 bytes).
+Output written on main.pdf (83 pages, 401946 bytes).
 PDF statistics:
- 1119 PDF objects out of 1200 (max. 8388607)
- 974 compressed objects within 10 object streams
- 248 named destinations out of 1000 (max. 500000)
- 24973 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 1283 PDF objects out of 1440 (max. 8388607)
+ 1107 compressed objects within 12 object streams
+ 282 named destinations out of 1000 (max. 500000)
+ 24989 words of extra memory for PDF output out of 29859 (max. 10000000)
 
