@@ -12,7 +12,7 @@ library(tidyverse)
 
 # Leitura dos dados
 
-load("~/msc/3_th_mcglm/3_analise_de_dados/4_vicios_compulsoes/escala_unit/dados_dissertacao.RData")
+load("~/msc/2_analise_de_dados/vicios_compulsoes/escala_unit/dados_dissertacao.RData")
 
 #id - fator identificador de paciente
 #grupo - fator identiricador de grupo (Placebo, Probiótico)

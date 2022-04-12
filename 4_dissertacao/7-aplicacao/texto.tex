@@ -105,15 +105,13 @@ Para análise dos dados foi ajustado um modelo multivariado com os efeitos fixos
 
 Como já mencionado, trata-se de um experimento em que as observações não são independentes pois medidas tomadas em um mesmo indivíduo são correlacionadas e esta correlação deve ser especificada no modelo. 
 
-Ambas as respostas fora tratadas como proporções, por este motivo foi utilizada a função de ligação logito com função de variância Binomial. Adicionalmente, estimou-se o parâmetro de potência para todas as respostas em análise. 
-
-Os preditores lineares são descritos da forma
+Ambas as respostas foram tratadas como proporções, por este motivo foi utilizada a função de ligação logito com função de variância Binomial. Adicionalmente, estimou-se o parâmetro de potência para todas as respostas em análise. Os preditores lineares são descritos da forma
 
 $$
 g_{r}(\mu_{r}) = \beta_{0r} + \beta_{1r} T1 + \beta_{2r} T2 + \beta_{3r} Probiotico + \beta_{4r} T1*Probiotico + \beta_{5r} T2*Probiotico,
 $$
 
-\noindent em que o índice $r$ refere-se às variáveis respostas do estudo (1 para YFAS, 2 para BES). Foram consideradas categorias de referência o grupo placebo e o momento T0. $\beta_0$ representa o intercepto, $\beta_{1r}$ o efeito do momento T1, $\beta_{2r}$ o efeito do momento T2, $\beta_{3r}$ o efeito de probiótico. Os parâmetros $\beta_{4r}$ e $\beta_{5r}$ referem-se à interação entre momento e grupo, de tal forma que $\beta_{4r}$ representa o efeito da interação entre T1 e probiótico, e $\beta_{5r}$ representa o efeito da interação entre T2 e probiótico.
+\noindent em que o índice $r$ refere-se às variáveis respostas do estudo (1 para YFAS, 2 para BES). Foram consideradas categorias de referência o grupo placebo e o momento T0. $\beta_{0r}$ representa o intercepto, $\beta_{1r}$ o efeito do momento T1, $\beta_{2r}$ o efeito do momento T2, $\beta_{3r}$ o efeito de probiótico. Os parâmetros $\beta_{4r}$ e $\beta_{5r}$ referem-se à interação entre momento e grupo, de tal forma que $\beta_{4r}$ representa o efeito da interação entre T1 e probiótico, e $\beta_{5r}$ representa o efeito da interação entre T2 e probiótico.
 
 Os preditores matriciais, comuns a ambas as respostas, são dados por
 $h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \tau_1Z_1$. A função $h(.)$ utilizada foi a identidade, $\tau_0$ e $\tau_1$ representam os parâmetros de dispersão, $Z_0$ representa uma matriz identidade de ordem, $184 \times 184$ e $Z_1$ representa uma matriz de dimensão $184 \times 184$ especificada de forma a explicitar que as medidas provenientes do mesmo indivíduo são correlacionadas. 
@@ -172,21 +170,19 @@ As estimativas dos parâmetros, intervalos de confiança assintóticos com 95\% 
 \hline
 \multirow{2}{*}{Parâmetro} & \multicolumn{3}{c}{YFAS}                                                                                             & \multicolumn{3}{c}{BES}                                                                         \\ \cline{2-7} 
                            & Estimativa & \begin{tabular}[c]{@{}c@{}}Intervalo de \\ confiança\end{tabular} & \multicolumn{1}{c|}{Valor-p}        & Estimativa & \begin{tabular}[c]{@{}c@{}}Intervalo de \\ confiança\end{tabular} & Valor-p        \\ \hline
-$\beta_0$                  & -0,54      & (-0,87;-0,22)                                                     & \multicolumn{1}{c|}{\textless 0,05} & -1,13      & (-1,44;-0,83)                                                     & \textless 0,05 \\
-$\beta_1$                  & -1,55      & (-2,17;-0,94)                                                     & \multicolumn{1}{c|}{\textless 0,05} & -1,16      & (-1,62;-0,69)                                                     & \textless 0,05 \\
-$\beta_2$                  & -1,13      & (-1,75;-0,51)                                                     & \multicolumn{1}{c|}{\textless 0,05} & -1,05      & (-1,58;-0,52)                                                     & \textless 0,05 \\
-$\beta_3$                  & 0,49       & (0,05;0,93)                                                       & \multicolumn{1}{c|}{\textless 0,05} & 0,37       & (-0,03;0,77)                                                      & 0,07           \\
-$\beta_4$                  & -0,73      & (-1,60;0,14)                                                      & \multicolumn{1}{c|}{0,1}            & -0,33      & (-0,96;0,30)                                                      & 0,31           \\
-$\beta_5$                  & -0,98      & (-1,93;-0,03)                                                     & \multicolumn{1}{c|}{\textless 0,05} & -0,80      & (-1,58;-0,02)                                                     & \textless 0,05 \\
-$\tau_0$                   & 0,18       & (0,01;0,35)                                                       & \multicolumn{1}{c|}{\textless 0,05} & 0,17       & (0,00;0,34)                                                       & 0,05           \\
-$\tau1$                    & 0,01       & (-0,02;0,04)                                                      & \multicolumn{1}{c|}{0,57}           & 0,04       & (-0,01;0,10)                                                      & 0,14           \\
+$\beta_0$                  & -0,54      & (-0,87;-0,22)                                                     & \multicolumn{1}{c|}{\textless 0,01} & -1,13      & (-1,44;-0,83)                                                     & \textless 0,01 \\
+$\beta_1$                  & -1,55      & (-2,17;-0,94)                                                     & \multicolumn{1}{c|}{\textless 0,01} & -1,16      & (-1,62;-0,69)                                                     & \textless 0,01 \\
+$\beta_2$                  & -1,13      & (-1,75;-0,51)                                                     & \multicolumn{1}{c|}{\textless 0,01} & -1,05      & (-1,58;-0,52)                                                     & \textless 0,01 \\
+$\beta_3$                  & 0,49       & (0,05;0,93)                                                       & \multicolumn{1}{c|}{0,0284} & 0,37       & (-0,03;0,77)                                                      & 0,0733           \\
+$\beta_4$                  & -0,73      & (-1,60;0,14)                                                      & \multicolumn{1}{c|}{0,0}            & -0,33      & (-0,96;0,30)                                                      & 0,3081           \\
+$\beta_5$                  & -0,98      & (-1,93;-0,03)                                                     & \multicolumn{1}{c|}{0,0429} & -0,80      & (-1,58;-0,02)                                                     & 0,0449 \\
+$\tau_0$                   & 0,18       & (0,01;0,35)                                                       & \multicolumn{1}{c|}{0,0411} & 0,17       & (0,00;0,34)                                                       & 0,0458           \\
+$\tau1$                    & 0,01       & (-0,02;0,04)                                                      & \multicolumn{1}{c|}{0,5718}           & 0,04       & (-0,01;0,10)                                                      & 0,1357           \\
 $p$                        & 0,91       & (0,47;1,34)                                                       & \multicolumn{1}{c|}{\textless 0,05} & 1,23       & (0,77;1,68)                                                       & \textless 0,05 \\ \hline
 \end{tabular}
 \caption{Estimativas dos parâmetros, intervalos com 95\% de confiança e valores-p do modelo.}
 \label{tab:estimativas}
 \end{table}
-
-Os resultados mostram que existe uma redução considerável de YFAS e BES ao longo do tempo. O efeito significativo do parâmetro $\beta_4$, que mensura o efeito da interação entre uso do medicamento no momento T2, indica que existe efeito do tratamento em ambas as respostas e que este efeito foi verificado 1 ano após a cirurgia. Já a ausência de significância do parâmetro $\beta_3$, que mede o efeito da interação entre uso do medicamento no momento T1, mostra que não há diferença entre os grupos neste momento. Estes resultados são reforçados pela figura, que mostra uma redução nas métricas mais acentuada para indivíduos que fizeram uso do probiótico.
 
 \begin{figure}[H]
 \centering
@@ -201,26 +197,98 @@ Os resultados mostram que existe uma redução considerável de YFAS e BES ao lo
 
 Até este ponto foi apresentada uma análise padrão, com os resultados usuais da análise de um modelo de regressão. Indo mais além nesta análise, podemos fazer uso dos resultados e implementações deste trabalho.
 
-ESCOLHER ALGUNS TESTES
+Podemos optar por uma análise de variância multivariada do tipo III para avaliar a importância das variáveis no problema. O resultado, apresentado na tabela \autoref{tab:manovaIII} aponta para existência significativa do efeito de momento e, ausência de efeito de grupo, indicando que para ambas as respostas as métricas se alteram ao longo do tempo mas sem alteração entre grupos.
 
-ANOVA BETA
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Variável      & Graus de liberdade & Qui-quadrado & Valor-p        \\ \hline
+Intercepto    & 2                  & 53,1581      & \textless 0,01 \\
+Momento       & 4                  & 40,9902      & \textless 0,01 \\
+Grupo         & 2                  & 5,5819       & 0,0614         \\
+Momento*Grupo & 4                  & 6,9923       & 0,1363         \\ \hline
+\end{tabular}
+\caption{Análise de variância multivariada tipo III.}
+\label{tab:manovaIII}
+\end{table}
 
-MANOVA BETA
+A fim de avaliar os resultados por resposta, podemos utilizar uma análise de variância univariada do tipo III. Os resultados são apresentados na \autoref{tab:anovaIII}. Considerando um nível de significância de $0,01$, existe evidência que aponta para efeito de momento.
 
-ANOVA DISP
+\begin{table}[H]
+\centering
+\begin{tabular}{cc|cc|cc}
+\hline
+              &                    & \multicolumn{2}{c|}{YFAS}     & \multicolumn{2}{c}{BES}       \\ \hline
+Variável      & Graus de liberdade & Qui-quadrado & Valor-p        & Qui-quadrado & Valor-p        \\ \hline
+Intercepto    & 1                  & 10,6128      & \textless 0,01 & 53,1473      & \textless 0,01 \\
+Momento       & 2                  & 29,8422      & \textless 0,01 & 29,9114      & \textless 0,01 \\
+Grupo         & 1                  & 4,8022       & 0,0284         & 3,2083       & 0,0733         \\
+Momento*Grupo & 2                  & 5,5984       & 0,0609         & 4,2477       & 0,1196         \\ \hline
+\end{tabular}
+\caption{Análise de variância univariada do tipo III.}
+\label{tab:anovaIII}
+\end{table}
 
-MANOVA DISP
+Como as análises de variâncias apontaram para efeito significativo de variáveis categóricas, podemos explorar quais níveis diferem entre si. \autoref{tab:mul-multcomp1} apresenta as comparações duas a duas entre momentos. Os resultados mostram que, para ambas as respostas existem diferenças entre o primeiro contra segundo e primeiro contra terceiro momento, mas os dois últimos momentos não diferem entre si.
 
-TESTE P UNI
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Contraste & Graus de liberdade & Qui-quadrado & Valor-p        \\ \hline
+T0-T1     & 2                  & 97,9874      & \textless 0,01 \\
+T0-T2     & 2                  & 67,2462      & \textless 0,01 \\
+T1-T2     & 2                  & 2,4730       & 0,8712         \\ \hline
+\end{tabular}
+\caption{Comparações duas a duas entre momentos para ambas as respostas.}
+\label{tab:mul-multcomp1}
+\end{table}
 
-TESTE P MULTI
+A tabela \autoref{tab:mul-multcomp3} apresenta as comparações entre grupos para cada momento para ambas as respostas. Os resultados apontam para ausência de diferença entre grupos em cada momento.
 
-COMPARAÇÕES MULTIPLAS
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Contraste                & Graus de liberdade & Qui-quadrado & Valor-p \\ \hline
+T0:Placebo-T0:Probiótico & 2                  & 5,5819       & 0.9204  \\
+T1:Placebo-T1:Probiótico & 2                  & 0,6096       & 1       \\
+T2:Placebo-T2:Probiótico & 2                  & 1,7645       & 1       \\ \hline
+\end{tabular}
+\caption{Comparações duas a duas entre grupos para cada momento para ambas as respostas.}
+\label{tab:mul-multcomp3}
+\end{table}
 
-%=====================================================
+No modelo, incluímos a informação de que existem medidas que foram tomadas em um mesmo indivíduo. Esta informação é declarada no preditor matricial que estima um parâmetro de dispersão associado à matriz que aponta a relação entre os indivíduos. Uma hipótese de interesse pode ser avaliar se existe evidência para crer que, neste problema, as medidas tomadas em um mesmo indivíduo são de fato correlacionadas. Para isso podemos postular hipóteses sobre os parâmetros de dispersão. Tal como nas análies de variância, isso pode ser feito por resposta ou para ambas as respostas simultaneamente.
 
-\subsection{Conclusão}
+A tabela \autoref{tab:manova_disp} apresenta os resultados do teste multivariado, ou seja, avalia a hipótese de que em ambas as respostas as medidas sejam correlacionadas. Os resultados apontam que não há evidência para crer que as medidas tomadas em um mesmo indivíduo apresentam correlação.
 
-COMO CONSEGUIMOS IR ALÉM NO ESTUDO DO MODELO USANDO O QUE FOI PROPOSTO.
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Variável               & Graus de liberdade & Qui-quadrado & Valor-p        \\ \hline
+$\tau_0$ & 2                  & 7,1936       & \textless 0,01 \\
+$\tau_1$ & 2                  & 2,3201       & 0,3135         \\ \hline
+\end{tabular}
+\caption{Análise de variância multivariada do tipo III para parâmetros de dispersão.}
+\label{tab:manova_disp}
+\end{table}
+
+No caso da análise dos parâmetros de potência, considerando as funções de ligação e variância, podemos avaliar se existe evidência nos dados para afirmar que o parâmetro de potência é igual a 1, o que indica adequação à distribuição beta. Trata-se de um exemplo de aplicação de um teste de hipótese linear geral com valores na hipótese nula diferentes de 0. O resultado é apresentado na tabela \autoref{tab:teste-p} e mostra que há evidência para crer que os dados seguem distribuição beta.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Parâmetro & Graus de liberdade & Qui-quadrado & Valor-p \\ \hline
+p         & 2                  & 0.946        & 0.3308  \\ \hline
+\end{tabular}
+\caption{Resultado do teste que avalia se os parâmetros de dispersão são iguais a 1.}
+\label{tab:teste-p}
+\end{table}
+
+
 
 %=====================================================

@@ -47,10 +47,9 @@
 \contentsline {subsection}{\numberline {7.1.5}Especificação do modelo}{72}{subsection.92}%
 \contentsline {subsection}{\numberline {7.1.6}Resultados do ajuste}{73}{subsection.94}%
 \contentsline {subsection}{\numberline {7.1.7}Testes de hipóteses}{75}{subsection.99}%
-\contentsline {subsection}{\numberline {7.1.8}Conclusão}{75}{subsection.100}%
-\contentsline {chapter}{\numberline {8}Considerações finais}{76}{chapter.101}%
-\contentsline {section}{\numberline {8.1}Conclusões gerais}{76}{section.102}%
-\contentsline {section}{\numberline {8.2}Limitações}{76}{section.103}%
-\contentsline {section}{\numberline {8.3}Trabalhos futuros}{76}{section.104}%
-\contentsline {chapter}{REFER\^ENCIAS}{77}{chapter*.105}%
+\contentsline {chapter}{\numberline {8}Considerações finais}{78}{chapter.106}%
+\contentsline {section}{\numberline {8.1}Conclusões gerais}{78}{section.107}%
+\contentsline {section}{\numberline {8.2}Limitações}{78}{section.108}%
+\contentsline {section}{\numberline {8.3}Trabalhos futuros}{78}{section.109}%
+\contentsline {chapter}{REFER\^ENCIAS}{79}{chapter*.110}%
 \contentsfinish 
