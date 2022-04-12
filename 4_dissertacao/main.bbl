@@ -83,6 +83,12 @@ Bretz, F., Hothorn, T.  e Westfall, P. (2008).
 Cao, L. (2016).
 \newblock Data science and analytics: a new era.
 
+\bibitem[Cario e Nelson, 1997]{cario1997modeling}
+Cario, M.~C. e Nelson, B.~L. (1997).
+\newblock Modeling and generating random vectors with arbitrary marginal
+  distributions and correlation matrix.
+\newblock Relat\'orio t\'ecnico, Citeseer.
+
 \bibitem[Demidenko, 2013]{Demidenko13}
 Demidenko, E. (2013).
 \newblock {\em Mixed models: theory and applications with R}.
@@ -142,6 +148,17 @@ Galton, F. (1886).
 Gearhardt, A.~N., Corbin, W.~R.  e Brownell, K.~D. (2009).
 \newblock Preliminary validation of the yale food addiction scale.
 \newblock {\em Appetite}, 52(2):430--436.
+
+\bibitem[Genz e Bretz, 2009]{mvtnorm2}
+Genz, A. e Bretz, F. (2009).
+\newblock {\em Computation of Multivariate Normal and t Probabilities}.
+\newblock Lecture Notes in Statistics. Springer-Verlag, Heidelberg.
+
+\bibitem[Genz et~al., 2021]{mvtnorm1}
+Genz, A., Bretz, F., Miwa, T., Mi, X., Leisch, F., Scheipl, F.  e Hothorn, T.
+  (2021).
+\newblock {\em {mvtnorm}: Multivariate Normal and t Distributions}.
+\newblock R package version 1.1-3.
 
 \bibitem[Gormally et~al., 1982]{gormally1982assessment}
 Gormally, J., Black, S., Daston, S.  e Rardin, D. (1982).
@@ -473,6 +490,12 @@ Stroup, W.~W. (2012).
 \newblock {\em Generalized linear mixed models: modern concepts, methods and
   applications}.
 \newblock CRC press.
+
+\bibitem[Su, 2014]{nortara}
+Su, P. (2014).
+\newblock {\em NORTARA: Generation of Multivariate Data with Arbitrary
+  Marginals}.
+\newblock R package version 1.0.0.
 
 \bibitem[Treasure et~al., 2020]{treasure2020eating}
 Treasure, J., Duarte, T.  e Schmidt, U. (2020).

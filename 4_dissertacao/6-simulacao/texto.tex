@@ -2,19 +2,39 @@
 
 %=====================================================
 
+Com o objetivo de avaliar o poder do teste Wald em testes de hipóteses sobre parâmetros de McGLMs, foram executados estudos de simulação. Nestas simulações avaliamos o comportamento da proposta para três distribuições de probabilidade: Normal, Poisson e Bernoulli. Simulamos cenários univariados e também trivariados com diferentes tamanhos amostrais para verificar as propriedades dos testes sobre parâmetros de regressão, dispersão e potência.
+
+Para simular conjuntos de dados univariados foram usadas bibliotecas padrão do R. Para simular conjuntos de dados com múltiplas respostas seguindo distribuição Normal, foi usada a biblioteca R \emph{mvtnorm} \citep{mvtnorm1}, \citep{mvtnorm2}. Para as outras distribuições foi utilizado o método NORTA \citep{cario1997modeling} implementado na biblioteca R \emph{NORTARA} \citep{nortara}.
+
+\section{Parâmetros de regressão}
+
+Para avaliação de hipóteses sobre parâmetros de regressão foram considerados tamanhos amostrais de 50, 100, 250, 500 e 1000. Foram gerados 500 conjuntos de dados para cada tamanho amostral simulando uma situação com uma variável explicativa categórica de 4 níveis. Para distribuição Normal os parâmetros de regressão usados foram: $\beta_0 = 5$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. Para a distribuição Poisson os parâmetros de regressão usados foram: $\beta_0 = 2,3$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. E para a distribuição Bernoulli os parâmetros de regressão usados foram: $\beta_0 = 0,5$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. Os valores foram escolhidos de tal modo que o coeficiente de variação para distribuição Normal fosse de 20\%, as contagens para Poisson fossem próximas de 10 e a probabilidade de sucesso da Bernoulli fosse aproximadamente 0,6. Foram avaliados cenários univariados e trivariados com estas características. Para os cenários trivariados, existem 4 parâmetros por resposta que seguem as configurações descritas.
+
+Para cada amostra gerada foi ajustado um McGLM em que, para os conjuntos com variáveis respostas seguindo distribuição Normal a função de ligação utilizada foi a identidade com função de variância constante. Para Poisson a função de ligação utilizada foi a logarítmica e para função de variância utilizou-se a Tweedie. Já para as respostas seguindo distribuição Bernoulli foi utilizada a função de ligação logito com função de variância Binomial. Em todos os casos o preditor matricial para a matriz de
+variância e covariância foi especificado de forma a explicitar que as observações são independentes dentro de cada resposta. A correlação entre respostas no caso trivariado é dada pela matriz $\Sigma_b$:
+
+$$
+\Sigma_b = 
+\begin{bmatrix}
+1    & 0,75 & 0,5  \\
+0,75 & 1    & 0,25 \\
+0,5  & 0,25 & 1    \\
+\end{bmatrix}
+$$
+
+Com os modelos ajustados, o procedimento consistiu em variar as hipóteses testadas sobre os parâmetros simulados. Consideramos 20 diferentes hipóteses baseadas em um decréscimo de $\beta_0/20$ e distribuição deste decréscimo nos demais $\beta$s da hipótese nula. Para cada ponto avaliamos o percentual de rejeição da hipótese nula. A ideia é verificar o que ocorre quando afastamos as hipóteses nulas dos reais valores dos parâmetros. Espera-se que no primeiro ponto haja um percentual de rejeição baixo, pois a hipótese nula corresponde aos reais valores dos parâmetros. Para os demais pontos espera-se que o percentual de rejeição aumente gradativamente, pois as hipóteses afastam-se dos valores originalmente simulados.
+
+Para representar graficamente os resultados tomamos a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados. Adicionalmente dividimos o vetor de distâncias pelo desvio padrão das distância para obter distâncias em uma mesma escala, independente dos parâmetros de regressão. Os resultados são apresentados na \autoref{}.
+
+\section{Parâmetros de dispersão}
+
+\section{Parâmetros de potência}
+
 \textbf{TODO}
 
 \begin{itemize}
   
-  \item \textbf{Definir estudo de simulação}
-  
-  \item \textbf{Avaliar desempenho do erro do tipo I, simular por exemplo beta1=1, testar se beta1=1 e ver quantas vezes o teste confirma este resultado. }
-  
-  \item \textbf{Testar poder simulando valores e testando valores distantes de 0; distância de mahalanobis pode ser uma distância interessante para este fim (não sei se entendi mt bem a ideia).}
-  
-  \item \textbf{Precisamos responder se o teste é confiável, para que tamanho de amostra ele controla adequadamente o erro do tipo 1, ou temos um teste bom já com pequenas amostras}
-  
-  \item \textbf{simular de normais matriz variada pois é possível fixar sigma r e b}
+  \item \textbf{ACRESCENTAR GRÁFICOS}
   
   \item \textbf{}
   
