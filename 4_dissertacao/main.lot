@@ -11,15 +11,20 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {5.1}{\ignorespaces Funções implementadas\relax }}{42}{table.caption.81}%
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Funções de ligação e variância utilizadas nos modelos para cada distribuição simulada.\relax }}{67}{table.caption.85}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Hipóteses testadas para distribuição Normal.\relax }}{69}{table.caption.87}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Hipóteses testadas para distribuição Poisson.\relax }}{70}{table.caption.88}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Hipóteses testadas para distribuição Bernoulli.\relax }}{71}{table.caption.89}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces Hipóteses testadas para parâmetros de dispersão.\relax }}{72}{table.caption.91}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Número de indivíduos, média e desvio padrão para YFAS e BES para cada combinação de grupo e momento.\relax }}{73}{table.caption.94}%
-\contentsline {table}{\numberline {7.2}{\ignorespaces Estimativas dos parâmetros, intervalos com 95\% de confiança e valores-p do modelo.\relax }}{75}{table.caption.100}%
-\contentsline {table}{\numberline {7.3}{\ignorespaces Análise de variância multivariada tipo III.\relax }}{76}{table.caption.103}%
-\contentsline {table}{\numberline {7.4}{\ignorespaces Análise de variância univariada do tipo III.\relax }}{77}{table.caption.104}%
-\contentsline {table}{\numberline {7.5}{\ignorespaces Comparações duas a duas entre momentos para ambas as respostas.\relax }}{77}{table.caption.105}%
-\contentsline {table}{\numberline {7.6}{\ignorespaces Comparações duas a duas entre grupos para cada momento para ambas as respostas.\relax }}{77}{table.caption.106}%
-\contentsline {table}{\numberline {7.7}{\ignorespaces Análise de variância multivariada do tipo III para parâmetros de dispersão.\relax }}{78}{table.caption.107}%
-\contentsline {table}{\numberline {7.8}{\ignorespaces Resultado do teste que avalia se os parâmetros de dispersão são iguais a 1.\relax }}{78}{table.caption.108}%
+\contentsline {table}{\numberline {7.1}{\ignorespaces Número de indivíduos, média e desvio padrão para YFAS e BES para cada combinação de grupo e momento.\relax }}{78}{table.caption.100}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces Estimativas dos parâmetros, intervalos com 95\% de confiança e valores-p do modelo.\relax }}{80}{table.caption.106}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces Análise de variância multivariada tipo III.\relax }}{81}{table.caption.109}%
+\contentsline {table}{\numberline {7.4}{\ignorespaces Análise de variância univariada do tipo III.\relax }}{82}{table.caption.110}%
+\contentsline {table}{\numberline {7.5}{\ignorespaces Comparações duas a duas entre momentos para ambas as respostas.\relax }}{82}{table.caption.111}%
+\contentsline {table}{\numberline {7.6}{\ignorespaces Comparações duas a duas entre grupos para cada momento para ambas as respostas.\relax }}{82}{table.caption.112}%
+\contentsline {table}{\numberline {7.7}{\ignorespaces Análise de variância multivariada do tipo III para parâmetros de dispersão.\relax }}{83}{table.caption.113}%
+\contentsline {table}{\numberline {7.8}{\ignorespaces Resultado do teste que avalia se os parâmetros de dispersão são iguais a 1.\relax }}{83}{table.caption.114}%
 \addvspace {10\p@ }
 \contentsfinish 
 \contentsfinish 

@@ -39,20 +39,20 @@
 \contentsline {section}{\numberline {5.2}Exemplos}{43}{section.82}%
 \contentsline {chapter}{\numberline {6}Estudo de simulação}{67}{chapter.83}%
 \contentsline {section}{\numberline {6.1}Parâmetros de regressão}{67}{section.84}%
-\contentsline {section}{\numberline {6.2}Parâmetros de dispersão}{68}{section.85}%
-\contentsline {section}{\numberline {6.3}Parâmetros de potência}{68}{section.86}%
-\contentsline {chapter}{\numberline {7}Análise de dados}{69}{chapter.87}%
-\contentsline {section}{\numberline {7.1}Uso de probióticos no controle de vícios e compulsões alimentares em pacientes sujeitos a cirurgia bariátrica}{69}{section.88}%
-\contentsline {subsection}{\numberline {7.1.1}Contexto}{69}{subsection.89}%
-\contentsline {subsection}{\numberline {7.1.2}Desenho experimental e coleta de dados}{70}{subsection.90}%
-\contentsline {subsection}{\numberline {7.1.3}Conjunto de dados}{71}{subsection.91}%
-\contentsline {subsection}{\numberline {7.1.4}Análise exploratória}{71}{subsection.92}%
-\contentsline {subsection}{\numberline {7.1.5}Especificação do modelo}{73}{subsection.95}%
-\contentsline {subsection}{\numberline {7.1.6}Resultados do ajuste}{74}{subsection.97}%
-\contentsline {subsection}{\numberline {7.1.7}Testes de hipóteses}{76}{subsection.102}%
-\contentsline {chapter}{\numberline {8}Considerações finais}{79}{chapter.109}%
-\contentsline {section}{\numberline {8.1}Conclusões gerais}{79}{section.110}%
-\contentsline {section}{\numberline {8.2}Limitações}{79}{section.111}%
-\contentsline {section}{\numberline {8.3}Trabalhos futuros}{79}{section.112}%
-\contentsline {chapter}{REFER\^ENCIAS}{80}{chapter*.113}%
+\contentsline {section}{\numberline {6.2}Parâmetros de dispersão}{71}{section.90}%
+\contentsline {section}{\numberline {6.3}Parâmetros de potência}{73}{section.92}%
+\contentsline {chapter}{\numberline {7}Análise de dados}{74}{chapter.93}%
+\contentsline {section}{\numberline {7.1}Uso de probióticos no controle de vícios e compulsões alimentares em pacientes sujeitos a cirurgia bariátrica}{74}{section.94}%
+\contentsline {subsection}{\numberline {7.1.1}Contexto}{74}{subsection.95}%
+\contentsline {subsection}{\numberline {7.1.2}Desenho experimental e coleta de dados}{75}{subsection.96}%
+\contentsline {subsection}{\numberline {7.1.3}Conjunto de dados}{76}{subsection.97}%
+\contentsline {subsection}{\numberline {7.1.4}Análise exploratória}{76}{subsection.98}%
+\contentsline {subsection}{\numberline {7.1.5}Especificação do modelo}{78}{subsection.101}%
+\contentsline {subsection}{\numberline {7.1.6}Resultados do ajuste}{79}{subsection.103}%
+\contentsline {subsection}{\numberline {7.1.7}Testes de hipóteses}{81}{subsection.108}%
+\contentsline {chapter}{\numberline {8}Considerações finais}{84}{chapter.115}%
+\contentsline {section}{\numberline {8.1}Conclusões gerais}{84}{section.116}%
+\contentsline {section}{\numberline {8.2}Limitações}{84}{section.117}%
+\contentsline {section}{\numberline {8.3}Trabalhos futuros}{84}{section.118}%
+\contentsline {chapter}{REFER\^ENCIAS}{85}{chapter*.119}%
 \contentsfinish 

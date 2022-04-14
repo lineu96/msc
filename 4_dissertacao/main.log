@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  12 APR 2022 17:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  14 APR 2022 18:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -5397,47 +5397,58 @@ Cap\'{\i }tulo 6.
 
 
 
-]
+] [68] [69] [70]
 
-LaTeX Warning: Reference `' on page 68 undefined on input line 27.
+LaTeX Warning: Reference `' on page 71 undefined on input line 130.
 
-) [68]
+[71]
+
+LaTeX Warning: Reference `' on page 72 undefined on input line 173.
+
+[72]
+
+LaTeX Warning: Reference `tab:th_p' on page 73 undefined on input line 189.
+
+
+LaTeX Warning: Reference `' on page 73 undefined on input line 192.
+
+) [73]
 \openout2 = `7-aplicacao/texto.aux'.
 
  (./7-aplicacao/texto.tex
 Cap\'{\i }tulo 7.
-[69
+[74
 
 
 
-] [70]
-</home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf, id=963, 578.16pt x
- 433.62pt>
+] [75]
+</home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf, id=1012, 578.16pt 
+x 433.62pt>
 File: /home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf Graphic file (
 type pdf)
 <use /home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf>
 Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/descritiva
 .pdf  used on input line 76.
 (pdftex.def)             Requested size: 426.79134pt x 320.09303pt.
- [71] [72 </home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf>] [73]
-</home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf, id=986, 505.89pt x 2
-16.81pt>
+ [76] [77 </home/lacf14/dissertationPPGINF/7-aplicacao/descritiva.pdf>] [78]
+</home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf, id=1034, 505.89pt x 
+216.81pt>
 File: /home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf Graphic file (ty
 pe pdf)
 <use /home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf>
 Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.p
 df  used on input line 151.
 (pdftex.def)             Requested size: 426.79134pt x 182.91313pt.
-</home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf, id=987, 505.89pt x 2
-16.81pt>
+</home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf, id=1035, 505.89pt x 
+216.81pt>
 File: /home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf Graphic file (ty
 pe pdf)
 <use /home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf>
 Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.p
 df  used on input line 158.
 (pdftex.def)             Requested size: 426.79134pt x 182.91313pt.
- [74 </home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf>]
-</home/lacf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf, id=1001, 505.89p
+ [79 </home/lacf14/dissertationPPGINF/7-aplicacao/res_hist.pdf>]
+</home/lacf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf, id=1049, 505.89p
 t x 289.08pt>
 File: /home/lacf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf Graphic file
  (type pdf)
@@ -5445,29 +5456,29 @@ File: /home/lacf14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf Graphic file
 Package pdftex.def Info: /home/lacf14/dissertationPPGINF/7-aplicacao/fig_predit
 os.pdf  used on input line 189.
 (pdftex.def)             Requested size: 426.79134pt x 243.88417pt.
- [75 </home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf>] [76 </home/lac
-f14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf>] [77]) [78]
+ [80 </home/lacf14/dissertationPPGINF/7-aplicacao/res_pred.pdf>] [81 </home/lac
+f14/dissertationPPGINF/7-aplicacao/fig_preditos.pdf>] [82]) [83]
 \openout2 = `8-conclusao/texto.aux'.
 
 
 (./8-conclusao/texto.tex
 Cap\'{\i }tulo 8.
-) [79
+) [84
 
 
 
-] (./main.bbl [80
+] (./main.bbl [85
 
 
-] [81] [82] [83]
+] [86] [87] [88]
 Underfull \hbox (badness 10000) in paragraph at lines 398--403
 \T1/pcr/m/n/12 com / sites / gilpress / 2013 / 05 / 28 / a -[] very -[] short -
 [] history -[] of -[] data -[]
  []
 
-[84] [85])
+[89] [90])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 194.
- [86]
+ [91]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 194.
  (./main.aux (./0-iniciais/catalografica.aux)
 (./0-iniciais/aprovacao.aux) (./0-iniciais/dedica.aux)
@@ -5486,11 +5497,11 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 194.
  ) 
 Here is how much of TeX's memory you used:
- 19285 strings out of 481239
- 297328 string characters out of 5920376
- 864974 words of memory out of 5000000
- 33492 multiletter control sequences out of 15000+600000
- 607955 words of font info for 228 fonts, out of 8000000 for 9000
+ 19305 strings out of 481239
+ 297599 string characters out of 5920376
+ 868489 words of memory out of 5000000
+ 33499 multiletter control sequences out of 15000+600000
+ 608044 words of font info for 230 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,18n,81p,1412b,685s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texliv
@@ -5509,10 +5520,10 @@ public/newtx/txbsys.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx
 /txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (86 pages, 411304 bytes).
+Output written on main.pdf (91 pages, 420076 bytes).
 PDF statistics:
- 1348 PDF objects out of 1440 (max. 8388607)
- 1161 compressed objects within 12 object streams
- 297 named destinations out of 1000 (max. 500000)
+ 1399 PDF objects out of 1440 (max. 8388607)
+ 1201 compressed objects within 13 object streams
+ 308 named destinations out of 1000 (max. 500000)
  25005 words of extra memory for PDF output out of 29859 (max. 10000000)
 
