@@ -1,7 +1,7 @@
-simula_uni <- function(sample_size = 50,
+simula_uni <- function(sample_size = 100,
                        n_datasets = 500,
-                       n_treatment = 4,
-                       betas = c(0.5,0,0,0),
+                       n_treatment = 2,
+                       betas = c(0.35,0.15),
                        n_distances = 20,
                        distribution = 'binomial')
   
@@ -28,9 +28,9 @@ simula_uni <- function(sample_size = 50,
          "normal" = {
            
            link <- c("identity")
-           variance <- c("constant")
+           variance <- c("tweedie")
            
-           for (i in 1:(n_datasets+10)) {
+           for (i in 1:(n_datasets+150)) {
              
              mu <- X%*%betas
              
@@ -46,7 +46,7 @@ simula_uni <- function(sample_size = 50,
            link <- c("log")
            variance <- c("tweedie")
            
-           for (i in 1:(n_datasets+10)) {
+           for (i in 1:(n_datasets+150)) {
              
              lambda <- exp(X%*%betas)
              
@@ -63,7 +63,7 @@ simula_uni <- function(sample_size = 50,
            link <-  "logit" 
            variance  <-  "binomialP"
            
-           for (i in 1:(n_datasets+10)) {
+           for (i in 1:(n_datasets+150)) {
              
              p <- exp(X%*%betas)/(1 + exp(X%*%betas))
              
@@ -82,7 +82,7 @@ simula_uni <- function(sample_size = 50,
            
            variance <- "binomialP"
            
-           for (i in 1:(n_datasets+10)) {
+           for (i in 1:(n_datasets+150)) {
              
              p <- exp(X%*%betas)/(1 + exp(X%*%betas))
              
@@ -131,28 +131,30 @@ simula_uni <- function(sample_size = 50,
              ca <- list() 
            }
            
-           for (i in 1:(n_datasets+10)) {
+           for (i in 1:(n_datasets+150)) {
              fit <- 
-               mcglm(linear_pred = c(form),
+               try(mcglm(linear_pred = c(form),
                      matrix_pred = list(c(Z0)),
                      link = link, 
                      variance = variance,
                      Ntrial = list(1),
                      data = datasets[[i]],
-                     control_algorithm = ca)
+                     control_algorithm = ca,
+                     power_fixed = F))
              
              models[[i]] <- fit
              print(i)
            }
          },
          {
-           for (i in 1:(n_datasets+10)) {
+           for (i in 1:(n_datasets+150)) {
              fit <- 
-               mcglm(linear_pred = c(form),
+               try(mcglm(linear_pred = c(form),
                      matrix_pred = list(c(Z0)),
                      link = link,
                      variance = variance,
-                     data = datasets[[i]])
+                     data = datasets[[i]],
+                     power_fixed = F))
              
              models[[i]] <- fit
              print(i)
@@ -162,32 +164,38 @@ simula_uni <- function(sample_size = 50,
   
   #----------------------------------------------------------------
   
+  
   # obtenção das hipoteses para função mc_linear_hypothesis
   # e distancias dos valores de betas inicialmente simulados
   
   dists <- vector() # vetor para armazenar as distancias
   dists[1] <- 0 # distancia inicial 0 
   
-  hyp_betas <- betas # vetor inicial para distribuir os efeitos
+  p_init <- switch(distribution,
+                   "normal" = 0,
+                   "binomial" = 1,
+                   "poisson" = 1
+  )
+  
+  hyp_p <- p_init # vetor inicial para distribuir os efeitos
   
   hypothesis <- list() # vetor para armazenar as hipoteses
   
   # hipotese inicial
-  hypothesis[[1]] <- paste(coef(models[[1]], type = 'beta')$Parameters,
+  hypothesis[[1]] <- paste(coef(models[[1]], type = 'power')$Parameters,
                            '=', 
-                           betas)
+                           p_init)
   
   # obtenção das distâncias e hipóteses a serem testadas
   for (i in 2:n_distances) {
     
-    hyp_betas[1] <- hyp_betas[1] - (betas[1]/n_distances)
-    hyp_betas[2:length(betas)] <- hyp_betas[2:length(betas)] + (betas[1]/n_distances)/(n_treatment-1)
+    hyp_p[1] <- hyp_p[1] + (2/n_distances)
     
-    hypothesis[[i]] <- paste(coef(models[[1]], type = 'beta')$Parameters,
+    hypothesis[[i]] <- paste(coef(models[[1]], type = 'power')$Parameters,
                              '=',
-                             hyp_betas)
+                             hyp_p)
     
-    dists[[i]] <- dist(rbind(betas, hyp_betas), method = "euclidean")
+    dists[[i]] <- dist(rbind(p_init, hyp_p), method = "euclidean")
   }
   
   #----------------------------------------------------------------
@@ -203,14 +211,14 @@ simula_uni <- function(sample_size = 50,
   parameters <- data.frame(Parameters = coef(models[[1]])$Parameters,
                            Type = coef(models[[1]])$Type)
   
-  for (i in 1:(n_datasets+10)) {
-    parameters[,i+2] <- coef(models[[i]])$Estimates
+  for (i in 1:(n_datasets+150)) {
+    parameters[,i+2] <- try(coef(models[[i]])$Estimates)
   }
   
   vcovs <- list()
   
-  for (i in 1:(n_datasets+10)) {
-    vcovs[[i]] <- vcov(models[[i]])  
+  for (i in 1:(n_datasets+150)) {
+    vcovs[[i]] <- try(vcov(models[[i]])  )
   }
   
   #----------------------------------------------------------------
@@ -225,7 +233,7 @@ simula_uni <- function(sample_size = 50,
   for (i in 1:length(models)) {
     for (j in 1:length(hypothesis)) {
       p_test[j,i] <- try(mc_linear_hypothesis(object =  models[[i]], 
-                                              hypothesis = hypothesis[[j]])$P_valor)
+                                              hypothesis = hypothesis[[j]])$`Pr(>Chi)`)
     }
   }
   
