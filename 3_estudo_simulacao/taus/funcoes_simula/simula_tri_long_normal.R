@@ -1,12 +1,19 @@
-simula_tri_long_normal <- function(sample_size = 250,
-                                       n_datasets = 100,
-                                       n_rep = 5,
-                                       taus = c(0.5,0.5),
-                                       n_distances = 20,
-                                       distribution = 'normal')
+# simula_tri_long_normal <- function(sample_size = 250,
+#                                        n_datasets = 100,
+#                                        n_rep = 5,
+#                                        taus = c(0.5,0.5),
+#                                        n_distances = 20,
+#                                        distribution = 'normal')
+#   
+# {
   
-{
-  
+sample_size = 1000
+n_datasets = 10
+n_rep = 5
+taus = c(0.5,0.5)
+n_distances = 20
+distribution = 'normal'
+
   ## Matrix linear predictor
   UM <- rep(1, n_rep)
   Z0 <- Diagonal(n_rep, 1)
@@ -77,6 +84,8 @@ simula_tri_long_normal <- function(sample_size = 250,
                                 y3 = y3,
                                 id = rep(1:sample_size, 
                                          each = n_rep))
+    
+    print(i)
     
   }
   
@@ -187,7 +196,7 @@ simula_tri_long_normal <- function(sample_size = 250,
   for (i in 1:length(models)) {
     for (j in 1:length(hypothesis)) {
       p_test[j,i] <- try(mc_linear_hypothesis(object =  models[[i]], 
-                                              hypothesis = hypothesis[[j]])$P_valor)
+                                              hypothesis = hypothesis[[j]])$`Pr(>Chi)`)
     }
   }
   
@@ -202,22 +211,30 @@ simula_tri_long_normal <- function(sample_size = 250,
   
   rej <- ifelse(p_test[,1:(ncol(p_test))] < 0.05, 1, 0)
   
-  df_final <- data.frame(dist = dists,
-                         rej = ((rowSums(rej))/ncol(rej))*100)
+  index_problems <- names(which(colSums(is.na(p_test)) > 0))
   
-  df_final$distribution <- paste('tri', distribution)
+  rej2 <- rej[,!(colnames(rej) %in% index_problems)][,1:n_datasets]
+  
+  df_final <- data.frame(dist = dists,
+                         rej = ((rowSums(rej2))/ncol(rej2))*100)
+  
+  df_final$distribution <- paste('uni', distribution)
   df_final$sample_size <- sample_size
-  df_final$n_datasets <- ncol(rej)
+  df_final$n_datasets <- ncol(rej2)
   
   #----------------------------------------------------------------
   
   # retorna dataframe com o percentual de rejeição para cada hipótese
-  return(list(hypothesis = hypothesis, 
-              parameters = parameters, 
-              vcovs = vcovs, 
-              p_test = p_test,
-              df_final = df_final))
-}
-
-#----------------------------------------------------------------
-
+  
+  results <-list(hypothesis = hypothesis, 
+                 parameters = parameters, 
+                 vcovs = vcovs, 
+                 p_test = p_test, 
+                 index_problems = index_problems,
+                 df_final = df_final)
+  
+  
+  #  return(results)
+  #}
+  
+  #----------------------------------------------------------------

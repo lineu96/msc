@@ -1,11 +1,17 @@
-simula_tri_long <- function(sample_size = 50,
-                            n_datasets = 2,
-                            n_rep = 5,
-                            taus = c(0.5,0.5),
-                            n_distances = 20)
+# simula_tri_long <- function(sample_size = 50,
+#                             n_datasets = 2,
+#                             n_rep = 5,
+#                             taus = c(0.5,0.5),
+#                             n_distances = 20)
+#   
+# {
   
-{
-  
+sample_size = 50
+n_datasets = 2
+n_rep = 5
+taus = c(0.5,0.5)
+n_distances = 20
+
   ## Matrix linear predictor
   UM <- rep(1, n_rep)
   Z0 <- Diagonal(n_rep, 1)
@@ -211,11 +217,11 @@ simula_tri_long <- function(sample_size = 50,
   for (i in 1:length(models)) {
     for (j in 1:length(hypothesis)) {
       p_test[j,i] <- try(mc_linear_hypothesis(object =  models[[i]], 
-                                              hypothesis = hypothesis[[j]])$P_valor)
+                                              hypothesis = hypothesis[[j]])$`Pr(>Chi)`)
     }
   }
-  
-  #----------------------------------------------------------------
+
+    #----------------------------------------------------------------
   
   # converte resultado para dataframe
   p_test <- as.data.frame(p_test)
@@ -226,22 +232,31 @@ simula_tri_long <- function(sample_size = 50,
   
   rej <- ifelse(p_test[,1:(ncol(p_test))] < 0.05, 1, 0)
   
+  index_problems <- names(which(colSums(is.na(p_test)) > 0))
+  
+  rej2 <- rej[,!(colnames(rej) %in% index_problems)][,1:n_datasets]
+  
   df_final <- data.frame(dist = dists,
-                         rej = ((rowSums(rej))/ncol(rej))*100)
+                         rej = ((rowSums(rej2))/ncol(rej2))*100)
   
   df_final$distribution <- 'normal/poisson/binomial'
   df_final$sample_size <- sample_size
-  df_final$n_datasets <- ncol(rej)
+  df_final$n_datasets <- ncol(rej2)
   
   #----------------------------------------------------------------
   
   # retorna dataframe com o percentual de rejeição para cada hipótese
-  return(list(hypothesis = hypothesis, 
-              parameters = parameters, 
-              vcovs = vcovs, 
-              p_test = p_test,
-              df_final = df_final))
-}
-
-#----------------------------------------------------------------
+  
+  results <-list(hypothesis = hypothesis, 
+                 parameters = parameters, 
+                 vcovs = vcovs, 
+                 p_test = p_test, 
+                 index_problems = index_problems,
+                 df_final = df_final)
+  
+  
+  #  return(results)
+  #}
+  
+  #----------------------------------------------------------------
 

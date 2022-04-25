@@ -1,12 +1,19 @@
-simula_uni_long_pois_binom <- function(sample_size = 50,
-                                       n_datasets = 1,
-                                       n_rep = 5,
-                                       taus = c(0.5,0.5),
-                                       n_distances = 20,
-                                       distribution = 'binomial')
+# simula_uni_long_pois_binom <- function(sample_size = 50,
+#                                        n_datasets = 1,
+#                                        n_rep = 5,
+#                                        taus = c(0.5,0.5),
+#                                        n_distances = 20,
+#                                        distribution = 'binomial')
+#   
+# {
   
-{
-  
+sample_size = 100
+n_datasets = 2
+n_rep = 5
+taus = c(0.5,0.5)
+n_distances = 20
+distribution = 'poisson'
+
   ## Matrix linear predictor
   UM <- rep(1, n_rep)
   Z0 <- Diagonal(n_rep, 1)
@@ -54,7 +61,7 @@ simula_uni_long_pois_binom <- function(sample_size = 50,
   for (i in 1:(n_datasets)) {
     
     
-    data_temp <- genNORTARA(n = sample_size, 
+    data_temp <- NORTARA::genNORTARA(n = sample_size, 
                             cor_matrix = Omega, 
                             paramslists = paramslists, 
                             invcdfnames = invcdfnames)
@@ -65,6 +72,7 @@ simula_uni_long_pois_binom <- function(sample_size = 50,
                                 id = rep(1:sample_size, 
                                          each = n_rep))
     
+    print(i)
   }
   
   
@@ -75,10 +83,7 @@ simula_uni_long_pois_binom <- function(sample_size = 50,
   # caso seja binomial a resposta precisa ser declarada como razão
   # y/Ntrial ~x
   
-  switch(distribution,
-         "binomial" = {form = y/1~1},
-         {form = y~1}
-  )
+  form = y~1
   
   # preditor matricial
   Z0 <- mc_id(datasets[[1]]) # matriz identidade para o preditor matricial
@@ -185,7 +190,7 @@ simula_uni_long_pois_binom <- function(sample_size = 50,
   for (i in 1:length(models)) {
     for (j in 1:length(hypothesis)) {
       p_test[j,i] <- try(mc_linear_hypothesis(object =  models[[i]], 
-                                              hypothesis = hypothesis[[j]])$P_valor)
+                                              hypothesis = hypothesis[[j]])$`Pr(>Chi)`)
     }
   }
   
@@ -194,28 +199,41 @@ simula_uni_long_pois_binom <- function(sample_size = 50,
   # converte resultado para dataframe
   p_test <- as.data.frame(p_test)
   
+  # caso tenha falhado, converte para NA
+  for (i in 1:ncol(p_test)) {
+    p_test[,i] <- as.numeric(p_test[,i])    
+  }
+  
   #----------------------------------------------------------------
   
   # obtém percentual de rejeição
   
   rej <- ifelse(p_test[,1:(ncol(p_test))] < 0.05, 1, 0)
   
+  index_problems <- names(which(colSums(is.na(p_test)) > 0))
+  
+  rej2 <- rej[,!(colnames(rej) %in% index_problems)][,1:n_datasets]
+  
   df_final <- data.frame(dist = dists,
-                         rej = ((rowSums(rej))/ncol(rej))*100)
+                         rej = ((rowSums(rej2))/ncol(rej2))*100)
   
   df_final$distribution <- paste('uni', distribution)
   df_final$sample_size <- sample_size
-  df_final$n_datasets <- ncol(rej)
+  df_final$n_datasets <- ncol(rej2)
   
   #----------------------------------------------------------------
   
   # retorna dataframe com o percentual de rejeição para cada hipótese
-  return(list(hypothesis = hypothesis, 
-              parameters = parameters, 
-              vcovs = vcovs, 
-              p_test = p_test,
-              df_final = df_final))
-}
-
-#----------------------------------------------------------------
-
+  
+  results <-list(hypothesis = hypothesis, 
+                 parameters = parameters, 
+                 vcovs = vcovs, 
+                 p_test = p_test, 
+                 index_problems = index_problems,
+                 df_final = df_final)
+  
+  
+  #  return(results)
+  #}
+  
+  #----------------------------------------------------------------

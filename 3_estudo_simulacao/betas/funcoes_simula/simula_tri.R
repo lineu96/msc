@@ -1,12 +1,20 @@
 
-simula_tri <- function(sample_size = 50,
-                       n_treatment = 4,
-                       betas_normal = c(5,0,0,0),
-                       betas_poisson = c(2.3,0,0,0),
-                       betas_binomial = c(0.5,0,0,0),
-                       n_datasets = 500,
-                       n_distances = 20){
-  
+# simula_tri <- function(sample_size = 50,
+#                        n_treatment = 4,
+#                        betas_normal = c(5,0,0,0),
+#                        betas_poisson = c(2.3,0,0,0),
+#                        betas_binomial = c(0.5,0,0,0),
+#                        n_datasets = 500,
+#                        n_distances = 20){
+
+sample_size = 50
+n_treatment = 4
+betas_normal = c(5,0,0,0)
+betas_poisson = c(2.3,0,0,0)
+betas_binomial = c(0.5,0,0,0)
+n_datasets = 15
+n_distances = 20
+
   #---------------------------------------------------
   
   # tratamentos
@@ -62,6 +70,8 @@ simula_tri <- function(sample_size = 50,
     
     names(datasets[[i]]) <- c('y1', 'y2', 'y3', 'x')
     
+    print(i)
+    
   }
   
   #---------------------------------------------------
@@ -112,12 +122,12 @@ simula_tri <- function(sample_size = 50,
   
   for (i in 1:n_datasets) {
     fit <- 
-      mcglm(linear_pred = c(form1, form2, form3),
+      try(mcglm(linear_pred = c(form1, form2, form3),
             matrix_pred = list(Z0,Z0,Z0),
             link = c(link_normal, link_poisson, link_binomial), 
             variance = c(variance_normal, variance_poisson, variance_binomial),
             data = datasets[[i]],
-            control_algorithm = ca)
+            control_algorithm = ca))
     
     models[[i]] <- fit
     print(i)
@@ -202,7 +212,7 @@ simula_tri <- function(sample_size = 50,
   for (i in 1:length(models)) {
     for (j in 1:length(hypothesis)) {
       p_test[j,i] <- try(mc_linear_hypothesis(object =  models[[i]], 
-                                              hypothesis = hypothesis[[j]])$P_valor)
+                                              hypothesis = hypothesis[[j]])$`Pr(>Chi)`)
     }
   }
   
@@ -218,30 +228,33 @@ simula_tri <- function(sample_size = 50,
   
   #----------------------------------------------------------------
   
-  # acrescenta info de distancia
-  p_test$dist <- dists
-  
-  #----------------------------------------------------------------
-  
   # obtém percentual de rejeição
   
-  rej <- ifelse(p_test[,1:(ncol(p_test)-1)] < 0.05, 1, 0)
+  rej <- ifelse(p_test[,1:(ncol(p_test))] < 0.05, 1, 0)
   
-  df_final <- data.frame(dist = p_test$dist,
-                         rej = (rowSums(rej, na.rm = T)/
-                                  (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)*100))
+  index_problems <- names(which(colSums(is.na(p_test)) > 0))
   
-  df_final$distribution <- 'normal/poisson/binomial'
+  rej2 <- rej[,!(colnames(rej) %in% index_problems)][,1:n_datasets]
+  
+  df_final <- data.frame(dist = dists,
+                         rej = ((rowSums(rej2))/ncol(rej2))*100)
+  
+  df_final$distribution <- "normal/poisson/binomial"
   df_final$sample_size <- sample_size
-  df_final$n_datasets <- (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)
+  df_final$n_datasets <- ncol(rej2)
   
   #----------------------------------------------------------------
   
   # retorna dataframe com o percentual de rejeição para cada hipótese
-  return(list(hypothesis = hypothesis, 
-              parameters = parameters, 
-              vcovs = vcovs, 
-              p_test = p_test, 
-              df_final = df_final))
   
-}
+  results <-list(hypothesis = hypothesis, 
+                 parameters = parameters, 
+                 vcovs = vcovs, 
+                 p_test = p_test, 
+                 index_problems = index_problems,
+                 df_final = df_final)
+  
+  #  return(results)
+  #}
+  
+  #----------------------------------------------------------------

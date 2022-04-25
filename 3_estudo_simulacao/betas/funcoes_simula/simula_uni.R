@@ -1,12 +1,19 @@
-simula_uni <- function(sample_size = 50,
-                       n_datasets = 500,
-                       n_treatment = 4,
-                       betas = c(0.5,0,0,0),
-                       n_distances = 20,
-                       distribution = 'binomial')
+#simula_uni <- function(sample_size = 50,
+#                       n_datasets = 500,
+#                       n_treatment = 4,
+#                       betas = c(0.5,0,0,0),
+#                       n_distances = 20,
+#                       distribution = 'binomial')
   
-{
+#{
   
+sample_size = 500
+n_datasets = 100
+n_treatment = 4
+betas = c(0.5,0,0,0)
+n_distances = 20
+distribution = 'binomial'
+
   # tratamentos
   trat <- gl(n_treatment, sample_size/n_treatment)
   
@@ -74,25 +81,6 @@ simula_uni <- function(sample_size = 50,
              datasets[[i]] <- data.frame(y = y,
                                          x = trat)
            }
-         },
-         
-         "beta" = {
-           
-           link <- "logit"
-           
-           variance <- "binomialP"
-           
-           for (i in 1:(n_datasets+10)) {
-             
-             p <- exp(X%*%betas)/(1 + exp(X%*%betas))
-             
-             y <- gamlss.dist::rBE(sample_size, 
-                                   mu = p, 
-                                   sigma = 0.2)
-             
-             datasets[[i]] <- data.frame(y = y,
-                                         x = trat)
-           }
          }
   )
   
@@ -104,10 +92,7 @@ simula_uni <- function(sample_size = 50,
   # caso seja binomial a resposta precisa ser declarada como razão
   # y/Ntrial ~x
   
-  switch(distribution,
-         "binomial" = {form = y/1~x},
-         {form = y~x}
-  )
+  form = y~x
   
   # preditor matricial
   Z0 <- mc_id(datasets[[1]]) # matriz identidade para o preditor matricial
@@ -133,13 +118,13 @@ simula_uni <- function(sample_size = 50,
            
            for (i in 1:(n_datasets+10)) {
              fit <- 
-               mcglm(linear_pred = c(form),
+               try(mcglm(linear_pred = c(form),
                      matrix_pred = list(c(Z0)),
                      link = link, 
                      variance = variance,
                      Ntrial = list(1),
                      data = datasets[[i]],
-                     control_algorithm = ca)
+                     control_algorithm = ca))
              
              models[[i]] <- fit
              print(i)
@@ -148,11 +133,11 @@ simula_uni <- function(sample_size = 50,
          {
            for (i in 1:(n_datasets+10)) {
              fit <- 
-               mcglm(linear_pred = c(form),
+               try(mcglm(linear_pred = c(form),
                      matrix_pred = list(c(Z0)),
                      link = link,
                      variance = variance,
-                     data = datasets[[i]])
+                     data = datasets[[i]]))
              
              models[[i]] <- fit
              print(i)
@@ -178,7 +163,7 @@ simula_uni <- function(sample_size = 50,
                            betas)
   
   # obtenção das distâncias e hipóteses a serem testadas
-  for (i in 2:n_distances) {
+    for (i in 2:n_distances) {
     
     hyp_betas[1] <- hyp_betas[1] - (betas[1]/n_distances)
     hyp_betas[2:length(betas)] <- hyp_betas[2:length(betas)] + (betas[1]/n_distances)/(n_treatment-1)
@@ -204,13 +189,13 @@ simula_uni <- function(sample_size = 50,
                            Type = coef(models[[1]])$Type)
   
   for (i in 1:(n_datasets+10)) {
-    parameters[,i+2] <- coef(models[[i]])$Estimates
+    parameters[,i+2] <- try(coef(models[[i]])$Estimates)
   }
   
   vcovs <- list()
   
   for (i in 1:(n_datasets+10)) {
-    vcovs[[i]] <- vcov(models[[i]])  
+    vcovs[[i]] <- try(vcov(models[[i]]))
   }
   
   #----------------------------------------------------------------
@@ -225,7 +210,7 @@ simula_uni <- function(sample_size = 50,
   for (i in 1:length(models)) {
     for (j in 1:length(hypothesis)) {
       p_test[j,i] <- try(mc_linear_hypothesis(object =  models[[i]], 
-                                              hypothesis = hypothesis[[j]])$P_valor)
+                                              hypothesis = hypothesis[[j]])$`Pr(>Chi)`)
     }
   }
   
@@ -257,27 +242,24 @@ simula_uni <- function(sample_size = 50,
   df_final <- data.frame(dist = dists,
                          rej = ((rowSums(rej2))/ncol(rej2))*100)
   
-  
-  
-  #df_final <- data.frame(dist = p_test$dist,
-  #                       rej = (rowSums(rej, na.rm = T)/
-  #                                (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)*100))
-  
   df_final$distribution <- paste('uni', distribution)
   df_final$sample_size <- sample_size
-  #df_final$n_datasets <- (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)
   df_final$n_datasets <- ncol(rej2)
   
   #----------------------------------------------------------------
   
   # retorna dataframe com o percentual de rejeição para cada hipótese
-  return(list(hypothesis = hypothesis, 
-              parameters = parameters, 
-              vcovs = vcovs, 
-              p_test = p_test, 
-              index_problems = index_problems,
-              df_final = df_final))
-}
+  
+  results <-list(hypothesis = hypothesis, 
+                 parameters = parameters, 
+                 vcovs = vcovs, 
+                 p_test = p_test, 
+                 index_problems = index_problems,
+                 df_final = df_final)
+  
+  
+#  return(results)
+#}
 
 #----------------------------------------------------------------
 

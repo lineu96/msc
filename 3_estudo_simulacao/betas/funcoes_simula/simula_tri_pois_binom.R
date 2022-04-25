@@ -1,11 +1,18 @@
 
-simula_tri_pois_binom <- function(sample_size = 50,
-                                  n_treatment = 4,
-                                  betas = c(0.5,0,0,0),
-                                  n_datasets = 500,
-                                  n_distances = 20,
-                                  distribution = 'binomial'){
-  
+#simula_tri_pois_binom <- function(sample_size = 50,
+#                                  n_treatment = 4,
+#                                  betas = c(0.5,0,0,0),
+#                                  n_datasets = 500,
+#                                  n_distances = 20,
+#                                  distribution = 'binomial'){
+
+sample_size = 100
+n_treatment = 4
+betas = c(2.3,0,0,0)
+n_datasets = 15
+n_distances = 20
+distribution = 'poisson'
+
   #---------------------------------------------------
   
   # tratamentos
@@ -85,6 +92,7 @@ simula_tri_pois_binom <- function(sample_size = 50,
     
     names(datasets[[i]]) <- c('y1', 'y2', 'y3', 'x')
     
+    print(i)
   }
   
   #---------------------------------------------------
@@ -117,11 +125,11 @@ simula_tri_pois_binom <- function(sample_size = 50,
          "poisson" = {
            for (i in 1:(n_datasets+15)) {
              fit <- 
-               mcglm(linear_pred = c(form1, form2, form3),
+               try(mcglm(linear_pred = c(form1, form2, form3),
                      matrix_pred = list(Z0,Z0,Z0),
                      link = c(link, link, link), 
                      variance = c(variance, variance, variance),
-                     data = datasets[[i]])
+                     data = datasets[[i]]))
              
              models[[i]] <- fit
              print(i)
@@ -142,13 +150,13 @@ simula_tri_pois_binom <- function(sample_size = 50,
            
            for (i in 1:(n_datasets+15)) {
              fit <- 
-               mcglm(linear_pred = c(form1, form2, form3),
+               try(mcglm(linear_pred = c(form1, form2, form3),
                          matrix_pred = list(Z0,Z0,Z0),
                          link = c(link, link, link), 
                          variance = c(variance, variance, variance),
                          Ntrial = list(1,1,1),
                          data = datasets[[i]],
-                         control_algorithm = ca)
+                         control_algorithm = ca))
              
              models[[i]] <- fit
              print(i)
@@ -200,13 +208,13 @@ simula_tri_pois_binom <- function(sample_size = 50,
                            Type = coef(models[[1]])$Type)
   
   for (i in 1:(n_datasets+15)) {
-    parameters[,i+2] <- coef(models[[i]])$Estimates
+    parameters[,i+2] <- try(coef(models[[i]])$Estimates)
   }
   
   vcovs <- list()
   
   for (i in 1:(n_datasets+15)) {
-    vcovs[[i]] <- vcov(models[[i]])  
+    vcovs[[i]] <- try(vcov(models[[i]])  )
   }
   
   #----------------------------------------------------------------
@@ -221,7 +229,7 @@ simula_tri_pois_binom <- function(sample_size = 50,
   for (i in 1:length(models)) {
     for (j in 1:length(hypothesis)) {
       p_test[j,i] <- try(mc_linear_hypothesis(object =  models[[i]], 
-                                              hypothesis = hypothesis[[j]])$P_valor)
+                                              hypothesis = hypothesis[[j]])$`Pr(>Chi)`)
     }
   }
   
@@ -237,11 +245,6 @@ simula_tri_pois_binom <- function(sample_size = 50,
   
   #----------------------------------------------------------------
   
-  # acrescenta info de distancia
-  #p_test$dist <- dists
-  
-  #----------------------------------------------------------------
-  
   # obtém percentual de rejeição
   
   rej <- ifelse(p_test[,1:(ncol(p_test))] < 0.05, 1, 0)
@@ -253,26 +256,22 @@ simula_tri_pois_binom <- function(sample_size = 50,
   df_final <- data.frame(dist = dists,
                          rej = ((rowSums(rej2))/ncol(rej2))*100)
   
-  
-  
-  #df_final <- data.frame(dist = p_test$dist,
-  #                       rej = (rowSums(rej, na.rm = T)/
-  #                                (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)*100))
-  
   df_final$distribution <- paste('tri', distribution)
   df_final$sample_size <- sample_size
-  #df_final$n_datasets <- (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)
   df_final$n_datasets <- ncol(rej2)
   
   #----------------------------------------------------------------
   
   # retorna dataframe com o percentual de rejeição para cada hipótese
-  return(list(hypothesis = hypothesis, 
-              parameters = parameters, 
-              vcovs = vcovs, 
-              p_test = p_test, 
-              index_problems = index_problems,
-              df_final = df_final))
-}
-
-#----------------------------------------------------------------
+  
+  results <-list(hypothesis = hypothesis, 
+                 parameters = parameters, 
+                 vcovs = vcovs, 
+                 p_test = p_test, 
+                 index_problems = index_problems,
+                 df_final = df_final)
+  
+  #  return(results)
+  #}
+  
+  #----------------------------------------------------------------

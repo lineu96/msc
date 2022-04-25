@@ -1,10 +1,17 @@
-simula_tri_normal <- function(sample_size = 100,
-                              n_treatment = 4,
-                              betas = c(5,0,0,0),
-                              n_datasets = 100,
-                              n_distances = 20,
-                              distribution = 'normal'){
-  
+#simula_tri_normal <- function(sample_size = 100,
+#                              n_treatment = 4,
+#                              betas = c(5,0,0,0),
+#                              n_datasets = 100,
+#                              n_distances = 20,
+#                              distribution = 'normal'){
+
+sample_size = 100
+n_treatment = 4
+betas = c(5,0,0,0)
+n_datasets = 100
+n_distances = 20
+distribution = 'normal'
+
   #---------------------------------------------------
   
   # tratamentos
@@ -77,11 +84,11 @@ simula_tri_normal <- function(sample_size = 100,
   
   for (i in 1:n_datasets) {
     fit <- 
-      mcglm(linear_pred = c(form1, form2, form3),
+      try(mcglm(linear_pred = c(form1, form2, form3),
             matrix_pred = list(Z0,Z0,Z0),
             link = c(link, link, link), 
             variance = c(variance, variance, variance),
-            data = datasets[[i]])
+            data = datasets[[i]]))
     
     models[[i]] <- fit
     print(i)
@@ -152,7 +159,7 @@ simula_tri_normal <- function(sample_size = 100,
   for (i in 1:length(models)) {
     for (j in 1:length(hypothesis)) {
       p_test[j,i] <- try(mc_linear_hypothesis(object =  models[[i]], 
-                                              hypothesis = hypothesis[[j]])$P_valor)
+                                              hypothesis = hypothesis[[j]])$`Pr(>Chi)`)
     }
   }
   
@@ -175,23 +182,32 @@ simula_tri_normal <- function(sample_size = 100,
   
   # obtém percentual de rejeição
   
-  rej <- ifelse(p_test[,1:(ncol(p_test)-1)] < 0.05, 1, 0)
+  rej <- ifelse(p_test[,1:(ncol(p_test))] < 0.05, 1, 0)
   
-  df_final <- data.frame(dist = p_test$dist,
-                         rej = (rowSums(rej, na.rm = T)/
-                                  (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)*100))
+  index_problems <- names(which(colSums(is.na(p_test)) > 0))
   
-  df_final$distribution <- paste('tri', distribution)
+  rej2 <- rej[,!(colnames(rej) %in% index_problems)][,1:n_datasets]
+  
+  df_final <- data.frame(dist = dists,
+                         rej = ((rowSums(rej2))/ncol(rej2))*100)
+  
+  df_final$distribution <- paste('uni', distribution)
   df_final$sample_size <- sample_size
-  df_final$n_datasets <- (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)
+  df_final$n_datasets <- ncol(rej2)
   
   #----------------------------------------------------------------
   
   # retorna dataframe com o percentual de rejeição para cada hipótese
-  return(list(hypothesis = hypothesis, 
-              parameters = parameters, 
-              vcovs = vcovs, 
-              p_test = p_test, 
-              df_final = df_final))
   
-}
+  results <-list(hypothesis = hypothesis, 
+                 parameters = parameters, 
+                 vcovs = vcovs, 
+                 p_test = p_test, 
+                 index_problems = index_problems,
+                 df_final = df_final)
+  
+  
+  #  return(results)
+  #}
+  
+  #----------------------------------------------------------------

@@ -1,12 +1,19 @@
-simula_uni <- function(sample_size = 100,
-                       n_datasets = 500,
-                       n_treatment = 2,
-                       betas = c(0.35,0.15),
-                       n_distances = 20,
-                       distribution = 'binomial')
+# simula_uni <- function(sample_size = 100,
+#                        n_datasets = 500,
+#                        n_treatment = 2,
+#                        betas = c(0.35,0.15),
+#                        n_distances = 20,
+#                        distribution = 'binomial')
+#   
+# {
   
-{
-  
+sample_size = 100
+n_datasets = 100
+n_treatment = 2
+betas = c(3,2)
+n_distances = 20
+distribution = 'normal'
+
   # tratamentos
   trat <- gl(n_treatment, sample_size/n_treatment)
   
@@ -74,25 +81,6 @@ simula_uni <- function(sample_size = 100,
              datasets[[i]] <- data.frame(y = y,
                                          x = trat)
            }
-         },
-         
-         "beta" = {
-           
-           link <- "logit"
-           
-           variance <- "binomialP"
-           
-           for (i in 1:(n_datasets+150)) {
-             
-             p <- exp(X%*%betas)/(1 + exp(X%*%betas))
-             
-             y <- gamlss.dist::rBE(sample_size, 
-                                   mu = p, 
-                                   sigma = 0.2)
-             
-             datasets[[i]] <- data.frame(y = y,
-                                         x = trat)
-           }
          }
   )
   
@@ -104,10 +92,7 @@ simula_uni <- function(sample_size = 100,
   # caso seja binomial a resposta precisa ser declarada como razão
   # y/Ntrial ~x
   
-  switch(distribution,
-         "binomial" = {form = y/1~x},
-         {form = y~x}
-  )
+  form = y~x
   
   # preditor matricial
   Z0 <- mc_id(datasets[[1]]) # matriz identidade para o preditor matricial
@@ -249,11 +234,6 @@ simula_uni <- function(sample_size = 100,
   
   #----------------------------------------------------------------
   
-  # acrescenta info de distancia
-  #p_test$dist <- dists
-  
-  #----------------------------------------------------------------
-  
   # obtém percentual de rejeição
   
   rej <- ifelse(p_test[,1:(ncol(p_test))] < 0.05, 1, 0)
@@ -266,26 +246,23 @@ simula_uni <- function(sample_size = 100,
                          rej = ((rowSums(rej2))/ncol(rej2))*100)
   
   
-  
-  #df_final <- data.frame(dist = p_test$dist,
-  #                       rej = (rowSums(rej, na.rm = T)/
-  #                                (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)*100))
-  
   df_final$distribution <- paste('uni', distribution)
   df_final$sample_size <- sample_size
-  #df_final$n_datasets <- (ncol(p_test[ , colSums(is.na(p_test)) == 0])-1)
   df_final$n_datasets <- ncol(rej2)
   
   #----------------------------------------------------------------
   
   # retorna dataframe com o percentual de rejeição para cada hipótese
-  return(list(hypothesis = hypothesis, 
-              parameters = parameters, 
-              vcovs = vcovs, 
-              p_test = p_test, 
-              index_problems = index_problems,
-              df_final = df_final))
-}
-
-#----------------------------------------------------------------
-
+  
+  results <-list(hypothesis = hypothesis, 
+                 parameters = parameters, 
+                 vcovs = vcovs, 
+                 p_test = p_test, 
+                 index_problems = index_problems,
+                 df_final = df_final)
+  
+  
+  #  return(results)
+  #}
+  
+  #----------------------------------------------------------------

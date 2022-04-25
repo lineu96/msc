@@ -174,22 +174,44 @@ Do mesmo modo que foi feito para os parâmetros de regressão, foi tomada a dist
 
 \section{Parâmetros de potência}
 
-Para avaliação de hipóteses sobre parâmetros de potência foram novamente considerados tamanhos amostrais de 50, 100, 250, 500 e 1000. Foram gerados 500 conjuntos de dados para cada tamanho amostral simulando uma situação com uma variável explicativa categórica de 4 níveis. Para distribuição Normal os parâmetros de regressão usados foram: $\beta_0 = X$, $\beta_1 = X$, $\beta_2 = X$, $\beta_3 = X$. Para a distribuição Poisson os parâmetros de regressão usados foram: $\beta_0 = X$, $\beta_1 = X$, $\beta_2 = X$, $\beta_3 = X$. E para a distribuição Bernoulli os parâmetros de regressão usados foram: $\beta_0 = X$, $\beta_1 = X$, $\beta_2 = X$, $\beta_3 = X$. Os valores foram escolhidos de tal modo que haja ao menos um parâmetro de regressão com efeito significativo para que seja possível estimar os parâmetros de potência. Foram avaliados cenários univariados e trivariados com estas características.
+Para avaliação de hipóteses sobre parâmetros de potência foram novamente considerados tamanhos amostrais de 50, 100, 250, 500 e 1000. Foram gerados 500 conjuntos de dados para cada tamanho amostral simulando uma situação com uma variável explicativa categórica de 2 níveis. Para distribuição Normal os parâmetros de regressão usados foram: $\beta_0 = 3$ e $\beta_1 = 2$. Para a distribuição Poisson os parâmetros de regressão usados foram: $\beta_0 = 1,3$ e $\beta_1 = 0,7$. E para a distribuição Bernoulli os parâmetros de regressão usados foram: $\beta_0 = 0,35$ e $\beta_1 = 0,15$. Os valores foram escolhidos de tal modo que haja um parâmetro de regressão com efeito significativo para que seja possível estimar os parâmetros de potência. Foram avaliados cenários univariados e trivariados com estas características.
 
-Para cada amostra gerada foi ajustado um McGLM com funções de ligação e variância descritas na \autoref{tab:link_var}. A correlação entre respostas no caso trivariado é dada pela matriz $\Sigma_b$ descrita na \autoref{eq:correlacao}. Em todos os casos o preditor matricial foi especificado de forma a explicitar que as observações são independentes dentro de cada resposta.
+A correlação entre respostas no caso trivariado é dada pela matriz $\Sigma_b$ descrita na \autoref{eq:correlacao}. Para cada amostra gerada foi ajustado um McGLM em que para todos os casos o preditor matricial foi especificado de forma a explicitar que as observações são independentes dentro de cada resposta.
 
-Similar ao que foi feito para parâmetros de regressão e dispersão, o procedimento consistiu em variar as hipóteses testadas sobre os parâmetros simulados. 
+Similar ao que foi feito para parâmetros de regressão e dispersão, o procedimento consistiu em variar as hipóteses testadas sobre os parâmetros simulados. Nestas configurações, espera-se que o parâmetro de potência seja 0, 1 e 1 para as distribuições Normal, Poisson e Bernoulli, respectivamente. Para avaliar o teste, consideramos 20 diferentes hipóteses baseadas em um acréscimo sucessivo de $2/20$ para cada hipótese nula testeda. Para cada ponto avaliamos o percentual de rejeição da hipótese nula. Tal como nos casos anteriores espera-se que, afastando os valores da hipótese dos valores verdadeiros, o número de rejeições cresça. As hipóteses testadas são mostradas na \autoref{tab:th_p}.
 
-Nestas configurações, espera-se que o parâmetro de potência seja X,Y e Z para as distribuições Normal, Poisson e Bernoulli, respectivamente .
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+          & Normal & Poisson & Bernoulli \\ \hline
+$H_{01}$  & 0      & 1       & 1         \\
+$H_{02}$  & 0,1    & 1,1     & 1,1       \\
+$H_{03}$  & 0,2    & 1,2     & 1,2       \\
+$H_{04}$  & 0,3    & 1,3     & 1,3       \\
+$H_{05}$  & 0,4    & 1,4     & 1,4       \\
+$H_{06}$  & 0,5    & 1,5     & 1,5       \\
+$H_{07}$  & 0,6    & 1,6     & 1,6       \\
+$H_{08}$  & 0,7    & 1,7     & 1,7       \\
+$H_{09}$  & 0,8    & 1,8     & 1,8       \\
+$H_{010}$ & 0,9    & 1,9     & 1,9       \\
+$H_{011}$ & 1      & 2       & 2         \\
+$H_{012}$ & 1,1    & 2,1     & 2,1       \\
+$H_{013}$ & 1,2    & 2,2     & 2,2       \\
+$H_{014}$ & 1,3    & 2,3     & 2,3       \\
+$H_{015}$ & 1,4    & 2,4     & 2,4       \\
+$H_{016}$ & 1,5    & 2,5     & 2,5       \\
+$H_{017}$ & 1,6    & 2,6     & 2,6       \\
+$H_{018}$ & 1,7    & 2,7     & 2,7       \\
+$H_{019}$ & 1,8    & 2,8     & 2,8       \\
+$H_{020}$ & 1,9    & 2,9     & 2,9       \\ \hline
+\end{tabular}
+\caption{Hipóteses testadas para parâmetros de potência para cada distribuição simulada.}
+\label{tab:th_p}
+\end{table}
 
-Para avaliar o teste, consideramos 20 diferentes hipóteses baseadas em um decréscimo sucessivo de $p/20$ para cada hipótese nula testeda. Para cada ponto avaliamos o percentual de rejeição da hipótese nula. 
 
-Tal como nos casos anteriores espera-se que, afastando os valores da hipótese dos valores verdadeiros, o número de rejeições cresça.
-
-As hipóteses testadas são mostradas na \autoref{tab:th_p}.
-
-
-Da mesma forma que o realizado para o estudo sobre parâmetros de regressão e dispersão,  tomamos a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados e padronizamos o vetor. Os resultados são apresentados na \autoref{}.
+Da mesma forma que o realizado para o estudo sobre parâmetros de regressão e dispersão, tomamos a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados e padronizamos o vetor. Os resultados são apresentados na \autoref{}.
 
 %=====================================================
 
@@ -198,8 +220,6 @@ Da mesma forma que o realizado para o estudo sobre parâmetros de regressão e d
 \begin{itemize}
   
   \item \textbf{ACRESCENTAR GRÁFICOS}
-  
-  \item \textbf{TERMINAR SUBSEÇÃO PARA PARAMETRO DE POTENCIA}
   
 \end{itemize}
 

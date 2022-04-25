@@ -197,7 +197,7 @@ $p$                        & 0,91       & (0,47;1,34)                           
 
 Até este ponto foi apresentada uma análise padrão, com os resultados usuais da análise de um modelo de regressão. Indo mais além nesta análise, podemos fazer uso dos resultados e implementações deste trabalho.
 
-Podemos optar por uma análise de variância multivariada do tipo III para avaliar a importância das variáveis no problema. O resultado, apresentado na tabela \autoref{tab:manovaIII} aponta para existência significativa do efeito de momento e, ausência de efeito de grupo, indicando que para ambas as respostas as métricas se alteram ao longo do tempo mas sem alteração entre grupos.
+Podemos optar por uma análise de variância multivariada do tipo II para avaliar a importância das variáveis no problema. O resultado, apresentado na tabela \autoref{tab:manovaII} aponta para existência significativa do efeito de momento e ausência de efeito de grupo, indicando que para ambas as respostas as métricas se alteram ao longo do tempo mas sem alteração entre grupos.
 
 \begin{table}[H]
 \centering
@@ -205,15 +205,15 @@ Podemos optar por uma análise de variância multivariada do tipo III para avali
 \hline
 Variável      & Graus de liberdade & Qui-quadrado & Valor-p        \\ \hline
 Intercepto    & 2                  & 53,1581      & \textless 0,01 \\
-Momento       & 4                  & 40,9902      & \textless 0,01 \\
-Grupo         & 2                  & 5,5819       & 0,0614         \\
+Momento       & 8                  & 139,0161     & \textless 0,01 \\
+Grupo         & 6                  & 8,4928       & 0,2042         \\
 Momento*Grupo & 4                  & 6,9923       & 0,1363         \\ \hline
 \end{tabular}
 \caption{Análise de variância multivariada tipo III.}
-\label{tab:manovaIII}
+\label{tab:manovaII}
 \end{table}
 
-A fim de avaliar os resultados por resposta, podemos utilizar uma análise de variância univariada do tipo III. Os resultados são apresentados na \autoref{tab:anovaIII}. Considerando um nível de significância de $0,01$, existe evidência que aponta para efeito de momento.
+A fim de avaliar os resultados por resposta, podemos utilizar uma análise de variância univariada do tipo II. Os resultados são apresentados na \autoref{tab:anovaII}. Considerando um nível de significância de $0,01$, existe evidência que aponta para efeito de momento.
 
 \begin{table}[H]
 \centering
@@ -222,15 +222,15 @@ A fim de avaliar os resultados por resposta, podemos utilizar uma análise de va
               &                    & \multicolumn{2}{c|}{YFAS}     & \multicolumn{2}{c}{BES}       \\ \hline
 Variável      & Graus de liberdade & Qui-quadrado & Valor-p        & Qui-quadrado & Valor-p        \\ \hline
 Intercepto    & 1                  & 10,6128      & \textless 0,01 & 53,1473      & \textless 0,01 \\
-Momento       & 2                  & 29,8422      & \textless 0,01 & 29,9114      & \textless 0,01 \\
-Grupo         & 1                  & 4,8022       & 0,0284         & 3,2083       & 0,0733         \\
+Momento       & 4                  & 102,9875     & \textless 0,01 & 99,5681      & \textless 0,01 \\
+Grupo         & 3                  & 6,6837       & 0,0827         & 5,3083       & 0,1506         \\
 Momento*Grupo & 2                  & 5,5984       & 0,0609         & 4,2477       & 0,1196         \\ \hline
 \end{tabular}
-\caption{Análise de variância univariada do tipo III.}
-\label{tab:anovaIII}
+\caption{Análise de variância univariada do tipo II.}
+\label{tab:anovaII}
 \end{table}
 
-Como as análises de variâncias apontaram para efeito significativo de variáveis categóricas, podemos explorar quais níveis diferem entre si. \autoref{tab:mul-multcomp1} apresenta as comparações duas a duas entre momentos. Os resultados mostram que, para ambas as respostas existem diferenças entre o primeiro contra segundo e primeiro contra terceiro momento, mas os dois últimos momentos não diferem entre si.
+Como as análises de variâncias apontaram para efeito significativo de variáveis categóricas, podemos explorar quais níveis diferem entre si. \autoref{tab:mul-multcomp1} apresenta as comparações duas a duas entre momentos. Os resultados mostram que, para ambas as respostas existem diferenças entre o primeiro versus segundo e primeiro versus terceiro momento, mas os dois últimos momentos não diferem entre si.
 
 \begin{table}[H]
 \centering
