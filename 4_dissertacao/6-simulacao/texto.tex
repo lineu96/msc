@@ -127,8 +127,16 @@ $H_{020}$ & 0,024     & 0,158     & 0,158     & 0,158     \\ \hline
 \label{tab:th_bernoulli}
 \end{table}
 
-Para representar graficamente os resultados tomamos a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados. Adicionalmente dividimos o vetor de distâncias pelo seu desvio padrão para obter distâncias em uma mesma escala, independente dos parâmetros de regressão. Os resultados são apresentados na \autoref{}.
+Para representar graficamente os resultados tomamos a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados. Adicionalmente dividimos o vetor de distâncias pelo seu desvio padrão para obter distâncias em uma mesma escala, independente dos parâmetros de regressão. Os resultados são apresentados na \autoref{fig:betas}.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{/home/lacf14/msc/4_dissertacao/6-simulacao/betas.pdf}
+\caption{Resultados do estudo de simulação para os parâmetros de regressão.}
+\label{fig:betas}
+\end{figure}
+
+De modo geral, quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição. Como esperado, os menores percentuais foram observados na hipótese igual aos valores simulados. Tanto para cenários univariados e trivariados com distribuição Normal e Poisson, o percentual de rejeição foi próximo a 10\% quando a hipótese era igual aos valores simulados mesmo com tamanhos amostrais reduzidos, como 50 e 100. Conforme afastamos a hipótese dos valores simulados o percentual de rejeição aumentou mesmo com hipóteses pouco diferentes dos valores simulados. Também como esperado há um desempenho inferior para distribuição bernoulli no caso univariado e trivariado de forma que há indício de que para funcionamento correto do teste há necessidade de tamanhos amostrais maiores.
 
 \section{Parâmetros de dispersão}
 
@@ -170,7 +178,20 @@ $H_{020}$ & 0,024    & 0,024    \\ \hline
 \label{tab:th_taus}
 \end{table}
 
-Do mesmo modo que foi feito para os parâmetros de regressão, foi tomada a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados; e o vetor de distâncias foi padronizado para obter distâncias em uma mesma escala, independente dos parâmetros simulados. Os resultados são apresentados na \autoref{}.
+Do mesmo modo que foi feito para os parâmetros de regressão, foi tomada a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados; e o vetor de distâncias foi padronizado para obter distâncias em uma mesma escala, independente dos parâmetros simulados. Os resultados são apresentados na \autoref{fig:taus}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{/home/lacf14/msc/4_dissertacao/6-simulacao/taus.pdf}
+\caption{Resultados do estudo de simulação para os parâmetros de dispersão.}
+\label{fig:taus}
+\end{figure}
+
+Assim como observado para os parâmetros de regressão, o comportamento dos gráficos mostra que, para distribuição Normal e Poisson, quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição, e os menores percentuais são observados em hipóteses próximas aos valores simulados. 
+
+Para os cenários univariados o comportamento dos testes se mostrou satisfatório com tamanhos amostrais maiores que 100 pois na primeira hipótese testada o percentual de rejeição se mostrou menor que 10\%.
+
+Contudo o percentual de rejeição para hipóteses iguais aos valores simulados é considerávelmente distante do esperado para os cenários trivariados, nestes casos observamos percentuais de rejeição maiores que 20\%, apesar de que quanto mais distante dos valores simulados maior é o percentual de rejeição. Já para distribuição Bernoulli não foram obtidos resultados satisfatórios.
 
 \section{Parâmetros de potência}
 
@@ -211,17 +232,31 @@ $H_{020}$ & 1,9    & 2,9     & 2,9       \\ \hline
 \end{table}
 
 
-Da mesma forma que o realizado para o estudo sobre parâmetros de regressão e dispersão, tomamos a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados e padronizamos o vetor. Os resultados são apresentados na \autoref{}.
+Da mesma forma que o realizado para o estudo sobre parâmetros de regressão e dispersão, tomamos a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados e padronizamos o vetor. Os resultados são apresentados na \autoref{fig:ps}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{/home/lacf14/msc/4_dissertacao/6-simulacao/ps.pdf}
+\caption{Resultados do estudo de simulação para os parâmetros de potência.}
+\label{fig:ps}
+\end{figure}
+
+Os resultados para os parâmetros de potência nos casos univariados com distribuição Normal e Poisson se mostraram bastante satisfatórios, com percentuais de rejeição próximos a 5\% na hipótese igual aos valores simulados com percentual de rejeição crescente nas hipóteses mais afastadas. Tal como ocorreu para os parâmetros de regressão há um desempenho inferior para distribuição Bernoulli no caso univariado indicando que existe a necessidade de tamanhos amostrais maiores para realização dos testes.
+
+Para os cenários trivariados com distribuição Normal e Poisson, o percentual de rejeição cresce a medida que afastamos as hipóteses dos valores simulados, contudo o percentual de rejeição na hipótese igual aos valores simulados é próximo de 15\%. Já para distribuição Bernoulli no cenário trivariado não foram obtidos resultados satisfatórios.
 
 %=====================================================
 
 \textbf{TODO}
 
 \begin{itemize}
-  
-  \item \textbf{ACRESCENTAR GRÁFICOS}
-  
-\end{itemize}
 
+  \item \textbf{VERIFICAR COM O WAGNER COMO COLOCAR OS GRÁFICOS}
+
+  \item \textbf{ATUALIZAR FACET BINOMIAL -> BERNOULLI}
+
+  \item \textbf{MANTER TABELAS COM AS HIPÓTESES TESTADAS?}
+
+\end{itemize}
 
 %=====================================================

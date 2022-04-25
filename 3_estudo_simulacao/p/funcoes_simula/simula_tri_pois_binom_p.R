@@ -10,10 +10,10 @@ source("~/msc/0_funcoes/mc_linear_hypothesis.R")
 
 sample_size = 1000
 n_treatment = 2
-betas = c(0.35,0.15)
+betas = c(1.3,1)
 n_datasets = 500
 n_distances = 20
-distribution = 'binomial'
+distribution = 'poisson'
 
   #---------------------------------------------------
   
@@ -83,7 +83,7 @@ distribution = 'binomial'
     )
     
     
-    temp[[i]] <- NORTARA::genNORTARA(n = n_datasets+9000, 
+    temp[[i]] <- NORTARA::genNORTARA(n = n_datasets+100, 
                                      cor_matrix = cor_matrix, 
                                      invcdfnames = invcdfnames, 
                                      paramslists = paramslists)
@@ -93,7 +93,7 @@ distribution = 'binomial'
   
   datasets <- list()
   
-  for(j in 1:(n_datasets+9000)) {
+  for(j in 1:(n_datasets+100)) {
     datasets[[j]] <- matrix(NA, ncol = 3, nrow = sample_size)
     for(i in 1:sample_size) {
       datasets[[j]][i,] <- temp[[i]][j,]
@@ -101,7 +101,7 @@ distribution = 'binomial'
   }
   
   
-  for (i in 1:(n_datasets+9000)) {
+  for (i in 1:(n_datasets+100)) {
     datasets[[i]] <- as.data.frame(datasets[[i]])
     names(datasets[[i]]) <- c('y1', 'y2', 'y3')
     datasets[[i]]$x <- trat  
@@ -128,7 +128,7 @@ distribution = 'binomial'
          
          "poisson" = {
            
-           for (i in 1:(n_datasets+9000)) {
+           for (i in 1:(n_datasets+100)) {
              fit <- 
                try(mcglm(linear_pred = c(form1, form2, form3),
                          matrix_pred = list(Z0,Z0,Z0),
@@ -154,7 +154,7 @@ distribution = 'binomial'
              ca <- list() 
            }
            
-           for (i in 1:(n_datasets+9000)) {
+           for (i in 1:(n_datasets+100)) {
              fit <- 
                try(mcglm(linear_pred = c(form1, form2, form3),
                          matrix_pred = list(Z0,Z0,Z0),
@@ -218,13 +218,13 @@ distribution = 'binomial'
   parameters <- data.frame(Parameters = coef(models[[1]])$Parameters,
                            Type = coef(models[[1]])$Type)
   
-  for (i in 1:(n_datasets+9000)) {
+  for (i in 1:(n_datasets+100)) {
     parameters[,i+2] <- try(coef(models[[i]])$Estimates)
   }
   
   vcovs <- list()
   
-  for (i in 1:(n_datasets+9000)) {
+  for (i in 1:(n_datasets+100)) {
     vcovs[[i]] <- try(vcov(models[[i]]))
   }
   
@@ -284,8 +284,8 @@ distribution = 'binomial'
   
   
   
-  binomial_tri_n1000 = results
-  save(binomial_tri_n1000, file = 'binomial_tri_n1000.Rdata')
+  poisson_tri_n1000 = results
+  save(poisson_tri_n1000, file = 'poisson_tri_n1000.Rdata')
   rm(list = ls())
   
   
