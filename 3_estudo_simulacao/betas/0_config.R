@@ -16,12 +16,12 @@
 
 #----------------------------------------------------------------
   
-# 20 pontos: faz-se um decrécimo de beta0/20 e distribui esse 
+# 20 pontos: faz-se um decrécimo em beta0 e distribui esse 
 # decrécimo nos demais betas. 
 
 # Obtem a distância euclideana do vetor original para o modificado. 
 
-# Ao final divide o vetor pelo seu sd para independente dos betas 
+# Ao final padroniza o vetor para que independente dos betas 
 # iniciais as distancias estarem sempre na mesma escala
 
 #----------------------------------------------------------------
@@ -45,13 +45,13 @@ library(Matrix)
 
 #----------------------------------------------------------------
 # minhas funções
-source('~/msc/3_th_mcglm/0_funcoes/functions.R')
+source('~/msc/0_funcoes/functions.R')
 #----------------------------------------------------------------
 
-source("~/msc/3_th_mcglm/4_estudo_simulacao/betas/funcoes_simula/simula_uni.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/betas/funcoes_simula/simula_tri_normal.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/betas/funcoes_simula/simula_tri_pois_binom.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/betas/funcoes_simula/simula_tri.R")
+source("~/msc/3_estudo_simulacao/betas/funcoes_simula/simula_uni.R")
+source("~/msc/3_estudo_simulacao/betas/funcoes_simula/simula_tri_normal.R")
+source("~/msc/3_estudo_simulacao/betas/funcoes_simula/simula_tri_pois_binom.R")
+source("~/msc/3_estudo_simulacao/betas/funcoes_simula/simula_tri.R")
 
 #----------------------------------------------------------------
 
@@ -63,6 +63,10 @@ n_distances = 20
 
 betas_normal = c(5,0,0,0)
 betas_poisson = c(2.3,0,0,0)
-betas_binomial = c(0.5,0,0,0)
+betas_bernoulli = c(0.5,0,0,0)
+
+decrease_normal = 0.15
+decrease_poisson = 0.05
+decrease_bernoulli = 0.25
 
 #----------------------------------------------------------------

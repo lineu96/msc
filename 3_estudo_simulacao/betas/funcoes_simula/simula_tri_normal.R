@@ -1,16 +1,22 @@
-#simula_tri_normal <- function(sample_size = 100,
-#                              n_treatment = 4,
-#                              betas = c(5,0,0,0),
-#                              n_datasets = 100,
-#                              n_distances = 20,
-#                              distribution = 'normal'){
+simula_tri_normal <- function(sample_size = 100,
+                             n_treatment = 4,
+                             betas = c(5,0,0,0),
+                             n_datasets = 5,
+                             n_distances = 20,
+                             distribution = 'normal',
+                             decrease = 0.15){
 
-sample_size = 100
-n_treatment = 4
-betas = c(5,0,0,0)
-n_datasets = 100
-n_distances = 20
-distribution = 'normal'
+# sample_size = 50
+# n_treatment = 4
+# betas = c(5,0,0,0)
+# n_datasets = 5
+# n_distances = 20
+# distribution = 'normal'
+# decrease = 0.15
+
+# - 0.25 para sair de p 0.6 para p 0
+# - 0.05 para sair de lambda 10 para lambda 4
+# - 0.15 para sair de um mu 5 ate um mu 2
 
   #---------------------------------------------------
   
@@ -38,21 +44,22 @@ distribution = 'normal'
   
   # Gerando as respostas
   
-  for (i in 1:n_datasets) {
+  for (i in 1:(n_datasets)) {
     
     # Argumentos das marginais
     
     mu <- X%*%betas
     
-    mu <- c(y1 = mu[1], y2 = mu[1], y3 = mu[1])
+    mu <- matrix(c(mu, mu, mu),ncol = 3)
     
-    y <- as.data.frame(mvtnorm::rmvnorm(n_datasets, 
-                                        mean = mu, 
-                                        sigma = cor_matrix))
+    y <- t(apply(mu, 1, 
+                 function(m) mvtnorm::rmvnorm(1, mean=m, 
+                                              sigma=cor_matrix)))
     
     datasets[[i]] <- data.frame(y,
                                 x = trat)
     
+    names(datasets[[i]]) <- c('y1', 'y2', 'y3', 'x')
   }
   
   #---------------------------------------------------
@@ -114,8 +121,8 @@ distribution = 'normal'
   # obtenção das distâncias e hipóteses a serem testadas
   for (i in 2:n_distances) {
     
-    hyp_betas[1] <- hyp_betas[1] - (betas[1]/n_distances)
-    hyp_betas[2:length(betas)] <- hyp_betas[2:length(betas)] + (betas[1]/n_distances)/(n_treatment-1)
+    hyp_betas[1] <- hyp_betas[1] - decrease
+    hyp_betas[2:length(betas)] <- hyp_betas[2:length(betas)] + (decrease/(n_treatment-1))
     
     hypothesis[[i]] <- paste(coef(models[[1]], type = 'beta')$Parameters,
                              '=',
@@ -128,7 +135,7 @@ distribution = 'normal'
   # Dividindo as distâncias pelo desvio padrão das distâncias para
   # independente dos betas elas estarem no mesmo intervalo
   
-  dists <- dists/sd(dists)
+  dists <- (dists - min(dists)) / diff(range(dists))
   
   #----------------------------------------------------------------
   
@@ -191,7 +198,7 @@ distribution = 'normal'
   df_final <- data.frame(dist = dists,
                          rej = ((rowSums(rej2))/ncol(rej2))*100)
   
-  df_final$distribution <- paste('uni', distribution)
+  df_final$distribution <- paste('tri', distribution)
   df_final$sample_size <- sample_size
   df_final$n_datasets <- ncol(rej2)
   
@@ -207,7 +214,7 @@ distribution = 'normal'
                  df_final = df_final)
   
   
-  #  return(results)
-  #}
+    return(results)
+  }
   
   #----------------------------------------------------------------

@@ -1,18 +1,25 @@
-#simula_uni <- function(sample_size = 50,
-#                       n_datasets = 500,
-#                       n_treatment = 4,
-#                       betas = c(0.5,0,0,0),
-#                       n_distances = 20,
-#                       distribution = 'binomial')
+simula_uni <- function(sample_size = 50,
+                       n_datasets = 500,
+                       n_treatment = 4,
+                       betas = c(0.5,0,0,0),
+                       n_distances = 20,
+                       distribution = 'bernoulli',
+                       decrease = 0.15)
   
-#{
+{
   
-sample_size = 500
-n_datasets = 100
-n_treatment = 4
-betas = c(0.5,0,0,0)
-n_distances = 20
-distribution = 'binomial'
+# sample_size = 100
+# n_datasets = 10
+# n_treatment = 4
+# betas = c(2.3,0,0,0)
+# n_distances = 20
+# distribution = 'normal'
+# decrease = 0.05
+
+# - 0.25 para sair de p 0.6 para p 0
+# - 0.05 para sair de lambda 10 para lambda 4
+# - 0.15 para sair de um mu 5 ate um mu 2
+
 
   # tratamentos
   trat <- gl(n_treatment, sample_size/n_treatment)
@@ -26,7 +33,7 @@ distribution = 'binomial'
   # geração dos conjuntos de dados
   
   # switch para simular de diferentes distribuições
-  # (normal, poisson, binomial n=10 ou beta)
+  # (normal, poisson, binomial n=1 ou beta)
   # e definir função de ligação e variância para 
   # ajuste dos modelos (depende da distribuição)
   
@@ -65,7 +72,7 @@ distribution = 'binomial'
            }
          },
          
-         "binomial" = {
+         "bernoulli" = {
            
            link <-  "logit" 
            variance  <-  "binomialP"
@@ -104,7 +111,7 @@ distribution = 'binomial'
   models <- list()
   
   switch(distribution,
-         "binomial" = {
+         "bernoulli" = {
            
            if (sample_size < 100) {
              ca <- list(#verbose = T,
@@ -165,8 +172,8 @@ distribution = 'binomial'
   # obtenção das distâncias e hipóteses a serem testadas
     for (i in 2:n_distances) {
     
-    hyp_betas[1] <- hyp_betas[1] - (betas[1]/n_distances)
-    hyp_betas[2:length(betas)] <- hyp_betas[2:length(betas)] + (betas[1]/n_distances)/(n_treatment-1)
+    hyp_betas[1] <- hyp_betas[1] - decrease
+    hyp_betas[2:length(betas)] <- hyp_betas[2:length(betas)] + (decrease/(n_treatment-1))
     
     hypothesis[[i]] <- paste(coef(models[[1]], type = 'beta')$Parameters,
                              '=',
@@ -179,7 +186,7 @@ distribution = 'binomial'
   # Dividindo as distâncias pelo desvio padrão das distâncias para
   # independente dos betas elas estarem no mesmo intervalo
   
-  dists <- dists/sd(dists)
+  dists <- (dists - min(dists)) / diff(range(dists))
   
   #----------------------------------------------------------------
   
@@ -258,8 +265,8 @@ distribution = 'binomial'
                  df_final = df_final)
   
   
-#  return(results)
-#}
+  return(results)
+}
 
 #----------------------------------------------------------------
 

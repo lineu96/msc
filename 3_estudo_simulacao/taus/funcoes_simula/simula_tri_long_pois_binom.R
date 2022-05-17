@@ -1,89 +1,37 @@
-# simula_tri_long_pois_binom <- function(sample_size = 50,
-#                                        n_datasets = 2,
-#                                        n_rep = 5,
-#                                        taus = c(0.5,0.5),
-#                                        n_distances = 20,
-#                                        distribution = 'poisson')
-#   
-# {
+simula_tri_long_pois_binom <- function(sample_size = 1000,
+                                       n_datasets = 500,
+                                       n_rep = 5,
+                                       taus = c(1,0),
+                                       n_distances = 20,
+                                       distribution = 'poisson')
   
-sample_size = 50
-n_datasets = 2
-n_rep = 5
-taus = c(0.5,0.5)
-n_distances = 20
-distribution = 'poisson'
-
-  ## Matrix linear predictor
-  UM <- rep(1, n_rep)
-  Z0 <- Diagonal(n_rep, 1)
-  Z1 <- UM%*%t(UM)
+{
   
-  Omega <- mc_matrix_linear_predictor(tau = taus, 
-                                      Z = list(Z0, Z1))
-  
-  Omega1 <- as.matrix(Omega, n_rep, n_rep)
-  Omega2 <- as.matrix(Omega, n_rep, n_rep)
-  Omega3 <- as.matrix(Omega, n_rep, n_rep)
-  
-  chol_1 <- chol(Omega1)
-  chol_2 <- chol(Omega2)
-  chol_3 <- chol(Omega3)
-  
-  BB <- bdiag(chol_1, chol_2, chol_3)
-  
-  Sigma_b <- Matrix(c(1.0,  0.75, 0.5,
+  Sigma_b <- matrix(c(1.0,  0.75, 0.5,
                       0.75,  1.0, 0.25,
                       0.5,  0.25, 1.0), 
                     3, 3)
   
-  I <- Diagonal(5, 1)
-  C <- t(BB)%*%kronecker(Sigma_b, I)%*%BB
-  C <- as.matrix(C, (n_rep*3), (n_rep*3))
-  
   ## Marginais
   switch(distribution,
          "poisson" = {
-           invcdfnames <- rep('qpois', (n_rep*3))
+           invcdfnames <- rep('qpois', (3))
            paramslists <- list(
              m1 = list(lambda = 10),
              m2 = list(lambda = 10),
-             m3 = list(lambda = 10),
-             m4 = list(lambda = 10),
-             m5 = list(lambda = 10),
-             m6 = list(lambda = 10),
-             m7 = list(lambda = 10),
-             m8 = list(lambda = 10),
-             m9 = list(lambda = 10),
-             m10 = list(lambda = 10),
-             m11 = list(lambda = 10),
-             m12 = list(lambda = 10),
-             m13 = list(lambda = 10),
-             m14 = list(lambda = 10),
-             m15 = list(lambda = 10)
+             m3 = list(lambda = 10)
            )
+           
            link <- "log"
            variance <- "tweedie"
          },
          
-         "binomial" = {
-           invcdfnames <- rep('qbinom', (n_rep*3))
+         "bernoulli" = {
+           invcdfnames <- rep('qbinom', (3))
            paramslists <- list(
              m1 = list(p = 0.6, size = 1),
              m2 = list(p = 0.6, size = 1),
-             m3 = list(p = 0.6, size = 1),
-             m4 = list(p = 0.6, size = 1),
-             m5 = list(p = 0.6, size = 1),
-             m6 = list(p = 0.6, size = 1),
-             m7 = list(p = 0.6, size = 1),
-             m8 = list(p = 0.6, size = 1),
-             m9 = list(p = 0.6, size = 1),
-             m10 = list(p = 0.6, size = 1),
-             m11 = list(p = 0.6, size = 1),
-             m12 = list(p = 0.6, size = 1),
-             m13 = list(p = 0.6, size = 1),
-             m14 = list(p = 0.6, size = 1),
-             m15 = list(p = 0.6, size = 1)
+             m3 = list(p = 0.6, size = 1)
            )
            link <- "logit"
            variance <- "binomialP"
@@ -98,27 +46,18 @@ distribution = 'poisson'
   for (i in 1:(n_datasets)) {
     
     
-    data_temp <- NORTARA::genNORTARA(n = sample_size, 
-                            cor_matrix = C, 
-                            paramslists = paramslists, 
-                            invcdfnames = invcdfnames)
+    data_temp <- as.data.frame(genNORTARA(n = sample_size*n_rep, 
+                                          cor_matrix = Sigma_b, 
+                                          paramslists = paramslists, 
+                                          invcdfnames = invcdfnames))
     
-    y1 <- c(t(data_temp[,1:5]))
-    y2 <- c(t(data_temp[,6:10]))
-    y3 <- c(t(data_temp[,11:15]))
-    
-    data <- data.frame(y1 = y1,
-                       y2 = y2,
-                       y3 = y3,
-                       id = rep(1:sample_size, 
-                                  each = n_rep))
-    
-    datasets[[i]] <- data.frame(y1 = y1,
-                                y2 = y2,
-                                y3 = y3,
+    datasets[[i]] <- data.frame(y1 = data_temp$V1,
+                                y2 = data_temp$V2,
+                                y3 = data_temp$V3,
                                 id = rep(1:sample_size, 
                                          each = n_rep))
     
+    save(datasets, file = "datasets_poisson_n1000.RData")
     print(i)
     
   }
@@ -159,16 +98,18 @@ distribution = 'poisson'
                      variance = c(variance,variance,variance),
                      data = datasets[[i]],
                      control_algorithm = list(#verbose = T,
-                                              tuning = 0.5,
-                                              max_iter = 100,
-                                              tol = 0.05))
+                       #tuning = 0.5,
+                       max_iter = 100#,
+                       #tol = 0.05
+                     )
+               )
              
              models[[i]] <- fit
              print(i)
            }
          },
          
-         "binomial" = {
+         "bernoulli" = {
            for (i in 1:n_datasets) {
              fit <- 
                mcglm(linear_pred = c(form1,
@@ -183,10 +124,12 @@ distribution = 'poisson'
                                   variance),
                      Ntrial = list(1,1,1),
                      data = datasets[[i]],
-                     control_algorithm = list(#verbose = T,
-                       tuning = 0.5,
-                       max_iter = 100,
-                       tol = 0.05))
+                     control_algorithm = list(
+                       #verbose = T,
+                       #tuning = 0.5,
+                       max_iter = 100#,
+                       #tol = 0.05
+                     ))
              
              models[[i]] <- fit
              print(i)
@@ -214,7 +157,8 @@ distribution = 'poisson'
   # obtenção das distâncias e hipóteses a serem testadas
   for (i in 2:n_distances) {
     
-    hyp_taus <- hyp_taus - (taus/n_distances)
+    hyp_taus[1] <- hyp_taus[1] - 0.02
+    hyp_taus[2] <- hyp_taus[2] + 0.02
     
     hypothesis[[i]] <- paste(coef(models[[1]], type = 'tau')$Parameters,
                              '=',
@@ -227,7 +171,7 @@ distribution = 'poisson'
   # Dividindo as distâncias pelo desvio padrão das distâncias para
   # independente dos betas elas estarem no mesmo intervalo
   
-  dists <- dists/sd(dists)
+  dists <- (dists - min(dists)) / diff(range(dists))
   
   #----------------------------------------------------------------
   
@@ -280,7 +224,7 @@ distribution = 'poisson'
   df_final <- data.frame(dist = dists,
                          rej = ((rowSums(rej2))/ncol(rej2))*100)
   
-  df_final$distribution <- paste('uni', distribution)
+  df_final$distribution <- paste('tri', distribution)
   df_final$sample_size <- sample_size
   df_final$n_datasets <- ncol(rej2)
   
@@ -296,7 +240,7 @@ distribution = 'poisson'
                  df_final = df_final)
   
   
-  #  return(results)
-  #}
-  
-  #----------------------------------------------------------------
+  return(results)
+}
+
+#----------------------------------------------------------------

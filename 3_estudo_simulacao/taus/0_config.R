@@ -43,13 +43,12 @@ library(NORTARA)
 
 #----------------------------------------------------------------
 # minhas funções
-source('~/msc/3_th_mcglm/0_funcoes/functions.R')
+source('~/msc/0_funcoes/functions.R')
 #----------------------------------------------------------------
 
-source("~/msc/3_th_mcglm/4_estudo_simulacao/taus/funcoes_simula/simula_uni_long_normal.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/taus/funcoes_simula/simula_uni_long_pois_binom.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/taus/funcoes_simula/simula_tri_long_normal.R")
-source("~/msc/3_th_mcglm/4_estudo_simulacao/taus/funcoes_simula/simula_tri_long_pois_binom.R")
+source("~/msc/3_estudo_simulacao/taus/funcoes_simula/simula_uni_long.R")
+source("~/msc/3_estudo_simulacao/taus/funcoes_simula/simula_tri_long_normal.R")
+source("~/msc/3_estudo_simulacao/taus/funcoes_simula/simula_tri_long_pois_binom.R")
 
 #----------------------------------------------------------------
 
@@ -58,6 +57,6 @@ source("~/msc/3_th_mcglm/4_estudo_simulacao/taus/funcoes_simula/simula_tri_long_
 n_datasets = 500
 n_rep = 5
 n_distances = 20
-taus = c(0.5,0.5)
+taus = c(1,0)
 
 #----------------------------------------------------------------

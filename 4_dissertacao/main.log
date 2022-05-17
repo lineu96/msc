@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  25 APR 2022 13:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  25 APR 2022 14:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -5415,10 +5415,7 @@ Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/6-simulacao/taus.pdf  u
 sed on input line 185.
 (pdftex.def)             Requested size: 426.79134pt x 304.85522pt.
  [74 </home/lacf14/msc/4_dissertacao/6-simulacao/taus.pdf>] [75]
-
-LaTeX Warning: Reference `' on page 76 undefined on input line 235.
-
-</home/lacf14/msc/4_dissertacao/6-simulacao/ps.pdf, id=998, 505.89pt x 361.35pt
+</home/lacf14/msc/4_dissertacao/6-simulacao/ps.pdf, id=999, 505.89pt x 361.35pt
 >
 File: /home/lacf14/msc/4_dissertacao/6-simulacao/ps.pdf Graphic file (type pdf)
 
@@ -5426,6 +5423,7 @@ File: /home/lacf14/msc/4_dissertacao/6-simulacao/ps.pdf Graphic file (type pdf)
 Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/6-simulacao/ps.pdf  use
 d on input line 239.
 (pdftex.def)             Requested size: 426.79134pt x 304.85522pt.
+
 [76]) [77 </home/lacf14/msc/4_dissertacao/6-simulacao/ps.pdf>]
 \openout2 = `7-aplicacao/texto.aux'.
 
@@ -5437,7 +5435,7 @@ Cap\'{\i }tulo 7.
 
 
 ] [79]
-</home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf, id=1064, 578.16pt x
+</home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf, id=1065, 578.16pt x
  433.62pt>
 File: /home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf Graphic file (t
 ype pdf)
@@ -5446,7 +5444,7 @@ Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.
 pdf  used on input line 76.
 (pdftex.def)             Requested size: 426.79134pt x 320.09303pt.
  [80] [81 </home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf>] [82]
-</home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf, id=1086, 505.89pt x 2
+</home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf, id=1087, 505.89pt x 2
 16.81pt>
 File: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf Graphic file (typ
 e pdf)
@@ -5454,7 +5452,7 @@ e pdf)
 Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pd
 f  used on input line 151.
 (pdftex.def)             Requested size: 426.79134pt x 182.91313pt.
-</home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf, id=1087, 505.89pt x 2
+</home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf, id=1088, 505.89pt x 2
 16.81pt>
 File: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf Graphic file (typ
 e pdf)
@@ -5463,7 +5461,7 @@ Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pd
 f  used on input line 158.
 (pdftex.def)             Requested size: 426.79134pt x 182.91313pt.
  [83 </home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf>]
-</home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf, id=1100, 505.89pt
+</home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf, id=1101, 505.89pt
  x 289.08pt>
 File: /home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf Graphic file 
 (type pdf)
@@ -5504,17 +5502,13 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 194.
 (./7-aplicacao/texto.aux) (./8-conclusao/texto.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 194.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 194.
-
-
-LaTeX Warning: There were undefined references.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 194.
  ) 
 Here is how much of TeX's memory you used:
- 19326 strings out of 481239
- 298522 string characters out of 5920376
- 868921 words of memory out of 5000000
- 33508 multiletter control sequences out of 15000+600000
+ 19325 strings out of 481239
+ 298520 string characters out of 5920376
+ 868920 words of memory out of 5000000
+ 33507 multiletter control sequences out of 15000+600000
  608044 words of font info for 230 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,18n,81p,1412b,685s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -5534,10 +5528,10 @@ public/newtx/txbsys.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx
 /txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (95 pages, 510611 bytes).
+Output written on main.pdf (95 pages, 510855 bytes).
 PDF statistics:
- 1451 PDF objects out of 1728 (max. 8388607)
- 1239 compressed objects within 13 object streams
+ 1452 PDF objects out of 1728 (max. 8388607)
+ 1240 compressed objects within 13 object streams
  316 named destinations out of 1000 (max. 500000)
  25020 words of extra memory for PDF output out of 29859 (max. 10000000)
 

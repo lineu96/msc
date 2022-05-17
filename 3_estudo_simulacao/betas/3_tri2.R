@@ -16,7 +16,10 @@ tri_n50 <- simula_tri(sample_size = sample_size,
                       betas_normal = betas_normal,
                       betas_poisson = betas_poisson,
                       betas_binomial = betas_binomial,
-                      n_distances = n_distances)
+                      n_distances = n_distances,
+                      decrease_normal = decrease_normal,
+                      decrease_poisson = decrease_poisson,
+                      decrease_bernoulli = decrease_bernoulli)
 
 #----------------------------------------------------------------
 
@@ -28,7 +31,10 @@ tri_n100 <- simula_tri(sample_size = sample_size,
                        betas_normal = betas_normal,
                        betas_poisson = betas_poisson,
                        betas_binomial = betas_binomial,
-                       n_distances = n_distances)
+                       n_distances = n_distances,
+                       decrease_normal = decrease_normal,
+                       decrease_poisson = decrease_poisson,
+                       decrease_bernoulli = decrease_bernoulli)
 
 #----------------------------------------------------------------
 
@@ -40,7 +46,10 @@ tri_n250 <- simula_tri(sample_size = sample_size,
                        betas_normal = betas_normal,
                        betas_poisson = betas_poisson,
                        betas_binomial = betas_binomial,
-                       n_distances = n_distances)
+                       n_distances = n_distances,
+                       decrease_normal = decrease_normal,
+                       decrease_poisson = decrease_poisson,
+                       decrease_bernoulli = decrease_bernoulli)
 
 #----------------------------------------------------------------
 
@@ -52,7 +61,10 @@ tri_n500 <- simula_tri(sample_size = sample_size,
                        betas_normal = betas_normal,
                        betas_poisson = betas_poisson,
                        betas_binomial = betas_binomial,
-                       n_distances = n_distances)
+                       n_distances = n_distances,
+                       decrease_normal = decrease_normal,
+                       decrease_poisson = decrease_poisson,
+                       decrease_bernoulli = decrease_bernoulli)
 
 #----------------------------------------------------------------
 
@@ -64,7 +76,10 @@ tri_n1000 <- simula_tri(sample_size = sample_size,
                         betas_normal = betas_normal,
                         betas_poisson = betas_poisson,
                         betas_binomial = betas_binomial,
-                        n_distances = n_distances)
+                        n_distances = n_distances,
+                        decrease_normal = decrease_normal,
+                        decrease_poisson = decrease_poisson,
+                        decrease_bernoulli = decrease_bernoulli)
 
 
 #----------------------------------------------------------------
@@ -75,6 +90,6 @@ time_taken_tri2 <- end_time_tri2 - start_time_tri2
 
 #----------------------------------------------------------------
 
-save.image(file = 'tri2.Rdata')
+save.image(file = 'results_tri2.Rdata')
 
 #----------------------------------------------------------------

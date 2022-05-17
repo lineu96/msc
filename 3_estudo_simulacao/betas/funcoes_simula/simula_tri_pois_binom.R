@@ -1,18 +1,22 @@
+simula_tri_pois_binom <- function(sample_size = 50,
+                                 n_treatment = 4,
+                                 betas = c(0.5,0,0,0),
+                                 n_datasets = 500,
+                                 n_distances = 20,
+                                 distribution = 'bernoulli',
+                                 decrease = 0.25){
 
-#simula_tri_pois_binom <- function(sample_size = 50,
-#                                  n_treatment = 4,
-#                                  betas = c(0.5,0,0,0),
-#                                  n_datasets = 500,
-#                                  n_distances = 20,
-#                                  distribution = 'binomial'){
-
-sample_size = 100
-n_treatment = 4
-betas = c(2.3,0,0,0)
-n_datasets = 15
-n_distances = 20
-distribution = 'poisson'
-
+# sample_size = 100
+# n_treatment = 4
+# betas = c(0.5,0,0,0)
+# n_datasets = 5
+# n_distances = 20
+# distribution = 'bernoulli'
+# decrease = 0.25
+  
+  # - 0.25 para sair de p 0.6 para p 0
+  # - 0.05 para sair de lambda 10 para lambda 4
+  # - 0.15 para sair de um mu 5 ate um mu 2
   #---------------------------------------------------
   
   # tratamentos
@@ -22,23 +26,6 @@ distribution = 'poisson'
   X <- model.matrix(~ trat)
   
   #---------------------------------------------------
-  
-  # Elementos NORTARA
-  
-  ## Marginais
-  switch(distribution,
-         "poisson" = {
-           invcdfnames <- c("qpois","qpois", "qpois")
-           link <- "log"
-           variance <- "tweedie"
-         },
-         
-         "binomial" = {
-           invcdfnames <- c("qbinom","qbinom", "qbinom")
-           link <- "logit"
-           variance <- "binomialP"
-         }
-  )
   
   ## Matriz de correlação alvo
   
@@ -56,43 +43,79 @@ distribution = 'poisson'
   
   # Gerando as respostas
   
-  for (i in 1:(n_datasets+15)) {
-    
-    # Argumentos das marginais
+  # Elementos NORTARA
+  
+  ## Marginais
+  switch(distribution,
+         "poisson" = {
+           invcdfnames <- c("qpois","qpois", "qpois")
+           link <- "log"
+           variance <- "tweedie"
+           
+           # lambdas por resposta
+           lambda <- exp(X%*%betas)
+           
+         },
+         
+         "bernoulli" = {
+           invcdfnames <- c("qbinom","qbinom", "qbinom")
+           link <- "logit"
+           variance <- "binomialP"
+           
+           p <- exp(X%*%betas)/(1 + exp(X%*%betas))
+         }
+  )
+  
+  # Geração das amostras
+  temp <- list()
+  
+  for(i in 1:sample_size) {
     
     switch(distribution,
            "poisson" = {
              lambda <- exp(X%*%betas)
              
              paramslists <- list(
-               m1 = list(lambda = lambda),
-               m2 = list(lambda = lambda),
-               m3 = list(lambda = lambda)
+               m1 = list(lambda = lambda[i]),
+               m2 = list(lambda = lambda[i]),
+               m3 = list(lambda = lambda[i])
              )
            },
            
-           "binomial" = {
+           "bernoulli" = {
              p <- exp(X%*%betas)/(1 + exp(X%*%betas))
              
              paramslists <- list(
-               m1 = list(p = p, size = 1),
-               m2 = list(p = p, size = 1),
-               m3 = list(p = p, size = 1)
+               m1 = list(p = p[i], size = 1),
+               m2 = list(p = p[i], size = 1),
+               m3 = list(p = p[i], size = 1)
              )
            }
     )
     
-    y <- NORTARA::genNORTARA(sample_size,
-                             cor_matrix,
-                             invcdfnames,
-                             paramslists)
     
-    datasets[[i]] <- data.frame(y = y,
-                                x = trat)
-    
-    names(datasets[[i]]) <- c('y1', 'y2', 'y3', 'x')
-    
+    temp[[i]] <- NORTARA::genNORTARA(n = n_datasets+50, 
+                                     cor_matrix = cor_matrix, 
+                                     invcdfnames = invcdfnames, 
+                                     paramslists = paramslists)
     print(i)
+  }
+  
+  
+  datasets <- list()
+  
+  for(j in 1:(n_datasets+50)) {
+    datasets[[j]] <- matrix(NA, ncol = 3, nrow = sample_size)
+    for(i in 1:sample_size) {
+      datasets[[j]][i,] <- temp[[i]][j,]
+    }
+  }
+  
+  
+  for (i in 1:(n_datasets+50)) {
+    datasets[[i]] <- as.data.frame(datasets[[i]])
+    names(datasets[[i]]) <- c('y1', 'y2', 'y3')
+    datasets[[i]]$x <- trat  
   }
   
   #---------------------------------------------------
@@ -123,7 +146,7 @@ distribution = 'poisson'
   
   switch(distribution,
          "poisson" = {
-           for (i in 1:(n_datasets+15)) {
+           for (i in 1:(n_datasets+50)) {
              fit <- 
                try(mcglm(linear_pred = c(form1, form2, form3),
                      matrix_pred = list(Z0,Z0,Z0),
@@ -136,7 +159,7 @@ distribution = 'poisson'
            }
          },
          
-         "binomial" = {
+         "bernoulli" = {
            
            if (sample_size < 100) {
              ca <- list(#verbose = T,
@@ -148,7 +171,7 @@ distribution = 'poisson'
              ca <- list() 
            }
            
-           for (i in 1:(n_datasets+15)) {
+           for (i in 1:(n_datasets+50)) {
              fit <- 
                try(mcglm(linear_pred = c(form1, form2, form3),
                          matrix_pred = list(Z0,Z0,Z0),
@@ -184,8 +207,8 @@ distribution = 'poisson'
   # obtenção das distâncias e hipóteses a serem testadas
   for (i in 2:n_distances) {
     
-    hyp_betas[1] <- hyp_betas[1] - (betas[1]/n_distances)
-    hyp_betas[2:length(betas)] <- hyp_betas[2:length(betas)] + (betas[1]/n_distances)/(n_treatment-1)
+    hyp_betas[1] <- hyp_betas[1] - decrease
+    hyp_betas[2:length(betas)] <- hyp_betas[2:length(betas)] + (decrease/(n_treatment-1))
     
     hypothesis[[i]] <- paste(coef(models[[1]], type = 'beta')$Parameters,
                              '=',
@@ -198,7 +221,7 @@ distribution = 'poisson'
   # Dividindo as distâncias pelo desvio padrão das distâncias para
   # independente dos betas elas estarem no mesmo intervalo
   
-  dists <- dists/sd(dists)
+  dists <- (dists - min(dists)) / diff(range(dists))
   
   #----------------------------------------------------------------
   
@@ -207,13 +230,13 @@ distribution = 'poisson'
   parameters <- data.frame(Parameters = coef(models[[1]])$Parameters,
                            Type = coef(models[[1]])$Type)
   
-  for (i in 1:(n_datasets+15)) {
+  for (i in 1:(n_datasets+50)) {
     parameters[,i+2] <- try(coef(models[[i]])$Estimates)
   }
   
   vcovs <- list()
   
-  for (i in 1:(n_datasets+15)) {
+  for (i in 1:(n_datasets+50)) {
     vcovs[[i]] <- try(vcov(models[[i]])  )
   }
   
@@ -271,7 +294,7 @@ distribution = 'poisson'
                  index_problems = index_problems,
                  df_final = df_final)
   
-  #  return(results)
-  #}
+    return(results)
+  }
   
   #----------------------------------------------------------------
