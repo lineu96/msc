@@ -8,7 +8,7 @@ Para simular conjuntos de dados univariados foram usadas bibliotecas padrões do
 
 \section{Parâmetros de regressão}
 
-Para avaliação de hipóteses sobre parâmetros de regressão foram considerados tamanhos amostrais de 50, 100, 250, 500 e 1000. Foram gerados 500 conjuntos de dados para cada tamanho amostral simulando uma situação com uma variável explicativa categórica de 4 níveis. Para distribuição Normal os parâmetros de regressão usados foram: $\beta_0 = 5$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. Para a distribuição Poisson os parâmetros de regressão usados foram: $\beta_0 = 2,3$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. E para a distribuição Bernoulli os parâmetros de regressão usados foram: $\beta_0 = 0,5$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. Os valores foram escolhidos de tal modo que o coeficiente de variação para distribuição Normal fosse de 20\%, as contagens para Poisson fossem próximas de 10 e a probabilidade de sucesso da Bernoulli fosse aproximadamente 0,6. Foram avaliados cenários univariados e trivariados com estas características. Para os cenários trivariados, existem 4 parâmetros por resposta que seguem as configurações descritas. Para cada amostra gerada foi ajustado um McGLM. As funções de ligação e variância para cada distribuição são apresentadas na \autoref{tab:link_var}. 
+Para avaliação de hipóteses sobre parâmetros de regressão foram considerados tamanhos amostrais de 50, 100, 250, 500 e 1000. Foram gerados 500 conjuntos de dados para cada tamanho amostral simulando uma situação com uma variável explicativa categórica de 4 níveis. Para distribuição Normal os parâmetros de regressão usados foram: $\beta_0 = 5$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. Para a distribuição Poisson os parâmetros de regressão usados foram: $\beta_0 = 2,3$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. E para a distribuição Bernoulli os parâmetros de regressão usados foram: $\beta_0 = 0,5$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. Os valores foram escolhidos de tal modo que o coeficiente de variação para distribuição Normal fosse de 20\%, as contagens para Poisson fossem próximas de 10 e a probabilidade de sucesso da Bernoulli fosse aproximadamente 0,6. Foram avaliados cenários univariados e trivariados com estas características. Para os cenários trivariados, existem 4 parâmetros por resposta que seguem as configurações descritas. Para cada amostra gerada foi ajustado um McGLM nos quais as funções de ligação e variância para cada distribuição são apresentadas na \autoref{tab:link_var}. 
 
 \begin{table}[H]
 \centering
@@ -34,100 +34,13 @@ Em todos os casos o preditor matricial para a matriz de variância e covariânci
 \end{bmatrix}
 \end{equation}
 
-Com os modelos ajustados, o procedimento consistiu em variar as hipóteses testadas sobre os parâmetros simulados. Consideramos 20 diferentes hipóteses baseadas em um decréscimo de $\beta_0/20$ e distribuição deste decréscimo nos demais $\beta$s da hipótese nula. Para cada ponto avaliamos o percentual de rejeição da hipótese nula. A ideia é verificar o que ocorre quando afastamos as hipóteses nulas dos reais valores dos parâmetros. Espera-se que no primeiro ponto haja um percentual de rejeição baixo, pois a hipótese nula corresponde aos reais valores dos parâmetros. Para os demais pontos espera-se que o percentual de rejeição aumente gradativamente, pois as hipóteses afastam-se dos valores originalmente simulados. As hipóteses testadas para as respostas com distribuição Normal são mostradas na \autoref{tab:th_normal}; as hipóteses testadas para respostas seguindo distribuição Poisson estão na \autoref{tab:th_poisson} e as hipóteses para as respostas Bernoullis são mostradas na \autoref{tab:th_bernoulli}.
+Com os modelos ajustados, o procedimento consistiu em variar as hipóteses testadas sobre os parâmetros simulados. Consideramos 20 diferentes hipóteses baseadas em um decréscimo em $\beta_0$ e distribuição deste decréscimo nos demais $\beta$s da hipótese nula. O decréscimo para respostas seguindo distribuição Normal foi de 0,15; para distribuição Poisson o decréscimo foi de 0,05; e para distribuição Bernoulli o decréscimo foi de 0,25. Estes valores foram escolhidos levando em conta o o afastamento desejado das hipóteses testadas na escala da resposta e é importante notar que estes valores são diferentes devido ao impacto da função de ligação usada em cada configuração de modelo e também devido às propriedades dos parâmetros das distribuições.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{ccccc}
-\hline
-          & $\beta_0$ & $\beta_1$ & $\beta_2$ & $\beta_3$ \\ \hline
-$H_{01}$  & 5         & 0         & 0         & 0         \\
-$H_{02}$  & 4,75      & 0,083     & 0,083     & 0,083     \\
-$H_{03}$  & 4,5       & 0,166     & 0,166     & 0,166     \\
-$H_{04}$  & 4,25      & 0,25      & 0,25      & 0,25      \\
-$H_{05}$  & 4         & 0,333     & 0,333     & 0,333     \\
-$H_{06}$  & 3,75      & 0,416     & 0,416     & 0,416     \\
-$H_{07}$  & 3,5       & 0,5       & 0,5       & 0,5       \\
-$H_{08}$  & 3,25      & 0,583     & 0,583     & 0,583     \\
-$H_{09}$  & 3         & 0,666     & 0,666     & 0,666     \\
-$H_{010}$ & 2,75      & 0,75      & 0,75      & 0,75      \\
-$H_{011}$ & 2,5       & 0,833     & 0,833     & 0,833     \\
-$H_{012}$ & 2,25      & 0,916     & 0,916     & 0,916     \\
-$H_{013}$ & 2         & 1         & 1         & 1         \\
-$H_{014}$ & 1,75      & 1,083     & 1,083     & 1,083     \\
-$H_{015}$ & 1,5       & 1,166     & 1,166     & 1,166     \\
-$H_{016}$ & 1,25      & 1,25      & 1,25      & 1,25      \\
-$H_{017}$ & 1         & 1,33      & 1,33      & 1,33      \\
-$H_{018}$ & 0,75      & 1,41      & 1,41      & 1,41      \\
-$H_{019}$ & 0,5       & 1,5       & 1,5       & 1,5       \\
-$H_{020}$ & 0,25      & 1,58      & 1,58      & 1,58      \\ \hline
-\end{tabular}
-\caption{Hipóteses testadas para distribuição Normal.}
-\label{tab:th_normal}
-\end{table}
+Para cada ponto avaliamos o percentual de rejeição da hipótese nula. A ideia é verificar o que ocorre quando afastamos as hipóteses nulas dos reais valores dos parâmetros. Espera-se que no primeiro ponto haja um percentual de rejeição baixo, pois a hipótese nula corresponde aos reais valores dos parâmetros. Para os demais pontos espera-se que o percentual de rejeição aumente gradativamente, pois as hipóteses afastam-se cada vez mais dos valores originalmente simulados. 
 
-\begin{table}[H]
-\centering
-\begin{tabular}{ccccc}
-\hline
-          & $\beta_0$ & $\beta_1$ & $\beta_2$ & $\beta_3$ \\ \hline
-$H_{01}$  & 2,3       & 0         & 0         & 0         \\
-$H_{02}$  & 2,185     & 0,0383    & 0,0383    & 0,0383    \\
-$H_{03}$  & 2,07      & 0,0766    & 0,0766    & 0,0766    \\
-$H_{04}$  & 1,955     & 0,115     & 0,115     & 0,115     \\
-$H_{05}$  & 1,84      & 0,153     & 0,153     & 0,153     \\
-$H_{06}$  & 1,725     & 0,192     & 0,191     & 0,191     \\
-$H_{07}$  & 1,61      & 0,23      & 0,23      & 0,23      \\
-$H_{08}$  & 1,495     & 0,268     & 0,268     & 0,268     \\
-$H_{09}$  & 1,38      & 0,306     & 0,306     & 0,306     \\
-$H_{010}$ & 1,265     & 0,345     & 0,345     & 0,345     \\
-$H_{011}$ & 1,15      & 0,383     & 0,383     & 0,383     \\
-$H_{012}$ & 1,035     & 0,421     & 0,421     & 0,421     \\
-$H_{013}$ & 0,92      & 0,46      & 0,46      & 0,46      \\
-$H_{014}$ & 0,805     & 0,498     & 0,498     & 0,498     \\
-$H_{015}$ & 0,69      & 0,536     & 0,536     & 0,536     \\
-$H_{016}$ & 0,575     & 0,575     & 0,575     & 0,575     \\
-$H_{017}$ & 0,46      & 0,613     & 0,613     & 0,613     \\
-$H_{018}$ & 0,345     & 0,651     & 0,651     & 0,651     \\
-$H_{019}$ & 0,23      & 0,69      & 0,69      & 0,69      \\
-$H_{020}$ & 0,115     & 0,728     & 0,728     & 0,728     \\ \hline
-\end{tabular}
-\caption{Hipóteses testadas para distribuição Poisson.}
-\label{tab:th_poisson}
-\end{table}
-
-
-\begin{table}[H]
-\centering
-\begin{tabular}{ccccc}
-\hline
-          & $\beta_0$ & $\beta_1$ & $\beta_2$ & $\beta_3$ \\ \hline
-$H_{01}$  & 0,5       & 0         & 0         & 0         \\
-$H_{02}$  & 0,475     & 0,008     & 0,008     & 0,008     \\
-$H_{03}$  & 0,45      & 0,016     & 0,016     & 0,016     \\
-$H_{04}$  & 0,425     & 0,025     & 0,025     & 0,025     \\
-$H_{05}$  & 0,4       & 0,033     & 0,033     & 0,033     \\
-$H_{06}$  & 0,375     & 0,041     & 0,041     & 0,041     \\
-$H_{07}$  & 0,35      & 0,05      & 0,05      & 0,05      \\
-$H_{08}$  & 0,325     & 0,058     & 0,058     & 0,058     \\
-$H_{09}$  & 0,3       & 0,066     & 0,066     & 0,066     \\
-$H_{010}$ & 0,275     & 0,075     & 0,075     & 0,075     \\
-$H_{011}$ & 0,25      & 0,083     & 0,083     & 0,083     \\
-$H_{012}$ & 0,225     & 0,091     & 0,091     & 0,091     \\
-$H_{013}$ & 0,2       & 0,1       & 0,1       & 0,1       \\
-$H_{014}$ & 0,175     & 0,108     & 0,108     & 0,108     \\
-$H_{015}$ & 0,15      & 0,116     & 0,116     & 0,116     \\
-$H_{016}$ & 0,125     & 0,125     & 0,125     & 0,125     \\
-$H_{017}$ & 0,099     & 0,133     & 0,133     & 0,133     \\
-$H_{018}$ & 0,074     & 0,141     & 0,141     & 0,141     \\
-$H_{019}$ & 0,049     & 0,15      & 0,15      & 0,15      \\
-$H_{020}$ & 0,024     & 0,158     & 0,158     & 0,158     \\ \hline
-\end{tabular}
-\caption{Hipóteses testadas para distribuição Bernoulli.}
-\label{tab:th_bernoulli}
-\end{table}
-
-Para representar graficamente os resultados tomamos a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados. Adicionalmente dividimos o vetor de distâncias pelo seu desvio padrão para obter distâncias em uma mesma escala, independente dos parâmetros de regressão. Os resultados são apresentados na \autoref{fig:betas}.
+\textbf{As hipóteses testadas em cada cenário estão disponíveis no apêndice desta dissertação.}
+ 
+Para representar graficamente os resultados tomamos a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados. Adicionalmente dividimos o vetor de distâncias pela maior distância para obter distâncias padronizadas entre 0 e 1, independente dos parâmetros de regressão. Os resultados são apresentados na \autoref{fig:betas}.
 
 \begin{figure}[H]
 \centering
@@ -136,49 +49,21 @@ Para representar graficamente os resultados tomamos a distância euclideana de c
 \label{fig:betas}
 \end{figure}
 
-De modo geral, quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição. Como esperado, os menores percentuais foram observados na hipótese igual aos valores simulados. Tanto para cenários univariados e trivariados com distribuição Normal e Poisson, o percentual de rejeição foi próximo a 10\% quando a hipótese era igual aos valores simulados mesmo com tamanhos amostrais reduzidos, como 50 e 100. Conforme afastamos a hipótese dos valores simulados o percentual de rejeição aumentou mesmo com hipóteses pouco diferentes dos valores simulados. Também como esperado há um desempenho inferior para distribuição bernoulli no caso univariado e trivariado de forma que há indício de que para funcionamento correto do teste há necessidade de tamanhos amostrais maiores.
+De modo geral, quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição. Como esperado, os menores percentuais foram observados na hipótese igual aos valores simulados. Nos cenários univariados o percentual de rejeição foi próximo de 5\% quando a hipótese era igual aos valores simulados mesmo com tamanhos amostrais reduzidos. Para os cenários trivariados, no menor tamanho amostral avaliado, o percentual de rejeição não excedeu 10\% e em tamanhos amostrais iguais a 500 o percentual de rejeição foi próximo de 5\%. Também como esperado, foi possível verificar que conforme aumenta-se o tamanho amostral, o percentual de rejeição aumenta para hipóteses pouco diferentes dos valores simulados dos parâmetros.
 
 \section{Parâmetros de dispersão}
 
 Para avaliação de hipóteses sobre parâmetros de dispersão foram considerados os mesmos tamanhos amostrais: 50, 100, 250, 500 e 1000. Contudo, os conjuntos de dados simulam uma situação em que cada unidade amostral fornece 5 medidas ao conjunto de dados. Foram gerados 500 conjuntos de dados para cada tamanho amostral e distribuição. Para distribuição Normal foram simulados vetores com média 5 e desvio padrão igual a 1. Para distribuição Poisson foram simuladas contagens com taxa igual a 10. Para distribuição Bernoulli foram simulados vetores de uma variável dicotômica com probabilidade de sucesso igual a 0,6.
 
-Em todos os casos, os parâmetros de dispersão para gerar os conjuntos de dados foram fixados em 0,5 e não foi incluído efeito de variáveis explicativas. Foram avaliados cenários univariados e trivariados com estas características. Para cada amostra gerada foi ajustado um McGLM com funções de ligação e variância tal como descrito na \autoref{tab:link_var}. Nos cenários trivariados a correlação entre respostas é dada pela \autoref{eq:correlacao}.
+Em todos os casos, os parâmetros de dispersão para gerar os conjuntos de dados foram fixados em $\tau_0 = 1$, $\tau_1 = 0$ e não foi incluído efeito de variáveis explicativas. Foram avaliados cenários univariados e trivariados com estas características. Para cada amostra gerada foi ajustado um McGLM com funções de ligação e variância tal como descrito na \autoref{tab:link_var}. Nos cenários trivariados a correlação entre respostas é dada pela \autoref{eq:correlacao}.
 
-Neste caso, como as medidas são correlacionadas dentro de cada resposta, é necessário especificar um preditor matricial que deixa explícito que as medidas são correlacionadas. O objetivo é testar hipóteses sobre os parâmetros de dispersão associados a este preditor matricial. 
+Neste caso, como o objetivo é avaliar a correlação dentro das respostas, é necessário especificar um preditor matricial. O objetivo é testar hipóteses sobre os parâmetros de dispersão associados a este preditor matricial. 
 
-Com os modelos ajustados, o procedimento consistiu em variar as hipóteses testadas sobre os parâmetros simulados. Consideramos 20 diferentes hipóteses baseadas em um decréscimo sucessivo de $0,5/20$ para cada hipótese nula testeda. Para cada ponto avaliamos o percentual de rejeição da hipótese nula. A ideia é afastar sucessivamente a hipótese dos valores simulados e avaliar se conforme afastamos a hipótese dos valores verdadeiros, o percentual de rejeição aumenta. As hipóteses testadas são mostradas na \autoref{tab:th_taus}.
+Com os modelos ajustados, o procedimento consistiu em variar as hipóteses testadas sobre os parâmetros simulados. Consideramos 20 diferentes hipóteses baseadas em um decréscimo sucessivo de 0,02 em $\tau_0$ e acréscimo de 0,02 em $\tau_1$ para cada hipótese nula testada. Para cada ponto avaliamos o percentual de rejeição da hipótese nula. A ideia é afastar sucessivamente a hipótese dos valores simulados e avaliar se conforme afastamos a hipótese dos valores verdadeiros, o percentual de rejeição aumenta. 
 
-\begin{table}[H]
-\centering
-\begin{tabular}{ccc}
-\hline
-          & $\tau_0$ & $\tau_1$ \\ \hline
-$H_{01}$  & 0,5      & 0,5      \\
-$H_{02}$  & 0,475    & 0,475    \\
-$H_{03}$  & 0,45     & 0,45     \\
-$H_{04}$  & 0,425    & 0,425    \\
-$H_{05}$  & 0,4      & 0,4      \\
-$H_{06}$  & 0,375    & 0,375    \\
-$H_{07}$  & 0,35     & 0,35     \\
-$H_{08}$  & 0,325    & 0,325    \\
-$H_{09}$  & 0,3      & 0,3      \\
-$H_{010}$ & 0,275    & 0,275    \\
-$H_{011}$ & 0,25     & 0,25     \\
-$H_{012}$ & 0,225    & 0,225    \\
-$H_{013}$ & 0,2      & 0,2      \\
-$H_{014}$ & 0,175    & 0,175    \\
-$H_{015}$ & 0,15     & 0,15     \\
-$H_{016}$ & 0,125    & 0,125    \\
-$H_{017}$ & 0,099    & 0,099    \\
-$H_{018}$ & 0,074    & 0,074    \\
-$H_{019}$ & 0,049    & 0,049    \\
-$H_{020}$ & 0,024    & 0,024    \\ \hline
-\end{tabular}
-\caption{Hipóteses testadas para parâmetros de dispersão.}
-\label{tab:th_taus}
-\end{table}
+\textbf{As hipóteses testadas estão disponíveis no apêncice.}
 
-Do mesmo modo que foi feito para os parâmetros de regressão, foi tomada a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados; e o vetor de distâncias foi padronizado para obter distâncias em uma mesma escala, independente dos parâmetros simulados. Os resultados são apresentados na \autoref{fig:taus}.
+Do mesmo modo que foi feito para os parâmetros de regressão, foi tomada a distância euclideana de cada vetor de hipóteses com relação ao vetor usado para simular os dados; e o vetor de distâncias foi padronizado para obter distâncias entre 0 e 1. Os resultados são apresentados na \autoref{fig:taus}.
 
 \begin{figure}[H]
 \centering
@@ -187,11 +72,7 @@ Do mesmo modo que foi feito para os parâmetros de regressão, foi tomada a dist
 \label{fig:taus}
 \end{figure}
 
-Assim como observado para os parâmetros de regressão, o comportamento dos gráficos mostra que, para distribuição Normal e Poisson, quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição, e os menores percentuais são observados em hipóteses próximas aos valores simulados. 
-
-Para os cenários univariados o comportamento dos testes se mostrou satisfatório com tamanhos amostrais maiores que 100 pois na primeira hipótese testada o percentual de rejeição se mostrou menor que 10\%.
-
-Contudo o percentual de rejeição para hipóteses iguais aos valores simulados é considerávelmente distante do esperado para os cenários trivariados, nestes casos observamos percentuais de rejeição maiores que 20\%, apesar de que quanto mais distante dos valores simulados maior é o percentual de rejeição. Já para distribuição Bernoulli não foram obtidos resultados satisfatórios.
+Assim como observado para os parâmetros de regressão, o comportamento dos gráficos mostra que, quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição, e os menores percentuais são observados em hipóteses próximas aos valores simulados. Na primeira hipótese testada, para os cenários univariados, percentuais de rejeição próximos a 8\% na primeira hipótese foram observados no menor tamanho amostral avaliado. A partir de tamanhos amostrais iguais a 250 o percentual de rejeição foi próximo de 5\%. Já para os casos trivariados, no menor tamanho amostral, o percentual de rejeição excedia 10\% no menor tamanho amostral; para tamanhos amostrais maiores, os percentuais ficaram em torno de 7\%. Também verificou-se para parâmetros de dispersão que conforme aumenta-se o tamanho amostral, o percentual de rejeição aumenta para hipóteses pouco diferentes dos valores simulados dos parâmetros.
 
 \section{Parâmetros de potência}
 
@@ -236,7 +117,7 @@ Da mesma forma que o realizado para o estudo sobre parâmetros de regressão e d
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=15cm]{/home/lacf14/msc/4_dissertacao/6-simulacao/ps.pdf}
+\includegraphics[width=15cm]{/home/lacf14/msc/4_dissertacao/6-simulacao/ps_old.pdf}
 \caption{Resultados do estudo de simulação para os parâmetros de potência.}
 \label{fig:ps}
 \end{figure}
@@ -251,11 +132,11 @@ Para os cenários trivariados com distribuição Normal e Poisson, o percentual 
 
 \begin{itemize}
 
-  \item \textbf{VERIFICAR COM O WAGNER COMO COLOCAR OS GRÁFICOS}
+  \item \textbf{COLOCAR TABELAS COM HIPÓTESES TESTADAS NO APENDICE}
 
-  \item \textbf{ATUALIZAR FACET BINOMIAL -> BERNOULLI}
+  \item \textbf{VER COM O WAGNER SE A JUSTIFICATIVA DO TAMANHO DO PASSO PARA HIPÓTESES DOS BETAS ESTÁ SUFICIENTE}
 
-  \item \textbf{MANTER TABELAS COM AS HIPÓTESES TESTADAS?}
+  \item \textbf{COMO PROCEDER COM OS PARAMETROS DE POTENCIA}
 
 \end{itemize}
 

@@ -5,49 +5,33 @@
 
 \section{Conclusões gerais}
 
-\begin{itemize}
-  \item Resultados do estudo de simulação
-  \item Discussão bernoulli (o teste nao funcionou pq a estimação é comprometida)
-  \item Discussão redução do poder conforme aumenta o numero de parametros testados.
-  \item Ressaltar que a proposta é válida para todas as referências que são submodelos do McGLM.
-\end{itemize}
+O objetivo deste trabalho foi desenvolver procedimentos para realizar testes de hipóteses sobre parâmetros de McGLMs baseados na estatística de Wald. McGLMs contam com parâmetros de regressão, dispersão e potência e cada conjunto de parâmetros possui uma interpretação prática bastante relevante no contexto de análise de problemas com potenciais múltiplas respostas em função de um conjunto de variáveis explicativas.
+
+Com base na proposta de utilização do teste Wald para McGLMs, desenvolvemos procedimentos para testes de hipóteses lineares gerais, geração de quadros de ANOVA e MANOVA para parâmetros de regressão e dispersão e também testes de comparações múltiplas. Todas estes procedimentos foram implementados na linguagem R e complementam as funcionalidades existentes na biblioteca \emph{mcglm}.
+
+As propriedades dos testes foram avaliadas com base em estudos de simulação. Foram considerados cenários univariados e trivariados com diferentes distribuições de probabilidade para as respostas e diferentes tamanhos amostrais. A ideia desta etapa do trabalho foi gerar conjuntos de dados com parâmetros de regressão, dispersão e potência fixados e testar hipóteses sobre parâmetros de modelos ajustados com estes dados. 
+
+Em um primeiro momento, testamos a hipótese de que os parâmetros eram realmente iguais aos fixados na simulação. Em seguida afastamos gradativamente as hipóteses dos valores simulados a fim de verificar se a medida que afasta-se a hipótese dos verdadeiros valores o percentual de rejeição aumenta. 
+
+De modo geral, em todos os casos foi possível observar que quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição. Tal como esperado, os menores percentuais foram observados na hipótese igual aos valores simulados e também foi possível verificar que conforme aumenta-se o tamanho amostral, o percentual de rejeição aumenta para hipóteses pouco diferentes dos valores simulados dos parâmetros.
+
+Sendo assim, os resultados das simulações mostraram que o teste Wald pode ser usado para avaliar hipóteses sobre parâmetros de regressão, dispersão e potência de McGLMs, o que permite uma melhor interpretação do efeito das variáveis e estruturas de delineamento em contextos práticos.
+
+Adicionalmente. fizemos a aplicação das metodologias propostas a um conjunto de dados real em que o objetivo é avaliar o efeito do uso de probióticos no controle de vícios e compulsões alimentares. Trata-se de um problema com duas variáveis resposta: um escore que caracteriza compulsão e o número de sintomas apresentados que caracterizam vício. 
+
+Neste estudo, um conjunto de indivíduos foi dividido em dois grupos: um deles recebeu um placebo e o outro recebeu o tratamento. Além disso os indivíduos foram avaliados ao longo tempo; deste modo o delineamento gera observações que não são independentes, já que medidas tomadas em um mesmo indivíduo tendem a ser correlacionadas. 
+
+Este é um problema em que técnicas de modelagem tradicionais seriam de difícil aplicação. Contudo trata-se de um problema de possível análise via McGLM e testes de hipóteses podem ser empregados para avaliar o efeito da interação entre momento e uso do probiótico sobre vício e compulsão alimentar.
+
+Os resultados, baseados nos testes propostos neste trabalho indicam que existe evidência que aponta para efeito de momento, ou seja, vício e compulsão alimentar alteram-se ao longo do tempo. Os testes de comparações múltiplas indicam que, para ambas as respostas, existem diferenças entre o primeiro versus segundo e primeiro versus terceiro momento, mas os dois
+últimos momentos não diferem entre si. Os resultados também apontam para ausência de diferença entre grupos em cada momento. Uma avaliação dos parâmetros de dispersão mostra que não há evidência para crer que as medidas tomadas em um mesmo indivíduo apresentam correlação; já a avaliação dos parâmetros de potência mostra que há evidência para crer que os dados seguem distribuição beta.
 
 %=====================================================
 
-\section{Limitações}
+\section{Limitações e trabalhos futuros}
 
-\begin{itemize}
-  \item O que acontece quando combina-se parâmetros de diferentes tipos no mesmo teste.
-  \item O que acontece em cenários longitudinais desbalanceados.
-  \item O que acontece quando o numero de parametros nos testes aumenta.
-\end{itemize}
+Algumas limitações deste trabalho dizem respeito a casos não explorados nos estudos de simulação, tais como: avaliação do desempenho dos testes ao definir hipóteses lineares que combinem parâmetros de diferentes tipos, impacto de um número diferente de observações por indivíduos em problemas longitudinias, impacto no poder do teste conforme o número de parâmetros testados aumenta e comportamento do teste em problemas multivariados com distribuições de probabilidade diferentes das exploradas.
 
-%=====================================================
-
-\section{Trabalhos futuros}
-
-\begin{itemize}
-  \item Trabalhar em outros testes (LRT e LMT)
-  \item Implementar novos procedimentos para comparações múltiplas
-  \item Adequação a diferentes contrastes
-  \item Explorar procedimentos para seleção automática de covariáveis
-  \item Explorar seleção de covariáveis por meio de inclusão de penalização no ajuste por complexidade. Similar a ideia de regressão por splines.
-\end{itemize}
-
-Seleção automática:
-
-Backward elimination:
-  - Comece com o modelo completo.
-  - Compare esse modelo com todos os modelos ajustados sem uma das covariáveis e calcule o p-valor.
-  - Elimine o termo com maior p-valor que seja maior que algum limiar.
-  - Repita até que nenhuma covariável possa ser eliminada.
-
-Forward selection
-  - Comece com o modelo sem covariáveis.
-  - Avalie a adição de cada covariável usando o p-valor.
-  - Adicione a covariável que mais se destaca.
-  - Repita até que nenhuma covariável estatísticamente significante reste.
-
-Stepwise selection: Mistura o forward e o backward.
+Possíveis extensões deste trabalho que seguem na linha de avaliação de parâmetros de McGLM para um melhor entendimento do impacto dos elementos em problemas de modelagem são: explorar correções de valores-p de acordo com o tamanho das hipóteses testadas, explorar procedimentos além do teste Wald (como o teste Escore e o teste da razão de verossimilhanças), implementar novos procedimentos para comparações múltiplas, adaptar a proposta para lidar com contrastes alternativos aos usuais, explorar procedimentos para seleção automática de covariáveis (backward elimination, forward selection, stepwise selection) e tambpém seleção de covariáveis por meio de inclusão de penalização no ajuste por complexidade (similar a ideia de regressão por splines).
 
 %=====================================================
