@@ -1,5 +1,5 @@
 
-\chapter{Implementação computacional}
+\chapter{Implementação computacional}\label{cap:implementacao}
 
 Um dos objetivos deste trabalho consiste em implementar na linguagem R os testes apresentados no \autoref{cap:proposta} com o intuito de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}. Este capítulo é destinado à apresentação das implementações computacionais em R das funções que usam o teste Wald para avaliar parâmetros de McGLMs.
 
@@ -57,7 +57,7 @@ Já a função \emph{mc\_manova\_disp()} pode ser utilizada em um modelo multiva
 
 Para testes de comparações múltiplas foram implementadas as funções \emph{mc\_multcomp()} e \emph{mc\_mult\_multcomp()}. Estas funções devem ser usadas como complemento às funções de análise de variância e análise de variância multivariada quando estas apontam para efeito significativo de variáveis explicativas categóricas. As funções para comparações múltiplas são usadas para realizar comparações duas a duas e identificar quais níveis diferem entre si. Estas funções recebem como argumento o modelo, a variável ou variáveis em que há interesse em avaliar comparações entre níveis e também os dados usados para ajustar o modelo.
 
-Por fim, a função \emph{mc\_linear\_hypothesis()} é a implementação computacional em R que permite a execução de qualquer um dos testes apresentados no \autoref{cap:proposta}. É a função mais flexível que temos no conjunto de implementações. Com ela é possível especificar qualquer tipo de hipótese sobre parâmetros de regressão, dispersão ou potência de um modelo \emph{mcglm}. Também é possível especificar hipóteses sobre múltiplos parâmetros e o vetor de valores da hipótese nula é definido pelo usuário. Esta função recebe como argumentos o modelo e um vetor contendo os parâmetros que devem ser testados e o os valores sob hipótese nula. Com algum trabalho, por meio da função de hipóteses lineares gerais, é possível replicar os resultados obtidos pelas funções de análise de variância.
+Por fim, a função \emph{mc\_linear\_hypothesis()} é a implementação computacional em R que permite a execução de qualquer um dos testes apresentados no \autoref{cap:proposta}. É a função mais flexível que temos no conjunto de implementações. Com ela é possível especificar qualquer tipo de hipótese sobre parâmetros de um modelo \emph{mcglm}. Também é possível especificar hipóteses sobre múltiplos parâmetros e o vetor de valores da hipótese nula é definido pelo usuário. Esta função recebe como argumentos o modelo e um vetor contendo os parâmetros que devem ser testados e o os valores sob hipótese nula. Com algum trabalho, por meio da função de hipóteses lineares gerais, é possível replicar os resultados obtidos pelas funções de análise de variância.
 
 
 %=====================================================
@@ -328,7 +328,7 @@ As funções para avaliar os parâmetros de dispersão requerem a especificaçã
 \end{kframe}
 \end{knitrout}
 
-Para hipóteses lineares gerais sobre parâmetros de regressão, dispersão e potência (quando houver) basta especificar o modelo e a hipótese a ser testada. Para identificar os parâmetros de interesse, utilize a função \emph{coef()}.
+Para hipóteses lineares gerais sobre parâmetros de regressão e dispersão basta especificar o modelo e a hipótese a ser testada. Para identificar os parâmetros de interesse, utilize a função \emph{coef()}.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}

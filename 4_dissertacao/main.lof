@@ -9,14 +9,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Resultados do estudo de simulação para os parâmetros de regressão.\relax }}{69}{figure.caption.87}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Resultados do estudo de simulação para os parâmetros de dispersão.\relax }}{70}{figure.caption.89}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Resultados do estudo de simulação para os parâmetros de potência.\relax }}{73}{figure.caption.92}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Resultados do estudo de simulação para os parâmetros de regressão.\relax }}{60}{figure.caption.86}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Resultados do estudo de simulação para os parâmetros de dispersão.\relax }}{62}{figure.caption.88}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Análise exploratória gráfica: (a) histograma YFAS, (b) boxplots YFAS em função de grupo, (c) boxplots YFAS em função de momento, (d) histograma BES, (b) boxplots BES em função de grupo, (c) boxplots BES em função de momento. O asterísco nos boxplots indica a média.\relax }}{77}{figure.caption.99}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Histograma dos resíduos de Pearson por resposta.\relax }}{79}{figure.caption.104}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Gráfico de resíduos Pearson versus preditos com linha de tendência suave para cada resposta.\relax }}{80}{figure.caption.105}%
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Gráfico de preditos pelo modelo para cada combinação entre momento e grupo.\relax }}{81}{figure.caption.107}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Análise exploratória gráfica: (a) histograma YFAS, (b) boxplots YFAS em função de grupo, (c) boxplots YFAS em função de momento, (d) histograma BES, (b) boxplots BES em função de grupo, (c) boxplots BES em função de momento. O asterísco nos boxplots indica a média.\relax }}{65}{figure.caption.95}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Histograma dos resíduos de Pearson por resposta.\relax }}{67}{figure.caption.100}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Gráfico de resíduos Pearson versus preditos com linha de tendência suave para cada resposta.\relax }}{68}{figure.caption.101}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Gráfico de preditos pelo modelo para cada combinação entre momento e grupo.\relax }}{69}{figure.caption.103}%
 \addvspace {10\p@ }
 \contentsfinish 
 \contentsfinish 

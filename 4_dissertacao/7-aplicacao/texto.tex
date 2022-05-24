@@ -1,7 +1,7 @@
 
 %=====================================================
 
-\chapter{Análise de dados}
+\chapter{Análise de dados}\label{cap:aplicacao}
 
 %=====================================================
 
@@ -217,7 +217,7 @@ A fim de avaliar os resultados por resposta, podemos utilizar uma análise de va
 
 \begin{table}[H]
 \centering
-\begin{tabular}{cc|cc|cc}
+\begin{tabular}{c|c|cc|cc}
 \hline
               &                    & \multicolumn{2}{c|}{YFAS}     & \multicolumn{2}{c}{BES}       \\ \hline
 Variável      & Graus de liberdade & Qui-quadrado & Valor-p        & Qui-quadrado & Valor-p        \\ \hline
@@ -275,20 +275,5 @@ $\tau_1$ & 2                  & 2,3201       & 0,3135         \\ \hline
 \caption{Análise de variância multivariada do tipo III para parâmetros de dispersão.}
 \label{tab:manova_disp}
 \end{table}
-
-No caso da análise dos parâmetros de potência, considerando as funções de ligação e variância, podemos avaliar se existe evidência nos dados para afirmar que o parâmetro de potência é igual a 1, o que indica adequação à distribuição beta. Trata-se de um exemplo de aplicação de um teste de hipótese linear geral com valores na hipótese nula diferentes de 0. O resultado é apresentado na tabela \autoref{tab:teste-p} e mostra que há evidência para crer que os dados seguem distribuição beta.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{cccc}
-\hline
-Parâmetro & Graus de liberdade & Qui-quadrado & Valor-p \\ \hline
-p         & 2                  & 0.946        & 0.3308  \\ \hline
-\end{tabular}
-\caption{Resultado do teste que avalia se os parâmetros de dispersão são iguais a 1.}
-\label{tab:teste-p}
-\end{table}
-
-
 
 %=====================================================

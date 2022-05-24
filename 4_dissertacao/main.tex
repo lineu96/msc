@@ -27,13 +27,13 @@
 % a língua principal do documento deve vir POR ÚLTIMO.
 
 % Versão de defesa em português
-\documentclass[defesa,oneside,english,brazilian]{ppginf}
+%\documentclass[defesa,oneside,english,brazilian]{ppginf}
 
 % Versão de defesa em inglês
 %\documentclass[defesa,oneside,brazilian,english]{ppginf}
 
 % Versão final em PDF para a biblioteca da UFPR (português e inglês)
-%\documentclass[final,oneside,english,brazilian]{ppginf}
+\documentclass[final,oneside,english,brazilian]{ppginf}
 %\documentclass[final,oneside,brazilian,english]{ppginf}
 
 % Versão final para impressão (frente/verso)
@@ -50,11 +50,11 @@
 % Campos não utilizados podem ser removidos ou comentados.
 
 % título
-\title{Teste Wald para estudo de parâmetros de modelos multivariados de covariância linear generalizada}
+\title{Teste Wald para avaliação de parâmetros de regressão e dispersão em modelos multivariados de covariância linear generalizada}
 
 % palavras-chave e keywords (p/ resumo, abstract e metadados do PDF)
-\pchave{Palavra-chave 1. Palavra-chave 2. Palavra-chave 3.}
-\keyword{Keyword 1. Keyword 2. Keyword 3.}
+\pchave{McGLM. Testes de hipóteses. Teste Wald. ANOVA. MANOVA. Comparações múltiplas. Regressão.}
+\keyword{McGLM. Hypothesis tests. Wald test. ANOVA. MANOVA. Multiple comparisons. Regression.}
 
 % autoria
 \author{Lineu Alberto Cavazani de Freitas}
@@ -149,7 +149,7 @@
 \clearpage
 \listoftables				% tabelas
 \include{0-iniciais/acronimos}		% acrônimos, deve ser preenchida à mão
-\include{0-iniciais/simbolos}		% símbolos, idem
+%\include{0-iniciais/simbolos}		% símbolos, idem
 \tableofcontents			% sumário
 
 %=====================================================
@@ -181,13 +181,10 @@
 %=====================================================
 
 % inclusão de apêndices
-%\appendix
+\appendix
 
 % inclusão de apêndice
-%\include{a1-exemplo/texto}
-
-% inclusão de apêndice
-%\include{a2-exemplo/texto}
+\include{a1-hipoteses-simulacao/texto}
 
 %=====================================================
 

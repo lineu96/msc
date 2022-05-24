@@ -5,23 +5,25 @@
 \babel@toc {brazilian}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Desfechos possíveis em um teste de hipóteses\relax }}{23}{table.caption.33}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Desfechos possíveis em um teste de hipóteses\relax }}{24}{table.caption.32}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Funções implementadas\relax }}{42}{table.caption.81}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Funções implementadas\relax }}{39}{table.caption.80}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Funções de ligação e variância utilizadas nos modelos para cada distribuição simulada.\relax }}{67}{table.caption.85}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Hipóteses testadas para parâmetros de potência para cada distribuição simulada.\relax }}{72}{table.caption.91}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Funções de ligação e variância utilizadas nos modelos para cada distribuição simulada.\relax }}{59}{table.caption.84}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Número de indivíduos, média e desvio padrão para YFAS e BES para cada combinação de grupo e momento.\relax }}{78}{table.caption.100}%
-\contentsline {table}{\numberline {7.2}{\ignorespaces Estimativas dos parâmetros, intervalos com 95\% de confiança e valores-p do modelo.\relax }}{80}{table.caption.106}%
-\contentsline {table}{\numberline {7.3}{\ignorespaces Análise de variância multivariada tipo II.\relax }}{81}{table.caption.109}%
-\contentsline {table}{\numberline {7.4}{\ignorespaces Análise de variância univariada do tipo II.\relax }}{82}{table.caption.110}%
-\contentsline {table}{\numberline {7.5}{\ignorespaces Comparações duas a duas entre momentos para ambas as respostas.\relax }}{82}{table.caption.111}%
-\contentsline {table}{\numberline {7.6}{\ignorespaces Comparações duas a duas entre grupos para cada momento para ambas as respostas.\relax }}{82}{table.caption.112}%
-\contentsline {table}{\numberline {7.7}{\ignorespaces Análise de variância multivariada do tipo III para parâmetros de dispersão.\relax }}{83}{table.caption.113}%
-\contentsline {table}{\numberline {7.8}{\ignorespaces Resultado do teste que avalia se os parâmetros de dispersão são iguais a 1.\relax }}{83}{table.caption.114}%
+\contentsline {table}{\numberline {7.1}{\ignorespaces Número de indivíduos, média e desvio padrão para YFAS e BES para cada combinação de grupo e momento.\relax }}{66}{table.caption.96}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces Estimativas dos parâmetros, intervalos com 95\% de confiança e valores-p do modelo.\relax }}{68}{table.caption.102}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces Análise de variância multivariada tipo II.\relax }}{69}{table.caption.105}%
+\contentsline {table}{\numberline {7.4}{\ignorespaces Análise de variância univariada do tipo II.\relax }}{69}{table.caption.106}%
+\contentsline {table}{\numberline {7.5}{\ignorespaces Comparações duas a duas entre momentos para ambas as respostas.\relax }}{70}{table.caption.107}%
+\contentsline {table}{\numberline {7.6}{\ignorespaces Comparações duas a duas entre grupos para cada momento para ambas as respostas.\relax }}{70}{table.caption.108}%
+\contentsline {table}{\numberline {7.7}{\ignorespaces Análise de variância multivariada do tipo III para parâmetros de dispersão.\relax }}{70}{table.caption.109}%
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Hipóteses testadas para parâmetros de regressão nos modelos com resposta seguindo distribuição Normal.\relax }}{79}{table.caption.116}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Hipóteses testadas para parâmetros de regressão nos modelos com resposta seguindo distribuição Poisson.\relax }}{80}{table.caption.117}%
+\contentsline {table}{\numberline {A.3}{\ignorespaces Hipóteses testadas para parâmetros de regressão nos modelos com resposta seguindo distribuição Bernoulli.\relax }}{80}{table.caption.118}%
+\contentsline {table}{\numberline {A.4}{\ignorespaces Hipóteses testadas para parâmetros de dispersão.\relax }}{81}{table.caption.119}%
 \contentsfinish 
 \contentsfinish 

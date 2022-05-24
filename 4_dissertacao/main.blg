@@ -9,7 +9,6 @@ A level-1 auxiliary file: 0-iniciais/agradece.aux
 A level-1 auxiliary file: 0-iniciais/resumo.aux
 A level-1 auxiliary file: 0-iniciais/abstract.aux
 A level-1 auxiliary file: 0-iniciais/acronimos.aux
-A level-1 auxiliary file: 0-iniciais/simbolos.aux
 A level-1 auxiliary file: 1-introducao/texto.aux
 A level-1 auxiliary file: 2-referencial/texto.aux
 A level-1 auxiliary file: 3-trabalhos/texto.aux
@@ -18,13 +17,14 @@ A level-1 auxiliary file: 5-implementacao/texto.aux
 A level-1 auxiliary file: 6-simulacao/texto.aux
 A level-1 auxiliary file: 7-aplicacao/texto.aux
 A level-1 auxiliary file: 8-conclusao/texto.aux
+A level-1 auxiliary file: a1-hipoteses-simulacao/texto.aux
 Database file #1: referencias.bib
 Warning--empty journal in adeleke2014comparison
 Warning--can't use both volume e n\'umero fields in berliana2019multivariate
 Warning--can't use both volume e n\'umero fields in score3
 You've used 97 entries,
             1935 wiz_defined-function locations,
-            1033 strings with 18849 characters,
+            1033 strings with 18858 characters,
 and the built_in function-call counts, 37310 in all, are:
 = -- 3767
 > -- 1245

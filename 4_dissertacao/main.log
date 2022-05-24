@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  18 MAY 2022 19:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  24 MAY 2022 16:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -287,6 +287,7 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count190
 \pdfmajorversion=\count191
+Package hyperref Info: Option `final' set `true' on input line 4421.
 Package hyperref Info: Option `plainpages' set `true' on input line 4421.
 Package hyperref Info: Option `pdfpagelabels' set `true' on input line 4421.
 Package hyperref Info: Hyper figures OFF on input line 4547.
@@ -795,10 +796,10 @@ Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 (./0-iniciais/catalografica.aux) (./0-iniciais/aprovacao.aux)
 (./0-iniciais/dedica.aux) (./0-iniciais/agradece.aux) (./0-iniciais/resumo.aux)
 (./0-iniciais/abstract.aux) (./0-iniciais/acronimos.aux)
-(./0-iniciais/simbolos.aux) (./1-introducao/texto.aux)
-(./2-referencial/texto.aux) (./3-trabalhos/texto.aux) (./4-proposta/texto.aux)
-(./5-implementacao/texto.aux) (./6-simulacao/texto.aux)
-(./7-aplicacao/texto.aux) (./8-conclusao/texto.aux))
+(./1-introducao/texto.aux) (./2-referencial/texto.aux) (./3-trabalhos/texto.aux
+) (./4-proposta/texto.aux) (./5-implementacao/texto.aux)
+(./6-simulacao/texto.aux) (./7-aplicacao/texto.aux) (./8-conclusao/texto.aux)
+(./a1-hipoteses-simulacao/texto.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 47.
@@ -958,10 +959,19 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 LaTeX Info: Redefining \\ on input line 135.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 135.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.95pt on input line 135.
+<0-iniciais/fundo-capa.jpg, id=4, 502.5174pt x 569.4876pt>
+File: 0-iniciais/fundo-capa.jpg Graphic file (type jpg)
+<use 0-iniciais/fundo-capa.jpg>
+Package pdftex.def Info: 0-iniciais/fundo-capa.jpg  used on input line 135.
+(pdftex.def)             Requested size: 597.52005pt x 677.15121pt.
+ [1
+
+
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./0-iniciais/fundo-capa.jp
+g>]
+LaTeX Info: Redefining \\ on input line 135.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 135.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
@@ -1015,122 +1025,112 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
-
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+]
 \openout2 = `0-iniciais/catalografica.aux'.
 
- (./0-iniciais/catalografica.tex)
+
+(./0-iniciais/catalografica.tex
+<0-iniciais/catalografica.pdf, id=16, 597.53635pt x 845.04686pt>
+File: 0-iniciais/catalografica.pdf Graphic file (type pdf)
+<use 0-iniciais/catalografica.pdf>
+Package pdftex.def Info: 0-iniciais/catalografica.pdf  used on input line 7.
+(pdftex.def)             Requested size: 597.53488pt x 845.0448pt.
+File: 0-iniciais/catalografica.pdf Graphic file (type pdf)
+<use 0-iniciais/catalografica.pdf>
+Package pdftex.def Info: 0-iniciais/catalografica.pdf  used on input line 7.
+(pdftex.def)             Requested size: 597.53488pt x 845.0448pt.
+<0-iniciais/catalografica.pdf, id=19, page=1, 597.53635pt x 845.04686pt>
+File: 0-iniciais/catalografica.pdf Graphic file (type pdf)
+<use 0-iniciais/catalografica.pdf, page 1>
+Package pdftex.def Info: 0-iniciais/catalografica.pdf , page1 used on input lin
+e 7.
+(pdftex.def)             Requested size: 597.53488pt x 845.0448pt.
+File: 0-iniciais/catalografica.pdf Graphic file (type pdf)
+<use 0-iniciais/catalografica.pdf, page 1>
+Package pdftex.def Info: 0-iniciais/catalografica.pdf , page1 used on input lin
+e 7.
+(pdftex.def)             Requested size: 597.53488pt x 845.0448pt.
+File: 0-iniciais/catalografica.pdf Graphic file (type pdf)
+<use 0-iniciais/catalografica.pdf, page 1>
+Package pdftex.def Info: 0-iniciais/catalografica.pdf , page1 used on input lin
+e 7.
+(pdftex.def)             Requested size: 597.53488pt x 845.0448pt.
+File: 0-iniciais/catalografica.pdf Graphic file (type pdf)
+<use 0-iniciais/catalografica.pdf, page 1>
+Package pdftex.def Info: 0-iniciais/catalografica.pdf , page1 used on input lin
+e 7.
+(pdftex.def)             Requested size: 597.53488pt x 845.0448pt.
+ [1
+
+
+ <./0-iniciais/catalografica.pdf>])
 \openout2 = `0-iniciais/aprovacao.aux'.
 
 
-(./0-iniciais/aprovacao.tex)
-\openout2 = `0-iniciais/dedica.aux'.
+(./0-iniciais/aprovacao.tex
+<0-iniciais/aprovacao.pdf, id=46, 597.50786pt x 845.04686pt>
+File: 0-iniciais/aprovacao.pdf Graphic file (type pdf)
+<use 0-iniciais/aprovacao.pdf>
+Package pdftex.def Info: 0-iniciais/aprovacao.pdf  used on input line 7.
+(pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
+File: 0-iniciais/aprovacao.pdf Graphic file (type pdf)
+<use 0-iniciais/aprovacao.pdf>
+Package pdftex.def Info: 0-iniciais/aprovacao.pdf  used on input line 7.
+(pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
+<0-iniciais/aprovacao.pdf, id=49, page=1, 597.50786pt x 845.04686pt>
+File: 0-iniciais/aprovacao.pdf Graphic file (type pdf)
+<use 0-iniciais/aprovacao.pdf, page 1>
+Package pdftex.def Info: 0-iniciais/aprovacao.pdf , page1 used on input line 7.
 
- (./0-iniciais/dedica.tex)
-\openout2 = `0-iniciais/agradece.aux'.
+(pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
+File: 0-iniciais/aprovacao.pdf Graphic file (type pdf)
+<use 0-iniciais/aprovacao.pdf, page 1>
+Package pdftex.def Info: 0-iniciais/aprovacao.pdf , page1 used on input line 7.
 
+(pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
+File: 0-iniciais/aprovacao.pdf Graphic file (type pdf)
+<use 0-iniciais/aprovacao.pdf, page 1>
+Package pdftex.def Info: 0-iniciais/aprovacao.pdf , page1 used on input line 7.
 
-(./0-iniciais/agradece.tex)
-\openout2 = `0-iniciais/resumo.aux'.
+(pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
+File: 0-iniciais/aprovacao.pdf Graphic file (type pdf)
+<use 0-iniciais/aprovacao.pdf, page 1>
+Package pdftex.def Info: 0-iniciais/aprovacao.pdf , page1 used on input line 7.
 
- (./0-iniciais/resumo.tex
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 1.
-LaTeX Font Info:    Trying to load font information for T1+ntxsups on input lin
-e 3.
-
-(/usr/share/texlive/texmf-dist/tex/latex/newtx/t1ntxsups.fd
-File: t1ntxsups.fd 2015/01/17 v1.0
-)
-LaTeX Font Info:    Font shape `T1/ntxsups/m/n' will be
-(Font)              scaled to size 12.0pt on input line 3.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `ntxsups' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-Package microtype Info: Character `textendash ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textemdash ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblleft ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblright ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `AE ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `quotesinglbase ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `quotedblbase ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `guilsinglleft ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `guilsinglright ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `guillemotleft ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `guillemotright ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquestiondown ' is missing
-(microtype)             in font `T1/ntxsups/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Font shape `T1/ntxsups/m/n' will be
-(Font)              scaled to size 10.0pt on input line 3.
-Package microtype Info: Character `textendash ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textemdash ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblleft ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquotedblright ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `AE ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `quotesinglbase ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `quotedblbase ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `guilsinglleft ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `guilsinglright ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `guillemotleft ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `guillemotright ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textquestiondown ' is missing
-(microtype)             in font `T1/ntxsups/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
+(pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
  [2
 
 
 
+ <./0-iniciais/aprovacao.pdf>])
+\openout2 = `0-iniciais/dedica.aux'.
+
+
+(./0-iniciais/dedica.tex
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 12.0pt on input line 1.
+ [3
 
 
 
+])
+\openout2 = `0-iniciais/agradece.aux'.
+
+ (./0-iniciais/agradece.tex
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+ [4
+
+
+
+
+] [5
+
+])
+\openout2 = `0-iniciais/resumo.aux'.
+
+
+(./0-iniciais/resumo.tex [6
 
 
 
@@ -1139,8 +1139,7 @@ Package microtype Info: Character `textquestiondown ' is missing
 ])
 \openout2 = `0-iniciais/abstract.aux'.
 
-
-(./0-iniciais/abstract.tex [3
+ (./0-iniciais/abstract.tex [7
 
 
 
@@ -1149,7 +1148,8 @@ Package microtype Info: Character `textquestiondown ' is missing
 \tf@lof=\write3
 \openout3 = `main.lof'.
 
- [4
+
+[8
 
 
 
@@ -1157,26 +1157,16 @@ Package microtype Info: Character `textquestiondown ' is missing
 \tf@lot=\write4
 \openout4 = `main.lot'.
 
- [5
+ [9
 
 
 ]
 \openout2 = `0-iniciais/acronimos.aux'.
 
-
-(./0-iniciais/acronimos.tex [6
-
-
-])
-\openout2 = `0-iniciais/simbolos.aux'.
-
- (./0-iniciais/simbolos.tex [7
+ (./0-iniciais/acronimos.tex [10
 
 
-
-
-]) (./main.toc
-[8
+]) (./main.toc [11
 
 
 
@@ -1184,18 +1174,17 @@ Package microtype Info: Character `textquestiondown ' is missing
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [9]
+
+[12]
 \openout2 = `1-introducao/texto.aux'.
 
  (./1-introducao/texto.tex
 Cap\'{\i }tulo 1.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 10.
-[10
+[13
 
 
 
-] [11] [12] [13] [14] [15]) [16]
+] [14] [15] [16] [17]) [18]
 \openout2 = `2-referencial/texto.aux'.
 
  (./2-referencial/texto.tex
@@ -1206,35 +1195,34 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 8.8pt on input line 18.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 6.6pt on input line 18.
-[17
+[19
 
 
 
-] [18] [19] [20]
+] [20] [21]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.8pt on input line 171.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 6.6pt on input line 171.
- [21] [22] [23] [24] [25] [26] [27]) [28]
+ [22] [23] [24] [25] [26] [27]) [28]
 \openout2 = `3-trabalhos/texto.aux'.
 
-
-(./3-trabalhos/texto.tex
+ (./3-trabalhos/texto.tex
 Cap\'{\i }tulo 3.
 [29
 
 
 
-] [30]) [31]
+]) [30]
 \openout2 = `4-proposta/texto.aux'.
 
  (./4-proposta/texto.tex
 Cap\'{\i }tulo 4.
-[32
+[31
 
 
 
-] [33]
+]
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
 e 59.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
@@ -1242,8 +1230,8 @@ File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 12.0pt on input line 59.
- [34]
-[35] [36] [37] [38]) [39] [40]
+ [32] [33]
+[34] [35] [36]) [37]
 \openout2 = `5-implementacao/texto.aux'.
 
  (./5-implementacao/texto.tex
@@ -1251,11 +1239,11 @@ Cap\'{\i }tulo 5.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[41
+[38
 
 
 
-] [42]
+] [39]
 
 ! LaTeX Error: Environment knitrout undefined.
 
@@ -1384,7 +1372,6 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[43]
 
 ! LaTeX Error: Environment knitrout undefined.
 
@@ -2154,6 +2141,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+[40]
 ! Undefined control sequence.
 l.122                    \hlkwc
                                {link} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"id...
@@ -2513,7 +2501,6 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[44]
 
 ! LaTeX Error: Environment knitrout undefined.
 
@@ -2570,6 +2557,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+[41]
 ! Undefined control sequence.
 l.175 \hlkwd
             {mc_anova_II}\hlstd{(fit_joint)}
@@ -2588,7 +2576,6 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[45]
 ! Undefined control sequence.
 l.205 \hlkwd
             {mc_anova_III}\hlstd{(fit_joint)}
@@ -2607,7 +2594,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[46]
+[42]
 
 ! LaTeX Error: \begin{document} ended by \end{kframe}.
 
@@ -2726,7 +2713,6 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[47]
 
 ! LaTeX Error: \begin{document} ended by \end{kframe}.
 
@@ -3007,6 +2993,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+[43]
 ! Undefined control sequence.
 l.290               \hlkwc
                           {names} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\h...
@@ -3379,7 +3366,6 @@ Overfull \hbox (12.75568pt too wide) in paragraph at lines 321--321
 ers[] 
  []
 
-[48]
 
 ! LaTeX Error: \begin{document} ended by \end{kframe}.
 
@@ -3534,6 +3520,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+[44]
 ! Undefined control sequence.
 l.350 \hlkwd
             {mc_linear_hypothesis}\hlstd{(}\hlkwc{object} \hlstd{=  fit_joint,}
@@ -3822,7 +3809,6 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[49]
 ! Undefined control sequence.
 l.390 \hlkwd
             {mc_linear_hypothesis}\hlstd{(}\hlkwc{object} \hlstd{=  fit_joint,}
@@ -3913,6 +3899,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+[45]
 ! Undefined control sequence.
 l.404 \hlkwd
             {mc_linear_hypothesis}\hlstd{(}\hlkwc{object} \hlstd{=  fit_joint,}
@@ -4093,7 +4080,6 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[50]
 ! Undefined control sequence.
 l.420                                     \hlstr
                                                 {'tau21 = 0'}\hlstd{,}
@@ -4392,6 +4378,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+[46]
 ! Undefined control sequence.
 l.459                           \hlkwd
                                       {c}\hlstd{(}\hlstr{'water'}\hlstd{),}
@@ -4488,7 +4475,6 @@ Overfull \hbox (19.95567pt too wide) in paragraph at lines 464--464
 stic[] 
  []
 
-[51]
 ! Undefined control sequence.
 l.488 \hlkwd
             {mc_multcomp}\hlstd{(}\hlkwc{object} \hlstd{= fit_joint,}
@@ -4693,7 +4679,7 @@ Overfull \hbox (19.95567pt too wide) in paragraph at lines 495--495
 stic[] 
  []
 
-[52]
+[47]
 ! Undefined control sequence.
 l.540 \hlkwd
             {mc_multcomp}\hlstd{(}\hlkwc{object} \hlstd{= fit_joint,}
@@ -4952,7 +4938,7 @@ Overfull \hbox (19.95567pt too wide) in paragraph at lines 547--547
 stic[] 
  []
 
-[53] [54] [55] [56] [57] [58] [59] [60] [61]
+[48] [49] [50] [51] [52] [53] [54]
 
 ! LaTeX Error: \begin{document} ended by \end{kframe}.
 
@@ -5233,7 +5219,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[62]
+[55]
 ! Undefined control sequence.
 l.919 \hlkwd
             {mc_mult_multcomp}\hlstd{(}\hlkwc{object} \hlstd{= fit_joint,}
@@ -5360,7 +5346,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[63] [64] [65]
+[56] [57]
 
 ! LaTeX Error: \begin{document} ended by \end{kframe}.
 
@@ -5387,53 +5373,44 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) [66]
+) [58]
 \openout2 = `6-simulacao/texto.aux'.
 
  (./6-simulacao/texto.tex
 Cap\'{\i }tulo 6.
-[67
+[59
 
 
 
 ]
-</home/lacf14/msc/4_dissertacao/6-simulacao/betas.pdf, id=926, 505.89pt x 361.3
+</home/lacf14/msc/4_dissertacao/6-simulacao/betas.pdf, id=959, 505.89pt x 361.3
 5pt>
 File: /home/lacf14/msc/4_dissertacao/6-simulacao/betas.pdf Graphic file (type p
 df)
 <use /home/lacf14/msc/4_dissertacao/6-simulacao/betas.pdf>
 Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/6-simulacao/betas.pdf  
-used on input line 47.
+used on input line 46.
 (pdftex.def)             Requested size: 426.79134pt x 304.85522pt.
- [68] [69 </home/lacf14/msc/4_dissertacao/6-simulacao/betas.pdf>]
-</home/lacf14/msc/4_dissertacao/6-simulacao/taus.pdf, id=945, 505.89pt x 361.35
+ [60 </home/lacf14/msc/4_dissertacao/6-simulacao/betas.pdf>]
+</home/lacf14/msc/4_dissertacao/6-simulacao/taus.pdf, id=973, 505.89pt x 361.35
 pt>
 File: /home/lacf14/msc/4_dissertacao/6-simulacao/taus.pdf Graphic file (type pd
 f)
 <use /home/lacf14/msc/4_dissertacao/6-simulacao/taus.pdf>
 Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/6-simulacao/taus.pdf  u
-sed on input line 70.
+sed on input line 67.
 (pdftex.def)             Requested size: 426.79134pt x 304.85522pt.
- [70 </home/lacf14/msc/4_dissertacao/6-simulacao/taus.pdf>] [71]
-</home/lacf14/msc/4_dissertacao/6-simulacao/ps_old.pdf, id=963, 505.89pt x 361.
-35pt>
-File: /home/lacf14/msc/4_dissertacao/6-simulacao/ps_old.pdf Graphic file (type 
-pdf)
-<use /home/lacf14/msc/4_dissertacao/6-simulacao/ps_old.pdf>
-Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/6-simulacao/ps_old.pdf 
- used on input line 120.
-(pdftex.def)             Requested size: 426.79134pt x 304.85522pt.
- [72]) [73 </home/lacf14/msc/4_dissertacao/6-simulacao/ps_old.pdf>]
+ [61]) [62 </home/lacf14/msc/4_dissertacao/6-simulacao/taus.pdf>]
 \openout2 = `7-aplicacao/texto.aux'.
 
  (./7-aplicacao/texto.tex
 Cap\'{\i }tulo 7.
-[74
+[63
 
 
 
-] [75]
-</home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf, id=1029, 578.16pt x
+] [64]
+</home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf, id=1039, 578.16pt x
  433.62pt>
 File: /home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf Graphic file (t
 ype pdf)
@@ -5441,8 +5418,9 @@ ype pdf)
 Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.
 pdf  used on input line 76.
 (pdftex.def)             Requested size: 426.79134pt x 320.09303pt.
- [76] [77 </home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf>] [78]
-</home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf, id=1051, 505.89pt x 2
+ [65 </home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf>]
+[66]
+</home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf, id=1057, 505.89pt x 2
 16.81pt>
 File: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf Graphic file (typ
 e pdf)
@@ -5450,7 +5428,7 @@ e pdf)
 Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pd
 f  used on input line 151.
 (pdftex.def)             Requested size: 426.79134pt x 182.91313pt.
-</home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf, id=1052, 505.89pt x 2
+</home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf, id=1058, 505.89pt x 2
 16.81pt>
 File: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf Graphic file (typ
 e pdf)
@@ -5458,8 +5436,8 @@ e pdf)
 Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pd
 f  used on input line 158.
 (pdftex.def)             Requested size: 426.79134pt x 182.91313pt.
- [79 </home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf>]
-</home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf, id=1066, 505.89pt
+ [67 </home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf>]
+</home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf, id=1071, 505.89pt
  x 289.08pt>
 File: /home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf Graphic file 
 (type pdf)
@@ -5467,69 +5445,87 @@ File: /home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf Graphic file
 Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/fig_predito
 s.pdf  used on input line 189.
 (pdftex.def)             Requested size: 426.79134pt x 243.88417pt.
- [80 </home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf>] [81 </home/lacf
-14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf>] [82]) [83]
+ [68 </home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf>] [69 </home/lacf
+14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf>]) [70]
 \openout2 = `8-conclusao/texto.aux'.
 
  (./8-conclusao/texto.tex
 Cap\'{\i }tulo 8.
-[84
+[71
 
 
 
-]) [85] (./main.bbl [86
+]) [72] (./main.bbl [73
 
 
-] [87] [88] [89]
+] [74] [75]
 Underfull \hbox (badness 10000) in paragraph at lines 398--403
 \T1/pcr/m/n/12 com / sites / gilpress / 2013 / 05 / 28 / a -[] very -[] short -
 [] history -[] of -[] data -[]
  []
 
-[90] [91])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 194.
- [92]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 194.
+[76] [77]) [78]
+\openout2 = `a1-hipoteses-simulacao/texto.aux'.
+
+ (./a1-hipoteses-simulacao/texto.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \hskip 6.0pt
+(hyperref)                replaced by space on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \hskip 6.0pt
+(hyperref)                replaced by space on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\uppercase' on input line 1.
+
+[79
+
+
+] [80]) [81]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
  (./main.aux (./0-iniciais/catalografica.aux)
 (./0-iniciais/aprovacao.aux) (./0-iniciais/dedica.aux)
 (./0-iniciais/agradece.aux) (./0-iniciais/resumo.aux)
 (./0-iniciais/abstract.aux) (./0-iniciais/acronimos.aux)
-(./0-iniciais/simbolos.aux) (./1-introducao/texto.aux)
-(./2-referencial/texto.aux) (./3-trabalhos/texto.aux) (./4-proposta/texto.aux)
-(./5-implementacao/texto.aux) (./6-simulacao/texto.aux)
-(./7-aplicacao/texto.aux) (./8-conclusao/texto.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 194.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 194.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 194.
+(./1-introducao/texto.aux) (./2-referencial/texto.aux) (./3-trabalhos/texto.aux
+) (./4-proposta/texto.aux) (./5-implementacao/texto.aux)
+(./6-simulacao/texto.aux) (./7-aplicacao/texto.aux) (./8-conclusao/texto.aux)
+(./a1-hipoteses-simulacao/texto.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 191.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 191.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
  ) 
 Here is how much of TeX's memory you used:
- 19312 strings out of 481239
- 298376 string characters out of 5920376
- 865587 words of memory out of 5000000
- 33502 multiletter control sequences out of 15000+600000
- 608044 words of font info for 230 fonts, out of 8000000 for 9000
+ 19279 strings out of 481239
+ 298090 string characters out of 5920376
+ 762527 words of memory out of 5000000
+ 33491 multiletter control sequences out of 15000+600000
+ 599970 words of font info for 219 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,18n,81p,1412b,685s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,18n,81p,2991b,683s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
 fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvi
 ps/newtx/ntx-ot1-tlf.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/n
-txsups_t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.e
-nc}</usr/share/texlive/texmf-dist/fonts/type1/public/newtx/NewTXBMI.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/newtx/NewTXBMI7.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/newtx/ntxsups-Regular.pfb></usr/share/texmf/fonts/type1/public/tex
--gyre/qtmb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></usr/sha
-re/texmf/fonts/type1/public/tex-gyre/qtmri.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/newtx/txbmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/newtx/txbsys.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx
-/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (92 pages, 506190 bytes).
+tx-ec-tlf.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/newtx/NewTXBMI.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/NewTXBMI7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/share/texmf/fonts/ty
+pe1/public/tex-gyre/qtmb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmr
+.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmri.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/newtx/txbmiaX.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/newtx/txbsys.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newt
+x/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on main.pdf (83 pages, 3572763 bytes).
 PDF statistics:
- 1417 PDF objects out of 1440 (max. 8388607)
- 1213 compressed objects within 13 object streams
- 308 named destinations out of 1000 (max. 500000)
- 25012 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 1420 PDF objects out of 1440 (max. 8388607)
+ 1206 compressed objects within 13 object streams
+ 300 named destinations out of 1000 (max. 500000)
+ 19932 words of extra memory for PDF output out of 20736 (max. 10000000)
 
