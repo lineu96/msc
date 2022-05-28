@@ -50,6 +50,13 @@ Berridge, D.~M. e Crouchley, R. (2019).
 \newblock {\em Multivariate generalized linear mixed models using R}.
 \newblock CRC Press.
 
+\bibitem[Bonat et~al., 2017]{hunting}
+Bonat, W., Olivero, J., Grande-Vega, M., Farf{\'a}n, M.  e Fa, J. (2017).
+\newblock Modelling the covariance structure in marginal multivariate count
+  models: Hunting in bioko island.
+\newblock {\em Journal of Agricultural, Biological and Environmental
+  Statistics}, 22(4):446--464.
+
 \bibitem[Bonat, 2018]{mcglm}
 Bonat, W.~H. (2018).
 \newblock Multiple response variables regression models in {R}: The {mcglm}

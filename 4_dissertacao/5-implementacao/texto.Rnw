@@ -1,7 +1,7 @@
 
 \chapter{Implementação computacional}
 
-Um dos objetivos deste trabalho consiste em implementar na linguagem R os testes apresentados no \autoref{cap:proposta} com o intuito de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}. Este capítulo é destinado à apresentação das implementações computacionais em R das funções que usam o teste Wald para avaliar parâmetros de McGLMs.
+Um dos objetivos deste trabalho consiste em implementar e disponibilizar publicamente os testes apresentados no \autoref{cap:proposta} com o intuito de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}. Este capítulo é destinado à apresentação das implementações computacionais em R das funções que usam o teste Wald para avaliar parâmetros de McGLMs.
 
 No que diz respeito à implementações do teste Wald em outros contextos no R, o pacote \emph{lmtest} \citep{lmtest} possui uma função genérica para realizar testes Wald para comparar modelos lineares e lineares generalizados aninhados. Já o pacote \emph{survey} \citep{survey1}; \citep{survey2};\citep{survey3} possui uma função que efetua testes Wald que, por padrão, testa se todos os coeficientes associados a um determinado termo de regressão são zero, mas é possível especificar hipóteses com outros valores. 
 
@@ -59,6 +59,32 @@ Para testes de comparações múltiplas foram implementadas as funções \emph{m
 
 Por fim, a função \emph{mc\_linear\_hypothesis()} é a implementação computacional em R que permite a execução de qualquer um dos testes apresentados no \autoref{cap:proposta}. É a função mais flexível que temos no conjunto de implementações. Com ela é possível especificar qualquer tipo de hipótese sobre parâmetros de regressão, dispersão ou potência de um modelo \emph{mcglm}. Também é possível especificar hipóteses sobre múltiplos parâmetros e o vetor de valores da hipótese nula é definido pelo usuário. Esta função recebe como argumentos o modelo e um vetor contendo os parâmetros que devem ser testados e o os valores sob hipótese nula. Com algum trabalho, por meio da função de hipóteses lineares gerais, é possível replicar os resultados obtidos pelas funções de análise de variância.
 
+%=====================================================
+
+\section{Instalação}
+
+<<functions, echo=FALSE, message=FALSE, warning=FALSE, results='hide'>>=
+source('~/msc/0_funcoes/functions.R')
+#install.packages("mcglm")
+library(mcglm)
+library(Matrix)
+@
+
+O pacote \emph{mcglm} está disponível no Comprehensive R Archive Network (CRAN) em https://CRAN.R-project.org/package=mcglm e pode ser instalado por meio da função \emph{install.packages()}.
+
+<<install-mcglm, eval=FALSE>>=
+install.packages("mcglm")
+library(mcglm)
+@
+
+As implementações referentes a este trabalho estão disponíveis publicamente na plataforma github em https://github.com/lineu96/htmcglm e podem ser instaladas por meio da função \emph{install\_github} do pacote \emph{devtools}.
+
+<<install-htmcglm, eval=FALSE>>=
+library(devtools)
+install_github("lineu96/htmcglm")
+library(htmcglm)
+@
+
 
 %=====================================================
 
@@ -66,36 +92,30 @@ Por fim, a função \emph{mc\_linear\_hypothesis()} é a implementação computa
 
 Nesta seção fornecemos exemplos práticos de utilização das funções implementadas com base em um modelo multivariado ajustado no pacote \emph{mcglm}.
 
+\subsection{Exemplo 1: soya}
+
 Os dados são de um experimento feito em uma casa de vegetação com soja. O delineamento experimental conta com duas plantas por parcela em que cada unidade foi submetida a diferentes combinações de água e adubo. Existem três níveis de um fator correspondente à quantidade de água no solo (\emph{water}) e cinco níveis de adubação com potássio (\emph{pot}). Além disso as parcelas foram dispostas em cinco blocos (\emph{block}). Três variáveis resposta foram avaliadas: a produtividade de grãos (\emph{grain}), número de sementes (\emph{seeds}) e número de ervilhas viáveis por planta (\emph{viablepeas}).
 
 Trata-se de um conjunto de dados interessante para exemplificar o uso das funções implementadas pois existem três variáveis resposta de tipos distintos: a produtividade de grãos é uma variável contínua, o número de sementes é uma contagem, e o número de ervilhas viáveis por planta é um exemplo de variável binomial. O conjunto de dados está disponível no pacote \emph{mcglm}.
 
-<<functions, echo=FALSE, message=FALSE, warning=FALSE, results='hide'>>=
-source('~/msc/0_funcoes/functions.R')
-@
-
 <<soya, message=FALSE, warning=FALSE, results='hide'>>=
-#install.packages("mcglm")
-library(mcglm)
-library(Matrix)
-soya
+data("soya", package = "mcglm")
 @
 
 O objetivo da análise é avaliar o efeito de adubação e água sobre as três variáveis resposta de interesse. Para fins de análise consideramos como variáveis explicativas os níveis de água, adubação e também as interações entre estes dois fatores. Um objetivo secundário é avaliar se medidas tomadas em unidades no mesmo bloco são correlacionadas. O primeiro passo é especificar os preditores lineares.
 
 <<lin_pred>>=
-form.grain <- grain ~ water * pot
-form.seed <- seeds ~ water * pot
+form.grain <- grain ~ block + water * pot
+form.seed <- seeds ~ block + water * pot
 
 soya$viablepeasP <- soya$viablepeas / soya$totalpeas
-form.peas <- viablepeasP ~ water * pot
+form.peas <- viablepeasP ~ block + water * pot
 @
 
-O segundo passo é especificar as matrizes do preditor linear matricial. Aqui incluímos uma matriz identidade, que faz o papel de intercepto e uma matriz bloco diagonal indicando as medidas que foram tomadas em um mesmo bloco. Para cada matriz, um parâmetro de dispersão será estimado por resposta.
+O segundo passo é especificar as matrizes do preditor linear matricial. Consideramos neste caso que as observações são independentes, por isso incluímos apenas uma matriz identidade.
 
 <<mat_pred>>=
 Z0 <- mc_id(soya)
-Z1 <- mc_mixed(~0 + factor(block), data = soya)
 @
 
 Com os elementos definidos, podemos ajustar o modelo. Por meio da função \emph{mcglm()} especificamos os preditores lineares para média, as matrizes dos preditores matriciais, as funções de ligação, de variância, o número de tentativas para a variável binomial e se temos interesse em estimar ou não os parâmetros de potência. Para mais detalhes sobre especificação de preditores e ajuste de McGLMs, consulte \citet{Bonat16} e \citet{mcglm}.
@@ -104,9 +124,9 @@ Com os elementos definidos, podemos ajustar o modelo. Por meio da função \emph
 fit_joint <- mcglm(linear_pred = c(form.grain, 
                                    form.seed, 
                                    form.peas),
-                   matrix_pred = list(c(Z0, Z1), 
-                                      c(Z0, Z1), 
-                                      c(Z0, Z1)),
+                   matrix_pred = list(c(Z0), 
+                                      c(Z0), 
+                                      c(Z0)),
                    link = c("identity",
                             "log", 
                             "logit"),
@@ -123,118 +143,169 @@ fit_joint <- mcglm(linear_pred = c(form.grain,
 
 Para avaliar alguns resultados do modelo é possível utilizar a função \emph{summary()} que retorna a fórmula dos preditores lineares, as funções de ligação, de variância, de covariância especificadas para ajustar o modelo, as estimativas dos parâmetros de regressão e dispersão bem como os erros padrões.
 
+\subsubsection{Quadros de análise de variância para parâmetros de regressão}
+
 Com o modelo ajustado podemos aplicar as funções implementadas para avaliar os parâmetros de regressão e dispersão do modelo. As funções de análise de variância dependem apenas do objeto que contém o modelo ajustado e retornam um quadro para cada resposta.
 
-<<anovas>>=
+\subsubsubsection{ANOVA tipo I}
+
+<<anovaI>>=
 mc_anova_I(fit_joint)
+@
+
+\subsubsubsection{ANOVA tipo II}
+
+<<anovaII>>=
 mc_anova_II(fit_joint)
+@
+
+\subsubsubsection{ANOVA tipo III}
+
+<<anovaIII>>=
 mc_anova_III(fit_joint)
 @
 
 De forma similar, as funções de análise de variância multivariadas também dependem apenas do modelo ajustado. É importante notar que para fins práticos as funções de análise de variância multivariada necessitam que os preditores para todas as respostas sejam os mesmos.
 
-<<manovas>>=
+\subsubsubsection{MANOVA tipo I}
+
+<<manovaI>>=
 mc_manova_I(fit_joint)
+@
+
+\subsubsubsection{MANOVA tipo II}
+
+<<manovaII>>=
 mc_manova_II(fit_joint)
+@
+
+\subsubsubsection{MANOVA tipo III}
+
+<<manovaIII>>=
 mc_manova_III(fit_joint)
 @
 
-As funções para avaliar os parâmetros de dispersão requerem a especificação de mais argumentos: um deles que determina a relação entre parâmetros de dispersão e o outro que especifica os nomes que aparecerão na saída final.
+Para hipóteses lineares gerais sobre parâmetros de regressão e dispersão basta especificar o modelo e a hipótese a ser testada. Para identificar os parâmetros de interesse, utilize a função \emph{coef()}.
 
-<<disp>>=
-mc_anova_disp(fit_joint,
-              p_var = list(c(0,1), c(0,1), c(0,1)),
-              names = list(c('tau10', 'tau11'),
-                           c('tau20', 'tau11'),
-                           c('tau30', 'tau11')))
+\subsubsection{Teste sobre um único parâmetro de regressão}
 
-mc_manova_disp(fit_joint,
-              p_var = c(0,1),
-              names = c('tau11', 'tau21'))
-@
-
-Para hipóteses lineares gerais sobre parâmetros de regressão, dispersão e potência (quando houver) basta especificar o modelo e a hipótese a ser testada. Para identificar os parâmetros de interesse, utilize a função \emph{coef()}.
-
-<<lin_hyp>>=
+<<lin_hyp1>>=
 mc_linear_hypothesis(object =  fit_joint, 
                      hypothesis = c('beta11 = 0'))
+@
 
+\subsubsection{Teste sobre mais de um parâmetro de regressão}
+
+<<lin_hyp2>>=
 mc_linear_hypothesis(object =  fit_joint, 
                      hypothesis = c('beta11 = 0', 
                                     'beta12 = 0'))
+@
 
-mc_linear_hypothesis(object =  fit_joint, 
-                     hypothesis = c('beta11 = 0', 
-                                    'beta12 = 0',
-                                    'beta21 = 0',
-                                    'beta22 = 0',
-                                    'beta31 = 0',
-                                    'beta32 = 0'))
+\subsubsection{Teste de igualdade de efeitos entre parâmetros de regressão}
+
+<<lin_hyp3>>=
 
 mc_linear_hypothesis(object =  fit_joint, 
                      hypothesis = c('beta11 = beta21'))
 
-mc_linear_hypothesis(object =  fit_joint, 
+@
+
+
+\subsection{Exemplo 2: Hunting}
+
+O conjunto de dados Hunting, apresentados em \citet{hunting}, também está disponível no pacote \emph{mcglm}. Os dados tratam de um problema em que as respostas são contagens bivariadas longitudinais sobre animais caçados na vila de Basile Fang, Bioko Norte Province, Bioko Island, Equatorial Guinea. As variáveis respostas são: números mensais de blue duikers (BD) e outros pequenos animais (OT) baleados ou capturados em uma amostra aleatória de 52 caçadores comerciais de agosto de 2010 a setembro de 2013. Consideremos que o interesse é avaliar o efeito de um fator com 2 níveis que indica se o animal foi caçado por meio de arma de fogo ou armadilha (\emph{METHOD}) e um fator com 2 níveis que indica o sexo do animal (\emph{SEX}).
+
+<<hunting, message=FALSE, warning=FALSE, results='hide'>>=
+data("Hunting", package = "mcglm")
+@
+
+Tal como no primeiro exemplo, para ajuste do modelo é necessário definir os preditores lineares para média, as matrizes dos preditores matriciais, as funções de ligação, de variância, se temos interesse em estimar ou não os parâmetros de potência. Para esta análise consideramos no preditor matricial a estrutura de medidas repetidas introduzidas pelas observações tomadas para o mesmo caçador e mês (HUNTER.MONTH) e o número de dias de caça por mês foi usado como termo offset.
+
+<<hunting2, message=FALSE, warning=FALSE, results='hide'>>=
+form.OT <- OT ~ METHOD * SEX
+form.BD <- BD ~ METHOD * SEX
+
+Z0 <- mc_id(Hunting)
+Z1 <- mc_mixed(~ 0 + HUNTER.MONTH, data = Hunting)
+
+fit <- mcglm(linear_pred = c(form.BD, form.OT),
+             matrix_pred = list(c(Z0, Z1), 
+                                c(Z0, Z1)),
+             link = c("log", "log"), 
+             variance = c("poisson_tweedie",
+                          "poisson_tweedie"),
+             offset = list(log(Hunting$OFFSET), 
+                           log(Hunting$OFFSET)),
+             data = Hunting)
+@
+
+Novamente, para avaliar alguns resultados do modelo é possível utilizar a função \emph{summary()}. Podemos também aplicar as já apresentadas funções implementadas para ANOVAs, MANOVAs e testes de hipóteses lineares gerais sobre os parâmetros de regressão e dispersão do modelo.
+
+Neste caso, como existe um preditor matricial especificado, pode ser de interesse um estudo aprofundado dos parâmetros de dispersão. Esta análise pode ser feita com a já utilizada função \emph{mc\_linear\_hypothesis()}.
+
+\subsubsection{Teste sobre um único parâmetro de dispersão}
+
+<<lin_hyp4>>=
+mc_linear_hypothesis(object =  fit, 
                      hypothesis = c('tau11 = 0'))
 
-mc_linear_hypothesis(object =  fit_joint, 
-                     hypothesis = c('tau11 = 0',
-                                    'tau21 = 0',
-                                    'tau31 = 0'))
-
-mc_linear_hypothesis(object =  fit_joint,
-                     hypothesis = c('tau12 = tau22'))
 @
 
-Por fim, podemos utilizar as funções para testes de comparações múltiplas para avaliar diferenças existentes entre níveis de variáveis explicativas categóricas incluídas no modelo. Esta tarefa pode ser feita por variável resposta.
+\subsubsection{Teste sobre mais de um parâmetro de dispersão}
+
+<<lin_hyp5>>=
+
+mc_linear_hypothesis(object =  fit, 
+                     hypothesis = c('tau11 = 0',
+                                    'tau21 = 0'))
+@
+
+\subsubsection{Teste de igualdade de efeitos entre parâmetros de dispersão}
+
+<<lin_hyp6>>=
+mc_linear_hypothesis(object =  fit,
+                     hypothesis = c('tau12 = tau12'))
+@
+
+\subsubsection{Quadro de análise de variância para parâmetros de dispersão}
+
+As funções para avaliar os parâmetros de dispersão por meio de um procedimento análogo à análise de variância para parâmetros de regressão, requerem a especificação de mais argumentos: um deles que determina a relação entre parâmetros de dispersão e o outro que especifica os nomes que aparecerão na saída final.
+
+\subsubsubsection{ANOVA tipo III para dispersão}
+
+<<anova_disp>>=
+mc_anova_disp(fit,
+              p_var = list(c(0,1), c(0,1)),
+              names = list(c('tau10', 'tau11'),
+                           c('tau30', 'tau11')))
+@
+
+\subsubsubsection{MANOVA tipo III para dispersão}
+
+<<manova_disp>>=
+mc_manova_disp(fit,
+               p_var = c(0,1),
+               names = c('tau11', 'tau21'))
+@
+
+\subsubsection{Comparações múltiplas}
+
+Por fim, podemos utilizar as funções para testes de comparações múltiplas para avaliar diferenças existentes entre níveis de variáveis explicativas categóricas incluídas no modelo. Esta tarefa pode ser feita por variável resposta:
 
 <<multcomp>>=
-mc_multcomp(object = fit_joint,
-            effect = list(c('water'), 
-                          c('water'),
-                          c('water')), 
-            data = soya)
-
-mc_multcomp(object = fit_joint,
-            effect = list(c('pot'), 
-                          c('pot'),
-                          c('pot')), 
-            data = soya)
-
-mc_multcomp(object = fit_joint,
-            effect = list(c('water', 'pot'), 
-                          c('water', 'pot'),
-                          c('water', 'pot')), 
-            data = soya)
+mc_multcomp(object = fit,
+            effect = list(c('METHOD', 'SEX'), 
+                          c('METHOD', 'SEX')), 
+            data = Hunting)
 @
 
-No caso de preditores iguais para todas as respostas é possível realizar um teste de comparações múltiplas multivariado.
+Já no caso de preditores iguais para todas as respostas é possível realizar um teste de comparações múltiplas multivariado.
 
 <<mult_multcomp>>=
-mc_mult_multcomp(object = fit_joint, 
-                 effect = c('water'), 
-                 data = soya)
-
-mc_mult_multcomp(object = fit_joint, 
-                 effect = c('pot'), 
-                 data = soya)
-
-mc_mult_multcomp(object = fit_joint, 
-                 effect = c('water', 'pot'), 
-                 data = soya)
+mc_mult_multcomp(object = fit, 
+                 effect = c('METHOD', 'SEX'), 
+                 data = Hunting)
 @
-
-
-%=====================================================
-
-\textbf{TODO}
-
-\begin{itemize}
-
-  \item \textbf{RESULTADOS DEMAIS, QUAIS MANTER?}
-
-  \item \textbf{COLOCAR FUNÇÕES NO APÊNDICE DA DISSERTAÇÃO}
-
-\end{itemize}
 
 %=====================================================

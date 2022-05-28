@@ -22,45 +22,45 @@ Database file #1: referencias.bib
 Warning--empty journal in adeleke2014comparison
 Warning--can't use both volume e n\'umero fields in berliana2019multivariate
 Warning--can't use both volume e n\'umero fields in score3
-You've used 97 entries,
+You've used 98 entries,
             1935 wiz_defined-function locations,
-            1033 strings with 18858 characters,
-and the built_in function-call counts, 37310 in all, are:
-= -- 3767
-> -- 1245
+            1039 strings with 19117 characters,
+and the built_in function-call counts, 37801 in all, are:
+= -- 3814
+> -- 1273
 < -- 98
-+ -- 431
-- -- 398
-* -- 2980
-:= -- 6354
-add.period$ -- 296
-call.type$ -- 97
-change.case$ -- 660
-chr.to.int$ -- 94
-cite$ -- 100
-duplicate$ -- 1527
-empty$ -- 2707
-format.name$ -- 561
-if$ -- 7426
++ -- 441
+- -- 408
+* -- 3029
+:= -- 6440
+add.period$ -- 299
+call.type$ -- 98
+change.case$ -- 670
+chr.to.int$ -- 95
+cite$ -- 101
+duplicate$ -- 1541
+empty$ -- 2737
+format.name$ -- 572
+if$ -- 7518
 int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 107
-newline$ -- 487
-num.names$ -- 291
-pop$ -- 564
+missing$ -- 108
+newline$ -- 492
+num.names$ -- 294
+pop$ -- 572
 preamble$ -- 1
-purify$ -- 679
+purify$ -- 689
 quote$ -- 0
-skip$ -- 1247
+skip$ -- 1257
 stack$ -- 0
-substring$ -- 2766
-swap$ -- 274
+substring$ -- 2803
+swap$ -- 275
 text.length$ -- 23
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 544
+type$ -- 550
 warning$ -- 3
-while$ -- 331
+while$ -- 335
 width$ -- 0
-write$ -- 1248
+write$ -- 1261
 (There were 3 warnings)

@@ -1183,7 +1183,7 @@ pages={311–320}}
     url = {https://CRAN.R-project.org/package=NORTARA},
   }
   
-@article{hunting,
+  @article{hunting,
   title={Modelling the covariance structure in marginal multivariate count models: Hunting in Bioko Island},
   author={Bonat, WH and Olivero, Jesus and Grande-Vega, Maria and Farf{\'a}n, MA and Fa, JE},
   journal={Journal of Agricultural, Biological and Environmental Statistics},
