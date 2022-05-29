@@ -1,9 +1,11 @@
 
 \chapter{Teste Wald em modelos multivariados de covariância linear generalizada}\label{cap:proposta}
 
+%=====================================================
+
 Este capítulo é dedicado à apresentação de nossa proposta: o uso do teste Wald para avaliação dos parâmetros de McGLMs. Vale lembrar que nos McGLMs existem parâmetros de regressão, dispersão, potência e correlação e que, neste trabalho, estamos interessados na avaliação dos parâmetros de regressão e dispersão. Cada conjunto de parâmetros possui uma interpretação prática bastante relevante de tal modo que por meio dos parâmetros de regresão é possível identificar as explicativas relevantes, por meio dos parâmetros de dispersão é possível avaliar o impacto da correlação entre unidades do conjunto de dados, por meio dos parâmetros de potência é possível identificar qual distribuição de probabilidade melhor se adequa ao problema de acordo com a função de variância e por meio dos parâmetros de correlação é possível avaliar a associação entre respostas.
 
-É importante notar que como temos que as estimativas dos parâmetros seguem distribuição normal, qualquer forma quadrática obtida por meio do estimador ou combinações lineares (tal como a estatística de Wald) é também uma forma quadrática que tem distribuição qui-quadrado. Portanto, nossa proposta não é uma simples adaptação, mas é um procedimento assintóticamente válido com respaldo na teoria da distribuição de formas quadráticas. Mais sobre a distribuição de formas quadráticas pode ser visto nos trabalhos de \citet{graybill1957idempotent}, \citet{luther1965decomposition} e \citet{baldessari1967distribution}.
+É importante notar que como temos que as estimativas dos parâmetros seguem distribuição normal, qualquer forma quadrática obtida por meio do estimador ou combinações lineares (tal como a estatística de Wald) é também uma forma quadrática que tem distribuição qui-quadrado. Portanto, nossa proposta não é uma simples adaptação, mas é um procedimento assintoticamente válido com respaldo na teoria da distribuição de formas quadráticas. Mais sobre a distribuição de formas quadráticas pode ser visto nos trabalhos de \citet{graybill1957idempotent}, \citet{luther1965decomposition} e \citet{baldessari1967distribution}.
 
 %=====================================================
 
@@ -26,7 +28,7 @@ $$
 W = (\boldsymbol{L\hat\theta^{*}} - \boldsymbol{c})^T \ (\boldsymbol{L \ J^{\boldsymbol{*}-1} \ L^T})^{-1} \ (\boldsymbol{L\hat\theta^{*}} - \boldsymbol{c}),
 $$
 
-\noindent em que $W \sim \chi^2_s$, ou seja, independente do número de parâmetros nas hipóteses, a estatística de teste $W$ é um único valor que segue assintóticamente distribuição $\chi^2$ com graus de liberdade dados pelo número de restrições, isto é, o número de linhas da matriz $\boldsymbol{L}$, denotado por $s$.
+\noindent em que $W \sim \chi^2_s$, ou seja, independente do número de parâmetros nas hipóteses, a estatística de teste $W$ é um único valor que segue assintoticamente distribuição $\chi^2$ com graus de liberdade dados pelo número de restrições, isto é, o número de linhas da matriz $\boldsymbol{L}$, denotado por $s$.
 
 Em geral, cada coluna da matriz $\boldsymbol{L}$ corresponde a um dos $h$ parâmetros de $\boldsymbol{\theta^{*}}$ e cada linha a uma restrição. Sua construção consiste basicamente em preencher a matriz com 0, 1 e eventualmente -1 de tal modo que o produto $\boldsymbol{L}\boldsymbol{\theta^{*}}$ represente corretamente as hipóteses de interesse. A correta especificação de $\boldsymbol{L}$ permite testar qualquer parâmetro individualmente ou até mesmo formular hipóteses para diversos parâmetros.
 
@@ -41,7 +43,7 @@ g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1, r=1,2,
 
 \noindent em que o índice $r$ denota a variável resposta, r = 1,2; $\beta_{r0}$ representa o intercepto; $\beta_{r1}$ um parâmetro de regressão associado a uma variável $X_1$. Considere que cada resposta possui apenas um parâmetro de dispersão $\tau_{r0}$ e que os parâmetros de potência foram fixados. Portanto, trata-se de um problema em que há duas variáveis resposta e apenas uma variável explicativa. Considere que as unidades em estudo são independentes, logo $Z_0 = I$. 
 
-Neste cenário poderiam ser perguntas de interesse: existe efeito da variável $X_1$ apenas sobre a primeira resposta? Ou apenas sobre a segunda resposta? É possível que que a variável $X_1$ possua efeito sobre as duas respostas ao mesmo tempo? É possível que o efeito da variável seja o mesmo para ambas as respostas? Todas essas perguntas podem ser respondidas por meio de testes de hipóteses sobre os parâmetros do modelo e especificadas por meio da \autoref{eq:hipoteses_wald}. Nas subseções a seguir são apresentados os elementos para responder cada uma destas perguntas. 
+Neste cenário poderiam ser perguntas de interesse: existe efeito da variável $X_1$ apenas sobre a primeira resposta? Ou apenas sobre a segunda resposta? É possível que a variável $X_1$ possua efeito sobre as duas respostas ao mesmo tempo? É possível que o efeito da variável seja o mesmo para ambas as respostas? Todas essas perguntas podem ser respondidas por meio de testes de hipóteses sobre os parâmetros do modelo e especificadas por meio da \autoref{eq:hipoteses_wald}. Nas subseções a seguir são apresentados os elementos para responder a cada uma destas perguntas. 
 
 \subsection{Exemplo 1: hipótese para um único parâmetro}
 
@@ -118,7 +120,7 @@ O vetor $\boldsymbol{\theta^{*}}$ se mantém com seis elementos e a matriz $\bol
 
 \subsection{Exemplo 3: hipótese de igualdade de parâmetros}
 
-Suponha que a hipótese de interesse não envolve testar se o valor do parâmetro é igual a um valor postulado mas sim verificar se, no caso deste problema genérico, o efeito da variável $X_1$ é o mesmo independente da resposta. Nesta situação formularíamos uma hipótese de igualdade entre os parâmetros ou, em outros termos, se a diferença dos efeitos é nula:
+Suponha que a hipótese de interesse não envolve testar se o valor do parâmetro é igual a um valor postulado mas sim verificar se, no caso deste problema genérico, o efeito da variável $X_1$ é o mesmo independente da resposta. Nesta situação formaríamos uma hipótese de igualdade entre os parâmetros ou, em outros termos, se a diferença dos efeitos é nula:
 
 \begin{equation}
 \label{eq:ex3}
@@ -174,7 +176,7 @@ Deste modo, o produto $\boldsymbol{L}\boldsymbol{\beta}$ representa a hipótese 
 
 \section{ANOVA e MANOVA via teste Wald}
 
-Com base na proposta de utilização do teste Wald para McGLMs, buscamos propor neste trabalho três diferentes procedimentos para geração de quadros de ANOVA e MANOVA para parâmetros de regressão, seguimos a nomenclatura tipos I, II e III. Além disso buscamos propor também um procedimento análogo à uma ANOVA e MANOVA para avaliação dos parâmetros de dispersão de um dado modelo. No caso das ANOVAs gera-se um quadro para cada variável resposta. Para as MANOVAs apenas um quadro é gerado, por isso, para que seja possível realizar as MANOVAs, as respostas do modelo devem estar sujeitas ao mesmo preditor.
+Com base na proposta de utilização do teste Wald para McGLMs, buscamos propor neste trabalho três diferentes procedimentos para geração de quadros de ANOVA e MANOVA para parâmetros de regressão, seguimos a nomenclatura tipos I, II e III. Além disso, buscamos propor também um procedimento análogo à uma ANOVA e MANOVA para avaliação dos parâmetros de dispersão de um dado modelo. No caso das ANOVAs gera-se um quadro para cada variável resposta. Para as MANOVAs apenas um quadro é gerado, por isso, para que seja possível realizar as MANOVAs, as respostas do modelo devem estar sujeitas ao mesmo preditor.
 
 Para fins de ilustração dos testes feitos por cada tipo de análise de variância proposta, considere a situação em que deseja-se investigar se duas variáveis numéricas denotadas por $X_1$ e $X_2$ possuem efeito sobre duas variáveis resposta denotadas por $Y_1$ e $Y_2$. Para tal tarefa coletou-se uma amostra com $N$ observações e para cada observação foram registrados os valores de $X_1$, $X_2$, $Y_1$ e $Y_2$. Com base nos dados coletados ajustou-se um modelo bivariado, com preditor dado por:
 
@@ -195,7 +197,7 @@ Nossa proposta de análise de variância do tipo I para os McGLMs realiza testes
   \item Testa se todos os parâmetros, exceto intercepto e os parâmetros referentes a $X_1$ e $X_2$, são iguais a 0.
 \end{enumerate}
 
-Cada um destes testes seria uma linha do quadro de análise de variância. No caso da ANOVA seria gerado um quadro por resposta, no caso da MANOVA um quadro em que as hipóteses são testadas para ambas as respostas. Este procedimento pode ser chamado de sequencial pois a cada linha é acrescentada uma variável. Em geral, justamente por esta sequencialidade, se torna difícil interpretar os efeitos das variáveis pela análise de variância do tipo I. Em contrapartida, as análises do tipo II e III testam hipóteses que são, geralmente de mais interesse.
+Cada um destes testes seria uma linha do quadro de análise de variância. No caso da ANOVA seria gerado um quadro por resposta, no caso da MANOVA um quadro em que as hipóteses são testadas para ambas as respostas. Este procedimento pode ser chamado de sequencial pois a cada linha é acrescentada uma variável. Em geral, justamente por esta sequencialidade, se torna difícil interpretar os efeitos das variáveis pela análise de variância do tipo I. Em contrapartida, as análises do tipo II e III testam hipóteses que são, geralmente, de mais interesse.
 
 \subsection{ANOVA e MANOVA tipo II}
 
@@ -252,8 +254,9 @@ O procedimento é idêntico ao descrito na \autoref{sec:multcomp} e consiste em:
   
 \end{enumerate}
 
-Para efetuação deste procedimento para os McGLMs devemos lembrar que trata-se de uma classe de modelos multivariados. E tal como ocorre no caso das análises de variância, para os testes comparações múltiplas existem duas possibilidades: testes para uma única resposta e testes para múltiplas respostas. 
+Para efetuação deste procedimento para os McGLMs devemos lembrar que trata-se de uma classe de modelos multivariados. E tal como ocorre no caso das análises de variância, para os testes de comparações múltiplas existem duas possibilidades: testes para uma única resposta e testes para múltiplas respostas. 
 
 Na prática, se o interesse for um teste de comparações múltiplas multivariado, existe a necessidade de todas as respostas estarem sujeitas a um mesmo preditor e basta expandir a matriz de contrastes utilizando o produto Kronecker, seguindo uma ideia muito similar ao exposto na \autoref{sec:sec_ex4}. No caso de um teste de comparações múltiplas para cada resposta, basta selecionar o vetor de estimativas e a partição correspondente ao vetor da matriz $J_{\boldsymbol{\theta}}^{-1}$ para a resposta específica e proceder com o teste. Desta forma é possível chegar a um simples e útil procedimento de comparações múltiplas para quando há um McGLM com variáveis explicativas categóricas e há interesse em determinar quais níveis diferem entre si.
 
 %=====================================================
+

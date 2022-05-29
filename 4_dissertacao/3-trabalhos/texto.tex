@@ -1,7 +1,9 @@
 
 \chapter{Trabalhos relacionados}\label{cap:trabalhos}
 
-Os McGLMs foram propostos com o objetivo de contornar as restrições dos GLMs no que diz respeito à quantidade de de distribuições disponíveis, alternativas para modelar a correlação entre unidades e a capacidade de modelar múltiplas respostas de diferentes naturezas. Nesta seção de revisão de literatura serão brevemente citadas propostas que visam contornar restrições dos GLMs e como são efetuados testes de hipóteses para estas propostas. Os parâmetros dos GLMs são estimados por meio do método da máxima verossimilhança e por isso os testes de hipóteses clássicos são amplamente utilizados: teste da razão de verossimilhanças, teste Wald e teste escore.
+%=====================================================
+
+Os McGLMs foram propostos com o objetivo de contornar as restrições dos GLMs no que diz respeito à quantidade de distribuições disponíveis, alternativas para modelar a correlação entre unidades e a capacidade de modelar múltiplas respostas de diferentes naturezas. Nesta seção de revisão de literatura serão brevemente citadas propostas que visam contornar restrições dos GLMs e como são efetuados testes de hipóteses para estas propostas. Os parâmetros dos GLMs são estimados por meio do método da máxima verossimilhança e por isso os testes de hipóteses clássicos são amplamente utilizados: teste da razão de verossimilhanças, teste Wald e teste escore.
 
 %=====================================================
 % \section{UNIVARIADOS}
@@ -13,7 +15,7 @@ Em modelos que contam com efeitos aleatórios, a interpretação dos parâmetros
 
 %=====================================================
 
-Outra proposta é a dos modelos lineares generalizados hierarquicos (hGLMs) \citep{lee1996hierarchical}. Nesta classe a estimação dos parâmetros é baseada na chamada h-verossimilhança e supera algumas das limitações dos GLMs mas, em geral, as implementações são limitadas a uma variável resposta, apesar de ser possível pensar na proposta para o caso multivariado. Os hGLMs não são estimados com base na máxima verossimilhança, contudo os autores sugerem um teste de hipóteses ao estilo do teste de razão de verossimilhanças para os parâmetros de regressão. Além disso o teste Wald pode ser utilizado tanto para parâmetros de regressão quanto para parâmetros de dispersão do modelo.
+Outra proposta é a dos modelos lineares generalizados hierarquicos (hGLMs) \citep{lee1996hierarchical}. Nesta classe a estimação dos parâmetros é baseada na chamada h-verossimilhança e supera algumas das limitações dos GLMs mas, em geral, as implementações são limitadas a uma variável resposta, apesar de ser possível pensar na proposta para o caso multivariado. Os hGLMs não são estimados com base na máxima verossimilhança, contudo os autores sugerem um teste de hipóteses ao estilo do teste de razão de verossimilhanças para os parâmetros de regressão. Além disso, o teste Wald pode ser utilizado tanto para parâmetros de regressão quanto para parâmetros de dispersão do modelo.
 
 %=====================================================
 
@@ -27,7 +29,7 @@ Dentre as propostas mais recentes que lidam com uma única resposta estão os mo
 %\section{MULTIVARIADOS}
 %=====================================================
 
-Já no cenário multivariado, uma das propostas mais populares é a dos modelos lineares generalizados multivariados mistos (MGLMM) \citep{berridge2019multivariate}. O MGLMM é uma extensão do GLMM para lidar com múltiplas respostas e segue a mesma ideia no que diz respeito à inclusão de efeitos aleatórios para acomodar a dependência entre observações. Tal como no caso univariado, a estimação para esta classe em alguns casos se torna complexa pois a função de verossimilhança não apresenta forma fechada e a distribuição marginal de cada resposta não é conhecida, pois a especificação do modelo é feita de forma condicional aos efeitos aleatórios, o que torna a obtenção das marginais uma tarefa não trivial. Além disso o algoritmo de estimação por si só não é simples e a interpretação dos coeficientes de regressão não é igual à forma como interpreta-se um GLM devido a presença de efeito aleatório. Contudo, a estimação pode ser feita maximizando uma função de verossimilhança o que torna possível utilizar os testes de hipóteses usuais. 
+Já no cenário multivariado, uma das propostas mais populares é a dos modelos lineares generalizados multivariados mistos (MGLMM) \citep{berridge2019multivariate}. O MGLMM é uma extensão do GLMM para lidar com múltiplas respostas e segue a mesma ideia no que diz respeito à inclusão de efeitos aleatórios para acomodar a dependência entre observações. Tal como no caso univariado, a estimação para esta classe em alguns casos se torna complexa pois a função de verossimilhança não apresenta forma fechada e a distribuição marginal de cada resposta não é conhecida, pois a especificação do modelo é feita de forma condicional aos efeitos aleatórios, o que torna a obtenção das marginais uma tarefa não trivial. Além disso, o algoritmo de estimação por si só não é simples e a interpretação dos coeficientes de regressão não é igual à forma como interpreta-se um GLM devido a presença de efeito aleatório. Contudo, a estimação pode ser feita maximizando uma função de verossimilhança o que torna possível utilizar os testes de hipóteses usuais. 
 
 %=====================================================
 %\section{CLASSES PARA SITUAÇÕES ESPECÍFICAS}

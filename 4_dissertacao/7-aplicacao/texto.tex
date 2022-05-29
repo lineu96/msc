@@ -1,6 +1,4 @@
 
-%=====================================================
-
 \chapter{Análise de dados}\label{cap:aplicacao}
 
 %=====================================================
@@ -51,7 +49,7 @@ Para avaliação de vício alimentar foi utilizada a escala de vício alimentar 
 
 \subsection{Conjunto de dados}
 
-A amostra final é formada por 71 indivíduos, dos quais 33 pertencem ao grupo placebo e 38 ao grupo tratamento. Se todos estes indivíduos fossem avaliados nos 3 momentos definidos no estudo, o conjunto de dados teria 213 observações. Contudo, ao longo do estudo, diversos indivíduos não compareceram às reconsultas, o que faz com que hajam dados faltantes no conjunto de dados. Após tratamento dos dados e exclusão de observações faltantes restaram 184 observações.
+A amostra final é formada por 71 indivíduos, dos quais 33 pertencem ao grupo placebo e 38 ao grupo tratamento. Se todos estes indivíduos fossem avaliados nos 3 momentos definidos no estudo, o conjunto de dados teria 213 observações. Contudo, ao longo do estudo, diversos indivíduos não compareceram às consultas, o que faz com que haja dados faltantes no conjunto de dados. Após tratamento dos dados e exclusão de observações faltantes restaram 184 observações.
 
 É importante notar que trata-se de um problema com duas variáveis resposta: um escore que caracteriza compulsão e o número de sintomas apresentados que caracterizam vício. Além disso, as observações não são independentes, tendo em vista que medidas tomadas em um mesmo indivíduo são correlacionadas. Portanto trata-se de um problema que técnicas de modelagem tradicionais seriam de difícil aplicação mas é um cenário ideal para resolução via McGLM e no qual testes de hipóteses são de extrema importância para avaliar o efeito da interação entre momento e uso do probiótico sobre vício e compulsão alimentar.
 
@@ -78,7 +76,7 @@ A análise gráfica apresentada na \autoref{fig:descritiva2} mostra, em (a) e (d
 \label{fig:descritiva2}
 \end{figure}
 
-Ainda de forma exploratória podemos avaliar o comportamento das métricas de vício e compulsão por meio da avaliação das medidas descritivas por momento e por grupo, apresentadas na \autoref{tab:descritiva1}. É possível verificar a redução de indivíduos ao longo do tempo, algo comum em estudos prospectivos. Quanto às medidas, nota-se que ambos os grupos (placebo ou probiótico) apresentam médias mais altas no momento T0 do que nos demais momentos. Portanto, existe uma clara redução das métricas quando comparado ao pré operatório. Quando comparamos os momentos pós operatório (T1 e T2) verificamos que as medidas de YFAS para o grupo placebo e probiótico e BES no grupo placebo apresentam, em média, um aumento das métricas no último momento de avaliação. Já as medidas de BES no grupo probiótico apresentam queda.
+Ainda de forma exploratória podemos avaliar o comportamento das métricas de vício e compulsão por meio da avaliação das medidas descritivas por momento e por grupo, apresentadas na \autoref{tab:descritiva1}. É possível verificar a redução de indivíduos ao longo do tempo, algo comum em estudos prospectivos. Quanto às medidas, nota-se que ambos os grupos (placebo ou probiótico) apresentam médias mais altas no momento T0 do que nos demais momentos. Portanto, existe uma clara redução das métricas quando comparado ao pré operatório. Quando comparamos os momentos pós-operatório (T1 e T2) verificamos que as medidas de YFAS para o grupo placebo e probiótico e BES no grupo placebo apresentam, em média, um aumento das métricas no último momento de avaliação. Já as medidas de BES no grupo probiótico apresentam queda.
 
 \begin{table}[H]
 \centering
@@ -101,20 +99,19 @@ Probiótico             & T2                       & 22                 & 0,10 (
 
 \subsection{Especificação do modelo}
 
-Para análise dos dados foi ajustado um modelo multivariado com os efeitos fixos das variáveis momento e grupo. Adicionalmente, foi incluído ao modelo o efeito da interação entre estas duas variáveis explicativas.
+Para análise dos dados foi ajustado um modelo multivariado com os efeitos fixos das variáveis momento e grupo. Adicionalmente, foi incluído no modelo o efeito da interação entre estas duas variáveis explicativas.
 
 Como já mencionado, trata-se de um experimento em que as observações não são independentes pois medidas tomadas em um mesmo indivíduo são correlacionadas e esta correlação deve ser especificada no modelo. 
 
-Ambas as respostas foram tratadas como proporções, por este motivo foi utilizada a função de ligação logito com função de variância Binomial. Adicionalmente, estimou-se o parâmetro de potência para todas as respostas em análise. Os preditores lineares são descritos da forma
+Ambas as respostas foram tratadas como proporções, por este motivo foi utilizada a função de ligação logito com função de variância binomial. Adicionalmente, estimou-se o parâmetro de potência para todas as respostas em análise. Os preditores lineares são dados por
 
 $$
-g_{r}(\mu_{r}) = \beta_{0r} + \beta_{1r} T1 + \beta_{2r} T2 + \beta_{3r} Probiotico + \beta_{4r} T1*Probiotico + \beta_{5r} T2*Probiotico,
+g_{r}(\mu_{r}) = \beta_{0r} + \beta_{1r} T1 + \beta_{2r} T2 + \beta_{3r} Probiotico + \\ \beta_{4r} T1*Probiotico + \beta_{5r} T2*Probiotico,
 $$
 
 \noindent em que o índice $r$ refere-se às variáveis respostas do estudo (1 para YFAS, 2 para BES). Foram consideradas categorias de referência o grupo placebo e o momento T0. $\beta_{0r}$ representa o intercepto, $\beta_{1r}$ o efeito do momento T1, $\beta_{2r}$ o efeito do momento T2, $\beta_{3r}$ o efeito de probiótico. Os parâmetros $\beta_{4r}$ e $\beta_{5r}$ referem-se à interação entre momento e grupo, de tal forma que $\beta_{4r}$ representa o efeito da interação entre T1 e probiótico, e $\beta_{5r}$ representa o efeito da interação entre T2 e probiótico.
 
-Os preditores matriciais, comuns a ambas as respostas, são dados por
-$h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \tau_1Z_1$. A função $h(.)$ utilizada foi a identidade, $\tau_0$ e $\tau_1$ representam os parâmetros de dispersão, $Z_0$ representa uma matriz identidade de ordem, $184 \times 184$ e $Z_1$ representa uma matriz de dimensão $184 \times 184$ especificada de forma a explicitar que as medidas provenientes do mesmo indivíduo são correlacionadas. 
+Os preditores matriciais, iguais para ambas as respostas, são dados por $h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \tau_1Z_1$. A função $h(.)$ utilizada foi a identidade, $\tau_0$ e $\tau_1$ representam os parâmetros de dispersão, $Z_0$ representa uma matriz identidade de ordem, $184 \times 184$ e $Z_1$ representa uma matriz de dimensão $184 \times 184$ especificada de forma a explicitar que as medidas provenientes do mesmo indivíduo são correlacionadas. 
 
 Para exemplificar a forma do preditor matricial, vamos considerar 3 indivíduos: A, B e C. Suponha que o indivíduo A compareceu às 3 consultas, portanto temos informações deste indivíduo em T0, T1 e T2. O indivíduo B compareceu em T0 e T1. Já o indivíduo C compareceu apenas em T0. Deste modo temos 3 indivíduos e 6 observações. Logo $Z_0$ é uma matriz identidade $6 \times 6$ e $Z_1$ é uma espécie de matriz bloco diagonal em que o tamanho dos blocos varia de acordo com o número de medidas para cada indivíduo. Neste cenário o preditor matricial tem a forma
 
@@ -230,7 +227,7 @@ Momento*Grupo & 2                  & 5,5984       & 0,0609         & 4,2477     
 \label{tab:anovaII}
 \end{table}
 
-Como as análises de variâncias apontaram para efeito significativo de variáveis categóricas, podemos explorar quais níveis diferem entre si. \autoref{tab:mul-multcomp1} apresenta as comparações duas a duas entre momentos. Os resultados mostram que, para ambas as respostas existem diferenças entre o primeiro versus segundo e primeiro versus terceiro momento, mas os dois últimos momentos não diferem entre si.
+Como as análises de variâncias apontaram para efeito significativo de variáveis categóricas, podemos explorar quais níveis diferem entre si. A \autoref{tab:mul-multcomp1} apresenta as comparações duas a duas entre momentos. Os resultados mostram que, para ambas as respostas existem diferenças entre o primeiro versus segundo e primeiro versus terceiro momento, mas os dois últimos momentos não diferem entre si.
 
 \begin{table}[H]
 \centering
@@ -245,7 +242,7 @@ T1-T2     & 2                  & 2,4730       & 0,8712         \\ \hline
 \label{tab:mul-multcomp1}
 \end{table}
 
-A tabela \autoref{tab:mul-multcomp3} apresenta as comparações entre grupos para cada momento para ambas as respostas. Os resultados apontam para ausência de diferença entre grupos em cada momento.
+A tabela \autoref{tab:mul-multcomp3} apresenta as comparações entre grupos para cada momento para ambas as respostas. Os resultados apontam para a ausência de diferença entre grupos em cada momento.
 
 \begin{table}[H]
 \centering
@@ -260,7 +257,7 @@ T2:Placebo-T2:Probiótico & 2                  & 1,7645       & 1       \\ \hlin
 \label{tab:mul-multcomp3}
 \end{table}
 
-No modelo, incluímos a informação de que existem medidas que foram tomadas em um mesmo indivíduo. Esta informação é declarada no preditor matricial que estima um parâmetro de dispersão associado à matriz que aponta a relação entre os indivíduos. Uma hipótese de interesse pode ser avaliar se existe evidência para crer que, neste problema, as medidas tomadas em um mesmo indivíduo são de fato correlacionadas. Para isso podemos postular hipóteses sobre os parâmetros de dispersão. Tal como nas análies de variância, isso pode ser feito por resposta ou para ambas as respostas simultaneamente.
+No modelo, incluímos a informação de que existem medidas que foram tomadas em um mesmo indivíduo. Esta informação é declarada no preditor matricial que estima um parâmetro de dispersão associado à matriz que aponta a relação entre os indivíduos. Uma hipótese de interesse pode ser avaliar se existe evidência para crer que, neste problema, as medidas tomadas em um mesmo indivíduo são de fato correlacionadas. Para isso podemos postular hipóteses sobre os parâmetros de dispersão. Tal como nas análises de variância, isso pode ser feito por resposta ou para ambas as respostas simultaneamente.
 
 A tabela \autoref{tab:manova_disp} apresenta os resultados do teste multivariado, ou seja, avalia a hipótese de que em ambas as respostas as medidas sejam correlacionadas. Os resultados apontam que não há evidência para crer que as medidas tomadas em um mesmo indivíduo apresentam correlação.
 
@@ -277,3 +274,4 @@ $\tau_1$ & 2                  & 2,3201       & 0,3135         \\ \hline
 \end{table}
 
 %=====================================================
+

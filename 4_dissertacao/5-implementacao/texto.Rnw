@@ -1,5 +1,7 @@
 
-\chapter{Implementação computacional}
+\chapter{Implementação computacional}\label{cap:implementacao}
+
+%=====================================================
 
 Um dos objetivos deste trabalho consiste em implementar e disponibilizar publicamente os testes apresentados no \autoref{cap:proposta} com o intuito de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}. Este capítulo é destinado à apresentação das implementações computacionais em R das funções que usam o teste Wald para avaliar parâmetros de McGLMs.
 
@@ -9,7 +11,7 @@ O pacote \emph{car} \citep{car} possui uma implementação para testar hipótese
 
 Quanto aos quadros de análise de variância, o R possui a função \emph{anova()} no pacote padrão \emph{stats} \citep{softwareR} aplicável a modelos lineares e lineares generalizados. Já o pacote \emph{car} \citep{car} possui uma função que retorna quadros de análise de variância dos tipos II e III para diversos modelos. Para comparações múltiplas, um dos principais pacotes disponíveis é o \emph{multcomp} \citep{multcomp} que fornece uma interface para testes de comparações múltiplas para modelos paramétricos.
 
-Contudo, quando se trata de modelos multivariados de covariância linear generalizada ajustados no pacote \emph{mcglm} existe apenas um tipo de análise de variância univariada implementada na biblioteca. Não existem opções para realização de testes de hipóteses lineares gerais, análises de variância uni ou multivariadas, nem testes de comparações múltiplas utilizando a estatística de Wald. 
+Contudo, quando se trata de modelos multivariados de covariância linear generalizada ajustados no pacote \emph{mcglm} existe apenas um tipo de análise de variância univariada implementada na biblioteca e não existem opções para realização de testes de hipóteses lineares gerais, nem testes de comparações múltiplas utilizando a estatística de Wald. 
 
 %=====================================================
 
@@ -90,7 +92,7 @@ library(htmcglm)
 
 \section{Exemplos}
 
-Nesta seção fornecemos exemplos práticos de utilização das funções implementadas com base em um modelo multivariado ajustado no pacote \emph{mcglm}.
+Nesta seção fornecemos exemplos práticos de utilização das funções implementadas com base em modelos multivariados ajustados com o pacote \emph{mcglm}.
 
 \subsection{Exemplo 1: soya}
 
@@ -102,7 +104,9 @@ Trata-se de um conjunto de dados interessante para exemplificar o uso das funç�
 data("soya", package = "mcglm")
 @
 
-O objetivo da análise é avaliar o efeito de adubação e água sobre as três variáveis resposta de interesse. Para fins de análise consideramos como variáveis explicativas os níveis de água, adubação e também as interações entre estes dois fatores. Um objetivo secundário é avaliar se medidas tomadas em unidades no mesmo bloco são correlacionadas. O primeiro passo é especificar os preditores lineares.
+O objetivo da análise é avaliar o efeito de adubação e água sobre as três variáveis resposta de interesse. Para fins de análise consideramos como variáveis explicativas os níveis de água, adubação e também as interações entre estes dois fatores. Adicionalmente, o efeito de bloco foi acrescentado aos preditores. 
+
+Para ajustar o modelo o primeiro passo é especificar os preditores lineares.
 
 <<lin_pred>>=
 form.grain <- grain ~ block + water * pot
@@ -185,7 +189,7 @@ mc_manova_II(fit_joint)
 mc_manova_III(fit_joint)
 @
 
-Para hipóteses lineares gerais sobre parâmetros de regressão e dispersão basta especificar o modelo e a hipótese a ser testada. Para identificar os parâmetros de interesse, utilize a função \emph{coef()}.
+Para hipóteses lineares gerais sobre parâmetros de regressão basta especificar o modelo e a hipótese a ser testada. Para identificar os parâmetros de interesse, utilize a função \emph{coef()}.
 
 \subsubsection{Teste sobre um único parâmetro de regressão}
 
@@ -278,7 +282,7 @@ As funções para avaliar os parâmetros de dispersão por meio de um procedimen
 mc_anova_disp(fit,
               p_var = list(c(0,1), c(0,1)),
               names = list(c('tau10', 'tau11'),
-                           c('tau30', 'tau11')))
+                           c('tau20', 'tau21')))
 @
 
 \subsubsubsection{MANOVA tipo III para dispersão}
@@ -286,7 +290,7 @@ mc_anova_disp(fit,
 <<manova_disp>>=
 mc_manova_disp(fit,
                p_var = c(0,1),
-               names = c('tau11', 'tau21'))
+               names = c('tau0', 'tau1'))
 @
 
 \subsubsection{Comparações múltiplas}
