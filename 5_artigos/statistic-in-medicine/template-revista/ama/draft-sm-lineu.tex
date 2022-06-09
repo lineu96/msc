@@ -1,0 +1,236 @@
+\documentclass[AMA,STIX1COL]{WileyNJD-v2}
+
+\articletype{RESEARCH ARTICLE}%
+
+\received{Day April 2016}
+\revised{6 June 2016}
+\accepted{6 June 2016}
+
+\raggedbottom
+
+\begin{document}
+
+\title{Teste Wald para avaliação de parâmetros de regressão e dispersão em modelos multivariados de covariância linear generalizada\protect\thanks{This is an example for title footnote.}}
+
+\author[1]{Author One*}
+
+\author[2,3]{Author Two}
+
+\author[3]{Author Three}
+
+\authormark{AUTHOR ONE \textsc{et al}}
+
+
+\address[1]{\orgdiv{Org Division}, \orgname{Org Name}, \orgaddress{\state{State name}, \country{Country name}}}
+
+\address[2]{\orgdiv{Org Division}, \orgname{Org Name}, \orgaddress{\state{State name}, \country{Country name}}}
+
+\address[3]{\orgdiv{Org Division}, \orgname{Org Name}, \orgaddress{\state{State name}, \country{Country name}}}
+
+\corres{*Corresponding author name, This is sample corresponding address. \email{authorone@gmail.com}}
+
+\presentaddress{This is sample for present address text this is sample for present address text}
+
+\abstract[Summary]{
+250 PALAVRAS
+
+}
+
+\keywords{keyword1, keyword2, keyword3, keyword4, keyword5, keyword6}
+
+\jnlcitation{\cname{%
+\author{Williams K.}, 
+\author{B. Hoskins}, 
+\author{R. Lee}, 
+\author{G. Masato}, and 
+\author{T. Woollings}} (\cyear{2016}), 
+\ctitle{A regime analysis of Atlantic winter jet variability applied to evaluate HadGEM3-GC2}, \cjournal{Q.J.R. Meteorol. Soc.}, \cvol{2017;00:1--6}.}
+
+\maketitle
+
+\footnotetext{\textbf{Abbreviations:} ANA, anti-nuclear antibodies; APC, antigen-presenting cells; IRF, interferon regulatory factor}
+
+
+%-----------------------------------------------------------------------
+\section{Introduction}\label{sec1}
+
+\subsection{Contexto problemas na nutrição}
+
+\subsection{Problemas na área médica que envolvem múltiplas respostas}
+
+Often in biomedical studies, multiple outcomes are taken over time for a group of patients. 
+
+Consequently, the joint analysis of multiple outcomes in biomedical studies has been of increased interest in the medical and statistical literature. 
+
+Recent contributions include the analysis of ordinal and continuous outcomes (Grigorova and Gueorguieva, 2016), multivariate repeated measures and time to event data in crossover trials (Liu and Li, 2016), joint analysis of longitudinal and survival data (Andrinopoulou and Rizopoulos, 2016; Wen et al., 2016; Hagar et al., 2016) and multivariate disease mapping using linear models of coregionalization (MacNab, 2016; Botella-Rocamora et al., 2015; Martinez-Beneito, 2013).
+
+\subsection{Introdução ao Dataset}
+
+Similarly to the aforementioned articles, we are interested in the analysis of multiple outcomes in the context of longitudinal data analysis. 
+
+The study we shall describe was conducted to compare the effect... DESCRIÇÃO BREVE DO PROBLEMA
+
+The main data analysis goal is to assess the effect of 
+
+\subsection{McGLM}
+
+Neste problema existem multiplas respostas, nao gaussianas, 
+
+se faz necessario uso de alguma metodologia que comporte os requisitos do problema
+
+In this article, we adopt the multivariate covariance generalized linear models (McGLM) framework (Bonat and Jørgensen, 2016), which provides flexible and interpretable modelling of the covariance structure. The within outcomes covariance matrix is specified for each marginal outcome using a linear combination of known matrices, while the joint covariance matrix is specified using the generalized Kronecker product (Martinez-Beneito, 2013; Bonat and Jørgensen, 2016). An advantage of this specification is that the univariate counterparts are easily identified as special cases of the multivariate model. Therefore, orthodox measures of goodness-of-fit as the log-likelihood value, Akaike and Bayesian information criteria can be used to compare the fit of the multivariate model with its univariate counterparts.
+
+\subsection{Importância de testes de hipóteses em regressão}
+
+No contexto de regressão, testes de hipoteses sao importantes...
+
+Interesse em avaliar efeito de variáveis sobre cada resposta
+
+Interesse em avaliar efeito de variáveis sobre todas as respostas
+
+\subsection{ANOVA}
+
+\subsection{MANOVA}
+
+\subsection{Testes de comparações múltiplas}
+
+Algumas referencias de como os testes sao feitos nas classes tradicionais
+
+Contudo para dados não gaussianos multivariados não existem alternativas
+
+\subsection{Objetivo do trabalho}
+
+Given the recent developments in the McGLMs framework, the main contributions of this article are as follows 
+
+(a) ; (b)
+
+\subsection{Organização do trabalho (seções)}
+
+
+%-----------------------------------------------------------------------
+
+\section{Dataset}\label{sec2}
+
+\subsection{Contexto}
+
+\subsection{Desenho experimental e coleta de dados}
+
+\subsection{Conjunto de dados}
+
+\subsection{Análise exploratória}
+  
+%-----------------------------------------------------------------------
+
+\section{McGLM}\label{sec3}
+
+\subsection{Elementos}
+
+\subsection{Estimação e inferência}
+
+\textbf{NO MÁXIMO UMA PÁGINA}
+
+%-----------------------------------------------------------------------
+
+\section{Teste Wald para McGLMs}\label{sec4}
+
+\subsection{Hipóteses e estatística de teste}
+
+\subsubsection{Hipótese para um único parâmetro}
+
+\subsubsection{Hipótese para múltiplos parâmetros}
+
+\subsubsection{Hipótese de igualdade de parâmetros}
+
+\subsubsection{Hipótese sobre parâmetros de regressão ou dispersão para respostas sob mesmo preditor}
+
+%-----------------------------------------------------------------------
+
+\section{Análises de variância e testes de comparações múltiplas}\label{sec5}
+
+\subsection{ANOVA e MANOVA tipo I}
+
+\subsection{ANOVA e MANOVA tipo II}
+
+\subsection{ANOVA e MANOVA tipo III}
+
+\subsection{ANOVA e MANOVA tipo III para dispersão}
+
+\subsection{Teste de comparações múltiplas}
+  
+%-----------------------------------------------------------------------
+
+\section{Simulation studies}\label{sec6}
+
+\subsection{Parâmetros de regressão}
+
+\subsection{Parâmetros de dispersão}
+
+%-----------------------------------------------------------------------
+
+\section{Application}\label{sec7}
+
+\subsection{Especificação do modelo}
+  
+\subsection{Resultados do ajuste}
+
+\subsection{Testes de hipóteses}
+  
+%-----------------------------------------------------------------------
+
+\section{Concluding remarks}\label{sec8}
+
+\subsection{O que foi feito}
+
+\subsection{Problemas}
+
+\subsection{Desafios}
+
+\subsection{Possíveis tópicos futuros}
+
+%-----------------------------------------------------------------------
+
+%\backmatter
+
+\section*{Acknowledgments}
+This is acknowledgment text.\cite{Kenamond2013} Provide text here. This is acknowledgment text. Provide text here. This is acknowledgment text. Provide text here. This is acknowledgment text. Provide text here. This is acknowledgment text. Provide text here. This is acknowledgment text. Provide text here. This is acknowledgment text. Provide text here. This is acknowledgment text. Provide text here. This is acknowledgment text. Provide text here. 
+
+%-----------------------------------------------------------------------
+
+\subsection*{Author contributions}
+
+This is an author contribution text. This is an author contribution text. This is an author contribution text. This is an author contribution text. This is an author contribution text. 
+
+\subsection*{Financial disclosure}
+
+None reported.
+
+\subsection*{Conflict of interest}
+
+The authors declare no potential conflict of interests.
+
+\section*{Supporting information}
+
+The following supporting information is available as part of the online article:
+
+\noindent
+\textbf{Figure S1.}
+{500{\uns}hPa geopotential anomalies for GC2C calculated against the ERA Interim reanalysis. The period is 1989--2008.}
+
+\noindent
+\textbf{Figure S2.}
+{The SST anomalies for GC2C calculated against the observations (OIsst).}
+
+
+
+
+\nocite{*}% Show all bib entries - both cited and uncited; comment this line to view only cited bib entries;
+\bibliography{wileyNJD-AMA}%
+
+\clearpage
+
+\section*{Author Biography}
+
+\begin{biography}{\includegraphics[width=66pt,height=86pt,draft]{empty}}{\textbf{Author Name.} This is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text this is sample author biography text.}
+\end{biography}
+
+\end{document}

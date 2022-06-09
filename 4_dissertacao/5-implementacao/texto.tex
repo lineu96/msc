@@ -34,8 +34,8 @@ mc\_manova\_I()          & MANOVA tipo I \\
 mc\_manova\_II()         & MANOVA tipo II \\
 mc\_manova\_III()        & MANOVA tipo III \\
 
-mc\_anova\_disp()        & ANOVA  tipo III para dispersão \\
-mc\_manova\_disp()       & MANOVA tipo III para dispersão \\
+mc\_anova\_dispersion()        & ANOVA  tipo III para dispersão \\
+mc\_manova\_dispersion()       & MANOVA tipo III para dispersão \\
 
 mc\_multcomp()           & Testes de comparações múltiplas por resposta \\
 
@@ -51,11 +51,11 @@ mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuári
 
 As funções \emph{mc\_anova\_I()}, \emph{mc\_anova\_II()} e \emph{mc\_anova\_III()} são funções destinadas à avaliação dos parâmetros de regressão do modelo; elas geram quadros de análise de variância por resposta para um modelo \emph{mcglm}. As funções \emph{mc\_manova\_I()}, \emph{mc\_manova\_II()} e \emph{mc\_manova\_III()} também são funções destinadas à avaliação dos parâmetros de regressão do modelo; elas geram quadros de análise de variância multivariada para um modelo \emph{mcglm}. Enquanto as funções de análise de variância univariadas visam avaliar o efeito das variáveis para cada resposta, as multivariadas visam avaliar o efeito das variáveis explicativas em todas as variáveis resposta simultaneamente. As nomenclaturas seguem o que foi exposto no \autoref{cap:proposta} e as funções recebem como argumento apenas o objeto que armazena o modelo devidamente ajustado.
 
-Tal como descrito no \autoref{cap:referencial}, a matriz $\boldsymbol{\Omega({\tau})}$ tem como objetivo modelar a correlação existente entre linhas do conjunto de dados por meio do chamado preditor linear matricial. Na prática temos, para cada matriz do preditor matricial, um parâmetro de dispersão $\tau_d$. De modo análogo ao que é feito para o preditor de média, podemos usar estes parâmetros para avaliar o efeito das unidades correlacionadas no estudo. Neste sentido implementamos as funções \emph{mc\_anova\_disp()} e \emph{mc\_manova\_disp()}. 
+Tal como descrito no \autoref{cap:referencial}, a matriz $\boldsymbol{\Omega({\tau})}$ tem como objetivo modelar a correlação existente entre linhas do conjunto de dados por meio do chamado preditor linear matricial. Na prática temos, para cada matriz do preditor matricial, um parâmetro de dispersão $\tau_d$. De modo análogo ao que é feito para o preditor de média, podemos usar estes parâmetros para avaliar o efeito das unidades correlacionadas no estudo. Neste sentido implementamos as funções \emph{mc\_anova\_dispersion()} e \emph{mc\_manova\_dispersion()}. 
 
-A função \emph{mc\_anova\_disp()} efetua uma análise de variância do tipo III para os parâmetros de dispersão do modelo. Tal como as demais funções com prefixo \emph{mc\_anova}, é gerado um quadro para cada variável resposta, isto é, nos casos mais gerais avaliamos se há evidência que nos permita afirmar que determinado parâmetro de dispersão é igual a 0, ou seja, se existe efeito das medidas correlacionadas tal como especificado no preditor matricial para aquela resposta. A função recebe como argumento o objeto em que está armazenado o modelo, uma lista de índices indicando de que forma os parâmetros dispersão devem ser testados para cada resposta, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
+A função \emph{mc\_anova\_dispersion()} efetua uma análise de variância do tipo III para os parâmetros de dispersão do modelo. Tal como as demais funções com prefixo \emph{mc\_anova}, é gerado um quadro para cada variável resposta, isto é, nos casos mais gerais avaliamos se há evidência que nos permita afirmar que determinado parâmetro de dispersão é igual a 0, ou seja, se existe efeito das medidas correlacionadas tal como especificado no preditor matricial para aquela resposta. A função recebe como argumento o objeto em que está armazenado o modelo, uma lista de índices indicando de que forma os parâmetros dispersão devem ser testados para cada resposta, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
 
-Já a função \emph{mc\_manova\_disp()} pode ser utilizada em um modelo multivariado em que os preditores matriciais são iguais para todas as respostas e há o interesse em avaliar se o efeito das medidas correlacionadas é o mesmo para todas as respostas. Esta função recebe como argumento o objeto em que está armazenado o modelo, um vetor de índices indicando de que forma os parâmetros dispersão devem ser testados, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
+Já a função \emph{mc\_manova\_dispersion()} pode ser utilizada em um modelo multivariado em que os preditores matriciais são iguais para todas as respostas e há o interesse em avaliar se o efeito das medidas correlacionadas é o mesmo para todas as respostas. Esta função recebe como argumento o objeto em que está armazenado o modelo, um vetor de índices indicando de que forma os parâmetros dispersão devem ser testados, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
 
 Para testes de comparações múltiplas foram implementadas as funções \emph{mc\_multcomp()} e \emph{mc\_mult\_multcomp()}. Estas funções devem ser usadas como complemento às funções de análise de variância e análise de variância multivariada quando estas apontam para efeito significativo de variáveis explicativas categóricas. As funções para comparações múltiplas são usadas para realizar comparações duas a duas e identificar quais níveis diferem entre si. Estas funções recebem como argumento o modelo, a variável ou variáveis em que há interesse em avaliar comparações entre níveis e também os dados usados para ajustar o modelo.
 
@@ -537,10 +537,10 @@ As funções para avaliar os parâmetros de dispersão por meio de um procedimen
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{mc_anova_disp}\hlstd{(fit,}
-              \hlkwc{p_var} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{),} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{)),}
-              \hlkwc{names} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr{'tau10'}\hlstd{,} \hlstr{'tau11'}\hlstd{),}
-                           \hlkwd{c}\hlstd{(}\hlstr{'tau20'}\hlstd{,} \hlstr{'tau21'}\hlstd{)))}
+\hlkwd{mc_anova_dispersion}\hlstd{(fit,}
+                    \hlkwc{p_var} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{),} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{)),}
+                    \hlkwc{names} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr{'tau10'}\hlstd{,} \hlstr{'tau11'}\hlstd{),}
+                                 \hlkwd{c}\hlstd{(}\hlstr{'tau20'}\hlstd{,} \hlstr{'tau21'}\hlstd{)))}
 \end{alltt}
 \begin{verbatim}
 ## ANOVA type III using Wald statistic for dispersion parameters
@@ -565,9 +565,9 @@ As funções para avaliar os parâmetros de dispersão por meio de um procedimen
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{mc_manova_disp}\hlstd{(fit,}
-               \hlkwc{p_var} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{),}
-               \hlkwc{names} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{'tau0'}\hlstd{,} \hlstr{'tau1'}\hlstd{))}
+\hlkwd{mc_manova_dispersion}\hlstd{(fit,}
+                     \hlkwc{p_var} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{),}
+                     \hlkwc{names} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{'tau0'}\hlstd{,} \hlstr{'tau1'}\hlstd{))}
 \end{alltt}
 \begin{verbatim}
 ## MANOVA type III using Wald statistic for dispersion parameters

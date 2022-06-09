@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  29 MAY 2022 18:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  9 JUN 2022 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2591,6 +2591,12 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
 Missing character: There is no ( in font nullfont!
 Missing character: There is no ) in font nullfont!
 Missing character: There is no A in font nullfont!
@@ -2629,6 +2635,12 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
 Missing character: There is no ( in font nullfont!
 Missing character: There is no ) in font nullfont!
 Missing character: There is no M in font nullfont!
@@ -4109,13 +4121,13 @@ Overfull \hbox (9.44446pt too wide) in paragraph at lines 54--55
  []
 
 
-Overfull \hbox (71.24847pt too wide) in paragraph at lines 54--55
-\OT1/cmr/m/it/10 mc[]anova[]disp()
+Overfull \hbox (97.44273pt too wide) in paragraph at lines 54--55
+\OT1/cmr/m/it/10 mc[]anova[]dispersion()
  []
 
 
-Overfull \hbox (79.42621pt too wide) in paragraph at lines 54--55
-\OT1/cmr/m/it/10 mc[]manova[]disp() 
+Overfull \hbox (105.62047pt too wide) in paragraph at lines 54--55
+\OT1/cmr/m/it/10 mc[]manova[]dispersion() 
  []
 
 
@@ -4126,7 +4138,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.56 A
-       função \emph{mc\_anova\_disp()} efetua uma análise de variância d...
+       função \emph{mc\_anova\_dispersion()} efetua uma análise de variâ...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4767,8 +4779,8 @@ Overfull \hbox (9.44446pt too wide) in paragraph at lines 56--57
  []
 
 
-Overfull \hbox (71.24847pt too wide) in paragraph at lines 56--57
-\OT1/cmr/m/it/10 mc[]anova[]disp()
+Overfull \hbox (97.44273pt too wide) in paragraph at lines 56--57
+\OT1/cmr/m/it/10 mc[]anova[]dispersion()
  []
 
 
@@ -4939,7 +4951,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.58 J
-      á a função \emph{mc\_manova\_disp()} pode ser utilizada em um model...
+      á a função \emph{mc\_manova\_dispersion()} pode ser utilizada em um...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -5399,8 +5411,8 @@ Overfull \hbox (9.44446pt too wide) in paragraph at lines 58--59
  []
 
 
-Overfull \hbox (79.42621pt too wide) in paragraph at lines 58--59
-\OT1/cmr/m/it/10 mc[]manova[]disp()
+Overfull \hbox (105.62047pt too wide) in paragraph at lines 58--59
+\OT1/cmr/m/it/10 mc[]manova[]dispersion()
  []
 
 
@@ -20774,7 +20786,7 @@ or  <return>  to continue without it.
 
 ! Undefined control sequence.
 l.540 \hlkwd
-            {mc_anova_disp}\hlstd{(fit,}
+            {mc_anova_dispersion}\hlstd{(fit,}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -20787,13 +20799,13 @@ Missing character: There is no c in font nullfont!
 <inserted text> 
                 $
 l.540 \hlkwd{mc_
-                anova_disp}\hlstd{(fit,}
+                anova_dispersion}\hlstd{(fit,}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.540 \hlkwd{mc_anova_disp}
-                           \hlstd{(fit,}
+l.540 \hlkwd{mc_anova_dispersion}
+                                 \hlstd{(fit,}
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -20801,8 +20813,8 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Undefined control sequence.
-l.540 \hlkwd{mc_anova_disp}\hlstd
-                                 {(fit,}
+l.540 \hlkwd{mc_anova_dispersion}\hlstd
+                                       {(fit,}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -20810,8 +20822,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.541               \hlkwc
-                          {p_var} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\h...
+l.541                     \hlkwc
+                                {p_var} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkw...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -20819,8 +20831,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.541               \hlkwc{p_var} \hlstd
-                                        {=} \hlkwd{list}\hlstd{(}\hlkwd{c}\h...
+l.541                     \hlkwc{p_var} \hlstd
+                                              {=} \hlkwd{list}\hlstd{(}\hlkw...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -20828,7 +20840,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.541               \hlkwc{p_var} \hlstd{=} \hlkwd
+l.541 ...           \hlkwc{p_var} \hlstd{=} \hlkwd
                                                   {list}\hlstd{(}\hlkwd{c}\h...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -20954,8 +20966,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.542               \hlkwc
-                          {names} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwd{c}\h...
+l.542                     \hlkwc
+                                {names} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkw...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -20963,8 +20975,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.542               \hlkwc{names} \hlstd
-                                        {=} \hlkwd{list}\hlstd{(}\hlkwd{c}\h...
+l.542                     \hlkwc{names} \hlstd
+                                              {=} \hlkwd{list}\hlstd{(}\hlkw...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -20972,7 +20984,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.542               \hlkwc{names} \hlstd{=} \hlkwd
+l.542 ...           \hlkwc{names} \hlstd{=} \hlkwd
                                                   {list}\hlstd{(}\hlkwd{c}\h...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -21044,8 +21056,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.543                            \hlkwd
-                                       {c}\hlstd{(}\hlstr{'tau20'}\hlstd{,} ...
+l.543                                  \hlkwd
+                                             {c}\hlstd{(}\hlstr{'tau20'}\hls...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -21053,8 +21065,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.543                            \hlkwd{c}\hlstd
-                                                {(}\hlstr{'tau20'}\hlstd{,} ...
+l.543 ...                          \hlkwd{c}\hlstd
+                                                  {(}\hlstr{'tau20'}\hlstd{,...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -21138,9 +21150,9 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 538--545
  []
 
 
-Overfull \hbox (386.61656pt too wide) in paragraph at lines 538--545
-[]\OML/cmm/m/it/10 nova[]isp[][][][][]c[]\/cmr/m/n/10 0[]1[]\OML/cmm/m/it/10 c[
-]\/cmr/m/n/10 0[]1[][][][][]\OML/cmm/m/it/10 c[][][][][]c[][][][][]$ 
+Overfull \hbox (415.0444pt too wide) in paragraph at lines 538--545
+[]\OML/cmm/m/it/10 nova[]ispersion[][][][][]c[]\/cmr/m/n/10 0[]1[]\OML/cmm/m/it
+/10 c[]\/cmr/m/n/10 0[]1[][][][][]\OML/cmm/m/it/10 c[][][][][]c[][][][][]$ 
  []
 
 
@@ -21375,7 +21387,7 @@ or  <return>  to continue without it.
 
 ! Undefined control sequence.
 l.568 \hlkwd
-            {mc_manova_disp}\hlstd{(fit,}
+            {mc_manova_dispersion}\hlstd{(fit,}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -21388,13 +21400,13 @@ Missing character: There is no c in font nullfont!
 <inserted text> 
                 $
 l.568 \hlkwd{mc_
-                manova_disp}\hlstd{(fit,}
+                manova_dispersion}\hlstd{(fit,}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.568 \hlkwd{mc_manova_disp}
-                            \hlstd{(fit,}
+l.568 \hlkwd{mc_manova_dispersion}
+                                  \hlstd{(fit,}
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -21402,8 +21414,8 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Undefined control sequence.
-l.568 \hlkwd{mc_manova_disp}\hlstd
-                                  {(fit,}
+l.568 \hlkwd{mc_manova_dispersion}\hlstd
+                                        {(fit,}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -21411,8 +21423,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.569                \hlkwc
-                           {p_var} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{0}\hls...
+l.569                      \hlkwc
+                                 {p_var} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -21420,8 +21432,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.569                \hlkwc{p_var} \hlstd
-                                         {=} \hlkwd{c}\hlstd{(}\hlnum{0}\hls...
+l.569                      \hlkwc{p_var} \hlstd
+                                               {=} \hlkwd{c}\hlstd{(}\hlnum{...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -21483,8 +21495,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.570                \hlkwc
-                           {names} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{'tau0'...
+l.570                      \hlkwc
+                                 {names} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -21492,8 +21504,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.570                \hlkwc{names} \hlstd
-                                         {=} \hlkwd{c}\hlstd{(}\hlstr{'tau0'...
+l.570                      \hlkwc{names} \hlstd
+                                               {=} \hlkwd{c}\hlstd{(}\hlstr{...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -21595,9 +21607,9 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 566--572
  []
 
 
-Overfull \hbox (233.4693pt too wide) in paragraph at lines 566--572
-[]\OML/cmm/m/it/10 anova[]isp[][][]c[]\/cmr/m/n/10 0[]1[][][]\OML/cmm/m/it/10 c
-[][][][][]$ 
+Overfull \hbox (261.89714pt too wide) in paragraph at lines 566--572
+[]\OML/cmm/m/it/10 anova[]ispersion[][][]c[]\/cmr/m/n/10 0[]1[][][]\OML/cmm/m/i
+t/10 c[][][][][]$ 
  []
 
 
