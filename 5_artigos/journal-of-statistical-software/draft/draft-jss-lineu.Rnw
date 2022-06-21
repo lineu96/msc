@@ -1,0 +1,801 @@
+\documentclass[article]{jss}
+
+%% -- LaTeX packages and custom commands ---------------------------------------
+
+%% recommended packages
+\usepackage{orcidlink,thumbpdf,lmodern}
+
+%% another package (only for this demo article)
+\usepackage{framed}
+
+%% math
+\usepackage{amsmath, amssymb}
+
+%% new custom commands
+\newcommand{\class}[1]{`\code{#1}'}
+\newcommand{\fct}[1]{\code{#1()}}
+
+%% For Sweave-based articles about R packages:
+%% need no \usepackage{Sweave}
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+engine='R', tidy=FALSE
+)
+@
+
+
+<<preliminaries, echo=FALSE, results='hide'>>=
+options(prompt = "R> ", continue = "+  ", width = 70, useFancyQuotes = FALSE)
+library("MASS")
+@
+
+%-----------------------------------------------------------------------
+
+\author{Lineu Alberto Cavazani de Freitas~\orcidlink{0000-0002-0076-6642}\\Paraná Federal University
+   \And Wagner Hugo Bonat~\orcidlink{0000-0002-0349-7054}\\Paraná Federal University}
+\Plainauthor{Lineu Alberto Cavazani de Freitas, Wagner Hugo Bonat}
+
+%-----------------------------------------------------------------------
+
+%% - \title{} in title case
+%% - \Plaintitle{} without LaTeX markup (if any)
+%% - \Shorttitle{} with LaTeX markup (if any), used as running title
+
+\title{Testes de hipóteses para regressão multivariada com dados não gaussianos em \proglang{R}: The htmcglm Package}
+
+\Plaintitle{Testes de hipóteses para regressão multivariada com dados não gaussianos em R: The htmcglm Package}
+
+\Shorttitle{htmcglm}
+
+%-----------------------------------------------------------------------
+
+%% - \Abstract{} almost as usual
+
+\Abstract{
+
+300 palavras
+
+}
+
+%-----------------------------------------------------------------------
+
+%% - \Keywords{} with LaTeX markup, at least one required
+%% - \Plainkeywords{} without LaTeX markup (if necessary)
+%% - Should be comma-separated and in sentence case.
+
+\Keywords{keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, keyword7, keyword8, keyword9, keyword10}
+
+\Plainkeywords{keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, keyword7, keyword8, keyword9, keyword10}
+
+%-----------------------------------------------------------------------
+
+%% - \Address{} of at least one author
+%% - May contain multiple affiliations for each author
+%%   (in extra lines, separated by \emph{and}\\).
+%% - May contain multiple authors for the same affiliation
+%%   (in the same first line, separated by comma).
+
+\Address{
+  Lineu Alberto Cavazani de Freitas\\
+  Department of Informatics\\
+  Paraná Federal University\\
+  Centro Politécnico\\
+  Curitiba 81531980, CP 19081, Paraná, Brazil.\\
+  E-mail: \email{lineuacf@gmail.com}\\
+  %URL: \url{https://www.zeileis.org/}
+}
+
+\begin{document}
+
+%-----------------------------------------------------------------------
+
+\section{Introduction} \label{sec:intro}
+
+The \pkg{htmcglm} package for \proglang{R} \citep{R2022} provides functions to efetuar testes de hipóteses sobre parâmetros de multivariate covariance generalized linear models (McGLMs; \citet{Bonat16}) ajustados usando o pacote \pkg{mcglm} \citep{mcglm}. 
+
+McGLMs provide a general statistical modeling framework for normal and non-normal multivariate data analysis along with a wide range of  correlation structures. Quando trabalhamos na classe dos McGLMs estimamos parâmetros de regressão, dispersão, potência e correlação. Cada conjunto de parâmetros possui interpretação prática bastante útil.
+
+Por meio do estudo dos parâmetros de regressão é possível avaliar o efeito da(s) variável(is) explicativa(s) sobre a(s) resposta(s). Por meio do estudo dos parâmetros de dispersão pode-se avaliar o efeito da correlação entre unidades do estudo, muito útil em situações em que as observações do conjunto de dados são correlacionadas entre si, como por exemplo em estudos longitudinais, temporais e de medidas repetidas. Os parâmetros de potência nos fornecem um indicativo de qual distribuição de probabilidade melhor se adequa ao problema. E os parâmetros de correlação estimam a força da associação entre respostas em um problema multivariado. 
+
+O desenvolvimento de testes de hipóteses para fins de avaliação destas quantidades é de grande valia em problemas práticos e leva a formas procedurais para avaliação das quantidades resultantes do modelo. The \pkg{htmcglm} package is a full \proglang{R} implementation e faz uso da estatística de Wald para avaliar parâmetros de regressão e dispersão. The features include funções para testes de hipóteses lineares gerais, quadros de análise de variância uni e multivariados, bem como testes de comparações múltiplas. 
+
+\textbf{Package \pkg{htmcglm} is available from the Comprehensive R Archive Network (CRAN) at https://CRAN.R-project.org/package=mcglm e complementam as já possíveis análises permitidas pelo pacote \emph{mcglm}}
+
+No que diz respeito à implementações do teste Wald em outros contextos no \proglang{R}, o pacote \pkg{lmtest} \citep{lmtest} possui uma função genérica para realizar testes Wald para comparar modelos lineares e lineares generalizados aninhados. Já o pacote \pkg{survey} \citep{survey1,survey2,survey3} possui uma função que efetua testes Wald que, por padrão, testa se todos os coeficientes associados a um determinado termo de regressão são zero, mas é possível especificar hipóteses com outros valores.
+
+O pacote \pkg{car} \citep{car} possui uma implementação para testar hipóteses lineares sobre parâmetros de modelos lineares, modelos lineares generalizados, modelos lineares multivariados, modelos de efeitos mistos, dentre outros; nesta implementação o usuário tem total controle de que parâmetros testar e com quais valores confrontar na hipótese nula. 
+
+Quanto aos quadros de análise de variância, o R possui a função \code{anova()} no pacote padrão \pkg{stats} \citep{R2022} aplicável a modelos lineares e lineares generalizados. Já o pacote \pkg{car} \citep{car} possui uma função que retorna quadros de análise de variância dos tipos II e III para diversos modelos. Para comparações múltiplas, um dos principais pacotes disponíveis é o \pkg{multcomp} \citep{multcomp} que fornece uma interface para testes de comparações múltiplas para modelos paramétricos.
+
+Contudo, quando se trata de modelos multivariados de covariância linear generalizada ajustados no pacote \pkg{mcglm} existe apenas um tipo de análise de variância univariada implementada na biblioteca e não existem opções para realização de testes de hipóteses lineares gerais, nem testes de comparações múltiplas. Portanto, por se tratar de uma classe de modelos flexível e com alto poder de aplicação a problemas práticos, nosso objetivo geral é fornecer implementações que permitam efetuar testes de hipóteses para os McGLMs de tal modo que seja possível testar hipóteses lineares gerais, gerar quadros de análise variância, análise de variância multivariada e testes de comparações múltiplas.
+
+The article is organized as follows. In \autoref{sec:mcglm} we present a revisão da estrutura geral e estimação dos parâmetros de um McGLM, baseado nas ideias de \citet{Bonat16}. In \autoref{sec:wald} são apresentados os detalhes do teste Wald para avaliar suposições sobre parâmetros de um McGLM. \autoref{sec:implementacao} introduces the R implementation discussing the main functions available in the \pkg{htmcglm} package. \autoref{sec:exemplos} ilustrates the package usage through some examples. Finally, \autoref{sec:conclusao} presents a discussion and directions for future work on the improvement of the \pkg{htmcglm} package.
+
+%-----------------------------------------------------------------------
+
+\section{Multivariate covariance generalized linear models}\label{sec:mcglm}
+
+Considere $\boldsymbol{Y}_{N \times R} = \left \{ \boldsymbol{Y}_1, \dots, \boldsymbol{Y}_R \right \}$ uma  matriz de variáveis resposta e $\boldsymbol{M}_{N \times R} = \left \{ \boldsymbol{\mu}_1, \dots, \boldsymbol{\mu}_R \right \}$ uma matriz de valores esperados. A matriz de variância e covariância para cada resposta $r$, $r = 1,..., R$ é denotada por $\Sigma_r$, tem dimensão $NxN$. Além disso, é necessária uma matriz de correlação $\Sigma_b$, de ordem $R \times R$, que descreve a correlação entre as variáveis resposta. Os McGLMs \citep{Bonat16}são definidos por:
+
+$$
+      \begin{aligned}
+        \mathrm{E}(\boldsymbol{Y}) &=
+          \boldsymbol{M} =
+            \{g_1^{-1}(\boldsymbol{X}_1 \boldsymbol{\beta}_1),
+            \ldots,
+            g_R^{-1}(\boldsymbol{X}_R \boldsymbol{\beta}_R)\}
+          \\
+        \mathrm{Var}(\boldsymbol{Y}) &=
+          \boldsymbol{C} =
+            \boldsymbol{\Sigma}_R \overset{G} \otimes
+            \boldsymbol{\Sigma}_b,
+      \end{aligned}
+$$
+
+\noindent em que as funções $g_r()$ são as tradicionais funções de ligação; $\boldsymbol{X}_r$ denota uma matriz de delineamento $N \times k_r$; $\boldsymbol{\beta}_r$ denota um vetor $k_r \times 1$ de parâmetros de regressão. $\boldsymbol{\Sigma}_R \overset{G} \otimes \boldsymbol{\Sigma}_b = \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1, \ldots, \tilde{\boldsymbol{\Sigma}}_R) (\boldsymbol{\Sigma}_b \otimes \boldsymbol{I}) \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1^\top, \ldots, \tilde{\boldsymbol{\Sigma}}_R^\top)$ é o produto generalizado de Kronecker \citep{martinez13}, a matriz $\tilde{\boldsymbol{\Sigma}}_r$ denota a matriz triangular inferior da decomposição de Cholesky da matriz ${\boldsymbol{\Sigma}}_r$. O operador $\mathrm{Bdiag()}$ denota a matriz bloco-diagonal e $\boldsymbol{I}$ é uma matriz identidade $N \times N$. 
+
+Para variáveis resposta contínuas, binárias, binomiais, proporções ou índices a matriz de variância e covariância $\boldsymbol{\Sigma}_r$ é dada por:
+
+$$
+\Sigma_r =
+\mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}(\boldsymbol{\Omega}\left(\boldsymbol{\tau}_r\right))\mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}.
+$$
+
+No caso de variáveis resposta que sejam contagens a matriz de variância e covariância para cada variável resposta fica dada por:
+
+$$
+\Sigma_r = diag(\boldsymbol{\mu}_r)+ \mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}(\boldsymbol{\Omega}\left(\boldsymbol{\tau}_r\right))\mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right)^{1/2},
+$$
+
+\noindent em que $\mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right) = diag(\vartheta(\boldsymbol{\mu}_r; p_r))$ denota uma matriz diagonal na qual as entradas são dadas pela função de variância $\vartheta(\cdot; p_r)$ aplicada aos elementos do vetor $\boldsymbol{\mu}_r$. Diferentes escolhas de funções de variância $\vartheta(\cdot; p_r)$ implicam em diferentes suposições a respeito da distribuição da variável resposta. Mencionaremos 3 opções de funções de variância: função de variância potência, função de dispersão Poisson–Tweedie e função de variância binomial.
+
+A função de variância potência caracteriza a família Tweedie de distribuições, é dada por $\vartheta\left(\cdot; p_r\right) = \mu^{p_r}_r$, na qual destacam-se a distribuições: Normal ($p$ = 0), Poisson ($p$ = 1), gama ($p$ = 2) e  Normal inversa ($p$ = 3) \citep{Jorgensen87, Jorgensen97}. 
+
+A função de dispersão Poisson–Tweedie \citep{Jorgensen15} visa contornar a inflexibilidade da utilização da função de variância potência para respostas que caracterizam contagens. A função de dispersão é dada por $\vartheta\left(\cdot; p\right) = \mu + \tau\mu^p$ em que $\tau$ é o parâmetro de dispersão. Temos assim uma rica classe de modelos para lidar com respostas que caracterizam contagens, uma vez que muitas distribuições importantes aparecem como casos especiais, tais como: Hermite ($p$ = 0), Neyman tipo A ($p$ = 1), binomial negativa ($p$ = 2) e Poisson–inversa gaussiana (p = $3$).
+
+Por fim, a função de variância binomial, dada por $\vartheta\left(\cdot; p_r\right) = \mu^{p_{r1}}_r(1 - \mu_r)^{p_{r2}}$ é indicada quando a variável resposta é binária, restrita a um intervalo ou quando tem-se o número de sucessos em um número de tentativas.
+
+É possível notar que o parâmetro de potência $p$ aparece em todas as funções de variância discutidas. Este parâmetro tem especial importância pois trata-se de um índice que distingue diferentes distribuições de probabilidade importantes no contexto de modelagem e, por esta razão, pode ser utilizado como uma ferramenta para seleção automática da distribuição de probabilidade que mais se adequa ao problema.
+
+A matriz de dispersão $\boldsymbol{\Omega({\tau})}$ descreve a parte da covariância dentro de cada variável resposta que não depende da estrutura média, isto é, a estrutura de correlação entre as observações da amostra. Baseando-se nas ideias de \citet{Anderson73} e \citet{Pourahmadi00}, \citet{Bonat16} propuseram modelar a matriz de dispersão através de um preditor linear matricial combinado com uma função de ligação de covariância dada por:
+
+$$
+h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}_r) \right \} = \tau_{r0}Z_0 + \ldots + \tau_{rD}Z_D,
+$$
+
+\noindent em que $h()$ é a função de ligação de covariância, $Z_{rd}$ com $d$ = 0,$\ldots$, D são matrizes que representam a estrutura de covariância presente em cada variável resposta $r$ e $\boldsymbol{\tau_r}$ = $(\tau_{r0}, \ldots, \tau_{rD})$ é um vetor $(D + 1) \times 1$ de parâmetros de dispersão. 
+
+Algumas possíveis funções de ligação de covariância são a identidade, inversa e exponencial-matriz. A especificação da função de ligação de covariância é discutida por \citet{Pinheiro96} e é possível selecionar combinações de matrizes para se obter os mais conhecidos modelos da literatura para dados longitudinais, séries temporais, dados espaciais e espaço-temporais. Maiores detalhes são discutidos por \citet{Demidenko13}.
+
+Deste modo, os McGLMs configuram uma estrutura geral para análise via modelos de regressão para dados não gaussianos com múltiplas respostas em que não se faz suposições quanto à independência das observações. A classe é definida por 3 funções (de ligação, de variância e de covariância) além de um preditor linear e um preditor linear matricial para cada resposta sob análise. 
+
+\subsection{Estimação e inferência}
+
+Os McGLMs são ajustados baseados no método de funções de estimação descritos em detalhes por \citet{Bonat16} e \citet{jorg04}. Nesta subseção é apresentada uma visão geral do algoritmo e da distribuição assintótica dos estimadores baseados em funções de estimação.
+
+As suposições de segundo momento dos McGLM permitem a divisão dos
+parâmetros em dois conjuntos: $\boldsymbol{\theta} = (\boldsymbol{\beta}^{\top}, \boldsymbol{\lambda}^{\top})^{\top}$. Desta forma, $\boldsymbol{\beta} = (\boldsymbol{\beta}_1^\top, \ldots, \boldsymbol{\beta}_R^\top)^\top$ é um vetor $K \times 1$ de parâmetros de regressão e $\boldsymbol{\lambda} = (\rho_1, \ldots, \rho_{R(R-1)/2}, p_1, \ldots, p_R, \boldsymbol{\tau}_1^\top, \ldots, \boldsymbol{\tau}_R^\top)^\top$ é um vetor $Q \times 1$ de parâmetros de dispersão. Além disso, $\mathcal{Y} = (\boldsymbol{Y}_1^\top, \ldots, \boldsymbol{Y}_R^\top)^\top$ denota o vetor empilhado de ordem $NR \times 1$ da matriz de variáveis resposta $\boldsymbol{Y}_{N \times R}$ e $\mathcal{M} = (\boldsymbol{\mu}_1^\top, \ldots, \boldsymbol{\mu}_R^\top)^\top$ denota o vetor empilhado de ordem $NR \times 1$ da matriz de valores esperados $\boldsymbol{M}_{N \times R}$.
+
+Para estimação dos parâmetros de regressão é utilizada a função quasi-score \citep{Liang86}, representada por
+
+$$
+\begin{aligned}
+  \psi_{\boldsymbol{\beta}}(\boldsymbol{\beta},
+  \boldsymbol{\lambda}) = \boldsymbol{D}^\top
+  \boldsymbol{C}^{-1}(\mathcal{Y} - \mathcal{M}),
+\end{aligned}
+$$
+
+\noindent em que $\boldsymbol{D} = \nabla_{\boldsymbol{\beta}} \mathcal{M}$ é uma matriz $NR \times K$, e $\nabla_{\boldsymbol{\beta}}$ denota o operador gradiente. Utilizando a função quasi-score a matriz $K \times K$ de sensitividade de $\psi_{\boldsymbol{\beta}}$ é dada por
+
+$$
+\begin{aligned}
+S_{\boldsymbol{\beta}} = E(\nabla_{\boldsymbol{\beta} \psi \boldsymbol{\beta}}) = -\boldsymbol{D}^{\top} \boldsymbol{C}^{-1} \boldsymbol{D},
+\end{aligned}
+$$
+
+\noindent enquanto que a matriz $K \times K$ de variabilidade de $\psi_{\boldsymbol{\beta}}$ é escrita como
+
+$$
+\begin{aligned}
+V_{\boldsymbol{\beta}} = VAR(\psi \boldsymbol{\beta}) = \boldsymbol{D}^{\top} \boldsymbol{C}^{-1} \boldsymbol{D}.
+\end{aligned}
+$$
+
+Para os parâmetros de dispersão é utilizada a função de estimação de Pearson, definida da forma
+
+$$
+  \begin{aligned}
+    \psi_{\boldsymbol{\lambda}_i}(\boldsymbol{\beta},
+    \boldsymbol{\lambda}) =
+    \mathrm{tr}(W_{\boldsymbol{\lambda}i}
+    (\boldsymbol{r}^\top\boldsymbol{r} -
+    \boldsymbol{C})),  i = 1,.., Q, 
+  \end{aligned}
+$$
+
+\noindent em que $W_{\boldsymbol{\lambda}i} = -\frac{\partial \boldsymbol{C}^{-1}}{\partial \boldsymbol{\lambda}_i}$ e $\boldsymbol{r} = (\mathcal{Y} - \mathcal{M})$. A entrada $(i,j)$ da matriz de sensitividade $Q \times Q$ de $\psi_{\boldsymbol{\lambda}}$ é dada por
+
+$$
+  \begin{aligned}
+    S_{\boldsymbol{\lambda_{ij}}} = E \left (\frac{\partial }{\partial \boldsymbol{\lambda_{i}}} \psi \boldsymbol{\lambda_{j}}\right) = -tr(W_{\boldsymbol{\lambda_{i}}} CW_{\boldsymbol{\lambda_{J}}} C).
+  \end{aligned}
+$$
+
+\noindent Já a entrada $(i,j)$ da matriz de variabilidade $Q \times Q$ de $\psi_{\boldsymbol{\lambda}}$ é definida por
+
+$$
+  \begin{aligned}
+V_{\boldsymbol{\lambda_{ij}}} = Cov\left ( \psi_{\boldsymbol{\lambda_{i}}}, \psi_{\boldsymbol{\lambda_{j}}} \right) = 2tr(W_{\boldsymbol{\lambda_{i}}} CW_{\boldsymbol{\lambda_{J}}} C) + \sum_{l=1}^{NR} k_{l}^{(4)} (W_{\boldsymbol{\lambda_{i}}})_{ll} (W_{\boldsymbol{\lambda_{j}}})_{ll},
+  \end{aligned}
+$$
+
+\noindent em que $k_{l}^{(4)}$ denota a quarta cumulante de $\mathcal{Y}_{l}$. No processo de estimação dos McGLM são usadas as versões empíricas.
+
+Para se levar em conta a covariância entre os vetores $\boldsymbol{\beta}$ e $\boldsymbol{\lambda}$, \citet{Bonat16} obtiveram as matrizes de sensitividade e variabilidade cruzadas, denotadas por $S_{\boldsymbol{\lambda \beta}}$, $S_{\boldsymbol{\beta \lambda}}$ e $V_{\boldsymbol{\lambda \beta}}$, mais detalhes em \citet{Bonat16}. As matrizes de sensitividade e variabilidade conjuntas de $\psi_{\boldsymbol{\beta}}$ e $\psi_{\boldsymbol{\lambda}}$ são denotados por
+
+$$
+  \begin{aligned}
+    S_{\boldsymbol{\theta}} = \begin{bmatrix}
+      S_{\boldsymbol{\beta}} & S_{\boldsymbol{\beta\lambda}} \\ 
+      S_{\boldsymbol{\lambda\beta}} & S_{\boldsymbol{\lambda}} 
+      \end{bmatrix} \text{e } V_{\boldsymbol{\theta}} = \begin{bmatrix}
+      V_{\boldsymbol{\beta}} & V^{\top}_{\boldsymbol{\lambda\beta}} \\ 
+      V_{\boldsymbol{\lambda\beta}} & V_{\boldsymbol{\lambda}} 
+    \end{bmatrix}.
+  \end{aligned}
+$$
+
+Seja $\boldsymbol{\hat{\theta}} = (\boldsymbol{\hat{\beta}^{\top}}, \boldsymbol{\hat{\lambda}^{\top}})^{\top}$ o estimador baseado em funções de estimação de $\boldsymbol{\theta}$. Então, a distribuição assintótica de $\boldsymbol{\hat{\theta}}$ é
+
+$$
+  \begin{aligned}
+    \boldsymbol{\hat{\theta}} \sim N(\boldsymbol{\theta}, J_{\boldsymbol{\theta}}^{-1}),
+  \end{aligned}
+$$
+
+\noindent em que $J_{\boldsymbol{\theta}}^{-1}$ é a inversa da matriz de informação de Godambe, dada por $J_{\boldsymbol{\theta}}^{-1} = S_{\boldsymbol{\theta}}^{-1} V_{\boldsymbol{\theta}} S_{\boldsymbol{\theta}}^{-\top}$, em que $S_{\boldsymbol{\theta}}^{-\top} = (S_{\boldsymbol{\theta}}^{-1})^{\top}.$
+
+Para resolver o sistema de equações $\psi_{\boldsymbol{\beta}} = 0$ e $\psi_{\boldsymbol{\lambda}} = 0$ faz-se uso do algoritmo Chaser modificado, proposto por \citet{jorg04}, que fica definido como
+
+$$
+\begin{aligned}
+\begin{matrix}
+\boldsymbol{\beta}^{(i+1)} = \boldsymbol{\beta}^{(i)}- S_{\boldsymbol{\beta}}^{-1} \psi \boldsymbol{\beta} (\boldsymbol{\beta}^{(i)}, \boldsymbol{\lambda}^{(i)}), \\ 
+\boldsymbol{\lambda}^{(i+1)} = \boldsymbol{\lambda}^{(i)}\alpha S_{\boldsymbol{\lambda}}^{-1} \psi \boldsymbol{\lambda} (\boldsymbol{\beta}^{(i+1)}, \boldsymbol{\lambda}^{(i)}).
+\end{matrix}
+\end{aligned}
+$$
+
+%-----------------------------------------------------------------------
+
+\section{Teste Wald para McGLMs}\label{sec:wald}
+
+Seguindo as ideias de \textbf{REF MEU ARTIGO}, considere $\boldsymbol{\theta^{*}}$ o vetor $h \times 1$ de parâmetros desconsiderando os parâmetros de correlação, ou seja, $\boldsymbol{\theta^{*}}$ refere-se apenas a parâmetros de regressão, dispersão ou potência. As estimativas dos parâmetros de $\boldsymbol{\theta^{*}}$ são dadas por $\boldsymbol{\hat\theta^{*}}$. De maneira similar, considere $J^{\boldsymbol{*}-1}$ a inversa da matriz de informação de Godambe desconsiderando os parâmetros de correlação, de dimensão $h \times h$. Seja $\boldsymbol{L}$ uma matriz de especificação de hipóteses a serem testadas, de dimensão $s \times h$ e $\boldsymbol{c}$ um vetor de dimensão $s \times 1$ com os valores sob hipótese nula, em que $s$ denota o número de restrições. As hipóteses a serem testadas podem ser escritas como:
+
+\begin{equation}
+\label{eq:hipoteses_wald}
+H_0: \boldsymbol{L}\boldsymbol{\theta^{*}} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L}\boldsymbol{\theta^{*}} \neq \boldsymbol{c}. 
+\end{equation}
+
+\noindent Desta forma, a generalização da estatística do teste Wald para verificar a validade de uma hipótese sobre parâmetros de um McGLM fica dada por:
+
+$$
+W = (\boldsymbol{L\hat\theta^{*}} - \boldsymbol{c})^T \ (\boldsymbol{L \ J^{\boldsymbol{*}-1} \ L^T})^{-1} \ (\boldsymbol{L\hat\theta^{*}} - \boldsymbol{c}),
+$$
+
+\noindent em que $W \sim \chi^2_s$, ou seja, independente do número de parâmetros nas hipóteses, a estatística de teste $W$ é um único valor que segue assintoticamente distribuição $\chi^2$ com graus de liberdade dados pelo número de restrições, isto é, o número de linhas da matriz $\boldsymbol{L}$, denotado por $s$.
+
+Em geral, cada coluna da matriz $\boldsymbol{L}$ corresponde a um dos $h$ parâmetros de $\boldsymbol{\theta^{*}}$ e cada linha a uma restrição. Sua construção consiste basicamente em preencher a matriz com 0, 1 e eventualmente -1 de tal modo que o produto $\boldsymbol{L}\boldsymbol{\theta^{*}}$ represente corretamente as hipóteses de interesse. A correta especificação de $\boldsymbol{L}$ permite testar qualquer parâmetro individualmente ou até mesmo formular hipóteses para diversos parâmetros.
+
+\textbf{REF MEU ARTIGO} apresenta exemplos de como testar diferentes tipos de hipóteses de interesse que surgem em contextos práticos. Apresentaremos neste trabalho dois destes exemplos: hipóteses para múltiplos parâmetros e hipóteses sobre parâmetros de regressão ou dispersão para respostas sob mesmo preditor.
+
+Para fins de ilustração, considere a situação em que deseja-se investigar se uma variável numérica $X_1$ possui efeito sobre duas variáveis respostas, denotadas por $Y_1$ e $Y_2$. Para tal tarefa coletou-se uma amostra com $N$ observações e para cada observação registrou-se os valores de $X_1$, $Y_1$ e $Y_2$. Com base nos dados coletados ajustou-se um McGLM bivariado, com preditor dado por:
+
+\begin{equation}
+\label{eq:pred_ex}
+g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1, r=1,2,
+\end{equation}
+
+\noindent em que o índice $r$ denota a variável resposta, r = 1,2; $\beta_{r0}$ representa o intercepto; $\beta_{r1}$ um parâmetro de regressão associado a uma variável $X_1$. Considere que cada resposta possui apenas um parâmetro de dispersão $\tau_{r0}$ e que os parâmetros de potência foram fixados. Portanto, trata-se de um problema em que há duas variáveis resposta e apenas uma variável explicativa. Considere que as unidades em estudo são independentes, logo $Z_0 = I$. 
+
+Suponha que o interesse seja avaliar se existe evidência suficiente para afirmar que há efeito da variável explicativa $X_1$ em ambas as respostas simultaneamente. Neste caso teremos que testar 2 parâmetros: $\beta_{11}$, que associa $X_1$ à primeira resposta; e $\beta_{21}$, que associa $X_1$ à segunda resposta. Podemos escrever a hipótese da seguinte forma:
+
+\begin{equation}
+\label{eq:ex2}
+H_0: \beta_{r1} = 0 \ vs \ H_1: \beta_{r1} \neq 0,
+\end{equation}
+
+\noindent ou, de forma equivalente:
+
+$$
+H_0: 
+\begin{pmatrix}
+\beta_{11} \\ 
+\beta_{21}
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+0 \\ 
+0
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_{11} \\ 
+\beta_{21}
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+0 \\ 
+0 
+\end{pmatrix}.
+$$
+
+As hipóteses na forma da \autoref{eq:hipoteses_wald} possuem os seguintes elementos:
+
+\begin{itemize}
+  
+  \item $\boldsymbol{\theta^{*T}}$ = $\begin{bmatrix} \beta_{10} \  \beta_{11} \ \beta_{20} \ \beta_{21} \ \tau_{11} \ \tau_{21} \end{bmatrix}$.
+
+
+\item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}.$
+ 
+\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$, é o valor sob hipótese nula. 
+
+\end{itemize}
+
+O vetor $\boldsymbol{\theta^{*}}$ possui seis elementos e a matriz $\boldsymbol{L}$ seis colunas. Neste caso estamos testando dois parâmetros, portanto a matriz $\boldsymbol{L}$ possui duas linhas. Essas linhas são compostas por zeros, exceto nas colunas referentes ao parâmetro de interesse. É simples verificar que o produto $\boldsymbol{L}\boldsymbol{\theta^{*}}$ representa a hipótese de interesse inicialmente postulada na \autoref{eq:ex2}. Com isso, a distribuição assintótica do teste é $\chi^2_2$.
+
+A \autoref{eq:pred_ex} descreve um modelo bivariado genérico. É importante notar que neste exemplo ambas as respostas estão sujeitas ao mesmo preditor. Na prática, quando se trata dos McGLMs, preditores diferentes podem ser especificados entre variáveis respostas. Contudo, nos casos em que as respostas estão sujeitas a preditores idênticos e as hipóteses sobre os parâmetros não se alteram de resposta para resposta, uma especificação alternativa do procedimento é utilizando o produto Kronecker para testar uma mesma hipótese sobre múltiplas respostas tal como utilizado em \citet{plastica}.
+
+Suponha que, neste exemplo, as hipóteses de interesse seguem sendo escritas tal como na \autoref{eq:ex2}. Contudo, como se trata de um modelo bivariado com mesmo preditor para as duas respostas, a hipótese de interesse é igual entre respostas e envolve apenas parâmetros de regressão, torna-se conveniente escrever a matriz $\boldsymbol{L}$ como o produto Kronecker de duas matrizes: uma matriz $\boldsymbol{G}$ e uma $\boldsymbol{F}$, ou seja, $\boldsymbol{L}$ = $\boldsymbol{G} \otimes \boldsymbol{F}$. Desta forma, a matriz $\boldsymbol{G}$ tem dimensão $R \times R$ e especifica as hipóteses referentes às respostas, já a matriz $\boldsymbol{F}$ especifica as hipóteses entre variáveis e tem dimensão ${s}' \times {h}'$, em que ${s}'$ é o número de restrições lineares, ou seja, o número de parâmetros testados para uma única resposta, e ${h}'$ é o número total de coeficientes de regressão ou dispersão da resposta. Portanto, a matriz $\boldsymbol{L}$ tem dimensão (${s}'R \times h$).
+
+Em geral, a matriz $\boldsymbol{G}$ é uma matriz identidade de dimensão igual ao número de respostas analisadas no modelo. Enquanto que a matriz $\boldsymbol{F}$ equivale a uma matriz $\boldsymbol{L}$ caso houvesse apenas uma única resposta no modelo e apenas parâmetros de regressão ou dispersão. Utilizamos o produto Kronecker destas duas matrizes para garantir que a hipótese descrita na matriz $\boldsymbol{F}$ seja testada nas $R$ respostas do modelo.
+
+Assim, considerando que se trata do caso em que se pode reescrever as hipóteses por meio da decomposição da matriz $\boldsymbol{L}$, os elementos do teste ficam dados por:
+
+\begin{itemize}
+  
+  \item $\boldsymbol{\beta^{T}}$ = $\begin{bmatrix} \beta_{10} \  \beta_{11} \  \beta_{20} \  \beta_{21} \end{bmatrix}$: os parâmetros de regressão do modelo.
+
+
+\item $\boldsymbol{G} = \begin{bmatrix} 1 & 0 \\ 0 & 1  \end{bmatrix}$: matriz identidade com dimensão dada pelo número de respostas.
+
+\item $\boldsymbol{F} = \begin{bmatrix} 0 & 1 \end{bmatrix}$: equivalente a um $\boldsymbol{L}$ para uma única resposta.
+
+\item $\boldsymbol{L} = \boldsymbol{G} \otimes \boldsymbol{F} =  \begin{bmatrix} 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \end{bmatrix}$: matriz de especificação das hipóteses sobre todas as respostas.
+ 
+\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$, é o valor sob hipótese nula. 
+
+\end{itemize}
+
+Deste modo, o produto $\boldsymbol{L}\boldsymbol{\beta}$ representa a hipótese de interesse inicialmente postulada. Neste caso, a distribuição assintótica do teste é $\chi^2_2$. Esta especificação é bastante conveniente para a geração de quadros de análise de variância e todos os procedimentos são facilmente generalizados quando há interesse em avaliar hipóteses sobre os parâmetros de dispersão.
+
+%-----------------------------------------------------------------------
+
+\subsection{ANOVA e MANOVA via teste Wald}
+
+Com base na proposta de utilização do teste Wald para McGLMs, \textbf{REF MEU ARTIGO} propuseram três diferentes procedimentos para geração de quadros de ANOVA e MANOVA para parâmetros de regressão e um procedimento análogo à uma ANOVA e MANOVA para avaliação dos parâmetros de dispersão de um dado modelo. No caso das ANOVAs gera-se um quadro para cada variável resposta. Para as MANOVAs apenas um quadro é gerado, por isso, para que seja possível realizar as MANOVAs, as respostas do modelo devem estar sujeitas ao mesmo preditor.
+
+Para fins de ilustração, considere a situação em que deseja-se investigar se duas variáveis numéricas denotadas por $X_1$ e $X_2$ possuem efeito sobre duas variáveis resposta denotadas por $Y_1$ e $Y_2$. Para tal tarefa coletou-se uma amostra com $N$ observações e para cada observação foram registrados os valores de $X_1$, $X_2$, $Y_1$ e $Y_2$. Com base nos dados coletados ajustou-se um modelo bivariado, com preditor dado por:
+
+$$
+g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} x_2 + \beta_{r3} X_1X_2.
+$$
+
+\noindent em que o índice $r$ denota a variável resposta, r = 1,2; $\beta_{r0}$ representa o intercepto; $\beta_{r1}$ um parâmetro de regressão associado à variável $X_1$, $\beta_{r2}$ um parâmetro de regressão associado à variável $X_2$ e $\beta_{r3}$ um parâmetro de regressão associado à interação entre $X_1$ e $X_2$. Considere que as unidades em estudo são independentes, portanto cada resposta possui apenas um parâmetro de dispersão $\tau_{r0}$ associado a uma matriz $Z_0 = I$. Além disso considere que os parâmetros de potência foram fixados.
+
+A análise de variância do tipo II descrita em \textbf{REF MEU ARTIGO} testa, em cada linha, se o modelo completo difere do modelo sem uma variável. Caso haja interações no modelo, é testado o modelo completo contra o modelo sem o efeito principal e qualquer efeito de interação que envolva a variável. Deste modo se torna melhor interpretável o efeito daquela variável sobre o modelo completo, isto é, o impacto na qualidade do modelo caso retirássemos determinada variável. Considerando o preditor exemplo, a análise de variância do tipo II faria os seguintes testes:
+
+\begin{enumerate}
+  \item Testa se o intercepto é igual a 0.
+  
+  \item Testa se os parâmetros referentes a $X_1$ são iguais a 0. Ou seja, é avaliado o impacto da retirada de $X_1$ do modelo. Neste caso retira-se a interação pois nela há $X_1$.
+  
+  \item Testa se os parâmetros referentes a $X_2$ são iguais a 0. Ou seja, é avaliado o impacto da retirada de $X_2$ do modelo. Neste caso retira-se a interação pois nela há $X_2$.
+  
+  \item Testa se o efeito de interação é 0.
+
+\end{enumerate}
+
+\subsection{Teste de comparações múltiplas via teste Wald}
+
+Quando a ANOVA aponta para efeito significativo de uma variável categórica, costuma ser de interesse avaliar quais dos níveis diferem entre si. Para isso são empregados os testes de comparações múltiplas. Na literatura existem diversos procedimentos para efetuar tais testes, muitos deles descritos em \citet{hsu196multiple}.
+
+Tal tipo de situação pode ser avaliada utilizando o teste Wald. Através da correta especificação da matriz $\boldsymbol{L}$, é possível avaliar hipóteses sobre qualquer possível contraste entre os níveis de uma determinada variável categórica. Portanto, é possível usar a estatística de Wald para efetuar também testes de comparações múltiplas.
+
+O procedimento é baseado basicamente em 3 passos. O primeiro deles é obter a matriz de combinações lineares dos parâmetros do modelo que resultam nas médias ajustadas. Com esta matriz é possível gerar a matriz de contrastes, dada pela subtração duas a duas das linhas da matriz de combinações lineares. Por fim, basta selecionar as linhas de interesse desta matriz e usá-las como matriz de especificação de hipóteses do teste Wald, no lugar da matriz $\boldsymbol{L}$.
+	
+Por exemplo, suponha que há uma variável resposta $Y$ sujeita a uma variável explicativa $X$ de 4 níveis: A, B, C e D. Para avaliar o efeito da variável $X$, ajustou-se um modelo dado por:
+
+$$g(\mu) = \beta_0 + \beta_1[X=B] + \beta_2[X=C] + \beta_3[X=D].$$
+
+\noindent Nesta parametrização o primeiro nível da variável categórica é mantido como categoria de referência e, para os demais níveis, mede-se a mudança para a categoria de referência; este é o chamado contraste de tratamento. Neste contexto $\beta_0$ representa a média ajustada do nível A, enquanto que $\beta_1$ representa a diferença de A para B, $\beta_2$ representa a diferença de A para C e $\beta_3$ representa a diferença de A para D. Com esta parametrização é possível obter o valor predito para qualquer uma das categorias de tal modo que se o indivíduo pertencer à categoria A, $\beta_0$ representa o predito; se o indivíduo pertencer à categoria B, $\beta_0 + \beta_1$ representa o predito; para a categoria C, $\beta_0 + \beta_2$ representa o predito e, por fim, para a categoria D, $\beta_0 + \beta_3$ representa o predito.
+
+Matricialmente, estes resultados podem ser descritos como
+
+$$
+    \boldsymbol{K_0} = 
+      \begin{matrix}
+        A\\ 
+        B\\ 
+        C\\ 
+        D 
+      \end{matrix} 
+    \begin{bmatrix}
+      1 & 0 & 0 & 0\\ 
+      1 & 1 & 0 & 0\\ 
+      1 & 0 & 1 & 0\\ 
+      1 & 0 & 0 & 1 
+    \end{bmatrix}
+$$
+
+Note que o produto $\boldsymbol{K_0} \boldsymbol{\beta}$ gera o vetor de preditos para cada nível de $X$. Por meio da subtração das linhas da matriz de combinações lineares $\boldsymbol{K_0}$ podemos gerar uma matriz de contrastes $\boldsymbol{K_1}$
+
+$$
+    \boldsymbol{K_1} = 
+      \begin{matrix}
+        A-B\\ 
+        A-C\\ 
+        A-D\\ 
+        B-C\\
+        B-D\\
+        C-D\\ 
+      \end{matrix} 
+    \begin{bmatrix}
+      0 & -1 &  0 &  0\\ 
+      0 &  0 & -1 &  0\\ 
+      0 &  0 &  0 & -1\\ 
+      0 &  1 & -1 &  0\\ 
+      0 &  1 &  0 & -1\\ 
+      0 &  0 &  1 & -1 
+    \end{bmatrix}
+$$
+
+Para proceder um teste de comparações múltiplas basta selecionar os contrastes desejados nas linhas da matriz $\boldsymbol{K_1}$ e utilizar estas linhas como matriz de especificação de hipóteses do teste Wald. Por fim, como usual em testes de comparações múltiplas, é recomendada a correção dos valores-p por meio da correção de Bonferroni.
+
+Para efetuação deste procedimento para os McGLMs devemos lembrar que trata-se de uma classe de modelos multivariados. E tal como ocorre no caso das análises de variância, para os testes de comparações múltiplas existem duas possibilidades: testes para uma única resposta e testes para múltiplas respostas. 
+
+Na prática, se o interesse for um teste de comparações múltiplas multivariado, existe a necessidade de todas as respostas estarem sujeitas a um mesmo preditor e basta expandir a matriz de contrastes utilizando o produto Kronecker. No caso de um teste de comparações múltiplas para cada resposta, basta selecionar o vetor de estimativas e a partição correspondente ao vetor da matriz $J_{\boldsymbol{\theta}}^{-1}$ para a resposta específica e proceder com o teste.
+
+%-----------------------------------------------------------------------
+
+\section{Implementation}\label{sec:implementacao}
+
+Todas as funções implementadas geram resultados mostrando graus de liberdade e valores-p baseados no teste Wald aplicado a um McGLM. A \autoref{tab:funcoes} mostra os nomes e uma breve descrição das funções implementadas.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\hline
+Função                   & Descrição \\ 
+\hline
+
+mc\_anova\_I()           & ANOVA  tipo I \\
+mc\_anova\_II()          & ANOVA  tipo II \\
+mc\_anova\_III()         & ANOVA  tipo III \\
+
+mc\_manova\_I()          & MANOVA tipo I \\
+mc\_manova\_II()         & MANOVA tipo II \\
+mc\_manova\_III()        & MANOVA tipo III \\
+
+mc\_anova\_dispersion()        & ANOVA  tipo III para dispersão \\
+mc\_manova\_dispersion()       & MANOVA tipo III para dispersão \\
+
+mc\_multcomp()           & Testes de comparações múltiplas por resposta \\
+
+mc\_mult\_multcomp()     & Testes de comparações múltiplas multivariado \\
+
+mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuário \\
+
+\hline
+\end{tabular}
+\caption{Funções implementadas}
+\label{tab:funcoes}
+\end{table}
+
+As funções \emph{mc\_anova\_I()}, \emph{mc\_anova\_II()} e \emph{mc\_anova\_III()} são funções destinadas à avaliação dos parâmetros de regressão do modelo; elas geram quadros de análise de variância por resposta para um modelo \emph{mcglm}. As funções \emph{mc\_manova\_I()}, \emph{mc\_manova\_II()} e \emph{mc\_manova\_III()} também são funções destinadas à avaliação dos parâmetros de regressão do modelo; elas geram quadros de análise de variância multivariada para um modelo \emph{mcglm}. Enquanto as funções de análise de variância univariadas visam avaliar o efeito das variáveis para cada resposta, as multivariadas visam avaliar o efeito das variáveis explicativas em todas as variáveis resposta simultaneamente. As nomenclaturas seguem o que foi exposto no \autoref{cap:proposta} e as funções recebem como argumento apenas o objeto que armazena o modelo devidamente ajustado.
+
+Tal como descrito no \autoref{cap:referencial}, a matriz $\boldsymbol{\Omega({\tau})}$ tem como objetivo modelar a correlação existente entre linhas do conjunto de dados por meio do chamado preditor linear matricial. Na prática temos, para cada matriz do preditor matricial, um parâmetro de dispersão $\tau_d$. De modo análogo ao que é feito para o preditor de média, podemos usar estes parâmetros para avaliar o efeito das unidades correlacionadas no estudo. Neste sentido implementamos as funções \emph{mc\_anova\_dispersion()} e \emph{mc\_manova\_dispersion()}. 
+
+A função \emph{mc\_anova\_dispersion()} efetua uma análise de variância do tipo III para os parâmetros de dispersão do modelo. Tal como as demais funções com prefixo \emph{mc\_anova}, é gerado um quadro para cada variável resposta, isto é, nos casos mais gerais avaliamos se há evidência que nos permita afirmar que determinado parâmetro de dispersão é igual a 0, ou seja, se existe efeito das medidas correlacionadas tal como especificado no preditor matricial para aquela resposta. A função recebe como argumento o objeto em que está armazenado o modelo, uma lista de índices indicando de que forma os parâmetros dispersão devem ser testados para cada resposta, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
+
+Já a função \emph{mc\_manova\_dispersion()} pode ser utilizada em um modelo multivariado em que os preditores matriciais são iguais para todas as respostas e há o interesse em avaliar se o efeito das medidas correlacionadas é o mesmo para todas as respostas. Esta função recebe como argumento o objeto em que está armazenado o modelo, um vetor de índices indicando de que forma os parâmetros dispersão devem ser testados, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
+
+Para testes de comparações múltiplas foram implementadas as funções \emph{mc\_multcomp()} e \emph{mc\_mult\_multcomp()}. Estas funções devem ser usadas como complemento às funções de análise de variância e análise de variância multivariada quando estas apontam para efeito significativo de variáveis explicativas categóricas. As funções para comparações múltiplas são usadas para realizar comparações duas a duas e identificar quais níveis diferem entre si. Estas funções recebem como argumento o modelo, a variável ou variáveis em que há interesse em avaliar comparações entre níveis e também os dados usados para ajustar o modelo.
+
+Por fim, a função \emph{mc\_linear\_hypothesis()} é a implementação computacional em R que permite a execução de qualquer um dos testes apresentados no \autoref{cap:proposta}. É a função mais flexível que temos no conjunto de implementações. Com ela é possível especificar qualquer tipo de hipótese sobre parâmetros de regressão, dispersão ou potência de um modelo \emph{mcglm}. Também é possível especificar hipóteses sobre múltiplos parâmetros e o vetor de valores da hipótese nula é definido pelo usuário. Esta função recebe como argumentos o modelo e um vetor contendo os parâmetros que devem ser testados e o os valores sob hipótese nula. Com algum trabalho, por meio da função de hipóteses lineares gerais, é possível replicar os resultados obtidos pelas funções de análise de variância.
+
+%-----------------------------------------------------------------------
+
+\section{Examples}\label{sec:exemplos}
+
+\subsection{Instalação}
+
+<<functions, echo=FALSE, message=FALSE, warning=FALSE, results='hide'>>=
+library(mcglm)
+library(Matrix)
+
+#source('~/msc/0_funcoes/functions.R')
+library(htmcglm)
+@
+
+O pacote \emph{mcglm} está disponível no Comprehensive R Archive Network (CRAN) em https://CRAN.R-project.org/package=mcglm e pode ser instalado por meio da função \emph{install.packages()}.
+
+<<install-mcglm, eval=FALSE>>=
+install.packages("mcglm")
+library(mcglm)
+@
+
+As implementações referentes a este trabalho estão disponíveis publicamente na plataforma github em https://github.com/lineu96/htmcglm e podem ser instaladas por meio da função \emph{install\_github} do pacote \emph{devtools}.
+
+<<install-htmcglm, eval=FALSE>>=
+library(devtools)
+install_github("lineu96/htmcglm")
+library(htmcglm)
+@
+
+Nesta seção fornecemos exemplos práticos de utilização das funções implementadas com base em modelos multivariados ajustados com o pacote \emph{mcglm}.
+
+\subsection{Exemplo 1: soya}
+
+Os dados são de um experimento feito em uma casa de vegetação com soja. O delineamento experimental conta com duas plantas por parcela em que cada unidade foi submetida a diferentes combinações de água e adubo. Existem três níveis de um fator correspondente à quantidade de água no solo (\emph{water}) e cinco níveis de adubação com potássio (\emph{pot}). Além disso as parcelas foram dispostas em cinco blocos (\emph{block}). Três variáveis resposta foram avaliadas: a produtividade de grãos (\emph{grain}), número de sementes (\emph{seeds}) e número de ervilhas viáveis por planta (\emph{viablepeas}).
+
+Trata-se de um conjunto de dados interessante para exemplificar o uso das funções implementadas pois existem três variáveis resposta de tipos distintos: a produtividade de grãos é uma variável contínua, o número de sementes é uma contagem, e o número de ervilhas viáveis por planta é um exemplo de variável binomial. O conjunto de dados está disponível no pacote \emph{mcglm}.
+
+<<soya, message=FALSE, warning=FALSE, results='hide'>>=
+data("soya", package = "mcglm")
+@
+
+O objetivo da análise é avaliar o efeito de adubação e água sobre as três variáveis resposta de interesse. Para fins de análise consideramos como variáveis explicativas os níveis de água, adubação e também as interações entre estes dois fatores. Adicionalmente, o efeito de bloco foi acrescentado aos preditores. 
+
+Para ajustar o modelo o primeiro passo é especificar os preditores lineares.
+
+<<lin_pred>>=
+form.grain <- grain ~ block + water * pot
+form.seed <- seeds ~ block + water * pot
+
+soya$viablepeasP <- soya$viablepeas / soya$totalpeas
+form.peas <- viablepeasP ~ block + water * pot
+@
+
+O segundo passo é especificar as matrizes do preditor linear matricial. Consideramos neste caso que as observações são independentes, por isso incluímos apenas uma matriz identidade.
+
+<<mat_pred>>=
+Z0 <- mc_id(soya)
+@
+
+Com os elementos definidos, podemos ajustar o modelo. Por meio da função \emph{mcglm()} especificamos os preditores lineares para média, as matrizes dos preditores matriciais, as funções de ligação, de variância, o número de tentativas para a variável binomial e se temos interesse em estimar ou não os parâmetros de potência. Para mais detalhes sobre especificação de preditores e ajuste de McGLMs, consulte \citet{Bonat16} e \citet{mcglm}.
+
+<<fit, message=FALSE, results='hide'>>=
+fit_joint <- mcglm(linear_pred = c(form.grain, 
+                                   form.seed, 
+                                   form.peas),
+                   matrix_pred = list(c(Z0), 
+                                      c(Z0), 
+                                      c(Z0)),
+                   link = c("identity",
+                            "log", 
+                            "logit"),
+                   variance = c("constant", 
+                                "tweedie", 
+                                "binomialP"),
+                   Ntrial = list(NULL, 
+                                 NULL, 
+                                 soya$totalpeas),
+                   power_fixed = c(T,T,T),
+                   data = soya)
+@
+
+
+Para avaliar alguns resultados do modelo é possível utilizar a função \emph{summary()} que retorna a fórmula dos preditores lineares, as funções de ligação, de variância, de covariância especificadas para ajustar o modelo, as estimativas dos parâmetros de regressão e dispersão bem como os erros padrões.
+
+\subsubsection{Quadros de análise de variância para parâmetros de regressão}
+
+Com o modelo ajustado podemos aplicar as funções implementadas para avaliar os parâmetros de regressão e dispersão do modelo. As funções de análise de variância dependem apenas do objeto que contém o modelo ajustado e retornam um quadro para cada resposta.
+
+{ANOVA tipo I}
+
+<<anovaI>>=
+mc_anova_I(fit_joint)
+@
+
+{ANOVA tipo II}
+
+<<anovaII>>=
+mc_anova_II(fit_joint)
+@
+
+{ANOVA tipo III}
+
+<<anovaIII>>=
+mc_anova_III(fit_joint)
+@
+
+De forma similar, as funções de análise de variância multivariadas também dependem apenas do modelo ajustado. É importante notar que para fins práticos as funções de análise de variância multivariada necessitam que os preditores para todas as respostas sejam os mesmos.
+
+{MANOVA tipo I}
+
+<<manovaI>>=
+mc_manova_I(fit_joint)
+@
+
+{MANOVA tipo II}
+
+<<manovaII>>=
+mc_manova_II(fit_joint)
+@
+
+{MANOVA tipo III}
+
+<<manovaIII>>=
+mc_manova_III(fit_joint)
+@
+
+Para hipóteses lineares gerais sobre parâmetros de regressão basta especificar o modelo e a hipótese a ser testada. Para identificar os parâmetros de interesse, utilize a função \emph{coef()}.
+
+{Teste sobre um único parâmetro de regressão}
+
+<<lin_hyp1>>=
+mc_linear_hypothesis(object =  fit_joint, 
+                     hypothesis = c('beta11 = 0'))
+@
+
+{Teste sobre mais de um parâmetro de regressão}
+
+<<lin_hyp2>>=
+mc_linear_hypothesis(object =  fit_joint, 
+                     hypothesis = c('beta11 = 0', 
+                                    'beta12 = 0'))
+@
+
+{Teste de igualdade de efeitos entre parâmetros de regressão}
+
+<<lin_hyp3>>=
+
+mc_linear_hypothesis(object =  fit_joint, 
+                     hypothesis = c('beta11 = beta21'))
+
+@
+
+
+\subsection{Exemplo 2: Hunting}
+
+O conjunto de dados Hunting, apresentados em \citet{hunting}, também está disponível no pacote \emph{mcglm}. Os dados tratam de um problema em que as respostas são contagens bivariadas longitudinais sobre animais caçados na vila de Basile Fang, Bioko Norte Province, Bioko Island, Equatorial Guinea. As variáveis respostas são: números mensais de blue duikers (BD) e outros pequenos animais (OT) baleados ou capturados em uma amostra aleatória de 52 caçadores comerciais de agosto de 2010 a setembro de 2013. Consideremos que o interesse é avaliar o efeito de um fator com 2 níveis que indica se o animal foi caçado por meio de arma de fogo ou armadilha (\emph{METHOD}) e um fator com 2 níveis que indica o sexo do animal (\emph{SEX}).
+
+<<hunting, message=FALSE, warning=FALSE, results='hide'>>=
+data("Hunting", package = "mcglm")
+@
+
+Tal como no primeiro exemplo, para ajuste do modelo é necessário definir os preditores lineares para média, as matrizes dos preditores matriciais, as funções de ligação, de variância, se temos interesse em estimar ou não os parâmetros de potência. Para esta análise consideramos no preditor matricial a estrutura de medidas repetidas introduzidas pelas observações tomadas para o mesmo caçador e mês (HUNTER.MONTH) e o número de dias de caça por mês foi usado como termo offset.
+
+<<hunting2, message=FALSE, warning=FALSE, results='hide'>>=
+form.OT <- OT ~ METHOD * SEX
+form.BD <- BD ~ METHOD * SEX
+
+Z0 <- mc_id(Hunting)
+Z1 <- mc_mixed(~ 0 + HUNTER.MONTH, data = Hunting)
+
+fit <- mcglm(linear_pred = c(form.BD, form.OT),
+             matrix_pred = list(c(Z0, Z1), 
+                                c(Z0, Z1)),
+             link = c("log", "log"), 
+             variance = c("poisson_tweedie",
+                          "poisson_tweedie"),
+             offset = list(log(Hunting$OFFSET), 
+                           log(Hunting$OFFSET)),
+             data = Hunting)
+@
+
+Novamente, para avaliar alguns resultados do modelo é possível utilizar a função \emph{summary()}. Podemos também aplicar as já apresentadas funções implementadas para ANOVAs, MANOVAs e testes de hipóteses lineares gerais sobre os parâmetros de regressão e dispersão do modelo.
+
+Neste caso, como existe um preditor matricial especificado, pode ser de interesse um estudo aprofundado dos parâmetros de dispersão. Esta análise pode ser feita com a já utilizada função \emph{mc\_linear\_hypothesis()}.
+
+{Teste sobre um único parâmetro de dispersão}
+
+<<lin_hyp4>>=
+mc_linear_hypothesis(object =  fit, 
+                     hypothesis = c('tau11 = 0'))
+
+@
+
+{Teste sobre mais de um parâmetro de dispersão}
+
+<<lin_hyp5>>=
+
+mc_linear_hypothesis(object =  fit, 
+                     hypothesis = c('tau11 = 0',
+                                    'tau21 = 0'))
+@
+
+{Teste de igualdade de efeitos entre parâmetros de dispersão}
+
+<<lin_hyp6>>=
+mc_linear_hypothesis(object =  fit,
+                     hypothesis = c('tau12 = tau12'))
+@
+
+{Quadro de análise de variância para parâmetros de dispersão}
+
+As funções para avaliar os parâmetros de dispersão por meio de um procedimento análogo à análise de variância para parâmetros de regressão, requerem a especificação de mais argumentos: um deles que determina a relação entre parâmetros de dispersão e o outro que especifica os nomes que aparecerão na saída final.
+
+{ANOVA tipo III para dispersão}
+
+<<anova_disp>>=
+mc_anova_dispersion(fit,
+                    p_var = list(c(0,1), c(0,1)),
+                    names = list(c('tau10', 'tau11'),
+                                 c('tau20', 'tau21')))
+@
+
+{MANOVA tipo III para dispersão}
+
+<<manova_disp>>=
+mc_manova_dispersion(fit,
+                     p_var = c(0,1),
+                     names = c('tau0', 'tau1'))
+@
+
+{Comparações múltiplas}
+
+Por fim, podemos utilizar as funções para testes de comparações múltiplas para avaliar diferenças existentes entre níveis de variáveis explicativas categóricas incluídas no modelo. Esta tarefa pode ser feita por variável resposta:
+
+<<multcomp>>=
+mc_multcomp(object = fit,
+            effect = list(c('METHOD', 'SEX'), 
+                          c('METHOD', 'SEX')), 
+            data = Hunting)
+@
+
+Já no caso de preditores iguais para todas as respostas é possível realizar um teste de comparações múltiplas multivariado.
+
+<<mult_multcomp>>=
+mc_mult_multcomp(object = fit, 
+                 effect = c('METHOD', 'SEX'), 
+                 data = Hunting)
+@
+
+%-----------------------------------------------------------------------
+
+\section{Concluding remarks}\label{sec:conclusao}
+
+This article described the R implementation of procedimentos para realizar testes de hipóteses sobre parâmetros de McGLMs baseados na estatística de Wald. McGLMs contam com parâmetros de regressão, dispersão, potência e correlação; cada conjunto de parâmetros possui uma interpretação prática bastante relevante no contexto de análise de problemas com potenciais múltiplas respostas em função de um conjunto de variáveis explicativas.
+
+Com base na proposta de utilização do teste Wald para McGLMs, desenvolvemos procedimentos para testes de hipóteses lineares gerais, geração de quadros de ANOVA e MANOVA para parâmetros de regressão e dispersão e também testes de comparações múltiplas. Todos estes procedimentos foram implementados na linguagem R e complementam as funcionalidades existentes na biblioteca \emph{mcglm}.
+
+
+The discussed examples illustrate the...
+
+
+Possíveis extensões deste trabalho que seguem na linha de avaliação de parâmetros de McGLMs para um melhor entendimento do impacto dos elementos em problemas de modelagem são: explorar correções de valores-p de acordo com o tamanho das hipóteses testadas, explorar procedimentos além do teste Wald (como o teste Escore e o teste da razão de verossimilhanças), implementar novos procedimentos para comparações múltiplas, adaptar a proposta para lidar com contrastes alternativos aos usuais, explorar procedimentos para seleção automática de covariáveis (backward elimination, forward selection, stepwise selection) e também seleção de covariáveis por meio de inclusão de penalização no ajuste por complexidade (similar a ideia de regressão por splines).
+
+%-----------------------------------------------------------------------
+
+\section*{Acknowledgments}
+
+\begin{leftbar}
+The authors thank the reviewers for their constructive and helpful comments, which greatly improved the article. This study was financed in part by the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior – Brasil (CAPES) – Finance Code 001.
+\end{leftbar}
+
+%-----------------------------------------------------------------------
+
+\bibliography{refs}
+
+%-----------------------------------------------------------------------
+
+\newpage
+
+%-----------------------------------------------------------------------
+
+%\begin{appendix}
+
+%\section{} \label{app:apendice}
+
+%-----------------------------------------------------------------------
+
+\end{document}

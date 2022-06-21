@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  13 JUN 2022 17:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  16 JUN 2022 15:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1021,93 +1021,58 @@ LaTeX Info: Redefining \nameref on input line 11.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count435
-LaTeX Font Info:    Calculating math sizes for size <18> on input line 49.
 LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
-ne 49.
+ne 50.
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixscr.fd
 File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixex on input lin
-e 49.
+e 50.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixex.fd
 File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input l
-ine 49.
+ine 50.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixfrak.fd
 File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixbb on input lin
-e 49.
+e 50.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixbb.fd
 File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixcal on input li
-ne 49.
+ne 50.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixcal.fd
 File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definiti
 ons
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixsf on input lin
-e 49.
+e 50.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixsf.fd
 File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixtt on input lin
-e 49.
+e 50.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixtt.fd
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 
 )
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 49.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 49.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 49.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\afterassignment' on input line 49.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 49.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 49.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@thanks' on input line 49.
-
-
-Overfull \vbox (4.5pt too high) detected at line 49
- []
-
-
-Overfull \hbox (346.99213pt too wide) in paragraph at lines 49--49
+Overfull \hbox (346.99213pt too wide) in paragraph at lines 50--50
 [][] | || []|[][] 
  []
 
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 49
+LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 50
 .
-LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 49.
 
 Overfull \vbox (6.46347pt too high) has occurred while \output is active []
 
@@ -1118,213 +1083,59 @@ Overfull \vbox (6.46347pt too high) has occurred while \output is active []
 
 ] [2]
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
-107.
+108.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
-)
-
-Package natbib Warning: Citation `spitzer1980diagnostic' on page 3 undefined on
- input line 119.
-
-
-Package natbib Warning: Citation `gormally1982assessment' on page 3 undefined o
-n input line 119.
-
-[3]
-
-Package natbib Warning: Citation `segal2010diagnostic' on page 4 undefined on i
-nput line 121.
-
-
-Package natbib Warning: Citation `gearhardt2009preliminary' on page 4 undefined
- on input line 121.
-
-
-LaTeX Warning: Reference `fig:descritiva2' on page 4 undefined on input line 14
-3.
-
-[4]
-
-Package natbib Warning: Author undefined for citation`martinez13' 
-(natbib)                on page 5 on input line 190.
-
-
-Package natbib Warning: Citation `Jorgensen87' on page 5 undefined on input lin
-e 209.
-
-
-Package natbib Warning: Citation `Jorgensen97' on page 5 undefined on input lin
-e 209.
-
-
-Package natbib Warning: Citation `Jorgensen15' on page 5 undefined on input lin
-e 211.
-
-
-Package natbib Warning: Citation `Anderson73' on page 5 undefined on input line
- 217.
-
-
-Package natbib Warning: Citation `Pourahmadi00' on page 5 undefined on input li
-ne 217.
-
-
-Package natbib Warning: Author undefined for citation`Bonat16' 
-(natbib)                on page 5 on input line 217.
-
-
-Package natbib Warning: Citation `Pinheiro96' on page 5 undefined on input line
- 225.
-
-
-Package natbib Warning: Citation `Demidenko13' on page 5 undefined on input lin
-e 225.
-
-[5]
-
-Package natbib Warning: Author undefined for citation`Bonat16' 
-(natbib)                on page 6 on input line 231.
-
-
-Package natbib Warning: Citation `jorg04' on page 6 undefined on input line 231
-.
-
-
-Package natbib Warning: Citation `Liang86' on page 6 undefined on input line 23
-6.
-
-
-Package natbib Warning: Author undefined for citation`Bonat16' 
-(natbib)                on page 6 on input line 292.
-
-
-Package natbib Warning: Citation `jorg04' on page 6 undefined on input line 316
-.
-
-[6]
-
-Package natbib Warning: Citation `graybill1957idempotent' on page 7 undefined o
-n input line 333.
-
-
-Package natbib Warning: Citation `luther1965decomposition' on page 7 undefined 
-on input line 333.
-
-
-Package natbib Warning: Citation `baldessari1967distribution' on page 7 undefin
-ed on input line 333.
-
-[7] [8]
-
-Package natbib Warning: Citation `plastica' on page 9 undefined on input line 4
-72.
-
-[9] [10]
-
-Package natbib Warning: Author undefined for citation`hsu1996multiple' 
-(natbib)                on page 11 on input line 560.
-
-[11]
-
-Package natbib Warning: Citation `mvtnorm1' on page 12 undefined on input line 
-624.
-
-
-Package natbib Warning: Citation `mvtnorm2' on page 12 undefined on input line 
-624.
-
-
-Package natbib Warning: Citation `cario1997modeling' on page 12 undefined on in
-put line 624.
-
-
-Package natbib Warning: Citation `nortara' on page 12 undefined on input line 6
-24.
-
-[12]
-
-LaTeX Warning: Reference `fig:betas' on page 13 undefined on input line 658.
-
-[13]
-
-LaTeX Warning: Reference `fig:taus' on page 14 undefined on input line 674.
-
-[14]
-
-LaTeX Warning: Reference `fig:diagnostico1' on page 15 undefined on input line 
-724.
-
-
-LaTeX Warning: Reference `fig:diagnostico2' on page 15 undefined on input line 
-726.
-
-
-LaTeX Warning: Reference `fig:preds' on page 15 undefined on input line 732.
-
-[15] [16]
-
-Package natbib Warning: Citation `Kenamond2013' on page 17 undefined on input l
-ine 876.
-
-(./draft-sm-lineu.bbl [17]) [18] [19] [20]
-<empty.pdf, id=257, 114.43155pt x 86.162pt>
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9
-15.
+) [3]
+<empty.pdf, id=86, 114.43155pt x 86.162pt>
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
+39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-
-Package natbib Warning: There were undefined citations.
-
-
-Overfull \hbox (13.0pt too wide) in paragraph at lines 918--918
+) [4] [5] [6] [7]
+[8] [9] [10] [11] [12] [13] [14] [15] [16] (./draft-sm-lineu.bbl [17] [18])
+[19]
+Overfull \hbox (13.0pt too wide) in paragraph at lines 895--895
 [] [] 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 918.
-[21
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1023.
+[20
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 918.
+] [21] [22] [23] [24]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1023.
  (./draft-sm-lineu.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 918.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 918.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 918.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1023.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1023.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1023.
  ) 
 Here is how much of TeX's memory you used:
- 16373 strings out of 481239
- 229216 string characters out of 5920376
- 504243 words of memory out of 5000000
- 31191 multiletter control sequences out of 15000+600000
- 691094 words of font info for 235 fonts, out of 8000000 for 9000
+ 16362 strings out of 481239
+ 229205 string characters out of 5920376
+ 518932 words of memory out of 5000000
+ 31176 multiletter control sequences out of 15000+600000
+ 641500 words of font info for 159 fonts, out of 8000000 for 9000
  1167 hyphenation exceptions out of 8191
- 49i,18n,46p,1330b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
-st, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texlive/
-texmf-dist/fonts/enc/dvips/stix/stix-t1.enc}{/usr/share/texlive/texmf-dist/font
-s/enc/dvips/stix/stix-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public
-/stix/STIXGeneral-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/st
-ix/STIXGeneral-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sti
-x/STIXGeneral-Regular.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt100
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit-bold.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/stix/stix-mathscr.pfb>
-Output written on draft-sm-lineu.pdf (21 pages, 298167 bytes).
+ 49i,18n,46p,1631b,511s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc}{/usr/share/t
+exmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texlive/texmf-dist/fo
+nts/enc/dvips/stix/stix-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/stix/STIXGeneral-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+stix/STIXGeneral-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/s
+tix/STIXGeneral-Regular.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1
+000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit-bold.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/stix/stix-mathscr.pfb>
+Output written on draft-sm-lineu.pdf (24 pages, 304565 bytes).
 PDF statistics:
- 459 PDF objects out of 1000 (max. 8388607)
- 419 compressed objects within 5 object streams
- 120 named destinations out of 1000 (max. 500000)
- 342 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 451 PDF objects out of 1000 (max. 8388607)
+ 408 compressed objects within 5 object streams
+ 124 named destinations out of 1000 (max. 500000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 

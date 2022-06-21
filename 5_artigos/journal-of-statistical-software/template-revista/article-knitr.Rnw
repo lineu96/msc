@@ -14,7 +14,14 @@
 
 %% For Sweave-based articles about R packages:
 %% need no \usepackage{Sweave}
-\SweaveOpts{engine=R, eps=FALSE, keep.source = TRUE}
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+engine='R', tidy=FALSE
+)
+@
+
 
 <<preliminaries, echo=FALSE, results='hide'>>=
 options(prompt = "R> ", continue = "+  ", width = 70, useFancyQuotes = FALSE)
@@ -284,7 +291,7 @@ before and after code input/output should be avoided (see above).
 
 \begin{figure}[t!]
 \centering
-<<visualization, echo=FALSE, fig=TRUE, height=5.2, width=7>>=
+<<visualization, echo=FALSE, fig.height=5.2, fig.width=7>>=
 par(mar = c(4, 4, 1, 1))
 plot(table(quine$Days), xlab = "Days", ylab = "Frequency", axes = FALSE)
 axis(2)
