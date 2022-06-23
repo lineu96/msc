@@ -97,7 +97,7 @@
 
 \Abstract{
 
-300 palavras
+This article describes the R package htmcglm implemented for efetuar testes de hipóteses sobre parâmetros de regressão e dispersão de multivariate covariance generalized linear models (McGLMs) fiited by package mcglm. Nossas implementações são baseadas na proposta de utilizar o teste Wald para a realização de testes de hipóteses gerais, ANOVAs, MANOVAs e testes de comparações múltiplas. McGLMs provide a general statistical modeling framework for normal and non-normal multivariate data analysis along with a wide range of correlation structures. Nossa contribuição vai no sentido de fornecer ferramentas para uma melhor interpretação dos parâmetros estimados e assim extrair mais informações e conclusões a respeito dos problemas modelados por meio da classe. Por meio do estudo dos parâmetros de regressão é possível avaliar o efeito da(s) variável(is) explicativa(s) sobre a(s) resposta(s). Por meio do estudo dos parâmetros de dispersão pode-se avaliar o efeito da correlação entre unidades do estudo, muito útil em situações em que as observações do conjunto de dados são correlacionadas entre si, como por exemplo em estudos longitudinais, temporais e de medidas repetidas. Nossas implementações fornecem uma maneira procedural e segura de responder questões comuns no contexto de modelagem multivariada, como: quais variáveis estão associadas ao desfecho do fenômeno de interesse, se existe efeito da estrutura de correlação entre indivíduos no estudo, se o efeito de determinada variável é o mesmo independente da resposta, dentre outras. Illustrations in this article cover os mais comuns testes de hipóteses de interesse em contextos práticos na modelagem de problemas de regressão multivariada.
 
 }
 
@@ -107,9 +107,9 @@
 %% - \Plainkeywords{} without LaTeX markup (if necessary)
 %% - Should be comma-separated and in sentence case.
 
-\Keywords{keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, keyword7, keyword8, keyword9, keyword10}
+\Keywords{multivariate regression models, McGLM, hypothesis tests, Wald test, ANOVA, MANOVA, Multiple comparisons, R}
 
-\Plainkeywords{keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, keyword7, keyword8, keyword9, keyword10}
+\Plainkeywords{multivariate regression models, McGLM, hypothesis tests, Wald test, ANOVA, MANOVA, Multiple comparisons, R}
 
 %-----------------------------------------------------------------------
 
@@ -143,17 +143,17 @@ Por meio do estudo dos parâmetros de regressão é possível avaliar o efeito d
 
 O desenvolvimento de testes de hipóteses para fins de avaliação destas quantidades é de grande valia em problemas práticos e leva a formas procedurais para avaliação das quantidades resultantes do modelo. The \pkg{htmcglm} package is a full \proglang{R} implementation e faz uso da estatística de Wald para avaliar parâmetros de regressão e dispersão. The features include funções para testes de hipóteses lineares gerais, quadros de análise de variância uni e multivariados, bem como testes de comparações múltiplas. 
 
-\textbf{Package \pkg{htmcglm} is available from the Comprehensive R Archive Network (CRAN) at https://CRAN.R-project.org/package=mcglm e complementam as já possíveis análises permitidas pelo pacote \emph{mcglm}}
+\textbf{Package \pkg{htmcglm} is available from the Comprehensive \proglang{R} Archive Network (CRAN) at https://CRAN.R-project.org/package=mcglm e complementam as já possíveis análises permitidas pelo pacote \emph{mcglm}}
 
 No que diz respeito à implementações do teste Wald em outros contextos no \proglang{R}, o pacote \pkg{lmtest} \citep{lmtest} possui uma função genérica para realizar testes Wald para comparar modelos lineares e lineares generalizados aninhados. Já o pacote \pkg{survey} \citep{survey1,survey2,survey3} possui uma função que efetua testes Wald que, por padrão, testa se todos os coeficientes associados a um determinado termo de regressão são zero, mas é possível especificar hipóteses com outros valores.
 
 O pacote \pkg{car} \citep{car} possui uma implementação para testar hipóteses lineares sobre parâmetros de modelos lineares, modelos lineares generalizados, modelos lineares multivariados, modelos de efeitos mistos, dentre outros; nesta implementação o usuário tem total controle de que parâmetros testar e com quais valores confrontar na hipótese nula. 
 
-Quanto aos quadros de análise de variância, o R possui a função \code{anova()} no pacote padrão \pkg{stats} \citep{R2022} aplicável a modelos lineares e lineares generalizados. Já o pacote \pkg{car} \citep{car} possui uma função que retorna quadros de análise de variância dos tipos II e III para diversos modelos. Para comparações múltiplas, um dos principais pacotes disponíveis é o \pkg{multcomp} \citep{multcomp} que fornece uma interface para testes de comparações múltiplas para modelos paramétricos.
+Quanto aos quadros de análise de variância, o \proglang{R} possui a função \code{anova()} no pacote padrão \pkg{stats} \citep{R2022} aplicável a modelos lineares e lineares generalizados. Já o pacote \pkg{car} \citep{car} possui uma função que retorna quadros de análise de variância dos tipos II e III para diversos modelos. Para comparações múltiplas, um dos principais pacotes disponíveis é o \pkg{multcomp} \citep{multcomp} que fornece uma interface para testes de comparações múltiplas para modelos paramétricos.
 
-Contudo, quando se trata de modelos multivariados de covariância linear generalizada ajustados no pacote \pkg{mcglm} existe apenas um tipo de análise de variância univariada implementada na biblioteca e não existem opções para realização de testes de hipóteses lineares gerais, nem testes de comparações múltiplas. Portanto, por se tratar de uma classe de modelos flexível e com alto poder de aplicação a problemas práticos, nosso objetivo geral é fornecer implementações que permitam efetuar testes de hipóteses para os McGLMs de tal modo que seja possível testar hipóteses lineares gerais, gerar quadros de análise variância, análise de variância multivariada e testes de comparações múltiplas.
+Contudo, quando se trata de modelos multivariados de covariância linear generalizada ajustados no pacote \pkg{mcglm} existe apenas um tipo de análise de variância implementada na biblioteca e não existem opções para realização de testes de hipóteses lineares gerais, nem testes de comparações múltiplas. Portanto, por se tratar de uma classe de modelos flexível e com alto poder de aplicação a problemas práticos, nosso objetivo geral é fornecer implementações que permitam efetuar testes de hipóteses para os McGLMs de tal modo que seja possível testar hipóteses lineares gerais, gerar quadros de análise variância, análise de variância multivariada e testes de comparações múltiplas.
 
-The article is organized as follows. In \autoref{sec:mcglm} we present a revisão da estrutura geral e estimação dos parâmetros de um McGLM, baseado nas ideias de \citet{Bonat16}. In \autoref{sec:wald} são apresentados os detalhes do teste Wald para avaliar suposições sobre parâmetros de um McGLM. \autoref{sec:implementacao} introduces the R implementation discussing the main functions available in the \pkg{htmcglm} package. \autoref{sec:exemplos} ilustrates the package usage through some examples. Finally, \autoref{sec:conclusao} presents a discussion and directions for future work on the improvement of the \pkg{htmcglm} package.
+The article is organized as follows. In \autoref{sec:mcglm} we present a revisão da estrutura geral e estimação dos parâmetros de um McGLM, baseado nas ideias de \citet{Bonat16}. In \autoref{sec:wald} são apresentados os detalhes do teste Wald para avaliar suposições sobre parâmetros de um McGLM. \autoref{sec:implementacao} introduces the \proglang{R} implementation discussing the main functions available in the \pkg{htmcglm} package. \autoref{sec:exemplos} ilustrates the package usage through some examples. Finally, \autoref{sec:conclusao} presents a discussion and directions for future work on the improvement of the \pkg{htmcglm} package.
 
 %-----------------------------------------------------------------------
 
@@ -213,7 +213,7 @@ Algumas possíveis funções de ligação de covariância são a identidade, inv
 
 Deste modo, os McGLMs configuram uma estrutura geral para análise via modelos de regressão para dados não gaussianos com múltiplas respostas em que não se faz suposições quanto à independência das observações. A classe é definida por 3 funções (de ligação, de variância e de covariância) além de um preditor linear e um preditor linear matricial para cada resposta sob análise. 
 
-\subsection{Estimação e inferência}
+\subsection{Estimação e inferência}\label{sec:inf}
 
 Os McGLMs são ajustados baseados no método de funções de estimação descritos em detalhes por \citet{Bonat16} e \citet{jorg04}. Nesta subseção é apresentada uma visão geral do algoritmo e da distribuição assintótica dos estimadores baseados em funções de estimação.
 
@@ -334,7 +334,7 @@ Em geral, cada coluna da matriz $\boldsymbol{L}$ corresponde a um dos $h$ parâm
 
 \textbf{REF MEU ARTIGO} apresenta exemplos de como testar diferentes tipos de hipóteses de interesse que surgem em contextos práticos. Apresentaremos neste trabalho dois destes exemplos: hipóteses para múltiplos parâmetros e hipóteses sobre parâmetros de regressão ou dispersão para respostas sob mesmo preditor.
 
-Para fins de ilustração, considere a situação em que deseja-se investigar se uma variável numérica $X_1$ possui efeito sobre duas variáveis respostas, denotadas por $Y_1$ e $Y_2$. Para tal tarefa coletou-se uma amostra com $N$ observações e para cada observação registrou-se os valores de $X_1$, $Y_1$ e $Y_2$. Com base nos dados coletados ajustou-se um McGLM bivariado, com preditor dado por:
+Para fins de ilustração, considere a situação em que deseja-se investigar se uma variável numérica $X_1$ possui efeito sobre duas variáveis respostas, denotadas por $Y_1$ e $Y_2$. Um McGLM bivariado para este problema pode ter preditor dado por:
 
 \begin{equation}
 \label{eq:pred_ex}
@@ -424,7 +424,7 @@ Deste modo, o produto $\boldsymbol{L}\boldsymbol{\beta}$ representa a hipótese 
 
 Com base na proposta de utilização do teste Wald para McGLMs, \textbf{REF MEU ARTIGO} propuseram três diferentes procedimentos para geração de quadros de ANOVA e MANOVA para parâmetros de regressão e um procedimento análogo à uma ANOVA e MANOVA para avaliação dos parâmetros de dispersão de um dado modelo. No caso das ANOVAs gera-se um quadro para cada variável resposta. Para as MANOVAs apenas um quadro é gerado, por isso, para que seja possível realizar as MANOVAs, as respostas do modelo devem estar sujeitas ao mesmo preditor.
 
-Para fins de ilustração, considere a situação em que deseja-se investigar se duas variáveis numéricas denotadas por $X_1$ e $X_2$ possuem efeito sobre duas variáveis resposta denotadas por $Y_1$ e $Y_2$. Para tal tarefa coletou-se uma amostra com $N$ observações e para cada observação foram registrados os valores de $X_1$, $X_2$, $Y_1$ e $Y_2$. Com base nos dados coletados ajustou-se um modelo bivariado, com preditor dado por:
+Para fins de ilustração, considere a situação em que deseja-se investigar se duas variáveis numéricas denotadas por $X_1$ e $X_2$ possuem efeito sobre duas variáveis resposta denotadas por $Y_1$ e $Y_2$. Para este caso, considere o seguinte preditor:
 
 $$
 g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} x_2 + \beta_{r3} X_1X_2.
@@ -447,11 +447,11 @@ A análise de variância do tipo II descrita em \textbf{REF MEU ARTIGO} testa, e
 
 \subsection{Teste de comparações múltiplas via teste Wald}
 
-Quando a ANOVA aponta para efeito significativo de uma variável categórica, costuma ser de interesse avaliar quais dos níveis diferem entre si. Para isso são empregados os testes de comparações múltiplas. Na literatura existem diversos procedimentos para efetuar tais testes, muitos deles descritos em \citet{hsu196multiple}.
+Quando a ANOVA aponta para efeito significativo de uma variável categórica, costuma ser de interesse avaliar quais dos níveis diferem entre si. Para isso são empregados os testes de comparações múltiplas. Na literatura existem diversos procedimentos para efetuar tais testes, muitos deles descritos em \citet{hsu1996multiple}.
 
 Tal tipo de situação pode ser avaliada utilizando o teste Wald. Através da correta especificação da matriz $\boldsymbol{L}$, é possível avaliar hipóteses sobre qualquer possível contraste entre os níveis de uma determinada variável categórica. Portanto, é possível usar a estatística de Wald para efetuar também testes de comparações múltiplas.
 
-O procedimento é baseado basicamente em 3 passos. O primeiro deles é obter a matriz de combinações lineares dos parâmetros do modelo que resultam nas médias ajustadas. Com esta matriz é possível gerar a matriz de contrastes, dada pela subtração duas a duas das linhas da matriz de combinações lineares. Por fim, basta selecionar as linhas de interesse desta matriz e usá-las como matriz de especificação de hipóteses do teste Wald, no lugar da matriz $\boldsymbol{L}$.
+O procedimento é baseado basicamente em 3 passos: (i) obter a matriz de combinações lineares dos parâmetros do modelo que resultam nas médias ajustadas; (ii) gerar a matriz de contrastes, dada pela subtração duas a duas das linhas da matriz de combinações lineares; e (iii) selecionar as linhas de interesse desta matriz e usá-las como matriz de especificação de hipóteses do teste Wald, no lugar da matriz $\boldsymbol{L}$.
 	
 Por exemplo, suponha que há uma variável resposta $Y$ sujeita a uma variável explicativa $X$ de 4 níveis: A, B, C e D. Para avaliar o efeito da variável $X$, ajustou-se um modelo dado por:
 
@@ -459,7 +459,7 @@ $$g(\mu) = \beta_0 + \beta_1[X=B] + \beta_2[X=C] + \beta_3[X=D].$$
 
 \noindent Nesta parametrização o primeiro nível da variável categórica é mantido como categoria de referência e, para os demais níveis, mede-se a mudança para a categoria de referência; este é o chamado contraste de tratamento. Neste contexto $\beta_0$ representa a média ajustada do nível A, enquanto que $\beta_1$ representa a diferença de A para B, $\beta_2$ representa a diferença de A para C e $\beta_3$ representa a diferença de A para D. Com esta parametrização é possível obter o valor predito para qualquer uma das categorias de tal modo que se o indivíduo pertencer à categoria A, $\beta_0$ representa o predito; se o indivíduo pertencer à categoria B, $\beta_0 + \beta_1$ representa o predito; para a categoria C, $\beta_0 + \beta_2$ representa o predito e, por fim, para a categoria D, $\beta_0 + \beta_3$ representa o predito.
 
-Matricialmente, estes resultados podem ser descritos como
+Matricialmente, estes resultados podem ser descritos como:
 
 $$
     \boldsymbol{K_0} = 
@@ -477,7 +477,7 @@ $$
     \end{bmatrix}
 $$
 
-Note que o produto $\boldsymbol{K_0} \boldsymbol{\beta}$ gera o vetor de preditos para cada nível de $X$. Por meio da subtração das linhas da matriz de combinações lineares $\boldsymbol{K_0}$ podemos gerar uma matriz de contrastes $\boldsymbol{K_1}$
+Note que o produto $\boldsymbol{K_0} \boldsymbol{\beta}$ gera o vetor de preditos para cada nível de $X$. Por meio da subtração das linhas da matriz de combinações lineares $\boldsymbol{K_0}$ podemos gerar uma matriz de contrastes $\boldsymbol{K_1}$:
 
 $$
     \boldsymbol{K_1} = 
@@ -509,7 +509,7 @@ Na prática, se o interesse for um teste de comparações múltiplas multivariad
 
 \section{Implementation}\label{sec:implementacao}
 
-Todas as funções implementadas geram resultados mostrando graus de liberdade e valores-p baseados no teste Wald aplicado a um McGLM. A \autoref{tab:funcoes} mostra os nomes e uma breve descrição das funções implementadas.
+Todas as funções implementadas no pacote \pkg{htmcglm} geram resultados mostrando graus de liberdade e valores-p baseados no teste Wald aplicado a um McGLM. A \autoref{tab:funcoes} mostra os nomes e uma breve descrição das funções implementadas.
 
 \begin{table}[h]
 \centering
@@ -518,22 +518,22 @@ Todas as funções implementadas geram resultados mostrando graus de liberdade e
 Função                   & Descrição \\ 
 \hline
 
-mc\_anova\_I()           & ANOVA  tipo I \\
-mc\_anova\_II()          & ANOVA  tipo II \\
-mc\_anova\_III()         & ANOVA  tipo III \\
+\code{mc_anova_I()}           & ANOVA  tipo I \\
+\code{mc_anova_II()}          & ANOVA  tipo II \\
+\code{mc_anova_III()}         & ANOVA  tipo III \\
 
-mc\_manova\_I()          & MANOVA tipo I \\
-mc\_manova\_II()         & MANOVA tipo II \\
-mc\_manova\_III()        & MANOVA tipo III \\
+\code{mc_manova_I()}          & MANOVA tipo I \\
+\code{mc_manova_II()}         & MANOVA tipo II \\
+\code{mc_manova_III()}        & MANOVA tipo III \\
 
-mc\_anova\_dispersion()        & ANOVA  tipo III para dispersão \\
-mc\_manova\_dispersion()       & MANOVA tipo III para dispersão \\
+\code{mc_anova_dispersion()}  & ANOVA  tipo III para dispersão \\
+\code{mc_manova_dispersion()} & MANOVA tipo III para dispersão \\
 
-mc\_multcomp()           & Testes de comparações múltiplas por resposta \\
+\code{mc_multcomp()}          & Testes de comparações múltiplas por resposta \\
 
-mc\_mult\_multcomp()     & Testes de comparações múltiplas multivariado \\
+\code{mc_mult_multcomp()}     & Testes de comparações múltiplas multivariado \\
 
-mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuário \\
+\code{mc_linear_hypothesis()} & Hipóteses lineares gerais especificadas pelo usuário \\
 
 \hline
 \end{tabular}
@@ -541,56 +541,31 @@ mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuári
 \label{tab:funcoes}
 \end{table}
 
-As funções \emph{mc\_anova\_I()}, \emph{mc\_anova\_II()} e \emph{mc\_anova\_III()} são funções destinadas à avaliação dos parâmetros de regressão do modelo; elas geram quadros de análise de variância por resposta para um modelo \emph{mcglm}. As funções \emph{mc\_manova\_I()}, \emph{mc\_manova\_II()} e \emph{mc\_manova\_III()} também são funções destinadas à avaliação dos parâmetros de regressão do modelo; elas geram quadros de análise de variância multivariada para um modelo \emph{mcglm}. Enquanto as funções de análise de variância univariadas visam avaliar o efeito das variáveis para cada resposta, as multivariadas visam avaliar o efeito das variáveis explicativas em todas as variáveis resposta simultaneamente. As nomenclaturas seguem o que foi exposto no \autoref{cap:proposta} e as funções recebem como argumento apenas o objeto que armazena o modelo devidamente ajustado.
+As funções \code{mc_anova_I()}, \code{mc_anova_II()} e \code{mc_anova_III()} são funções destinadas à avaliação dos parâmetros de regressão; elas geram quadros de análise de variância por resposta para um McGLM ajustado no pacote \pkg{mcglm}. As funções \code{mc_manova_I()}, \code{mc_manova_II()} e \code{mc_manova_III()} também são funções destinadas à avaliação dos parâmetros de regressão do modelo; elas geram quadros de análise de variância multivariada para um McGLM em que as respostas estão sujeitas ao mesmo preditor. Enquanto as funções de análise de variância univariadas visam avaliar o efeito das variáveis para cada resposta, as multivariadas visam avaliar o efeito das variáveis explicativas em todas as variáveis resposta simultaneamente. As nomenclaturas seguem o que é apresentado em \textbf{REF MEU ARTIGO} e as funções recebem como argumento apenas o objeto que armazena o modelo devidamente ajustado.
 
-Tal como descrito no \autoref{cap:referencial}, a matriz $\boldsymbol{\Omega({\tau})}$ tem como objetivo modelar a correlação existente entre linhas do conjunto de dados por meio do chamado preditor linear matricial. Na prática temos, para cada matriz do preditor matricial, um parâmetro de dispersão $\tau_d$. De modo análogo ao que é feito para o preditor de média, podemos usar estes parâmetros para avaliar o efeito das unidades correlacionadas no estudo. Neste sentido implementamos as funções \emph{mc\_anova\_dispersion()} e \emph{mc\_manova\_dispersion()}. 
+Tal como descrito no \autoref{sec:inf}, a matriz $\boldsymbol{\Omega({\tau})}$ tem como objetivo modelar a correlação existente entre linhas do conjunto de dados por meio do chamado preditor linear matricial. Na prática temos, para cada matriz do preditor matricial, um parâmetro de dispersão $\tau_d$. De modo análogo ao que é feito para o preditor de média, podemos usar estes parâmetros para avaliar o efeito das unidades correlacionadas no estudo. Para isso, implementamos as funções \code{mc_anova_dispersion()} e \code{mc_manova_dispersion()}. 
 
-A função \emph{mc\_anova\_dispersion()} efetua uma análise de variância do tipo III para os parâmetros de dispersão do modelo. Tal como as demais funções com prefixo \emph{mc\_anova}, é gerado um quadro para cada variável resposta, isto é, nos casos mais gerais avaliamos se há evidência que nos permita afirmar que determinado parâmetro de dispersão é igual a 0, ou seja, se existe efeito das medidas correlacionadas tal como especificado no preditor matricial para aquela resposta. A função recebe como argumento o objeto em que está armazenado o modelo, uma lista de índices indicando de que forma os parâmetros dispersão devem ser testados para cada resposta, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
+A função \code{mc_anova_dispersion()} efetua uma análise de variância para os parâmetros de dispersão do modelo. Tal como as demais funções com prefixo \code{mc_anova}, é gerado um quadro para cada variável resposta, isto é, nos casos mais gerais avaliamos se há evidência que nos permita afirmar que determinado parâmetro de dispersão é igual a 0, ou seja, se existe efeito das medidas correlacionadas tal como especificado no preditor matricial para aquela resposta. A função recebe como argumento o objeto em que está armazenado o modelo, uma lista de índices indicando de que forma os parâmetros dispersão devem ser testados para cada resposta, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
 
-Já a função \emph{mc\_manova\_dispersion()} pode ser utilizada em um modelo multivariado em que os preditores matriciais são iguais para todas as respostas e há o interesse em avaliar se o efeito das medidas correlacionadas é o mesmo para todas as respostas. Esta função recebe como argumento o objeto em que está armazenado o modelo, um vetor de índices indicando de que forma os parâmetros dispersão devem ser testados, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
+Já a função \code{mc_manova_dispersion()} pode ser utilizada em um modelo multivariado em que os preditores matriciais são iguais para todas as respostas e há o interesse em avaliar se o efeito das medidas correlacionadas é o mesmo para todas as respostas. Esta função recebe como argumento o objeto em que está armazenado o modelo, um vetor de índices indicando de que forma os parâmetros dispersão devem ser testados, de tal modo que parâmetros de dispersão que devem ser testados juntos compartilhem o mesmo índice; o último argumento são os nomes a serem mostrados no quadro final.
 
-Para testes de comparações múltiplas foram implementadas as funções \emph{mc\_multcomp()} e \emph{mc\_mult\_multcomp()}. Estas funções devem ser usadas como complemento às funções de análise de variância e análise de variância multivariada quando estas apontam para efeito significativo de variáveis explicativas categóricas. As funções para comparações múltiplas são usadas para realizar comparações duas a duas e identificar quais níveis diferem entre si. Estas funções recebem como argumento o modelo, a variável ou variáveis em que há interesse em avaliar comparações entre níveis e também os dados usados para ajustar o modelo.
+Para testes de comparações múltiplas foram implementadas as funções \code{mc_multcomp()} e \code{mc_mult_multcomp()}. Estas funções devem ser usadas como complemento às funções de análise de variância e análise de variância multivariada quando estas apontam para efeito significativo de variáveis explicativas categóricas. As funções para comparações múltiplas são usadas para realizar comparações duas a duas e identificar quais níveis diferem entre si. Estas funções recebem como argumento o modelo, a variável ou variáveis em que há interesse em avaliar comparações entre níveis e também os dados usados para ajustar o modelo.
 
-Por fim, a função \emph{mc\_linear\_hypothesis()} é a implementação computacional em R que permite a execução de qualquer um dos testes apresentados no \autoref{cap:proposta}. É a função mais flexível que temos no conjunto de implementações. Com ela é possível especificar qualquer tipo de hipótese sobre parâmetros de regressão, dispersão ou potência de um modelo \emph{mcglm}. Também é possível especificar hipóteses sobre múltiplos parâmetros e o vetor de valores da hipótese nula é definido pelo usuário. Esta função recebe como argumentos o modelo e um vetor contendo os parâmetros que devem ser testados e o os valores sob hipótese nula. Com algum trabalho, por meio da função de hipóteses lineares gerais, é possível replicar os resultados obtidos pelas funções de análise de variância.
+Por fim, a função \code{mc_linear_hypothesis()} é a mais flexível que temos no conjunto de implementações. Com ela é possível especificar qualquer tipo de hipótese sobre parâmetros de regressão, dispersão ou potência de um McGLM. Também é possível especificar hipóteses sobre múltiplos parâmetros e o vetor de valores da hipótese nula é definido pelo usuário. Esta função recebe como argumentos o modelo e um vetor contendo os parâmetros que devem ser testados e o os valores sob hipótese nula. Com algum trabalho, por meio da função de hipóteses lineares gerais, é possível replicar os resultados obtidos pelas funções de análise de variância.
 
 %-----------------------------------------------------------------------
 
 \section{Examples}\label{sec:exemplos}
 
-\subsection{Instalação}
+Nesta seção fornecemos exemplos práticos de utilização das funções implementadas no pacote pkg{htmcglm} com base em modelos multivariados ajustados com o pacote \emph{mcglm}.
 
 
-
-O pacote \emph{mcglm} está disponível no Comprehensive R Archive Network (CRAN) em https://CRAN.R-project.org/package=mcglm e pode ser instalado por meio da função \emph{install.packages()}.
-
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{install.packages}\hlstd{(}\hlstr{"mcglm"}\hlstd{)}
-\hlkwd{library}\hlstd{(mcglm)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-
-As implementações referentes a este trabalho estão disponíveis publicamente na plataforma github em https://github.com/lineu96/htmcglm e podem ser instaladas por meio da função \emph{install\_github} do pacote \emph{devtools}.
-
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{library}\hlstd{(devtools)}
-\hlkwd{install_github}\hlstd{(}\hlstr{"lineu96/htmcglm"}\hlstd{)}
-\hlkwd{library}\hlstd{(htmcglm)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-
-Nesta seção fornecemos exemplos práticos de utilização das funções implementadas com base em modelos multivariados ajustados com o pacote \emph{mcglm}.
 
 \subsection{Exemplo 1: soya}
 
-Os dados são de um experimento feito em uma casa de vegetação com soja. O delineamento experimental conta com duas plantas por parcela em que cada unidade foi submetida a diferentes combinações de água e adubo. Existem três níveis de um fator correspondente à quantidade de água no solo (\emph{water}) e cinco níveis de adubação com potássio (\emph{pot}). Além disso as parcelas foram dispostas em cinco blocos (\emph{block}). Três variáveis resposta foram avaliadas: a produtividade de grãos (\emph{grain}), número de sementes (\emph{seeds}) e número de ervilhas viáveis por planta (\emph{viablepeas}).
+Os dados são de um experimento feito em uma casa de vegetação com soja. O delineamento experimental conta com duas plantas por parcela em que cada unidade foi submetida a diferentes combinações de água e adubo. Existem três níveis de um fator correspondente à quantidade de água no solo (\code{water}) e cinco níveis de adubação com potássio (\code{pot}). Além disso as parcelas foram dispostas em cinco blocos (\code{block}). Três variáveis resposta foram avaliadas: a produtividade de grãos (\code{grain}), número de sementes (\code{seeds}) e número de ervilhas viáveis por planta (\code{viablepeas}).
 
-Trata-se de um conjunto de dados interessante para exemplificar o uso das funções implementadas pois existem três variáveis resposta de tipos distintos: a produtividade de grãos é uma variável contínua, o número de sementes é uma contagem, e o número de ervilhas viáveis por planta é um exemplo de variável binomial. O conjunto de dados está disponível no pacote \emph{mcglm}.
+Trata-se de um conjunto de dados interessante para exemplificar o uso das funções implementadas pois existem três variáveis resposta de tipos distintos: a produtividade de grãos é uma variável contínua, o número de sementes é uma contagem, e o número de ervilhas viáveis por planta é um exemplo de variável binomial. O conjunto de dados está disponível no pacote \code{mcglm}.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -600,9 +575,7 @@ Trata-se de um conjunto de dados interessante para exemplificar o uso das funç�
 \end{kframe}
 \end{knitrout}
 
-O objetivo da análise é avaliar o efeito de adubação e água sobre as três variáveis resposta de interesse. Para fins de análise consideramos como variáveis explicativas os níveis de água, adubação e também as interações entre estes dois fatores. Adicionalmente, o efeito de bloco foi acrescentado aos preditores. 
-
-Para ajustar o modelo o primeiro passo é especificar os preditores lineares.
+O objetivo da análise é avaliar o efeito de adubação e água sobre as três variáveis resposta de interesse. Para fins de análise consideramos como variáveis explicativas os níveis de água, adubação e também as interações entre estes dois fatores. Adicionalmente, o efeito de bloco foi acrescentado aos preditores. Para ajustar o modelo o primeiro passo é especificar os preditores lineares.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -626,7 +599,7 @@ O segundo passo é especificar as matrizes do preditor linear matricial. Conside
 \end{kframe}
 \end{knitrout}
 
-Com os elementos definidos, podemos ajustar o modelo. Por meio da função \emph{mcglm()} especificamos os preditores lineares para média, as matrizes dos preditores matriciais, as funções de ligação, de variância, o número de tentativas para a variável binomial e se temos interesse em estimar ou não os parâmetros de potência. Para mais detalhes sobre especificação de preditores e ajuste de McGLMs, consulte \citet{Bonat16} e \citet{mcglm}.
+Com os elementos definidos, podemos ajustar o modelo. Por meio da função \code{mcglm()} especificamos os preditores lineares para média, as matrizes dos preditores matriciais, as funções de ligação, de variância, o número de tentativas para a variável binomial e se temos interesse em estimar ou não os parâmetros de potência. Para mais detalhes sobre especificação de preditores e ajuste de McGLMs, consulte \citet{Bonat16} e \citet{mcglm}.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -653,14 +626,14 @@ Com os elementos definidos, podemos ajustar o modelo. Por meio da função \emph
 \end{knitrout}
 
 
-Para avaliar alguns resultados do modelo é possível utilizar a função \emph{summary()} que retorna a fórmula dos preditores lineares, as funções de ligação, de variância, de covariância especificadas para ajustar o modelo, as estimativas dos parâmetros de regressão e dispersão bem como os erros padrões.
+Para avaliar alguns resultados do modelo é possível utilizar a função \code{summary()} que retorna a fórmula dos preditores lineares, as funções de ligação, de variância, de covariância especificadas para ajustar o modelo, as estimativas dos parâmetros de regressão e dispersão bem como os erros padrões.
 
 \subsubsection{Quadros de análise de variância para parâmetros de regressão}
 
 Com o modelo ajustado podemos aplicar as funções implementadas para avaliar os parâmetros de regressão e dispersão do modelo. As funções de análise de variância dependem apenas do objeto que contém o modelo ajustado e retornam um quadro para cada resposta.
 
-{ANOVA tipo I}
-
+ - ANOVA tipo I
+ 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -699,7 +672,7 @@ Com o modelo ajustado podemos aplicar as funções implementadas para avaliar os
 \end{kframe}
 \end{knitrout}
 
-{ANOVA tipo II}
+ - ANOVA tipo II
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -739,7 +712,7 @@ Com o modelo ajustado podemos aplicar as funções implementadas para avaliar os
 \end{kframe}
 \end{knitrout}
 
-{ANOVA tipo III}
+ - ANOVA tipo III
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -781,7 +754,7 @@ Com o modelo ajustado podemos aplicar as funções implementadas para avaliar os
 
 De forma similar, as funções de análise de variância multivariadas também dependem apenas do modelo ajustado. É importante notar que para fins práticos as funções de análise de variância multivariada necessitam que os preditores para todas as respostas sejam os mesmos.
 
-{MANOVA tipo I}
+ - MANOVA tipo I
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -802,7 +775,7 @@ De forma similar, as funções de análise de variância multivariadas também d
 \end{kframe}
 \end{knitrout}
 
-{MANOVA tipo II}
+ - MANOVA tipo II
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -823,7 +796,7 @@ De forma similar, as funções de análise de variância multivariadas também d
 \end{kframe}
 \end{knitrout}
 
-{MANOVA tipo III}
+ - MANOVA tipo III
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -844,9 +817,9 @@ De forma similar, as funções de análise de variância multivariadas também d
 \end{kframe}
 \end{knitrout}
 
-Para hipóteses lineares gerais sobre parâmetros de regressão basta especificar o modelo e a hipótese a ser testada. Para identificar os parâmetros de interesse, utilize a função \emph{coef()}.
+Para hipóteses lineares gerais sobre parâmetros de regressão basta especificar o modelo e a hipótese a ser testada. Para identificar os parâmetros de interesse, utilize a função \code{coef()}.
 
-{Teste sobre um único parâmetro de regressão}
+ - Teste sobre um único parâmetro de regressão
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -867,7 +840,7 @@ Para hipóteses lineares gerais sobre parâmetros de regressão basta especifica
 \end{kframe}
 \end{knitrout}
 
-{Teste sobre mais de um parâmetro de regressão}
+ - Teste sobre mais de um parâmetro de regressão
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -890,7 +863,7 @@ Para hipóteses lineares gerais sobre parâmetros de regressão basta especifica
 \end{kframe}
 \end{knitrout}
 
-{Teste de igualdade de efeitos entre parâmetros de regressão}
+ - Teste de igualdade de efeitos entre parâmetros de regressão
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -914,7 +887,7 @@ Para hipóteses lineares gerais sobre parâmetros de regressão basta especifica
 
 \subsection{Exemplo 2: Hunting}
 
-O conjunto de dados Hunting, apresentados em \citet{hunting}, também está disponível no pacote \emph{mcglm}. Os dados tratam de um problema em que as respostas são contagens bivariadas longitudinais sobre animais caçados na vila de Basile Fang, Bioko Norte Province, Bioko Island, Equatorial Guinea. As variáveis respostas são: números mensais de blue duikers (BD) e outros pequenos animais (OT) baleados ou capturados em uma amostra aleatória de 52 caçadores comerciais de agosto de 2010 a setembro de 2013. Consideremos que o interesse é avaliar o efeito de um fator com 2 níveis que indica se o animal foi caçado por meio de arma de fogo ou armadilha (\emph{METHOD}) e um fator com 2 níveis que indica o sexo do animal (\emph{SEX}).
+O conjunto de dados Hunting, apresentados em \citet{hunting}, também está disponível no pacote \pkg{mcglm}. Os dados tratam de um problema em que as respostas são contagens bivariadas longitudinais sobre animais caçados na vila de Basile Fang, Bioko Norte Province, Bioko Island, Equatorial Guinea. As variáveis respostas são: números mensais de blue duikers (\code{BD}) e outros pequenos animais (\code{OT}) baleados ou capturados em uma amostra aleatória de 52 caçadores comerciais de agosto de 2010 a setembro de 2013. Consideremos que o interesse é avaliar o efeito de um fator com 2 níveis que indica se o animal foi caçado por meio de arma de fogo ou armadilha (\code{METHOD}) e um fator com 2 níveis que indica o sexo do animal (\code{SEX}).
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -924,7 +897,7 @@ O conjunto de dados Hunting, apresentados em \citet{hunting}, também está disp
 \end{kframe}
 \end{knitrout}
 
-Tal como no primeiro exemplo, para ajuste do modelo é necessário definir os preditores lineares para média, as matrizes dos preditores matriciais, as funções de ligação, de variância, se temos interesse em estimar ou não os parâmetros de potência. Para esta análise consideramos no preditor matricial a estrutura de medidas repetidas introduzidas pelas observações tomadas para o mesmo caçador e mês (HUNTER.MONTH) e o número de dias de caça por mês foi usado como termo offset.
+Tal como no primeiro exemplo, para ajuste do modelo é necessário definir os preditores lineares para média, as matrizes dos preditores matriciais, as funções de ligação, de variância, se temos interesse em estimar ou não os parâmetros de potência. Para esta análise consideramos no preditor matricial a estrutura de medidas repetidas introduzidas pelas observações tomadas para o mesmo caçador e mês (\code{HUNTER.MONTH}) e o número de dias de caça por mês foi usado como termo offset.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -948,11 +921,11 @@ Tal como no primeiro exemplo, para ajuste do modelo é necessário definir os pr
 \end{kframe}
 \end{knitrout}
 
-Novamente, para avaliar alguns resultados do modelo é possível utilizar a função \emph{summary()}. Podemos também aplicar as já apresentadas funções implementadas para ANOVAs, MANOVAs e testes de hipóteses lineares gerais sobre os parâmetros de regressão e dispersão do modelo.
+Novamente, para avaliar alguns resultados do modelo é possível utilizar a função \code{summary()}. Podemos também aplicar as já apresentadas funções implementadas para ANOVAs, MANOVAs e testes de hipóteses lineares gerais sobre os parâmetros de regressão e dispersão do modelo.
 
-Neste caso, como existe um preditor matricial especificado, pode ser de interesse um estudo aprofundado dos parâmetros de dispersão. Esta análise pode ser feita com a já utilizada função \emph{mc\_linear\_hypothesis()}.
+Neste caso, como existe um preditor matricial especificado, pode ser de interesse um estudo aprofundado dos parâmetros de dispersão. Esta análise pode ser feita com a já utilizada função \code{mc_linear_hypothesis()}.
 
-{Teste sobre um único parâmetro de dispersão}
+ - Teste sobre um único parâmetro de dispersão
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -973,7 +946,7 @@ Neste caso, como existe um preditor matricial especificado, pode ser de interess
 \end{kframe}
 \end{knitrout}
 
-{Teste sobre mais de um parâmetro de dispersão}
+ - Teste sobre mais de um parâmetro de dispersão
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -996,7 +969,7 @@ Neste caso, como existe um preditor matricial especificado, pode ser de interess
 \end{kframe}
 \end{knitrout}
 
-{Teste de igualdade de efeitos entre parâmetros de dispersão}
+ - Teste de igualdade de efeitos entre parâmetros de dispersão
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -1017,11 +990,9 @@ Neste caso, como existe um preditor matricial especificado, pode ser de interess
 \end{kframe}
 \end{knitrout}
 
-{Quadro de análise de variância para parâmetros de dispersão}
+Ainda para avaliar parâmetros de dispersão, temos o procedimento análogo à análise de variância para parâmetros de regressão. Estas funções requerem a especificação de mais argumentos: um deles que determina a relação entre parâmetros de dispersão e o outro que especifica os nomes que aparecerão na saída final.
 
-As funções para avaliar os parâmetros de dispersão por meio de um procedimento análogo à análise de variância para parâmetros de regressão, requerem a especificação de mais argumentos: um deles que determina a relação entre parâmetros de dispersão e o outro que especifica os nomes que aparecerão na saída final.
-
-{ANOVA tipo III para dispersão}
+ - ANOVA tipo III para dispersão
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -1049,7 +1020,7 @@ As funções para avaliar os parâmetros de dispersão por meio de um procedimen
 \end{kframe}
 \end{knitrout}
 
-{MANOVA tipo III para dispersão}
+ - MANOVA tipo III para dispersão
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -1069,9 +1040,9 @@ As funções para avaliar os parâmetros de dispersão por meio de um procedimen
 \end{kframe}
 \end{knitrout}
 
-{Comparações múltiplas}
+Por fim, podemos utilizar as funções para testes de comparações múltiplas para avaliar diferenças existentes entre níveis de variáveis explicativas categóricas incluídas no modelo. 
 
-Por fim, podemos utilizar as funções para testes de comparações múltiplas para avaliar diferenças existentes entre níveis de variáveis explicativas categóricas incluídas no modelo. Esta tarefa pode ser feita por variável resposta:
+ - Teste de comparações múltiplas univariado
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -1107,7 +1078,7 @@ Por fim, podemos utilizar as funções para testes de comparações múltiplas p
 \end{kframe}
 \end{knitrout}
 
-Já no caso de preditores iguais para todas as respostas é possível realizar um teste de comparações múltiplas multivariado.
+ - Teste de comparações múltiplas multivariado
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -1135,15 +1106,15 @@ Já no caso de preditores iguais para todas as respostas é possível realizar u
 
 \section{Concluding remarks}\label{sec:conclusao}
 
-This article described the R implementation of procedimentos para realizar testes de hipóteses sobre parâmetros de McGLMs baseados na estatística de Wald. McGLMs contam com parâmetros de regressão, dispersão, potência e correlação; cada conjunto de parâmetros possui uma interpretação prática bastante relevante no contexto de análise de problemas com potenciais múltiplas respostas em função de um conjunto de variáveis explicativas.
+This article described the \proglang{R} implementation of procedimentos para realizar testes de hipóteses sobre parâmetros de McGLMs baseados na estatística de Wald. McGLMs contam com parâmetros de regressão, dispersão, potência e correlação; cada conjunto de parâmetros possui uma interpretação prática bastante relevante no contexto de análise de problemas com potenciais múltiplas respostas em função de um conjunto de variáveis explicativas.
 
-Com base na proposta de utilização do teste Wald para McGLMs, desenvolvemos procedimentos para testes de hipóteses lineares gerais, geração de quadros de ANOVA e MANOVA para parâmetros de regressão e dispersão e também testes de comparações múltiplas. Todos estes procedimentos foram implementados na linguagem R e complementam as funcionalidades existentes na biblioteca \emph{mcglm}.
+Com base na proposta de utilização do teste Wald para McGLMs, desenvolvemos procedimentos para testes de hipóteses lineares gerais, geração de quadros de ANOVA e MANOVA para parâmetros de regressão e dispersão e também testes de comparações múltiplas. Todos estes procedimentos foram implementados na linguagem \proglang{R} e complementam as funcionalidades existentes na biblioteca \pkg{mcglm}.
 
 
 The discussed examples illustrate the...
 
 
-Possíveis extensões deste trabalho que seguem na linha de avaliação de parâmetros de McGLMs para um melhor entendimento do impacto dos elementos em problemas de modelagem são: explorar correções de valores-p de acordo com o tamanho das hipóteses testadas, explorar procedimentos além do teste Wald (como o teste Escore e o teste da razão de verossimilhanças), implementar novos procedimentos para comparações múltiplas, adaptar a proposta para lidar com contrastes alternativos aos usuais, explorar procedimentos para seleção automática de covariáveis (backward elimination, forward selection, stepwise selection) e também seleção de covariáveis por meio de inclusão de penalização no ajuste por complexidade (similar a ideia de regressão por splines).
+Possíveis extensões do pacote \pkg{mcglm} seguem na linha de avaliação de parâmetros de McGLMs para um melhor entendimento do impacto dos elementos em problemas de modelagem são. Algumas possibilidades são: explorar correções de valores-p de acordo com o tamanho das hipóteses testadas, explorar procedimentos além do teste Wald (como o teste Escore e o teste da razão de verossimilhanças), implementar novos procedimentos para comparações múltiplas, adaptar a proposta para lidar com contrastes alternativos aos usuais, explorar procedimentos para seleção automática de covariáveis (backward elimination, forward selection, stepwise selection) e também seleção de covariáveis por meio de inclusão de penalização no ajuste por complexidade (similar a ideia de regressão por splines).
 
 %-----------------------------------------------------------------------
 
