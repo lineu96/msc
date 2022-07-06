@@ -68,7 +68,7 @@ table$lin_pred_YFAS <-
   betas_YFAS$Estimate[5]*I(Momento==levels(dados_dissertacao$momento)[2])*I(Grupo==levels(dados_dissertacao$grupo)[2])+
   betas_YFAS$Estimate[6]*I(Momento==levels(dados_dissertacao$momento)[3])*I(Grupo==levels(dados_dissertacao$grupo)[2])
 
-table$mean_pred_YFAS <- round(exp(table$lin_pred_YFAS),2)
+table$mean_pred_YFAS <- round(1/(1+exp(-table$lin_pred_YFAS)),2)
 table$lin_pred_YFAS <- round(table$lin_pred_YFAS,2)
 
 # BES
@@ -84,7 +84,7 @@ table$lin_pred_BES <-
   betas_BES$Estimate[5]*I(Momento==levels(dados_dissertacao$momento)[2])*I(Grupo==levels(dados_dissertacao$grupo)[2])+
   betas_BES$Estimate[6]*I(Momento==levels(dados_dissertacao$momento)[3])*I(Grupo==levels(dados_dissertacao$grupo)[2])
 
-table$mean_pred_BES <- round(exp(table$lin_pred_BES),2)
+table$mean_pred_BES <- round(1/(1+exp(-table$lin_pred_BES)),2)
 table$lin_pred_BES <- round(table$lin_pred_BES,2)
 
 detach(table)
