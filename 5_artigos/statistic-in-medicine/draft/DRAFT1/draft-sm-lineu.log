@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  5 JUL 2022 17:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  11 JUL 2022 16:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1130,7 +1130,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1019.
 Here is how much of TeX's memory you used:
  16358 strings out of 481239
  229170 string characters out of 5920376
- 518817 words of memory out of 5000000
+ 517817 words of memory out of 5000000
  31173 multiletter control sequences out of 15000+600000
  641500 words of font info for 159 fonts, out of 8000000 for 9000
  1167 hyphenation exceptions out of 8191
@@ -1148,7 +1148,7 @@ e/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/stix/stix-mathscr.pfb>
-Output written on draft-sm-lineu.pdf (23 pages, 300011 bytes).
+Output written on draft-sm-lineu.pdf (23 pages, 300025 bytes).
 PDF statistics:
  447 PDF objects out of 1000 (max. 8388607)
  405 compressed objects within 5 object streams

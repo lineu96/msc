@@ -180,15 +180,15 @@ $$
 
 \noindent where $\mathrm{V}\left(\boldsymbol{\mu}_r; p_r\right) = diag(\vartheta(\boldsymbol{\mu}_r; p_r))$ denotes a diagonal matrix in which the entries are given by the variance function $\vartheta(\cdot; p_r)$ applied to the elements of the vector $\boldsymbol{\mu}_r$. Different choices of variance functions $\vartheta(\cdot; p_r)$ imply in different assumptions about the distribution of the response variable. We will mention 3 options of variance functions: power variance function, Poisson–Tweedie dispersion function and binomial variance function.
 
-The power variance function characterizes the Tweedie family of distributions, it is given by $\vartheta\left(\cdot; p_r\right) = \mu^{p_r}_r$, in which some distributions stand out: Normal ($p $ = 0), Poisson ($p$ = 1), gamma ($p$ = 2) and Inverse Normal ($p$ = 3) \cite{Jorgensen87, Jorgensen97}. 
+The power variance function characterizes the Tweedie family of distributions, it is given by $\vartheta\left(\cdot; p_r\right) = \mu^{p_r}_r$, in which some distributions stand out: Normal ($p $ = 0), Poisson ($p$ = 1), gamma ($p$ = 2) and Inverse Gaussian ($p$ = 3) \cite{Jorgensen87, Jorgensen97}. 
 
-The Poisson–Tweedie dispersion function \cite{Jorgensen15} is an option for responses that characterize counts. The dispersion function is given by $\vartheta\left(\cdot; p\right) = \mu + \tau\mu^p$ where $\tau$ is the dispersion parameter. We thus have a rich class of models to deal with responses that characterize counts, since many important distributions appear as special cases, such as: Hermite ($p$ = 0), Neyman type A ($p$ = 1), binomial negative ($p$ = 2) and Poisson–Gaussian inverse (p = $3$).
+The Poisson–Tweedie dispersion function \cite{Jorgensen15} is an option for responses that characterize counts. The dispersion function is given by $\vartheta\left(\cdot; p\right) = \mu + \tau\mu^p$ where $\tau$ is the dispersion parameter. We thus have a rich class of models to deal with responses that characterize counts, since many important distributions appear as special cases, such as: Hermite ($p$ = 0), Neyman type A ($p$ = 1), negative binomial ($p$ = 2) and Poisson–inverse Gaussian (p = $3$).
 
 Finally, the binomial variance function, given by $\vartheta\left(\cdot; p_r\right) = \mu^{p_{r1}}_r(1 - \mu_r)^{p_{r2}}$ is indicated when the response variable is binary, restricted to an interval, or when there is a number of successes in a number of trials.
 
 It is possible to notice that the power parameter $p$ appears in all the variance functions discussed. This parameter is especially important because it is an index that distinguishes different probability distributions that are important in the modeling context and, for this reason, can be used as a tool for automatic selection of the probability distribution that best suits the problem.
 
-The dispersion matrix $\boldsymbol{\Omega({\tau})}$ describes the part of the covariance within each response variable that does not depend on the mean structure, ie, the correlation structure between the sample observations. Based on the ideas of \cite{Anderson73} and \cite{Pourahmadi00}, \cite{Bonat16} proposed to model the dispersion matrix through a linear matrix predictor combined with a covariance link function given by:
+The dispersion matrix $\boldsymbol{\Omega({\tau})}$ describes the part of the covariance within each response variable that does not depend on the mean structure, ie, the correlation structure between the sample observations. Based on the ideas of \cite{Anderson73} and \cite{Pourahmadi00}, \cite{Bonat16} proposed to model the dispersion matrix through a matrix linear predictor combined with a covariance link function given by:
 
 $$
 h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}_r) \right \} = \tau_{r0}Z_0 + \ldots + \tau_{rD}Z_D,
@@ -198,11 +198,11 @@ $$
 
 Some possible covariance link functions are identity, inverse and exponential-matrix. The specification of the covariance link function is discussed by \cite{Pinheiro96} and it is possible to select combinations of matrices to obtain the most known models in the literature for longitudinal data, time series, spatial and spatiotemporal data. Further details are discussed by \cite{Demidenko13}.
 
-In this way, the McGLMs configure a general framework for analysis via regression models for non-Gaussian data with multiple responses in which no assumptions are made regarding the independence of the observations. The class is defined by 3 functions (link, variance and covariance) in addition to a linear predictor and a linear matrix predictor for each response under analysis.
+In this way, the McGLMs configure a general framework for analysis via regression models for non-Gaussian data with multiple responses in which no assumptions are made regarding the independence of the observations. The class is defined by 3 functions (link, variance and covariance) in addition to a linear predictor and a matrix linear predictor for each response under analysis.
 
 \subsection{Estimation and inference}
 
-McGLMs are fitted based on the method of estimation functions described in detail by \cite{Bonat16} and \cite{jorg04}. This subsection presents an overview of the algorithm and the asymptotic distribution of estimators based on estimation functions.
+McGLMs are fitted are fitted based on the estimating function approach described in detail by \cite{Bonat16} and \cite{jorg04}. This subsection presents an overview of the algorithm and the asymptotic distribution of estimators based on estimating functions.
 
 McGLMs' second-moment assumptions allow the division of parameters into two sets: $\boldsymbol{\theta} = (\boldsymbol{\beta}^{\top}, \boldsymbol{\lambda}^{\top})^ {\top}$. So $\boldsymbol{\beta} = (\boldsymbol{\beta}_1^\top, \ldots, \boldsymbol{\beta}_R^\top)^\top$ is a vector $K \times 1$ of regression parameters and $\boldsymbol{\lambda} = (\rho_1, \ldots, \rho_{R(R-1)/2}, p_1, \ldots, p_R, \boldsymbol{\tau}_1^\top , \ldots, \boldsymbol{\tau}_R^\top)^\top$ is a vector $Q \times 1$ of dispersion parameters. Also, $\mathcal{Y} = (\boldsymbol{Y}_1^\top, \ldots, \boldsymbol{Y}_R^\top)^\top$ denotes the stacked vector of order $NR \times 1$ from the matrix of response variables $\boldsymbol{Y}_{N \times R}$ and $\mathcal{M} = (\boldsymbol{\mu}_1^\top, \ldots, \boldsymbol{\mu}_R^ \top)^\top$ denotes the stacked vector of order $NR \times 1$ of the expected value matrix $\boldsymbol{M}_{N \times R}$.
 
@@ -232,7 +232,7 @@ V_{\boldsymbol{\beta}} = VAR(\psi \boldsymbol{\beta}) = \boldsymbol{D}^{\top} \b
 \end{aligned}
 $$
 
-For the dispersion parameters, the Pearson estimation function is used, defined in the form
+For the dispersion parameters, the Pearson estimating function is used, defined in the form
 
 $$
   \begin{aligned}
@@ -244,7 +244,7 @@ $$
   \end{aligned}
 $$
 
-\noindent where $W_{\boldsymbol{\lambda}i} = -\frac{\partial \boldsymbol{C}^{-1}}{\partial \boldsymbol{\lambda}_i}$ and $\boldsymbol{ r} = (\mathcal{Y} - \mathcal{M})$. The entrie $(i,j)$ of the sensitivity matrix $Q \times Q$ of $\psi_{\boldsymbol{\lambda}}$ is given by
+\noindent where $W_{\boldsymbol{\lambda}i} = -\frac{\partial \boldsymbol{C}^{-1}}{\partial \boldsymbol{\lambda}_i}$ and $\boldsymbol{ r} = (\mathcal{Y} - \mathcal{M})$. The entry $(i,j)$ of the sensitivity matrix $Q \times Q$ of $\psi_{\boldsymbol{\lambda}}$ is given by
 
 $$
   \begin{aligned}
@@ -252,7 +252,7 @@ $$
   \end{aligned}
 $$
 
-\noindent The entrie $(i,j)$ of the variability matrix $Q \times Q$ of $\psi_{\boldsymbol{\lambda}}$ is defined by
+\noindent The entry $(i,j)$ of the variability matrix $Q \times Q$ of $\psi_{\boldsymbol{\lambda}}$ is defined by
 
 $$
   \begin{aligned}
@@ -260,7 +260,7 @@ V_{\boldsymbol{\lambda_{ij}}} = Cov\left ( \psi_{\boldsymbol{\lambda_{i}}}, \psi
   \end{aligned}
 $$
 
-\noindent where $k_{l}^{(4)}$ denotes the fourth cumulative of $\mathcal{Y}_{l}$. In the McGLM estimation process, empirical versions are used.
+\noindent where $k_{l}^{(4)}$ denotes the fourth cumulant of $\mathcal{Y}_{l}$. In the McGLM estimation process, empirical versions are used.
 
 To take into account the covariance between the vectors $\boldsymbol{\beta}$ and $\boldsymbol{\lambda}$, \cite{Bonat16} obtained the sensitivity and cross-variability matrices, denoted by $S_{\boldsymbol{ \lambda \beta}}$, $S_{\boldsymbol{\beta \lambda}}$ and $V_{\boldsymbol{\lambda \beta}}$, more details in \cite{Bonat16}. The joint sensitivity and variability matrices of $\psi_{\boldsymbol{\beta}}$ and $\psi_{\boldsymbol{\lambda}}$ are denoted by
 
@@ -276,7 +276,7 @@ $$
   \end{aligned}
 $$
 
-Let $\boldsymbol{\hat{\theta}} = (\boldsymbol{\hat{\beta}^{\top}}, \boldsymbol{\hat{\lambda}^{\top}})^{\top }$ the estimator based on estimation functions of $\boldsymbol{\theta}$. Then the asymptotic distribution of $\boldsymbol{\hat{\theta}}$ is
+Let $\boldsymbol{\hat{\theta}} = (\boldsymbol{\hat{\beta}^{\top}}, \boldsymbol{\hat{\lambda}^{\top}})^{\top }$ the estimator based on estimating functions of $\boldsymbol{\theta}$. Then the asymptotic distribution of $\boldsymbol{\hat{\theta}}$ is
 
 $$
   \begin{aligned}
