@@ -62,7 +62,8 @@ Esta mesma hipótese pode ser reescrita na notação mais conveniente para aplic
 
 \item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 0  \end{bmatrix}.$
  
-\item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}$, é o valor sob hipótese nula. 
+\item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}.$
+
 \end{itemize}
 
 Note que o vetor $\boldsymbol{\theta^{*}}$ possui seis elementos, consequentemente a matriz $\boldsymbol{L}$ contém seis colunas (uma para cada elemento) e uma linha, pois apenas um único parâmetro está sendo testado. Essa única linha é composta por zeros, exceto a coluna referente ao parâmetro de interesse que recebe 1. É simples verificar que o produto $\boldsymbol{L}\boldsymbol{\theta^{*}}$ representa a hipótese de interesse inicialmente postulada na \autoref{eq:ex1}. Com isso, a distribuição assintótica do teste é $\chi^2_1$.
@@ -112,7 +113,7 @@ As hipóteses na forma da \autoref{eq:hipoteses_wald} possui os seguintes elemen
 \item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}.$
  
-\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$, é o valor sob hipótese nula. 
+\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}.$
 
 \end{itemize}
 
@@ -136,7 +137,7 @@ H_0: \beta_{11} - \beta_{21} = 0 \ vs \ H_1: \beta_{11} - \beta_{21} \neq 0,
 
 \item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & -1 & 0 & 0  \end{bmatrix}.$
  
-\item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}$, é o valor sob hipótese nula. 
+\item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}.$ 
 
 \end{itemize}
 
@@ -161,12 +162,12 @@ Assim, considerando que se trata do caso em que se pode reescrever as hipóteses
 
 \item $\boldsymbol{G} = \begin{bmatrix} 1 & 0 \\ 0 & 1  \end{bmatrix}$: matriz identidade com dimensão dada pelo número de respostas.
 
-\item $\boldsymbol{F} = \begin{bmatrix} 0 & 1 \end{bmatrix}$: equivalente a um $\boldsymbol{L}$ para uma única resposta.
+\item $\boldsymbol{F} = \begin{bmatrix} 0 & 1 \end{bmatrix}$: equivalente a uma matrix $\boldsymbol{L}$ para uma única resposta.
 
 \item $\boldsymbol{L} = \boldsymbol{G} \otimes \boldsymbol{F} =  \begin{bmatrix} 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 \end{bmatrix}$: matriz de especificação das hipóteses sobre todas as respostas.
  
-\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$, é o valor sob hipótese nula. 
+\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$: vetor de valores da hipótese nula.
 
 \end{itemize}
 
@@ -220,7 +221,7 @@ Note que, nas linhas em que se busca entender o efeito de $X_1$ e $X_2$, a inter
 
 \subsection{ANOVA e MANOVA tipo III}
 
-Na análise de variância do tipo II são feitos testes comparando o modelo completo contra o modelo sem todos os parâmetros que envolvem determinada variável (sejam efeitos principais ou interações). Já nossa análise de variância do tipo III considera o modelo completo contra o modelo sem determinada variável, seja ela efeito principal ou de interação. Deste modo, cuidados devem ser tomados nas conclusões pois uma variável não ter efeito constatado como efeito principal não quer dizer que não haverá efeito de interação. Considerando o preditor exemplo, a análise de variância do tipo III faria os seguintes testes:
+Na análise de variância do tipo II são feitos testes comparando o modelo completo contra o modelo sem todos os parâmetros que envolvem determinada variável (sejam efeitos principais ou interações). Já nossa análise de variância do tipo III não avalia parâmetros de interação juntamente com parâmetros de efeito fixo. Deste modo, cuidados devem ser tomados nas conclusões pois uma variável não ter efeito constatado como efeito principal não quer dizer que não haverá efeito de interação. Considerando o preditor exemplo, a análise de variância do tipo III faria os seguintes testes:
 
 \begin{enumerate}
   \item Testa se o intercepto é igual a 0.
@@ -232,13 +233,13 @@ Na análise de variância do tipo II são feitos testes comparando o modelo comp
   \item Testa se o efeito de interação é 0.
 \end{enumerate}
 
-Note que nas linhas em que se testa o efeito de $X_1$ e $X_2$ mantém-se o efeito da interação, diferentemente do que é feito na análise de variância do tipo II. É importante notar que que as análises de variância do tipo II e III tal como foram propostas nesse trabalho geram os mesmos resultados quando aplicadas a modelos sem efeitos de interação. Além disso, generalizamos o procedimento tipo III para lidar com parâmetros de dispersão.
+Note que nas linhas em que se testa o efeito de $X_1$ e $X_2$ mantém-se o efeito da interação, diferentemente do que é feito na análise de variância do tipo II. É importante notar que as análises de variância do tipo II e III tal como foram propostas nesse trabalho geram os mesmos resultados quando aplicadas a modelos sem efeitos de interação. Além disso, generalizamos o procedimento tipo III para lidar com parâmetros de dispersão.
 
 %=====================================================
 
 \section{Teste de comparações múltiplas via teste Wald}
 
-Outra contribuição deste trabalho é a proposta de um procedimento para comparações aos pares a fim de detectar diferenças entre níveis de variáveis explicativas categóricas em McGLMs. Trata-se de uma generalização para os McGLMs do procedimento genérico descrito na \autoref{sec:multcomp} em que utiliza-se o teste Wald para comparação de cada par de níveis de uma variável categórica através da especificação de um conjunto de matrizes $\boldsymbol{L}$ do teste Wald.
+Outra contribuição deste trabalho é a proposta de um procedimento para comparações aos pares a fim de detectar diferenças entre níveis de variáveis explicativas categóricas em McGLMs. Trata-se de uma generalização para os McGLMs do procedimento genérico descrito na \autoref{sec:multcomp}, em que utiliza-se o teste Wald para comparação de cada par de níveis de uma variável categórica por meio da especificação de um conjunto de matrizes $\boldsymbol{L}$ do teste Wald.
 
 O procedimento é idêntico ao descrito na \autoref{sec:multcomp} e consiste em:  
 
@@ -250,13 +251,13 @@ O procedimento é idêntico ao descrito na \autoref{sec:multcomp} e consiste em:
   
   \item Selecionar as linhas de interesse desta matriz e usá-las como matriz de especificação de hipóteses do teste Wald, no lugar da matriz $\boldsymbol{L}$.
   
-  \item Em geral, devido ao grande número de testes feitos, corrigir os valores-p por meio da correção de Bonferroni.
+  \item Devido ao grande número de testes feitos, os valores-p são corrigidos por meio da correção de Bonferroni.
   
 \end{enumerate}
 
 Para efetuação deste procedimento para os McGLMs devemos lembrar que trata-se de uma classe de modelos multivariados. E tal como ocorre no caso das análises de variância, para os testes de comparações múltiplas existem duas possibilidades: testes para uma única resposta e testes para múltiplas respostas. 
 
-Na prática, se o interesse for um teste de comparações múltiplas multivariado, existe a necessidade de todas as respostas estarem sujeitas a um mesmo preditor e basta expandir a matriz de contrastes utilizando o produto Kronecker, seguindo uma ideia muito similar ao exposto na \autoref{sec:sec_ex4}. No caso de um teste de comparações múltiplas para cada resposta, basta selecionar o vetor de estimativas e a partição correspondente ao vetor da matriz $J_{\boldsymbol{\theta}}^{-1}$ para a resposta específica e proceder com o teste. Desta forma é possível chegar a um simples e útil procedimento de comparações múltiplas para quando há um McGLM com variáveis explicativas categóricas e há interesse em determinar quais níveis diferem entre si.
+Na prática, se o interesse for um teste de comparações múltiplas multivariado, existe a necessidade de todas as respostas estarem sujeitas a um mesmo preditor, e basta expandir a matriz de contrastes utilizando o produto Kronecker, seguindo uma ideia muito similar ao exposto na \autoref{sec:sec_ex4}. No caso de um teste de comparações múltiplas para cada resposta, basta selecionar o vetor de estimativas e a partição correspondente ao vetor da matriz $J_{\boldsymbol{\theta}}^{-1}$ para a resposta específica e proceder com o teste. Desta forma é possível chegar a um simples e útil procedimento de comparações múltiplas para quando há um McGLM com variáveis explicativas categóricas e há interesse em determinar quais níveis diferem entre si.
 
 %=====================================================
 

@@ -3,7 +3,7 @@
 
 %=====================================================
 
-Um dos objetivos deste trabalho consiste em implementar e disponibilizar publicamente os testes apresentados no \autoref{cap:proposta} com o intuito de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}. Este capítulo é destinado à apresentação das implementações computacionais em R das funções que usam o teste Wald para avaliar parâmetros de McGLMs.
+Um dos objetivos deste trabalho consiste em implementar e disponibilizar publicamente os testes apresentados no \autoref{cap:proposta}, com o intuito de complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}. Este capítulo é destinado à apresentação das implementações computacionais em R das funções que usam o teste Wald para avaliar parâmetros de McGLMs.
 
 No que diz respeito à implementações do teste Wald em outros contextos no R, o pacote \emph{lmtest} \citep{lmtest} possui uma função genérica para realizar testes Wald para comparar modelos lineares e lineares generalizados aninhados. Já o pacote \emph{survey} \citep{survey1}; \citep{survey2};\citep{survey3} possui uma função que efetua testes Wald que, por padrão, testa se todos os coeficientes associados a um determinado termo de regressão são zero, mas é possível especificar hipóteses com outros valores. 
 
@@ -11,7 +11,9 @@ O pacote \emph{car} \citep{car} possui uma implementação para testar hipótese
 
 Quanto aos quadros de análise de variância, o R possui a função \emph{anova()} no pacote padrão \emph{stats} \citep{softwareR} aplicável a modelos lineares e lineares generalizados. Já o pacote \emph{car} \citep{car} possui uma função que retorna quadros de análise de variância dos tipos II e III para diversos modelos. Para comparações múltiplas, um dos principais pacotes disponíveis é o \emph{multcomp} \citep{multcomp} que fornece uma interface para testes de comparações múltiplas para modelos paramétricos.
 
-Contudo, quando se trata de modelos multivariados de covariância linear generalizada ajustados no pacote \emph{mcglm} existe apenas um tipo de análise de variância univariada implementada na biblioteca e não existem opções para realização de testes de hipóteses lineares gerais, nem testes de comparações múltiplas utilizando a estatística de Wald. 
+Contudo, quando se trata de McGLMs ajustados no pacote \emph{mcglm} existe apenas um tipo de análise de variância univariada implementada na biblioteca e não existem opções para realização de testes de hipóteses lineares gerais, nem testes de comparações múltiplas.
+
+Com base na proposta de uso do teste de Wald para McGLMs, desenvolvemos o pacote \emph{htmcglm} com procedimentos para testar hipóteses lineares gerais, gerar quadros de ANOVA e MANOVA para parâmetros de regressão e dispersão e também testes de comparações múltiplas. Todos esses procedimentos foram implementados na linguagem R e complementam as funcionalidades existentes na biblioteca \emph{mcglm}.
 
 %=====================================================
 
@@ -78,7 +80,7 @@ O pacote \emph{mcglm} está disponível no Comprehensive R Archive Network (CRAN
 \end{kframe}
 \end{knitrout}
 
-As implementações referentes a este trabalho estão disponíveis publicamente na plataforma github em https://github.com/lineu96/htmcglm e podem ser instaladas por meio da função \emph{install\_github} do pacote \emph{devtools}.
+As implementações referentes a este trabalho estão disponíveis publicamente na plataforma github em https://github.com/lineu96/htmcglm e podem ser instaladas por meio da função \emph{install\_github()} do pacote \emph{devtools}.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -113,7 +115,7 @@ Trata-se de um conjunto de dados interessante para exemplificar o uso das funç�
 
 O objetivo da análise é avaliar o efeito de adubação e água sobre as três variáveis resposta de interesse. Para fins de análise consideramos como variáveis explicativas os níveis de água, adubação e também as interações entre estes dois fatores. Adicionalmente, o efeito de bloco foi acrescentado aos preditores. 
 
-Para ajustar o modelo o primeiro passo é especificar os preditores lineares.
+Para ajustar o modelo o, primeiro passo é especificar os preditores lineares.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -643,3 +645,6 @@ Já no caso de preditores iguais para todas as respostas é possível realizar u
 \end{knitrout}
 
 %=====================================================
+
+
+Com isso, descrevemos a implementação de procedimentos em R para realizar testes de hipóteses em parâmetros de McGLMs com base na estatística Wald. Os exemplos discutidos ilustram como avaliar as hipóteses mais comuns que surgem em problemas de regressão: avaliar parâmetros individualmente e avaliar conjuntos de parâmetros. Concentramos nossos esforços em ferramentas para avaliar parâmetros de regressão e dispersão, pois estudando os parâmetros de regressão é possível identificar as variáveis que têm efeito significativo na resposta; por outro lado, os parâmetros de dispersão permitem avaliar se há efeito de observações correlacionadas. Dessa forma, o estudo dessas quantidades fornece informações valiosas sobre a importância dos elementos de um problema de regressão multivariada.

@@ -3,15 +3,11 @@
 
 %=====================================================
 
-Este capítulo é destinado à análise de dados reais fazendo uso do McGLM e dos testes de hipóteses propostos e implementados neste trabalho. O conjunto de dados utilizado diz respeito a um estudo que visa avaliar se o uso de probióticos é capaz de controlar vícios e compulsões alimentares em pacientes submetidos à cirurgia bariátrica.
+Este capítulo é destinado à análise de dados reais fazendo uso do McGLM e dos testes de hipóteses propostos e implementados neste trabalho. O conjunto de dados utilizado diz respeito a um estudo que visa avaliar se o uso de probióticos é capaz de controlar vício e transtorno da compulsão alimentar em pacientes submetidos à cirurgia bariátrica.
 
 %=====================================================
 
-\section{Uso de probióticos no controle de vício e transtorno da compulsão  alimentar em pacientes sujeitos a cirurgia bariátrica}
-
-%=====================================================
-
-\subsection{Contexto}
+\section{Contexto}
 
 A cirurgia bariátrica é conhecida como o método mais efetivo no tratamento de obesidade severa pois resulta em considerável perda de peso, remissão de comorbidades e melhora da qualidade de vida dos indivíduos \citep{mechanick2020clinical}.
 
@@ -27,9 +23,9 @@ No entanto, ainda faltam estudos que avaliem a influência da suplementação de
 
 %=====================================================
 
-\subsection{Desenho experimental e coleta de dados}
+\section{Desenho experimental e coleta de dados}
 
-Trata-se de um ensaio clínico randomizado, duplo-cego, controlado por placebo, realizado com pacientes submetidos ao Bypass Gástrico em Y de Roux (RYGB) no período de abril de 2018 a dezembro de 2019. O estudo foi aprovado pelo Comitê de Ética em Pesquisa da Pontifícia Universidade Católica do Paraná (PUCPR) (nº 4.252.808 ) e registrado pelo Registro Brasileiro de Ensaios Clínicos - REBEC (nºRBR-4x3gqp). A pesquisa foi explicada a cada participante antes de sua participação e, daqueles que concordaram, foi obtido o consentimento informado por escrito.
+Trata-se de um ensaio clínico randomizado, duplo-cego, controlado por placebo, realizado com pacientes submetidos ao RYGB no período de abril de 2018 a dezembro de 2019. O estudo foi aprovado pelo Comitê de Ética em Pesquisa da Pontifícia Universidade Católica do Paraná (PUCPR) (nº 4.252.808 ) e registrado pelo Registro Brasileiro de Ensaios Clínicos - REBEC (nºRBR-4x3gqp). A pesquisa foi explicada a cada participante antes de sua participação e, daqueles que concordaram, foi obtido o consentimento informado por escrito.
 
 A divisão dos grupos (placebo ou probiótico) foi feita de forma aleatória. Os critérios de inclusão dos indivíduos no estudo foram: adultos (18-59 anos) que fariam RYGB, com índice de massa corporal (IMC) $\geq$ 35 kg/m2 e que não usaram antibióticos antes da cirurgia. 
 
@@ -49,7 +45,7 @@ Para avaliação de vício alimentar foi utilizada a escala de vício alimentar 
 
 %=====================================================
 
-\subsection{Conjunto de dados}
+\section{Conjunto de dados}
 
 A amostra final é formada por 71 indivíduos, dos quais 33 pertencem ao grupo placebo e 38 ao grupo tratamento. Se todos estes indivíduos fossem avaliados nos 3 momentos definidos no estudo, o conjunto de dados teria 213 observações. Contudo, ao longo do estudo, diversos indivíduos não compareceram às consultas, o que faz com que haja dados faltantes no conjunto de dados. Após tratamento dos dados e exclusão de observações faltantes restaram 184 observações.
 
@@ -67,7 +63,7 @@ Para fins de análise, o escore que caracteriza compulsão e o número de sintom
 
 %=====================================================
 
-\subsection{Análise exploratória}
+\section{Análise exploratória}
 
 A análise gráfica apresentada na \autoref{fig:descritiva2} mostra, em (a) e (d) que ambas as variáveis de interesse apresentam considerável assimetria à direita. Os boxplots das métricas em função de grupo apresentados em (b) e (e) mostram sensíveis diferenças entre o grupo placebo e probiótico para ambas as respostas. Já os boxplots das métricas em função dos momentos de avaliação, apresentados em (c) e (f), evidenciam que para ambas as métricas os valores eram mais altos no momento T0, havendo considerável redução no momento T1. Quando comparamos T1 e T2, para YFAS parece que há um leve aumento na última avaliação; já para BES, T1 e T2 não parecem diferir.
 
@@ -78,7 +74,7 @@ A análise gráfica apresentada na \autoref{fig:descritiva2} mostra, em (a) e (d
 \label{fig:descritiva2}
 \end{figure}
 
-Ainda de forma exploratória podemos avaliar o comportamento das métricas de vício e compulsão por meio da avaliação das medidas descritivas por momento e por grupo, apresentadas na \autoref{tab:descritiva1}. É possível verificar a redução de indivíduos ao longo do tempo, algo comum em estudos prospectivos. Quanto às medidas, nota-se que ambos os grupos (placebo ou probiótico) apresentam médias mais altas no momento T0 do que nos demais momentos. Portanto, existe uma clara redução das métricas quando comparado ao pré operatório. Quando comparamos os momentos pós-operatório (T1 e T2) verificamos que as medidas de YFAS para o grupo placebo e probiótico e BES no grupo placebo apresentam, em média, um aumento das métricas no último momento de avaliação. Já as medidas de BES no grupo probiótico apresentam queda.
+Ainda de forma exploratória podemos avaliar o comportamento das métricas de vício e compulsão por meio da avaliação das medidas descritivas por momento e por grupo, apresentadas na \autoref{tab:descritiva1}. É possível verificar a redução de indivíduos ao longo do tempo, algo comum em estudos prospectivos. Quanto às medidas, nota-se que ambos os grupos (placebo ou probiótico) apresentam médias mais altas no momento T0 do que nos demais momentos. Portanto, existe uma clara redução das métricas quando comparado ao pré operatório. Quando comparamos os momentos pós-operatório (T1 e T2) verificamos que as medidas de YFAS, tanto para o grupo placebo quanto para o grupo probiótico apresentam, em média, um aumento das métricas no último momento de avaliação; o mesmo pode ser observado para BES no grupo placebo. Já as medidas de BES no grupo probiótico apresentam queda.
 
 \begin{table}[H]
 \centering
@@ -99,7 +95,7 @@ Probiótico             & T2                       & 22                 & 0,10 (
 
 %=====================================================
 
-\subsection{Especificação do modelo}
+\section{Especificação do modelo}
 
 Para análise dos dados foi ajustado um modelo multivariado com os efeitos fixos das variáveis momento e grupo. Adicionalmente, foi incluído no modelo o efeito da interação entre estas duas variáveis explicativas.
 
@@ -139,7 +135,7 @@ h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} =
 
 %=====================================================
 
-\subsection{Resultados do ajuste}
+\section{Resultados do ajuste}
 
 Com o propósito de verificar a qualidade do ajuste do modelo, foi feita a análise de resíduos do modelo. A análise mostra que os resíduos de Pearson para YFAS e BES apresentam média 0 e desvio padrão próximo de 1. Na \autoref{fig:diagnostico1} são exibidos os histogramas dos resíduos de Pearson por resposta, a distribuição dos resíduos é aproximadamente simétrica com a maior parte dos dados entre -2 e 2.
 
@@ -192,7 +188,7 @@ $p$                        & 0,91       & (0,47;1,34)                           
 
 %=====================================================
 
-\subsection{Testes de hipóteses}
+\section{Testes de hipóteses}
 
 Até este ponto foi apresentada uma análise padrão, com os resultados usuais da análise de um modelo de regressão. Indo mais além nesta análise, podemos fazer uso dos resultados e implementações deste trabalho.
 
@@ -277,3 +273,4 @@ $\tau_1$ & 2                  & 2,3201       & 0,3135         \\ \hline
 
 %=====================================================
 
+Com isso, apresentamos uma análise de dados real, em que o uso de testes de hipóteses para avaliação de parâmetros de um modelo multivariado se mostrou de grande valia para extrair o máximo de informações a respeito do problema. Exploramos testes sobre parâmetros de regressão e dispersão a fim de concluir investigar os elementos associados ao desfecho dos fenômenos sob análise.
