@@ -97,27 +97,27 @@ The \pkg{htmcglm} package for \proglang{R} \citep{R2022} provides functions for 
 
 McGLMs provide a general statistical modeling framework for normal and non-normal multivariate data analysis along with a wide range of correlation structures. When we work on the McGLMs class we estimate parameters of regression, dispersion, power and correlation. Each set of parameters has a very useful practical interpretation.
 
-By studying the regression parameters, it is possible to assess the effect of the explanatory variable(s) on the response(s). By studying the dispersion parameters, the effect of the correlation between study units can be evaluated, very useful in situations where the observations of the data set are correlated with each other, such as in longitudinal, temporal and repeated measures studies. . The power parameters give us an indication of which probability distribution best fits the problem. And correlation parameters estimate the strength of association between responses in a multivariate problem.
+By studying the regression parameters, it is possible to assess the effect of the explanatory variable(s) on the response(s). By studying the dispersion parameters, the effect of the correlation between study units can be evaluated, very useful in situations where the observations of the data set are correlated with each other, such as in longitudinal, temporal and repeated measures studies. The power parameters give us an indication of which probability distribution best fits the problem. And correlation parameters estimate the strength of association between responses in a multivariate problem.
 
 The development of hypothesis tests for the purpose of evaluating these quantities is of great value in practical problems and leads to procedural forms for evaluating the resulting quantities of the model. The \pkg{htmcglm} package is a full \proglang{R} implementation with functions based on Wald statistics to evaluate regression and dispersion parameters. The features include functions for general linear hypothesis testing, univariate and multivariate analysis of variance tables, as well as multiple comparison tests.
 
-\textbf{Package \pkg{htmcglm} is available from the Comprehensive \proglang{R} Archive Network (CRAN) at https://CRAN.R-project.org/package=mcglm and complement the functions available in the package \emph{mcglm}.}
+Package \pkg{htmcglm} is available on github at https://github.com/lineu96/htmcglm and complement the functions available in the package \pkg{mcglm}.
 
-There are implementations of the Wald test in other contexts in \proglang{R}, the package \pkg{lmtest} \citep{lmtest} has a generic function to perform Wald tests to compare nested linear and generalized linear models. The package \pkg{survey} \citep{survey1,survey2,survey3} has a function that performs Wald tests that, by default, tests whether all coefficients associated with a given regression term are zero, but it is possible to specify hypotheses with other values.
+There are several implementations of the Wald test in different contexts in \proglang{R}. The package \pkg{lmtest} \citep{lmtest} has a generic function to perform Wald tests to compare nested linear and generalized linear models. The package \pkg{survey} \citep{survey1,survey2,survey3} has a function that performs Wald tests that, by default, tests whether all coefficients associated with a given regression term are zero, but it is possible to specify hypotheses with other values.
 
 The package \pkg{car} \citep{car} has an implementation to test linear hypotheses about parameters of linear models, generalized linear models, multivariate linear models, mixed effects models, among others; in this implementation, the user has full control of which parameters to test and with which values to compare in the null hypothesis.
 
-For analysis of variance frames, \proglang{R} has the function \code{anova()} in the standard package \pkg{stats} \citep{R2022} applicable to linear and generalized linear models. The package \pkg{car} \citep{car} has a function that returns analysis of variance tables of types II and III for different models. For multiple comparisons, one of the main packages available is \pkg{multcomp} \citep{multcomp} which provides an interface for testing multiple comparisons for parametric models.
+For analysis of variance tables, \proglang{R} has the function \code{anova()} in the standard package \pkg{stats} \citep{R2022} applicable to linear and generalized linear models. The package \pkg{car} \citep{car} has a function that returns analysis of variance tables of types II and III for different models. For multiple comparisons, one of the main packages available is \pkg{multcomp} \citep{multcomp} which provides an interface for testing multiple comparisons for parametric models.
 
-However, when dealing with multivariate covariance generalized linear models fitted in the \pkg{mcglm} package, there is only one type of analysis of variance implemented in the library and there are no options for performing general linear hypothesis tests, nor multiple comparison tests. Therefore, as it is a flexible class of models with high power of application to practical problems, our general objective is to provide implementations that allow performing hypothesis tests for McGLMs in such a way that it is possible to test general linear hypotheses, generate analysis of variance, multivariate analysis of variance and tests of multiple comparisons.
+However, when dealing with multivariate covariance generalized linear models fitted in the \pkg{mcglm} package, there is only one type of analysis of variance implemented in the library and there are no options for performing general linear hypothesis tests, nor multiple comparison tests. Therefore, as it is a flexible class of models with high power of application to practical problems, our general objective is to provide implementations that allow performing hypothesis tests for McGLMs in such a way that it is possible to test general linear hypotheses, generate analysis of variance tables, multivariate analysis of variance tables and multiple comparisons tests.
 
-The article is organized as follows. In \autoref{sec:mcglm} we present a review of the general structure and estimation of the parameters of a McGLM, based on the ideas of \citet{Bonat16}. In \autoref{sec:wald} the details of the Wald test to evaluate assumptions about parameters of a McGLM are presented. \autoref{sec:implementacao} introduces the \proglang{R} implementation discussing the main functions available in the \pkg{htmcglm} package. \autoref{sec:exemplos} illustrates the package usage through some examples. Finally, \autoref{sec:conclusao} presents a discussion and directions for future work on the improvement of the \pkg{htmcglm} package.
+The article is organized as follows. In \autoref{sec:mcglm} we present a review of the general structure and estimation of the parameters of a McGLM, based on the ideas of \citet{Bonat16}. In \autoref{sec:wald} the details of the Wald test to evaluate assumptions about parameters of a McGLM are presented. In \autoref{sec:implementacao} we introduce the \proglang{R} implementation discussing the main functions available in the \pkg{htmcglm} package. We illustrate the package usage through some examples in \autoref{sec:exemplos}. Finally, \autoref{sec:conclusao} presents a discussion and directions for future work on the improvement of the \pkg{htmcglm} package.
 
 %-----------------------------------------------------------------------
 
 \section{Multivariate covariance generalized linear models}\label{sec:mcglm}
 
-Consider $\boldsymbol{Y}_{N \times R} = \left \{ \boldsymbol{Y}_1, \dots, \boldsymbol{Y}_R \right \}$ a matrix of response variables and $\boldsymbol{M}_{N \times R} = \left \{ \boldsymbol{\mu}_1, \dots, \boldsymbol{\mu}_R \right \}$ a matrix of expected values. The variance and covariance matrix for each response $r$, $r = 1,..., R$ is denoted by $\Sigma_r$ and has dimension $NxN$. In addition, consider a $R \times R$ correlation matrix, denoted by $\Sigma_b$, to describe the correlation between the response variables. The McGLMs \citep{Bonat16} are defined by:
+Consider $\boldsymbol{Y}_{N \times R} = \left \{ \boldsymbol{Y}_1, \dots, \boldsymbol{Y}_R \right \}$ a matrix of response variables and $\boldsymbol{M}_{N \times R} = \left \{ \boldsymbol{\mu}_1, \dots, \boldsymbol{\mu}_R \right \}$ a matrix of expected values. The variance and covariance matrix for each response $r$, $r = 1,..., R$, is denoted by $\Sigma_r$ and has dimension $N \times N$. In addition, consider a $R \times R$ correlation matrix, denoted by $\Sigma_b$, to describe the correlation between the response variables. The McGLMs \citep{Bonat16} are defined by:
 
 $$
       \begin{aligned}
@@ -167,9 +167,9 @@ $$
 
 \noindent where $h()$ is the covariance link function, $Z_{rd}$ with $d$ = 0,$\ldots$, D are matrices that represent the covariance structure present in each response variable $r$ and $\boldsymbol{\tau_r}$ = $(\tau_{r0}, \ldots, \tau_{rD})$ is a vector $(D + 1) \times 1$ of dispersion parameters. 
 
-Some possible covariance binding functions are identity, inverse and exponential-matrix. The specification of the covariance link function is discussed by \citet{Pinheiro96} and it is possible to select combinations of matrices to obtain the best known models in the literature for longitudinal data, time series, spatial and spatio-temporal data. Further details are discussed by \citet{Demidenko13}.
+Some possible covariance link functions are identity, inverse and exponential-matrix. The specification of the covariance link function is discussed by \citet{Pinheiro96} and it is possible to select combinations of matrices to obtain the best known models in the literature for longitudinal data, time series, spatial and spatio-temporal data. Further details are discussed by \citet{Demidenko13}.
 
-In this way, the McGLMs configure a general framework for analysis via regression models for non-Gaussian data with multiple responses in which no assumptions are made regarding the independence of the observations. The class is defined by 3 functions (link, variance and covariance) in addition to a linear predictor and a matrix linear predictor for each response under analysis. 
+In this way, the McGLMs configure a general framework for analysis via regression models for non-Gaussian data with multiple responses, in which no assumptions are made regarding the independence of the observations. The class is defined by 3 functions (link, variance and covariance), in addition to a linear predictor and a matrix linear predictor for each response under analysis. 
 
 \subsection{Estimation and inference}\label{sec:inf}
 
@@ -349,11 +349,11 @@ The hypotheses in the form of \autoref{eq:hipoteses_wald} have the following ele
 
 The vector $\boldsymbol{\theta^{*}}$ has six elements and the matrix $\boldsymbol{L}$ has six columns. In this case we are testing two parameters, so the matrix $\boldsymbol{L}$ has two rows. These lines are composed of zeros, except in the columns referring to the parameter of interest. It is simple to verify that the product $\boldsymbol{L}\boldsymbol{\theta^{*}}$ represents the hypothesis of interest initially postulated in \autoref{eq:ex2}. Thus, the asymptotic distribution of the test is $\chi^2_2$.
 
-The \autoref{eq:pred_ex} describes a generic bivariate model. It is important to note that in this example both responses are subject to the same predictor. In practice, when it comes to McGLMs, different predictors can be specified between response variables. However, in cases where the responses are subject to identical predictors and the hypothesis about the parameters do not change from response to response, an alternative specification of the procedure is to use the Kronecker product to test the same hypothesis on multiple responses as used in \citet{plastic}.
+The \autoref{eq:pred_ex} describes a generic bivariate model. It is important to note that in this example both responses are subject to the same predictor. In practice, when it comes to McGLMs, different predictors can be specified between response variables. However, in cases where the responses are subject to identical predictors and the hypothesis about the parameters do not change from response to response, an alternative specification of the procedure is to use the Kronecker product to test the same hypothesis on multiple responses as used in \citet{plastica}.
 
-Suppose that, in this example, the hypotheses of interest are still written as in the form of \autoref{eq:ex2}. However, as this is a bivariate model with the same predictor for the two responses, the hypothesis of interest is the same between responses and involves only regression parameters, it is convenient to write the matrix $\boldsymbol{L}$ as the Kronecker product of two matrices: a matrix $\boldsymbol{G}$ and a matrix $\boldsymbol{F}$, ie, $\boldsymbol{L}$ = $\boldsymbol{G} \otimes \boldsymbol{F}$. In this way, the matrix $\boldsymbol{G}$ has dimension $R \times R$ and specifies the hypotheses about the responses, whereas the matrix $\boldsymbol{F}$ specifies the hypotheses between variables and has dimension ${s}' \times {h}'$, where ${s}'$ is the number of linear constraints, that is, the number of parameters tested for a single response, and ${h}'$ is the total number of coefficients of regression or dispersion of the response. Therefore, the matrix $\boldsymbol{L}$ has dimension (${s}'R \times h$).
+Suppose that, in this example, the hypotheses of interest are still written as in the form of \autoref{eq:ex2}. However, as this is a bivariate model with the same predictor for the two responses, the hypothesis of interest are the same between responses and involves only regression parameters, it is convenient to write the matrix $\boldsymbol{L}$ as the Kronecker product of two matrices: a matrix $\boldsymbol{G}$ and a matrix $\boldsymbol{F}$, ie, $\boldsymbol{L}$ = $\boldsymbol{G} \otimes \boldsymbol{F}$. In this way, the matrix $\boldsymbol{G}$ has dimension $R \times R$ and specifies the hypotheses about the responses, whereas the matrix $\boldsymbol{F}$ specifies the hypotheses between variables and has dimension ${s}' \times {h}'$, where ${s}'$ is the number of linear constraints, that is, the number of parameters tested for a single response, and ${h}'$ is the total number of coefficients of regression or dispersion of the response. Therefore, the matrix $\boldsymbol{L}$ has dimension (${s}'R \times h$).
 
-In general, the matrix $\boldsymbol{G}$ is an identity matrix with a dimension equal to the number of responses analyzed in the model. Whereas the matrix $\boldsymbol{F}$ is equivalent to a matrix $\boldsymbol{L}$ if there was only a single response in the model and only regression or dispersion parameters. We use the Kronecker product of these two matrices to ensure that the hypothesis described in the $\boldsymbol{F}$ matrix is tested on the $R$ model responses.
+In general, the matrix $\boldsymbol{G}$ is an identity matrix with a dimension equal to the number of responses analyzed in the model. Whereas the matrix $\boldsymbol{F}$ is equivalent to a matrix $\boldsymbol{L}$ if there was only a single response in the model and only regression or dispersion parameters. We use the Kronecker product of these two matrices to ensure that the hypothesis described in the $\boldsymbol{F}$ matrix will be tested on the $R$ model responses.
 
 Thus, considering that this is the case in which the hypotheses can be rewritten by decomposing the $\boldsymbol{L}$ matrix, the test elements are given by:
 
@@ -369,7 +369,7 @@ Thus, considering that this is the case in which the hypotheses can be rewritten
 \item $\boldsymbol{L} = \boldsymbol{G} \otimes \boldsymbol{F} =  \begin{bmatrix} 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 \end{bmatrix}$: matrix specifying the hypotheses on all responses.
  
-\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$, is the value under the null hypothesis. 
+\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$: matrix with the values under the null hypothesis. 
 
 \end{itemize}
 
@@ -404,7 +404,7 @@ The type II analysis of variance described in \textbf{REF MEU ARTIGO} tests, on 
 
 \subsection{Multiple comparisons test via Wald test}
 
-When ANOVA shows the significant effect of a categorical variable as a result, it is usually of interest to assess which of the levels differ from each other. For this, multiple comparison tests are used. In the literature there are several procedures to perform such tests, many of them described in \citet{hsu1996multiple}.
+When ANOVA shows a significant effect of a categorical variable, it is usually of interest to assess which of the levels differ from each other. For this, multiple comparison tests are used. In the literature there are several procedures to perform such tests, many of them described in \citet{hsu1996multiple}.
 
 Such a situation can be evaluated using the Wald test. By correctly specifying the $\boldsymbol{L}$ matrix, it is possible to evaluate hypotheses about any possible contrast between the levels of a given categorical variable. Therefore, it is possible to use Wald's statistics to perform multiple comparison tests as well.
 
@@ -456,7 +456,7 @@ $$
     \end{bmatrix}
 $$
 
-To carry out a test of multiple comparisons, it is enough to select the desired contrasts in the lines of the matrix $\boldsymbol{K_1}$ and use these lines as a matrix for specifying the hypotheses of the Wald test. Finally, as usual in tests of multiple comparisons, correction of p-values by means of Bonferroni correction is recommended.
+To carry out a test of multiple comparisons, we just select the desired contrasts in the lines of the matrix $\boldsymbol{K_1}$ and use these lines as a matrix for specifying the hypotheses of the Wald test. Finally, as usual in tests of multiple comparisons, correction of p-values by means of Bonferroni correction is recommended.
 
 To carry out this procedure for McGLMs, we must remember that this is a class of multivariate models. And as in the case of analysis of variance, for tests of multiple comparisons there are two possibilities: tests for a single response and tests for multiple responses.
 
@@ -508,13 +508,13 @@ The \code{mc_manova_dispersion()} function can be used in a multivariate model i
 
 For  multiple comparisons tests, the functions \code{mc_multcomp()} and \code{mc_mult_multcomp()} were implemented. These functions should be used as a complement to the analysis of variance and multivariate analysis of variance functions when they show a significant effect of categorical explanatory variables. The functions for multiple comparisons are used to perform two-by-two comparisons and identify which levels differ from each other. These functions receive as an argument the model, the variable or variables in which there is interest in evaluating comparisons between levels and also the data used to fit the model.
 
-Finally, the \code{mc_linear_hypothesis()} function is the most flexible we have in the set of implementations. With it, it is possible to specify any type of hypothesis about regression parameters, dispersion or power of a McGLM. It is also possible to specify hypotheses on multiple parameters and the vector of null hypothesis values is user defined. This function receives as arguments the model, a vector containing the parameters to be tested and the values under the null hypothesis. With some work, using the general linear hypotheses function, it is possible to replicate the results obtained by the analysis of variance functions.
+Finally, the \code{mc_linear_hypothesis()} function is the most flexible we have in the set of implementations. With it, it is possible to specify any type of hypothesis about regression, dispersion or power parameters of a McGLM. It is also possible to specify hypotheses on multiple parameters and the vector of null hypothesis values is user defined. This function receives as arguments the model, a vector containing the parameters to be tested and the values under the null hypothesis. With some work, using the general linear hypotheses function, it is possible to replicate the results obtained by the analysis of variance functions.
 
 %-----------------------------------------------------------------------
 
 \section{Examples}\label{sec:exemplos}
 
-In this section we provide practical examples of using the functions implemented in the \pkg{htmcglm} package based on multivariate models fitted with the \emph{mcglm} package.
+In this section we provide practical examples of using the functions implemented in the \pkg{htmcglm} package based on multivariate models fitted with the \pkg{mcglm} package.
 
 <<functions, echo=FALSE, message=FALSE, warning=FALSE, results='hide'>>=
 library(mcglm)
@@ -575,23 +575,21 @@ fit_joint <- mcglm(linear_pred = c(form.grain,
 
 To evaluate some results of the model it is possible to use the function \code{summary()} that returns the formula of the linear predictors, the link, variance and covariance functions specified to fit the model, the estimates of the regression and dispersion parameters as well as standard errors.
 
-\subsubsection{Analysis of variance tables for regression parameters}
-
 With the model adjusted, we can apply the implemented functions to evaluate the regression and dispersion parameters of the model. The analysis of variance functions depend only on the object that contains the fitted model and return a table for each response.
 
- - ANOVA type I
+\subsubsection{ANOVA type I}
  
 <<anovaI>>=
 mc_anova_I(fit_joint)
 @
 
- - ANOVA type II
+\subsubsection{ANOVA type II}
 
 <<anovaII>>=
 mc_anova_II(fit_joint)
 @
 
- - ANOVA type III
+\subsubsection{ANOVA type III}
 
 <<anovaIII>>=
 mc_anova_III(fit_joint)
@@ -599,19 +597,19 @@ mc_anova_III(fit_joint)
 
 Similarly, multivariate analysis of variance functions also depend only on the fitted model. It is important to note that for practical purposes the multivariate analysis of variance functions require the predictors for all responses to be the same.
 
- - MANOVA type I
+\subsubsection{MANOVA type I}
 
 <<manovaI>>=
 mc_manova_I(fit_joint)
 @
 
- - MANOVA type II
+\subsubsection{MANOVA type II}
 
 <<manovaII>>=
 mc_manova_II(fit_joint)
 @
 
- - MANOVA type III
+\subsubsection{MANOVA type III}
 
 <<manovaIII>>=
 mc_manova_III(fit_joint)
@@ -619,14 +617,14 @@ mc_manova_III(fit_joint)
 
 For general linear hypotheses about regression parameters, it is sufficient to specify the model and the hypothesis to be tested. To identify the parameters of interest, use the \code{coef()} function.
 
- - Test on a single regression parameter
+\subsubsection{Test on a single regression parameter}
 
 <<lin_hyp1>>=
 mc_linear_hypothesis(object =  fit_joint, 
                      hypothesis = c('beta11 = 0'))
 @
 
- - Test on more than one regression parameter
+\subsubsection{Test on more than one regression parameter}
 
 <<lin_hyp2>>=
 mc_linear_hypothesis(object =  fit_joint, 
@@ -634,7 +632,7 @@ mc_linear_hypothesis(object =  fit_joint,
                                     'beta12 = 0'))
 @
 
- - Test of equality of effects between regression parameters
+\subsubsection{Test of equality of effects between regression parameters}
 
 <<lin_hyp3>>=
 
@@ -664,7 +662,7 @@ Z1 <- mc_mixed(~ 0 + HUNTER.MONTH, data = Hunting)
 fit <- mcglm(linear_pred = c(form.BD, form.OT),
              matrix_pred = list(c(Z0, Z1), 
                                 c(Z0, Z1)),
-             link = c("log", "log"), 
+             link = c("log", "log"),
              variance = c("poisson_tweedie",
                           "poisson_tweedie"),
              offset = list(log(Hunting$OFFSET), 
@@ -672,11 +670,11 @@ fit <- mcglm(linear_pred = c(form.BD, form.OT),
              data = Hunting)
 @
 
-Again, to evaluate some model results it is possible to use the \code{summary()} function. We can also apply the already presented functions implemented for ANOVAs, MANOVAs and tests of general linear hypotheses on the regression and dispersion parameters of the model.
+Again, to evaluate some model results it is possible to use the \code{summary()} function. We can also apply the already presented functions implemented for ANOVAs, MANOVAs and tests of general linear hypotheses on the regression parameters of the model.
 
 In this case, as there is a specified matrix predictor, an in-depth study of the dispersion parameters may be of interest. This analysis can be done with the already used function \code{mc_linear_hypothesis()}.
 
- - Test on a single dispersion parameter
+\subsubsection{Test on a single dispersion parameter}
 
 <<lin_hyp4>>=
 mc_linear_hypothesis(object =  fit, 
@@ -684,7 +682,7 @@ mc_linear_hypothesis(object =  fit,
 
 @
 
- - Teste sobre mais de um parâmetro de dispersão
+\subsubsection{Test on more than one dispersion parameter}
 
 <<lin_hyp5>>=
 
@@ -693,7 +691,7 @@ mc_linear_hypothesis(object =  fit,
                                     'tau21 = 0'))
 @
 
- - Test on more than one dispersion parameter
+\subsubsection{Test of equality of effects between dispersion parameters}
 
 <<lin_hyp6>>=
 mc_linear_hypothesis(object =  fit,
@@ -702,7 +700,7 @@ mc_linear_hypothesis(object =  fit,
 
 To evaluate dispersion parameters, we have the procedure analogous to the analysis of variance for regression parameters. These functions require specifying more arguments: one that determines the relationship between dispersion parameters and the other that specifies the names that will appear in the final output.
 
- - ANOVA type III for dispersion
+\subsubsection{ANOVA type III for dispersion}
 
 <<anova_disp>>=
 mc_anova_dispersion(fit,
@@ -711,7 +709,7 @@ mc_anova_dispersion(fit,
                                  c('tau20', 'tau21')))
 @
 
- - MANOVA type III for dispersion
+\subsubsection{MANOVA type III for dispersion}
 
 <<manova_disp>>=
 mc_manova_dispersion(fit,
@@ -721,7 +719,7 @@ mc_manova_dispersion(fit,
 
 Finally, we can use the functions for testing multiple comparisons to assess differences between levels of categorical explanatory variables included in the model. 
 
- - Univariate multiple comparisons test
+\subsubsection{Univariate multiple comparisons test}
 
 <<multcomp>>=
 mc_multcomp(object = fit,
@@ -730,7 +728,7 @@ mc_multcomp(object = fit,
             data = Hunting)
 @
 
- - Multivariate multiple comparisons test
+\subsubsection{Multivariate multiple comparisons test}
 
 <<mult_multcomp>>=
 mc_mult_multcomp(object = fit, 

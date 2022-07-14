@@ -14,25 +14,25 @@
 
 \author[1]{Lineu Alberto Cavazani de Freitas}
 
-\author[2]{Wagner Hugo Bonat}
+\author[2]{Ligia de Oliveira Carlos}
 
-\author[3]{Ligia de Oliveira Carlos}
+\author[2]{Antônio Carlos Ligocki Campos}
 
-\author[3]{Antônio Carlos Ligocki Campos}
+\author[3]{Wagner Hugo Bonat}
 
 \authormark{FREITAS \textsc{et al}}
 
 \address[1]{\orgdiv{Department of Informatics}, \orgname{Paraná Federal University}, \orgaddress{\state{Paraná}, \country{Brazil}}}
 
-\address[2]{\orgdiv{Department of Statistics}, \orgname{Paraná Federal University}, \orgaddress{\state{Paraná}, \country{Brazil}}}
+\address[2]{\orgdiv{Department of Surgical Clinic}, \orgname{Paraná Federal University}, \orgaddress{\state{Paraná}, \country{Brazil}}}
 
-\address[3]{\orgdiv{Department of Surgical Clinic}, \orgname{Paraná Federal University}, \orgaddress{\state{Paraná}, \country{Brazil}}}
+\address[3]{\orgdiv{Department of Statistics}, \orgname{Paraná Federal University}, \orgaddress{\state{Paraná}, \country{Brazil}}}
 
 \corres{Lineu Alberto Cavazani de Freitas, Department of Informatics, Paraná Federal University, R. Evaristo F. Ferreira da Costa, 383-391, Jardim das Américas, Curitiba, Paraná, 82590-300, Brazil. \email{lineuacf@gmail.com}}
 
 \abstract[Summary]{
 
-Clinical trials are common in medical research. This type of study usually generates data with multiple non-Gaussian responses and time-dependent observations. The analysis of data from these studies requires statistical modeling techniques that take these characteristics into account. Our proposal is to use the Wald test to perform general hypothesis tests, ANOVAs, MANOVAs and multiple comparison tests on regression and dispersion parameters of multivariate covariance generalized linear models (McGLMs). McGLMs provide a general statistical modeling framework for normal and non-normal multivariate data analysis along with a wide range of  correlation structures. The test was verified based on simulation studies and the results showed that the further the hypothesis tested is from the true values of the parameters, the greater the percentage of rejection of the null hypothesis. The lowest rejection percentages were observed when the hypothesis tested corresponded to the real values of the parameters. Furthermore, the larger the sample size, the greater the power of the test. The proposal is motivated by the analysis of a clinical trial that aims to evaluate the effect of the use of probiotics in the control of addiction and binge eating disorder in patients undergoing bariatric surgery. The subjects were separated into two groups (placebo and treatment) and evaluated at three different times. The results indicate that addiction and binge eating disorder reduce over time, but there is no difference between groups at each time point.
+Clinical trials are common in medical research. This type of study usually generates data with multiple non-Gaussian responses and time-dependent observations. The analysis of data from these studies requires statistical modeling techniques that take these characteristics into account. Our proposal is to use the Wald test to perform general hypothesis tests, ANOVAs, MANOVAs and multiple comparison tests on regression and dispersion parameters of multivariate covariance generalized linear models (McGLMs). McGLMs provide a general statistical modeling framework for normal and non-normal multivariate data analysis along with a wide range of  correlation structures. The proposed test was verified based on simulation studies and the results showed that the further the hypothesis tested is from the true values of the parameters, the greater the percentage of rejection of the null hypothesis. The lowest rejection percentages were observed when the hypothesis tested corresponded to the real values of the parameters. Furthermore, the larger the sample size, the greater the power of the test. The proposal is motivated by the analysis of a clinical trial that aims to evaluate the effect of the use of probiotics in the control of addiction and binge eating disorder in patients undergoing bariatric surgery. The subjects were separated into two groups (placebo and treatment) and evaluated at three different times. The results indicate that addiction and binge eating disorder reduce over time, but there is no difference between groups at each time point.
 
 }
 
@@ -40,9 +40,9 @@ Clinical trials are common in medical research. This type of study usually gener
 
 \jnlcitation{\cname{%
 \author{Freitas LAC}, 
-\author{Bonat WH}, 
-\author{Carlos LO}, and 
-\author{Campos. ACL}} (\cyear{2022}), 
+\author{Carlos LO},
+\author{Campos ACL} and 
+\author{Bonat WH}} (\cyear{2022}), 
 \ctitle{Wald test to evaluate regression and dispersion parameters in multivariate covariance generalized linear models}, \cjournal{Statistics in Medicine}}
 
 \maketitle
@@ -57,45 +57,45 @@ Clinical trials are common in medical research. This type of study usually gener
 
 Clinical trials represent one of the most common procedures used to assess whether a new treatment is safe, effective or even better than a standard treatment. These are procedures widely used in medical research with the aim of evaluating interventions on a group of individuals. In general, the data generated by clinical trials are not trivial and, for analysis, there is a need for statistical methods capable of dealing with all the specifics of this type of study.
 
-According to \cite{meinert1986clinical} "a clinical trial is a planned experiment designed to assess the efficacy of a treatment in man by comparing the outcomes in a group of patients treated with the test with those observed in a comparable group of patients receiving a control treatment where patients in both groups are enrolled, treated, and followed over the same time period".
+According to Meinert and Tonascia \cite{meinert1986clinical} "a clinical trial is a planned experiment designed to assess the efficacy of a treatment in man by comparing the outcomes in a group of patients treated with the test with those observed in a comparable group of patients receiving a control treatment where patients in both groups are enrolled, treated, and followed over the same time period".
 
 In this type of study participants are randomly assigned to a treatment or control group (or to multiple treatment groups) \cite{hannan2008randomized} and the objective is to assess whether there is a significant difference between the groups.
 
 %\subsection{Problemas na área médica que envolvem múltiplas respostas}
 
-Often, in medical studies that use clinical trials, multiple outcomes are taken for a group of patients, for example: \cite{kangovi2018effect} evaluated the effect of community health worker support on clinical outcomes of low-income patients; \cite{song2019effect} studied the effect of a workplace wellness program on employee health and economic outcomes; \cite{thyregod2019five} presents the results of a five-year clinical and echocardiographic outcomes from the nordic aortic valve intervention (NOTION); \cite{schmitz2019effect} evalueated the effect of Home-Based Exercise and Weight Loss Programs on Breast Cancer–Related Lymphedema Outcomes; \cite{duma2019characterization} tested the association between certain exclusion criteria and trial characteristics. Consequently, the joint analysis of multiple outcomes studies has been of increased interest in the medical and statistical literature. 
+Often, in medical studies that use clinical trials, multiple outcomes are taken for a group of patients, for example: Kangovi et al \cite{kangovi2018effect} evaluated the effect of community health worker support on clinical outcomes of low-income patients; Song and Baicker \cite{song2019effect} studied the effect of a workplace wellness program on employee health and economic outcomes; Thyregod et al \cite{thyregod2019five} presents the results of a five-year clinical and echocardiographic outcomes from the nordic aortic valve intervention (NOTION); Schmitz et al \cite{schmitz2019effect} evalueated the effect of Home-Based Exercise and Weight Loss Programs on Breast Cancer–Related Lymphedema Outcomes; Duma et al \cite{duma2019characterization} tested the association between certain exclusion criteria and trial characteristics. Consequently, the joint analysis of multiple outcomes studies has been of increased interest in the medical and statistical literature. 
 
 %\subsection{Introdução ao Dataset}
 
 Similarly to the aforementioned articles, we are interested in the analysis of multiple outcomes in the context of longitudinal data analysis. The study we shall describe was conducted with the objective of evaluating the effect of the use of probiotics in the control of addiction and binge eating disorder in patients undergoing bariatric surgery. This is a problem with two response variables: a score that characterizes compulsion and the number of symptoms presented that characterize addiction. 
 
-In this study, a set of subjects was divided into two groups: one of them received a placebo and the other received the treatment. In addition, individuals were evaluated at 3 different times: the first evaluation was performed approximately 10 days before surgery; follow-up assessments were performed approximately three months and one year postoperatively.
+In this study, a set of subjects was divided into two groups: one of them received a placebo and the other received the treatment. In addition, individuals were evaluated at 3 different time points: the first evaluation was performed approximately 10 days before surgery; follow-up assessments were performed approximately three months and one year postoperatively.
 
 %\subsection{McGLM}
 
-It is important to note that this is a multivariate problem (contains two response variables), with non-Gaussian responses and that the observations that make up the data set cannot be considered independent, considering that measurements taken on the same individual at different times tend to be correlated. Therefore, it is a problem that traditional modeling techniques would be difficult to apply. It is necessary to use some methodology that supports the requirements of the problem.
+It is important to note that this is a multivariate problem (contains two response variables), with non-Gaussian responses and that the observations that make up the data set cannot be considered independent, considering that measurements taken on the same individual at different time points tend to be correlated. Therefore, it is a problem that traditional modeling techniques would be difficult to apply. It is necessary to use some methodology that supports the requirements of the problem.
 
 In this article, we adopt the multivariate covariance generalized linear models (McGLM) framework \cite{Bonat16}, which provides an environment for modeling multiple non-Gaussian responses simultaneously with flexible and interpretable modeling of the covariance structure. The within outcomes covariance matrix is specified for each marginal outcome using a linear combination of known matrices, while the joint covariance matrix is specified using the generalized Kronecker product \cite{martinez13,Bonat16}.
 
 %\subsection{Importância de testes de hipóteses em regressão}
 
-When working with regression models, a common interest is to verify if the absence of a certain explanatory variable of the model would generate a loss in the adjustment. Thus, a conjecture of interest is to assess whether there is sufficient evidence in the data to state that a given explanatory variable has no effect on the response. This is done through hypothesis testing. In this context, three hypothesis tests are common: the likelihood ratio test, the Wald test, and the Lagrange multiplier test, also known as the score test. \cite{engle} describes the general formulation of the three tests. All of them are based on the likelihood function of the models. 
+When working with regression models, a common interest is to verify if the absence of a certain explanatory variable of the model would generate a loss in the adjustment. Thus, a conjecture of interest is to assess whether there is sufficient evidence in the data to state that a given explanatory variable has no effect on the response. This is done through hypothesis testing. In this context, three hypothesis tests are common: the likelihood ratio test, the Wald test, and the Lagrange multiplier test, also known as the score test. Engle \cite{engle} describes the general formulation of the three tests. All of them are based on the likelihood function of the models. 
 
 %\subsection{ANOVA e MANOVA}
 
-In the case of traditional linear models, there are techniques such as analysis of variance (ANOVA), initially proposed by \cite{anova_fisher}. According to \cite{anova1}, ANOVA is one of the most widely used statistical methods to test hypotheses and is present in virtually all introductory statistics materials. The objective of the technique is to evaluate the effect of each of the explanatory variables on the response. This is done by comparing models with and without each of the explanatory variables. Therefore, this procedure makes it possible to assess whether the removal of each of the variables generates a significantly worse model when compared to the model with the variable. For the multivariate case, the technique of analysis of variance (ANOVA) is extended to the multivariate analysis of variance \citep{manova}, MANOVA. And among the multivariate hypothesis tests already discussed in the literature, Wilk's \cite{wilks} $\lambda$, Hotelling-Lawley trace \cite{lawley,hotelling}, Pillai trace \cite{pillai} and largest root of Roy \cite{roy}.
+In the case of traditional linear models, there are techniques such as analysis of variance (ANOVA), initially proposed by Fisher and Mackenzie \cite{anova_fisher}. According to St, Wold et al \cite{anova1}, ANOVA is one of the most widely used statistical methods to test hypotheses and it is present in virtually all introductory statistics materials. The objective of the technique is to evaluate the effect of each explanatory variables on the response. This is done by comparing models with and without each of the explanatory variables. Therefore, this procedure makes it possible to assess whether the removal of each of the variables generates a significantly worse model when compared to the model with the variable. For the multivariate case, the technique of analysis of variance (ANOVA) is extended to the multivariate analysis of variance \citep{manova}, MANOVA. And among the multivariate hypothesis tests already discussed in the literature, we have the Wilk's \cite{wilks} $\lambda$, Hotelling-Lawley trace \cite{lawley,hotelling}, Pillai trace \cite{pillai} and largest root of Roy \cite{roy}.
 
 %\subsection{Testes de comparações múltiplas}
 
-Complementary to ANOVAs and MANOVAs are multiple comparison tests. Such procedures are used when the analysis of variance points to the existence of a significant effect of the parameters associated with a categorical variable, that is, there is at least one significant difference between the levels of a factor. Thus, the multiple comparison test is another procedure based on hypothesis testing, used to determine where these differences are. For example, suppose there is a three-level categorical variable $X$ in the model: A, B, and C. The analysis of variance will show if there is an effect of the variable $X$ in the model, that is, if the response values are associated with the levels of $X$, however this result will not tell us whether the response values differ from A to B, or from A to C, or whether B differs from C. To detect such differences, multiple comparison tests are used. Among the tests discussed in the literature are the Dunnett, Tukey, student's t test (LSD), Scott-Knott test, among others. \cite{hsu1996multiple} discusses various procedures for the purpose of multiple comparisons. \cite{bretz2008multiple} presents procedures for multiple comparisons in linear models.
+Complementary to ANOVAs and MANOVAs are multiple comparison tests. Such procedures are used when the analysis of variance points to the existence of a significant effect of the parameters associated with a categorical variable, that is, there is at least one significant difference between the levels of a factor. Thus, the multiple comparison test is another procedure based on hypothesis testing, used to determine where these differences are. For example, suppose there is a three-level categorical variable $X$ in the model that assumes the levels: A, B, or C. The analysis of variance will show if there is an effect of the variable $X$ in the model, that is, if the response values are associated with the levels of $X$, however this result will not tell us whether the response values differ from A to B, or from A to C, or whether B differs from C. To detect such differences, multiple comparison tests are used. Among the tests discussed in the literature are the Dunnett, Tukey, student's t test (LSD), Scott-Knott test, among others. Hsu \cite{hsu1996multiple} discusses various procedures for the purpose of multiple comparisons. Bretz, Hothorn, and Westfall \cite{bretz2008multiple} presents procedures for multiple comparisons in linear models.
 
 %\subsection{Objetivo do trabalho}
 
-However, for regression problems with multiple non-Gaussian responses, there are few alternatives for hypothesis testing. Therefore, as it is a flexible class of models with high power of application to practical problems, our general objective is the development of hypothesis tests for McGLMs. We have the following specific objectives: to propose the use of the Wald test to carry out tests of general hypotheses on regression and dispersion parameters of McGLMs, also enabling the generation of tables of analysis of variance, multivariate analysis of variance and multiple comparisons tests for regression models with multiple non-Gaussian responses. Another objective is to evaluate the properties of the proposed tests based on simulation studies and to motivate the application potential of the discussed methodologies based on the application to the aforementioned datasets. In the problem, traditional modeling techniques would be difficult to apply, however it is a problem of possible analysis via McGLM and hypothesis tests can be used to evaluate the effect of the interaction between time and use of the probiotic on addiction and disorder of binge eating.
+However, for regression problems with multiple non-Gaussian responses, there are few alternatives for hypothesis testing. Therefore, as it is a flexible class of models with high power of application to practical problems, our general objective is the development of hypothesis tests for McGLMs. We have the following specific objectives: to propose the use of the Wald test to carry out tests of general hypotheses on regression and dispersion parameters of McGLMs, also enabling the generation of tables of analysis of variance, multivariate analysis of variance and multiple comparisons tests for regression models with multiple non-Gaussian responses. Another objective is to evaluate the properties of the proposed tests based on simulation studies and to motivate the application potential of the discussed methodologies based on the analysis of the aforementioned datasets. In the problem, traditional modeling techniques would be difficult to apply, however it is a problem of possible analysis via McGLM and hypothesis tests can be used to evaluate the effect of the interaction between time and use of the probiotic on addiction and disorder of binge eating.
 
 %\subsection{Organização do trabalho (seções)}
 
-We present the data set in \autoref{sec2}. In \autoref{sec3} we present the review of the general structure and estimation of the parameters of a McGLM, based on the ideas of \cite{Bonat16}. In \autoref{sec4} our proposal is presented with the details of the Wald test to evaluate assumptions about parameters of a McGLM. In \autoref{sec5} we present the results of the performance evaluation of the proposed test based on a simulation study. In the \autoref{sec6} we apply the model to the data and present the main results of the analysis of data from the clinical study that aims to evaluate the use of probiotics in the control of addiction and binge eating disorder in patients undergoing bariatric surgery. Finally, the main results are discussed in \autoref{sec7}, including some directions for future investigations.
+We present the data set in \autoref{sec2}. In \autoref{sec3} we present the review of the general structure and estimation of the parameters of a McGLM, based on the ideas of Bonat and Jørgensen \cite{Bonat16}. In \autoref{sec4} our proposal is presented with the details of the Wald test to evaluate assumptions about parameters of a McGLM. In \autoref{sec5} we present the results of the performance evaluation of the proposed test based on a simulation study. In the \autoref{sec6} we apply the model to the data and present the main results of the analysis of data from the clinical study that aims to evaluate the use of probiotics in the control of addiction and binge eating disorder in patients undergoing bariatric surgery. Finally, the main results are discussed in \autoref{sec7}, including some directions for future investigations.
 
 %-----------------------------------------------------------------------
 
@@ -109,9 +109,9 @@ Patients who underwent other surgical techniques or reoperation, had post-surgic
 
 On the seventh postoperative day, participants were instructed to ingest two chewable tablets/day of placebo or Flora Vantage probiotic tablet, 5 billion of Lactobacillus acidophilus NCFM \textregistered Strain and 5 billion of Bifidobacterium lactis Bi-07 \textregistered) from Bariatric Advantage (Aliso Viejo, CA, USA) for 90 days. Subjects were evaluated at 3 time points. The first evaluation (T0) was performed approximately 10 days before surgery. Follow-up assessments were performed approximately three months (T1) and one year postoperatively (T2). At these moments, clinical and anthropometric assessments were performed, as well as self-administered questionnaires were given to the participants at each meeting.
 
-The evaluation of binge eating was based on the binge eating scale (BES), one of the most used tools to measure binge eating in research, with numerous studies proving its effectiveness, translated into Portuguese and validated for individuals with obesity and submitted to bariatric surgery. This is a 16-item Likert scale questionnaire, prepared according to the Diagnostic and Statistical Manual of Mental Disorders (3rd edition) \cite{spitzer1980diagnostic} by \cite{gormally1982assessment}. The individuals were instructed to select the option that best represented their answer and the final score was the sum of the points for each item, this score ranging from 0 to 46.
+The evaluation of binge eating was based on the binge eating scale (BES), one of the most used tools to measure binge eating in research, with numerous studies proving its effectiveness, translated into Portuguese and validated for individuals with obesity and submitted to bariatric surgery. This is a 16-item Likert scale questionnaire, prepared according to the Diagnostic and Statistical Manual of Mental Disorders (3rd edition) \cite{spitzer1980diagnostic} by Gormally et al \cite{gormally1982assessment}. The individuals were instructed to select the option that best represented their answer and the final score was the sum of the points for each item, this score ranging from 0 to 46.
 
-To assess food addiction, the Food Addiction Scale (YFAS) was used, a questionnaire that seeks to detect symptoms of addictive eating behaviors. YFAS was based on substance dependence criteria from Diagnostic and Statistical Manual IV – Proofreading (DSM-IV-TR) \cite{segal2010diagnostic} and endorsed for highly processed foods. This questionnaire was developed by \cite{gearhardt2009preliminary} and is a combination of 25 Likert scale options and the evaluation option used was the number of addiction symptoms.
+To assess food addiction, the Food Addiction Scale (YFAS) was used, a questionnaire that seeks to detect symptoms of addictive eating behaviors. YFAS was based on substance dependence criteria from Diagnostic and Statistical Manual IV – Proofreading (DSM-IV-TR) \cite{segal2010diagnostic} and endorsed for highly processed foods. This questionnaire was developed by Gearhardt et al \cite{gearhardt2009preliminary} and is a combination of 25 Likert scale options and the evaluation option used was the number of addiction symptoms.
 
 %\subsection{Desenho experimental e coleta de dados}
 
@@ -126,27 +126,27 @@ For analysis purposes, the score that characterizes compulsion and the number of
   \item moment: moment identifier variable (T0, T1, T2).
   \item group: group identifier variable (placebo, probiotic).
   \item YFAS: proportion of symptoms that characterize addiction.
-  \item BES: proporção de escore de compulsão.
+  \item BES: BES score transformed to unit scale.
 \end{itemize}
 
 %\subsection{Análise exploratória}
 
-The graphical analysis presented in \autoref{fig1} shows, in (a) and (d) that both variables of interest present considerable asymmetry to the right. The boxplots of metrics as a function of group presented in (b) and (e) show significant differences between the placebo and probiotic groups for both responses. The boxplots of the metrics as a function of the evaluation moments, presented in (c) and (f), show that for both metrics the values were higher at T0, with a considerable reduction at T1. When comparing T1 and T2, for YFAS it seems that there is a slight increase in the last evaluation; for BES, T1 and T2 do not seem to differ.  
+The graphical analysis presented in \autoref{fig1} shows, in (a) and (d) that both variables of interest present considerable asymmetry to the right. The boxplots of metrics as a function of group presented in (b) and (e) show litthe difference between the placebo and probiotic groups for both responses. The boxplots of the metrics as a function of the evaluation moments, presented in (c) and (f), show that for both metrics the values were higher at T0, with a considerable reduction at T1. When comparing T1 and T2, for YFAS it seems that there is a slight increase in the last evaluation; for BES, T1 and T2 do not seem to differ.  
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=342pt,height=9pc,draft]{empty}}
 \caption{Exploratory graphic analysis: (a) YFAS histogram, (b) YFAS boxplots as a function of group, (c) YFAS boxplots as a function of moment, (d) BES histogram, (b) BES boxplots as a function of group, (c) BES boxplots as a function of moment. The asterisk in the boxplots indicates the mean.\label{fig1}}
 \end{figure}
 
-Still in an exploratory way, we can evaluate the behavior of addiction and compulsion metrics through the evaluation of descriptive measures by moment and by group, presented in \autoref{tab:tab1}. It is possible to verify the reduction of individuals over time, something common in prospective studies. Regarding the measurements, it is noted that both groups (placebo or probiotic) have higher means at T0 than at other times. Therefore, there is a clear reduction in metrics when compared to the preoperative period. When comparing the postoperative moments (T1 and T2) we verified that the YFAS measurements for the placebo and probiotic groups and BES in the placebo group showed, on average, an increase in the metrics at the last evaluation moment. On the other hand, the BES measures in the probiotic group showed a decrease.
+Still in an exploratory way, we can evaluate the behavior of addiction and compulsion metrics through the evaluation of descriptive measures by moment and by group, presented in \autoref{tab:tab1}. It is possible to verify the reduction of individuals over time, something common in prospective studies. Regarding the measurements, it is noted that both groups (placebo or probiotic) have higher means at T0 than at other times. Therefore, there is a clear reduction in metrics when compared to the preoperative period. When comparing the postoperative moments (T1 and T2) we verified that the YFAS measurements for the placebo and probiotic groups showed, on average, an increase in the metrics at the last evaluation moment. The same could be seen for BES in the placebo group. On the other hand, the BES measures in the probiotic group showed a decrease.
 
 %-----------------------------------------------------------------------
 
 \section{Multivariate Covariance Generalized Linear Models}\label{sec3}
 
-Consider $\boldsymbol{Y}_{N \times R} = \left \{ \boldsymbol{Y}_1, \dots, \boldsymbol{Y}_R \right \}$ a matrix of response variables and $\boldsymbol{ M}_{N \times R} = \left \{ \boldsymbol{\mu}_1, \dots, \boldsymbol{\mu}_R \right \}$ a matrix of expected values. The variance and covariance matrix for each response $r$, $r = 1,..., R$ is denoted by $\Sigma_r$, has dimension $NxN$. In addition, a correlation matrix $\Sigma_b$, of order $R \times R$, which describes the correlation between the response variables, is required.
+Consider $\boldsymbol{Y}_{N \times R} = \left \{ \boldsymbol{Y}_1, \dots, \boldsymbol{Y}_R \right \}$ a matrix of response variables and $\boldsymbol{ M}_{N \times R} = \left \{ \boldsymbol{\mu}_1, \dots, \boldsymbol{\mu}_R \right \}$ a matrix of expected values. The variance and covariance matrix for each response $r$, $r = 1,..., R$, is denoted by $\Sigma_r$ and has dimension $N \times N$. In addition, consider a correlation matrix $\Sigma_b$, of order $R \times R$, which describes the correlation between the response variables.
 
-The McGLMs \citep{Bonat16}are defined by:
+The McGLMs \citep{Bonat16} are defined by:
 
 $$
       \begin{aligned}
@@ -163,7 +163,7 @@ $$
       \end{aligned}
 $$
 
-\noindent where the $g_r()$ functions are the traditional link functions; $\boldsymbol{X}_r$ denotes a design matrix $N \times k_r$; $\boldsymbol{\beta}_r$ denotes a vector $k_r \times 1$ of regression parameters. $\boldsymbol{\Sigma}_R \overset{G} \otimes \boldsymbol{\Sigma}_b = \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1, \ldots, \tilde{\boldsymbol{ \Sigma}}_R) (\boldsymbol{\Sigma}_b \otimes \boldsymbol{I}) \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1^\top, \ldots, \tilde{\ boldsymbol{\Sigma}}_R^\top)$ is the generalized Kronecker product  \cite{martinez13}, the matrix $\tilde{\boldsymbol{\Sigma}}_r$ denotes the lower triangular matrix of the Cholesky decomposition of the matrix ${\boldsymbol{\Sigma}}_r$. The operator $\mathrm{Bdiag()}$ denotes the block-diagonal matrix and $\boldsymbol{I}$ is an identity matrix $N \times N$.
+\noindent where the $g_r()$ are the traditional link functions; $\boldsymbol{X}_r$ denotes a design matrix $N \times k_r$; $\boldsymbol{\beta}_r$ denotes a vector $k_r \times 1$ of regression parameters. $\boldsymbol{\Sigma}_R \overset{G} \otimes \boldsymbol{\Sigma}_b = \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1, \ldots, \tilde{\boldsymbol{ \Sigma}}_R) (\boldsymbol{\Sigma}_b \otimes \boldsymbol{I}) \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1^\top, \ldots, \tilde{\boldsymbol{\Sigma}}_R^\top)$ is the generalized Kronecker product  \cite{martinez13}, the matrix $\tilde{\boldsymbol{\Sigma}}_r$ denotes the lower triangular matrix of the Cholesky decomposition of the matrix ${\boldsymbol{\Sigma}}_r$. The operator $\mathrm{Bdiag()}$ denotes the block-diagonal matrix and $\boldsymbol{I}$ is an identity matrix $N \times N$.
 
 For continuous, binary, binomial, proportions or indices, the variance and covariance matrix $\boldsymbol{\Sigma}_r$ is given by:
 
@@ -188,7 +188,7 @@ Finally, the binomial variance function, given by $\vartheta\left(\cdot; p_r\rig
 
 It is possible to notice that the power parameter $p$ appears in all the variance functions discussed. This parameter is especially important because it is an index that distinguishes different probability distributions that are important in the modeling context and, for this reason, can be used as a tool for automatic selection of the probability distribution that best suits the problem.
 
-The dispersion matrix $\boldsymbol{\Omega({\tau})}$ describes the part of the covariance within each response variable that does not depend on the mean structure, ie, the correlation structure between the sample observations. Based on the ideas of \cite{Anderson73} and \cite{Pourahmadi00}, \cite{Bonat16} proposed to model the dispersion matrix through a matrix linear predictor combined with a covariance link function given by:
+The dispersion matrix $\boldsymbol{\Omega({\tau})}$ describes the part of the covariance within each response variable that does not depend on the mean structure, ie, the correlation structure between the sample observations. Based on the ideas of Anderson et al \cite{Anderson73} and Pourahmadi \cite{Pourahmadi00}, Bonat and Jørgensen \cite{Bonat16} proposed to model the dispersion matrix through a matrix linear predictor combined with a covariance link function given by:
 
 $$
 h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}_r) \right \} = \tau_{r0}Z_0 + \ldots + \tau_{rD}Z_D,
@@ -196,13 +196,13 @@ $$
 
 \noindent where $h()$ is the covariance link function, $Z_{rd}$ with $d$ = 0,$\ldots$, D are matrices representing the covariance structure present in each response variable $r$ and $\boldsymbol{\tau_r}$ = $(\tau_{r0}, \ldots, \tau_{rD})$ is a vector $(D + 1) \times 1$ of dispersion parameters.
 
-Some possible covariance link functions are identity, inverse and exponential-matrix. The specification of the covariance link function is discussed by \cite{Pinheiro96} and it is possible to select combinations of matrices to obtain the most known models in the literature for longitudinal data, time series, spatial and spatiotemporal data. Further details are discussed by \cite{Demidenko13}.
+Some possible covariance link functions are identity, inverse and exponential-matrix. The specification of the covariance link function is discussed by Pinheiro and Bates \cite{Pinheiro96} and it is possible to select combinations of matrices to obtain the most known models in the literature for longitudinal data, time series, spatial and spatiotemporal data. Further details are discussed by Demidenko \cite{Demidenko13}.
 
 In this way, the McGLMs configure a general framework for analysis via regression models for non-Gaussian data with multiple responses in which no assumptions are made regarding the independence of the observations. The class is defined by 3 functions (link, variance and covariance) in addition to a linear predictor and a matrix linear predictor for each response under analysis.
 
 \subsection{Estimation and inference}
 
-McGLMs are fitted are fitted based on the estimating function approach described in detail by \cite{Bonat16} and \cite{jorg04}. This subsection presents an overview of the algorithm and the asymptotic distribution of estimators based on estimating functions.
+McGLMs are fitted based on the estimating function approach described in detail by Bonat and Jørgensen \cite{Bonat16} and Jørgensen and Knudsen \cite{jorg04}. This subsection presents an overview of the algorithm and the asymptotic distribution of estimators based on estimating functions.
 
 McGLMs' second-moment assumptions allow the division of parameters into two sets: $\boldsymbol{\theta} = (\boldsymbol{\beta}^{\top}, \boldsymbol{\lambda}^{\top})^ {\top}$. So $\boldsymbol{\beta} = (\boldsymbol{\beta}_1^\top, \ldots, \boldsymbol{\beta}_R^\top)^\top$ is a vector $K \times 1$ of regression parameters and $\boldsymbol{\lambda} = (\rho_1, \ldots, \rho_{R(R-1)/2}, p_1, \ldots, p_R, \boldsymbol{\tau}_1^\top , \ldots, \boldsymbol{\tau}_R^\top)^\top$ is a vector $Q \times 1$ of dispersion parameters. Also, $\mathcal{Y} = (\boldsymbol{Y}_1^\top, \ldots, \boldsymbol{Y}_R^\top)^\top$ denotes the stacked vector of order $NR \times 1$ from the matrix of response variables $\boldsymbol{Y}_{N \times R}$ and $\mathcal{M} = (\boldsymbol{\mu}_1^\top, \ldots, \boldsymbol{\mu}_R^ \top)^\top$ denotes the stacked vector of order $NR \times 1$ of the expected value matrix $\boldsymbol{M}_{N \times R}$.
 
@@ -262,7 +262,7 @@ $$
 
 \noindent where $k_{l}^{(4)}$ denotes the fourth cumulant of $\mathcal{Y}_{l}$. In the McGLM estimation process, empirical versions are used.
 
-To take into account the covariance between the vectors $\boldsymbol{\beta}$ and $\boldsymbol{\lambda}$, \cite{Bonat16} obtained the sensitivity and cross-variability matrices, denoted by $S_{\boldsymbol{ \lambda \beta}}$, $S_{\boldsymbol{\beta \lambda}}$ and $V_{\boldsymbol{\lambda \beta}}$, more details in \cite{Bonat16}. The joint sensitivity and variability matrices of $\psi_{\boldsymbol{\beta}}$ and $\psi_{\boldsymbol{\lambda}}$ are denoted by
+To take into account the covariance between the vectors $\boldsymbol{\beta}$ and $\boldsymbol{\lambda}$, Bonat and Jørgensen \cite{Bonat16} obtained the sensitivity and cross-variability matrices, denoted by $S_{\boldsymbol{ \lambda \beta}}$, $S_{\boldsymbol{\beta \lambda}}$ and $V_{\boldsymbol{\lambda \beta}}$, more details in Bonat and Jørgensen \cite{Bonat16}. The joint sensitivity and variability matrices of $\psi_{\boldsymbol{\beta}}$ and $\psi_{\boldsymbol{\lambda}}$ are denoted by
 
 $$
   \begin{aligned}
@@ -286,7 +286,7 @@ $$
 
 \noindent where $J_{\boldsymbol{\theta}}^{-1}$ is the inverse of the Godambe information matrix, given by $J_{\boldsymbol{\theta}}^{-1} = S_{ \boldsymbol{\theta}}^{-1} V_{\boldsymbol{\theta}} S_{\boldsymbol{\theta}}^{-\top}$, where $S_{\boldsymbol{\theta}} ^{-\top} = (S_{\boldsymbol{\theta}}^{-1})^{\top}.$
 
-To solve the system of equations $\psi_{\boldsymbol{\beta}} = 0$ and $\psi_{\boldsymbol{\lambda}} = 0$, the modified Chaser algorithm, proposed by \cite{jorg04}, which is defined as
+To solve the system of equations $\psi_{\boldsymbol{\beta}} = 0$ and $\psi_{\boldsymbol{\lambda}} = 0$, Jørgensen and Knudsen \cite{jorg04} proposed the modified Chaser algorithm, which is defined as
 
 $$
 \begin{aligned}
@@ -301,9 +301,7 @@ $$
 
 \section{Wald Test for McGLMs}\label{sec4}
 
-This section is dedicated to the presentation of our proposal: the use of the Wald test to evaluate McGLMs parameters. It is worth remembering that in McGLMs there are regression, dispersion, power and correlation parameters and that, in this work, we are interested in the evaluation of regression and dispersion parameters. Each set of parameters has a very relevant practical interpretation in such a way that through the regression parameters it is possible to identify the relevant explanatory variables, through the dispersion parameters it is possible to evaluate the impact of the correlation between units of the data set, through the power parameters it is possible to identify which probability distribution best suits the problem according to the variance function, and through the correlation parameters it is possible to assess the association between responses.
-
-In \autoref{sec5} we show that the parameter estimates of a McGLM follow a normal distribution. Therefore any quadratic form obtained through the estimator or linear combinations (such as the Wald statistic) is also a quadratic form that has a chi-square distribution. Therefore, our proposal is not a simple adaptation, but an asymptotically valid procedure based on the theory of the distribution of quadratic forms. More about the distribution of quadratic forms can be seen in the works of \cite{graybill1957idempotent}, \cite{luther1965decomposition} and \cite{baldessari1967distribution}.
+This section is dedicated to the presentation of our proposal: the use of the Wald test to evaluate McGLMs parameters. It is worth remembering that in McGLMs there are regression, dispersion, power and correlation parameters. Each set of parameters has a very relevant practical interpretation in such a way that through the regression parameters it is possible to identify the relevant explanatory variables, through the dispersion parameters it is possible to evaluate the impact of the correlation between units of the data set, through the power parameters it is possible to identify which probability distribution best suits the problem according to the variance function, and through the correlation parameters it is possible to assess the association between responses. In this work, we are interested in methods for evaluation of regression and dispersion parameters.
 
 %\subsection{Hipóteses e estatística de teste}
 
@@ -326,7 +324,7 @@ In general, each column of the matrix $\boldsymbol{L}$ corresponds to one of the
 
 In a practical context, after obtaining the estimates of the model parameters, we may be interested in three types of hypotheses: (i) interest in assessing whether there is evidence that allows us to state that only a single parameter is equal to a postulated value; (ii) interest in assessing whether there is evidence to state that a set of parameters is equal to a postulated vector of values; (iii) interest in knowing if the difference between the effects of two variables is equal to 0, that is, if the effect of the variables on the response is the same.
 
-For the purposes of illustrating the types of hypotheses mentioned, consider the situation in which you want to investigate whether a numeric variable $X_1$ has an effect on two response variables, denoted by $Y_1$ and $Y_2$. For this task, a sample with $N$ observations was collected and for each observation the values of $X_1$, $Y_1$ and $Y_2$ were recorded. Based on the collected data, a bivariate McGLM was fitted, with a predictor given by:
+For the purposes of illustrating the types of hypotheses mentioned, consider the situation in which you want to investigate whether a numeric variable $X_1$ has an effect on two response variables, denoted by $Y_1$ and $Y_2$. For this task, consider that a sample with $N$ observations was collected and for each observation the values of $X_1$, $Y_1$ and $Y_2$ were recorded. Based on the collected data, a bivariate McGLM was fitted, with a predictor given by:
 
 \begin{equation}
 \label{eq:pred_ex}
@@ -335,11 +333,11 @@ g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1, r=1,2,
 
 \noindent where the index $r$ denotes the response variable, r = 1,2; $\beta_{r0}$ represents the intercept; $\beta_{r1}$ a regression parameter associated with a variable $X_1$. Assume that each response has only one dispersion parameter $\tau_{r0}$ and that the power parameters have been fixed. Therefore, it is a problem in which there are two response variables and only one explanatory variable. Assume that the observations under study are independent, so $Z_0 = I$. 
 
-In this scenario, questions of interest could be: is there an effect of the variable $X_1$ only on the first response? Or just about the second response? Is it possible that the variable $X_1$ has an effect on both responses at the same time? Is it possible that the effect of the variable is the same for both responses? All these questions can be answered by testing hypotheses on the model parameters and specified using \autoref{eq:hipoteses_wald}. In the next subsections, we present the elements necessary to conduct each test.
+In this scenario, questions of interest could be: is there an effect of the variable $X_1$ on only one of the responses? Is it possible that the variable $X_1$ has an effect on both responses at the same time? Is it possible that the effect of the variable is the same for both responses? All these questions can be answered by testing hypotheses on the model parameters and specified using \autoref{eq:hipoteses_wald}. In the next subsections, we present the elements necessary to conduct each test.
 
 \subsection{Example 1: hypothesis for a single parameter}
 
-Consider the first type of hypothesis: interest in evaluating whether there is an effect of the variable $X_1$ only on the first response. The hypothesis can be written as follows:
+Let's consider the simplest type of hypothesis to test: a hypothesis about a single parameter. Suppose our interest is evaluate whether there is an effect of the variable $X_1$ only on the first response. The hypothesis can be written as follows:
 
 \begin{equation}
 \label{eq:ex1}
@@ -354,7 +352,8 @@ This same hypothesis can be rewritten in the most convenient notation for applyi
 
 \item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 0  \end{bmatrix}.$
  
-\item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}$, is the value under the null hypothesis. 
+\item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}.$
+
 \end{itemize}
 
 Note that the vector $\boldsymbol{\theta^{*}}$ has six elements, therefore the matrix $\boldsymbol{L}$ contains six columns (one for each element) and one row, because only a single parameter is being tested. This single line is composed of zeros, except for the column referring to the parameter of interest, which receives 1. It is simple to verify that the product $\boldsymbol{L}\boldsymbol{\theta^{*}}$ represents the hypothesis of interest initially postulated in \autoref{eq:ex1}. Thus, the asymptotic distribution of the test is $\chi^2_1$.
@@ -404,7 +403,7 @@ Hypotheses in the form of \autoref{eq:hipoteses_wald} have the following element
 \item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}.$
  
-\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$, is the value under the null hypothesis. 
+\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}.$ 
 
 \end{itemize}
 
@@ -412,7 +411,7 @@ The vector $\boldsymbol{\theta^{*}}$ remains with six elements and the matrix $\
 
 \subsection{Example 3: hypothesis of equality of parameters}
 
-Suppose this time that the hypothesis of interest does not involve testing whether the parameter value is equal to a postulated value but checking whether, in the case of this generic problem, the effect of the variable $X_1$ is the same for both responses. In this situation, we would form a hypothesis of equality between the parameters or, in other words, if the difference of the effects is null:
+Suppose this time that the hypothesis of interest does not involve testing whether the parameter value is equal to a postulated value, but checking whether the effect of the variable $X_1$ is the same for both responses. In this situation, we would form a hypothesis of equality between the parameters or, in other words, if the difference of the effects is null:
 
 \begin{equation}
 \label{eq:ex3}
@@ -428,21 +427,21 @@ H_0: \beta_{11} - \beta_{21} = 0 \ vs \ H_1: \beta_{11} - \beta_{21} \neq 0,
 
 \item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & -1 & 0 & 0  \end{bmatrix}.$
  
-\item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}$, is the value under the null hypothesis. 
+\item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}.$
 
 \end{itemize}
 
-As there is only one hypothesis, the matrix $\boldsymbol{L}$ has only one row. For the matrix $\boldsymbol{L}$ to be correctly specified in the case of an equality hypothesis, it is necessary to put 1 in the column referring to one parameter, and -1 in the column referring to the other parameter, in such a way that the product $\boldsymbol {L}\boldsymbol{\theta^{*}}$ represents the hypothesis of interest initially postulated, in this case the product $\boldsymbol{L}\boldsymbol{\theta^{*}}$ generates exactly the same hypothesis specified in \autoref{eq:ex3} and the asymptotic distribution of the test is $\chi^2_1$.
+As there is only one hypothesis, the matrix $\boldsymbol{L}$ has only one row. For the matrix $\boldsymbol{L}$ to be correctly specified in the case of an equality hypothesis, it is necessary to put 1 in the column referring to one parameter, and -1 in the column referring to the other parameter, in such a way that the product $\boldsymbol {L}\boldsymbol{\theta^{*}}$ represents the hypothesis of interest initially postulated. In this case the product $\boldsymbol{L}\boldsymbol{\theta^{*}}$ generates exactly the same hypothesis specified in \autoref{eq:ex3} and the asymptotic distribution of the test is $\chi^2_1$.
 
 \subsection{Example 4: hypothesis about regression or dispersion parameters for responses under the same predictor}\label{sec:sec_ex4}
 
-\autoref{eq:pred_ex} describes a generic bivariate model. It is important to note that in this example both responses are subject to the same predictor. In practice, when it comes to McGLMs, different predictors can be specified between response variables. Thus, what was exposed in \autoref{sec:ex2} is useful for any case in which there is interest in testing hypotheses about more than one model parameter in the same or in different responses, regardless of the predictors between responses.
+The \autoref{eq:pred_ex} describes a generic bivariate model. It is important to note that in this example both responses are subject to the same predictor. In practice, when it comes to McGLMs, different predictors can be specified between response variables. Thus, what was exposed in \autoref{sec:ex2} is useful for any case in which there is interest in testing hypotheses about more than one model parameter in the same or in different responses, regardless of the predictors between responses.
 
-However, in cases where the responses are subject to identical predictors and the assumptions about the parameters do not change from response to response, an alternative specification of the procedure is to use the Kronecker product to test the same hypothesis on multiple responses as used in \cite{plastica}.
+However, in cases where the responses are subject to identical predictors and the assumptions about the parameters do not change from response to response, an alternative specification of the procedure is to use the Kronecker product to test the same hypothesis on multiple responses as used in Bonat et al \cite{plastica}.
 
-Suppose that, in this example, the hypotheses of interest are still written as in \autoref{eq:ex2}. However, as this is a bivariate model with the same predictor for the two responses, the hypothesis of interest is the same between responses and involves only regression parameters, it is convenient to write the matrix $\boldsymbol{L}$ as the Kronecker product from two matrices: a matrix $\boldsymbol{G}$ and a $\boldsymbol{F}$, that is, $\boldsymbol{L}$ = $\boldsymbol{G} \otimes \boldsymbol{F}$. In this way, the matrix $\boldsymbol{G}$ has dimension $R \times R$ and specifies the hypotheses regarding the responses, whereas the matrix $\boldsymbol{F}$ specifies the hypotheses between variables and has dimension ${s} ' \times {h}'$, where ${s}'$ is the number of linear constraints, that is, the number of parameters tested for a single response, and ${h}'$ is the total number of coefficients of regression or dispersion of the response. Therefore, the array $\boldsymbol{L}$ has dimension (${s}'R \times h$).
+Suppose that, in this example, the hypotheses of interest are still written as in \autoref{eq:ex2}. However, as this is a bivariate model with the same predictor for the two responses and the hypothesis of interest are the same between responses and involves only regression parameters, it is convenient to write the matrix $\boldsymbol{L}$ as the Kronecker product from two matrices: a matrix $\boldsymbol{G}$ and a $\boldsymbol{F}$, that is, $\boldsymbol{L}$ = $\boldsymbol{G} \otimes \boldsymbol{F}$. In this way, the matrix $\boldsymbol{G}$ has dimension $R \times R$ and specifies the hypotheses regarding the responses, whereas the matrix $\boldsymbol{F}$ specifies the hypotheses between variables and has dimension ${s} ' \times {h}'$, where ${s}'$ is the number of linear constraints, that is, the number of parameters tested for a single response, and ${h}'$ is the total number of coefficients of regression or dispersion of the response. Therefore, the matrix $\boldsymbol{L}$ has dimension (${s}'R \times h$).
 
-In general, the matrix $\boldsymbol{G}$ is an identity matrix with a dimension equal to the number of responses analyzed in the model. Whereas the matrix $\boldsymbol{F}$ is equivalent to a matrix $\boldsymbol{L}$ if there was only a single response in the model and only regression or dispersion parameters. We use the Kronecker product of these two matrices to ensure that the hypothesis described in the $\boldsymbol{F}$ matrix is tested on the $R$ model responses.
+In general, the matrix $\boldsymbol{G}$ is an identity matrix with dimension equal to the number of responses analyzed in the model. Whereas the matrix $\boldsymbol{F}$ is equivalent to a matrix $\boldsymbol{L}$ if there was only a single response in the model and only regression or dispersion parameters. We use the Kronecker product of these two matrices to ensure that the hypothesis described in the $\boldsymbol{F}$ matrix will be tested on the $R$ model responses.
 
 Thus, considering that this is the case in which the hypotheses can be rewritten by decomposing the $\boldsymbol{L}$ matrix, the test elements are given by:
 
@@ -458,17 +457,17 @@ Thus, considering that this is the case in which the hypotheses can be rewritten
 \item $\boldsymbol{L} = \boldsymbol{G} \otimes \boldsymbol{F} =  \begin{bmatrix} 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 \end{bmatrix}$: matrix specifying the hypotheses on all responses.
  
-\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$, is the value under the null hypothesis.
+\item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$: vector of values under the null hypothesis.
 
 \end{itemize}
 
-Thus, the product $\boldsymbol{L}\boldsymbol{\beta}$ represents the initially postulated hypothesis of interest. In this case, the asymptotic distribution of the test is $\chi^2_2$. The procedure is easily generalized when there is interest in evaluating a hypothesis about the dispersion parameters and this specification is quite convenient for generating analysis of variance tables.
+Thus, the product $\boldsymbol{L}\boldsymbol{\beta}$ represents the initially postulated hypothesis of interest. In this case, the asymptotic distribution of the test is $\chi^2_2$. The procedure is easily generalized when there is interest in evaluating a hypothesis about the dispersion parameters. And this specification is quite convenient for generating analysis of variance tables.
 
 \subsection{ANOVA and MANOVA via Wald test}
 
 Based on the proposal to use the Wald test for McGLMs, we seek to propose in this work three different procedures for generating ANOVA and MANOVA tables for regression parameters, following the nomenclature types I, II and III. In addition, we also seek to propose a procedure similar to ANOVA and MANOVA to evaluate the dispersion parameters of a given model. In the case of ANOVAs, a table is generated for each response variable. For MANOVAs only one tables is generated, therefore, in order to be able to perform MANOVAs, the model responses must be subject to the same predictor.
 
-For the purposes of illustrating the tests performed by each type of analysis of variance proposed, consider the situation in which we want to investigate whether two numeric variables denoted by $X_1$ and $X_2$ have an effect on two response variables denoted by $Y_1$ and $Y_2$. For this task, a sample with $N$ observations was collected and for each observation the values of $X_1$, $X_2$, $Y_1$ and $Y_2$ were recorded. Based on the collected data, a bivariate model was fitted, with a predictor given by:
+For the purposes of illustrating the tests performed by each type of analysis of variance proposed, consider the situation in which we want to investigate whether two numeric variables denoted by $X_1$ and $X_2$ have an effect on two response variables denoted by $Y_1$ and $Y_2$. For this task, suppose that a sample with $N$ observations was collected and for each observation the values of $X_1$, $X_2$, $Y_1$ and $Y_2$ were recorded. Based on the collected data, a bivariate model was fitted, with a predictor given by:
 
 $$
 g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} x_2 + \beta_{r3} X_1X_2.
@@ -506,11 +505,11 @@ If there are interactions in the model, the complete model is tested against the
 
 \end{enumerate}
 
-Note that, in the lines that seek to understand the effect of $X_1$ and $X_2$, the interaction is also evaluated, as all parameters involving that variable are removed from the model.
+Note that, in the lines that we seek to understand the effect of $X_1$ and $X_2$, the interaction is also evaluated, as all parameters involving that variable are removed from the model.
 
 \subsubsection{ANOVA and MANOVA type III}
 
-In type II analysis of variance, tests are performed comparing the complete model against the model without all the parameters involving a certain variable (either main effects or interactions). Our type III analysis of variance considers the complete model against the model without a certain effect. Thus, care must be taken in the conclusions, as a variable not having an effect as the main effect does not mean that there will be no interaction effect. Considering the example predictor, the type III analysis of variance would do the following tests:
+Our type III analysis of variance considers the complete model against the model without a certain effect. Considering the example predictor, the type III analysis of variance would do the following tests:
 
 \begin{enumerate}
   \item Tests if the intercept is equal to 0.
@@ -526,17 +525,17 @@ Note that in the lines where the effect of $X_1$ and $X_2$ is tested, the intera
 
 \subsection{Multiple comparisons test via Wald test}
 
-When ANOVA shows a significant effect of a categorical variable, it is usually of interest to assess which of the levels differ from each other. For this, multiple comparison tests are used. In the literature there are several procedures to perform such tests, many of them described in \cite{hsu1996multiple}.
+When ANOVA shows a significant effect of a categorical variable, it is usually of interest to assess which of the levels differ from each other. For this, multiple comparison tests are used. In the literature there are several procedures to perform such tests, many of them described in Hsu \cite{hsu1996multiple}.
 
 Such a situation can be evaluated using the Wald test. By correctly specifying the $\boldsymbol{L}$ matrix, it is possible to evaluate hypotheses about any possible contrast between the levels of a given categorical variable. Therefore, it is possible to use Wald's statistics to perform multiple comparison tests as well.
 
 The procedure is basically based on 3 steps. The first one is to obtain the matrix of linear combinations of the model parameters that result in the fitted means. With this matrix it is possible to generate the matrix of contrasts, given by subtracting each pair of lines from the matrix of linear combinations. Finally, just select the lines of interest from this matrix and use them as the Wald test hypothesis specification matrix, in place of the $\boldsymbol{L}$ matrix.
 	
-For example, suppose there is a response variable $Y$ subject to an explanatory variable $X$ of 4 levels: A, B, C and D. To evaluate the effect of the variable $X$, a model given by:
+For example, suppose there is a response variable $Y$ subject to an explanatory variable $X$ of 4 levels: A, B, C and D. Consider, to evaluate the effect of the variable $X$, a model given by:
 
 $$g(\mu) = \beta_0 + \beta_1[X=B] + \beta_2[X=C] + \beta_3[X=D].$$
 
-\noindent In this parameterization, the first level of the categorical variable is used as a reference category and, for the other levels, the change to the reference category is measured; this is called the treatment contrast. In this context $\beta_0$ represents the adjusted mean of level A, while $\beta_1$ represents the difference from A to B, $\beta_2$ represents the difference from A to C and $\beta_3$ represents the difference from A to D. With this parameterization it is possible to obtain the predicted value for any of the categories in such a way that if the individual belongs to category A, $\beta_0$ represents the predicted value; if the individual belongs to category B, $\beta_0 + \beta_1$ represents the predicted; for category C, $\beta_0 + \beta_2$ represents the predicted, and finally, for category D, $\beta_0 + \beta_3$ represents the predicted.
+\noindent In this parameterization, the first level of the categorical variable is used as a reference category and, for the other levels, the change to the reference category is measured; this is called treatment contrast. In this context, $\beta_0$ represents the adjusted mean of level A, while $\beta_1$ represents the difference from A to B, $\beta_2$ represents the difference from A to C and $\beta_3$ represents the difference from A to D. With this parameterization it is possible to obtain the predicted value for any of the categories in such a way that if the individual belongs to category A, $\beta_0$ represents the predicted value; if the individual belongs to category B, $\beta_0 + \beta_1$ represents the predicted; for category C, $\beta_0 + \beta_2$ represents the predicted, and finally, for category D, $\beta_0 + \beta_3$ represents the predicted.
 
 In matrix terms, these results can be described as
 
@@ -588,7 +587,7 @@ In practice, if the interest is a multivariate multiple comparison test, there i
 
 \section{Simulation studies}\label{sec5}
 
-In order to evaluate the power of the Wald test in hypothesis testing on McGLMs parameters, simulation studies were performed. In these simulations we evaluated the characteristics of the proposal for three probability distributions: Normal, Poisson and Bernoulli. We simulate univariate and also trivariate scenarios with different sample sizes to verify the properties of the tests on regression and dispersion parameters. Simulation studies were conducted in the R \cite{R} software. Standard R libraries were used to simulate univariate datasets. To simulate datasets with multiple responses following Normal distribution, the R library \emph{mvtnorm} \cite{mvtnorm1}, \cite{mvtnorm2} was used. For the other distributions, the method NORTA \cite{norta} implemented in the R library \emph{NORTARA} \cite{nortara} was used.
+In order to evaluate the power of the Wald test in hypothesis testing on McGLMs parameters, simulation studies were performed. In these simulations we evaluated the characteristics of the proposal for three probability distributions: Normal, Poisson and Bernoulli. We simulate univariate and also trivariate scenarios with different sample sizes to verify the properties of the tests on regression and dispersion parameters. Simulation studies were conducted in the R software \cite{R}. Standard R libraries were used to simulate univariate datasets. To simulate datasets with multiple responses following Normal distribution, the R library \emph{mvtnorm} \cite{mvtnorm1} \cite{mvtnorm2} was used. For the other distributions, the method NORTA \cite{norta} implemented in the R library \emph{NORTARA} \cite{nortara} was used.
 
 \subsection{Regression parameters}
 
@@ -635,7 +634,7 @@ In the same way as for the regression parameters, the Euclidean distance of each
 \caption{Simulation study results for the dispersion parameters.\label{fig3}}
 \end{figure}
 
-As observed for the regression parameters, the graphs show that the further the hypothesis is from the initially simulated values, the greater the rejection percentage, and the lower percentages are observed in hypotheses close to the simulated values. In the first hypothesis tested, for the univariate scenarios, rejection percentages close to 8\% were observed in the smallest sample size evaluated. From sample sizes equal to 250, the rejection percentage was close to 5\%. As for the trivariate cases, in the smallest sample size, the rejection percentage exceeded 10\% in the smallest sample size; for larger sample sizes, the percentages were around 7\%. It was also verified for the dispersion parameters that as the sample size increases, the rejection percentage increases for hypotheses little different from the simulated values of the parameters.
+As observed for the regression parameters, the graphs show that the further the hypothesis is from the initially simulated values, the greater the rejection percentage, and the lower percentages are observed in hypotheses close to the simulated values. In the first hypothesis tested, for the univariate scenarios, rejection percentages close to 8\% were observed in the smallest sample size evaluated. From sample sizes equal to 250, the rejection percentage was close to 5\%. In trivariate cases, the rejection percentage exceeded 10\% in the smallest sample size; for larger sample sizes, the percentages were around 7\%. It was also verified for the dispersion parameters that as the sample size increases, the rejection percentage increases for hypotheses little different from the simulated values of the parameters.
 
 %-----------------------------------------------------------------------
 
@@ -643,15 +642,15 @@ As observed for the regression parameters, the graphs show that the further the 
 
 %\subsection{Especificação do modelo}
 
-For data analysis, a multivariate model was adjusted with the fixed effects of the moment and group variables. Additionally, the effect of the interaction between these two explanatory variables was included in the model. As already mentioned, this is an experiment in which the observations are not independent because measurements taken on the same individual are correlated and this correlation must be specified in the model. Both responses were treated as proportions, for this reason the logit link function with the binomial variance function was used. Additionally, the power parameter was estimated for both responses under analysis. The linear predictors are given by
+For data analysis, a multivariate model was adjusted with the fixed effects of variables moment and group. Additionally, the effect of the interaction between these two explanatory variables was included in the model. As already mentioned, this is an experiment in which the observations are not independent because measurements taken on the same individual are correlated and this correlation must be specified in the model. Both responses were treated as proportions, for this reason the logit link function with the binomial variance function was used. Additionally, the power parameter was estimated for both responses under analysis. The linear predictors are given by
 
 $$
-g_{r}(\mu_{r}) = \beta_{0r} + \beta_{1r} T1 + \beta_{2r} T2 + \beta_{3r} Probiotico + \\ \beta_{4r} T1*Probiotico + \beta_{5r} T2*Probiotico,
+g_{r}(\mu_{r}) = \beta_{0r} + \beta_{1r} T1 + \beta_{2r} T2 + \beta_{3r} Probiotic + \\ \beta_{4r} T1*Probiotic + \beta_{5r} T2*Probiotic,
 $$
 
 \noindent where the $r$ index refers to the study response variables (1 for YFAS, 2 for BES). The placebo group and the T0 moment were considered as reference categories. $\beta_{0r}$ represents the intercept, $\beta_{1r}$ the effect of moment T1, $\beta_{2r}$ the effect of moment T2, $\beta_{3r}$ the probiotic effect. The parameters $\beta_{4r}$ and $\beta_{5r}$ refer to the interaction between moment and group, such that $\beta_{4r}$ represents the effect of the interaction between T1 and probiotic, and $ \beta_{5r}$ represents the effect of the interaction between T2 and probiotic.
 
-The matrix predictors, the same for both responses, are given by $h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \tau_1Z_1$. The function $h(.)$ used was the identity, $\tau_0$ and $\tau_1$ represent the dispersion parameters, $Z_0$ represents an $184 \times 184$ identity matrix, and $Z_1$ represents a matrix of dimension $184 \times 184$ specified in order to make it clear that measurements from the same individual are correlated. 
+The matrix predictors, the same for both responses, are given by $h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \tau_1Z_1$. The function $h(.)$ used was the identity, $\tau_0$ and $\tau_1$ represent the dispersion parameters, $Z_0$ represents an $184 \times 184$ identity matrix, and $Z_1$ represents a matrix of dimension $184 \times 184$ specified in order to make it clear that measurements taken from the same individual are correlated. 
 
 To exemplify the form of the matrix predictor, let's consider 3 individuals: A, B and C. Suppose that individual A attended the 3 appointments, so we have information on this individual at T0, T1 and T2. Subject B attended at T0 and T1. The individual C appeared only at T0. So we have 3 individuals and 6 observations. So $Z_0$ is an identity matrix $6 \times 6$ and $Z_1$ is a kind of diagonal block matrix in which the size of the blocks varies according to the number of measurements for each individual. In this scenario, the matrix predictor has the form
 
@@ -697,19 +696,15 @@ Parameter estimates, asymptotic confidence intervals with 95\% confidence, and p
 
 %\subsection{Testes de hipóteses}
   
-Up to this point a standard analysis has been presented, with the usual results of the analysis of a regression model. Going further in this analysis, we can make use of the Wald test for a better interpretation of the model parameter estimates.
+Up to this point, a standard analysis has been presented, with the usual results of the analysis of a regression model. Going further in this analysis, we can make use of the Wald test for a better interpretation of the model parameter estimates.
 
 We can opt for a type II multivariate analysis of variance to assess the importance of the variables in the problem. The result, presented in the table \autoref{tab4}, points to the significant existence of the moment effect and the absence of the group effect, indicating that for both responses the metrics change over time but without change between groups.
 
 In order to evaluate the results by response, we can use a type II univariate analysis of variance. The results are displayed in \autoref{tab5}. Considering a significance level of $0.01$, there is evidence that points to effect of moment.
 
-As the analysis of variances pointed to a significant effect of categorical variables, we can explore which levels differ from each other. \autoref{tab6} shows two-by-two comparisons between moments. The results show that, for both responses, there are differences between the first versus second and first versus third moments, but the last two moments do not differ from each other.
+As the analysis of variances pointed to a significant effect of categorical variables, we can explore which levels differ from each other. \autoref{tab6} shows two-by-two comparisons between moments. The results show that, for both responses, there are differences between the first versus second and first versus third moments, but the last two moments do not differ from each other. The table \autoref{tab7} presents the comparisons between groups for each time point for both responses. The results point to the absence of difference between groups at each moment.
 
-The table \autoref{tab7} presents the comparisons between groups for each time point for both responses. The results point to the absence of difference between groups at each moment.
-
-In the model, we include the information that there are measurements that were taken on the same individual. This information is declared in the matrix predictor that estimates a dispersion parameter associated with the matrix that indicates the relationship between individuals. A hypothesis of interest may be to assess whether there is evidence to believe that, in this problem, the measurements taken on the same individual are in fact correlated. For this we can postulate hypotheses about the dispersion parameters. As with analyzes of variance, this can be done per response or for both responses simultaneously.
-
-The table \autoref{tab8} presents the results of the multivariate test, that is, it evaluates the hypothesis that in both responses the measures are correlated. The results indicate that there is no evidence to believe that the measures taken in the same individual are correlated.
+In the model, we include the information that there are measurements that were taken on the same individual. This information is declared in the matrix predictor that estimates a dispersion parameter associated with the matrix that indicates the relationship between individuals. A hypothesis of interest may be to assess whether there is evidence to believe that, in this problem, the measurements taken on the same individual are in fact correlated. For this, we can postulate hypotheses about the dispersion parameters. As with analyzes of variance, this can be done per response or for both responses simultaneously. The table \autoref{tab8} presents the results of the multivariate test, that is, it evaluates the hypothesis that in both responses the measures are correlated. The results indicate that there is no evidence to believe that the measures taken in the same individual are correlated.
 
 %-----------------------------------------------------------------------
 
@@ -719,7 +714,7 @@ The objective of this work was to develop procedures to perform hypothesis tests
 
 Based on the proposed use of the Wald test for McGLMs, we developed procedures for testing general linear hypotheses, generating ANOVA and MANOVA tables for regression and dispersion parameters and also tests of multiple comparisons.
 
-The test properties were evaluated based on simulation studies. Univariate and trivariate scenarios with different probability distributions for the responses and different sample sizes were considered. The idea of this stage of the work was to generate datasets with fixed regression and dispersion parameters and to test hypotheses about parameters of models fitted with these data. 
+The test properties were evaluated based on simulation studies. Univariate and trivariate scenarios with different probability distributions for the responses and different sample sizes were considered. The idea of the simulation study was to generate datasets with fixed regression and dispersion parameters and to test hypotheses about parameters of models fitted with these data. 
 
 At first, we tested the hypothesis that the parameters were really the same as those set in the simulation. Then we gradually remove the hypotheses from the simulated values in order to verify if, as the hypothesis of the true values is removed, the percentage of rejection increases. 
 
@@ -733,9 +728,9 @@ In this study, a set of subjects was divided into two groups: one of them receiv
 
 The results, based on the tests proposed in this work, indicate that there is evidence that points to a moment effect, that is, addiction and binge eating disorder change over time. Multiple comparison tests indicate that, for both responses, there are differences between the first versus second and first versus third moments, but the last two moments do not differ from each other. The results also point to the absence of difference between groups at each moment. An evaluation of the dispersion parameters shows that there is no evidence to believe that the measurements taken in the same individual are correlated.
 
-Some limitations of this work concern cases not explored in simulation studies, such as: evaluation of test performance when defining linear hypotheses that combine parameters of different types, impact of a different number of observations by individuals in longitudinal or repeated measures problems , impact on test power as the number of parameters tested increases and test quality in multivariate problems with probability distributions different from those explored.
+Some limitations of this work concern cases not explored in simulation studies, such as: evaluation of test performance when defining linear hypotheses that combine parameters of different types, impact of a different number of observations by individuals in longitudinal or repeated measures problems, impact on test power as the number of parameters tested increases and evaluate the test quality in multivariate problems with probability distributions different from those explored.
 
-Possible extensions of this work that follow the line of evaluation of McGLMs parameters for a better understanding of the impact of elements in modeling problems are: exploring corrections of p-values according to the size of the tested hypotheses, exploring procedures beyond the Wald test ( such as the Score test and the likelihood ratio test), implement new procedures for multiple comparisons, adapt the proposal to deal with alternative contrasts to the usual ones, explore procedures for automatic selection of covariates (backward elimination, forward selection, stepwise selection) and also selection of covariates through the inclusion of penalty in the adjustment for complexity (similar to the spline regression idea). In addition, we intend to develop a package in R language to provide a set of implementations of the procedures presented in this work.
+Possible extensions of this work that follow the line of evaluation of McGLMs parameters for a better understanding of the impact of elements in modeling problems are: exploring corrections of p-values according to the size of the tested hypotheses, exploring procedures beyond the Wald test (such as the Score test and the likelihood ratio test), implement new procedures for multiple comparisons, adapt the proposal to deal with alternative contrasts to the usual ones, explore procedures for automatic selection of covariates (backward elimination, forward selection, stepwise selection) and also selection of covariates through the inclusion of penalty in the adjustment for complexity (similar to the spline regression idea). In addition, we intend to develop a package in R language to provide a set of implementations of the procedures presented in this work.
 
 %-----------------------------------------------------------------------
 
