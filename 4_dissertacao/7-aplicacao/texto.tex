@@ -45,7 +45,7 @@ Para avaliação de vício alimentar foi utilizada a escala de vício alimentar 
 
 %=====================================================
 
-\section{Conjunto de dados}
+\section{Conjunto de dados}\label{sec:dataset}
 
 A amostra final é formada por 71 indivíduos, dos quais 33 pertencem ao grupo placebo e 38 ao grupo tratamento. Se todos estes indivíduos fossem avaliados nos 3 momentos definidos no estudo, o conjunto de dados teria 213 observações. Contudo, ao longo do estudo, diversos indivíduos não compareceram às consultas, o que faz com que haja dados faltantes no conjunto de dados. Após tratamento dos dados e exclusão de observações faltantes restaram 184 observações.
 
@@ -101,7 +101,7 @@ Para análise dos dados foi ajustado um modelo multivariado com os efeitos fixos
 
 Como já mencionado, trata-se de um experimento em que as observações não são independentes pois medidas tomadas em um mesmo indivíduo são correlacionadas e esta correlação deve ser especificada no modelo. 
 
-Ambas as respostas foram tratadas como proporções, por este motivo foi utilizada a função de ligação logito com função de variância binomial. Adicionalmente, estimou-se o parâmetro de potência para todas as respostas em análise. Os preditores lineares são dados por
+Como mencionado na \autoref{sec:dataset}, ambas as respostas foram transformadas para a escala unitária, tendo em vista que se tratam originalmente de números inteiros restritos ao intervalo. Por este motivo foi utilizada a função de ligação logito com função de variância binomial. Adicionalmente, estimou-se o parâmetro de potência para todas as respostas em análise. Os preditores lineares são dados por
 
 $$
 g_{r}(\mu_{r}) = \beta_{0r} + \beta_{1r} T1 + \beta_{2r} T2 + \beta_{3r} Probiotico + \\ \beta_{4r} T1*Probiotico + \beta_{5r} T2*Probiotico,
@@ -257,7 +257,7 @@ T2:Placebo-T2:Probiótico & 2                  & 1,7645       & 1       \\ \hlin
 
 No modelo, incluímos a informação de que existem medidas que foram tomadas em um mesmo indivíduo. Esta informação é declarada no preditor matricial que estima um parâmetro de dispersão associado à matriz que aponta a relação entre os indivíduos. Uma hipótese de interesse pode ser avaliar se existe evidência para crer que, neste problema, as medidas tomadas em um mesmo indivíduo são de fato correlacionadas. Para isso podemos postular hipóteses sobre os parâmetros de dispersão. Tal como nas análises de variância, isso pode ser feito por resposta ou para ambas as respostas simultaneamente.
 
-A tabela \autoref{tab:manova_disp} apresenta os resultados do teste multivariado, ou seja, avalia a hipótese de que em ambas as respostas as medidas sejam correlacionadas. Os resultados apontam que não há evidência para crer que as medidas tomadas em um mesmo indivíduo apresentam correlação.
+A \autoref{tab:manova_disp} apresenta os resultados do teste multivariado, ou seja, avalia a hipótese de que em ambas as respostas as medidas sejam correlacionadas. Os resultados apontam que não há evidência para crer que as medidas tomadas em um mesmo indivíduo apresentam correlação.
 
 \begin{table}[H]
 \centering

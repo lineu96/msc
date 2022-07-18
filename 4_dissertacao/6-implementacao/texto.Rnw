@@ -61,7 +61,7 @@ Já a função \emph{mc\_manova\_dispersion()} pode ser utilizada em um modelo m
 
 Para testes de comparações múltiplas foram implementadas as funções \emph{mc\_multcomp()} e \emph{mc\_mult\_multcomp()}. Estas funções devem ser usadas como complemento às funções de análise de variância e análise de variância multivariada quando estas apontam para efeito significativo de variáveis explicativas categóricas. As funções para comparações múltiplas são usadas para realizar comparações duas a duas e identificar quais níveis diferem entre si. Estas funções recebem como argumento o modelo, a variável ou variáveis em que há interesse em avaliar comparações entre níveis e também os dados usados para ajustar o modelo.
 
-Por fim, a função \emph{mc\_linear\_hypothesis()} é a implementação computacional em R que permite a execução de qualquer um dos testes apresentados no \autoref{cap:proposta}. É a função mais flexível que temos no conjunto de implementações. Com ela é possível especificar qualquer tipo de hipótese sobre parâmetros de regressão, dispersão ou potência de um modelo \emph{mcglm}. Também é possível especificar hipóteses sobre múltiplos parâmetros e o vetor de valores da hipótese nula é definido pelo usuário. Esta função recebe como argumentos o modelo e um vetor contendo os parâmetros que devem ser testados e o os valores sob hipótese nula. Com algum trabalho, por meio da função de hipóteses lineares gerais, é possível replicar os resultados obtidos pelas funções de análise de variância.
+Por fim, a função \emph{mc\_linear\_hypothesis()} é a implementação computacional em R que permite a execução de qualquer um dos testes apresentados no \autoref{cap:proposta}. É a função mais flexível que temos no conjunto de implementações. Com ela é possível especificar qualquer tipo de hipótese sobre parâmetros de regressão, dispersão ou potência de um modelo \emph{mcglm}. Também é possível especificar hipóteses sobre múltiplos parâmetros e o vetor de valores da hipótese nula é definido pelo usuário. Esta função recebe como argumentos o modelo e um vetor contendo os parâmetros que devem ser testados e os valores sob hipótese nula. Com algum trabalho, por meio da função de hipóteses lineares gerais, é possível replicar os resultados obtidos pelas funções de análise de variância.
 
 %=====================================================
 
@@ -109,7 +109,7 @@ data("soya", package = "mcglm")
 
 O objetivo da análise é avaliar o efeito de adubação e água sobre as três variáveis resposta de interesse. Para fins de análise consideramos como variáveis explicativas os níveis de água, adubação e também as interações entre estes dois fatores. Adicionalmente, o efeito de bloco foi acrescentado aos preditores. 
 
-Para ajustar o modelo o, primeiro passo é especificar os preditores lineares.
+Para ajustar o modelo o primeiro passo é especificar os preditores lineares.
 
 <<lin_pred>>=
 form.grain <- grain ~ block + water * pot
@@ -156,17 +156,23 @@ Com o modelo ajustado podemos aplicar as funções implementadas para avaliar os
 
 \subsubsubsection{ANOVA tipo I}
 
+A ANOVA tipo I avalia a inclusão de variáveis ao modelo. Na primeira linha é testada se todos os parâmetros são iguais a zero. Na segunda linha é testada a hipótese de que todos os parâmetros exceto intercepto são iguais a zero, ou seja, inclui-se o intercepto ao modelo. Na terceira, é testada a hipótese de que todos os parâmetros exceto intercepto e os parâmetros associados a bloco são iguais a zero, ou seja, avalia-se a inclusão de intercepto e bloco ao modelo. E assim sucessivamente.
+
 <<anovaI>>=
 mc_anova_I(fit_joint)
 @
 
 \subsubsubsection{ANOVA tipo II}
 
+Já a ANOVA tipo II avalia a exclusão de variáveis no modelo. Deste modo, na primeira linha testa-se se o intercepto é igual a zero. Na segunda, testa-se se o efeito de bloco é igual a zero, ou seja, é avaliado o impacto da retirada da variável bloco do problema. No caso das variáveis referentes aos níveis de água e potássio, como estamos avaliando também a interação entre estes fatores, o teste feito avalia a exclusão destas variáveis; logo, o teste de nulidade avalia tanto os parâmetros de efeitos principais quanto os de interação. E por fim, a retirada do efeito de interação é testada.
+
 <<anovaII>>=
 mc_anova_II(fit_joint)
 @
 
 \subsubsubsection{ANOVA tipo III}
+
+No caso da ANOVA tipo III os efeitos são testados independentemente da inclusão de interação no modelo. Diferente da ANOVA tipo II, nas linhas referentes aos níveis de água e potássio, apenas os parâmetros referentes à água e potássio nos efeitos principais serão testados, mantendo-se as interações.
 
 <<anovaIII>>=
 mc_anova_III(fit_joint)
@@ -272,12 +278,12 @@ mc_linear_hypothesis(object =  fit,
 
 <<lin_hyp6>>=
 mc_linear_hypothesis(object =  fit,
-                     hypothesis = c('tau12 = tau12'))
+                     hypothesis = c('tau12 = tau22'))
 @
 
 \subsubsection{Quadro de análise de variância para parâmetros de dispersão}
 
-As funções para avaliar os parâmetros de dispersão por meio de um procedimento análogo à análise de variância para parâmetros de regressão, requerem a especificação de mais argumentos: um deles que determina a relação entre parâmetros de dispersão e o outro que especifica os nomes que aparecerão na saída final.
+As funções para avaliar os parâmetros de dispersão por meio de um procedimento análogo à análise de variância para parâmetros de regressão, requerem a especificação de mais argumentos: um deles que determina a relação entre parâmetros de dispersão e o outro que especifica os nomes que aparecerão na saída final. O resultado final é um quadro que testa a hipótese de nulidade de cada parâmetro ou conjunto de parâmetros de dispersão.
 
 \subsubsubsection{ANOVA tipo III para dispersão}
 

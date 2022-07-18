@@ -13,7 +13,7 @@ Este capítulo é dedicado à apresentação de nossa proposta: o uso do teste W
 
 Um McGLM possui vetor de parâmetros $\boldsymbol{\theta} = (\boldsymbol{\beta}^{\top}, \boldsymbol{\lambda}^{\top})^{\top}$, em que $\boldsymbol{\beta} = (\boldsymbol{\beta}_1^\top, \ldots, \boldsymbol{\beta}_R^\top)^\top$ é um vetor $K \times 1$ de parâmetros de regressão e $\boldsymbol{\lambda} = (\rho_1, \ldots, \rho_{R(R-1)/2}, p_1, \ldots, p_R, \boldsymbol{\tau}_1^\top, \ldots, \boldsymbol{\tau}_R^\top)^\top$ é um vetor $Q \times 1$ de parâmetros de dispersão.
 
-Considere $\boldsymbol{\theta^{*}}$ o vetor $h \times 1$ de parâmetros desconsiderando os parâmetros de correlação, ou seja, $\boldsymbol{\theta^{*}}$ refere-se apenas a parâmetros de regressão, dispersão ou potência. As estimativas de dos parâmetros de $\boldsymbol{\theta^{*}}$ são dadas por $\boldsymbol{\hat\theta^{*}}$. De maneira similar, considere $J^{\boldsymbol{*}-1}$ a inversa da matriz de informação de Godambe desconsiderando os parâmetros de correlação, de dimensão $h \times h$.
+Considere $\boldsymbol{\theta^{*}}$ o vetor $h \times 1$ de parâmetros desconsiderando os parâmetros de correlação, ou seja, $\boldsymbol{\theta^{*}}$ refere-se apenas a parâmetros de regressão, dispersão ou potência. As estimativas dos parâmetros de $\boldsymbol{\theta^{*}}$ são dadas por $\boldsymbol{\hat\theta^{*}}$. De maneira similar, considere $J^{\boldsymbol{*}-1}$ a inversa da matriz de informação de Godambe desconsiderando os parâmetros de correlação, de dimensão $h \times h$.
 
 Seja $\boldsymbol{L}$ uma matriz de especificação de hipóteses a serem testadas, de dimensão $s \times h$ e $\boldsymbol{c}$ um vetor de dimensão $s \times 1$ com os valores sob hipótese nula, em que $s$ denota o número de restrições. As hipóteses a serem testadas podem ser escritas como:
 
@@ -47,7 +47,7 @@ Neste cenário poderiam ser perguntas de interesse: existe efeito da variável $
 
 \subsection{Exemplo 1: hipótese para um único parâmetro}
 
-Considere o primeiro tipo de hipótese: há interesse em avaliar se existe efeito da variável $X_1$ apenas sobre primeira resposta. A hipótese pode ser escrita da seguinte forma:
+Considere o primeiro tipo de hipótese: há interesse em avaliar se existe efeito da variável $X_1$ apenas sobre a primeira resposta. A hipótese pode ser escrita da seguinte forma:
 
 \begin{equation}
 \label{eq:ex1}

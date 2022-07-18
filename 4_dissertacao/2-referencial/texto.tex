@@ -42,7 +42,7 @@ Nesta extensão, os GLMs fazem uso de apenas duas funções, a função de vari�
 
 3. A função de variância binomial, dada por $\vartheta(\boldsymbol{\mu}) = \mu(1 - \mu)$, utilizada quando a variável resposta é binária, restrita a um intervalo ou quando tem-se o  número de sucessos em um número de tentativas.
 
-Lembre-se que o GLM é uma classe de modelos de regressão univariados em que um dos pressupostos é a independência entre as observações. Esta independência é especificada na matriz identidade $\boldsymbol{I}$ no centro \autoref{eq:glm}. Podemos imaginar que, substituindo esta matriz identidade por uma matriz qualquer que reflita a relação entre os indivíduos da amostra, teremos uma extensão do Modelo Linear Generalizado para observações dependentes. É justamente essa a ideia dos modelos de covariância linear generalizada, o cGLM, também apresentados em \citet{Bonat16}.
+Lembre-se que o GLM é uma classe de modelos de regressão univariados em que um dos pressupostos é a independência entre as observações. Esta independência é especificada na matriz identidade $\boldsymbol{I}$ no centro \autoref{eq:glm}. Podemos imaginar que, substituindo esta matriz identidade por uma matriz simétrica adequada que reflita a relação entre os indivíduos da amostra, teremos uma extensão do Modelo Linear Generalizado para observações dependentes. É justamente essa a ideia dos modelos de covariância linear generalizada, o cGLM, também apresentados em \citet{Bonat16}.
 
 \subsection{Modelo de covariância linear generalizada}
 
@@ -194,7 +194,7 @@ $$
 \begin{aligned}
 \begin{matrix}
 \boldsymbol{\beta}^{(i+1)} = \boldsymbol{\beta}^{(i)}- S_{\boldsymbol{\beta}}^{-1} \psi \boldsymbol{\beta} (\boldsymbol{\beta}^{(i)}, \boldsymbol{\lambda}^{(i)}), \\ 
-\boldsymbol{\lambda}^{(i+1)} = \boldsymbol{\lambda}^{(i)}\alpha S_{\boldsymbol{\lambda}}^{-1} \psi \boldsymbol{\lambda} (\boldsymbol{\beta}^{(i+1)}, \boldsymbol{\lambda}^{(i)}).
+\boldsymbol{\lambda}^{(i+1)} = \boldsymbol{\lambda}^{(i)} - \alpha S_{\boldsymbol{\lambda}}^{-1} \psi \boldsymbol{\lambda} (\boldsymbol{\beta}^{(i+1)}, \boldsymbol{\lambda}^{(i)}).
 \end{matrix}
 \end{aligned}
 $$
@@ -374,7 +374,8 @@ $$
     \end{bmatrix}
 $$
 
-Para proceder um teste de comparações múltiplas basta selecionar os contrastes desejados nas linhas da matriz $\boldsymbol{K_1}$ e utilizar estas linhas como matriz de especificação de hipóteses do teste Wald. Por fim, como usual em testes de comparações múltiplas, é recomendada a correção dos valores-p por meio da correção de Bonferroni.
+Para proceder um teste de comparações múltiplas basta selecionar os contrastes desejados nas linhas da matriz $\boldsymbol{K_1}$ e utilizar estas linhas como matriz de especificação de hipóteses do teste Wald. Por fim, como usual em testes de comparações múltiplas, é recomendada a correção dos valores-p por meio da correção de Bonferroni. A correção de Bonferroni atualiza os valores-p levando em conta a quantidade de testes realizados, tornando o teste mais rigoroso. O novo valor-p é dado pelo valor original dividio pelo número de comparações realizadas.
+
 
 %=====================================================
 
