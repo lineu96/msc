@@ -1,0 +1,143 @@
+\begin{thebibliography}{22}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Anderson \emph{et~al.}(1973)}]{Anderson73}
+Anderson T, \emph{et~al.} (1973).
+\newblock \enquote{Asymptotically efficient estimation of covariance matrices
+  with linear structure.}
+\newblock \emph{The Annals of Statistics}, \textbf{1}(1), 135--141.
+
+\bibitem[{Bonat \emph{et~al.}(2017)Bonat, Olivero, Grande-Vega, Farf{\'a}n, and
+  Fa}]{hunting}
+Bonat W, Olivero J, Grande-Vega M, Farf{\'a}n M, Fa J (2017).
+\newblock \enquote{Modelling the covariance structure in marginal multivariate
+  count models: Hunting in Bioko Island.}
+\newblock \emph{Journal of Agricultural, Biological and Environmental
+  Statistics}, \textbf{22}(4), 446--464.
+
+\bibitem[{Bonat(2018)}]{mcglm}
+Bonat WH (2018).
+\newblock \enquote{Multiple Response Variables Regression Models in {R}: The
+  {mcglm} Package.}
+\newblock \emph{Journal of Statistical Software}, \textbf{84}(4), 1--30.
+\newblock \doi{10.18637/jss.v084.i04}.
+
+\bibitem[{Bonat and J{\o}rgensen(2016)}]{Bonat16}
+Bonat WH, J{\o}rgensen B (2016).
+\newblock \enquote{Multivariate covariance generalized linear models.}
+\newblock \emph{Journal of the Royal Statistical Society: Series C (Applied
+  Statistics)}, \textbf{65}(5), 649--675.
+
+\bibitem[{Bonat \emph{et~al.}(2020)Bonat, Petterle, Balbinot, Mansur, and
+  Graf}]{plastica}
+Bonat WH, Petterle RR, Balbinot P, Mansur A, Graf R (2020).
+\newblock \enquote{Modelling multiple outcomes in repeated measures studies:
+  Comparing aesthetic eyelid surgery techniques.}
+\newblock \emph{Statistical Modelling}, p. 1471082X20943312.
+
+\bibitem[{Demidenko(2013)}]{Demidenko13}
+Demidenko E (2013).
+\newblock \emph{Mixed models: theory and applications with R}.
+\newblock John Wiley \& Sons.
+
+\bibitem[{Fox and Weisberg(2019)}]{car}
+Fox J, Weisberg S (2019).
+\newblock \emph{An {R} Companion to Applied Regression}.
+\newblock Third edition. Sage, Thousand Oaks {CA}.
+\newblock
+  \urlprefix\url{https://socialsciences.mcmaster.ca/jfox/Books/Companion/}.
+
+\bibitem[{Hothorn \emph{et~al.}(2008)Hothorn, Bretz, and Westfall}]{multcomp}
+Hothorn T, Bretz F, Westfall P (2008).
+\newblock \enquote{Simultaneous Inference in General Parametric Models.}
+\newblock \emph{Biometrical Journal}, \textbf{50}(3), 346--363.
+
+\bibitem[{Hsu(1996)}]{hsu1996multiple}
+Hsu J (1996).
+\newblock \emph{Multiple comparisons: theory and methods}.
+\newblock CRC Press.
+
+\bibitem[{J{\o}rgensen(1987)}]{Jorgensen87}
+J{\o}rgensen B (1987).
+\newblock \enquote{Exponential dispersion models.}
+\newblock \emph{Journal of the Royal Statistical Society: Series B
+  (Methodological)}, \textbf{49}(2), 127--145.
+
+\bibitem[{J{\o}rgensen(1997)}]{Jorgensen97}
+J{\o}rgensen B (1997).
+\newblock \emph{The theory of dispersion models}.
+\newblock CRC Press.
+
+\bibitem[{J{\o}rgensen and Knudsen(2004)}]{jorg04}
+J{\o}rgensen B, Knudsen SJ (2004).
+\newblock \enquote{Parameter orthogonality and bias adjustment for estimating
+  functions.}
+\newblock \emph{Scandinavian Journal of Statistics}, \textbf{31}(1), 93--114.
+
+\bibitem[{J{\o}rgensen and Kokonendji(2015)}]{Jorgensen15}
+J{\o}rgensen B, Kokonendji CC (2015).
+\newblock \enquote{Discrete dispersion models and their Tweedie asymptotics.}
+\newblock \emph{AStA Advances in Statistical Analysis}, \textbf{100}(1),
+  43--78.
+
+\bibitem[{Liang and Zeger(1986)}]{Liang86}
+Liang KY, Zeger SL (1986).
+\newblock \enquote{Longitudinal data analysis using generalized linear models.}
+\newblock \emph{Biometrika}, \textbf{73}(1), 13--22.
+
+\bibitem[{Lumley(2004)}]{survey2}
+Lumley T (2004).
+\newblock \enquote{Analysis of Complex Survey Samples.}
+\newblock \emph{Journal of Statistical Software}, \textbf{9}(1), 1--19.
+\newblock R package verson 2.2.
+
+\bibitem[{Lumley(2010)}]{survey3}
+Lumley T (2010).
+\newblock \emph{Complex Surveys: A Guide to Analysis Using R: A Guide to
+  Analysis Using R}.
+\newblock John Wiley and Sons.
+
+\bibitem[{Lumley(2020)}]{survey1}
+Lumley T (2020).
+\newblock \enquote{survey: analysis of complex survey samples.}
+\newblock R package version 4.0.
+
+\bibitem[{Martinez-Beneito(2013)}]{martinez13}
+Martinez-Beneito MA (2013).
+\newblock \enquote{A general modelling framework for multivariate disease
+  mapping.}
+\newblock \emph{Biometrika}, \textbf{100}(3), 539--553.
+
+\bibitem[{Pinheiro and Bates(1996)}]{Pinheiro96}
+Pinheiro JC, Bates DM (1996).
+\newblock \enquote{Unconstrained parametrizations for variance-covariance
+  matrices.}
+\newblock \emph{Statistics and computing}, \textbf{6}(3), 289--296.
+
+\bibitem[{Pourahmadi(2000)}]{Pourahmadi00}
+Pourahmadi M (2000).
+\newblock \enquote{Maximum likelihood estimation of generalised linear models
+  for multivariate normal covariance matrix.}
+\newblock \emph{Biometrika}, \textbf{87}(2), 425--435.
+
+\bibitem[{{R Core Team}(2022)}]{R2022}
+{R Core Team} (2022).
+\newblock \emph{R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+\newblock \urlprefix\url{https://www.R-project.org/}.
+
+\bibitem[{Zeileis and Hothorn(2002)}]{lmtest}
+Zeileis A, Hothorn T (2002).
+\newblock \enquote{Diagnostic Checking in Regression Relationships.}
+\newblock \emph{R News}, \textbf{2}(3), 7--10.
+\newblock \urlprefix\url{https://CRAN.R-project.org/doc/Rnews/}.
+
+\end{thebibliography}
