@@ -1,0 +1,189 @@
+\begin{thebibliography}{10}
+\providecommand \doibase [0]{http://dx.doi.org/}%
+
+\bibitem{meinert1986clinical}
+Meinert C, Tonascia S. {\it Clinical Trials: Design, Conduct, and Analysis}.
+\newblock Monographs in epidemiology and biostatisticsOxford University Press .
+\newblock 1986.
+
+\bibitem{hannan2008randomized}
+Hannan EL. Randomized clinical trials and observational studies: guidelines for
+  assessing respective strengths and limitations. {\it JACC: Cardiovascular
+  Interventions} 2008\string; 1(3)\string: 211--217.
+
+\bibitem{kangovi2018effect}
+Kangovi S, Mitra N, Norton L, et al. Effect of community health worker support
+  on clinical outcomes of low-income patients across primary care facilities: a
+  randomized clinical trial. {\it JAMA internal medicine} 2018\string;
+  178(12)\string: 1635--1643.
+
+\bibitem{song2019effect}
+Song Z, Baicker K. Effect of a workplace wellness program on employee health
+  and economic outcomes: a randomized clinical trial. {\it Jama} 2019\string;
+  321(15)\string: 1491--1501.
+
+\bibitem{thyregod2019five}
+Thyregod HGH, Ihlemann N, J{\o}rgensen TH, et al. Five-year clinical and
+  echocardiographic outcomes from the Nordic Aortic Valve Intervention (NOTION)
+  randomized clinical trial in lower surgical risk patients. {\it Circulation}
+  2019\string; 139(4)\string: 2714--23.
+
+\bibitem{schmitz2019effect}
+Schmitz KH, Troxel AB, Dean LT, et al. Effect of home-based exercise and weight
+  loss programs on breast cancer--related lymphedema outcomes among overweight
+  breast cancer survivors: The WISER Survivor randomized clinical trial. {\it
+  JAMA oncology} 2019\string; 5(11)\string: 1605--1613.
+
+\bibitem{plastica}
+Bonat WH, Petterle RR, Balbinot P, Mansur A, Graf R. Modelling multiple
+  outcomes in repeated measures studies: Comparing aesthetic eyelid surgery
+  techniques. {\it Statistical Modelling} 2020\string: 1471082X20943312.
+
+\bibitem{petterle2021multivariate}
+Petterle RR, Laureano HA, Silva dGP, Bonat WH. Multivariate generalized linear
+  mixed models for continuous bounded outcomes: Analyzing the body fat
+  percentage data. {\it Statistical Methods in Medical Research} 2021\string;
+  30(12)\string: 2619--2633.
+
+\bibitem{Bonat16}
+Bonat WH, J{\o}rgensen B. Multivariate covariance generalized linear models.
+  {\it Journal of the Royal Statistical Society: Series C (Applied Statistics)}
+  2016\string; 65(5)\string: 649--675.
+
+\bibitem{martinez13}
+Martinez-Beneito MA. A general modelling framework for multivariate disease
+  mapping. {\it Biometrika} 2013\string; 100(3)\string: 539--553.
+
+\bibitem{engle}
+Engle RF. Wald, likelihood ratio, and Lagrange multiplier tests in
+  econometrics. {\it Handbook of econometrics} 1984\string; 2\string: 775--826.
+
+\bibitem{anova_fisher}
+Fisher RA, Mackenzie WA. Studies in crop variation. II. The manurial response
+  of different potato varieties. {\it The Journal of Agricultural Science}
+  1923\string; 13(3)\string: 311–320.
+\newblock \href {\doibase 10.1017/S0021859600003592} {doi:
+  10.1017/S0021859600003592}
+
+\bibitem{anova1}
+St L, Wold S, others . Analysis of variance (ANOVA). {\it Chemometrics and
+  intelligent laboratory systems} 1989\string; 6(4)\string: 259--272.
+
+\bibitem{manova}
+Smith H, Gnanadesikan R, Hughes J. Multivariate analysis of variance (MANOVA).
+  {\it Biometrics} 1962\string; 18(1)\string: 22--41.
+
+\bibitem{wilks}
+Wilks SS. Certain generalizations in the analysis of variance. {\it Biometrika}
+  1932\string: 471--494.
+
+\bibitem{lawley}
+Lawley D. A generalization of Fisher's z test. {\it Biometrika} 1938\string;
+  30(1/2)\string: 180--187.
+
+\bibitem{hotelling}
+Hotelling H. A generalized T test and measure of multivariate dispersion. In:
+  University of California Press. ; 1951\string: 23--41.
+
+\bibitem{pillai}
+Pillai K, others . Some new test criteria in multivariate analysis. {\it The
+  Annals of Mathematical Statistics} 1955\string; 26(1)\string: 117--121.
+
+\bibitem{roy}
+Roy SN. On a heuristic method of test construction and its use in multivariate
+  analysis. {\it The Annals of Mathematical Statistics} 1953\string: 220--238.
+
+\bibitem{hsu1996multiple}
+Hsu J. {\it Multiple comparisons: theory and methods}.
+\newblock CRC Press .
+\newblock 1996.
+
+\bibitem{bretz2008multiple}
+Bretz F, Hothorn T, Westfall P. Multiple comparison procedures in linear
+  models. In: Springer.  2008 (pp. 423--431).
+
+\bibitem{spitzer1980diagnostic}
+Spitzer RL, Md KK, Williams JB. Diagnostic and statistical manual of mental
+  disorders. In: Citeseer. ; 1980.
+
+\bibitem{gormally1982assessment}
+Gormally J, Black S, Daston S, Rardin D. The assessment of binge eating
+  severity among obese persons. {\it Addictive behaviors} 1982\string;
+  7(1)\string: 47--55.
+
+\bibitem{segal2010diagnostic}
+Segal DL. Diagnostic and statistical manual of mental disorders (DSM-IV-TR).
+  {\it The Corsini Encyclopedia of Psychology} 2010\string: 1--3.
+
+\bibitem{gearhardt2009preliminary}
+Gearhardt AN, Corbin WR, Brownell KD. Preliminary validation of the Yale food
+  addiction scale. {\it Appetite} 2009\string; 52(2)\string: 430--436.
+
+\bibitem{Jorgensen87}
+J{\o}rgensen B. Exponential dispersion models. {\it Journal of the Royal
+  Statistical Society: Series B (Methodological)} 1987\string; 49(2)\string:
+  127--145.
+
+\bibitem{Jorgensen97}
+J{\o}rgensen B. {\it The theory of dispersion models}.
+\newblock CRC Press .
+\newblock 1997.
+
+\bibitem{Jorgensen15}
+J{\o}rgensen B, Kokonendji CC. Discrete dispersion models and their Tweedie
+  asymptotics. {\it AStA Advances in Statistical Analysis} 2015\string;
+  100(1)\string: 43--78.
+
+\bibitem{Anderson73}
+Anderson T, others . Asymptotically efficient estimation of covariance matrices
+  with linear structure. {\it The Annals of Statistics} 1973\string;
+  1(1)\string: 135--141.
+
+\bibitem{Pourahmadi00}
+Pourahmadi M. Maximum likelihood estimation of generalised linear models for
+  multivariate normal covariance matrix. {\it Biometrika} 2000\string;
+  87(2)\string: 425--435.
+
+\bibitem{Pinheiro96}
+Pinheiro JC, Bates DM. Unconstrained parametrizations for variance-covariance
+  matrices. {\it Statistics and computing} 1996\string; 6(3)\string: 289--296.
+
+\bibitem{Demidenko13}
+Demidenko E. {\it Mixed models: theory and applications with R}.
+\newblock John Wiley \& Sons .
+\newblock 2013.
+
+\bibitem{jorg04}
+J{\o}rgensen B, Knudsen SJ. Parameter orthogonality and bias adjustment for
+  estimating functions. {\it Scandinavian Journal of Statistics} 2004\string;
+  31(1)\string: 93--114.
+
+\bibitem{Liang86}
+Liang KY, Zeger SL. Longitudinal data analysis using generalized linear models.
+  {\it Biometrika} 1986\string; 73(1)\string: 13--22.
+
+\bibitem{R}
+{R Core Team} . {\it R: A Language and Environment for Statistical Computing}.
+  R Foundation for Statistical Computing; Vienna, Austria:  2022.
+
+\bibitem{mvtnorm1}
+Genz A, Bretz F, Miwa T, et al. {\it {mvtnorm}: Multivariate Normal and t
+  Distributions}. R Foundation for Statistical Computing; Vienna, Austria:
+  2021.
+\newblock R package version 1.1-3.
+
+\bibitem{mvtnorm2}
+Genz A, Bretz F. {\it Computation of Multivariate Normal and t Probabilities}.
+\newblock Lecture Notes in StatisticsHeidelberg: Springer-Verlag .
+\newblock 2009.
+
+\bibitem{norta}
+Cario MC, Nelson BL. Modeling and Generating Random Vectors with Arbitrary
+  Marginal Distributions and Correlation. In: Northwestern University. ; 1997.
+
+\bibitem{nortara}
+Su P. {\it NORTARA: Generation of Multivariate Data with Arbitrary Marginals}.
+  R Foundation for Statistical Computing; Vienna, Austria:  2014.
+\newblock R package version 1.0.0.
+
+\end{thebibliography}

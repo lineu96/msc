@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  22 JUL 2022 11:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  2 AUG 2022 12:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -936,21 +936,26 @@ Overfull \hbox (10.94998pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 22 []
  []
 
-[22])
+[22]
 Overfull \hbox (10.94998pt too wide) has occurred while \output is active
 [] \T1/lmr/m/n/10.95 23
  []
 
-[23]
-LaTeX Font Info:    Font shape `T1/pzc/m/n' in size <13> not available
-(Font)              Font shape `T1/pzc/mb/it' tried instead on input line 1150.
-
-
+[23])
 Overfull \hbox (10.94998pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 24 []
  []
 
 [24]
+LaTeX Font Info:    Font shape `T1/pzc/m/n' in size <13> not available
+(Font)              Font shape `T1/pzc/mb/it' tried instead on input line 1150.
+
+
+Overfull \hbox (10.94998pt too wide) has occurred while \output is active
+[] \T1/lmr/m/n/10.95 25
+ []
+
+[25]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1150.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1150.
  (./draft-jss-lineu.aux)
@@ -962,10 +967,10 @@ Package rerunfilecheck Info: File `draft-jss-lineu.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1150.
  ) 
 Here is how much of TeX's memory you used:
- 18710 strings out of 481239
- 350002 string characters out of 5920376
- 591048 words of memory out of 5000000
- 33431 multiletter control sequences out of 15000+600000
+ 18716 strings out of 481239
+ 350121 string characters out of 5920376
+ 591125 words of memory out of 5000000
+ 33435 multiletter control sequences out of 15000+600000
  629564 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,18n,68p,1947b,847s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -990,10 +995,10 @@ fb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts
 /usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb>
-Output written on draft-jss-lineu.pdf (24 pages, 480230 bytes).
+Output written on draft-jss-lineu.pdf (25 pages, 479498 bytes).
 PDF statistics:
- 512 PDF objects out of 1000 (max. 8388607)
- 455 compressed objects within 5 object streams
- 109 named destinations out of 1000 (max. 500000)
+ 531 PDF objects out of 1000 (max. 8388607)
+ 473 compressed objects within 5 object streams
+ 111 named destinations out of 1000 (max. 500000)
  234 words of extra memory for PDF output out of 10000 (max. 10000000)
 

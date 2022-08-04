@@ -1,0 +1,83 @@
+
+------------------------------------------------------------------------
+
+1 INTRODUÇÃO
+ 1.1 MOTIVAÇÃO
+ 1.2 DESAFIO
+ 1.3 HIPÓTESE
+ 1.4 OBJETIVO
+ 1.5 CONTRIBUIÇÃO
+ 1.6 ORGANIZAÇÃO DO DOCUMENTO
+
+------------------------------------------------------------------------
+
+2 REFERENCIAL TEÓRICO
+
+ 2.1 MODELOS MULTIVARIADOS DE COVARIÂNCIA LINEAR GENERALIZADA
+  2.1.1 Modelo linear generalizado
+  2.1.2 Modelo de covariância linear generalizada
+  2.1.3 Modelos multivariados de covariância linear generalizada
+  2.1.4 Estimação e inferência
+
+ 2.2 TESTES DE HIPÓTESES
+  2.2.1 Elementos de um teste de hipóteses
+  2.2.2 Testes de hipóteses em modelos de regressão
+  2.2.3 ANOVA e MANOVA
+  2.2.4 Testes de comparações múltiplas
+
+------------------------------------------------------------------------
+
+3 TRABALHOS RELACIONADOS
+
+------------------------------------------------------------------------
+
+4 TESTE WALD EM MODELOS MULTIVARIADOS DE COVARIÂNCIA LINEAR GENERALIZADA
+
+ 4.1 HIPÓTESES E ESTATÍSTICA DE TESTE
+  4.1.1 Exemplo 1: hipótese para um único parâmetro
+  4.1.2 Exemplo 2: hipótese para múltiplos parâmetros
+  4.1.3 Exemplo 3: hipótese de igualdade de parâmetros
+  4.1.4 Exemplo 4: hipótese sobre parâmetros de regressão ou dispersão para respostas sob mesmo preditor
+ 
+ 4.2 ANOVA E MANOVA VIA TESTE WALD
+  4.2.1 ANOVA e MANOVA tipo I
+  4.2.2 ANOVA e MANOVA tipo II
+  4.2.3 ANOVA e MANOVA tipo III
+  
+ 4.3 TESTE DE COMPARAÇÕES MÚLTIPLAS VIA TESTE WALD
+
+------------------------------------------------------------------------
+
+5 ESTUDO DE SIMULAÇÃO
+ 5.1 PARÂMETROS DE REGRESSÃO
+ 5.2 PARÂMETROS DE DISPERSÃO
+
+------------------------------------------------------------------------
+
+6 IMPLEMENTAÇÃO COMPUTACIONAL
+ 6.1 FUNÇÕES R
+ 6.2 INSTALAÇÃO
+ 6.3 EXEMPLOS
+  6.3.1 Exemplo 1: soya
+  6.3.2 Exemplo 2: Hunting
+
+------------------------------------------------------------------------
+
+7 ANÁLISE DE DADOS
+ 7.1 CONTEXTO
+ 7.2 DESENHO EXPERIMENTAL E COLETA DE DADOS
+ 7.3 CONJUNTO DE DADOS
+ 7.4 ANÁLISE EXPLORATÓRIA
+ 7.5 ESPECIFICAÇÃO DO MODELO
+ 7.6 RESULTADOS DO AJUSTE
+ 7.7 TESTES DE HIPÓTESES
+
+------------------------------------------------------------------------
+
+8 CONSIDERAÇÕES FINAIS
+ 8.1 CONCLUSÕES GERAIS
+ 8.2 LIMITAÇÕES
+ 8.3 TRABALHOS FUTUROS
+ 
+------------------------------------------------------------------------
+

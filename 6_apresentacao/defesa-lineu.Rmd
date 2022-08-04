@@ -1,0 +1,1259 @@
+---
+title: \textbf{Teste Wald para avaliação de parâmetros de regressão e dispersão em modelos multivariados de covariância linear generalizada}\newline
+
+subtitle: \textbf{Defesa}
+
+author:
+  - Lineu Alberto Cavazani de Freitas\newline
+  - "Orientador: Prof. Dr. Wagner Hugo Bonat"
+
+date: ""
+
+institute: "PPG Informática UFPR"
+
+lang: pt-BR
+
+graphics: yes
+
+classoption: [serif, professionalfont, usenames, dvipsnames, aspectratio = 169]
+# bibliography: references.bib
+# csl: ../config/ABNT_UFPR_2011-Mendeley.csl
+output:
+  beamer_presentation:
+    fig_caption: yes
+    fig_crop: no
+    highlight: haddock
+    citation_package: natbib
+    includes:
+      # NOTE: background, color theme and logos are defined in `preamble-rmd-settings.tex`.
+      in_header: [config/preamble-settings-rmd.tex, config/preamble-global.tex, config/preamble-chunk-rmd.tex, config/preamble-commands.tex]
+    keep_tex: yes
+# http://rmarkdown.rstudio.com/beamer_presentation_format.html
+
+bibliography: config/referencias.bib  
+
+---
+
+```{r, include = FALSE}
+source("./config/setup.R")
+```
+
+<script src="./config/author-footnote.js"></script>
+
+<!-- --------------------------------------------------------------- -->
+
+## Sumário
+
+\tableofcontents
+
+<!-- --------------------------------------------------------------- -->
+
+## Introdução
+
+\begin{enumerate}
+    \itemsep 2ex
+    
+  \item Motivação
+    \begin{itemize}
+      \item Ciência de dados.
+      \item Modelos de regressão.
+      \item Testes de hipóteses.
+      \item Procedimentos baseados em testes de hipóteses.
+    \end{itemize}
+    
+  \item Desafio e hipótese
+ 
+  \item Objetivo
+ 
+  \item Contribuição
+
+\end{enumerate}
+
+<!-- --------------------------------------------------------------- -->
+
+# Motivação
+
+<!-- --------------------------------------------------------------- -->
+
+## Ciência de dados
+
+  \begin{itemize}
+    \itemsep 2ex
+  
+  \item \textbf{Ciência de dados} é campo de estudo interdisciplinar que incorpora conhecimento de áreas como:
+  
+  \begin{enumerate}
+    \item \textbf{Estatística}.
+    \item \textbf{Ciência da computação}.
+    \item \textbf{Matemática}.
+  \end{enumerate}
+
+  \item Os \textbf{métodos estatísticos} são de fundamental importância em grande parte das etapas da ciência de dados \citep{weihs2018data}.
+  
+  \item Neste sentido, os \textbf{modelos de regressão} tem papel importante.
+  
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos de regressão
+
+Três conceitos são importantes para entender minimamente o funcionamento de um modelo de regressão:
+  
+  \begin{itemize}
+  
+  \itemsep 2ex
+  
+  \item \textbf{Fenômeno aleatório.}
+  \item \textbf{Variável aleatória.}
+  \item \textbf{Distribuição de probabilidade.}
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos de regressão
+
+  \begin{itemize}
+    \itemsep 2ex
+
+  \item \textbf{Fenômeno aleatório}: situação na qual diferentes observações podem fornecer diferentes desfechos. 
+  
+  \item \textbf{Variáveis aleatórias}: mecanismos que associam um valor numérico a cada desfecho possível do fenômeno. 
+  
+  \begin{itemize}
+    \item Podem ser discretas ou contínuas.
+    \item Existem probabilidades associadas aos valores de uma variável aleatória.
+    \item Estas probabilidades podem ser descritas por funções.
+  \end{itemize}
+
+  \item \textbf{Distribuições de probabilidade}: modelos probabilísticos que buscam descrever as probabilidades de variáveis aleatórias.
+
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos de regressão
+
+  \begin{itemize}
+    \itemsep 2ex
+  
+  \item Na prática, podemos buscar uma distribuição de probabilidades que melhor descreva o fenômeno de interesse. 
+  
+  \item Estas distribuições são descritas por \textbf{funções}. 
+  
+  \item Estas funções possuem \textbf{parâmetros} que controlam aspectos da distribuição.
+  
+  \item Os parâmetros são \textbf{quantidades desconhecidas, estimadas} por meio dos dados.
+  
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos de regressão
+
+  \begin{itemize}
+    \itemsep 2ex
+
+  \item Em regressão \textbf{modelamos parâmetros} das distribuições como uma função de \textbf{variáveis explicativas}.
+  
+  \item O parâmetro de interesse é decomposto em uma combinação linear de novos parâmetros que associam as \textbf{variáveis explicativas} à \textbf{variável resposta}.
+  
+  \item Obtém-se uma \textbf{equação que explique a relação} entre as variáveis. 
+  
+  \end{itemize}
+<!-- --------------------------------------------------------------- -->
+
+## Modelos de regressão
+
+```{r, echo = FALSE, out.width = "11cm"}
+knitr::include_graphics("./img/modelos_regressao.pdf")
+```
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos de regressão
+
+\beginAHalfColumnT
+
+
+ 1. \textbf{Definição do problema.}
+    - Qual o fenômeno aleatório de interesse?
+    - Que fatores externos podem afetar este fenômeno?
+
+ 2. \textbf{Planejamento do estudo e coleta de dados.}
+    - Estudo observacional x estudo experimental.
+    - Representação tabular.
+
+\endColumns
+\beginAHalfColumnT
+
+ 3. \textbf{Análise dos dados via regressão.}
+    - Escolha da distribuição de probabilidade.
+    - Especificação do modelo.
+    - Obtenção dos parâmetros (ajuste).
+    - Diagnóstico.
+      
+ 4. \textbf{Interpretação dos resultados.}
+    - Quais os fatores externos apresentam ou não impacto sobre o fenômeno.
+    - Qual a dimensão desse impacto.
+    
+\endColumns
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos de regressão
+
+  \begin{itemize}
+    \itemsep 2ex
+
+  \item Existem modelos univariados e multivariados. 
+  
+    \begin{itemize}
+      \item \textbf{Univariados}: apenas uma variável resposta.
+      \item \textbf{Multivariados}: mais de uma variável resposta.
+    \end{itemize}
+
+  \item Em ambos os casos o interesse é avaliar o \textbf{efeito de variáveis explicativas}.
+  
+  \item Existem inúmeras classes de modelos de regressão, dentre elas: 
+  \begin{itemize}
+  \item Modelo linear normal.
+  \item Modelos lineares generalizados.
+  \item \textbf{Modelos multivariados de covariância linear generalizada.}
+\end{itemize}
+
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelo linear normal
+
+  \begin{itemize}
+    \itemsep 2ex
+
+  \item O modelo linear normal \citep{galton} ficou famoso por suas \textbf{facilidades computacionais}. 
+  
+  \item Possui \textbf{pressupostos} difíceis de serem atendidos na prática.
+    \begin{itemize}
+      \item Independência.
+      \item Normalidade.
+      \item Variância constante.
+    \end{itemize}
+  
+  \item Diversas técnicas foram propostas para solucionar casos em que os pressupostos fossem violados.
+  
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos lineares generalizados
+
+  \begin{itemize}
+    \itemsep 2ex
+
+  \item O \textbf{avanço computacional} permitiu o surgimento de modelos mais gerais que necessitavam de \textbf{processos iterativos} para estimação dos parâmetros. 
+  
+  \item Surgem os modelos lineares generalizados(GLMs) \citep{Nelder72}. 
+  
+  \item Os GLMs permitem utilizar qualquer membro da \textbf{família exponencial de distribuições}.
+
+  \item Casos especiais: Bernoulli, binomial, Poisson, normal, gama, normal inversa, entre outras.
+  
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos multivariados de covariância linear generalizada
+
+  \begin{itemize}
+    \itemsep 2ex
+  
+  \item Apesar do grande potencial, os GLMs apresentam três importantes \textbf{restrições}:
+    \begin{enumerate}
+      \itemsep 2ex
+    
+      \item A incapacidade de lidar com \textbf{observações dependentes}. 
+      \item A incapacidade de lidar com \textbf{múltiplas respostas} simultaneamente.
+      \item Leque reduzido de \textbf{distribuições disponíveis}. 
+    \end{enumerate}
+
+  \item Os modelos multivariados de covariância linear generalizada (McGLMs) \citep{Bonat16} contornam estas restrições.
+
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos multivariados de covariância linear generalizada
+
+\begin{itemize}
+   
+   \itemsep 2ex
+   
+  \item Configuram uma estrutura geral para análise via modelos de regressão.
+  
+  \item Comporta múltiplas respostas de diferentes naturezas.
+  
+  \item Pode-se ajustar modelos com diferentes preditores e distribuições para cada resposta.
+  
+  \item Os modelos levam em conta a correlação entre indivíduos do conjunto de dados. 
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos multivariados de covariância linear generalizada
+
+\begin{itemize}
+   
+   \itemsep 2ex
+  
+  \item Os parâmetros são interpretáveis:
+  
+    \begin{itemize}
+    
+    \itemsep 2ex
+      
+      \item \textbf{Parâmetros de regressão}: efeito das variáveis explicativas sobre as respostas.
+      
+      \item \textbf{Parâmetros de dispersão}: impacto da correlação entre unidades.
+      
+      \item \textbf{Parâmetros de potência}: indicativo de qual distribuição se adequa ao problema.
+      
+      \item \textbf{Parâmetros correlação}: força de associação entre respostas.
+      
+    \end{itemize}
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- --> 
+## Testes de hipóteses em modelos de regressão
+
+  \begin{itemize}
+    \itemsep 2ex
+  
+  \item Usados para verificar se a \textbf{retirada de determinada variável} explicativa do modelo geraria uma \textbf{perda no ajuste}.
+  
+  \item Os três testes mais usados são:
+
+    \begin{itemize}
+      \item O teste da razão de verossimilhanças \citep{trv}.
+      \item O teste Wald \citep{wald}.
+      \item O teste do multiplicador de lagrange ou teste escore \citep{score1,score2,score3}.
+    \end{itemize}
+  
+  \item São baseados na função de verossimilhança dos modelos.
+  
+  \item São \textbf{assintóticamente equivalentes} \citep{engle}.
+  
+  \end{itemize}
+  
+<!-- --------------------------------------------------------------- -->
+
+## Testes de hipóteses em modelos de regressão
+
+\textbf{Teste da razão de verossimilhanças}
+
+\begin{itemize}
+
+  \itemsep 2ex
+  
+  \item Efetuado a partir de dois modelos com o objetivo de compará-los. 
+  \item Obter um modelo com todas as variáveis explicativas e um segundo modelo sem algumas dessas variáveis. 
+
+  \item  O teste é usado para comparar estes modelos por meio da diferença do logaritmo da função de verossimilhança. 
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Testes de hipóteses em modelos de regressão
+
+\textbf{Teste Wald}
+
+\begin{itemize}
+
+  \itemsep 2ex
+  
+  \item Requer apenas um modelo ajustado. 
+
+  \item Consiste em verificar se existe evidência para afirmar que um ou mais parâmetros são iguais a valores postulados. 
+
+  \item Avalia quão longe o valor estimado está do valor postulado. 
+
+  \item É possível formular hipóteses para múltiplos parâmetros, 
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Testes de hipóteses em modelos de regressão
+
+\textbf{Teste Escore}
+
+\begin{itemize}
+
+  \itemsep 2ex
+  
+  \item Requer apenas um modelo ajustado. 
+
+  \item O modelo ajustado não possui o parâmetro de interesse
+
+  \item O que é feito é testar se adicionar esta variável omitida resultará em uma melhora significativa no modelo. 
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## ANOVA, MANOVA e testes de comparações múltiplas
+
+Existe uma série de \textbf{procedimentos baseados em testes de hipóteses}, tais como:
+
+\begin{itemize}
+
+  \itemsep 2ex
+  
+  \item Análise de variância (ANOVA).
+  \item Análise de variância multivariada (MANOVA).
+  \item Testes de comparações múltiplas.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## ANOVA \& MANOVA
+
+  \begin{itemize}
+    \itemsep 2ex
+
+  \item Formas de \textbf{avaliar a significância} de cada uma das variáveis de uma forma procedural.  
+  
+  \item Consiste em efetuar testes sucessivos impondo \textbf{restrições ao modelo} original. 
+
+  \item O objetivo é testar se a ausência de determinada variável gera perda ao modelo. 
+
+  \item Os resultados são sumarizados numa tabela, o chamado \textbf{quadro de análise de variância}.
+
+  \item Caso univariado: ANOVA \citep{anova_fisher}. Caso multivariado: MANOVA \citep{manova}.
+  
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Testes de comparações múltiplas
+
+\begin{itemize}
+  \itemsep 2ex
+    
+  \item Complementar às ANOVAs e MANOVAs
+
+  \item São utilizados quando a análise de variância aponta como conclusão a existência de efeito significativo dos parâmetros associados a uma variável categórica.
+
+  \item A análise de variância mostrará se há efeito de uma variável no modelo.
+ 
+  \item Os testes de comparações múltiplas determinam \textbf{quais níveis diferem entre si}. 
+
+\end{itemize}
+    
+<!-- --------------------------------------------------------------- -->
+
+## Temas abordados até aqui
+
+\begin{itemize}
+  \itemsep 2ex
+    
+  \item Ciência de dados.
+
+  \item Modelos de regressão.
+
+  \item Classes de modelos de regressão (ênfase nos \textbf{McGLMs}).
+
+  \item Testes de hipóteses em modelos de regressão (ênfase no \textbf{teste Wald}).
+
+  \item Procedimentos baseados em testes de hipóteses (ANOVA, MANOVA, testes de comparações múltiplas).
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Desafio e hipótese
+
+\begin{itemize}
+  \itemsep 2ex
+    
+  \item Não há discussão a respeito da construção de testes de hipóteses para os McGLMs.
+
+  \item Contudo, os McGLMs apresentam os elementos necessários para utilizar o teste Wald:
+    \begin{enumerate}
+      \item Um vetor de estimativas dos parâmetros
+      \item Uma matriz de variância e covariância destas estimativas.
+    \end{enumerate}
+    
+  \item Das três opções clássicas de testes de hipóteses, o teste Wald se torna o mais atrativo para os McGLMs. 
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Objetivo
+
+\begin{enumerate}
+  \itemsep 2ex
+  
+ \item Propor a utilização do teste Wald para realização de testes de hipóteses gerais sobre parâmetros de regressão e dispersão de McGLMs.
+
+ \item Avaliar as propriedades e comportamento dos testes propostos com base em estudos de simulação.
+ 
+ \item Implementar funções em R para testes de hipóteses, ANOVA, MANOVA e testes de comparações múltiplas para os McGLMs. 
+ 
+ \item Motivar o potencial de aplicação das metodologias discutidas com base na aplicação a conjuntos de dados reais.
+
+\end{enumerate}
+
+<!-- --------------------------------------------------------------- -->
+
+## Contribuição
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Formas de avaliar os parâmetros estimados pelos McGLMs.
+
+  \item Fornecer ferramentas para uma melhor interpretação dos parâmetros estimados.
+ 
+  \item Fornecer uma maneira procedural e segura de responder questões comuns no contexto de modelagem.
+ 
+  \item Extrair mais informações e conclusões a respeito dos problemas modelados por meio dos McGLMs.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+# Referencial teórico
+
+\begin{enumerate}
+    \itemsep 2ex
+    
+  \item McGLMs
+    \begin{itemize}
+      \item Elementos.
+      \item Preditores lineares e matriciais.
+      \item Funções de variância.
+      \item Parâmetros.
+      \item Estimação.
+    \end{itemize}
+    
+  \item Testes de hipóteses
+    \begin{itemize}
+      \item Elementos de um teste de hipóteses.
+      \item Testes de hipóteses em modelos de regressão.
+      \item Teste Wald
+      \item ANOVA e MANOVA.
+      \item Testes de comparações múltiplas.
+    \end{itemize}
+\end{enumerate}  
+
+<!-- --------------------------------------------------------------- -->
+
+# Modelos multivariados de covariância linear generalizada
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos multivariados de covariância linear generalizada
+
+Para definição de um McGLM considere:
+
+\begin{itemize}
+  
+  \itemsep 2ex
+  
+  \item $\boldsymbol{Y}_{N \times R} = \left \{ \boldsymbol{Y}_1, \dots, \boldsymbol{Y}_R \right \}$ uma  matriz de variáveis resposta.
+  
+  \item $\boldsymbol{M}_{N \times R} = \left \{ \boldsymbol{\mu}_1, \dots, \boldsymbol{\mu}_R \right \}$ uma matriz de valores esperados.
+  
+    \item $\boldsymbol{X}_r$ denota uma matriz de delineamento $N \times k_r$.
+  
+  \item $\boldsymbol{\beta}_r$ denota um vetor $k_r \times 1$ de parâmetros de regressão.
+  
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos multivariados de covariância linear generalizada
+
+Considere ainda:
+
+\begin{itemize}
+  
+  \itemsep 2ex
+  
+    \item $\Sigma_b$ uma matriz de correlação entre variáveis resposta, de ordem $R \times R$.
+    
+  \item $\Sigma_r$, $r = 1,..., R$, a matriz de variância e covariância para cada resposta $r$, de dimensão $NxN$:
+  
+$$
+\Sigma_r = \mathrm{V}_r\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}(\boldsymbol{\Omega}\left(\boldsymbol{\tau}_r\right))\mathrm{V}_r\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}.
+$$
+
+Em que:
+
+  \begin{itemize}
+    \item $\mathrm{V}_r\left(\boldsymbol{\mu}; p\right)$ é uma matriz diagonal em que as entradas principais são dadas pela função de variância aplicada ao vetor $\boldsymbol{\mu}$. 
+  
+  \item $p_r$ é o parâmetro de potência. 
+  
+  \item $\boldsymbol{\Omega}\left(\boldsymbol{\tau}_r\right)$ a matriz de dispersão que descreve a parte da covariância dentro de cada variável resposta. 
+  \end{itemize}
+  
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Preditor linear matricial
+
+\begin{itemize}
+  
+  \itemsep 2ex
+  
+  \item A matriz $\boldsymbol{\Omega}(\boldsymbol{\tau}_r)$ descreve a estrutura de correlação entre as observações da amostra.
+  
+  \item É modelada através de um preditor linear matricial combinado com uma função de ligação de covariância:
+
+$$
+h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}_r) \right \} = \tau_{r0}Z_0 + \ldots + \tau_{rD}Z_D
+$$
+  
+  \begin{itemize}
+  
+  \itemsep 2ex
+  
+  \item $h()$ é a função de ligação de covariância.
+  
+  \item $Z_{rd}$ com $d$ = 0,$\ldots$, D são matrizes que representam a estrutura de covariância presente em cada variável resposta $r$.
+  
+  \item $\boldsymbol{\tau_r}$ = $(\tau_{r0}, \ldots, \tau_{rD})$ é um vetor $(D + 1) \times 1$ de parâmetros de dispersão. 
+  
+\end{itemize}
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Funções de variância
+  
+  \begin{enumerate}
+  \item \textbf{Função de variância potência} \citep{Jorgensen87, Jorgensen97}.
+  
+    \begin{itemize}
+      \item Família Tweedie de distribuições.
+      \item $\vartheta\left(\boldsymbol{\mu}; p\right) = \mu^p$.
+      \item Casos particulares: normal ($p$ = 0), Poisson ($p$ = 1), gama ($p$ = 2) e normal inversa ($p$ = 3).
+    \end{itemize}
+
+  
+  \item \textbf{Função de dispersão Poisson–Tweedie} \citep{Jorgensen15}.
+  
+    \begin{itemize}
+      \item Família Poisson-Tweedie de distribuições.
+      \item $\vartheta\left(\boldsymbol{\mu}; p\right) = \mu + \mu^p$.
+      \item Casos particulares: Hermite ($p$ = 0), Neyman tipo A ($p$ = 1), binomial negativa ($p$ = 2) e Poisson–inversa gaussiana (p = $3$).
+      
+    \end{itemize}
+
+  \item \textbf{Função de variância binomial.} 
+  
+    \begin{itemize}
+      \item $\vartheta(\boldsymbol{\mu}) = \mu(1 - \mu)$.
+      \item Acomoda respostas binárias ou restritas a um intervalo.
+    \end{itemize}
+
+\end{enumerate}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos multivariados de covariância linear generalizada}
+
+Os McGLMs são definidos por:
+
+\begin{center}
+$\mathrm{E}(\boldsymbol{Y}) = \boldsymbol{M} = \{g_1^{-1}(\boldsymbol{X}_1 \boldsymbol{\beta}_1), \ldots, g_R^{-1}(\boldsymbol{X}_R \boldsymbol{\beta}_R)\}$
+
+$\mathrm{Var}(\boldsymbol{Y}) = \boldsymbol{C} = \boldsymbol{\Sigma}_R \overset{G} \otimes \boldsymbol{\Sigma}_b$
+
+\end{center}
+    
+Em que: 
+
+\begin{itemize}
+  
+  \item $\boldsymbol{\Sigma}_R \overset{G} \otimes \boldsymbol{\Sigma}_b = \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1, \ldots, \tilde{\boldsymbol{\Sigma}}_R) (\boldsymbol{\Sigma}_b \otimes \boldsymbol{I}) \mathrm{Bdiag}(\tilde{\boldsymbol{\Sigma}}_1^\top, \ldots, \tilde{\boldsymbol{\Sigma}}_R^\top)$ é o produto generalizado de Kronecker.
+  
+  \item $\tilde{\boldsymbol{\Sigma}}_r$ denota a matriz triangular inferior da decomposição de Cholesky da matriz ${\boldsymbol{\Sigma}}_r$.
+  
+  \item $\mathrm{Bdiag()}$ denota a matriz bloco-diagonal.
+  
+  \item $\boldsymbol{I}$ uma matriz identidade $N \times N$.
+  
+  \item $g_r()$ são as tradicionais funções de ligação.
+  
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Modelos multivariados de covariância linear generalizada
+
+\begin{itemize}
+
+\itemsep 2ex
+  
+  \item Parâmetros estimados nos McGLMs:
+    \begin{enumerate}
+      \item Regressão.
+      \item Dispersão.
+      \item Potência.
+      \item Correlação.
+    \end{enumerate}
+  
+  \item Todas estas quantidades são interpretáveis e são estimadas com base nos dados.
+  
+  \item A estimação é feita por meio de \textbf{funções de estimação}.
+    \begin{enumerate}
+      \item \textbf{Função quasi-score} para parâmetros de regressão. 
+      \item \textbf{Função de estimação de Pearson} para os demais parâmetros. 
+    \end{enumerate}
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Funções de estimação
+
+\begin{center}
+$\psi_{\boldsymbol{\beta}}(\boldsymbol{\beta}, \boldsymbol{\lambda}) = \boldsymbol{D}^\top \boldsymbol{C}^{-1}(\mathcal{Y} - \mathcal{M})$
+
+$\psi_{\boldsymbol{\lambda}_i}(\boldsymbol{\beta}, \boldsymbol{\lambda}) = \mathrm{tr}(W_{\boldsymbol{\lambda}i} (\boldsymbol{r}^\top\boldsymbol{r} - \boldsymbol{C})),  i = 1,.., Q$
+\end{center}
+
+Em que:
+
+\begin{itemize}
+  
+  \item \normalsize $\boldsymbol{\beta}_r$ denota um vetor $k_r \times 1$ de parâmetros de regressão.
+  
+  \item \normalsize $\boldsymbol{\lambda}$ é um vetor $Q \times 1$ de parâmetros de dispersão.
+  
+  \item \normalsize $\mathcal{Y}$ é um vetor $NR \times 1$ com os valores da matriz de variáveis respostas $Y_{N \times R}$ empilhados.
+  
+  \item \normalsize $\mathcal{M}$ é um vetor $NR \times 1$ com os valores da matriz de valores esperados $M_{N \times R}$ empilhados.
+  
+  \item \normalsize $\boldsymbol{D} = \nabla_{\boldsymbol{\beta}} \mathcal{M}$ 
+é uma matriz $NR \times K$, e $\nabla_{\boldsymbol{\beta}}$ denota o 
+operador gradiente.
+  
+  \item \normalsize $W_{\boldsymbol{\lambda}i} = -\frac{\partial
+    \boldsymbol{C}^{-1}}{\partial \boldsymbol{\lambda}_i}$ 
+    
+  \item \normalsize $\boldsymbol{r} = (\mathcal{Y} - \mathcal{M})$
+  
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Distribuição assintótica e algoritmo de estimação
+
+\begin{itemize}
+
+  \item Para resolver o sistema de equações $\psi_{\boldsymbol{\beta}} = 0$ e $\psi_{\boldsymbol{\lambda}} = 0$ faz-se uso do algoritmo Chaser modificado:
+
+$$
+\begin{matrix}
+\boldsymbol{\beta}^{(i+1)} = \boldsymbol{\beta}^{(i)}- S_{\boldsymbol{\beta}}^{-1} \psi \boldsymbol{\beta} (\boldsymbol{\beta}^{(i)}, \boldsymbol{\lambda}^{(i)}), \\ 
+\boldsymbol{\lambda}^{(i+1)} = \boldsymbol{\lambda}^{(i)}\alpha S_{\boldsymbol{\lambda}}^{-1} \psi \boldsymbol{\lambda} (\boldsymbol{\beta}^{(i+1)}, \boldsymbol{\lambda}^{(i)}).
+\end{matrix}
+$$
+
+  \item Seja $\boldsymbol{\hat{\theta}} = (\boldsymbol{\hat{\beta}^{\top}}, \boldsymbol{\hat{\lambda}^{\top}})^{\top}$ o estimador baseado em funções de estimação de $\boldsymbol{\theta}$.
+  
+  \item A distribuição assintótica de $\boldsymbol{\hat{\theta}}$ é:
+
+$$
+\boldsymbol{\hat{\theta}} \sim N(\boldsymbol{\theta}, J_{\boldsymbol{\theta}}^{-1}),
+$$
+
+\noindent $J_{\boldsymbol{\theta}}^{-1}$ é a inversa da matriz de informação de Godambe, dada por
+  
+$$J_{\boldsymbol{\theta}}^{-1} = S_{\boldsymbol{\theta}}^{-1} V_{\boldsymbol{\theta}} S_{\boldsymbol{\theta}}^{-\top},$$ 
+
+\noindent em que $S_{\boldsymbol{\theta}}^{-\top} = (S_{\boldsymbol{\theta}}^{-1})^{\top}.$
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+# Testes de hipóteses
+
+<!-- --------------------------------------------------------------- -->
+
+## Testes de hipóteses
+
+  \begin{itemize}
+    \itemsep 2ex
+  
+  \item Inferência: \textbf{inferir} conclusões válidas a respeito de uma população por meio do estudo de uma amostra.
+  
+  \item Problemas de inferência estatística são:
+    \begin{enumerate}
+    
+      \itemsep 2ex
+      
+      \item \textbf{Estimação} de parâmetros com base em informação amostral.
+      
+      \item \textbf{Testes de hipóteses}.
+        \begin{itemize}
+          \item Com base na evidência amostral, podemos considerar que dado parâmetro tem determinado valor?
+        \end{itemize}
+    
+    \end{enumerate}
+  
+  \end{itemize}
+  
+<!-- --------------------------------------------------------------- -->
+
+## Testes de hipóteses
+
+  \begin{itemize}
+    \itemsep 2ex
+  
+  \item São postuladas 2 hipóteses, chamadas de \textbf{nula} e \textbf{alternativa}.
+  
+  \item Avalia-se uma estatística de teste. 
+  
+  \item Com base no valor da estatística e de acordo com sua distribuição de probabilidade, toma-se a decisão de rejeitar ou não rejeitar a hipótese nula.
+    
+  \item Seja $\theta$ um parâmetro, um teste de hipóteses sobre $\theta$ é dado por:
+  
+$$
+\left\{\begin{matrix}
+H_0: \theta = \theta_0 \\ 
+H_1: \theta \neq \theta_0
+\end{matrix}\right.
+$$  
+  
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+
+## Testes de hipóteses
+  
+  Desfechos possíveis:
+  
+  \begin{table}[]
+\begin{tabular}{l|cc}
+\hline
+\multicolumn{1}{c|}{}    & \textbf{Rejeita $H_0$} & \textbf{Não Rejeita $H_0$} \\ \hline
+\textbf{$H_0$ verdadeira} & Erro tipo I           & Decisão correta           \\
+\textbf{$H_0$ falsa}      & Decisão correta       & Erro tipo II              \\ \hline
+\end{tabular}
+\caption{Desfechos possíveis em um teste de hipóteses}
+\label{tab:my-table}
+\end{table}
+  
+  \begin{itemize}
+    \itemsep 2ex
+  
+  \item A probabilidade do erro do tipo I recebe o nome de nível de significância.
+  
+  \item A probabilidade de se rejeitar corretamente $H_0$ recebe o nome de poder do teste.
+  
+  \item A probabilidade de a estatística de teste tomar um valor igual ou mais extremo do que aquele que foi observado recebe o nome de valor-p.
+    
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Testes de hipóteses em modelos de regressão
+
+\begin{itemize}
+  \itemsep 2ex
+
+  \item Modelos de regressão: modelar uma ou mais variáveis em função de um conjunto de variáveis explicativas. 
+
+  \item Modelos contêm parâmetros que são quantidades desconhecidas que estabelecem a relação entre as variáveis sob o modelo. 
+
+  \item Pode ser de interesse verificar se a retirada de uma ou mais variáveis do modelo gera um modelo significativamente pior que o original. 
+
+  \item Verificar se há evidência suficiente nos dados para afirmar que determinada variável explicativa não possui efeito sobre a resposta.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Teste Wald em modelos de regressão
+
+\begin{itemize}
+  \itemsep 2ex
+
+  \item A ideia do teste consiste em verificar se existe evidência suficiente nos dados para afirmar que um ou mais parâmetros são iguais a valores especificados.
+  
+  \item Avalia a distância entre as estimativas dos parâmetros e um conjunto de valores postulados.
+  
+  \item Esta diferença é ainda padronizada por medidas de precisão das estimativas dos parâmetros. 
+
+  \item Quanto maior for esta distância padronizada, menores são as evidências a favor da hipótese de que os valores estimados são iguais aos valores postulados.
+
+
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Teste Wald em modelos de regressão
+  
+  Considere um modelo de regressão em que:
+
+\begin{itemize}
+
+  \itemsep 2ex
+  
+  \item $\boldsymbol{\beta}$ um vetor $k\times1$ parâmetros de regressão.
+    
+  \item $\boldsymbol{\hat\beta}$ as estimativas dos parâmetros.
+    
+  \item $\boldsymbol{c}$ um vetor de valores postulados de dimensão $s$.
+    
+  \item $\boldsymbol{L}$ uma matriz de especificação das hipóteses, de dimensão $s \times k$.  
+    
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Teste Wald em modelos de regressão
+  
+  \begin{itemize}
+
+  \itemsep 2ex
+  
+  \item As hipóteses podem ser descritas como:
+
+$$
+\left\{\begin{matrix}
+H_0: \boldsymbol{L}\boldsymbol{\beta} = \boldsymbol{c} \\ 
+H_1: \boldsymbol{L}\boldsymbol{\beta} \neq \boldsymbol{c}
+\end{matrix}\right.
+$$
+
+  \item A estatística de teste é dada por:
+
+$$
+WT = (\boldsymbol{L\hat\beta} - \boldsymbol{c})^T \ (\boldsymbol{L \ Var^{-1}(\hat\beta) \ L^T})^{-1} \ (\boldsymbol{L\hat\beta} - \boldsymbol{c}).
+$$
+
+ \item  WT $\sim \chi^2_s$.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## ANOVA e MANOVA
+
+\begin{itemize}
+
+  \itemsep 2ex
+
+  \item Testes sucessivos impondo restrições ao modelo original. 
+
+  \item O objetivo é testar se a ausência de determinada variável gera um modelo significativamente inferior. 
+
+  \item O quadro de ANOVA ou MANOVA contém em cada linha: 
+    \begin{enumerate}
+      \item A variável. 
+      \item O valor de uma estatística de teste referente à hipótese de nulidade de todos os parâmetros associados a esta variável. 
+      \item Os graus de liberdade desta hipótese. 
+      \item Um valor-p associado à hipótese testada naquela linha do quadro.
+    \end{enumerate}
+
+  \item É possível gerar quadros de análise de variância por meio do teste Wald.
+
+  \end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Testes de comparações múltiplas
+
+\begin{itemize}
+
+  \itemsep 2ex
+
+  \item Usado quando a ANOVA aponta para efeito significativo de uma variável categórica.
+
+  \item Comparações aos pares a fim de detectar para quais níveis da variável categórica os valores da resposta se alteram.
+
+  \item Pode ser avaliada utilizando o teste Wald. 
+
+  \item Por meio da correta especificação da matriz $\boldsymbol{L}$, é possível avaliar hipóteses sobre qualquer possível contraste entre os níveis de uma determinada variável categórica. 
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+# Trabalhos relacionados
+
+<!-- --------------------------------------------------------------- -->
+
+## Trabalhos relacionados
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Propostas que visam contornar restrições dos GLMs e como são efetuados testes de hipóteses para estas propostas.
+  
+  \item Propostas univariadas e multivariadas.
+  
+  \item Efeitos aleatórios.
+  
+  \item Correção de erros padrões.
+  
+  \item Grande variedade de modelos de regressão multivariados para fins específicos.
+  
+\end{itemize}  
+
+<!-- --------------------------------------------------------------- -->
+
+## Trabalhos relacionados
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Efeitos aleatórios para acomodar correlação entre observações.
+
+  \item Modelos lineares generalizados mistos (GLMM). Modelos lineares generalizados multivariados mistos (MGLMM).
+  
+ \item A interpretação dos parâmetros de regressão dependem de manter o efeito aleatório fixado.
+ 
+ \item A estimação destes modelos não é simples. Envolve integrais complexas e é uma tarefa computacionalmente desafiadora.
+
+ \item É possível usar máxima verossimilhança. 
+ 
+ \item Testes de hipóteses tradicionais costumam ser empregados.
+  
+\end{itemize}  
+
+<!-- --------------------------------------------------------------- -->
+
+## Trabalhos relacionados
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Equações de estimação generalizadas (GEE).
+
+  \item Alternativa para acomodar a correlação entre observações. 
+ 
+  \item Incluir no processo de estimação uma matriz de correlação de trabalho. 
+ 
+  \item O foco do método não é a modelagem da estrutura de correlação entre os indivíduos, mas sim a correção dos erros padrões.
+ 
+  \item Testes de hipóteses tradicionais costumam ser empregados.
+  
+\end{itemize} 
+
+<!-- --------------------------------------------------------------- -->
+
+## Trabalhos relacionados
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Modelos aditivos generalizados para locação, escala e forma (GAMLSS). 
+ 
+  \item Classe de modelos de regressão univariados com um número considerável de distribuições disponíveis. 
+ 
+  \item É possível modelar todos os parâmetros distribucionais.
+ 
+  \item É possível incluir efeitos aleatórios e termos suavizadores. 
+ 
+  \item A estimação é feita com base verossimilhança penalizada.
+ 
+  \item Testes de hipóteses tradicionais costumam ser empregados.
+ 
+\end{itemize} 
+
+<!-- --------------------------------------------------------------- -->
+
+## Trabalhos relacionados
+
+Grande variedade de modelos de regressão multivariados para fins específicos. 
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Análise de contagens multivariadas em que os testes usuais se aplicam \citep{zhang2017regression}.  
+
+  \item Modelo de regressão multivariado com distribuição Poisson inversa gaussiana em que testes de hipóteses ao estilo da razão de verossimilhanças se aplicam \citep{mardalena2020parameter}. 
+
+  \item Modelo de regressão Poisson zero inflacionado multivariado em que o teste da razão de verossimilhanças e o teste Wald se aplicam \citep{sari2021estimation}.
+  
+  \item Modelo de regressão multivariado gamma em que um análogo do teste da razão de verossimilhanças e o teste Wald se aplicam \citet{rahayu2020multivariate}.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+# Teste Wald para McGLMs
+
+\begin{enumerate}
+  \itemsep 2ex
+    
+  \item Definição das hipóteses.
+  \item Estatística de teste.
+  \item Distribuição.
+  \item Hipóteses comuns.
+  \item Construção da matriz $\boldsymbol{L}$.
+  \item Exemplos.
+  
+\end{enumerate}  
+
+<!-- --------------------------------------------------------------- -->
+
+## Hipóteses
+
+$$H_0: \boldsymbol{L}\boldsymbol{\theta^{*}} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L}\boldsymbol{\theta^{*}} \neq \boldsymbol{c}.$$ 
+
+Em que: 
+
+\begin{itemize}
+  
+  \item $\boldsymbol{\theta^{*}}$ é o vetor de dimensão $h \times 1$ de parâmetros de regressão, dispersão e potência do modelo. 
+  
+  \item Em que $\boldsymbol{L}$ é a matriz de especificação das hipóteses a serem testadas, tem dimensão $s \times h$. 
+  
+  \item $\boldsymbol{c}$ é um vetor de dimensão $s \times 1$ com os valores sob hipótese nula.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Estatística de teste
+
+$$W = (\boldsymbol{L\hat\theta^{*}} - \boldsymbol{c})^T \ (\boldsymbol{L \ J^{\boldsymbol{*}-1} \ L^T})^{-1} \ (\boldsymbol{L\hat\theta^{*}} - \boldsymbol{c}).$$
+
+Em que: 
+
+\begin{itemize}
+  \item $\boldsymbol{L}$ é a matriz da especificação das hipóteses, tem dimensão $s \times h$. 
+
+  \item $\boldsymbol{\hat\theta^{*}}$ é o vetor de dimensão $h \times 1$ com todas as estimativas dos parâmetros de regressão, dispersão e potência. 
+
+  \item $\boldsymbol{c}$ é um vetor de dimensão $s \times 1$ com os valores sob hipótese nula. 
+
+  \item E $\boldsymbol{J^{\boldsymbol{*}-1}}$ é a inversa da matriz de informação de Godambe desconsiderando os parâmetros de correlação, de dimensão $h \times h$. 
+  
+  \item $W \sim \chi^2_s$
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Hipóteses comuns
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Costuma ser de interesse formular:
+    \begin{enumerate}
+      \itemsep 2ex
+      \item Hipóteses para parâmetros individuais.
+      \item Hipóteses para múltiplos parâmetros.
+      \item Hipóteses para avaliar igualdade de parâmetros
+      \item Hipóteses sobre parâmetros de regressão ou dispersão para respostas sob mesmo preditor.
+      \item Hipóteses sobre contrastes.
+\end{enumerate}
+  
+  \item O elemento chave é a correta especificação da matriz $\boldsymbol{L}$.
+  
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Construção da matriz $\boldsymbol{L}$ 
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Cada coluna da matriz $\boldsymbol{L}$ corresponde a um dos $h$ parâmetros de $\boldsymbol{\theta^{*}}$. 
+  
+  \item Cada linha corresponde a uma restrição. 
+
+  \item A matriz é composta por valores iguais a 0, 1 e eventualmente -1.
+  
+  \item O produto $\boldsymbol{L}\boldsymbol{\theta^{*}}$ deve resultar nas hipóteses de interesse.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+# Exemplo seção
+
+## Exemplo subseção
+
+ - bullet.
+ 
+## Exemplo figura
+
+```{r, echo = FALSE, out.width = "80%"}
+knitr::include_graphics("./img/Cursos.png")
+```
+
+# Outra seção
+
+## Exemplo slide 2 colunas
+
+\beginAHalfColumnT
+
+- `R` para data science.
+    - Data: 04 a 15/05/2021.
+    - **Consulte condições de acesso.**
+- Matemática para data science.
+    - Data: 01 a 12/05/2021.
+- Probabilidade e Estatística para data science.
+    - Data: 22/06 a 01/07/2021.
+- Visualização, dashboards e relatórios dinâmicos.
+    - Data: 06 a 17/07/2021.
+
+\endColumns
+\beginAHalfColumnT
+
+- Modelagem estatística para data science.
+    - Data: 03 a 14/08/2021.
+- Planejamento de experimentos.
+    - Data: 07 a 18/09/2021.
+
+- Cursos previstos
+    - Machine learning com R.
+    - Mineração de texto com R.
+    - Web Scraping com R.
+    - R avançado.
+    - R para big data (spark).
+
+\endColumns
+
+## Exemplo texto e figura 2 colunas
+
+\beginAHalfColumn
+
+- A Ômega Data Science é um projeto que objetiva construir, capacitar e conectar
+  pessoas em uma comunidade focada em Data Science.
+- Instagram: [\@omegadatascience](https://instagram.com/omegadatascience)
+- Twitter: [\@omegadatascienc](https://twitter.com/omegadatascienc)
+- Telegram: <cutt.ly/omega_grupo_telegram>.
+- YouTube: [/OmegaDataScience](https://youtube.com/OmegaDataScience)
+
+\endColumns
+\beginAHalfColumn
+
+```{r, echo = FALSE, out.width = "90%"}
+#cap <- as.character(shiny::tags$a(href, href = href))
+knitr::include_graphics("./img/omega-quadrado-sombra.png")
+```
+
+\endColumns
+

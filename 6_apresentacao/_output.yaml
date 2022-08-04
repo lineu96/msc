@@ -1,0 +1,12 @@
+beamer_presentation:
+  slide_level: 2
+  fig_caption: yes
+  fig_crop: no
+  highlight: haddock
+  includes:
+    # NOTE: background, color theme and logos are defined in `preamble-rmd-settings.tex`.
+    in_header: [config/preamble-settings-rmd.tex, config/preamble-global.tex, config/preamble-chunk-rmd.tex, config/preamble-commands.tex]
+  # incremental: yes
+  keep_tex: yes
+# http://rmarkdown.rstudio.com/beamer_presentation_format.html
+

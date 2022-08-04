@@ -1,4 +1,4 @@
-\begin{thebibliography}{22}
+\begin{thebibliography}{23}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -42,6 +42,14 @@ Bonat WH, Petterle RR, Balbinot P, Mansur A, Graf R (2020).
 \newblock \enquote{Modelling multiple outcomes in repeated measures studies:
   Comparing aesthetic eyelid surgery techniques.}
 \newblock \emph{Statistical Modelling}, p. 1471082X20943312.
+
+\bibitem[{de~Freitas \emph{et~al.}(2022)de~Freitas, Carlos, Campos, and
+  Bonat}]{htmcglm_proposta}
+de~Freitas LAC, Carlos LdO, Campos ACL, Bonat WH (2022).
+\newblock \enquote{Hypothesis tests for multiple responses regression: effect
+  of probiotics on addiction and binge eating disorder.}
+\newblock \doi{10.48550/ARXIV.2208.00027}.
+\newblock \urlprefix\url{https://arxiv.org/abs/2208.00027}.
 
 \bibitem[{Demidenko(2013)}]{Demidenko13}
 Demidenko E (2013).
