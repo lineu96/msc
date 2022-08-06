@@ -1,7 +1,7 @@
 ---
 title: \textbf{Teste Wald para avaliação de parâmetros de regressão e dispersão em modelos multivariados de covariância linear generalizada}\newline
 
-subtitle: \textbf{Defesa}
+subtitle: \textbf{Defesa de mestrado}
 
 author:
   - Lineu Alberto Cavazani de Freitas\newline
@@ -42,9 +42,13 @@ source("./config/setup.R")
 
 <!-- --------------------------------------------------------------- -->
 
-## Sumário
+<!-- ## Sumário -->
 
-\tableofcontents
+<!-- \tableofcontents -->
+
+<!-- --------------------------------------------------------------- -->
+
+# Introdução
 
 <!-- --------------------------------------------------------------- -->
 
@@ -137,7 +141,7 @@ Três conceitos são importantes para entender minimamente o funcionamento de um
   \begin{itemize}
     \itemsep 2ex
   
-  \item Na prática, podemos buscar uma distribuição de probabilidades que melhor descreva o fenômeno de interesse. 
+  \item Na prática, podemos buscar uma \textbf{distribuição de probabilidades} que melhor descreva o fenômeno de interesse. 
   
   \item Estas distribuições são descritas por \textbf{funções}. 
   
@@ -253,7 +257,7 @@ knitr::include_graphics("./img/modelos_regressao.pdf")
 
   \item O \textbf{avanço computacional} permitiu o surgimento de modelos mais gerais que necessitavam de \textbf{processos iterativos} para estimação dos parâmetros. 
   
-  \item Surgem os modelos lineares generalizados(GLMs) \citep{Nelder72}. 
+  \item Surgem os modelos lineares generalizados(\textbf{GLMs}) \citep{Nelder72}. 
   
   \item Os GLMs permitem utilizar qualquer membro da \textbf{família exponencial de distribuições}.
 
@@ -277,7 +281,7 @@ knitr::include_graphics("./img/modelos_regressao.pdf")
       \item Leque reduzido de \textbf{distribuições disponíveis}. 
     \end{enumerate}
 
-  \item Os modelos multivariados de covariância linear generalizada (McGLMs) \citep{Bonat16} contornam estas restrições.
+  \item Os modelos multivariados de covariância linear generalizada (\textbf{McGLMs}) \citep{Bonat16} contornam estas restrições.
 
   \end{itemize}
 
@@ -291,11 +295,11 @@ knitr::include_graphics("./img/modelos_regressao.pdf")
    
   \item Configuram uma estrutura geral para análise via modelos de regressão.
   
-  \item Comporta múltiplas respostas de diferentes naturezas.
+  \item Comporta \textbf{múltiplas respostas} de diferentes naturezas.
   
-  \item Pode-se ajustar modelos com diferentes preditores e distribuições para cada resposta.
+  \item Pode-se ajustar modelos com \textbf{diferentes preditores e distribuições} para cada resposta.
   
-  \item Os modelos levam em conta a correlação entre indivíduos do conjunto de dados. 
+  \item Os modelos levam em conta a \textbf{correlação entre observações} do conjunto de dados. 
 
 \end{itemize}
 
@@ -337,8 +341,8 @@ knitr::include_graphics("./img/modelos_regressao.pdf")
 
     \begin{itemize}
       \item O teste da razão de verossimilhanças \citep{trv}.
-      \item O teste Wald \citep{wald}.
       \item O teste do multiplicador de lagrange ou teste escore \citep{score1,score2,score3}.
+      \item \textbf{O teste Wald \citep{wald}.}
     \end{itemize}
   
   \item São baseados na função de verossimilhança dos modelos.
@@ -347,23 +351,6 @@ knitr::include_graphics("./img/modelos_regressao.pdf")
   
   \end{itemize}
   
-<!-- --------------------------------------------------------------- -->
-
-## Testes de hipóteses em modelos de regressão
-
-\textbf{Teste da razão de verossimilhanças}
-
-\begin{itemize}
-
-  \itemsep 2ex
-  
-  \item Efetuado a partir de dois modelos com o objetivo de compará-los. 
-  \item Obter um modelo com todas as variáveis explicativas e um segundo modelo sem algumas dessas variáveis. 
-
-  \item  O teste é usado para comparar estes modelos por meio da diferença do logaritmo da função de verossimilhança. 
-
-\end{itemize}
-
 <!-- --------------------------------------------------------------- -->
 
 ## Testes de hipóteses em modelos de regressão
@@ -380,25 +367,7 @@ knitr::include_graphics("./img/modelos_regressao.pdf")
 
   \item Avalia quão longe o valor estimado está do valor postulado. 
 
-  \item É possível formular hipóteses para múltiplos parâmetros, 
-
-\end{itemize}
-
-<!-- --------------------------------------------------------------- -->
-
-## Testes de hipóteses em modelos de regressão
-
-\textbf{Teste Escore}
-
-\begin{itemize}
-
-  \itemsep 2ex
-  
-  \item Requer apenas um modelo ajustado. 
-
-  \item O modelo ajustado não possui o parâmetro de interesse
-
-  \item O que é feito é testar se adicionar esta variável omitida resultará em uma melhora significativa no modelo. 
+  \item É possível formular hipóteses para múltiplos parâmetros.
 
 \end{itemize}
 
@@ -412,8 +381,8 @@ Existe uma série de \textbf{procedimentos baseados em testes de hipóteses}, ta
 
   \itemsep 2ex
   
-  \item Análise de variância (ANOVA).
-  \item Análise de variância multivariada (MANOVA).
+  \item Análise de variância (\textbf{ANOVA}).
+  \item Análise de variância multivariada (\textbf{MANOVA}).
   \item Testes de comparações múltiplas.
 
 \end{itemize}
@@ -433,7 +402,7 @@ Existe uma série de \textbf{procedimentos baseados em testes de hipóteses}, ta
 
   \item Os resultados são sumarizados numa tabela, o chamado \textbf{quadro de análise de variância}.
 
-  \item Caso univariado: ANOVA \citep{anova_fisher}. Caso multivariado: MANOVA \citep{manova}.
+  \item Caso univariado: \textbf{ANOVA} \citep{anova_fisher}. Caso multivariado: \textbf{MANOVA} \citep{manova}.
   
   \end{itemize}
 
@@ -469,7 +438,7 @@ Existe uma série de \textbf{procedimentos baseados em testes de hipóteses}, ta
 
   \item Testes de hipóteses em modelos de regressão (ênfase no \textbf{teste Wald}).
 
-  \item Procedimentos baseados em testes de hipóteses (ANOVA, MANOVA, testes de comparações múltiplas).
+  \item Procedimentos baseados em testes de hipóteses (ênfase na \textbf{ANOVA, MANOVA e testes de comparações múltiplas}).
 
 \end{itemize}
 
@@ -480,9 +449,9 @@ Existe uma série de \textbf{procedimentos baseados em testes de hipóteses}, ta
 \begin{itemize}
   \itemsep 2ex
     
-  \item Não há discussão a respeito da construção de testes de hipóteses para os McGLMs.
+  \item Não há discussão a respeito da \textbf{construção de testes de hipóteses para os McGLMs.}    
 
-  \item Contudo, os McGLMs apresentam os elementos necessários para utilizar o teste Wald:
+  \item Contudo, os McGLMs apresentam os elementos necessários para utilizar o \textbf{teste Wald}:
     \begin{enumerate}
       \item Um vetor de estimativas dos parâmetros
       \item Uma matriz de variância e covariância destas estimativas.
@@ -499,13 +468,13 @@ Existe uma série de \textbf{procedimentos baseados em testes de hipóteses}, ta
 \begin{enumerate}
   \itemsep 2ex
   
- \item Propor a utilização do teste Wald para realização de testes de hipóteses gerais sobre parâmetros de regressão e dispersão de McGLMs.
+ \item Propor a utilização do \textbf{teste Wald} para realização de testes de hipóteses gerais sobre parâmetros de \textbf{regressão} e \textbf{dispersão} de \textbf{McGLMs}.
 
- \item Avaliar as propriedades e comportamento dos testes propostos com base em estudos de simulação.
+ \item Avaliar as propriedades e comportamento dos testes propostos com base em \textbf{estudos de simulação}.
  
- \item Implementar funções em R para testes de hipóteses, ANOVA, MANOVA e testes de comparações múltiplas para os McGLMs. 
+ \item \textbf{Implementar} funções em R para testes de hipóteses, ANOVA, MANOVA e testes de comparações múltiplas para os McGLMs. 
  
- \item Motivar o potencial de aplicação das metodologias discutidas com base na aplicação a conjuntos de dados reais.
+ \item Motivar o potencial de aplicação das metodologias discutidas com base na \textbf{aplicação a conjuntos de dados reais}.
 
 \end{enumerate}
 
@@ -529,6 +498,10 @@ Existe uma série de \textbf{procedimentos baseados em testes de hipóteses}, ta
 <!-- --------------------------------------------------------------- -->
 
 # Referencial teórico
+
+<!-- --------------------------------------------------------------- -->
+
+## Referencial teórico
 
 \begin{enumerate}
     \itemsep 2ex
@@ -566,13 +539,13 @@ Para definição de um McGLM considere:
   
   \itemsep 2ex
   
-  \item $\boldsymbol{Y}_{N \times R} = \left \{ \boldsymbol{Y}_1, \dots, \boldsymbol{Y}_R \right \}$ uma  matriz de variáveis resposta.
+  \item $\boldsymbol{Y}_{N \times R} = \left \{ \boldsymbol{Y}_1, \dots, \boldsymbol{Y}_R \right \}$ uma matriz de \textbf{variáveis resposta}.
   
-  \item $\boldsymbol{M}_{N \times R} = \left \{ \boldsymbol{\mu}_1, \dots, \boldsymbol{\mu}_R \right \}$ uma matriz de valores esperados.
+  \item $\boldsymbol{M}_{N \times R} = \left \{ \boldsymbol{\mu}_1, \dots, \boldsymbol{\mu}_R \right \}$ uma matriz de \textbf{valores esperados}.
   
-    \item $\boldsymbol{X}_r$ denota uma matriz de delineamento $N \times k_r$.
+  \item $\boldsymbol{X}_r$ denota uma \textbf{matriz de delineamento} $N \times k_r$.
   
-  \item $\boldsymbol{\beta}_r$ denota um vetor $k_r \times 1$ de parâmetros de regressão.
+  \item $\boldsymbol{\beta}_r$ denota um vetor $k_r \times 1$ de \textbf{parâmetros de regressão}.
   
 \end{itemize}
 
@@ -586,9 +559,9 @@ Considere ainda:
   
   \itemsep 2ex
   
-    \item $\Sigma_b$ uma matriz de correlação entre variáveis resposta, de ordem $R \times R$.
+  \item $\Sigma_b$ uma \textbf{matriz de correlação} entre variáveis resposta, de ordem $R \times R$.
     
-  \item $\Sigma_r$, $r = 1,..., R$, a matriz de variância e covariância para cada resposta $r$, de dimensão $NxN$:
+  \item $\Sigma_r$, $r = 1,..., R$, a \textbf{matriz de variância e covariância} para cada resposta $r$, de dimensão $NxN$:
   
 $$
 \Sigma_r = \mathrm{V}_r\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}(\boldsymbol{\Omega}\left(\boldsymbol{\tau}_r\right))\mathrm{V}_r\left(\boldsymbol{\mu}_r; p_r\right)^{1/2}.
@@ -614,9 +587,9 @@ Em que:
   
   \itemsep 2ex
   
-  \item A matriz $\boldsymbol{\Omega}(\boldsymbol{\tau}_r)$ descreve a estrutura de correlação entre as observações da amostra.
+  \item A matriz $\boldsymbol{\Omega}(\boldsymbol{\tau}_r)$ descreve a estrutura de \textbf{correlação entre as observações} da amostra.
   
-  \item É modelada através de um preditor linear matricial combinado com uma função de ligação de covariância:
+  \item É modelada através de um \textbf{preditor linear matricial} combinado com uma função de ligação de covariância:
 
 $$
 h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}_r) \right \} = \tau_{r0}Z_0 + \ldots + \tau_{rD}Z_D
@@ -644,7 +617,7 @@ $$
   \item \textbf{Função de variância potência} \citep{Jorgensen87, Jorgensen97}.
   
     \begin{itemize}
-      \item Família Tweedie de distribuições.
+      \item Família \textbf{Tweedie} de distribuições.
       \item $\vartheta\left(\boldsymbol{\mu}; p\right) = \mu^p$.
       \item Casos particulares: normal ($p$ = 0), Poisson ($p$ = 1), gama ($p$ = 2) e normal inversa ($p$ = 3).
     \end{itemize}
@@ -653,7 +626,7 @@ $$
   \item \textbf{Função de dispersão Poisson–Tweedie} \citep{Jorgensen15}.
   
     \begin{itemize}
-      \item Família Poisson-Tweedie de distribuições.
+      \item Família \textbf{Poisson-Tweedie} de distribuições.
       \item $\vartheta\left(\boldsymbol{\mu}; p\right) = \mu + \mu^p$.
       \item Casos particulares: Hermite ($p$ = 0), Neyman tipo A ($p$ = 1), binomial negativa ($p$ = 2) e Poisson–inversa gaussiana (p = $3$).
       
@@ -663,7 +636,7 @@ $$
   
     \begin{itemize}
       \item $\vartheta(\boldsymbol{\mu}) = \mu(1 - \mu)$.
-      \item Acomoda respostas binárias ou restritas a um intervalo.
+      \item Acomoda \textbf{respostas binárias} ou restritas a um intervalo.
     \end{itemize}
 
 \end{enumerate}
@@ -707,13 +680,13 @@ Em que:
   
   \item Parâmetros estimados nos McGLMs:
     \begin{enumerate}
-      \item Regressão.
-      \item Dispersão.
-      \item Potência.
-      \item Correlação.
+      \item \textbf{Regressão.}
+      \item \textbf{Dispersão.}
+      \item \textbf{Potência.}
+      \item \textbf{Correlação.}
     \end{enumerate}
   
-  \item Todas estas quantidades são interpretáveis e são estimadas com base nos dados.
+  \item Todas estas quantidades são \textbf{interpretáveis} e são estimadas com base nos dados.
   
   \item A estimação é feita por meio de \textbf{funções de estimação}.
     \begin{enumerate}
@@ -762,7 +735,7 @@ operador gradiente.
 
 \begin{itemize}
 
-  \item Para resolver o sistema de equações $\psi_{\boldsymbol{\beta}} = 0$ e $\psi_{\boldsymbol{\lambda}} = 0$ faz-se uso do algoritmo Chaser modificado:
+  \item Para resolver o sistema de equações $\psi_{\boldsymbol{\beta}} = 0$ e $\psi_{\boldsymbol{\lambda}} = 0$ faz-se uso do algoritmo \textbf{Chaser modificado}:
 
 $$
 \begin{matrix}
@@ -773,7 +746,7 @@ $$
 
   \item Seja $\boldsymbol{\hat{\theta}} = (\boldsymbol{\hat{\beta}^{\top}}, \boldsymbol{\hat{\lambda}^{\top}})^{\top}$ o estimador baseado em funções de estimação de $\boldsymbol{\theta}$.
   
-  \item A distribuição assintótica de $\boldsymbol{\hat{\theta}}$ é:
+  \item A \textbf{distribuição assintótica} de $\boldsymbol{\hat{\theta}}$ é:
 
 $$
 \boldsymbol{\hat{\theta}} \sim N(\boldsymbol{\theta}, J_{\boldsymbol{\theta}}^{-1}),
@@ -825,9 +798,9 @@ $$J_{\boldsymbol{\theta}}^{-1} = S_{\boldsymbol{\theta}}^{-1} V_{\boldsymbol{\th
   
   \item São postuladas 2 hipóteses, chamadas de \textbf{nula} e \textbf{alternativa}.
   
-  \item Avalia-se uma estatística de teste. 
+  \item Avalia-se uma \textbf{estatística de teste}.
   
-  \item Com base no valor da estatística e de acordo com sua distribuição de probabilidade, toma-se a decisão de rejeitar ou não rejeitar a hipótese nula.
+  \item Com base no valor da estatística e de acordo com sua distribuição de probabilidade, toma-se a decisão de \textbf{rejeitar} ou \textbf{não rejeitar} a hipótese nula.
     
   \item Seja $\theta$ um parâmetro, um teste de hipóteses sobre $\theta$ é dado por:
   
@@ -854,18 +827,17 @@ $$
 \textbf{$H_0$ verdadeira} & Erro tipo I           & Decisão correta           \\
 \textbf{$H_0$ falsa}      & Decisão correta       & Erro tipo II              \\ \hline
 \end{tabular}
-\caption{Desfechos possíveis em um teste de hipóteses}
 \label{tab:my-table}
 \end{table}
   
   \begin{itemize}
     \itemsep 2ex
   
-  \item A probabilidade do erro do tipo I recebe o nome de nível de significância.
+  \item A probabilidade do erro do tipo I recebe o nome de \textbf{nível de significância}.
   
-  \item A probabilidade de se rejeitar corretamente $H_0$ recebe o nome de poder do teste.
+  \item A probabilidade de se rejeitar corretamente $H_0$ recebe o nome de \textbf{poder do teste}.
   
-  \item A probabilidade de a estatística de teste tomar um valor igual ou mais extremo do que aquele que foi observado recebe o nome de valor-p.
+  \item A probabilidade de a estatística de teste tomar um valor igual ou mais extremo do que aquele que foi observado recebe o nome de \textbf{valor-p}.
     
   \end{itemize}
 
@@ -876,12 +848,14 @@ $$
 \begin{itemize}
   \itemsep 2ex
 
+  \item Testes de hipóteses são ferramentas gerais que podem ser aplicadas em problemas de regressão.
+  
   \item Modelos de regressão: modelar uma ou mais variáveis em função de um conjunto de variáveis explicativas. 
 
   \item Modelos contêm parâmetros que são quantidades desconhecidas que estabelecem a relação entre as variáveis sob o modelo. 
 
-  \item Pode ser de interesse verificar se a retirada de uma ou mais variáveis do modelo gera um modelo significativamente pior que o original. 
-
+  \item Para avaliar os parâmetros de um modelo testes de hipóteses são usados.
+  
   \item Verificar se há evidência suficiente nos dados para afirmar que determinada variável explicativa não possui efeito sobre a resposta.
 
 \end{itemize}
@@ -1004,7 +978,7 @@ $$
 \begin{itemize}
   \itemsep 2ex
   
-  \item Propostas que visam contornar restrições dos GLMs e como são efetuados testes de hipóteses para estas propostas.
+  \item Propostas que visam \textbf{contornar restrições dos GLMs} e como são efetuados testes de hipóteses para estas propostas.
   
   \item Propostas univariadas e multivariadas.
   
@@ -1024,58 +998,16 @@ $$
   \itemsep 2ex
   
   \item Efeitos aleatórios para acomodar correlação entre observações.
+    \begin{itemize}
+      \item Modelos lineares generalizados mistos (\textbf{GLMM}).
+      \item Modelos lineares generalizados multivariados mistos (\textbf{MGLMM}).
+    \end{itemize}
 
-  \item Modelos lineares generalizados mistos (GLMM). Modelos lineares generalizados multivariados mistos (MGLMM).
-  
- \item A interpretação dos parâmetros de regressão dependem de manter o efeito aleatório fixado.
- 
- \item A estimação destes modelos não é simples. Envolve integrais complexas e é uma tarefa computacionalmente desafiadora.
+  \item Equações de estimação generalizadas (\textbf{GEE}).
 
- \item É possível usar máxima verossimilhança. 
- 
- \item Testes de hipóteses tradicionais costumam ser empregados.
+  \item Modelos aditivos generalizados para locação, escala e forma (\textbf{GAMLSS}).
   
 \end{itemize}  
-
-<!-- --------------------------------------------------------------- -->
-
-## Trabalhos relacionados
-
-\begin{itemize}
-  \itemsep 2ex
-  
-  \item Equações de estimação generalizadas (GEE).
-
-  \item Alternativa para acomodar a correlação entre observações. 
- 
-  \item Incluir no processo de estimação uma matriz de correlação de trabalho. 
- 
-  \item O foco do método não é a modelagem da estrutura de correlação entre os indivíduos, mas sim a correção dos erros padrões.
- 
-  \item Testes de hipóteses tradicionais costumam ser empregados.
-  
-\end{itemize} 
-
-<!-- --------------------------------------------------------------- -->
-
-## Trabalhos relacionados
-
-\begin{itemize}
-  \itemsep 2ex
-  
-  \item Modelos aditivos generalizados para locação, escala e forma (GAMLSS). 
- 
-  \item Classe de modelos de regressão univariados com um número considerável de distribuições disponíveis. 
- 
-  \item É possível modelar todos os parâmetros distribucionais.
- 
-  \item É possível incluir efeitos aleatórios e termos suavizadores. 
- 
-  \item A estimação é feita com base verossimilhança penalizada.
- 
-  \item Testes de hipóteses tradicionais costumam ser empregados.
- 
-\end{itemize} 
 
 <!-- --------------------------------------------------------------- -->
 
@@ -1099,6 +1031,10 @@ Grande variedade de modelos de regressão multivariados para fins específicos.
 <!-- --------------------------------------------------------------- -->
 
 # Teste Wald para McGLMs
+
+<!-- --------------------------------------------------------------- -->
+
+## Teste Wald para McGLMs
 
 \begin{enumerate}
   \itemsep 2ex
@@ -1158,14 +1094,14 @@ Em que:
 \begin{itemize}
   \itemsep 2ex
   
-  \item Costuma ser de interesse formular:
+  \item Costuma ser de interesse formular hipóteses:
     \begin{enumerate}
-      \itemsep 2ex
-      \item Hipóteses para parâmetros individuais.
-      \item Hipóteses para múltiplos parâmetros.
-      \item Hipóteses para avaliar igualdade de parâmetros
-      \item Hipóteses sobre parâmetros de regressão ou dispersão para respostas sob mesmo preditor.
-      \item Hipóteses sobre contrastes.
+      \itemsep 1ex
+      \item Para \textbf{parâmetros individuais}.
+      \item Para \textbf{múltiplos parâmetros}.
+      \item Para avaliar \textbf{igualdade de parâmetros}.
+      \item Sobre parâmetros de regressão ou dispersão para \textbf{respostas sob mesmo preditor}.
+      \item Sobre \textbf{contrastes}.
 \end{enumerate}
   
   \item O elemento chave é a correta especificação da matriz $\boldsymbol{L}$.
@@ -1191,69 +1127,1072 @@ Em que:
 
 <!-- --------------------------------------------------------------- -->
 
-# Exemplo seção
+## Exemplo
 
-## Exemplo subseção
+\textbf{Considere o problema:}
 
- - bullet.
+\begin{itemize}
+  
+  \item Investigar se uma variável numérica $X_1$ possui efeito sobre $Y_1$ e $Y_2$. 
+  
+  \item Amostra com $N$ observações, para cada observação obteve-se $X_1$, $Y_1$ e $Y_2$.
+
+  \item Um McGLM bivariado, pode ter preditor dado por
+
+\end{itemize}
+
+$$
+g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1
+$$
+
+\beginAHalfColumnT
+  \begin{itemize}
+    \itemsep 1ex
+    \item $r$ denota a variável resposta, r = 1,2.
+    \item $\beta_{r0}$ representa o intercepto;.
+    \item $\beta_{r1}$ um parâmetro de regressão associado a uma variável $X_1$. 
+  \end{itemize}  
+\endColumns
+\beginAHalfColumnT
+
+  \begin{itemize}
+    \itemsep 1ex
+    \item Apenas um parâmetro de dispersão $\tau_{r0}$.
+    \item Unidades independentes, logo $Z_0 = I$.
+    \item Parâmetros de potência foram fixados.
+  \end{itemize}  
+
+\endColumns
+
+<!-- --------------------------------------------------------------- -->
+
+## Exemplo
+
+$$
+g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1
+$$
+
+\beginAHalfColumnT
+
+\textbf{Trata-se de um problema com:}
+  
+\begin{itemize}
+  \itemsep 1ex
+  \item Duas variáveis resposta.
+  \item Apenas uma variável explicativa.
+  \item Observações independentes.
+\end{itemize}
+
+\endColumns
+\beginAHalfColumnT
+
+\textbf{Podem ser perguntas de interesse:}
+
+\begin{itemize}
+  \itemsep 1ex
+  \item Existe efeito da variável $X_1$ apenas sobre a primeira resposta?
+  \item É possível que a variável $X_1$ possua efeito sobre as duas respostas ao mesmo tempo?
+  \item É possível que o efeito da variável seja o mesmo para ambas as respostas? 
+\end{itemize}
+  
+\endColumns
+
+<!-- --------------------------------------------------------------- -->
+
+## Exemplo 1: hipótese para um único parâmetro
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Efeito da variável $X_1$ apenas sobre a primeira resposta. 
+
+  \item Hipóteses:
+
+$$H_0: \beta_{11} = 0 \ vs \ H_1: \beta_{11} \neq 0.$$
+
+  \item Notação do teste Wald:
+  
+$$H_0: \boldsymbol{L}\boldsymbol{\theta^{*}} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L}\boldsymbol{\theta^{*}} \neq \boldsymbol{c}.$$  
+
+  \begin{itemize}
+  
+    \item $\boldsymbol{\theta^{*T}}$ = $\begin{bmatrix} \beta_{10} \  \beta_{11} \ \beta_{20} \ \beta_{21} \ \tau_{11} \ \tau_{21} \end{bmatrix}$.
+
+    \item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 0  \end{bmatrix}.$
  
-## Exemplo figura
+  \item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}.$
 
-```{r, echo = FALSE, out.width = "80%"}
-knitr::include_graphics("./img/Cursos.png")
-```
+  \end{itemize}
+  
+\end{itemize}
 
-# Outra seção
+<!-- --------------------------------------------------------------- -->
 
-## Exemplo slide 2 colunas
+## Exemplo 2: hipótese para múltiplos parâmetros
 
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Efeito da variável explicativa sobre ambas as respostas.
+  
+  \item Hipóteses: 
+  
+$$H_0: \beta_{r1} = 0 \ vs \ H_1: \beta_{r1} \neq 0$$  
+
+  \item De forma equivalente
+
+\end{itemize}
+
+$$
+H_0: 
+\begin{pmatrix}
+\beta_{11} \\ 
+\beta_{21}
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+0 \\ 
+0
+\end{pmatrix}
+\ vs \ 
+H_1: 
+\begin{pmatrix}
+\beta_{11} \\ 
+\beta_{21}
+\end{pmatrix} 
+\neq
+\begin{pmatrix}
+0 \\ 
+0 
+\end{pmatrix}.
+$$  
+
+
+<!-- --------------------------------------------------------------- -->
+
+## Exemplo 2: hipótese para múltiplos parâmetros
+
+  Notação do teste Wald:
+  
+$$H_0: \boldsymbol{L}\boldsymbol{\theta^{*}} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L}\boldsymbol{\theta^{*}} \neq \boldsymbol{c}.$$  
+
+  \begin{itemize}
+  
+    \item $\boldsymbol{\theta^{*T}}$ = $\begin{bmatrix} \beta_{10} \  \beta_{11} \ \beta_{20} \ \beta_{21} \ \tau_{11} \ \tau_{21} \end{bmatrix}$.
+
+    \item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}.$
+ 
+  \item $\boldsymbol{c} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}.$
+
+  \end{itemize}
+  
+<!-- --------------------------------------------------------------- -->
+
+## Exemplo 3: hipótese de igualdade de parâmetros
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Igualdade do efeito de $X_1$ para as respostas.
+
+  \item Hipóteses:
+
+$$
+H_0: \beta_{11} - \beta_{21} = 0 \ vs \ H_1: \beta_{11} - \beta_{21} \neq 0,
+$$
+
+  \item Notação do teste Wald:
+  
+$$H_0: \boldsymbol{L}\boldsymbol{\theta^{*}} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L}\boldsymbol{\theta^{*}} \neq \boldsymbol{c}.$$  
+
+  \begin{itemize}
+  
+    \item $\boldsymbol{\theta^{*T}}$ = $\begin{bmatrix} \beta_{10} \  \beta_{11} \ \beta_{20} \ \beta_{21} \ \tau_{11} \ \tau_{21} \end{bmatrix}$.
+
+    \item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & -1 & 0 & 0  \end{bmatrix}.$
+ 
+  \item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}.$ 
+
+  \end{itemize}
+  
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## ANOVA e MANOVA
+
+\begin{itemize}
+    \itemsep 2ex
+
+  \item Com base na adaptação do teste Wald propostas, buscamos propor \textbf{ANOVAs e MANOVAs usando o teste Wald}.
+
+  \item Propomos 3 tipos diferentes de análises de variância, nomeadas tipo I, II e III.
+
+  \item Cada linha do quadro corresponde uma hipótese. Portanto, basta especificar uma matriz $\boldsymbol{L}$.
+
+  \item As ANOVAs retornam \textbf{um quadro para cada resposta}.
+
+  \item As MANOVAs retornam \textbf{um único quadro}. 
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Exemplo
+
+\textbf{Considere o problema:}
+
+\begin{itemize}
+  
+  \item Investigar se duas variáveis numéricas ($X_1$ e $X_2$) possuem efeito sobre $Y_1$ e $Y_2$.
+  
+  \item Amostra com $N$ observações, para cada observação obteve-se $X_1$, $X_2$, $Y_1$ e $Y_2$.
+
+  \item Um McGLM bivariado, pode ter preditor dado por
+
+\end{itemize}  
+
+$$
+g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} x_2 + \beta_{r3} X_1X_2.
+$$
+\beginAHalfColumnT
+\begin{itemize}
+  \itemsep 1ex
+  \item $r$ denota a variável resposta, r = 1,2.
+  \item $\beta_{r0}$ representa o intercepto.
+  \item $\beta_{r1}$ um parâmetro de regressão associado a uma variável $X_1$. 
+  \item $\beta_{r2}$ um parâmetro de regressão associado a uma variável $X_2$.
+\end{itemize}  
+\endColumns    
 \beginAHalfColumnT
 
-- `R` para data science.
-    - Data: 04 a 15/05/2021.
-    - **Consulte condições de acesso.**
-- Matemática para data science.
-    - Data: 01 a 12/05/2021.
-- Probabilidade e Estatística para data science.
-    - Data: 22/06 a 01/07/2021.
-- Visualização, dashboards e relatórios dinâmicos.
-    - Data: 06 a 17/07/2021.
+\begin{itemize}
+  \itemsep 1ex
+  \item $\beta_{r3}$ um parâmetro de regressão associado a interação entre $X_1$ e $X_2$. 
+  \item Apenas um parâmetro de dispersão $\tau_{r0}$.
+  \item Unidades independentes, logo $Z_0 = I$.
+  \item Parâmetros de potência foram fixados.
+\end{itemize}  
+
+\endColumns
+
+<!-- --------------------------------------------------------------- -->
+
+## ANOVA e MANOVA tipo II
+
+$$
+g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} x_2 + \beta_{r3} X_1X_2.
+$$
+
+\begin{description}
+  
+  \item[Linha 1] Testa se o intercepto é igual a 0.
+  
+  \item[Linha 2] Testa se os parâmetros referentes a $X_1$ são iguais a 0. Ou seja, é avaliado o impacto da retirada de $X_1$ do modelo. Neste caso retira-se a interação pois nela há $X_1$.
+  
+  \item[Linha 3] Testa se os parâmetros referentes a $X_2$ são iguais a 0. Ou seja, é avaliado o impacto da retirada de $X_2$ do modelo. Neste caso retira-se a interação pois nela há $X_2$.
+  
+  \item[Linha 4] Testa se o efeito de interação é 0.
+  
+\end{description}
+
+<!-- --------------------------------------------------------------- -->
+
+# Estudo de simulação
+
+<!-- --------------------------------------------------------------- -->
+
+## Estudo de simulação
+
+\begin{enumerate}
+    \itemsep 2ex
+  
+  \item Visão geral.
+    
+  \item Parâmetros de regressão.
+
+  \item Parâmetros de dispersão.
+ 
+\end{enumerate}
+
+<!-- --------------------------------------------------------------- -->
+
+## Visão geral
+
+\begin{itemize}
+  \itemsep 2ex
+    
+  \item Avaliar o \textbf{poder do teste Wald} em testes de hipóteses sobre parâmetros de McGLMs. 
+
+  \item Comportamento da proposta para três distribuições de probabilidade: 
+    \begin{itemize}
+      \item \textbf{Normal.}
+	    \item \textbf{Poisson.}
+	    \item \textbf{Bernoulli.}
+    \end{itemize}
+	
+  \item Cenários \textbf{univariados} e \textbf{trivariados}.
+
+  \item Diferentes tamanhos amostrais.
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Visão geral
+ 
+\begin{itemize}
+  \itemsep 2ex
+    
+  \item Funções de ligação e variância utilizadas nos modelos para cada distribuição simulada.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}
+\hline
+Distribuição & Função de ligação & Função de variância \\ \hline
+Normal       & Identidade        & Constante           \\
+Poisson      & Logarítmica       & Tweedie             \\
+Bernoulli    & Logito            & Binomial            \\ \hline
+\end{tabular}
+\end{table}
+
+  \item Correlação entre respostas no caso trivariado:
+
+\end{itemize}
+
+$$
+\Sigma_b = 
+\begin{bmatrix}
+1    & 0,75 & 0,5  \\
+0,75 & 1    & 0,25 \\
+0,5  & 0,25 & 1    \\
+\end{bmatrix}
+$$
+
+<!-- --------------------------------------------------------------- -->
+
+## Visão geral
+
+\begin{itemize}
+    \itemsep 2ex
+    
+  \item Estudo realizado no software \textbf{R}.
+
+  \item \textbf{Conjuntos de dados univariados}: bibliotecas padrões do R. 
+
+  \item \textbf{Conjuntos de dados multivariados}:
+    \begin{itemize}
+      \item Biblioteca \emph{mvtnorm} \citep{mvtnorm1}, \citep{mvtnorm2} para distribuição Normal.
+
+	    \item Método NORTA \citep{cario1997modeling}, biblioteca \emph{NORTARA} \citep{nortara} para distribuição Poisson e Bernoulli.
+	\end{itemize}
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Visão geral
+
+\begin{itemize}
+  \itemsep 2ex
+    
+  \item O procedimento consistiu em variar as hipóteses testadas sobre os parâmetros simulados. 
+
+  \item A ideia é verificar o que ocorre quando afastamos as hipóteses nulas dos reais valores dos parâmetros. 
+
+  \item Espera-se que no primeiro ponto haja um percentual de rejeição baixo. 
+
+  \item Para os demais pontos espera-se que o percentual de rejeição aumente gradativamente.
+  
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Parâmetros de regressão
+
+\begin{itemize}
+  \itemsep 2ex
+    
+  \item \textbf{5 Tamanhos amostrais}: 50, 100, 250, 500 e  1000.
+
+  \item \textbf{500} conjuntos de dados.
+
+  \item Uma variável \textbf{explicativa categórica de 4 níveis}.
+
+  \item Parâmetros por distribuição:
+    \begin{itemize}
+	    \item Normal: $\beta_0 = 5$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. CV de 20\%.
+	    \item Poisson: $\beta_0 = 2,3$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. Contagems próximas de 10.
+	    \item Bernoulli: $\beta_0 = 0,5$, $\beta_1 = 0$, $\beta_2 = 0$, $\beta_3 = 0$. p aproximadamente 0,6.
+	    \end{itemize}
+	  
+  \item Cenários \textbf{univariados} e \textbf{trivariados}.
+
+  \item Para cada amostra gerada foi ajustado um McGLM.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Parâmetros de regressão
+
+\begin{itemize}
+  \itemsep 2ex
+
+  \item 20 diferentes hipóteses:
+    \begin{itemize}
+      \item Decréscimo em $\beta_0$.
+      \item Distribuição deste decréscimo nos demais $\beta$s da hipótese.
+    \end{itemize}
+
+  \item Decréscimo por distribuição:
+    \begin{itemize}
+	    \item Normal: 0,15.
+	    \item Poisson: 0,05.
+	    \item Bernoulli: 0,25. 
+	   \end{itemize}
+
+  \item Percentual de rejeição da hipótese nula por ponto. 
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+##
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{/home/lacf14/msc/4_dissertacao/5-simulacao/betas.pdf}
+\end{figure}
+
+<!-- --------------------------------------------------------------- -->
+
+## Parâmetros de regressão
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição. 
+  
+  \item Os menores percentuais foram observados na hipótese igual aos valores simulados. 
+    \begin{itemize}
+      \item \textbf{Univariados}: próximo de 5\% mesmo com tamanhos amostrais reduzidos. 
+      \item \textbf{Trivariados}: não excedeu 10\% em tamanhos amostrais reduzidos. Próximo de 5\% em tamanhos amostrais iguais a 500.
+    \end{itemize}
+
+  \item Conforme aumenta-se o tamanho amostral, o percentual de rejeição aumenta para hipóteses pouco diferentes dos valores simulados dos parâmetros.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Parâmetros de dispersão
+
+\beginAHalfColumnT
+  \begin{itemize}
+    \itemsep 2ex
+    \item \textbf{Tamanhos amostrais}: 50, 100, 250, 500 e 1000.
+  \item \textbf{500} conjuntos de dados.
+  \item Cada unidade fornece 5 medidas ao conjunto de dados.
+  \item Sem variáveis explicativas.
+  \item Parâmetros de dispersão: $\tau_0 = 1$ e $\tau_1 = 0$.
+\end{itemize}
 
 \endColumns
 \beginAHalfColumnT
 
-- Modelagem estatística para data science.
-    - Data: 03 a 14/08/2021.
-- Planejamento de experimentos.
-    - Data: 07 a 18/09/2021.
-
-- Cursos previstos
-    - Machine learning com R.
-    - Mineração de texto com R.
-    - Web Scraping com R.
-    - R avançado.
-    - R para big data (spark).
-
+  \begin{itemize}
+    \itemsep 2ex
+    \item Parâmetros por distribuição:
+    \begin{itemize}
+	    \item Normal: Média 5, desvio padrão 1.
+	    \item Poisson: Taxa igual a 10.
+	    \item Bernoulli: Probabilidade igual 0,6.
+    \end{itemize}
+  \end{itemize}
 \endColumns
+<!-- --------------------------------------------------------------- -->
 
-## Exemplo texto e figura 2 colunas
+## Parâmetros de dispersão
 
-\beginAHalfColumn
+\begin{itemize}
+  \itemsep 2ex
+    \item Cenários \textbf{univariados} e \textbf{trivariados}.
+    \item Para cada amostra gerada foi ajustado um McGLM.
+  \item 20 diferentes hipóteses. 
+    \begin{itemize}
+      \item Decréscimo de 0,02 em $\tau_0$.
+      \item Acréscimo de 0,02 em $\tau_1$.
+    \end{itemize}
 
-- A Ômega Data Science é um projeto que objetiva construir, capacitar e conectar
-  pessoas em uma comunidade focada em Data Science.
-- Instagram: [\@omegadatascience](https://instagram.com/omegadatascience)
-- Twitter: [\@omegadatascienc](https://twitter.com/omegadatascienc)
-- Telegram: <cutt.ly/omega_grupo_telegram>.
-- YouTube: [/OmegaDataScience](https://youtube.com/OmegaDataScience)
+  \item Percentual de rejeição da hipótese nula por ponto. 
 
-\endColumns
-\beginAHalfColumn
+\end{itemize}
 
-```{r, echo = FALSE, out.width = "90%"}
-#cap <- as.character(shiny::tags$a(href, href = href))
-knitr::include_graphics("./img/omega-quadrado-sombra.png")
+<!-- --------------------------------------------------------------- -->
+
+##
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{/home/lacf14/msc/4_dissertacao/5-simulacao/taus.pdf}
+\end{figure}
+
+<!-- --------------------------------------------------------------- -->
+
+## Parâmetros de dispersão
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição. 
+  
+  \item Os menores percentuais foram observados na hipótese igual aos valores simulados. 
+    \begin{itemize}
+      \item Univariados: próximo de 8\% no menor tamanho amostal. Próximo de 5\% com tamanhos amostrais maiores que 250. 
+      \item Trivariados: excede 10\% no menor tamanho amostal. Próximo de 7\% para tamanhos amostrais maiores.
+    \end{itemize}
+
+  \item Conforme aumenta-se o tamanho amostral, o percentual de rejeição aumenta para hipóteses pouco diferentes dos valores simulados dos parâmetros.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+# Implementação computacional
+
+<!-- --------------------------------------------------------------- -->
+
+## Implementação computacional
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Implementar e disponibilizar publicamente os testes apresentados.
+
+  \item Complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}.
+
+  \item Existem implementações do teste Wald em outros contextos no R, mas não para McGLMs.
+
+  \item O pacote \emph{htmcglm} já está disponível no The Comprehensive R Archive Network (CRAN).
+
+  \item As funções implementadas geram resultados mostrando graus de liberdade e valores-p baseados no teste Wald aplicado a um McGLM.
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Implementação computacional
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\hline
+Função                   & Descrição \\ 
+\hline
+
+mc\_anova\_I()           & ANOVA  tipo I \\
+mc\_anova\_II()          & ANOVA  tipo II \\
+mc\_anova\_III()         & ANOVA  tipo III \\
+
+mc\_manova\_I()          & MANOVA tipo I \\
+mc\_manova\_II()         & MANOVA tipo II \\
+mc\_manova\_III()        & MANOVA tipo III \\
+
+mc\_anova\_dispersion()        & ANOVA  tipo III para dispersão \\
+mc\_manova\_dispersion()       & MANOVA tipo III para dispersão \\
+
+mc\_multcomp()           & Testes de comparações múltiplas por resposta \\
+
+mc\_mult\_multcomp()     & Testes de comparações múltiplas multivariado \\
+
+mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuário \\
+
+\hline
+\end{tabular}
+\label{tab:funcoes}
+\end{table}
+
+<!-- --------------------------------------------------------------- -->
+
+# Análise de dados
+
+<!-- --------------------------------------------------------------- -->
+
+## Análise de dados
+
+\begin{enumerate}
+    \itemsep 2ex
+  
+  \item Contexto.
+    
+  \item Análise exploratória.
+  
+  \item Especificação do modelo.
+  
+  \item Resultados do ajuste.
+  
+  \item Testes de hipóteses.
+ 
+\end{enumerate}
+
+<!-- --------------------------------------------------------------- -->
+
+## Contexto
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Avaliar se o \textbf{uso de probióticos} é capaz de controlar \textbf{vício} e \textbf{transtorno da compulsão alimentar} em pacientes submetidos à \textbf{cirurgia bariátrica}.
+
+  \item Ensaio clínico aleatorizado, duplo-cego, controlado por placebo.
+
+  \item Conjunto de indivíduos divididos em 2 grupos: \textbf{placebo} ou \textbf{tratamento}.
+
+  \item Indivíduos avaliados ao longo do tempo:
+  \begin{itemize}
+    \item \textbf{T0}: primeira avaliação, \textbf{antes} da cirurgia.
+    \item \textbf{T1}: segunda avaliação, \textbf{3 meses} após a cirurgia.
+    \item \textbf{T2}: terceira avaliação, \textbf{1 ano} após a cirurgia.
+  \end{itemize}
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Contexto
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Avaliou-se os níveis de vício e transtorno da compulsão alimentar nos pacientes.
+
+  \item Compulsão alimentar foi feita com base na \textbf{escala de compulsão alimentar (BES)}: escore, varia de 0 a 46.
+
+  \item Vício alimentar foi utilizada a \textbf{escala de vício alimentar (YFAS)}: número de sintomas de vício, varia de 0 a 7.
+
+  \item Para fins de análise, YFAS e BES foram transformados para a \textbf{escala unitária}, considerando que tratam-se de \textbf{variáveis restritas}.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Contexto
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item \textbf{71 indivíduos} (33 grupo placebo, 38 grupo tratamento). \textbf{184 observações}. 
+
+  \item Um problema com \textbf{duas variáveis resposta}: BES e YFAS.
+
+  \item As observações \textbf{não} são \textbf{independentes}.
+
+  \item Técnicas de modelagem tradicionais seriam de difícil aplicação. 
+
+  \item Cenário ideal para resolução via McGLM.
+
+  \item Testes de hipóteses podem ser empregados para avaliar o efeito da interação entre momento e uso do probiótico sobre vício e compulsão alimentar.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Contexto
+
+Variáveis:
+
+\begin{itemize}
+  \item \textbf{id}: identificadora de indivíduo.
+  \item \textbf{momento}: identificadora de momento (T0, T1, T2).
+  \item \textbf{grupo}: identificadora de grupo (placebo, probiótico)
+  \item \textbf{YFAS}: vício na escala unitária.
+  \item \textbf{BES}: compulsão na escala unitária.
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Análise exploratória
+
+\beginTwoThirdsColumn
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{/home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf}
+\end{figure}
+
+\endColumns\hfill
+\beginAThirdColumn
+
+```{r, echo = FALSE, fig.cap = cap, out.width = "4cm", fig.dim = c(6, 6)}
+cap <- "Análise exploratória gráfica: (a) histograma YFAS, (b) boxplots YFAS em função de grupo, (c) boxplots YFAS em função de momento, (d) histograma BES, (b) boxplots BES em função de grupo, (c) boxplots BES em função de momento. O asterísco nos boxplots indica a média."
+plot(x = 1, y = 1, xlim = 0:1, ylim = 0:1,
+     type = "n", ann = FALSE, axes = FALSE)
+# box()
 ```
 
 \endColumns
 
+<!-- --------------------------------------------------------------- -->
+
+## Análise exploratória
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}
+\hline
+\multirow{2}{*}{Grupo} & \multirow{2}{*}{Momento} & \multirow{2}{*}{n} & YFAS                  & BES                   \\ \cline{4-5} 
+                       &                          &                    & Média (desvio padrão) & Média (desvio padrão) \\ \hline
+Placebo                & T0                       & 33                 & 0,37 (0,26)           & 0,24 (0,20)           \\
+Placebo                & T1                       & 32                 & 0,11 (0,15)           & 0,09 (0,10)           \\
+Placebo                & T2                       & 22                 & 0,16 (0,15)           & 0,10 (0,12)           \\
+Probiótico             & T0                       & 38                 & 0,49 (0,24)           & 0,32 (0,18)           \\
+Probiótico             & T1                       & 37                 & 0,09 (0,12)           & 0,10 (0,08)           \\
+Probiótico             & T2                       & 22                 & 0,10 (0,14)           & 0,07 (0,09)           \\ \hline
+\end{tabular}
+\caption{Número de indivíduos, média e desvio padrão para YFAS e BES para cada combinação de grupo e momento.}
+\label{tab:descritiva1}
+\end{table}
+
+<!-- --------------------------------------------------------------- -->
+
+## Especificação do modelo
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Respostas foram transformadas para a \textbf{escala unitária}. 
+
+  \item Função de ligação \textbf{logito}.
+
+  \item Função de variância \textbf{binomial}. 
+
+  \item Parâmetro de potência foram estimados.
+
+  \item Foram consideradas categorias de referência o grupo placebo e o momento T0.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Preditores lineares
+
+$$
+g_{r}(\mu_{r}) = \beta_{0r} + \beta_{1r} T1 + \beta_{2r} T2 + \beta_{3r} Probiotico + \beta_{4r} T1*Probiotico + \beta_{5r} T2*Probiotico
+$$
+
+\begin{itemize}
+  \item $r$: variáveis respostas (1 para YFAS, 2 para BES). 
+  \item $\beta_{0r}$: intercepto.
+  \item $\beta_{1r}$: efeito do momento T1.
+  \item $\beta_{2r}$: efeito do momento T2.
+  \item $\beta_{3r}$: o efeito de probiótico. 
+  \item $\beta_{4r}$: efeito da interação entre T1 e probiótico.
+  \item $\beta_{5r}$: efeito da interação entre T2 e probiótico.
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Preditores matriciais
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Iguais para ambas as respostas.
+
+  \item A função $h(.)$ utilizada foi a identidade.
+
+$$h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \tau_1Z_1$$
+  \begin{itemize}
+    \item $\tau_0$ e $\tau_1$: parâmetros de dispersão. 
+    \item $Z_0$: matriz identidade $184 \times 184$.
+    \item $Z_1$: matriz $184 \times 184$ especificada de forma a explicitar que as medidas provenientes do mesmo indivíduo são correlacionadas. 
+  \end{itemize}
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Análise de resíduos 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{/home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf}
+\caption{Histograma dos resíduos de Pearson por resposta.}
+\label{fig:diagnostico1}
+\end{figure}
+
+<!-- --------------------------------------------------------------- -->
+
+## Análise de resíduos 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{/home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf}
+\caption{Gráfico de resíduos Pearson versus preditos com linha de tendência suave para cada resposta.}
+\label{fig:diagnostico2}
+\end{figure}
+
+<!-- --------------------------------------------------------------- -->
+
+## Análise de resíduos 
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Resíduos de Pearson para YFAS e BES apresentam média 0 e desvio padrão próximo de 1. 
+
+  \item Os histogramas dos resíduos de Pearson por resposta: distribuição aproximadamente simétrica com a maior parte dos dados entre -2 e 2.
+
+  \item Gráficos de resíduos versos preditos do modelo: mostram que não parece haver qualquer tipo de relação entre resíduos e preditos. 
+
+  \item De forma geral, o modelo parece estar razoavelmente bem ajustado aos dados.
+  
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Estimativas
+
+<!-- --------------------------------------------------------------- -->
+
+## Preditos
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{/home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf}
+\caption{Gráfico de preditos pelo modelo para cada combinação entre momento e grupo.}
+\label{fig:preds}
+\end{figure}
+
+<!-- --------------------------------------------------------------- -->
+
+## Testes de hipóteses
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Até este ponto foi apresentada uma análise padrão. 
+
+  \item Podemos fazer uso dos testes de hipóteses para explorar o modelo.
+  
+  \begin{itemize}
+    \item Análise de variância multivariada do tipo II.
+    \item Análise de variância univariada do tipo II.
+    \item Comparações duas a duas entre momentos.
+    \item Comparações entre grupos para cada momento.
+    \item Análise da correlação de medidas tomadas em um mesmo indivíduo.
+  \end{itemize}
+  
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## MANOVA tipo II
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Variável      & Graus de liberdade & Qui-quadrado & Valor-p        \\ \hline
+Intercepto    & 2                  & 53,1581      & \textless 0,01 \\
+Momento       & 8                  & 139,0161     & \textless 0,01 \\
+Grupo         & 6                  & 8,4928       & 0,2042         \\
+Momento*Grupo & 4                  & 6,9923       & 0,1363         \\ \hline
+\end{tabular}
+\caption{Análise de variância multivariada do tipo II.}
+\label{tab:manovaII}
+\end{table}
+
+Existência do efeito de momento e ausência de efeito de grupo.
+
+<!-- --------------------------------------------------------------- -->
+
+## ANOVA tipo II
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|cc|cc}
+\hline
+              &                    & \multicolumn{2}{c|}{YFAS}     & \multicolumn{2}{c}{BES}       \\ \hline
+Variável      & GL & Qui-quadrado & Valor-p        & Qui-quadrado & Valor-p        \\ \hline
+Intercepto    & 1                  & 10,6128      & \textless 0,01 & 53,1473      & \textless 0,01 \\
+Momento       & 4                  & 102,9875     & \textless 0,01 & 99,5681      & \textless 0,01 \\
+Grupo         & 3                  & 6,6837       & 0,0827         & 5,3083       & 0,1506         \\
+Momento*Grupo & 2                  & 5,5984       & 0,0609         & 4,2477       & 0,1196         \\ \hline
+\end{tabular}
+\caption{Análise de variância univariada do tipo II.}
+\label{tab:anovaII}
+\end{table}
+
+Existência do efeito de momento e ausência de efeito de grupo.
+
+<!-- --------------------------------------------------------------- -->
+
+## Comparações múltiplas
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Contraste & Graus de liberdade & Qui-quadrado & Valor-p        \\ \hline
+T0-T1     & 2                  & 97,9874      & \textless 0,01 \\
+T0-T2     & 2                  & 67,2462      & \textless 0,01 \\
+T1-T2     & 2                  & 2,4730       & 0,8712         \\ \hline
+\end{tabular}
+\caption{Comparações duas a duas entre momentos para ambas as respostas.}
+\label{tab:mul-multcomp1}
+\end{table}
+
+Existem diferenças entre o primeiro versus segundo e primeiro versus terceiro momento, mas os dois últimos momentos não diferem entre si.
+
+<!-- --------------------------------------------------------------- -->
+
+## Comparações múltiplas
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Contraste                & Graus de liberdade & Qui-quadrado & Valor-p \\ \hline
+T0:Placebo-T0:Probiótico & 2                  & 5,5819       & 0,9204  \\
+T1:Placebo-T1:Probiótico & 2                  & 0,6096       & 1       \\
+T2:Placebo-T2:Probiótico & 2                  & 1,7645       & 1       \\ \hline
+\end{tabular}
+\caption{Comparações duas a duas entre grupos para cada momento para ambas as respostas.}
+\label{tab:mul-multcomp3}
+\end{table}
+
+Ausência de diferença entre grupos em cada momento.
+
+<!-- --------------------------------------------------------------- -->
+
+## MANOVA para dispersão
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Variável               & Graus de liberdade & Qui-quadrado & Valor-p        \\ \hline
+$\tau_0$ & 2                  & 7,1936       & 0,0274 \\
+$\tau_1$ & 2                  & 2,3201       & 0,3135         \\ \hline
+\end{tabular}
+\caption{Análise de variância multivariada do tipo III para parâmetros de dispersão.}
+\label{tab:manova_disp}
+\end{table}
+
+Não há evidência para crer que as medidas tomadas em um mesmo indivíduo apresentam correlação.
+
+<!-- --------------------------------------------------------------- -->
+
+# Considerações finais
+
+<!-- --------------------------------------------------------------- -->
+
+## Considerações finais
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Objetivo: teste \textbf{Wald} em \textbf{McGLMs}. 
+  \item Chegamos a procedimentos para:
+  \begin{itemize}
+    \item Testes de hipóteses lineares gerais.
+    \item ANOVA.
+    \item MANOVA.
+    \item Testes de comparações múltiplas. 
+  \end{itemize}
+  
+  \item Proposta implementada na biblioteca R \emph{htmcglm}, complementa a biblioteca \emph{mcglm}.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Conclusões gerais
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item As propriedades dos testes foram avaliadas com base em \textbf{estudos de simulação}.
+
+  \item Os estudos de simulação mostraram que:
+
+  \begin{itemize}
+    \itemsep 2ex
+      \item Quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição. 
+      \item Os menores percentuais foram observados na hipótese igual aos valores simulados.
+      \item Conforme aumenta-se o tamanho amostral, o percentual de rejeição aumenta para hipóteses pouco diferentes dos valores simulados dos parâmetros.
+  \end{itemize}
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Conclusões gerais
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Aplicação: efeito do uso de \textbf{probióticos} no controle de \textbf{vícios e compulsões alimentares}.
+
+  \item Os resultados, baseados nos testes propostos indicam que: 
+  \begin{itemize}
+    \item Existe efeito de momento, ou seja, vício e compulsão alimentar alteram-se ao longo do tempo.
+    \item Existem diferenças entre o primeiro versus segundo e primeiro versus terceiro momento, mas os dois últimos momentos não diferem entre si.
+    \item Ausência de diferença entre grupos em cada momento.
+    \item Não há evidência para crer que as medidas tomadas em um mesmo indivíduo apresentam correlação.
+  \end{itemize}
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Limitações
+
+Casos não explorados nos estudos de simulação, tais como: 
+
+\begin{itemize}
+  \itemsep 2ex
+  
+  \item Desempenho dos testes ao definir hipóteses lineares que combinem parâmetros de diferentes tipos.
+  \item Impacto de um número diferente de observações por indivíduos em problemas longitudinais ou de medidas repetidas. 
+  \item Impacto no poder do teste conforme o número de parâmetros testados aumenta.
+  \item Comportamento do teste em problemas multivariados com distribuições de probabilidade diferentes das exploradas.
+
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## Trabalhos futuros
+
+Avaliação de parâmetros de McGLMs para um melhor entendimento do impacto dos elementos em problemas de modelagem. 
+
+Algumas possibilidades são:
+\begin{itemize}
+  \item Correções de valores-p de acordo com o tamanho das hipóteses testadas. 
+  \item Procedimentos além do teste Wald (como o teste Escore e o teste da razão de verossimilhanças). 
+  \item Outros procedimentos para comparações múltiplas. 
+  \item Lidar com contrastes alternativos aos usuais. 
+  \item Explorar procedimentos para seleção covariáveis.
+\end{itemize}
+
+<!-- --------------------------------------------------------------- -->
+
+## 
+
+\begin{center}
+
+  {\huge \href{https://lineu96.github.io/st/}{Obrigado!}}
+  
+  \vspace{0.5cm}
+    
+  {\normalsize \href{https://lineu96.github.io/st/}{Lineu Alberto Cavazani de Freitas}}
+  
+  {\normalsize \href{https://lineu96.github.io/st/}{lineuacf@gmail.com}}
+  
+  {\normalsize \href{https://lineu96.github.io/st/}{https://lineu96.github.io/st/}}
+  
+  {\normalsize \href{http://www.prppg.ufpr.br/ppginformatica/?lang=pb}{PPG Informática}}
+
+\end{center}
+
+\begin{center}
+  \includegraphics[height=1.8cm]{config/capes_tp2.png}\hspace{2em}
+  \includegraphics[height=1.8cm]{config/ufpr-transparent-600px.png}\hspace{2em}
+  \includegraphics[height=1.8cm]{config/dsbd-2x2-trans.png}
+\end{center}
