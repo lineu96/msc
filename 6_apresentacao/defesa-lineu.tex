@@ -739,7 +739,7 @@ de um modelo de regressão:
   
   \item Na prática, podemos buscar uma \textbf{distribuição de probabilidades} que melhor descreva o fenômeno de interesse. 
   
-  \item Estas distribuições são descritas por \textbf{funções}. 
+  \item Estas \textbf{distribuições} são descritas por \textbf{funções}. 
   
   \item Estas funções possuem \textbf{parâmetros} que controlam aspectos da distribuição.
   
@@ -807,7 +807,7 @@ de um modelo de regressão:
   \begin{itemize}
   \tightlist
   \item
-    Escolha da distribuição de probabilidade.
+    Distribuição de probabilidade.
   \item
     Especificação do modelo.
   \item
@@ -881,7 +881,7 @@ de um modelo de regressão:
 
   \item O \textbf{avanço computacional} permitiu o surgimento de modelos mais gerais que necessitavam de \textbf{processos iterativos} para estimação dos parâmetros. 
   
-  \item Surgem os modelos lineares generalizados(\textbf{GLMs}) \citep{Nelder72}. 
+  \item Surgem os modelos lineares generalizados (\textbf{GLMs}) \citep{Nelder72}. 
   
   \item Os GLMs permitem utilizar qualquer membro da \textbf{família exponencial de distribuições}.
 
@@ -948,6 +948,7 @@ de um modelo de regressão:
       
     \end{itemize}
 
+  \item As estimativas dos parâmetros podem ser estudadas por meio de \textbf{testes de hipóteses}.
 \end{itemize}
 \end{frame}
 
@@ -1003,41 +1004,7 @@ Existe uma série de
   
   \item Análise de variância (\textbf{ANOVA}).
   \item Análise de variância multivariada (\textbf{MANOVA}).
-  \item Testes de comparações múltiplas.
-
-\end{itemize}
-\end{frame}
-
-\begin{frame}{ANOVA \& MANOVA}
-\protect\hypertarget{anova-manova}{}
-\begin{itemize}
-    \itemsep 2ex
-
-  \item Formas de \textbf{avaliar a significância} de cada uma das variáveis de uma forma procedural.  
-  
-  \item Consiste em efetuar testes sucessivos impondo \textbf{restrições ao modelo} original. 
-
-  \item O objetivo é testar se a ausência de determinada variável gera perda ao modelo. 
-
-  \item Os resultados são sumarizados numa tabela, o chamado \textbf{quadro de análise de variância}.
-
-  \item Caso univariado: \textbf{ANOVA} \citep{anova_fisher}. Caso multivariado: \textbf{MANOVA} \citep{manova}.
-  
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Testes de comparações múltiplas}
-\protect\hypertarget{testes-de-comparauxe7uxf5es-muxfaltiplas}{}
-\begin{itemize}
-  \itemsep 2ex
-    
-  \item Complementar às ANOVAs e MANOVAs
-
-  \item São utilizados quando a análise de variância aponta como conclusão a existência de efeito significativo dos parâmetros associados a uma variável categórica.
-
-  \item A análise de variância mostrará se há efeito de uma variável no modelo.
- 
-  \item Os testes de comparações múltiplas determinam \textbf{quais níveis diferem entre si}. 
+  \item Testes de \textbf{comparações múltiplas}.
 
 \end{itemize}
 \end{frame}
@@ -1099,13 +1066,11 @@ Existe uma série de
 \begin{itemize}
   \itemsep 2ex
   
-  \item Formas de avaliar os parâmetros estimados pelos McGLMs.
+  \item Formas de \textbf{avaliar os parâmetros} estimados pelos McGLMs.
 
-  \item Fornecer ferramentas para uma melhor interpretação dos parâmetros estimados.
- 
-  \item Fornecer uma maneira procedural e segura de responder questões comuns no contexto de modelagem.
- 
-  \item Extrair mais informações e conclusões a respeito dos problemas modelados por meio dos McGLMs.
+  \item Fornecer ferramentas para uma melhor \textbf{interpretação dos parâmetros} estimados, permitindo responder questões comuns no contexto de modelagem.
+  
+  \item \textbf{Extrair mais informações e conclusões} a respeito dos problemas modelados por meio dos McGLMs.
 
 \end{itemize}
 \end{frame}
@@ -1250,7 +1215,7 @@ $$
   
     \begin{itemize}
       \item $\vartheta(\boldsymbol{\mu}) = \mu(1 - \mu)$.
-      \item Acomoda \textbf{respostas binárias} ou restritas a um intervalo.
+      \item Acomoda \textbf{respostas binárias} ou \textbf{restritas a um intervalo}.
     \end{itemize}
 
 \end{enumerate}
@@ -1383,7 +1348,7 @@ $$J_{\boldsymbol{\theta}}^{-1} = S_{\boldsymbol{\theta}}^{-1} V_{\boldsymbol{\th
 \begin{itemize}
     \itemsep 2ex
   
-  \item Inferência: \textbf{inferir} conclusões válidas a respeito de uma população por meio do estudo de uma amostra.
+  \item Inferência: \textbf{inferir} conclusões válidas a respeito de uma \textbf{população} por meio do estudo de uma \textbf{amostra}.
   
   \item Problemas de inferência estatística são:
     \begin{enumerate}
@@ -1413,12 +1378,12 @@ $$J_{\boldsymbol{\theta}}^{-1} = S_{\boldsymbol{\theta}}^{-1} V_{\boldsymbol{\th
   
   \item Com base no valor da estatística e de acordo com sua distribuição de probabilidade, toma-se a decisão de \textbf{rejeitar} ou \textbf{não rejeitar} a hipótese nula.
     
-  \item Seja $\theta$ um parâmetro, um teste de hipóteses sobre $\theta$ é dado por:
+  \item Seja $\pi$ um parâmetro, um teste de hipóteses sobre $\pi$ é dado por:
   
 $$
 \left\{\begin{matrix}
-H_0: \theta = \theta_0 \\ 
-H_1: \theta \neq \theta_0
+H_0: \pi = \pi_0 \\ 
+H_1: \pi \neq \pi_0
 \end{matrix}\right.
 $$  
   
@@ -1456,15 +1421,13 @@ Desfechos possíveis:
 \begin{itemize}
   \itemsep 2ex
 
-  \item Testes de hipóteses são ferramentas gerais que podem ser aplicadas em problemas de regressão.
+  \item \textbf{Testes de hipóteses são ferramentas gerais} que podem ser aplicadas em problemas de regressão.
   
   \item Modelos de regressão: modelar uma ou mais variáveis em função de um conjunto de variáveis explicativas. 
 
   \item Modelos contêm parâmetros que são quantidades desconhecidas que estabelecem a relação entre as variáveis sob o modelo. 
 
   \item Para avaliar os parâmetros de um modelo testes de hipóteses são usados.
-  
-  \item Verificar se há evidência suficiente nos dados para afirmar que determinada variável explicativa não possui efeito sobre a resposta.
 
 \end{itemize}
 \end{frame}
@@ -1474,7 +1437,7 @@ Desfechos possíveis:
 \begin{itemize}
   \itemsep 2ex
 
-  \item A ideia do teste consiste em verificar se existe evidência suficiente nos dados para afirmar que um ou mais parâmetros são iguais a valores especificados.
+  \item Consiste em verificar se existe evidência suficiente nos dados para afirmar que um ou mais parâmetros são iguais a valores especificados.
   
   \item Avalia a distância entre as estimativas dos parâmetros e um conjunto de valores postulados.
   
@@ -1488,19 +1451,19 @@ Desfechos possíveis:
 
 \begin{frame}{Teste Wald em modelos de regressão}
 \protect\hypertarget{teste-wald-em-modelos-de-regressuxe3o-1}{}
-Considere um modelo de regressão em que:
+Considere um problema de regressão em que:
 
 \begin{itemize}
 
   \itemsep 2ex
   
-  \item $\boldsymbol{\beta}$ um vetor $k\times1$ parâmetros de regressão.
+  \item $\boldsymbol{\beta}$ um vetor $k\times1$ \textbf{parâmetros de regressão}.
     
-  \item $\boldsymbol{\hat\beta}$ as estimativas dos parâmetros.
+  \item $\boldsymbol{\hat\beta}$ as \textbf{estimativas} dos parâmetros.
     
-  \item $\boldsymbol{c}$ um vetor de valores postulados de dimensão $s$.
-    
-  \item $\boldsymbol{L}$ uma matriz de especificação das hipóteses, de dimensão $s \times k$.  
+  \item $\boldsymbol{L}$ uma \textbf{matriz de especificação das hipóteses}, de dimensão $s \times k$.  
+  
+  \item $\boldsymbol{c}$ um vetor de \textbf{valores postulados} de dimensão $s$.
     
   \end{itemize}
 \end{frame}
@@ -1537,16 +1500,18 @@ $$
 
   \itemsep 2ex
 
-  \item Testes sucessivos impondo restrições ao modelo original. 
+  \item \textbf{Testes sucessivos impondo restrições} ao modelo original. 
 
-  \item O objetivo é testar se a ausência de determinada variável gera um modelo significativamente inferior. 
+  \item Avaliar o efeito das variáveis explicativas. 
+  
+  \item Caso univariado: \textbf{ANOVA}. Caso multivariado: \textbf{MANOVA}.
 
   \item O quadro de ANOVA ou MANOVA contém em cada linha: 
     \begin{enumerate}
       \item A variável. 
-      \item O valor de uma estatística de teste referente à hipótese de nulidade de todos os parâmetros associados a esta variável. 
-      \item Os graus de liberdade desta hipótese. 
-      \item Um valor-p associado à hipótese testada naquela linha do quadro.
+      \item O valor da estatística de teste. 
+      \item Os graus de liberdade. 
+      \item Um valor-p.
     \end{enumerate}
 
   \item É possível gerar quadros de análise de variância por meio do teste Wald.
@@ -1555,18 +1520,18 @@ $$
 \end{frame}
 
 \begin{frame}{Testes de comparações múltiplas}
-\protect\hypertarget{testes-de-comparauxe7uxf5es-muxfaltiplas-1}{}
+\protect\hypertarget{testes-de-comparauxe7uxf5es-muxfaltiplas}{}
 \begin{itemize}
 
   \itemsep 2ex
 
-  \item Usado quando a ANOVA aponta para efeito significativo de uma variável categórica.
+  \item Usado quando a ANOVA aponta para \textbf{efeito significativo de uma variável categórica}.
 
-  \item Comparações aos pares a fim de detectar para quais níveis da variável categórica os valores da resposta se alteram.
+  \item \textbf{Comparações aos pares} a fim de detectar para quais níveis da variável categórica os valores da resposta se alteram.
 
   \item Pode ser avaliada utilizando o teste Wald. 
 
-  \item Por meio da correta especificação da matriz $\boldsymbol{L}$, é possível avaliar hipóteses sobre qualquer possível contraste entre os níveis de uma determinada variável categórica. 
+  \item Por meio da correta especificação da matriz $\boldsymbol{L}$, é possível \textbf{avaliar hipóteses sobre qualquer possível contraste} entre os níveis de uma determinada variável categórica. 
 
 \end{itemize}
 \end{frame}
@@ -1619,7 +1584,6 @@ Grande variedade de modelos de regressão multivariados para fins
 específicos.
 
 \begin{itemize}
-  \itemsep 2ex
   
   \item Análise de contagens multivariadas em que os testes usuais se aplicam \citep{zhang2017regression}.  
 
@@ -1627,8 +1591,10 @@ específicos.
 
   \item Modelo de regressão Poisson zero inflacionado multivariado em que o teste da razão de verossimilhanças e o teste Wald se aplicam \citep{sari2021estimation}.
   
-  \item Modelo de regressão multivariado gamma em que um análogo do teste da razão de verossimilhanças e o teste Wald se aplicam \citet{rahayu2020multivariate}.
+  \item Modelo de regressão multivariado gamma em que um análogo do teste da razão de verossimilhanças e o teste Wald se aplicam \citep{rahayu2020multivariate}.
 
+  \item Dentre outros.
+  
 \end{itemize}
 \end{frame}
 
@@ -1748,7 +1714,7 @@ g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1
   \begin{itemize}
     \itemsep 1ex
     \item $r$ denota a variável resposta, r = 1,2.
-    \item $\beta_{r0}$ representa o intercepto;.
+    \item $\beta_{r0}$ representa o intercepto.
     \item $\beta_{r1}$ um parâmetro de regressão associado a uma variável $X_1$. 
   \end{itemize}  
 \endColumns
@@ -1796,36 +1762,8 @@ g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1
 \endColumns
 \end{frame}
 
-\begin{frame}{Exemplo 1: hipótese para um único parâmetro}
-\protect\hypertarget{exemplo-1-hipuxf3tese-para-um-uxfanico-paruxe2metro}{}
-\begin{itemize}
-  \itemsep 2ex
-  
-  \item Efeito da variável $X_1$ apenas sobre a primeira resposta. 
-
-  \item Hipóteses:
-
-$$H_0: \beta_{11} = 0 \ vs \ H_1: \beta_{11} \neq 0.$$
-
-  \item Notação do teste Wald:
-  
-$$H_0: \boldsymbol{L}\boldsymbol{\theta^{*}} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L}\boldsymbol{\theta^{*}} \neq \boldsymbol{c}.$$  
-
-  \begin{itemize}
-  
-    \item $\boldsymbol{\theta^{*T}}$ = $\begin{bmatrix} \beta_{10} \  \beta_{11} \ \beta_{20} \ \beta_{21} \ \tau_{11} \ \tau_{21} \end{bmatrix}$.
-
-    \item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 0  \end{bmatrix}.$
- 
-  \item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}.$
-
-  \end{itemize}
-  
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Exemplo 2: hipótese para múltiplos parâmetros}
-\protect\hypertarget{exemplo-2-hipuxf3tese-para-muxfaltiplos-paruxe2metros}{}
+\begin{frame}{Exemplo 1: hipótese para múltiplos parâmetros}
+\protect\hypertarget{exemplo-1-hipuxf3tese-para-muxfaltiplos-paruxe2metros}{}
 \begin{itemize}
   \itemsep 2ex
   
@@ -1864,8 +1802,8 @@ H_1:
 \]
 \end{frame}
 
-\begin{frame}{Exemplo 2: hipótese para múltiplos parâmetros}
-\protect\hypertarget{exemplo-2-hipuxf3tese-para-muxfaltiplos-paruxe2metros-1}{}
+\begin{frame}{Exemplo 1: hipótese para múltiplos parâmetros}
+\protect\hypertarget{exemplo-1-hipuxf3tese-para-muxfaltiplos-paruxe2metros-1}{}
 Notação do teste Wald:
 
 \[H_0: \boldsymbol{L}\boldsymbol{\theta^{*}} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L}\boldsymbol{\theta^{*}} \neq \boldsymbol{c}.\]
@@ -1882,8 +1820,8 @@ Notação do teste Wald:
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Exemplo 3: hipótese de igualdade de parâmetros}
-\protect\hypertarget{exemplo-3-hipuxf3tese-de-igualdade-de-paruxe2metros}{}
+\begin{frame}{Exemplo 2: hipótese de igualdade de parâmetros}
+\protect\hypertarget{exemplo-2-hipuxf3tese-de-igualdade-de-paruxe2metros}{}
 \begin{itemize}
   \itemsep 2ex
   
@@ -1944,7 +1882,7 @@ $$H_0: \boldsymbol{L}\boldsymbol{\theta^{*}} = \boldsymbol{c} \ vs \ H_1: \bolds
 \end{itemize}
 
 \[
-g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} x_2 + \beta_{r3} X_1X_2.
+g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} X_2 + \beta_{r3} X_1X_2.
 \] \beginAHalfColumnT
 
 \begin{itemize}
@@ -1971,7 +1909,7 @@ g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} x_2 + \beta_{r3} X_1X_2.
 \begin{frame}{ANOVA e MANOVA tipo II}
 \protect\hypertarget{anova-e-manova-tipo-ii}{}
 \[
-g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} x_2 + \beta_{r3} X_1X_2.
+g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} X_2 + \beta_{r3} X_1X_2.
 \]
 
 \begin{description}
@@ -2064,7 +2002,7 @@ Bernoulli    & Logito            & Binomial            \\ \hline
 \begin{itemize}
     \itemsep 2ex
     
-  \item Estudo realizado no software \textbf{R}.
+  \item Estudo realizado na linguagem \textbf{R}.
 
   \item \textbf{Conjuntos de dados univariados}: bibliotecas padrões do R. 
 
@@ -2228,8 +2166,8 @@ Bernoulli    & Logito            & Binomial            \\ \hline
   
   \item Os menores percentuais foram observados na hipótese igual aos valores simulados. 
     \begin{itemize}
-      \item Univariados: próximo de 8\% no menor tamanho amostal. Próximo de 5\% com tamanhos amostrais maiores que 250. 
-      \item Trivariados: excede 10\% no menor tamanho amostal. Próximo de 7\% para tamanhos amostrais maiores.
+      \item \textbf{Univariados}: próximo de 8\% no menor tamanho amostal. Próximo de 5\% com tamanhos amostrais maiores que 250. 
+      \item \textbf{Trivariados}: excede 10\% no menor tamanho amostal. Próximo de 7\% para tamanhos amostrais maiores.
     \end{itemize}
 
   \item Conforme aumenta-se o tamanho amostral, o percentual de rejeição aumenta para hipóteses pouco diferentes dos valores simulados dos parâmetros.
@@ -2249,13 +2187,11 @@ computacional}\label{implementauxe7uxe3o-computacional}}
 \begin{itemize}
   \itemsep 2ex
   
-  \item Implementar e disponibilizar publicamente os testes apresentados.
+  \item \textbf{Implementar e disponibilizar} publicamente os testes apresentados.
 
   \item Complementar as já possíveis análises permitidas pelo pacote \emph{mcglm} \citep{mcglm}.
 
-  \item Existem implementações do teste Wald em outros contextos no R, mas não para McGLMs.
-
-  \item O pacote \emph{htmcglm} já está disponível no The Comprehensive R Archive Network (CRAN).
+  \item O pacote \emph{htmcglm} já está disponível no \textbf{Comprehensive R Archive Network (CRAN)}.
 
   \item As funções implementadas geram resultados mostrando graus de liberdade e valores-p baseados no teste Wald aplicado a um McGLM.
 \end{itemize}
@@ -2324,8 +2260,6 @@ mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuári
   
   \item Avaliar se o \textbf{uso de probióticos} é capaz de controlar \textbf{vício} e \textbf{transtorno da compulsão alimentar} em pacientes submetidos à \textbf{cirurgia bariátrica}.
 
-  \item Ensaio clínico aleatorizado, duplo-cego, controlado por placebo.
-
   \item Conjunto de indivíduos divididos em 2 grupos: \textbf{placebo} ou \textbf{tratamento}.
 
   \item Indivíduos avaliados ao longo do tempo:
@@ -2342,13 +2276,13 @@ mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuári
 \begin{itemize}
   \itemsep 2ex
   
-  \item Avaliou-se os níveis de vício e transtorno da compulsão alimentar nos pacientes.
+  \item Avaliou-se os níveis de \textbf{vício} e \textbf{transtorno da compulsão alimentar} nos pacientes.
 
   \item Compulsão alimentar foi feita com base na \textbf{escala de compulsão alimentar (BES)}: escore, varia de 0 a 46.
 
   \item Vício alimentar foi utilizada a \textbf{escala de vício alimentar (YFAS)}: número de sintomas de vício, varia de 0 a 7.
 
-  \item Para fins de análise, YFAS e BES foram transformados para a \textbf{escala unitária}, considerando que tratam-se de \textbf{variáveis restritas}.
+  \item Para fins de análise, \textbf{YFAS} e \textbf{BES} foram transformados para a \textbf{escala unitária}, considerando que tratam-se de \textbf{variáveis restritas}.
 
 \end{itemize}
 \end{frame}
@@ -2360,7 +2294,7 @@ mc\_linear\_hypothesis() & Hipóteses lineares gerais especificadas pelo usuári
   
   \item \textbf{71 indivíduos} (33 grupo placebo, 38 grupo tratamento). \textbf{184 observações}. 
 
-  \item Um problema com \textbf{duas variáveis resposta}: BES e YFAS.
+  \item \textbf{Duas variáveis resposta}: BES e YFAS.
 
   \item As observações \textbf{não} são \textbf{independentes}.
 
@@ -2478,7 +2412,7 @@ $$h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \tau_
   \begin{itemize}
     \item $\tau_0$ e $\tau_1$: parâmetros de dispersão. 
     \item $Z_0$: matriz identidade $184 \times 184$.
-    \item $Z_1$: matriz $184 \times 184$ especificada de forma a explicitar que as medidas provenientes do mesmo indivíduo são correlacionadas. 
+    \item $Z_1$: matriz $184 \times 184$ especificada de forma a explicitar que as \textbf{medidas provenientes do mesmo indivíduo são correlacionadas.} 
   \end{itemize}
 \end{itemize}
 \end{frame}
@@ -2508,11 +2442,11 @@ $$h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \tau_
 \begin{itemize}
   \itemsep 2ex
   
-  \item Resíduos de Pearson para YFAS e BES apresentam média 0 e desvio padrão próximo de 1. 
+  \item Resíduos de Pearson para YFAS e BES apresentam \textbf{média 0} e \textbf{desvio padrão próximo de 1}. 
 
-  \item Os histogramas dos resíduos de Pearson por resposta: distribuição aproximadamente simétrica com a maior parte dos dados entre -2 e 2.
+  \item Histogramas dos resíduos de Pearson: distribuição aproximadamente simétrica com a maior parte dos dados entre -2 e 2.
 
-  \item Gráficos de resíduos versos preditos do modelo: mostram que não parece haver qualquer tipo de relação entre resíduos e preditos. 
+  \item Gráficos de resíduos versos preditos: mostram que não parece haver qualquer tipo de relação entre resíduos e preditos. 
 
   \item De forma geral, o modelo parece estar razoavelmente bem ajustado aos dados.
   
@@ -2521,6 +2455,26 @@ $$h\left \{ \boldsymbol{\Omega}(\boldsymbol{\tau}) \right \} = \tau_0Z_0 + \tau_
 
 \begin{frame}{Estimativas}
 \protect\hypertarget{estimativas}{}
+\begin{table}[]
+\centering
+\begin{tabular}{c|ccc|ccc}
+\hline
+\multirow{3}{*}{Parâmetro} & \multicolumn{3}{c|}{YFAS}                                              & \multicolumn{3}{c}{BES}                                                \\ \cline{2-7} 
+                           & \multirow{2}{*}{Estimativa} & Intervalo de  & \multirow{2}{*}{Valor-p} & \multirow{2}{*}{Estimativa} & Intervalo de  & \multirow{2}{*}{Valor-p} \\
+                           &                             & confiança     &                          &                             & confiança     &                          \\ \hline
+$\beta_0$                  & -0,54                       & (-0,87;-0,22) & \textless{}0,01          & -1,13                       & (-1,44;-0,83) & \textless{}0,01          \\
+$\beta_1$                  & -1,55                       & (-2,17;-0,94) & \textless{}0,01          & -1,16                       & (-1,62;-0,69) & \textless{}0,01          \\
+$\beta_2$                  & -1,13                       & (-1,75;-0,51) & \textless{}0,01          & -1,05                       & (-1,58;-0,52) & \textless{}0,01          \\
+$\beta_3$                  & 0,49                        & (0,05;0,93)   & 0,0284                   & 0,37                        & (-0,03;0,77)  & 0,0733                   \\
+$\beta_4$                  & -0,73                       & (-1,60;0,14)  & 0,0                      & -0,33                       & (-0,96;0,30)  & 0,3081                   \\
+$\beta_5$                  & -0,98                       & (-1,93;-0,03) & 0,0429                   & -0,80                       & (-1,58;-0,02) & 0,0449                   \\
+$\tau_0$                   & 0,18                        & (0,01;0,35)   & 0,0411                   & 0,17                        & (0,00;0,34)   & 0,0458                   \\
+$\tau_1$                   & 0,01                        & (-0,02;0,04)  & 0,5718                   & 0,04                        & (-0,01;0,10)  & 0,1357                   \\
+$p$                        & 0,91                        & (0,47;1,34)   & \textless{}0,05          & 1,23                        & (0,77;1,68)   & \textless{}0,05          \\ \hline
+\end{tabular}
+\caption{Estimativas dos parâmetros, intervalos com 95\% de confiança e valores-p do modelo.}
+\label{tab:my-table}
+\end{table}
 \end{frame}
 
 \begin{frame}{Preditos}
@@ -2607,8 +2561,11 @@ T1-T2     & 2                  & 2,4730       & 0,8712         \\ \hline
 \label{tab:mul-multcomp1}
 \end{table}
 
-Existem diferenças entre o primeiro versus segundo e primeiro versus
-terceiro momento, mas os dois últimos momentos não diferem entre si.
+\begin{itemize}
+  \item $TO \neq T1$.
+  \item $TO \neq T2$.
+  \item $T1 = T2$.
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Comparações múltiplas}
@@ -2661,13 +2618,13 @@ apresentam correlação.
   \item Objetivo: teste \textbf{Wald} em \textbf{McGLMs}. 
   \item Chegamos a procedimentos para:
   \begin{itemize}
-    \item Testes de hipóteses lineares gerais.
-    \item ANOVA.
-    \item MANOVA.
-    \item Testes de comparações múltiplas. 
+    \item \textbf{Testes de hipóteses lineares gerais}.
+    \item \textbf{ANOVA}.
+    \item \textbf{MANOVA}.
+    \item \textbf{Testes de comparações múltiplas}. 
   \end{itemize}
   
-  \item Proposta implementada na biblioteca R \emph{htmcglm}, complementa a biblioteca \emph{mcglm}.
+  \item \textbf{Proposta implementada} na biblioteca R \emph{htmcglm}, complementa a biblioteca \emph{mcglm}.
 
 \end{itemize}
 \end{frame}
@@ -2699,7 +2656,7 @@ apresentam correlação.
 
   \item Os resultados, baseados nos testes propostos indicam que: 
   \begin{itemize}
-    \item Existe efeito de momento, ou seja, vício e compulsão alimentar alteram-se ao longo do tempo.
+    \item Existe efeito de momento.
     \item Existem diferenças entre o primeiro versus segundo e primeiro versus terceiro momento, mas os dois últimos momentos não diferem entre si.
     \item Ausência de diferença entre grupos em cada momento.
     \item Não há evidência para crer que as medidas tomadas em um mesmo indivíduo apresentam correlação.
@@ -2714,10 +2671,10 @@ Casos não explorados nos estudos de simulação, tais como:
 \begin{itemize}
   \itemsep 2ex
   
-  \item Desempenho dos testes ao definir hipóteses lineares que combinem parâmetros de diferentes tipos.
-  \item Impacto de um número diferente de observações por indivíduos em problemas longitudinais ou de medidas repetidas. 
-  \item Impacto no poder do teste conforme o número de parâmetros testados aumenta.
-  \item Comportamento do teste em problemas multivariados com distribuições de probabilidade diferentes das exploradas.
+  \item Desempenho dos testes ao definir hipóteses lineares que combinem \textbf{parâmetros de diferentes tipos}.
+  \item Impacto de um \textbf{número diferente de observações} por indivíduos em problemas longitudinais ou de medidas repetidas. 
+  \item Impacto no poder do teste conforme o \textbf{número de parâmetros testados} aumenta.
+  \item Comportamento do teste em problemas multivariados com \textbf{distribuições de probabilidade diferentes} das exploradas.
 
 \end{itemize}
 \end{frame}
