@@ -643,6 +643,20 @@ Prof.~Dr.~Wagner Hugo Bonat}
 \begin{frame}
 \end{frame}
 
+\begin{frame}{Sumário}
+\protect\hypertarget{sumuxe1rio}{}
+\begin{enumerate}
+  \item Introdução
+  \item Referencial teórico
+  
+  \item Teste Wald para McGLMs
+  \item Estudo de simulação
+  \item Implementação computacional
+  \item Análise de dados
+  \item Considerações finais
+\end{enumerate}
+\end{frame}
+
 \hypertarget{introduuxe7uxe3o}{%
 \section{Introdução}\label{introduuxe7uxe3o}}
 
@@ -957,7 +971,7 @@ de um modelo de regressão:
 \begin{itemize}
     \itemsep 2ex
   
-  \item Usados para verificar se a \textbf{retirada de determinada variável} explicativa do modelo geraria uma \textbf{perda no ajuste}.
+  \item Usados para avaliar o \textbf{efeito} das variáveis explicativas.
   
   \item Os três testes mais usados são:
 
@@ -972,25 +986,6 @@ de um modelo de regressão:
   \item São \textbf{assintóticamente equivalentes} \citep{engle}.
   
   \end{itemize}
-\end{frame}
-
-\begin{frame}{Testes de hipóteses em modelos de regressão}
-\protect\hypertarget{testes-de-hipuxf3teses-em-modelos-de-regressuxe3o-1}{}
-\textbf{Teste Wald}
-
-\begin{itemize}
-
-  \itemsep 2ex
-  
-  \item Requer apenas um modelo ajustado. 
-
-  \item Consiste em verificar se existe evidência para afirmar que um ou mais parâmetros são iguais a valores postulados. 
-
-  \item Avalia quão longe o valor estimado está do valor postulado. 
-
-  \item É possível formular hipóteses para múltiplos parâmetros.
-
-\end{itemize}
 \end{frame}
 
 \begin{frame}{ANOVA, MANOVA e testes de comparações múltiplas}
@@ -1348,7 +1343,7 @@ $$J_{\boldsymbol{\theta}}^{-1} = S_{\boldsymbol{\theta}}^{-1} V_{\boldsymbol{\th
 \begin{itemize}
     \itemsep 2ex
   
-  \item Inferência: \textbf{inferir} conclusões válidas a respeito de uma \textbf{população} por meio do estudo de uma \textbf{amostra}.
+  \item Inferência: \textbf{tirar conclusões} a respeito de uma \textbf{população} por meio do estudo de uma \textbf{amostra}.
   
   \item Problemas de inferência estatística são:
     \begin{enumerate}
@@ -1417,7 +1412,7 @@ Desfechos possíveis:
 \end{frame}
 
 \begin{frame}{Testes de hipóteses em modelos de regressão}
-\protect\hypertarget{testes-de-hipuxf3teses-em-modelos-de-regressuxe3o-2}{}
+\protect\hypertarget{testes-de-hipuxf3teses-em-modelos-de-regressuxe3o-1}{}
 \begin{itemize}
   \itemsep 2ex
 
@@ -1437,11 +1432,11 @@ Desfechos possíveis:
 \begin{itemize}
   \itemsep 2ex
 
-  \item Consiste em verificar se existe evidência suficiente nos dados para afirmar que um ou mais parâmetros são iguais a valores especificados.
+  \item Verificar se existe evidência para afirmar que um ou mais \textbf{parâmetros} são iguais a \textbf{valores especificados}.
   
-  \item Avalia a distância entre as estimativas dos parâmetros e um conjunto de valores postulados.
+  \item Avalia a \textbf{distância} entre as \textbf{estimativas} dos parâmetros e um conjunto de \textbf{valores postulados}.
   
-  \item Esta diferença é ainda padronizada por medidas de precisão das estimativas dos parâmetros. 
+  \item Esta \textbf{distância} é \textbf{padronizada} por medidas de precisão das estimativas dos parâmetros. 
 
   \item Quanto maior for esta distância padronizada, menores são as evidências a favor da hipótese de que os valores estimados são iguais aos valores postulados.
 
@@ -1533,68 +1528,6 @@ $$
 
   \item Por meio da correta especificação da matriz $\boldsymbol{L}$, é possível \textbf{avaliar hipóteses sobre qualquer possível contraste} entre os níveis de uma determinada variável categórica. 
 
-\end{itemize}
-\end{frame}
-
-\hypertarget{trabalhos-relacionados}{%
-\section{Trabalhos relacionados}\label{trabalhos-relacionados}}
-
-\begin{frame}{Trabalhos relacionados}
-\end{frame}
-
-\begin{frame}{Trabalhos relacionados}
-\protect\hypertarget{trabalhos-relacionados-1}{}
-\begin{itemize}
-  \itemsep 2ex
-  
-  \item Propostas que visam \textbf{contornar restrições dos GLMs} e como são efetuados testes de hipóteses para estas propostas.
-  
-  \item Propostas univariadas e multivariadas.
-  
-  \item Efeitos aleatórios.
-  
-  \item Correção de erros padrões.
-  
-  \item Grande variedade de modelos de regressão multivariados para fins específicos.
-  
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Trabalhos relacionados}
-\protect\hypertarget{trabalhos-relacionados-2}{}
-\begin{itemize}
-  \itemsep 2ex
-  
-  \item Efeitos aleatórios para acomodar correlação entre observações.
-    \begin{itemize}
-      \item Modelos lineares generalizados mistos (\textbf{GLMM}).
-      \item Modelos lineares generalizados multivariados mistos (\textbf{MGLMM}).
-    \end{itemize}
-
-  \item Equações de estimação generalizadas (\textbf{GEE}).
-
-  \item Modelos aditivos generalizados para locação, escala e forma (\textbf{GAMLSS}).
-  
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Trabalhos relacionados}
-\protect\hypertarget{trabalhos-relacionados-3}{}
-Grande variedade de modelos de regressão multivariados para fins
-específicos.
-
-\begin{itemize}
-  
-  \item Análise de contagens multivariadas em que os testes usuais se aplicam \citep{zhang2017regression}.  
-
-  \item Modelo de regressão multivariado com distribuição Poisson inversa gaussiana em que testes de hipóteses ao estilo da razão de verossimilhanças se aplicam \citep{mardalena2020parameter}. 
-
-  \item Modelo de regressão Poisson zero inflacionado multivariado em que o teste da razão de verossimilhanças e o teste Wald se aplicam \citep{sari2021estimation}.
-  
-  \item Modelo de regressão multivariado gamma em que um análogo do teste da razão de verossimilhanças e o teste Wald se aplicam \citep{rahayu2020multivariate}.
-
-  \item Dentre outros.
-  
 \end{itemize}
 \end{frame}
 
@@ -1698,34 +1631,35 @@ Em que:
 
 \begin{itemize}
   
-  \item Investigar se uma variável numérica $X_1$ possui efeito sobre $Y_1$ e $Y_2$. 
+  \item Investigar se duas variáveis numéricas ($X_1$ e $X_2$) possuem efeito sobre $Y_1$ e $Y_2$.
   
-  \item Amostra com $N$ observações, para cada observação obteve-se $X_1$, $Y_1$ e $Y_2$.
+  \item Amostra com $N$ observações, para cada observação obteve-se $X_1$, $X_2$, $Y_1$ e $Y_2$.
 
   \item Um McGLM bivariado, pode ter preditor dado por
 
 \end{itemize}
 
 \[
-g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1
-\]
+g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} X_2 + \beta_{r3} X_1X_2.
+\] \beginAHalfColumnT
 
-\beginAHalfColumnT
-  \begin{itemize}
-    \itemsep 1ex
-    \item $r$ denota a variável resposta, r = 1,2.
-    \item $\beta_{r0}$ representa o intercepto.
-    \item $\beta_{r1}$ um parâmetro de regressão associado a uma variável $X_1$. 
-  \end{itemize}  
-\endColumns
+\begin{itemize}
+  \itemsep 1ex
+  \item $r$ denota a variável resposta, r = 1,2.
+  \item $\beta_{r0}$ representa o intercepto.
+  \item $\beta_{r1}$ um parâmetro de regressão associado a uma variável $X_1$. 
+  \item $\beta_{r2}$ um parâmetro de regressão associado a uma variável $X_2$.
+\end{itemize}  
+\endColumns    
 \beginAHalfColumnT
 
 \begin{itemize}
-    \itemsep 1ex
-    \item Apenas um parâmetro de dispersão $\tau_{r0}$.
-    \item Unidades independentes, logo $Z_0 = I$.
-    \item Parâmetros de potência foram fixados.
-  \end{itemize}
+  \itemsep 1ex
+  \item $\beta_{r3}$ um parâmetro de regressão associado a interação entre $X_1$ e $X_2$. 
+  \item Apenas um parâmetro de dispersão $\tau_{r0}$.
+  \item Unidades independentes, logo $Z_0 = I$.
+  \item Parâmetros de potência foram fixados.
+\end{itemize}
 
 \endColumns
 \end{frame}
@@ -1733,7 +1667,7 @@ g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1
 \begin{frame}{Exemplo}
 \protect\hypertarget{exemplo-1}{}
 \[
-g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1
+g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} X_2 + \beta_{r3} X_1X_2.
 \]
 
 \beginAHalfColumnT
@@ -1743,7 +1677,7 @@ g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1
 \begin{itemize}
   \itemsep 1ex
   \item Duas variáveis resposta.
-  \item Apenas uma variável explicativa.
+  \item Duas variáveis explicativas.
   \item Observações independentes.
 \end{itemize}
 
@@ -1762,12 +1696,12 @@ g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1
 \endColumns
 \end{frame}
 
-\begin{frame}{Exemplo 1: hipótese para múltiplos parâmetros}
-\protect\hypertarget{exemplo-1-hipuxf3tese-para-muxfaltiplos-paruxe2metros}{}
+\begin{frame}{Exemplo: hipótese para múltiplos parâmetros}
+\protect\hypertarget{exemplo-hipuxf3tese-para-muxfaltiplos-paruxe2metros}{}
 \begin{itemize}
   \itemsep 2ex
   
-  \item Efeito da variável explicativa sobre ambas as respostas.
+  \item Efeito da variável explicativa $X_1$ sobre ambas as respostas.
   
   \item Hipóteses: 
   
@@ -1802,8 +1736,8 @@ H_1:
 \]
 \end{frame}
 
-\begin{frame}{Exemplo 1: hipótese para múltiplos parâmetros}
-\protect\hypertarget{exemplo-1-hipuxf3tese-para-muxfaltiplos-paruxe2metros-1}{}
+\begin{frame}{Exemplo: hipótese para múltiplos parâmetros}
+\protect\hypertarget{exemplo-hipuxf3tese-para-muxfaltiplos-paruxe2metros-1}{}
 Notação do teste Wald:
 
 \[H_0: \boldsymbol{L}\boldsymbol{\theta^{*}} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L}\boldsymbol{\theta^{*}} \neq \boldsymbol{c}.\]
@@ -1820,90 +1754,22 @@ Notação do teste Wald:
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Exemplo 2: hipótese de igualdade de parâmetros}
-\protect\hypertarget{exemplo-2-hipuxf3tese-de-igualdade-de-paruxe2metros}{}
-\begin{itemize}
-  \itemsep 2ex
-  
-  \item Igualdade do efeito de $X_1$ para as respostas.
-
-  \item Hipóteses:
-
-$$
-H_0: \beta_{11} - \beta_{21} = 0 \ vs \ H_1: \beta_{11} - \beta_{21} \neq 0,
-$$
-
-  \item Notação do teste Wald:
-  
-$$H_0: \boldsymbol{L}\boldsymbol{\theta^{*}} = \boldsymbol{c} \ vs \ H_1: \boldsymbol{L}\boldsymbol{\theta^{*}} \neq \boldsymbol{c}.$$  
-
-  \begin{itemize}
-  
-    \item $\boldsymbol{\theta^{*T}}$ = $\begin{bmatrix} \beta_{10} \  \beta_{11} \ \beta_{20} \ \beta_{21} \ \tau_{11} \ \tau_{21} \end{bmatrix}$.
-
-    \item $\boldsymbol{L} = \begin{bmatrix} 0 & 1 & 0 & -1 & 0 & 0  \end{bmatrix}.$
- 
-  \item $\boldsymbol{c}$ = $\begin{bmatrix} 0 \end{bmatrix}.$ 
-
-  \end{itemize}
-  
-\end{itemize}
-\end{frame}
-
-\begin{frame}{ANOVA e MANOVA}
-\protect\hypertarget{anova-e-manova-1}{}
+\begin{frame}{ANOVA, MANOVA e testes de comparações múltiplas}
+\protect\hypertarget{anova-manova-e-testes-de-comparauxe7uxf5es-muxfaltiplas-1}{}
 \begin{itemize}
     \itemsep 2ex
-
-  \item Com base na adaptação do teste Wald propostas, buscamos propor \textbf{ANOVAs e MANOVAs usando o teste Wald}.
-
-  \item Propomos 3 tipos diferentes de análises de variância, nomeadas tipo I, II e III.
+    
+  \item Propomos 3 tipos diferentes de análises de variância usando o teste Wald, nomeadas tipo I, II e III.
 
   \item Cada linha do quadro corresponde uma hipótese. Portanto, basta especificar uma matriz $\boldsymbol{L}$.
 
   \item As ANOVAs retornam \textbf{um quadro para cada resposta}.
 
   \item As MANOVAs retornam \textbf{um único quadro}. 
-\end{itemize}
-\end{frame}
 
-\begin{frame}{Exemplo}
-\protect\hypertarget{exemplo-2}{}
-\textbf{Considere o problema:}
-
-\begin{itemize}
-  
-  \item Investigar se duas variáveis numéricas ($X_1$ e $X_2$) possuem efeito sobre $Y_1$ e $Y_2$.
-  
-  \item Amostra com $N$ observações, para cada observação obteve-se $X_1$, $X_2$, $Y_1$ e $Y_2$.
-
-  \item Um McGLM bivariado, pode ter preditor dado por
+  \item Também chegamos a procedimentos para avaliação aos pares de níveis de variáveis categóricas.
 
 \end{itemize}
-
-\[
-g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} X_2 + \beta_{r3} X_1X_2.
-\] \beginAHalfColumnT
-
-\begin{itemize}
-  \itemsep 1ex
-  \item $r$ denota a variável resposta, r = 1,2.
-  \item $\beta_{r0}$ representa o intercepto.
-  \item $\beta_{r1}$ um parâmetro de regressão associado a uma variável $X_1$. 
-  \item $\beta_{r2}$ um parâmetro de regressão associado a uma variável $X_2$.
-\end{itemize}  
-\endColumns    
-\beginAHalfColumnT
-
-\begin{itemize}
-  \itemsep 1ex
-  \item $\beta_{r3}$ um parâmetro de regressão associado a interação entre $X_1$ e $X_2$. 
-  \item Apenas um parâmetro de dispersão $\tau_{r0}$.
-  \item Unidades independentes, logo $Z_0 = I$.
-  \item Parâmetros de potência foram fixados.
-\end{itemize}
-
-\endColumns
 \end{frame}
 
 \begin{frame}{ANOVA e MANOVA tipo II}
@@ -1970,7 +1836,42 @@ g_r(\mu_r) = \beta_{r0} + \beta_{r1} X_1 + \beta_{r2} X_2 + \beta_{r3} X_1X_2.
 \begin{itemize}
   \itemsep 2ex
     
+  \item O procedimento consistiu em:
+    \begin{itemize}
+      \item \textbf{Simular conjuntos de dados} com valores dos parâmetros definidos.
+    \item \textbf{Ajustar modelos} com os dados simulados.
+    \item \textbf{Obter as estimativas} (espera-se que sejam próximas dos valores definidos).
+      \item \textbf{Testas hipóteses} usando as estimativas.
+    \end{itemize}
+
+  \item A ideia é verificar o que ocorre quando a \textbf{hipótese se afasta dos valores dos parâmetros}. 
+
+  \item Espera-se que no primeiro ponto haja um percentual de rejeição baixo. 
+
+  \item Para os demais pontos espera-se que o percentual de rejeição aumente gradativamente.
+  
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Visão geral}
+\protect\hypertarget{visuxe3o-geral-2}{}
+\begin{itemize}
+  \itemsep 2ex
+
+  \item Correlação entre respostas no caso trivariado:
+
+$$
+\Sigma_b = 
+\begin{bmatrix}
+1    & 0,75 & 0,5  \\
+0,75 & 1    & 0,25 \\
+0,5  & 0,25 & 1    \\
+\end{bmatrix}
+$$
+
   \item Funções de ligação e variância utilizadas nos modelos para cada distribuição simulada.
+
+\end{itemize}
 
 \begin{table}[H]
 \centering
@@ -1982,23 +1883,10 @@ Poisson      & Logarítmica       & Tweedie             \\
 Bernoulli    & Logito            & Binomial            \\ \hline
 \end{tabular}
 \end{table}
-
-  \item Correlação entre respostas no caso trivariado:
-
-\end{itemize}
-
-\[
-\Sigma_b = 
-\begin{bmatrix}
-1    & 0,75 & 0,5  \\
-0,75 & 1    & 0,25 \\
-0,5  & 0,25 & 1    \\
-\end{bmatrix}
-\]
 \end{frame}
 
 \begin{frame}{Visão geral}
-\protect\hypertarget{visuxe3o-geral-2}{}
+\protect\hypertarget{visuxe3o-geral-3}{}
 \begin{itemize}
     \itemsep 2ex
     
@@ -2015,28 +1903,12 @@ Bernoulli    & Logito            & Binomial            \\ \hline
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Visão geral}
-\protect\hypertarget{visuxe3o-geral-3}{}
-\begin{itemize}
-  \itemsep 2ex
-    
-  \item O procedimento consistiu em variar as hipóteses testadas sobre os parâmetros simulados. 
-
-  \item A ideia é verificar o que ocorre quando afastamos as hipóteses nulas dos reais valores dos parâmetros. 
-
-  \item Espera-se que no primeiro ponto haja um percentual de rejeição baixo. 
-
-  \item Para os demais pontos espera-se que o percentual de rejeição aumente gradativamente.
-  
-\end{itemize}
-\end{frame}
-
 \begin{frame}{Parâmetros de regressão}
 \protect\hypertarget{paruxe2metros-de-regressuxe3o}{}
 \begin{itemize}
   \itemsep 2ex
     
-  \item \textbf{5 Tamanhos amostrais}: 50, 100, 250, 500 e  1000.
+  \item \textbf{5 tamanhos amostrais}: 50, 100, 250, 500 e  1000.
 
   \item \textbf{500} conjuntos de dados.
 
@@ -2087,30 +1959,12 @@ Bernoulli    & Logito            & Binomial            \\ \hline
 \end{figure}
 \end{frame}
 
-\begin{frame}{Parâmetros de regressão}
-\protect\hypertarget{paruxe2metros-de-regressuxe3o-2}{}
-\begin{itemize}
-  \itemsep 2ex
-  
-  \item Quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição. 
-  
-  \item Os menores percentuais foram observados na hipótese igual aos valores simulados. 
-    \begin{itemize}
-      \item \textbf{Univariados}: próximo de 5\% mesmo com tamanhos amostrais reduzidos. 
-      \item \textbf{Trivariados}: não excedeu 10\% em tamanhos amostrais reduzidos. Próximo de 5\% em tamanhos amostrais iguais a 500.
-    \end{itemize}
-
-  \item Conforme aumenta-se o tamanho amostral, o percentual de rejeição aumenta para hipóteses pouco diferentes dos valores simulados dos parâmetros.
-
-\end{itemize}
-\end{frame}
-
 \begin{frame}{Parâmetros de dispersão}
 \protect\hypertarget{paruxe2metros-de-dispersuxe3o}{}
 \beginAHalfColumnT
   \begin{itemize}
     \itemsep 2ex
-    \item \textbf{Tamanhos amostrais}: 50, 100, 250, 500 e 1000.
+    \item \textbf{5 tamanhos amostrais}: 50, 100, 250, 500 e 1000.
   \item \textbf{500} conjuntos de dados.
   \item Cada unidade fornece 5 medidas ao conjunto de dados.
   \item Sem variáveis explicativas.
@@ -2157,18 +2011,14 @@ Bernoulli    & Logito            & Binomial            \\ \hline
 \end{figure}
 \end{frame}
 
-\begin{frame}{Parâmetros de dispersão}
-\protect\hypertarget{paruxe2metros-de-dispersuxe3o-2}{}
+\begin{frame}{Resultados}
+\protect\hypertarget{resultados}{}
 \begin{itemize}
   \itemsep 2ex
   
   \item Quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição. 
   
   \item Os menores percentuais foram observados na hipótese igual aos valores simulados. 
-    \begin{itemize}
-      \item \textbf{Univariados}: próximo de 8\% no menor tamanho amostal. Próximo de 5\% com tamanhos amostrais maiores que 250. 
-      \item \textbf{Trivariados}: excede 10\% no menor tamanho amostal. Próximo de 7\% para tamanhos amostrais maiores.
-    \end{itemize}
 
   \item Conforme aumenta-se o tamanho amostral, o percentual de rejeição aumenta para hipóteses pouco diferentes dos valores simulados dos parâmetros.
 
@@ -2342,26 +2192,6 @@ Variáveis:
 \end{figure}
 
 \endColumns
-\end{frame}
-
-\begin{frame}{Análise exploratória}
-\protect\hypertarget{anuxe1lise-exploratuxf3ria-1}{}
-\begin{table}[H]
-\centering
-\begin{tabular}{ccccc}
-\hline
-\multirow{2}{*}{Grupo} & \multirow{2}{*}{Momento} & \multirow{2}{*}{n} & YFAS                  & BES                   \\ \cline{4-5} 
-                       &                          &                    & Média (desvio padrão) & Média (desvio padrão) \\ \hline
-Placebo                & T0                       & 33                 & 0,37 (0,26)           & 0,24 (0,20)           \\
-Placebo                & T1                       & 32                 & 0,11 (0,15)           & 0,09 (0,10)           \\
-Placebo                & T2                       & 22                 & 0,16 (0,15)           & 0,10 (0,12)           \\
-Probiótico             & T0                       & 38                 & 0,49 (0,24)           & 0,32 (0,18)           \\
-Probiótico             & T1                       & 37                 & 0,09 (0,12)           & 0,10 (0,08)           \\
-Probiótico             & T2                       & 22                 & 0,10 (0,14)           & 0,07 (0,09)           \\ \hline
-\end{tabular}
-\caption{Número de indivíduos, média e desvio padrão para YFAS e BES para cada combinação de grupo e momento.}
-\label{tab:descritiva1}
-\end{table}
 \end{frame}
 
 \begin{frame}{Especificação do modelo}

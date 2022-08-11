@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  8 AUG 2022 19:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  11 AUG 2022 20:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1289,56 +1289,63 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 644.
 [2
 
 ]
+File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
+<use ./config/ufpr-fundo-16x9.jpg>
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 658.
+(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
+[3
+
+]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/l/n' in size <17.28> not availa
 ble
 (Font)              Font shape `T1/FiraSans-OsF/light/n' tried instead on input
- line 647.
+ line 661.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/light/n' will be
-(Font)              scaled to size 17.28pt on input line 647.
+(Font)              scaled to size 17.28pt on input line 661.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <17.28> not availa
 ble
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 647.
+line 661.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 17.28pt on input line 647.
+(Font)              scaled to size 17.28pt on input line 661.
 LaTeX Font Info:    Trying to load font information for OT1+iwonalm on input li
-ne 647.
+ne 661.
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/ot1iwonalm.fd
 File: ot1iwonalm.fd 2005/10/05 v1.2 font definition file for OT1/iwonalm (MW)
 )
 LaTeX Font Info:    Trying to load font information for OML+iwonal on input lin
-e 647.
+e 661.
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/omliwonal.fd
 File: omliwonal.fd 2008/07/22 v0.995 font definition file for OML/iwonal (MW)
 )
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OML/iwonal/m/it/10.95'. Switching off
-(microtype)                protrusion for this font on input line 647.
+(microtype)                protrusion for this font on input line 661.
 
 LaTeX Font Info:    Trying to load font information for OMS+iwonal on input lin
-e 647.
+e 661.
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/omsiwonal.fd
 File: omsiwonal.fd 2008/07/22 v0.995 font definition file for OMS/iwonal (MW)
 )
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OMS/iwonal/m/n/10.95'. Switching off
-(microtype)                protrusion for this font on input line 647.
+(microtype)                protrusion for this font on input line 661.
 
 LaTeX Font Info:    Trying to load font information for OMX+iwonal on input lin
-e 647.
+e 661.
 (/usr/share/texlive/texmf-dist/tex/latex/iwona/omxiwonal.fd
 File: omxiwonal.fd 2008/07/22 v0.995 font definition file for OMX/iwonal (MW)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 647
+LaTeX Font Info:    Trying to load font information for U+msa on input line 661
 .
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 647
+LaTeX Font Info:    Trying to load font information for U+msb on input line 661
 .
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1347,75 +1354,68 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 647.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 661.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[3
+[4
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 650.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 664.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[4
+[5
 
 ]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/l/n' in size <10> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/light/n' tried instead on input
- line 672.
+ line 686.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/light/n' will be
-(Font)              scaled to size 10.0pt on input line 672.
+(Font)              scaled to size 10.0pt on input line 686.
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 672.
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[5
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 675.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 686.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [6
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 678.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 689.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [7
+
+]
+File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
+<use ./config/ufpr-fundo-16x9.jpg>
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 692.
+(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
+[8
 
 ]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <10> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 698.
+line 712.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 10.0pt on input line 698.
+(Font)              scaled to size 10.0pt on input line 712.
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 698.
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[8
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 713.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 712.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [9
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 733.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 727.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [10
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 749.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 747.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [11
 
@@ -1427,84 +1427,84 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 763.
 [12
 
 ]
-<./img/modelos_regressao.pdf, id=98, 332.01941pt x 196.66473pt>
+File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
+<use ./config/ufpr-fundo-16x9.jpg>
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 777.
+(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
+[13
+
+]
+<./img/modelos_regressao.pdf, id=105, 332.01941pt x 196.66473pt>
 File: ./img/modelos_regressao.pdf Graphic file (type pdf)
 <use ./img/modelos_regressao.pdf>
-Package pdftex.def Info: ./img/modelos_regressao.pdf  used on input line 768.
+Package pdftex.def Info: ./img/modelos_regressao.pdf  used on input line 782.
 (pdftex.def)             Requested size: 312.99501pt x 185.39601pt.
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 768.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 782.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[13
+[14
 
  <./img/modelos_regressao.pdf>]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 832.
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[14
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 856.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 846.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [15
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 875.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 870.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [16
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 891.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 889.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [17
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 910.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 905.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [18
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 927.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 924.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [19
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 953.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 941.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [20
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 975.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 967.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [21
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 994.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 989.
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [22
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1010.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1005.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [23
@@ -1512,7 +1512,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1010.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1028.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1023.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [24
@@ -1520,7 +1520,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1028.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1046.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1041.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [25
@@ -1528,7 +1528,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1046.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1062.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1057.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [26
@@ -1536,7 +1536,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1062.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1076.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1071.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [27
@@ -1544,7 +1544,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1076.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1079.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1074.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [28
@@ -1552,7 +1552,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1079.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1082.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1077.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [29
@@ -1560,7 +1560,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1082.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1107.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1102.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [30
@@ -1568,7 +1568,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1107.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1111.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1106.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [31
@@ -1576,7 +1576,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1111.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1114.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1109.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [32
@@ -1584,7 +1584,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1114.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1133.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1128.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [33
@@ -1593,16 +1593,16 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1133.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OML/iwonal/m/it/10'. Switching off
-(microtype)                protrusion for this font on input line 1162.
+(microtype)                protrusion for this font on input line 1157.
 
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OMS/iwonal/m/n/10'. Switching off
-(microtype)                protrusion for this font on input line 1162.
+(microtype)                protrusion for this font on input line 1157.
 
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1162.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1157.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [34
@@ -1610,7 +1610,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1162.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1191.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1186.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [35
@@ -1618,7 +1618,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1191.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1222.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1217.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [36
@@ -1626,7 +1626,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1222.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1251.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1246.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [37
@@ -1634,7 +1634,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1251.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1276.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1271.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [38
@@ -1642,18 +1642,18 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1276.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1308.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1303.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [39
 
 ]
-Overfull \vbox (4.19142pt too high) detected at line 1338
+Overfull \vbox (4.19142pt too high) detected at line 1333
  []
 
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1338.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1333.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [40
@@ -1661,7 +1661,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1338.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1341.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1336.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [41
@@ -1669,7 +1669,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1341.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1344.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1339.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [42
@@ -1677,12 +1677,12 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1344.
 ]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/l/n' in size <9> not available
 (Font)              Font shape `T1/FiraSans-OsF/light/n' tried instead on input
- line 1368.
+ line 1363.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/light/n' will be
-(Font)              scaled to size 9.0pt on input line 1368.
+(Font)              scaled to size 9.0pt on input line 1363.
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1368.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1363.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [43
@@ -1690,7 +1690,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1368.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1391.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1386.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [44
@@ -1698,7 +1698,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1391.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1417.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1412.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [45
@@ -1706,7 +1706,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1417.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1433.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1428.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [46
@@ -1714,7 +1714,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1433.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1450.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1445.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [47
@@ -1722,7 +1722,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1450.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1469.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1464.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [48
@@ -1730,7 +1730,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1469.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1495.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1490.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [49
@@ -1738,7 +1738,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1495.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1520.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1515.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [50
@@ -1746,7 +1746,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1520.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1537.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1532.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [51
@@ -1754,7 +1754,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1537.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1540.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1535.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [52
@@ -1762,7 +1762,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1540.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1543.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1538.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [53
@@ -1770,7 +1770,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1543.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1561.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1553.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [54
@@ -1778,7 +1778,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1561.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1579.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1570.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [55
@@ -1786,7 +1786,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1579.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1599.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1590.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [56
@@ -1794,7 +1794,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1599.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1602.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1610.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [57
@@ -1802,7 +1802,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1602.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1605.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1626.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [58
@@ -1810,7 +1810,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1605.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1620.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1665.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [59
@@ -1818,7 +1818,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1620.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1637.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1697.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [60
@@ -1826,7 +1826,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1637.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1657.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1737.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [61
@@ -1834,7 +1834,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1657.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1677.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1755.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [62
@@ -1842,7 +1842,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1677.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1693.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1773.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [63
@@ -1850,7 +1850,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1693.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1731.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1792.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [64
@@ -1858,7 +1858,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1731.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1763.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1795.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [65
@@ -1866,7 +1866,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1763.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1803.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1798.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [66
@@ -1874,7 +1874,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1803.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1821.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1812.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [67
@@ -1882,7 +1882,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1821.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1851.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1832.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [68
@@ -1890,7 +1890,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1851.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1868.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1854.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [69
@@ -1898,15 +1898,21 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1868.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1907.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1886.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [70
 
 ]
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/l/it' in size <10> not availabl
+e
+(Font)              Font shape `T1/FiraSans-OsF/light/it' tried instead on inpu
+t line 1904.
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/light/it' will be
+(Font)              scaled to size 10.0pt on input line 1904.
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1926.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1904.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [71
@@ -1922,23 +1928,35 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1929.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1932.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1952.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [73
 
 ]
+</home/lacf14/msc/4_dissertacao/5-simulacao/betas.pdf, id=542, 505.89pt x 361.3
+5pt>
+File: /home/lacf14/msc/4_dissertacao/5-simulacao/betas.pdf Graphic file (type p
+df)
+<use /home/lacf14/msc/4_dissertacao/5-simulacao/betas.pdf>
+Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/5-simulacao/betas.pdf  
+used on input line 1960.
+(pdftex.def)             Requested size: 340.4189pt x 243.15637pt.
+
+Overfull \vbox (0.99956pt too high) detected at line 1960
+ []
+
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1946.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1960.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [74
 
-]
+ </home/lacf14/msc/4_dissertacao/5-simulacao/betas.pdf>]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1966.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1987.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [75
@@ -1946,29 +1964,35 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1966.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 1998.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2004.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [76
 
 ]
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/l/it' in size <10> not availabl
-e
-(Font)              Font shape `T1/FiraSans-OsF/light/it' tried instead on inpu
-t line 2016.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/light/it' will be
-(Font)              scaled to size 10.0pt on input line 2016.
+</home/lacf14/msc/4_dissertacao/5-simulacao/taus.pdf, id=568, 505.89pt x 361.35
+pt>
+File: /home/lacf14/msc/4_dissertacao/5-simulacao/taus.pdf Graphic file (type pd
+f)
+<use /home/lacf14/msc/4_dissertacao/5-simulacao/taus.pdf>
+Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/5-simulacao/taus.pdf  u
+sed on input line 2012.
+(pdftex.def)             Requested size: 340.4189pt x 243.15637pt.
+
+Overfull \vbox (0.99956pt too high) detected at line 2012
+ []
+
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2016.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2012.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [77
 
-]
+ </home/lacf14/msc/4_dissertacao/5-simulacao/taus.pdf>]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2032.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2026.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [78
@@ -1976,7 +2000,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2032.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2057.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2030.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [79
@@ -1984,35 +2008,29 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2057.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2080.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2033.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [80
 
 ]
-</home/lacf14/msc/4_dissertacao/5-simulacao/betas.pdf, id=595, 505.89pt x 361.3
-5pt>
-File: /home/lacf14/msc/4_dissertacao/5-simulacao/betas.pdf Graphic file (type p
-df)
-<use /home/lacf14/msc/4_dissertacao/5-simulacao/betas.pdf>
-Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/5-simulacao/betas.pdf  
-used on input line 2088.
-(pdftex.def)             Requested size: 340.4189pt x 243.15637pt.
-
-Overfull \vbox (0.99956pt too high) detected at line 2088
- []
-
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/l/it' in size <10.95> not avail
+able
+(Font)              Font shape `T1/FiraSans-OsF/light/it' tried instead on inpu
+t line 2048.
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/light/it' will be
+(Font)              scaled to size 10.95pt on input line 2048.
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2088.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2048.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [81
 
- </home/lacf14/msc/4_dissertacao/5-simulacao/betas.pdf>]
+]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2106.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2080.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [82
@@ -2020,7 +2038,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2106.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2133.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2083.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [83
@@ -2028,35 +2046,23 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2133.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2150.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2086.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [84
 
 ]
-</home/lacf14/msc/4_dissertacao/5-simulacao/taus.pdf, id=626, 505.89pt x 361.35
-pt>
-File: /home/lacf14/msc/4_dissertacao/5-simulacao/taus.pdf Graphic file (type pd
-f)
-<use /home/lacf14/msc/4_dissertacao/5-simulacao/taus.pdf>
-Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/5-simulacao/taus.pdf  u
-sed on input line 2158.
-(pdftex.def)             Requested size: 340.4189pt x 243.15637pt.
-
-Overfull \vbox (0.99956pt too high) detected at line 2158
- []
-
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2158.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2104.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [85
 
- </home/lacf14/msc/4_dissertacao/5-simulacao/taus.pdf>]
+]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2176.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2122.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [86
@@ -2064,7 +2070,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2176.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2180.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2138.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [87
@@ -2072,37 +2078,57 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2180.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2183.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2158.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [88
 
 ]
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/l/it' in size <10.95> not avail
-able
-(Font)              Font shape `T1/FiraSans-OsF/light/it' tried instead on inpu
-t line 2198.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/light/it' will be
-(Font)              scaled to size 10.95pt on input line 2198.
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2198.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2171.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [89
 
 ]
+</home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf, id=658, 578.16pt x 
+433.62pt>
+File: /home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf Graphic file (t
+ype pdf)
+<use /home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf>
+Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.
+pdf  used on input line 2195.
+(pdftex.def)             Requested size: 284.52713pt x 213.39536pt.
+
+Overfull \hbox (7.1872pt too wide) in paragraph at lines 2195--2195
+ [] 
+ []
+
+<defesa-lineu_files/figure-beamer/unnamed-chunk-3-1.pdf, id=659, 433.62pt x 433
+.62pt>
+File: defesa-lineu_files/figure-beamer/unnamed-chunk-3-1.pdf Graphic file (type
+ pdf)
+<use defesa-lineu_files/figure-beamer/unnamed-chunk-3-1.pdf>
+Package pdftex.def Info: defesa-lineu_files/figure-beamer/unnamed-chunk-3-1.pdf
+  used on input line 2195.
+(pdftex.def)             Requested size: 113.81041pt x 113.81041pt.
+
+Overfull \vbox (16.39108pt too high) detected at line 2195
+ []
+
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2230.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2195.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [90
 
-]
+ </home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf> <./defesa-lineu_fi
+les/figure-beamer/unnamed-chunk-3-1.pdf>]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2233.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2213.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [91
@@ -2110,7 +2136,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2233.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2236.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2230.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [92
@@ -2118,81 +2144,88 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2236.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2254.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2248.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [93
 
 ]
+</home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf, id=695, 505.89pt x 21
+6.81pt>
+File: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf Graphic file (typ
+e pdf)
+<use /home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf>
+Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pd
+f  used on input line 2258.
+(pdftex.def)             Requested size: 426.7973pt x 182.91313pt.
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2272.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2258.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [94
 
-]
+ </home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf>]
+</home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf, id=708, 505.89pt x 21
+6.81pt>
+File: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf Graphic file (typ
+e pdf)
+<use /home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf>
+Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pd
+f  used on input line 2268.
+(pdftex.def)             Requested size: 426.7973pt x 182.91313pt.
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2288.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2268.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [95
 
-]
+ </home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf>]
+File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
+<use ./config/ufpr-fundo-16x9.jpg>
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2284.
+
+(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
+[96
+
+]pdfTeX warning (ext4): destination with the same identifier (name{tab:my-table
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2308 \end{frame}
+                  
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
 Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2308.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[96
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2321.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [97
 
 ]
-</home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf, id=718, 578.16pt x 
-433.62pt>
-File: /home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf Graphic file (t
-ype pdf)
-<use /home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf>
-Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.
-pdf  used on input line 2345.
-(pdftex.def)             Requested size: 284.52713pt x 213.39536pt.
+</home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf, id=734, 505.89pt 
+x 289.08pt>
+File: /home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf Graphic file 
+(type pdf)
+<use /home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf>
+Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/fig_predito
+s.pdf  used on input line 2318.
+(pdftex.def)             Requested size: 369.891pt x 211.36629pt.
 
-Overfull \hbox (7.1872pt too wide) in paragraph at lines 2345--2345
- [] 
- []
-
-<defesa-lineu_files/figure-beamer/unnamed-chunk-3-1.pdf, id=719, 433.62pt x 433
-.62pt>
-File: defesa-lineu_files/figure-beamer/unnamed-chunk-3-1.pdf Graphic file (type
- pdf)
-<use defesa-lineu_files/figure-beamer/unnamed-chunk-3-1.pdf>
-Package pdftex.def Info: defesa-lineu_files/figure-beamer/unnamed-chunk-3-1.pdf
-  used on input line 2345.
-(pdftex.def)             Requested size: 113.81041pt x 113.81041pt.
-
-Overfull \vbox (16.39108pt too high) detected at line 2345
+Overfull \vbox (14.94696pt too high) detected at line 2318
  []
 
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2345.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2318.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [98
 
- </home/lacf14/msc/4_dissertacao/7-aplicacao/descritiva.pdf> <./defesa-lineu_fi
-les/figure-beamer/unnamed-chunk-3-1.pdf>]
+ </home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf>]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2365.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2338.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [99
@@ -2200,7 +2233,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2365.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2383.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2357.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [100
@@ -2208,7 +2241,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2383.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2400.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2377.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [101
@@ -2216,88 +2249,55 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2400.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2418.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2399.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [102
 
 ]
-</home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf, id=760, 505.89pt x 21
-6.81pt>
-File: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf Graphic file (typ
-e pdf)
-<use /home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf>
-Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pd
-f  used on input line 2428.
-(pdftex.def)             Requested size: 426.7973pt x 182.91313pt.
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2428.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2417.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [103
 
- </home/lacf14/msc/4_dissertacao/7-aplicacao/res_hist.pdf>]
-</home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf, id=774, 505.89pt x 21
-6.81pt>
-File: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf Graphic file (typ
-e pdf)
-<use /home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf>
-Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pd
-f  used on input line 2438.
-(pdftex.def)             Requested size: 426.7973pt x 182.91313pt.
+]
+File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
+<use ./config/ufpr-fundo-16x9.jpg>
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2435.
+
+(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
+[104
+
+]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
 Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2438.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[104
-
- </home/lacf14/msc/4_dissertacao/7-aplicacao/res_pred.pdf>]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2454.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [105
 
-]pdfTeX warning (ext4): destination with the same identifier (name{tab:my-table
-}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2478 \end{frame}
-                  
+]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2478.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2441.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [106
 
 ]
-</home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf, id=799, 505.89pt 
-x 289.08pt>
-File: /home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf Graphic file 
-(type pdf)
-<use /home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf>
-Package pdftex.def Info: /home/lacf14/msc/4_dissertacao/7-aplicacao/fig_predito
-s.pdf  used on input line 2488.
-(pdftex.def)             Requested size: 369.891pt x 211.36629pt.
-
-Overfull \vbox (14.94696pt too high) detected at line 2488
- []
-
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2488.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2460.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [107
 
- </home/lacf14/msc/4_dissertacao/7-aplicacao/fig_preditos.pdf>]
+]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2508.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2478.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [108
@@ -2305,7 +2305,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2508.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2527.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2495.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [109
@@ -2313,7 +2313,7 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2527.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2547.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2510.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [110
@@ -2321,109 +2321,37 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2547.
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2569.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2526.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
 [111
 
 ]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2587.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[112
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2605.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[113
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2608.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[114
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2611.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[115
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2630.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[116
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2648.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[117
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2665.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[118
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2680.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[119
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2696.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[120
-
-]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/l/n' in size <20.74> not availa
 ble
 (Font)              Font shape `T1/FiraSans-OsF/light/n' tried instead on input
- line 2721.
+ line 2551.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/light/n' will be
-(Font)              scaled to size 20.74pt on input line 2721.
+(Font)              scaled to size 20.74pt on input line 2551.
 File: config/capes_tp2.png Graphic file (type png)
 <use config/capes_tp2.png>
-Package pdftex.def Info: config/capes_tp2.png  used on input line 2721.
+Package pdftex.def Info: config/capes_tp2.png  used on input line 2551.
 (pdftex.def)             Requested size: 51.31616pt x 51.21352pt.
 File: config/ufpr-transparent-600px.png Graphic file (type png)
 <use config/ufpr-transparent-600px.png>
 Package pdftex.def Info: config/ufpr-transparent-600px.png  used on input line 
-2721.
+2551.
 (pdftex.def)             Requested size: 78.58931pt x 51.21402pt.
 File: config/dsbd-2x2-trans.png Graphic file (type png)
 <use config/dsbd-2x2-trans.png>
-Package pdftex.def Info: config/dsbd-2x2-trans.png  used on input line 2721.
+Package pdftex.def Info: config/dsbd-2x2-trans.png  used on input line 2551.
 (pdftex.def)             Requested size: 51.2117pt x 51.2117pt.
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2721.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2551.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[121
+[112
 
 ] (./defesa-lineu.bbl
 LaTeX Font Info:    Trying to load font information for T1+iwonal on input line
@@ -2438,36 +2366,27 @@ Package microtype Info: Loading generic protrusion settings for font family
 )
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2726.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2556.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[122
+[113
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2726.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2556.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[123
-
-
-]
-File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
-<use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2726.
-
-(pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[124
+[114
 
 
 ]
 File: ./config/ufpr-fundo-16x9.jpg Graphic file (type jpg)
 <use ./config/ufpr-fundo-16x9.jpg>
-Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2726.
+Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2556.
 
 (pdftex.def)             Requested size: 455.2593pt x 256.08334pt.
-[125
+[115
 
 
 ]
@@ -2480,20 +2399,20 @@ Package pdftex.def Info: ./config/ufpr-fundo-16x9.jpg  used on input line 2726.
 \tf@snm=\write10
 \openout10 = `defesa-lineu.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2728.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2728.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2558.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2558.
 (./defesa-lineu.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2728.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2728.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2558.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2558.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 42280 strings out of 481239
- 949006 string characters out of 5920376
- 1299033 words of memory out of 5000000
- 56304 multiletter control sequences out of 15000+600000
+ 42190 strings out of 481239
+ 947434 string characters out of 5920376
+ 1297293 words of memory out of 5000000
+ 56247 multiletter control sequences out of 15000+600000
  832867 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,13n,98p,800b,862s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2510,10 +2429,10 @@ ve/texmf-dist/fonts/type1/nowacki/iwona/iwonali.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/nowacki/iwona/iwonam.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/nowacki/iwona/iwonami.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/amsfonts/symbols/msam10.pfb>
-Output written on defesa-lineu.pdf (125 pages, 807482 bytes).
+Output written on defesa-lineu.pdf (115 pages, 796149 bytes).
 PDF statistics:
- 1093 PDF objects out of 1200 (max. 8388607)
- 920 compressed objects within 10 object streams
- 394 named destinations out of 1000 (max. 500000)
- 2247 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1014 PDF objects out of 1200 (max. 8388607)
+ 852 compressed objects within 9 object streams
+ 361 named destinations out of 1000 (max. 500000)
+ 2239 words of extra memory for PDF output out of 10000 (max. 10000000)
 
