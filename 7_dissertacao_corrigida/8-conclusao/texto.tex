@@ -1,0 +1,43 @@
+
+\chapter{Considerações finais}\label{cap:conclusao}
+
+O objetivo deste trabalho foi desenvolver procedimentos para realizar testes de hipóteses sobre parâmetros de McGLMs baseados na estatística de Wald. McGLMs contam com parâmetros de regressão, dispersão, potência e correlação. Cada conjunto de parâmetros possui uma interpretação prática bastante relevante no contexto de análise de problemas com potenciais múltiplas respostas em função de um conjunto de variáveis explicativas.
+
+Com base na proposta de utilização do teste Wald para McGLMs, desenvolvemos procedimentos para testes de hipóteses lineares gerais, geração de quadros de ANOVA e MANOVA para parâmetros de regressão e dispersão e também testes de comparações múltiplas. Todos estes procedimentos foram implementados na linguagem R, em uma biblioteca batizada de \emph{htmcglm}, e complementam as funcionalidades existentes na biblioteca \emph{mcglm}.
+
+As propriedades dos testes foram avaliadas com base em estudos de simulação. Foram considerados cenários univariados e trivariados com diferentes distribuições de probabilidade para as respostas e diferentes tamanhos amostrais. A ideia desta etapa do trabalho foi gerar conjuntos de dados com parâmetros de regressão e dispersão fixados e testar hipóteses sobre parâmetros de modelos ajustados com estes dados. 
+
+Em um primeiro momento, testamos a hipótese de que os parâmetros eram realmente iguais aos fixados na simulação. Em seguida afastamos gradativamente as hipóteses dos valores simulados a fim de verificar se, à medida que afasta-se a hipótese dos verdadeiros valores, o percentual de rejeição aumenta.
+
+%=====================================================
+
+\section{Conclusões gerais}
+
+De modo geral, os estudos de simulação mostraram que quanto mais distante a hipótese é dos valores inicialmente simulados, maior é o percentual de rejeição. Tal como esperado, os menores percentuais foram observados na hipótese igual aos valores simulados e também foi possível verificar que conforme aumenta-se o tamanho amostral, o percentual de rejeição aumenta para hipóteses pouco diferentes dos valores simulados dos parâmetros, indicando que o poder do teste cresce à medida que a amostra aumenta.
+
+Em tamanhos amostrais reduzidos em problemas com múltiplas respostas, observamos casos com taxas de rejeição em torno de 10\%, indicando que o teste seria liberal conforme aumenta a dimensionalidade, gerando taxas de erro tipo I superiores ao valor nominal de 5\%. Em tamanhos amostrais maiores, as taxas de erro do tipo I foram próximas do nível nominal.
+
+De modo geral, os resultados das simulações mostraram que o teste Wald pode ser usado para avaliar hipóteses sobre parâmetros de regressão e dispersão de McGLMs, o que permite uma melhor interpretação do efeito das variáveis e estruturas de delineamento em contextos práticos.
+
+Adicionalmente, fizemos a aplicação das metodologias propostas a um conjunto de dados real em que o objetivo é avaliar o efeito do uso de probióticos no controle de vícios e compulsões alimentares. Trata-se de um problema com duas variáveis resposta: um escore que caracteriza compulsão e o número de sintomas apresentados que caracterizam vício. Para fins de análise, como ambas as respostas são restritas a um intervalo, foram transformadas para a escala unitária.
+
+Neste estudo, um conjunto de indivíduos foi dividido em dois grupos: um deles recebeu um placebo e o outro recebeu o tratamento. Além disso os indivíduos foram avaliados ao longo do tempo, de modo que o delineamento gera observações que não são independentes, já que medidas tomadas em um mesmo indivíduo tendem a ser correlacionadas. 
+
+Este é um problema em que técnicas de modelagem tradicionais seriam de difícil aplicação. Contudo trata-se de um problema de possível análise via McGLM e testes de hipóteses podem ser empregados para avaliar o efeito da interação entre momento e uso do probiótico sobre vício e compulsão alimentar.
+
+Os resultados, baseados nos testes propostos neste trabalho indicam que existe evidência que aponta para efeito de momento, ou seja, vício e compulsão alimentar alteram-se ao longo do tempo. Os testes de comparações múltiplas indicam que, para ambas as respostas, existem diferenças entre o primeiro versus segundo e primeiro versus terceiro momento, mas os dois últimos momentos não diferem entre si. Os resultados também apontam para a ausência de diferença entre grupos em cada momento. Uma avaliação dos parâmetros de dispersão mostra que não há evidência para crer que as medidas tomadas em um mesmo indivíduo apresentam correlação.
+
+%=====================================================
+
+\section{Limitações}
+
+Algumas limitações deste trabalho dizem respeito a casos não explorados nos estudos de simulação, tais como: avaliação do desempenho dos testes ao definir hipóteses lineares que combinem parâmetros de diferentes tipos, impacto de um número diferente de observações por indivíduos em problemas longitudinais ou de medidas repetidas, impacto no poder do teste conforme o número de parâmetros testados aumenta, comportamento do teste em problemas multivariados com distribuições de probabilidade diferentes das exploradas, comportamento dos testes conforme aumenta o número de respostas, e também explorações mais profundas a respeito dos testes de comparações múltiplas.
+
+%=====================================================
+
+\section{Trabalhos futuros}
+
+Possíveis extensões deste trabalho seguem na linha de avaliação de parâmetros de McGLMs para um melhor entendimento do impacto dos elementos em problemas de modelagem. Algumas possibilidades são: explorar correções de valores-p de acordo com o tamanho das hipóteses testadas, explorar procedimentos além do teste Wald (como o teste Escore e o teste da razão de verossimilhanças), verificar com base em estudos de simulação o funcionamento dos testes de comparações múltiplas descritos e implementados, implementar novos procedimentos para comparações múltiplas, adaptar a proposta para lidar com contrastes alternativos aos usuais, explorar procedimentos para seleção automática de covariáveis (backward elimination, forward selection, stepwise selection) e também seleção de covariáveis por meio de inclusão de penalização no ajuste por complexidade (similar a ideia de regressão por splines).
+
+%=====================================================
+

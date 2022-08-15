@@ -1,0 +1,557 @@
+\begin{thebibliography}{}
+
+\bibitem[Adeleke et~al., 2014]{adeleke2014comparison}
+Adeleke, B.~L., Yahaya, W.  e Usman, A. (2014).
+\newblock A comparison of some test statistics for multivariate analysis of
+  variance model with non-normal responses.
+
+\bibitem[Aitchison e Silvey, 1958]{score1}
+Aitchison, J. e Silvey, S. (1958).
+\newblock Maximum-likelihood estimation of parameters subject to restraints.
+\newblock {\em The annals of mathematical Statistics}, p\'aginas 813--828.
+
+\bibitem[Anderson et~al., 1973]{Anderson73}
+Anderson, T. et~al. (1973).
+\newblock Asymptotically efficient estimation of covariance matrices with
+  linear structure.
+\newblock {\em The Annals of Statistics}, 1(1):135--141.
+
+\bibitem[Avena et~al., 2012]{avena2012further}
+Avena, N.~M., Gold, J.~A., Kroll, C.  e Gold, M.~S. (2012).
+\newblock Further developments in the neurobiology of food and addiction:
+  update on the state of the science.
+\newblock {\em Nutrition}, 28(4):341--343.
+
+\bibitem[Azzalini, 2017]{azzalini2017}
+Azzalini, A. (2017).
+\newblock {\em Statistical inference: Based on the likelihood}.
+\newblock Routledge.
+
+\bibitem[Baldessari, 1967]{baldessari1967distribution}
+Baldessari, B. (1967).
+\newblock The distribution of a quadratic form of normal random variables.
+\newblock {\em The Annals of Mathematical Statistics}, 38(6):1700--1704.
+
+\bibitem[Barndorff-Nielsen e Cox, 2017]{barndorff2017}
+Barndorff-Nielsen, O.~E. e Cox, D.~R. (2017).
+\newblock {\em Inference and asymptotics}.
+\newblock Routledge.
+
+\bibitem[Berliana et~al., 2019]{berliana2019multivariate}
+Berliana, S.~M., Purhadi, Sutikno  e Rahayu, S.~P. (2019).
+\newblock Multivariate generalized poisson regression model with exposure and
+  correlation as a function of covariates: Parameter estimation and hypothesis
+  testing.
+\newblock Em {\em AIP Conference Proceedings}, volume 2192, p\'agina 090001.
+  AIP Publishing LLC.
+
+\bibitem[Berridge e Crouchley, 2019]{berridge2019multivariate}
+Berridge, D.~M. e Crouchley, R. (2019).
+\newblock {\em Multivariate generalized linear mixed models using R}.
+\newblock CRC Press.
+
+\bibitem[Bonat et~al., 2017]{hunting}
+Bonat, W., Olivero, J., Grande-Vega, M., Farf{\'a}n, M.  e Fa, J. (2017).
+\newblock Modelling the covariance structure in marginal multivariate count
+  models: Hunting in bioko island.
+\newblock {\em Journal of Agricultural, Biological and Environmental
+  Statistics}, 22(4):446--464.
+
+\bibitem[Bonat, 2018]{mcglm}
+Bonat, W.~H. (2018).
+\newblock Multiple response variables regression models in {R}: The {mcglm}
+  package.
+\newblock {\em Journal of Statistical Software}, 84(4):1--30.
+
+\bibitem[Bonat e J{\o}rgensen, 2016]{Bonat16}
+Bonat, W.~H. e J{\o}rgensen, B. (2016).
+\newblock Multivariate covariance generalized linear models.
+\newblock {\em Journal of the Royal Statistical Society: Series C (Applied
+  Statistics)}, 65(5):649--675.
+
+\bibitem[Bonat et~al., 2020]{plastica}
+Bonat, W.~H., Petterle, R.~R., Balbinot, P., Mansur, A.  e Graf, R. (2020).
+\newblock Modelling multiple outcomes in repeated measures studies: Comparing
+  aesthetic eyelid surgery techniques.
+\newblock {\em Statistical Modelling}, p\'agina 1471082X20943312.
+
+\bibitem[Box e Cox, 1964]{boxcox64}
+Box, G.~E. e Cox, D.~R. (1964).
+\newblock An analysis of transformations.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)}, p\'aginas 211--252.
+
+\bibitem[Bretz et~al., 2008]{bretz2008multiple}
+Bretz, F., Hothorn, T.  e Westfall, P. (2008).
+\newblock Multiple comparison procedures in linear models.
+\newblock Em {\em COMPSTAT 2008}, p\'aginas 423--431. Springer.
+
+\bibitem[Cao, 2016]{cao2016data}
+Cao, L. (2016).
+\newblock Data science and analytics: a new era.
+
+\bibitem[Cario e Nelson, 1997]{cario1997modeling}
+Cario, M.~C. e Nelson, B.~L. (1997).
+\newblock Modeling and generating random vectors with arbitrary marginal
+  distributions and correlation matrix.
+\newblock Relat\'orio t\'ecnico, Citeseer.
+
+\bibitem[Demidenko, 2013]{Demidenko13}
+Demidenko, E. (2013).
+\newblock {\em Mixed models: theory and applications with R}.
+\newblock John Wiley \& Sons.
+
+\bibitem[Dinan et~al., 2013]{dinan2013psychobiotics}
+Dinan, T.~G., Stanton, C.  e Cryan, J.~F. (2013).
+\newblock Psychobiotics: a novel class of psychotropic.
+\newblock {\em Biological psychiatry}, 74(10):720--726.
+
+\bibitem[Engle, 1984]{engle}
+Engle, R.~F. (1984).
+\newblock Wald, likelihood ratio, and lagrange multiplier tests in
+  econometrics.
+\newblock {\em Handbook of econometrics}, 2:775--826.
+
+\bibitem[Evans e Savin, 1982]{conflict}
+Evans, G. e Savin, N.~E. (1982).
+\newblock Conflict among the criteria revisited; the w, lr and lm tests.
+\newblock {\em Econometrica: Journal of the Econometric Society}, p\'aginas
+  737--748.
+
+\bibitem[Fisher, 1925]{fisher}
+Fisher, R.~A. (1925).
+\newblock Statistical methods for research workers. oliver and boyd.
+\newblock {\em Edinburgh, Scotland}, 6.
+
+\bibitem[Fisher, 1929]{fisher1929}
+Fisher, R.~A. (1929).
+\newblock The statistical method in psychical research.
+\newblock Em {\em Proceedings of the Society for Psychical Research},
+  volume~39, p\'aginas 189--192.
+
+\bibitem[Fisher, 1992]{fisherarrangement}
+Fisher, R.~A. (1992).
+\newblock The arrangement of field experiments.
+\newblock Em {\em Breakthroughs in statistics}, p\'aginas 82--91. Springer.
+
+\bibitem[Fisher e Mackenzie, 1923]{anova_fisher}
+Fisher, R.~A. e Mackenzie, W.~A. (1923).
+\newblock Studies in crop variation. ii. the manurial response of different
+  potato varieties.
+\newblock {\em The Journal of Agricultural Science}, 13(3):311–320.
+
+\bibitem[Fox e Weisberg, 2019]{car}
+Fox, J. e Weisberg, S. (2019).
+\newblock {\em An {R} Companion to Applied Regression}.
+\newblock Sage, Thousand Oaks {CA}, third edition.
+
+\bibitem[Galton, 1886]{galton}
+Galton, F. (1886).
+\newblock Regression towards mediocrity in hereditary stature.
+\newblock {\em The Journal of the Anthropological Institute of Great Britain
+  and Ireland}, 15:246--263.
+
+\bibitem[Gearhardt et~al., 2009]{gearhardt2009preliminary}
+Gearhardt, A.~N., Corbin, W.~R.  e Brownell, K.~D. (2009).
+\newblock Preliminary validation of the yale food addiction scale.
+\newblock {\em Appetite}, 52(2):430--436.
+
+\bibitem[Genz e Bretz, 2009]{mvtnorm2}
+Genz, A. e Bretz, F. (2009).
+\newblock {\em Computation of Multivariate Normal and t Probabilities}.
+\newblock Lecture Notes in Statistics. Springer-Verlag, Heidelberg.
+
+\bibitem[Genz et~al., 2021]{mvtnorm1}
+Genz, A., Bretz, F., Miwa, T., Mi, X., Leisch, F., Scheipl, F.  e Hothorn, T.
+  (2021).
+\newblock {\em {mvtnorm}: Multivariate Normal and t Distributions}.
+\newblock R package version 1.1-3.
+
+\bibitem[Gormally et~al., 1982]{gormally1982assessment}
+Gormally, J., Black, S., Daston, S.  e Rardin, D. (1982).
+\newblock The assessment of binge eating severity among obese persons.
+\newblock {\em Addictive behaviors}, 7(1):47--55.
+
+\bibitem[Graybill e Marsaglia, 1957]{graybill1957idempotent}
+Graybill, F.~A. e Marsaglia, G. (1957).
+\newblock Idempotent matrices and quadratic forms in the general linear
+  hypothesis.
+\newblock {\em The Annals of Mathematical Statistics}, 28(3):678--686.
+
+\bibitem[Hand e Taylor, 1987]{hand1987multivariate}
+Hand, D.~J. e Taylor, C.~C. (1987).
+\newblock {\em Multivariate analysis of variance and repeated measures: a
+  practical approach for behavioural scientists}, volume~5.
+\newblock CRC press.
+
+\bibitem[Hotelling, 1951]{hotelling}
+Hotelling, H. (1951).
+\newblock A generalized t test and measure of multivariate dispersion.
+\newblock Relat\'orio t\'ecnico, UNIVERSITY OF NORTH CAROLINA Chapel Hill
+  United States.
+
+\bibitem[Hothorn et~al., 2008]{multcomp}
+Hothorn, T., Bretz, F.  e Westfall, P. (2008).
+\newblock Simultaneous inference in general parametric models.
+\newblock {\em Biometrical Journal}, 50(3):346--363.
+
+\bibitem[Hsu, 1996]{hsu1996multiple}
+Hsu, J. (1996).
+\newblock {\em Multiple comparisons: theory and methods}.
+\newblock CRC Press.
+
+\bibitem[Institute, 1985]{sas}
+Institute, S. (1985).
+\newblock {\em SAS user's guide: Statistics}, volume~2.
+\newblock Sas Inst.
+
+\bibitem[Jiang e Nguyen, 2007]{jiang2007linear}
+Jiang, J. e Nguyen, T. (2007).
+\newblock {\em Linear and generalized linear mixed models and their
+  applications}, volume~1.
+\newblock Springer.
+
+\bibitem[J{\o}rgensen, 1987]{Jorgensen87}
+J{\o}rgensen, B. (1987).
+\newblock Exponential dispersion models.
+\newblock {\em Journal of the Royal Statistical Society: Series B
+  (Methodological)}, 49(2):127--145.
+
+\bibitem[J{\o}rgensen, 1997]{Jorgensen97}
+J{\o}rgensen, B. (1997).
+\newblock {\em The theory of dispersion models}.
+\newblock CRC Press.
+
+\bibitem[J{\o}rgensen e Knudsen, 2004]{jorg04}
+J{\o}rgensen, B. e Knudsen, S.~J. (2004).
+\newblock Parameter orthogonality and bias adjustment for estimating functions.
+\newblock {\em Scandinavian Journal of Statistics}, 31(1):93--114.
+
+\bibitem[J{\o}rgensen e Kokonendji, 2015]{Jorgensen15}
+J{\o}rgensen, B. e Kokonendji, C.~C. (2015).
+\newblock Discrete dispersion models and their tweedie asymptotics.
+\newblock {\em AStA Advances in Statistical Analysis}, 100(1):43--78.
+
+\bibitem[Laird e Ware, 1982]{laird1982random}
+Laird, N.~M. e Ware, J.~H. (1982).
+\newblock Random-effects models for longitudinal data.
+\newblock {\em Biometrics}, p\'aginas 963--974.
+
+\bibitem[Lawley, 1938]{lawley}
+Lawley, D. (1938).
+\newblock A generalization of fisher's z test.
+\newblock {\em Biometrika}, 30(1/2):180--187.
+
+\bibitem[Lee e Nelder, 1996]{lee1996hierarchical}
+Lee, Y. e Nelder, J.~A. (1996).
+\newblock Hierarchical generalized linear models.
+\newblock {\em Journal of the Royal Statistical Society: Series B
+  (Methodological)}, 58(4):619--656.
+
+\bibitem[Lehmann, 1993]{lehmann}
+Lehmann, E.~L. (1993).
+\newblock The fisher, neyman-pearson theories of testing hypotheses: one theory
+  or two?
+\newblock {\em Journal of the American statistical Association},
+  88(424):1242--1249.
+
+\bibitem[Lehmann e Romano, 2006]{lehmann2}
+Lehmann, E.~L. e Romano, J.~P. (2006).
+\newblock {\em Testing statistical hypotheses}.
+\newblock Springer Science \& Business Media.
+
+\bibitem[Ley e Bordas, 2018]{ley2018makes}
+Ley, C. e Bordas, S.~P. (2018).
+\newblock What makes data science different? a discussion involving
+  statistics2. 0 and computational sciences.
+\newblock {\em International Journal of Data Science and Analytics},
+  6(3):167--175.
+
+\bibitem[Liang e Zeger, 1986]{Liang86}
+Liang, K.-Y. e Zeger, S.~L. (1986).
+\newblock Longitudinal data analysis using generalized linear models.
+\newblock {\em Biometrika}, 73(1):13--22.
+
+\bibitem[Lumley, 2004]{survey2}
+Lumley, T. (2004).
+\newblock Analysis of complex survey samples.
+\newblock {\em Journal of Statistical Software}, 9(1):1--19.
+\newblock R package verson 2.2.
+
+\bibitem[Lumley, 2010]{survey3}
+Lumley, T. (2010).
+\newblock {\em Complex Surveys: A Guide to Analysis Using R: A Guide to
+  Analysis Using R}.
+\newblock John Wiley and Sons.
+
+\bibitem[Lumley, 2020]{survey1}
+Lumley, T. (2020).
+\newblock survey: analysis of complex survey samples.
+\newblock R package version 4.0.
+
+\bibitem[Luther, 1965]{luther1965decomposition}
+Luther, N.~Y. (1965).
+\newblock Decomposition of symmetric matrices and distributions of quadratic
+  forms.
+\newblock {\em The Annals of Mathematical Statistics}, p\'aginas 683--690.
+
+\bibitem[Mardalena et~al., 2020]{mardalena2020parameter}
+Mardalena, S., Purhadi, P., Purnomo, J. D.~T.  e Prastyo, D.~D. (2020).
+\newblock Parameter estimation and hypothesis testing of multivariate poisson
+  inverse gaussian regression.
+\newblock {\em Symmetry}, 12(10):1738.
+
+\bibitem[Martinez-Beneito, 2013]{martinez13}
+Martinez-Beneito, M.~A. (2013).
+\newblock A general modelling framework for multivariate disease mapping.
+\newblock {\em Biometrika}, 100(3):539--553.
+
+\bibitem[Mason, 2017]{mason2017feeding}
+Mason, B.~L. (2017).
+\newblock Feeding systems and the gut microbiome: gut-brain interactions with
+  relevance to psychiatric conditions.
+\newblock {\em Psychosomatics}, 58(6):574--580.
+
+\bibitem[Mechanick et~al., 2020]{mechanick2020clinical}
+Mechanick, J.~I., Apovian, C., Brethauer, S., Garvey, W.~T., Joffe, A.~M., Kim,
+  J., Kushner, R.~F., Lindquist, R., Pessah-Pollack, R., Seger, J.  et~al.
+  (2020).
+\newblock Clinical practice guidelines for the perioperative nutrition,
+  metabolic, and nonsurgical support of patients undergoing bariatric
+  procedures--2019 update: cosponsored by american association of clinical
+  endocrinologists/american college of endocrinology, the obesity society,
+  american society for metabolic \& bariatric surgery, obesity medicine
+  association, and american society of anesthesiologists.
+\newblock {\em Surgery for Obesity and Related Diseases}, 16(2):175--247.
+
+\bibitem[Misra e Mohanty, 2019]{misra2019psychobiotics}
+Misra, S. e Mohanty, D. (2019).
+\newblock Psychobiotics: A new approach for treating mental illness?
+\newblock {\em Critical reviews in food science and nutrition},
+  59(8):1230--1236.
+
+\bibitem[Najem et~al., 2020]{najem2020prevalence}
+Najem, J., Saber, M., Aoun, C., El~Osta, N., Papazian, T.  e Khabbaz, L.~R.
+  (2020).
+\newblock Prevalence of food addiction and association with stress, sleep
+  quality and chronotype: A cross-sectional survey among university students.
+\newblock {\em Clinical nutrition}, 39(2):533--539.
+
+\bibitem[Nelder e Wedderburn, 1972]{Nelder72}
+Nelder, J.~A. e Wedderburn, R. W.~M. (1972).
+\newblock {Generalized Linear Models}.
+\newblock {\em Journal of the Royal Statistical Society. Series A (General)},
+  135:370--384.
+
+\bibitem[Neyman e Pearson, 1928a]{neyman1}
+Neyman, J. e Pearson, E.~S. (1928a).
+\newblock On the use and interpretation of certain test criteria for purposes
+  of statistical inference: Part i.
+\newblock {\em Biometrika}, p\'aginas 175--240.
+
+\bibitem[Neyman e Pearson, 1928b]{neyman2}
+Neyman, J. e Pearson, E.~S. (1928b).
+\newblock On the use and interpretation of certain test criteria for purposes
+  of statistical inference: Part ii.
+\newblock {\em Biometrika}, p\'aginas 263--294.
+
+\bibitem[Neyman e Pearson, 1933]{neyman1933ix}
+Neyman, J. e Pearson, E.~S. (1933).
+\newblock Ix. on the problem of the most efficient tests of statistical
+  hypotheses.
+\newblock {\em Philosophical Transactions of the Royal Society of London.
+  Series A, Containing Papers of a Mathematical or Physical Character},
+  231(694-706):289--337.
+
+\bibitem[Neyman e Pearson, 2020a]{neyman2020use1}
+Neyman, J. e Pearson, E.~S. (2020a).
+\newblock {\em On the use and interpretation of certain test criteria for
+  purposes of statistical inference. Part I.}
+\newblock University of California Press.
+
+\bibitem[Neyman e Pearson, 2020b]{neyman2020use2}
+Neyman, J. e Pearson, E.~S. (2020b).
+\newblock {\em On the use and interpretation of certain test criteria for
+  purposes of statistical inference. Part II.}
+\newblock University of California Press.
+
+\bibitem[Olson, 1976]{olson1976choosing}
+Olson, C.~L. (1976).
+\newblock On choosing a test statistic in multivariate analysis of variance.
+\newblock {\em Psychological bulletin}, 83(4):579.
+
+\bibitem[Paula, 2004]{paula}
+Paula, G.~A. (2004).
+\newblock {\em Modelos de regress{\~a}o: com apoio computacional}.
+\newblock IME-USP S{\~a}o Paulo.
+
+\bibitem[Pillai et~al., 1955]{pillai}
+Pillai, K. et~al. (1955).
+\newblock Some new test criteria in multivariate analysis.
+\newblock {\em The Annals of Mathematical Statistics}, 26(1):117--121.
+
+\bibitem[Pourahmadi, 2000]{Pourahmadi00}
+Pourahmadi, M. (2000).
+\newblock Maximum likelihood estimation of generalised linear models for
+  multivariate normal covariance matrix.
+\newblock {\em Biometrika}, 87(2):425--435.
+
+\bibitem[Press, 2013]{histds}
+Press, G. (2013).
+\newblock A very short history of data science.
+\newblock
+  \url{https://www.forbes.com/sites/gilpress/2013/05/28/a-very-short-history-of-data-science/?sh=1c01914855cf}.
+\newblock Acessado em 14/04/2021.
+
+\bibitem[{R Core Team}, 2020]{softwareR}
+{R Core Team} (2020).
+\newblock {\em R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+
+\bibitem[Rahayu et~al., 2020]{rahayu2020multivariate}
+Rahayu, A., Prastyo, D.~D.  et~al. (2020).
+\newblock Multivariate gamma regression: Parameter estimation, hypothesis
+  testing, and its application.
+\newblock {\em Symmetry}, 12(5):813.
+
+\bibitem[Rao, 1948a]{score3}
+Rao, C.~R. (1948a).
+\newblock Large sample tests of statistical hypotheses concerning several
+  parameters with applications to problems of estimation.
+\newblock Em {\em Mathematical Proceedings of the Cambridge Philosophical
+  Society}, volume~44, p\'aginas 50--57. Cambridge University Press.
+
+\bibitem[Rao, 1948b]{rao1948tests}
+Rao, C.~R. (1948b).
+\newblock Tests of significance in multivariate analysis.
+\newblock {\em Biometrika}, 35(1/2):58--79.
+
+\bibitem[Roy, 1953]{roy}
+Roy, S.~N. (1953).
+\newblock On a heuristic method of test construction and its use in
+  multivariate analysis.
+\newblock {\em The Annals of Mathematical Statistics}, p\'aginas 220--238.
+
+\bibitem[Sari et~al., 2021]{sari2021estimation}
+Sari, D.~N., Purhadi, P., Rahayu, S.~P.  e Irhamah, I. (2021).
+\newblock Estimation and hypothesis testing for the parameters of multivariate
+  zero inflated generalized poisson regression model.
+\newblock {\em Symmetry}, 13(10):1876.
+
+\bibitem[Sarmiento e Lau, 2020]{sarmiento2020diagnostic}
+Sarmiento, C. e Lau, C. (2020).
+\newblock Diagnostic and statistical manual of mental disorders: Dsm-5.
+\newblock {\em The Wiley Encyclopedia of Personality and Individual
+  Differences: Personality Processes and Individual Differences}, p\'aginas
+  125--129.
+
+\bibitem[Segal, 2010]{segal2010diagnostic}
+Segal, D.~L. (2010).
+\newblock Diagnostic and statistical manual of mental disorders (dsm-iv-tr).
+\newblock {\em The Corsini Encyclopedia of Psychology}, p\'aginas 1--3.
+
+\bibitem[Silvey, 1959]{score2}
+Silvey, S.~D. (1959).
+\newblock The lagrangian multiplier test.
+\newblock {\em The Annals of Mathematical Statistics}, 30(2):389--407.
+
+\bibitem[Silvey, 2017]{silvey2017}
+Silvey, S.~D. (2017).
+\newblock {\em Statistical inference}.
+\newblock Routledge.
+
+\bibitem[Smaga, 2017]{smaga2017bootstrap}
+Smaga, {\L}. (2017).
+\newblock Bootstrap methods for multivariate hypothesis testing.
+\newblock {\em Communications in Statistics-Simulation and Computation},
+  46(10):7654--7667.
+
+\bibitem[Smith et~al., 1962]{manova}
+Smith, H., Gnanadesikan, R.  e Hughes, J. (1962).
+\newblock Multivariate analysis of variance (manova).
+\newblock {\em Biometrics}, 18(1):22--41.
+
+\bibitem[Spitzer et~al., 1980]{spitzer1980diagnostic}
+Spitzer, R.~L., Md, K.~K.  e Williams, J.~B. (1980).
+\newblock Diagnostic and statistical manual of mental disorders.
+\newblock Em {\em American psychiatric association}. Citeseer.
+
+\bibitem[St et~al., 1989]{anova1}
+St, L., Wold, S.  et~al. (1989).
+\newblock Analysis of variance (anova).
+\newblock {\em Chemometrics and intelligent laboratory systems}, 6(4):259--272.
+
+\bibitem[Stasinopoulos e Rigby, 2008]{stasinopoulos2008generalized}
+Stasinopoulos, D.~M. e Rigby, R.~A. (2008).
+\newblock Generalized additive models for location scale and shape (gamlss) in
+  r.
+\newblock {\em Journal of Statistical Software}, 23:1--46.
+
+\bibitem[Stroup, 2012]{stroup2012generalized}
+Stroup, W.~W. (2012).
+\newblock {\em Generalized linear mixed models: modern concepts, methods and
+  applications}.
+\newblock CRC press.
+
+\bibitem[Su, 2014]{nortara}
+Su, P. (2014).
+\newblock {\em NORTARA: Generation of Multivariate Data with Arbitrary
+  Marginals}.
+\newblock R package version 1.0.0.
+
+\bibitem[Treasure et~al., 2020]{treasure2020eating}
+Treasure, J., Duarte, T.  e Schmidt, U. (2020).
+\newblock Eating disorders. the lancet.
+
+\bibitem[Tuerlinckx et~al., 2006]{tuerlinckx2006statistical}
+Tuerlinckx, F., Rijmen, F., Verbeke, G.  e De~Boeck, P. (2006).
+\newblock Statistical inference in generalized linear mixed models: A review.
+\newblock {\em British Journal of Mathematical and Statistical Psychology},
+  59(2):225--255.
+
+\bibitem[Wald, 1943]{wald}
+Wald, A. (1943).
+\newblock Tests of statistical hypotheses concerning several parameters when
+  the number of observations is large.
+\newblock {\em Transactions of the American Mathematical society},
+  54(3):426--482.
+
+\bibitem[Wasserman, 2013]{wasserman2013all}
+Wasserman, L. (2013).
+\newblock {\em All of statistics: a concise course in statistical inference}.
+\newblock Springer Science \& Business Media.
+
+\bibitem[Weihs e Ickstadt, 2018]{weihs2018data}
+Weihs, C. e Ickstadt, K. (2018).
+\newblock Data science: the impact of statistics.
+\newblock {\em International Journal of Data Science and Analytics},
+  6(3):189--194.
+
+\bibitem[Wilfley et~al., 2016]{wilfley2016characteristics}
+Wilfley, D.~E., Citrome, L.  e Herman, B.~K. (2016).
+\newblock Characteristics of binge eating disorder in relation to diagnostic
+  criteria.
+\newblock {\em Neuropsychiatric disease and treatment}.
+
+\bibitem[Wilks, 1932]{wilks}
+Wilks, S.~S. (1932).
+\newblock Certain generalizations in the analysis of variance.
+\newblock {\em Biometrika}, p\'aginas 471--494.
+
+\bibitem[Wilks, 1938]{trv}
+Wilks, S.~S. (1938).
+\newblock The large-sample distribution of the likelihood ratio for testing
+  composite hypotheses.
+\newblock {\em The annals of mathematical statistics}, 9(1):60--62.
+
+\bibitem[Zeileis e Hothorn, 2002]{lmtest}
+Zeileis, A. e Hothorn, T. (2002).
+\newblock Diagnostic checking in regression relationships.
+\newblock {\em R News}, 2(3):7--10.
+
+\bibitem[Zhang et~al., 2017]{zhang2017regression}
+Zhang, Y., Zhou, H., Zhou, J.  e Sun, W. (2017).
+\newblock Regression models for multivariate count data.
+\newblock {\em Journal of Computational and Graphical Statistics}, 26(1):1--13.
+
+\end{thebibliography}

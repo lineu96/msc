@@ -1,0 +1,66 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: apalike-ptbr.bst
+A level-1 auxiliary file: 0-iniciais/catalografica.aux
+A level-1 auxiliary file: 0-iniciais/aprovacao.aux
+A level-1 auxiliary file: 0-iniciais/dedica.aux
+A level-1 auxiliary file: 0-iniciais/agradece.aux
+A level-1 auxiliary file: 0-iniciais/resumo.aux
+A level-1 auxiliary file: 0-iniciais/abstract.aux
+A level-1 auxiliary file: 0-iniciais/acronimos.aux
+A level-1 auxiliary file: 1-introducao/texto.aux
+A level-1 auxiliary file: 2-referencial/texto.aux
+A level-1 auxiliary file: 3-trabalhos/texto.aux
+A level-1 auxiliary file: 4-proposta/texto.aux
+A level-1 auxiliary file: 5-simulacao/texto.aux
+A level-1 auxiliary file: 6-implementacao/texto.aux
+A level-1 auxiliary file: 7-aplicacao/texto.aux
+A level-1 auxiliary file: 8-conclusao/texto.aux
+A level-1 auxiliary file: a1-hipoteses-simulacao/texto.aux
+Database file #1: referencias.bib
+Warning--empty journal in adeleke2014comparison
+Warning--can't use both volume e n\'umero fields in berliana2019multivariate
+Warning--can't use both volume e n\'umero fields in score3
+You've used 97 entries,
+            1935 wiz_defined-function locations,
+            1033 strings with 18961 characters,
+and the built_in function-call counts, 37397 in all, are:
+= -- 3772
+> -- 1260
+< -- 97
++ -- 437
+- -- 404
+* -- 2992
+:= -- 6372
+add.period$ -- 296
+call.type$ -- 97
+change.case$ -- 663
+chr.to.int$ -- 94
+cite$ -- 100
+duplicate$ -- 1527
+empty$ -- 2707
+format.name$ -- 565
+if$ -- 7439
+int.to.chr$ -- 4
+int.to.str$ -- 0
+missing$ -- 107
+newline$ -- 487
+num.names$ -- 291
+pop$ -- 568
+preamble$ -- 1
+purify$ -- 682
+quote$ -- 0
+skip$ -- 1246
+stack$ -- 0
+substring$ -- 2766
+swap$ -- 274
+text.length$ -- 23
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 544
+warning$ -- 3
+while$ -- 331
+width$ -- 0
+write$ -- 1248
+(There were 3 warnings)
