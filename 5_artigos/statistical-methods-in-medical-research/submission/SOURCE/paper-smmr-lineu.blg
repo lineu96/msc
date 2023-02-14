@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: paper-smmr-lineu.aux
+The style file: SageV.bst
+Database file #1: draft-sm-lineu.bib
+Warning--empty pages in spitzer1980diagnostic
+Warning--empty booktitle in norta
+Warning--empty pages in norta
+You've used 39 entries,
+            2484 wiz_defined-function locations,
+            802 strings with 11568 characters,
+and the built_in function-call counts, 35097 in all, are:
+= -- 4004
+> -- 324
+< -- 2
++ -- 162
+- -- 81
+* -- 2192
+:= -- 3218
+add.period$ -- 130
+call.type$ -- 39
+change.case$ -- 39
+chr.to.int$ -- 0
+cite$ -- 42
+duplicate$ -- 4373
+empty$ -- 3121
+format.name$ -- 105
+if$ -- 7639
+int.to.chr$ -- 0
+int.to.str$ -- 39
+missing$ -- 342
+newline$ -- 214
+num.names$ -- 39
+pop$ -- 2074
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 292
+stack$ -- 0
+substring$ -- 5107
+swap$ -- 820
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 3
+while$ -- 205
+width$ -- 41
+write$ -- 447
+(There were 3 warnings)

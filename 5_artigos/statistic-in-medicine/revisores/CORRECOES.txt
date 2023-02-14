@@ -1,0 +1,30 @@
+ 
+---------------
+INTRODUCTION
+---------------
+
+
+
+---------------
+DATA SET AND APPLICATION
+---------------
+
+---------------
+MCGLM
+---------------
+
+---------------
+WALD TEST FOR MCGLMS
+---------------
+
+---------------
+CONCLUDING REMARKS
+---------------
+ 
+Several authors have noted that the Wald test is prone to behave rather liberally for finite sample sizes; see, among many others, Konietschke et al. (2015, https://doi.org/10.1016/j.jmva.2015.05.001), and the references therein.
+
+---------------
+
+---------------
+
+

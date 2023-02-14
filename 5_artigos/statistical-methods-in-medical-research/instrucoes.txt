@@ -1,0 +1,24 @@
+
+https://journals.sagepub.com/home/smm
+https://journals.sagepub.com/author-instructions/SMM
+https://us.sagepub.com/en-us/sam/manuscript-submission-guidelines?_gl=1%2A1f2azvj%2A_ga%2ANDg3NDY1MDYxLjE2NjU3Njc5ODE.%2A_ga_60R758KFDG%2AMTY2NTc2Nzk4MS4xLjEuMTY2NTc3MDc3Ny4wLjAuMA..#LATEX
+https://us.sagepub.com/en-us/sam/Manuscript-preparation-for-double-anonymized-journal?_gl=1%2A14d2ynd%2A_ga%2ANDg3NDY1MDYxLjE2NjU3Njc5ODE.%2A_ga_60R758KFDG%2AMTY2NTc2Nzk4MS4xLjEuMTY2NTc3MTAyMS4wLjAuMA..%2A_ga_RK7MQ5ZZVZ%2AMTY2NTc3MDc0My4yLjEuMTY2NTc3MDc5Ny4wLjAuMA..
+
+Avisar que existe um preprint do trabalho, incluir DOI, não atualizar preprint durante revisão
+
+Os artigos devem ter em torno de 8 mil palavras
+
+Abstract com 200 palavras e 5 palavras chave
+
+Agradecimentos e conflitos de interesse aparecem no final do paper (‘The Author(s) declare(s) that there is no conflict of interest’)
+
+Adicionar apoio financeiro da capes conforme estilo da revista
+
+O nome e URL do registro do ensaio clínico e o número de registro devem ser incluídos no final do abstract.
+
+EQUATOR Network reporting guideline: all randomized controlled trials submitted for publication should include a completed CONSORT flow chart as a cited figure and the completed CONSORT checklist should be uploaded with your submission as a supplementary file.
+
+Imagens: .tiff ou. jpeg, no mínimo 300 dpi
+
+Submeter: Uma versão sem qualquer informação que comprometa anonimato dos autores, que será enviada aos revisores. Uma página de título separada que inclui qualquer informação removida ou anônima. Isso não será enviado aos revisores.
+
