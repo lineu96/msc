@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{float}
+\usepackage{multirow}
+\begin{document}
+%--------------------------------------------------------------
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|cc|cc}
+\hline
+              &                    & \multicolumn{2}{c|}{YFAS}     & \multicolumn{2}{c}{BES}       \\ \hline
+Variable      & Degrees of freedom & Chi-square   & p-value        & Chi-square   & p-value        \\ \hline
+Intercept     & 1                  & 10.6128      & \textless 0.01 & 53.1473      & \textless 0.01 \\
+Moment        & 4                  & 102.9875     & \textless 0.01 & 99.5681      & \textless 0.01 \\
+Group         & 3                  & 6.6837       & 0.0827         & 5.3083       & 0.1506         \\
+Moment*Group  & 2                  & 5.5984       & 0.0609         & 4.2477       & 0.1196         \\ \hline
+\end{tabular}
+\caption{Type II univariate analysis of variance.}
+\label{tab5}
+\end{table}
+
+%--------------------------------------------------------------
+\end{document}

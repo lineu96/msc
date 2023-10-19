@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{float}
+\usepackage{multirow}
+\begin{document}
+%--------------------------------------------------------------
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Variable      & Degrees of freedom & Chi-square   & p-value        \\ \hline
+Intercept     & 2                  & 53.1581      & \textless 0.01 \\
+Moment        & 8                  & 139.0161     & \textless 0.01 \\
+Group         & 6                  & 8.4928       & 0.2042         \\
+Moment*Group  & 4                  & 6.9923       & 0.1363         \\ \hline
+\end{tabular}
+\caption{Type II multivariate analysis of variance.}
+\label{tab4}
+\end{table}
+
+%--------------------------------------------------------------
+\end{document}
