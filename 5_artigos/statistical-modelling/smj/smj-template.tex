@@ -1,0 +1,280 @@
+%%%
+%%%  LaTeX template for publications
+%%%  to be submitted to Statistical Modelling
+%%%
+%%%  Prepared by Arnost Komarek
+%%%  Version 0.2 (20140214)
+%%%    0.2:  style of references slightly changed,
+%%%          support for use with bibTeX added
+%%%    0.3:  fax removed, orcid added, sections on supplementary material added as well as appendix
+\documentclass[submit]{smj}
+
+
+%%%%% PREAMBLE
+%%%%% =============================================================================
+
+
+%%% Place for putting personal \usepackage and \newcommand commands
+%%% Note that some packages are loaded automatically
+%%% with the smj class. 
+%%% These include: graphicx, color, fancyvrb, amsmath, amssymb, calc, upquote (if available), natbib, url, hyperref.
+%%%
+%%% Please, specify all your personal definitions, newcommand etc. here
+%%% and not inside the main body of the text.
+%%% -------------------------------------------------------------------------------
+%\usepackage{PACKAGE}
+%\newcommand{MYCOMMAND}{...}
+
+
+%%% Identification of authors
+%%% -------------------------------------------------------------------------------
+%%% For each author, provide his/her first name, surname and possibly initials 
+%%% of the middle names. 
+%%%
+%%% Use \Affil{NUMBER} following the author name for each unique affiliation,
+%%% where NUMBER is integer starting from 1 to the number of affiliations needed
+%%% in this paper. In case of multiple affiliations of one author, use
+%%% \Affil{NUMBER1,}\Affil{NUMBER2,}\Affil{NUMBER3} following the author's name
+%%% as it is done for Emmanuel Lesaffre below.
+
+%%% The ORCID number does not have to be provided. If you want to provide it,
+%%% put it in the \ORCID{} command while following (the last) \Affil{} command
+%%% of given author as shown below.
+
+  %%% For papers with 3 or more authors:
+  %%%  in \Author{}, separate the authors with commas, the last author is separated by `\and' without a comma,
+  %%%  in \AuthorRunning{}, use the full name of the first author followed by \textrm{et al.}.
+
+\Author{Arno\v{s}t Kom\'arek\Affil{1}\ORCID{0000-0001-8778-3762}, 
+        Brian Marx\Affil{2}, 
+        \and Jeffrey S. Simonoff\Affil{3}\ORCID{0000-0002-1496-608X}
+        %and Emmanuel Lesaffre\Affil{4,}\Affil{5}\ORCID{0000-0002-3747-6905}
+}
+\AuthorRunning{Arno\v{s}t Kom\'arek \textrm{et al.}}
+
+  %%% For papers with 2 authors:
+  %%%  in both \Author{} and \AuthorRunning{},
+  %%%  use the full names of both authors separated by '\and' without a comma.
+%\Author{Arno\v{s}t Kom\'arek\Affil{1} \and Brian Marx\Affil{2}}
+%\AuthorRunning{Arno\v{s}t Kom\'arek \and Brian Marx}
+  
+  %%% For papers with 1 author:
+  %%%  in both \Author{} and \AuthorRunning{},
+  %%%  use the full name the author.
+%\Author{Arno\v{s}t Kom\'arek\Affil{1}}
+%\AuthorRunning{Arno\v{s}t Kom\'arek}
+
+
+%%% Affiliations as they should appear on the title page.
+%%% -------------------------------------------------------------------------------
+%%% Do not provide the full addresses here.
+%%% The ordering inside \Affiliations{} should correspond to NUMBERs used 
+%%% in \Affil{} commands in \Author{}
+\Affiliations{
+
+  %%% 1
+\item Department of Probability and Mathematical Statistics, 
+      Faculty of Mathematics and Physics, 
+      Charles University,
+      Prague,
+      Czech Republic
+
+  %%% 2
+\item Department of Experimental Statistics,
+      Louisiana State University, 
+      Baton Rouge,
+      LA, USA
+
+  %%% 3
+\item Leonard N. Stern School of Business,
+      New York University,
+      New York,
+      NY, USA
+
+  %%% 4
+%\item Department of Biostatistics,
+%      Erasmus University Rotterdam,
+%      Rotterdam,
+%      the Netherlands
+
+  %%% 5
+%\item Interuniversity Institute for Biostatistics and Statistical Bioinformatics,
+%      KU Leuven and Universiteit Hasselt,
+%      Leuven,
+%      Belgium
+}   %% end \Affiliations
+
+
+%%% Postal, e-mail address, phone and fax of the corresponding author (not necessarily the first author).
+%%% ------------------------------------------------------------------------------------------------------
+%%% Use command \CorrAddress{} to provide a full postal address of the
+%%% corresponding author in the form
+%%% "Firstname Lastname, Department, University, Street 1, ZIP City, Country" 
+%%% Use command \CorrEmail{} to provide an e-mail address of the corresponding author.
+%%% Use command \CorrPhone{} to provide a phone number (including the country code!) of the corresponding author.
+%%% Use command \CorrFax{} to provide a fax number (including the country code!) of the corresponding author.
+\CorrAddress{Arno\v{s}t Kom\'arek, 
+             Department of Probability and Mathematical Statistics, 
+             Faculty of Mathematics and Physics,
+             Charles University, 
+             Sokolovsk\'a 49/83, 
+             CZ--186$\,$75 Praha 8 -- Karl\'{\i}n, 
+             Czech Republic}
+\CorrEmail{smj-komarek@karlin.mff.cuni.cz}
+\CorrPhone{(+420)\;951\;553\;282}
+
+
+%%% Title and a short title (to be used as a running header) of the paper
+%%% -------------------------------------------------------------------------------
+\Title{Template paper for submissions in Statistical Modelling with a~rather long title exceeding two lines}
+\TitleRunning{Template paper}
+
+
+%%% Abstract
+%%% -------------------------------------------------------------------------------
+\Abstract{
+An abstract of up to 200 words should precede the text together with 5 or 6 keywords in alphabetical order 
+to describe the content of the paper. Authors should take great care in preparing the abstract and not simply 
+lift it from the main text. The abstract should describe the background and contribution of the manuscript 
+and give a~clear verbal description of the results and examples, and avoid citations whenever possible. 
+Any acknowledgements will be printed at the end of the text.
+}
+
+
+%%% Key words
+%%% -------------------------------------------------------------------------------
+\Keywords{
+keyword a; keyword b; keyword c; keyword d; keyword e
+}
+
+
+%%%%% MAIN BODY 
+%%%%% =============================================================================
+\begin{document}
+
+
+%%% Title page
+%%% -------------------------------------------------------------------------------
+%%% Use command\maketitle to produce the title page.
+\maketitle
+
+
+%%% Main text
+%%% ------------------------------------------
+\section{Title of the section}
+Text of the first section. \citet{Fahrmeiret13} is a~direct reference to a~book with more than two authors.
+\citet{Gomezet09} is a~direct reference to a~journal article with more than two authors.
+Many papers were published in \emph{Statistical Modelling} \citep[see, e.g.,][]{Kneib13, KomarekLesaffre06, Liet07, Waldmannet13}.
+Sometimes we also need to reference a~book chapter \citep{Lesaffreet09}.
+
+\subsection{Title of the subsection}
+Text of the subsection.
+
+\subsubsection{Title of the subsubsection}
+Text of the subsubsection.
+
+  %%% ----------------------------------------
+\section{Title of the next section}
+Text of the next section.
+
+
+%%% Supplementary materials (if any)
+%%% ------------------------------------------
+\section*{Supplementary materials}
+The supplementary materials include [the list of supplementary materials and their brief description]. They are available from the journals page at \url{https://journals.sagepub.com/home/smj}. [At the submission stage, all supplementary materials (or the links to access them) should be submitted jointly with the main paper.]
+
+
+%%% Acknowledgements (if any)
+%%% ------------------------------------------
+\section*{Acknowledgements}
+We want to thank\ldots 
+
+
+%%% Declaration of conflicting interests (should always be included)
+%%% -----------------------------------------------------------------
+\section*{Declaration of conflicting interests}
+The authors declared no potential conflicts of interest with respect to the research, authorship and/or
+publication of this article.
+   %%% Alternatively, please, disclose here potential conflicting interests. 
+
+
+%%% Funding (if any)
+%%% ------------------------------------------
+\section*{Funding}
+This is the place to mention the funding if it is applicable for the paper.
+
+
+%%% Appendix (if any)
+%%% ------------------------------------------
+\appendix
+\section*{Appendix}
+\section{Title of the first appendix section}
+This is the appendix text that authors want to include in the main paper not as supplementary materials.
+
+\section{Title of the second appendix section}
+
+
+%%% References if bibTeX is used
+%%%
+%%% Please, do not specify any \bibliographystyle{} command!
+%%%
+%%% It is already specified in the smj.cls and its
+%%% second specification here causes error.
+%%% ------------------------------------------------------------
+\bibliography{smj-template}
+
+
+%%% References (if created by hand).
+%%% -----------------------------------------------------------------------------------
+%\begin{thebibliography}{7}
+%\providecommand{\natexlab}[1]{#1}
+%\providecommand{\url}[1]{\texttt{#1}}
+%\expandafter\ifx\csname urlstyle\endcsname\relax
+%  \providecommand{\doi}[1]{doi: #1}\else
+%  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+%
+%\bibitem[Fahrmeir et~al.(2013)Fahrmeir, Kneib, Lang, and Marx]{Fahrmeiret13}
+%{\rm Fahrmeir, L., Kneib, T., Lang, S., {\rm and} Marx, B.} (2013).
+%\newblock \emph{Regression: Models, Methods and Applications}.
+%\newblock Springer-Verlag, New York.
+%
+%\bibitem[G\'omez et~al.(2009)G\'omez, Luz~Calle, Oller, and Langohr]{Gomezet09}
+%{\rm G\'omez, G., Luz~Calle, M., Oller, R., {\rm and} Langohr, K.} (2009).
+%\newblock Tutorial on methods for interval-censored data and their implementation in {R}.
+%\newblock \emph{Statistical Modelling}, {\bf 9}\penalty0 (4), \penalty0 259--297.
+%\newblock \doi{10.1177/1471082X0900900402}.
+%
+%\bibitem[Kneib(2013)]{Kneib13}
+%{\rm Kneib, T.} (2013).
+%\newblock Beyond mean regression.
+%\newblock \emph{Statistical Modelling}, {\bf 13}\penalty0 (4), \penalty0 275--303.
+%\newblock \doi{10.1177/1471082X13494159}.
+%
+%\bibitem[Kom\'arek and Lesaffre(2006)]{KomarekLesaffre06}
+%{\rm Kom\'arek, A. {\rm and} Lesaffre, E.} (2006).
+%\newblock Bayesian semi-parametric accelerated failure time model for paired doubly-interval-censored data.
+%\newblock \emph{Statistical Modelling}, {\bf 6}\penalty0 (1), \penalty0 3--22.
+%\newblock \doi{10.1191/1471082X06st107oa}.
+%
+%\bibitem[Lesaffre et~al.(2009)Lesaffre, Kom\'arek, and Jara]{Lesaffreet09}
+%{\rm Lesaffre, E., Kom\'arek, A., {\rm and} Jara, A.} (2009).
+%\newblock The {B}ayesian approach.
+%\newblock In {\rm Lesaffre, E., Feine, J., Leroux, B., {\rm and} Declerck, D.}, editors,
+%  \emph{Statistical and Methodological Aspects of Oral Health Research},
+%  pages 315--338. John Wiley and Sons, Chichester.
+%
+%\bibitem[Li et~al.(2007)Li, Simonoff, and Tsai]{Liet07}
+%{\rm Li, L., Simonoff, J.~S., {\rm and} Tsai, C.-L.} (2007).
+%\newblock Tobit model estimation and sliced inverse regression.
+%\newblock \emph{Statistical Modelling}, {\bf 7}\penalty0 (2), \penalty0 107--123.
+%\newblock \doi{10.1177/1471082X0700700201}.
+%
+%\bibitem[Waldmann et~al.(2013)Waldmann, Kneib, Yue, Lang, and Flexeder]{Waldmannet13}
+%{\rm Waldmann, E., Kneib, T., Yue, Y.~R., Lang, S., {\rm and} Flexeder, C.} (2013).
+%\newblock Bayesian semiparametric additive quantile regression.
+%\newblock \emph{Statistical Modelling}, {\bf 13}\penalty0 (3), \penalty0 223--252.
+%\newblock \doi{10.1177/1471082X13480650}.
+%
+%\end{thebibliography}
+
+\end{document}

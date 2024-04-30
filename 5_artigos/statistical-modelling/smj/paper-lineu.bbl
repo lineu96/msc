@@ -1,0 +1,212 @@
+\begin{thebibliography}{39}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Anderson et~al.(1973)]{Anderson73}
+{\rm Anderson, T. et~al.} (1973).
+\newblock Asymptotically efficient estimation of covariance matrices with linear structure.
+\newblock \emph{The Annals of Statistics}, {\bf 1}\penalty0 (1), \penalty0 135--141.
+
+\bibitem[Bonat et~al.(2020)Bonat, Petterle, Balbinot, Mansur, and Graf]{plastica}
+{\rm Bonat, W.~H., Petterle, R.~R., Balbinot, P., Mansur, A., {\rm and} Graf, R.} (2020).
+\newblock Modelling multiple outcomes in repeated measures studies: Comparing aesthetic eyelid surgery techniques.
+\newblock \emph{Statistical Modelling}, page 1471082X20943312.
+
+\bibitem[Bonat and J{\o}rgensen(2016)]{Bonat16}
+{\rm Bonat, W.~H. {\rm and} J{\o}rgensen, B.} (2016).
+\newblock Multivariate covariance generalized linear models.
+\newblock \emph{Journal of the Royal Statistical Society: Series C (Applied Statistics)}, {\bf 65}\penalty0 (5), \penalty0 649--675.
+
+\bibitem[Bretz et~al.(2008)Bretz, Hothorn, and Westfall]{bretz2008multiple}
+{\rm Bretz, F., Hothorn, T., {\rm and} Westfall, P.} (2008).
+\newblock Multiple comparison procedures in linear models.
+\newblock In \emph{COMPSTAT 2008}, pages 423--431. Springer.
+
+\bibitem[Cario and Nelson(1997)]{norta}
+{\rm Cario, M.~C. {\rm and} Nelson, B.~L.} (1997).
+\newblock Modeling and generating random vectors with arbitrary marginal distributions and correlation.
+\newblock Northwestern University.
+
+\bibitem[Demidenko(2013)]{Demidenko13}
+{\rm Demidenko, E.} (2013).
+\newblock \emph{Mixed models: theory and applications with R}.
+\newblock John Wiley \& Sons.
+
+\bibitem[Engle(1984)]{engle}
+{\rm Engle, R.~F.} (1984).
+\newblock Wald, likelihood ratio, and lagrange multiplier tests in econometrics.
+\newblock \emph{Handbook of econometrics}, {\bf 2}, \penalty0 775--826.
+
+\bibitem[Fisher and Mackenzie(1923)]{anova_fisher}
+{\rm Fisher, R.~A. {\rm and} Mackenzie, W.~A.} (1923).
+\newblock Studies in crop variation. ii. the manurial response of different potato varieties.
+\newblock \emph{The Journal of Agricultural Science}, {\bf 13}\penalty0 (3), \penalty0 311–320.
+\newblock \doi{10.1017/S0021859600003592}.
+
+\bibitem[Gearhardt et~al.(2009)Gearhardt, Corbin, and Brownell]{gearhardt2009preliminary}
+{\rm Gearhardt, A.~N., Corbin, W.~R., {\rm and} Brownell, K.~D.} (2009).
+\newblock Preliminary validation of the yale food addiction scale.
+\newblock \emph{Appetite}, {\bf 52}\penalty0 (2), \penalty0 430--436.
+
+\bibitem[Genz and Bretz(2009)]{mvtnorm2}
+{\rm Genz, A. {\rm and} Bretz, F.} (2009).
+\newblock \emph{Computation of Multivariate Normal and t Probabilities}.
+\newblock Lecture Notes in Statistics. Springer-Verlag, Heidelberg.
+\newblock ISBN 978-3-642-01688-2.
+
+\bibitem[Genz et~al.(2021)Genz, Bretz, Miwa, Mi, Leisch, Scheipl, and Hothorn]{mvtnorm1}
+{\rm Genz, A., Bretz, F., Miwa, T., Mi, X., Leisch, F., Scheipl, F., {\rm and} Hothorn, T.} (2021).
+\newblock \emph{{mvtnorm}: Multivariate Normal and t Distributions}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+\newblock URL \url{https://CRAN.R-project.org/package=mvtnorm}.
+\newblock R package version 1.1-3.
+
+\bibitem[Gormally et~al.(1982)Gormally, Black, Daston, and Rardin]{gormally1982assessment}
+{\rm Gormally, J., Black, S., Daston, S., {\rm and} Rardin, D.} (1982).
+\newblock The assessment of binge eating severity among obese persons.
+\newblock \emph{Addictive behaviors}, {\bf 7}\penalty0 (1), \penalty0 47--55.
+
+\bibitem[Hannan(2008)]{hannan2008randomized}
+{\rm Hannan, E.~L.} (2008).
+\newblock Randomized clinical trials and observational studies: guidelines for assessing respective strengths and limitations.
+\newblock \emph{JACC: Cardiovascular Interventions}, {\bf 1}\penalty0 (3), \penalty0 211--217.
+
+\bibitem[Hotelling(1951)]{hotelling}
+{\rm Hotelling, H.} (1951).
+\newblock A generalized t test and measure of multivariate dispersion.
+\newblock In \emph{Proceedings of the second Berkeley symposium on mathematical statistics and probability}, pages 23--41. University of California Press.
+
+\bibitem[Hsu(1996)]{hsu1996multiple}
+{\rm Hsu, J.} (1996).
+\newblock \emph{Multiple comparisons: theory and methods}.
+\newblock CRC Press.
+
+\bibitem[J{\o}rgensen(1987)]{Jorgensen87}
+{\rm J{\o}rgensen, B.} (1987).
+\newblock Exponential dispersion models.
+\newblock \emph{Journal of the Royal Statistical Society: Series B (Methodological)}, {\bf 49}\penalty0 (2), \penalty0 127--145.
+
+\bibitem[J{\o}rgensen(1997)]{Jorgensen97}
+{\rm J{\o}rgensen, B.} (1997).
+\newblock \emph{The theory of dispersion models}.
+\newblock CRC Press.
+
+\bibitem[J{\o}rgensen and Knudsen(2004)]{jorg04}
+{\rm J{\o}rgensen, B. {\rm and} Knudsen, S.~J.} (2004).
+\newblock Parameter orthogonality and bias adjustment for estimating functions.
+\newblock \emph{Scandinavian Journal of Statistics}, {\bf 31}\penalty0 (1), \penalty0 93--114.
+
+\bibitem[J{\o}rgensen and Kokonendji(2015)]{Jorgensen15}
+{\rm J{\o}rgensen, B. {\rm and} Kokonendji, C.~C.} (2015).
+\newblock Discrete dispersion models and their tweedie asymptotics.
+\newblock \emph{AStA Advances in Statistical Analysis}, {\bf 100}\penalty0 (1), \penalty0 43--78.
+
+\bibitem[Kangovi et~al.(2018)Kangovi, Mitra, Norton, Harte, Zhao, Carter, Grande, and Long]{kangovi2018effect}
+{\rm Kangovi, S., Mitra, N., Norton, L., Harte, R., Zhao, X., Carter, T., Grande, D., {\rm and} Long, J.~A.} (2018).
+\newblock Effect of community health worker support on clinical outcomes of low-income patients across primary care facilities: a randomized clinical trial.
+\newblock \emph{JAMA internal medicine}, {\bf 178}\penalty0 (12), \penalty0 1635--1643.
+
+\bibitem[Lawley(1938)]{lawley}
+{\rm Lawley, D.} (1938).
+\newblock A generalization of fisher's z test.
+\newblock \emph{Biometrika}, {\bf 30}\penalty0 (1/2), \penalty0 180--187.
+
+\bibitem[Liang and Zeger(1986)]{Liang86}
+{\rm Liang, K.-Y. {\rm and} Zeger, S.~L.} (1986).
+\newblock Longitudinal data analysis using generalized linear models.
+\newblock \emph{Biometrika}, {\bf 73}\penalty0 (1), \penalty0 13--22.
+
+\bibitem[Martinez-Beneito(2013)]{martinez13}
+{\rm Martinez-Beneito, M.~A.} (2013).
+\newblock A general modelling framework for multivariate disease mapping.
+\newblock \emph{Biometrika}, {\bf 100}\penalty0 (3), \penalty0 539--553.
+
+\bibitem[Meinert and Tonascia(1986)]{meinert1986clinical}
+{\rm Meinert, C. {\rm and} Tonascia, S.} (1986).
+\newblock \emph{Clinical Trials: Design, Conduct, and Analysis}.
+\newblock Monographs in epidemiology and biostatistics. Oxford University Press.
+\newblock ISBN 9780195035681.
+\newblock URL \url{https://books.google.com.br/books?id=i1oAxuE29MUC}.
+
+\bibitem[Petterle et~al.(2021)Petterle, Laureano, da~Silva, and Bonat]{petterle2021multivariate}
+{\rm Petterle, R.~R., Laureano, H.~A., da~Silva, G.~P., {\rm and} Bonat, W.~H.} (2021).
+\newblock Multivariate generalized linear mixed models for continuous bounded outcomes: Analyzing the body fat percentage data.
+\newblock \emph{Statistical Methods in Medical Research}, {\bf 30}\penalty0 (12), \penalty0 2619--2633.
+
+\bibitem[Pillai et~al.(1955)]{pillai}
+{\rm Pillai, K. et~al.} (1955).
+\newblock Some new test criteria in multivariate analysis.
+\newblock \emph{The Annals of Mathematical Statistics}, {\bf 26}\penalty0 (1), \penalty0 117--121.
+
+\bibitem[Pinheiro and Bates(1996)]{Pinheiro96}
+{\rm Pinheiro, J.~C. {\rm and} Bates, D.~M.} (1996).
+\newblock Unconstrained parametrizations for variance-covariance matrices.
+\newblock \emph{Statistics and computing}, {\bf 6}\penalty0 (3), \penalty0 289--296.
+
+\bibitem[Pourahmadi(2000)]{Pourahmadi00}
+{\rm Pourahmadi, M.} (2000).
+\newblock Maximum likelihood estimation of generalised linear models for multivariate normal covariance matrix.
+\newblock \emph{Biometrika}, {\bf 87}\penalty0 (2), \penalty0 425--435.
+
+\bibitem[{R Core Team}(2022)]{R}
+{\rm {R Core Team}} (2022).
+\newblock \emph{R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+\newblock URL \url{https://www.R-project.org/}.
+
+\bibitem[Roy(1953)]{roy}
+{\rm Roy, S.~N.} (1953).
+\newblock On a heuristic method of test construction and its use in multivariate analysis.
+\newblock \emph{The Annals of Mathematical Statistics}, pages 220--238.
+
+\bibitem[Schmitz et~al.(2019)Schmitz, Troxel, Dean, DeMichele, Brown, Sturgeon, Zhang, Evangelisti, Spinelli, Kallan, et~al.]{schmitz2019effect}
+{\rm Schmitz, K.~H., Troxel, A.~B., Dean, L.~T., DeMichele, A., Brown, J.~C., Sturgeon, K., Zhang, Z., Evangelisti, M., Spinelli, B., Kallan, M.~J., et~al.} (2019).
+\newblock Effect of home-based exercise and weight loss programs on breast cancer--related lymphedema outcomes among overweight breast cancer survivors: The wiser survivor randomized clinical trial.
+\newblock \emph{JAMA oncology}, {\bf 5}\penalty0 (11), \penalty0 1605--1613.
+
+\bibitem[Segal(2010)]{segal2010diagnostic}
+{\rm Segal, D.~L.} (2010).
+\newblock Diagnostic and statistical manual of mental disorders (dsm-iv-tr).
+\newblock \emph{The Corsini Encyclopedia of Psychology}, pages 1--3.
+
+\bibitem[Smith et~al.(1962)Smith, Gnanadesikan, and Hughes]{manova}
+{\rm Smith, H., Gnanadesikan, R., {\rm and} Hughes, J.} (1962).
+\newblock Multivariate analysis of variance (manova).
+\newblock \emph{Biometrics}, {\bf 18}\penalty0 (1), \penalty0 22--41.
+
+\bibitem[Song and Baicker(2019)]{song2019effect}
+{\rm Song, Z. {\rm and} Baicker, K.} (2019).
+\newblock Effect of a workplace wellness program on employee health and economic outcomes: a randomized clinical trial.
+\newblock \emph{Jama}, {\bf 321}\penalty0 (15), \penalty0 1491--1501.
+
+\bibitem[Spitzer et~al.(1980)Spitzer, Md, and Williams]{spitzer1980diagnostic}
+{\rm Spitzer, R.~L., Md, K.~K., {\rm and} Williams, J.~B.} (1980).
+\newblock Diagnostic and statistical manual of mental disorders.
+\newblock In \emph{American psychiatric association}. Citeseer.
+
+\bibitem[St et~al.(1989)St, Wold, et~al.]{anova1}
+{\rm St, L., Wold, S., et~al.} (1989).
+\newblock Analysis of variance (anova).
+\newblock \emph{Chemometrics and intelligent laboratory systems}, {\bf 6}\penalty0 (4), \penalty0 259--272.
+
+\bibitem[Su(2014)]{nortara}
+{\rm Su, P.} (2014).
+\newblock \emph{NORTARA: Generation of Multivariate Data with Arbitrary Marginals}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+\newblock URL \url{https://CRAN.R-project.org/package=NORTARA}.
+\newblock R package version 1.0.0.
+
+\bibitem[Thyregod et~al.(2019)Thyregod, Ihlemann, J{\o}rgensen, Nissen, Kjeldsen, Petursson, Chang, Franzen, Engstr{\o}m, Clemmensen, et~al.]{thyregod2019five}
+{\rm Thyregod, H. G.~H., Ihlemann, N., J{\o}rgensen, T.~H., Nissen, H., Kjeldsen, B.~J., Petursson, P., Chang, Y., Franzen, O.~W., Engstr{\o}m, T., Clemmensen, P., et~al.} (2019).
+\newblock Five-year clinical and echocardiographic outcomes from the nordic aortic valve intervention (notion) randomized clinical trial in lower surgical risk patients.
+\newblock \emph{Circulation}, {\bf 139}\penalty0 (4), \penalty0 2714--23.
+
+\bibitem[Wilks(1932)]{wilks}
+{\rm Wilks, S.~S.} (1932).
+\newblock Certain generalizations in the analysis of variance.
+\newblock \emph{Biometrika}, pages 471--494.
+
+\end{thebibliography}

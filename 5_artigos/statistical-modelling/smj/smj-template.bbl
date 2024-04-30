@@ -1,0 +1,48 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Fahrmeir et~al.(2013)Fahrmeir, Kneib, Lang, and Marx]{Fahrmeiret13}
+{\rm Fahrmeir, L., Kneib, T., Lang, S., {\rm and} Marx, B.} (2013).
+\newblock \emph{Regression: Models, Methods and Applications}.
+\newblock Springer-Verlag, New York.
+
+\bibitem[G\'omez et~al.(2009)G\'omez, Luz~Calle, Oller, and Langohr]{Gomezet09}
+{\rm G\'omez, G., Luz~Calle, M., Oller, R., {\rm and} Langohr, K.} (2009).
+\newblock Tutorial on methods for interval-censored data and their implementation in {R}.
+\newblock \emph{Statistical Modelling}, {\bf 9}\penalty0 (4), \penalty0 259--297.
+\newblock \doi{10.1177/1471082X0900900402}.
+
+\bibitem[Kneib(2013)]{Kneib13}
+{\rm Kneib, T.} (2013).
+\newblock Beyond mean regression.
+\newblock \emph{Statistical Modelling}, {\bf 13}\penalty0 (4), \penalty0 275--303.
+\newblock \doi{10.1177/1471082X13494159}.
+
+\bibitem[Kom\'arek and Lesaffre(2006)]{KomarekLesaffre06}
+{\rm Kom\'arek, A. {\rm and} Lesaffre, E.} (2006).
+\newblock Bayesian semi-parametric accelerated failure time model for paired doubly-interval-censored data.
+\newblock \emph{Statistical Modelling}, {\bf 6}\penalty0 (1), \penalty0 3--22.
+\newblock \doi{10.1191/1471082X06st107oa}.
+
+\bibitem[Lesaffre et~al.(2009)Lesaffre, Kom\'arek, and Jara]{Lesaffreet09}
+{\rm Lesaffre, E., Kom\'arek, A., {\rm and} Jara, A.} (2009).
+\newblock The {B}ayesian approach.
+\newblock In {\rm Lesaffre, E., Feine, J., Leroux, B., {\rm and} Declerck, D.}, editors, \emph{Statistical and Methodological Aspects of Oral Health Research}, pages 315--338. John Wiley and Sons, Chichester.
+
+\bibitem[Li et~al.(2007)Li, Simonoff, and Tsai]{Liet07}
+{\rm Li, L., Simonoff, J.~S., {\rm and} Tsai, C.-L.} (2007).
+\newblock Tobit model estimation and sliced inverse regression.
+\newblock \emph{Statistical Modelling}, {\bf 7}\penalty0 (2), \penalty0 107--123.
+\newblock \doi{10.1177/1471082X0700700201}.
+
+\bibitem[Waldmann et~al.(2013)Waldmann, Kneib, Yue, Lang, and Flexeder]{Waldmannet13}
+{\rm Waldmann, E., Kneib, T., Yue, Y.~R., Lang, S., {\rm and} Flexeder, C.} (2013).
+\newblock Bayesian semiparametric additive quantile regression.
+\newblock \emph{Statistical Modelling}, {\bf 13}\penalty0 (3), \penalty0 223--252.
+\newblock \doi{10.1177/1471082X13480650}.
+
+\end{thebibliography}
